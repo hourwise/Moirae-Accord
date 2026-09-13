@@ -1,0 +1,80 @@
+{
+  "profile": "moirae-accord-accord-00-acceptance-v1",
+  "status": "accepted",
+  "scope": "read-only-ecosystem-audit",
+  "acceptedAt": "2026-09-13T22:53:53.2165476+01:00",
+  "accordRepository": {
+    "path": "D:\\Users\\fleur\\Moirae Accord",
+    "remote": "https://github.com/hourwise/Moirae-Accord",
+    "branch": "main"
+  },
+  "preSealHead": "fd336a80f3e98f5d19f4dd18214977f243514357",
+  "snapshotRoot": "D:\\Users\\fleur\\Moirae Accord - Source Snapshots\\ACCORD-00-20260913-215700",
+  "acceptedBaselines": {
+    "adrasteia": {
+      "sha": "a1c01bf9e6f9d6a126cfdcc1acfacd488b214210",
+      "ref": "release/webmcp-runtime-v0.6.2"
+    },
+    "ananke": {
+      "sha": "b888d61adf180d33e2ae2e61d276cb9b0f13bd12",
+      "ref": "ananke-fates-008a-durable-human-approval-v0.1.0-protocol-1.4.0"
+    },
+    "horae": {
+      "sha": "aa296b420fbcf578089ca66dc03f6d09d9b06f00",
+      "ref": "horae-fates-007a-claim-aware-execution-v0.1.0-protocol-1.4.0"
+    }
+  },
+  "deferred": [
+    "Mnemosyne runtime integration",
+    "Console UI integration",
+    "Firecracker/microVM execution",
+    "multi-host consensus",
+    "distributed exactly-once claims",
+    "production external-provider effects"
+  ],
+  "researchArtifacts": [
+    "docs/research/ACCORD-00-SOURCE-SNAPSHOT-MANIFEST.md",
+    "docs/research/ACCORD-00-PROTECTED-REFS.md",
+    "docs/research/ACCORD-00-FATES-PIN-MATRIX.md",
+    "docs/research/ACCORD-00-FATES-DELTA-AUDIT.md",
+    "docs/research/ACCORD-00-REUSE-MATRIX.md",
+    "docs/research/ACCORD-00-PROPOSED-SLICES.md",
+    "docs/research/ACCORD-00-V0.1-BOUNDARY.md",
+    "docs/evidence/accord-00-source-audit.json",
+    "docs/research/ACCORD-00-ACCEPTANCE.md"
+  ],
+  "protectedRefsRegistry": "docs/research/ACCORD-00-PROTECTED-REFS.md",
+  "invariants": [
+    "CHILD_AUTHORITY <= PARENT_AUTHORITY",
+    "REMOTE_COMPLETED != VERIFIED_SUCCESS",
+    "UNKNOWN != SUCCESS",
+    "UNKNOWN != FAILURE",
+    "NO_VALID_AUTHORITY -> NO_EFFECT",
+    "NO_ACCEPTABLE_EFFECT_EVIDENCE -> NO_VERIFIED_SUCCESS"
+  ],
+  "openQuestions": [
+    "exact canonical child-authority subset semantics",
+    "exact delegation-chain digest",
+    "parent/child revocation semantics",
+    "remote task lifecycle mapping",
+    "independent remote effect receipt authority",
+    "provider idempotency semantics",
+    "exact A2A version and SDK pin",
+    "eventual arbitrary multi-hop semantics"
+  ],
+  "artifactSha256": {
+    "docs/research/ACCORD-00-SOURCE-SNAPSHOT-MANIFEST.md": "fe584618137cff2540ba6cf01bc606a67645e834d6ef52a18fd5532fab2c1d09",
+    "docs/research/ACCORD-00-PROTECTED-REFS.md": "5cde07ac12327cf2bb6635dcfa0f19865f7841ca15211e39db3030d8a838cb45",
+    "docs/research/ACCORD-00-FATES-PIN-MATRIX.md": "1e8e90f52d93dca32edda63b801cfdc1377986588473f379d46b515935cbef39",
+    "docs/research/ACCORD-00-FATES-DELTA-AUDIT.md": "087ab1110f3e2523a25d70327b14c55515c042563ca11167e01f29eacb653a0b",
+    "docs/research/ACCORD-00-REUSE-MATRIX.md": "a7b3d2d2bc8e9178dea0516f83d0a9cca20c24005e0f519d69db1fd3cb2c9935",
+    "docs/research/ACCORD-00-PROPOSED-SLICES.md": "e34d6a6b3768453a02aa53759fb6598950943422c09115bae5724b411bd308a5",
+    "docs/research/ACCORD-00-V0.1-BOUNDARY.md": "1146e77e32d3274ad1dea135b350d0bc7d9054b7b86bb355e5d96c333b42f093",
+    "docs/evidence/accord-00-source-audit.json": "721311fb1145884e40f962e494ba7d90d0034708671e2d2409b0595b8029c4a4",
+    "docs/research/ACCORD-00-ACCEPTANCE.md": "031551bd42c097e7367dee3ee7ef00d93e263136273da82b5993eff1760e6652"
+  },
+  "sourceMutation": false,
+  "snapshotMutation": false,
+  "runtimeImplementation": false,
+  "corrections": []
+}

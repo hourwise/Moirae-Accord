@@ -1,0 +1,78 @@
+{
+  "audit": "ACCORD-00",
+  "status": "read-only-complete",
+  "scanTimestamp": "2026-09-13T22:40:45.5598558+01:00",
+  "accord": {
+    "localRoot": "D:\\Users\\fleur\\Moirae Accord",
+    "remote": "https://github.com/hourwise/Moirae-Accord",
+    "initialHead": "fd336a80f3e98f5d19f4dd18214977f243514357",
+    "initialStatus": "clean",
+    "runtimeCodeWritten": false,
+    "commitCreated": false,
+    "pushPerformed": false
+  },
+  "snapshot": {
+    "root": "D:\\Users\\fleur\\Moirae Accord - Source Snapshots\\ACCORD-00-20260913-215700",
+    "allCopiesCompletedBeforeAnalysis": true,
+    "copyPushUrlsDisabled": true,
+    "pushAttempted": false
+  },
+  "sources": [
+    {"name":"Moirae-Protocol","url":"https://github.com/hourwise/Moirae-Protocol.git","ref":"main","sha":"f179104697d5ce126fdc19306e707e100cad05ff","status":"clean","baseline":"mp-04/MP-09 accepted evidence"},
+    {"name":"Project-Ananke","url":"https://github.com/hourwise/Project-Ananke.git","ref":"main","sha":"3d76adb162a0ff07b5630700ae30a823f1419cb4","status":"clean","baseline":"ananke FATES-008 terminal b888d61adf180d33e2ae2e61d276cb9b0f13bd12"},
+    {"name":"Project-Fates-Integration","url":"https://github.com/hourwise/Project-Fates-Integration.git","ref":"main","sha":"b4ae41185bafa6b6dd80ff7e41b1de7a2915873f","status":"clean","baseline":"evidence-only fates-007b 3c7b1f9916833728882e71f79a7276e9a806f808"},
+    {"name":"Project-Horae","url":"https://github.com/hourwise/Project-Horae.git","ref":"main","sha":"3f531d4f5558a10a36aeae20c3458080eb4468b9","status":"clean","baseline":"horae FATES-007A terminal aa296b420fbcf578089ca66dc03f6d09d9b06f00"},
+    {"name":"Moirae-Console","url":"https://github.com/hourwise/Moirae-Console.git","ref":"main","sha":"893ef94fa0dfad3606bd83e8b46351210cfc0d51","status":"clean","baseline":"protected documented 8c5109c52bb8065d9c1b4f4a81e0e6df9e830030"},
+    {"name":"Project-Moirae-Code","url":"https://github.com/hourwise/Project-Moirae-Code.git","ref":"main","sha":"9a5de8461b96db2cdb7bb85343cb48a60b5e4eb0","status":"clean","baseline":"conceptual host/sandbox only"},
+    {"name":"Project-Mnemosyne","url":"https://github.com/hourwise/Project-Mnemosyne.git","ref":"main","sha":"f4ab76a9760f856d78908d35facceb068d78c8e5","status":"clean","baseline":"deferred governed memory/provenance"},
+    {"name":"Project-Adrasteia","url":"https://github.com/hourwise/Project-Adrasteia.git","ref":"main","sha":"f9eeb25076e0a590f13c7bed6c8de8c9a363ce1b","status":"clean","baseline":"release/webmcp-runtime-v0.6.2 a1c01bf9e6f9d6a126cfdcc1acfacd488b214210"}
+  ],
+  "protectedRefs": [
+    "Adrasteia release/webmcp-runtime-v0.6.2 @ a1c01bf9e6f9d6a126cfdcc1acfacd488b214210",
+    "Ananke ananke-fates-007a tag object 9fb9fc4d8183db64aa37f0a4e167fdf41ca856e5",
+    "Ananke ananke-fates-008a terminal b888d61adf180d33e2ae2e61d276cb9b0f13bd12",
+    "Horae horae-fates-007a terminal aa296b420fbcf578089ca66dc03f6d09d9b06f00",
+    "Protocol mp-08b-final-accepted-v1 @ baa269a53c46e4fd8cbc3ec1640c984280d596b6",
+    "Protocol mp-09-focused-accepted-v1 @ 7bf7448fc66b42724062916362f3e1a490609a2c",
+    "Console documented reviewed implementation @ 8c5109c52bb8065d9c1b4f4a81e0e6df9e830030"
+  ],
+  "namespaceInspection": {"fates009Matches": false,"a2aImplementationFound": false,"firecrackerExecutorFound": false},
+  "candidateBaselines": {
+    "adrasteia": "a1c01bf9e6f9d6a126cfdcc1acfacd488b214210",
+    "ananke": "b888d61adf180d33e2ae2e61d276cb9b0f13bd12",
+    "horae": "aa296b420fbcf578089ca66dc03f6d09d9b06f00",
+    "mnemosyne": "defer-v0.1",
+    "fatesIntegration": "evidence-only"
+  },
+  "requirements": {
+    "canonicalPrincipals":"ALREADY_PRESENT",
+    "dualPrincipal":"ALREADY_PRESENT",
+    "durableExecution":"ALREADY_PRESENT",
+    "completionTruth":"EXTEND",
+    "nestedDelegation":"NEW",
+    "remoteTaskLifecycle":"NEW",
+    "a2aAdapter":"NEW",
+    "mcpAdapter":"ALREADY_PRESENT/EXTEND",
+    "firecrackerIsolation":"OUT_OF_SCOPE_FOR_ACCORD_V0_1",
+    "mnemosyneProvenance":"OUT_OF_SCOPE_FOR_ACCORD_V0_1",
+    "consoleHumanSurface":"OUT_OF_SCOPE_FOR_ACCORD_V0_1"
+  },
+  "unresolvedQuestions": [
+    "Exact parent/child grant subset and digest semantics",
+    "Whether v0.1 is one-child-only or bounded multi-hop",
+    "A2A wire protocol/version and receipt authority",
+    "Accepted-tag versus stale-evidence status reconciliation in upstream repositories",
+    "Independent effect evidence for the public synthetic demonstration"
+  ],
+  "noMutationAttestation": {
+    "SOURCE_REPOSITORIES_MUTATED": "NO",
+    "SOURCE_BRANCHES_CREATED": "NO",
+    "SOURCE_TAGS_CREATED": "NO",
+    "SOURCE_COMMITS_CREATED": "NO",
+    "SOURCE_PUSHES_PERFORMED": "NO",
+    "HACKATHON_REFS_CHANGED": "NO",
+    "ACCORD_RUNTIME_CODE_WRITTEN": "NO",
+    "ACCORD_COMMIT_CREATED": "NO",
+    "ACCORD_PUSH_PERFORMED": "NO"
+  }
+}
