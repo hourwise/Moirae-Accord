@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "matrix_id": "urn:moirae:accord-02e-r4:compatibility-matrix:0.1",
+  "reviewed_commit": "f027ba7ad39c1952414263ee18f2118db2364be7",
+  "status_vocabulary": ["EXACT", "COMPATIBLE", "COMPATIBLE_WITH_PROFILE", "AMBIGUOUS", "INCOMPATIBLE", "NOT_APPLICABLE"],
+  "entries": [
+    {"compatibility_id":"R4-CMP-001","left":"exact package reference","right":"verifier/experiment/scorer bundle envelopes","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-002","left":"package schema-contract inventory","right":"listed schema paths and package schema IDs","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-003","left":"required experiment/verifier run profiles","right":"package profile inventory","status":"INCOMPATIBLE","finding_ids":["E2E-R4-BLOCK-001"]},
+    {"compatibility_id":"R4-CMP-004","left":"arm profile references","right":"exact profile-version policy","status":"INCOMPATIBLE","finding_ids":["E2E-R4-BLOCK-001"]},
+    {"compatibility_id":"R4-CMP-005","left":"source-schema registry permitted schemas","right":"package schema-contract inventory","status":"INCOMPATIBLE","finding_ids":["E2E-R4-BLOCK-002"]},
+    {"compatibility_id":"R4-CMP-006","left":"generic recordEntry content","right":"resolved package schema contract","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-007","left":"generic bundle-entry digest","right":"R4 canonicalization applicability","status":"INCOMPATIBLE","finding_ids":["E2E-R4-MAJOR-001"]},
+    {"compatibility_id":"R4-CMP-008","left":"role-visibility field rules","right":"package role vocabulary","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-009","left":"source-registry consumer roles","right":"package role vocabulary","status":"AMBIGUOUS","finding_ids":["E2E-R4-MAJOR-002"]},
+    {"compatibility_id":"R4-CMP-010","left":"scenario-ID policy","right":"classifier/verifier semantic-use restrictions","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-011","left":"R3 base rule registry","right":"R4 explicit rule overlay","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-012","left":"active rule registry","right":"expanded dependency graph","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-013","left":"verifier/experiment bundles","right":"scorer-only records","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-014","left":"raw output","right":"normalization profile","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-015","left":"normalization","right":"scorer truth comparison","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-016","left":"canonical proposition","right":"settlement/projection records","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-017","left":"authority result axes","right":"effect settlement axes","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-018","left":"validation bundle","right":"self-contained external verification scope","status":"INCOMPATIBLE","finding_ids":["E2E-R4-BLOCK-001","E2E-R4-BLOCK-002"]},
+    {"compatibility_id":"R4-CMP-019","left":"digest failure","right":"external-effect/authority semantics","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R4-CMP-020","left":"optional A2A transport","right":"two-transport first experiment requirement","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]}
+  ],
+  "counts": {
+    "EXACT": 7,
+    "COMPATIBLE": 0,
+    "COMPATIBLE_WITH_PROFILE": 7,
+    "AMBIGUOUS": 1,
+    "INCOMPATIBLE": 5,
+    "NOT_APPLICABLE": 0
+  }
+}

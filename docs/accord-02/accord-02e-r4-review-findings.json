@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "review_version": "0.1",
+  "review_id": "urn:moirae:accord-02e-r4:acceptance-readiness-review:0.1",
+  "reviewed_commit": "f027ba7ad39c1952414263ee18f2118db2364be7",
+  "integrated_verdict": "AMEND",
+  "historical_finding_status": {
+    "E2E-BLOCK-001": "CLOSED",
+    "E2E-R1-BLOCK-001": "CLOSED",
+    "E2E-R2-BLOCK-001": "PARTIALLY_CLOSED",
+    "E2E-R2-BLOCK-002": "PARTIALLY_CLOSED",
+    "E2E-R3-BLOCK-001": "PARTIALLY_CLOSED",
+    "E2E-R3-BLOCK-002": "PARTIALLY_CLOSED",
+    "E2E-MAJOR-001": "CLOSED",
+    "E2E-MAJOR-002": "CLOSED",
+    "E2E-MAJOR-003": "CLOSED",
+    "E2E-MAJOR-004": "CLOSED",
+    "E2E-MAJOR-005": "PARTIALLY_CLOSED",
+    "E2E-R2-MAJOR-001": "PARTIALLY_CLOSED",
+    "E2E-R2-MAJOR-002": "CLOSED",
+    "E2E-R2-MAJOR-003": "PARTIALLY_CLOSED",
+    "E2E-R2-MAJOR-004": "CLOSED",
+    "E2E-R2-MAJOR-005": "PARTIALLY_CLOSED",
+    "E2E-R3-MAJOR-001": "PARTIALLY_CLOSED",
+    "E2E-R3-MAJOR-002": "CLOSED",
+    "E2E-R3-MAJOR-003": "PARTIALLY_CLOSED",
+    "E2E-MINOR-001": "CLOSED",
+    "E2E-MINOR-002": "OPEN_NON_BLOCKING"
+  },
+  "findings": [
+    {
+      "finding_id": "E2E-R4-BLOCK-001",
+      "severity": "BLOCKING",
+      "affected_historical_findings": ["E2E-R3-BLOCK-001", "E2E-R2-BLOCK-001", "E2E-MAJOR-005"],
+      "disposition": "SPEC_AMBIGUITY",
+      "affected_files": [
+        "accord-02r4-specification-package.json",
+        "schema/accord-02r4-specification-package.schema.json",
+        "schema/accord-02r3-experiment-run.schema.json",
+        "schema/accord-02r3-verifier-run.schema.json",
+        "schema/accord-02d-arm-input-profile.schema.json",
+        "examples/accord-02d-arm-input-profiles.json"
+      ],
+      "summary": "The exact package does not contain every profile required by the run contracts, and several active arm-profile references are not version pinned.",
+      "adversarial_construction": "Construct a schema-valid experiment run with its required experiment_profile_ref, or a verifier run with its required verifier_profile_ref, then resolve against the R4 package. Also resolve the profile references embedded in the ARM input-profile catalog, which omit profile_version.",
+      "evidence": [
+        "The package contains zero EXPERIMENT_PROFILE, VERIFIER_PROFILE, or TRUST_ROOT_PROFILE entries, while experiment-run requires experiment_profile_ref and verifier-run requires verifier_profile_ref.",
+        "The package profile_type enum does not include EXPERIMENT_PROFILE, so the required experiment profile has no package member type.",
+        "The ARM input profile reference schema requires record_type, profile_id, schema_id, and schema_version but not profile_version; the current catalog consequently contains active PROFILE references with no exact version.",
+        "PROF-002 requires exact version pinning and no latest/default substitution."
+      ],
+      "consequence": "A complete experiment or verifier validation scope cannot satisfy the declared exact-version profile-resolution contract. Implementations must either reject required runs or invent an undeclared profile source/version.",
+      "current_status": "OPEN",
+      "acceptance_impact": "BLOCKING",
+      "amendment_required": true,
+      "related_adversarial_cases": ["PROF-ADV-03", "PROF-ADV-05", "SCOPE-ADV-01", "SCOPE-ADV-02"]
+    },
+    {
+      "finding_id": "E2E-R4-BLOCK-002",
+      "severity": "BLOCKING",
+      "affected_historical_findings": ["E2E-R3-BLOCK-002", "E2E-R2-MAJOR-001", "E2E-MAJOR-005"],
+      "disposition": "SPEC_AMBIGUITY",
+      "affected_files": [
+        "accord-02r4-specification-package.json",
+        "examples/accord-02r3-source-schema-registry.json",
+        "schema/accord-02r3-source-schema-registry.schema.json",
+        "accord-02r4-validation-rules.json"
+      ],
+      "summary": "The source-schema membership registry names ten source schema ID/version pairs that are not members of the closed R4 schema-contract inventory.",
+      "adversarial_construction": "Supply an ARM-B or ARM-C provider-state source, or an ARM-D detached-evidence source, whose typed reference matches the source registry but whose source schema ID is absent from the package. Evaluate SRC-001 and structural admission without an ambient source-schema catalog.",
+      "evidence": [
+        "The source registry declares task-state, attempt, executor-state, admission-state, delegate-report, provider-state-read, reconciliation-result, classifier-feature, trust-root-profile, and detached-evidence schemas.",
+        "Those schema ID/version pairs are absent from accord-02r4-specification-package.json.",
+        "The R4 package contract prohibits ambient filesystem/database/network lookup, while SRC-001 requires schema membership and BND-004/SCHEMA-001 require a resolvable structural contract for normative records."
+      ],
+      "consequence": "Experiment-side source membership is not self-contained. A validator cannot both validate the declared source form and remain within the exact package scope.",
+      "current_status": "OPEN",
+      "acceptance_impact": "BLOCKING",
+      "amendment_required": true,
+      "related_adversarial_cases": ["SRC-ADV-01", "SCHEMA-ADV-04", "SCOPE-ADV-04"]
+    },
+    {
+      "finding_id": "E2E-R4-MAJOR-001",
+      "severity": "MAJOR",
+      "affected_historical_findings": ["E2E-R3-MAJOR-003", "E2E-R2-MAJOR-005"],
+      "disposition": "SPEC_AMBIGUITY",
+      "affected_files": [
+        "examples/accord-02r4-canonicalization-profile.json",
+        "schema/accord-02r3-verifier-validation-bundle.schema.json",
+        "schema/accord-02r3-experiment-validation-bundle.schema.json",
+        "schema/accord-02r3-scorer-bundle.schema.json",
+        "accord-02r4-validation-rules.json"
+      ],
+      "summary": "The declared canonicalization profile does not identify the concrete schema/type form carried by generic bundle entries.",
+      "adversarial_construction": "Supply a digest-bearing verifier recordEntry with record_type PORTABLE_BUNDLE and schema_id urn:moirae:accord-02a:schema:portable-record:0.2, or a digest-bearing scorerEntry. Apply DIGEST-CANON-002, whose inputs are record schema_id/version and record_type.",
+      "evidence": [
+        "The canonicalization profile applies to bundle schema IDs with record_types BUNDLE_RECORD_CONTENT or SCORER_RECORD_CONTENT.",
+        "Verifier and experiment recordEntry record_type values are concrete payload types such as PORTABLE_BUNDLE, EFFECT_OBSERVATION, and SETTLEMENT_RESULT, not BUNDLE_RECORD_CONTENT.",
+        "Scorer entries do not carry schema_id or schema_version at all, although DIGEST-CANON-002 requires those inputs.",
+        "The profile does not list the payload schema IDs declared by the package schema-contract inventory."
+      ],
+      "consequence": "Digest-bearing generic entries are either rejected as not admitted by the canonicalization profile or cannot be evaluated for applicability. The R3 digest ambiguity is not fully closed for the concrete forms used by the bundle schemas.",
+      "current_status": "OPEN",
+      "acceptance_impact": "MAJOR",
+      "amendment_required": true,
+      "related_adversarial_cases": ["CANON-ADV-01", "CANON-ADV-02", "CANON-ADV-04"]
+    },
+    {
+      "finding_id": "E2E-R4-MAJOR-002",
+      "severity": "MAJOR",
+      "affected_historical_findings": ["E2E-R3-MAJOR-001", "E2E-R2-MAJOR-003"],
+      "disposition": "SPEC_AMBIGUITY",
+      "affected_files": [
+        "schema/accord-02r3-source-schema-registry.schema.json",
+        "examples/accord-02r3-source-schema-registry.json",
+        "accord-02r4-validation-rules.json",
+        "accord-02r4-specification-package.json"
+      ],
+      "summary": "The R4 closed role vocabulary is enforced for role-visibility field rules but not for the roles arrays that govern source-schema membership.",
+      "adversarial_construction": "Add MAGIC_ADMIN to a source-schema registry entry's roles array and evaluate SRC-001/source membership and arm visibility under the current package.",
+      "evidence": [
+        "role-visibility-profile.schema.json uses a closed role enum.",
+        "source-schema-registry.schema.json defines roles as an unrestricted array of non-empty strings.",
+        "The source membership rules do not require source-registry roles to be members of the package role_vocabulary."
+      ],
+      "consequence": "Two implementations may disagree whether an undeclared role is a valid source consumer, so the package role vocabulary is not closed across all normative visibility inputs.",
+      "current_status": "OPEN",
+      "acceptance_impact": "MAJOR",
+      "amendment_required": true,
+      "related_adversarial_cases": ["ROLE-ADV-01", "ROLE-ADV-02", "ROLE-ADV-05"]
+    },
+    {
+      "finding_id": "E2E-R4-NOTE-001",
+      "severity": "NOTE",
+      "affected_historical_findings": ["E2E-MINOR-002"],
+      "disposition": "DEFERRED_TO_CONFORMANCE_IMPLEMENTATION",
+      "affected_files": [
+        "schema/accord-02r4-specification-package.schema.json",
+        "schema/*.json"
+      ],
+      "summary": "No standards-complete external JSON Schema validator or independent implementation comparison was run.",
+      "adversarial_construction": "Attempt full draft-2020-12 conformance and cross-language interoperability validation during this review.",
+      "consequence": "The review establishes specification-level observations only; it does not certify executable validator interoperability.",
+      "current_status": "OPEN_NON_BLOCKING",
+      "acceptance_impact": "NONE",
+      "amendment_required": false,
+      "related_adversarial_cases": []
+    }
+  ],
+  "counts": {
+    "BLOCKING": 2,
+    "MAJOR": 2,
+    "MINOR": 0,
+    "NOTE": 1
+  },
+  "acceptance_gate": {
+    "blocking_open": true,
+    "major_open": true,
+    "ready": false
+  }
+}
