@@ -1,0 +1,220 @@
+{
+  "schema_id": "urn:moirae:accord-02b:authority-test-vectors",
+  "schema_version": "0.1",
+  "fixture_profile": {
+    "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+    "unknown_dimension_policy": "RETURN_UNKNOWN",
+    "dimensions": ["subject", "resource", "action", "quantity", "time", "delegation_depth", "audience", "context", "approval", "task_effect_binding"],
+    "composition": {
+      "sibling_mode": "NO_COMPOSITION",
+      "overlap_mode": "RETAIN_SEPARATE",
+      "action_combination_mode": "UNKNOWN",
+      "quantitative_mode": "NON_COMPOSABLE",
+      "mediation_mode": "DENY_UNBOUND",
+      "revocation_mode": "CHECK_AT_EACH_EVENT",
+      "transitivity_policy": "DECLARED_DIMENSIONS_ONLY"
+    }
+  },
+  "profile_catalog": [
+    { "profile_id": "urn:moirae:accord-02b:closed-set-static-v1", "unknown_dimension_policy": "RETURN_UNKNOWN", "resource_comparator": "finite-set-subset", "action_comparator": "finite-set-subset", "time_comparator": "bounded-interval", "transitive": true },
+    { "profile_id": "urn:moirae:accord-02b:disjoint-union-v1", "sibling_mode": "DISJOINT_SCOPES", "overlap_mode": "UNION_IF_PROVEN", "quantitative_mode": "NON_COMPOSABLE" },
+    { "profile_id": "urn:moirae:accord-02b:shared-pool-v1", "sibling_mode": "SHARED_POOL", "quantitative_mode": "SHARED_POOL", "allocation_evidence_required": true },
+    { "profile_id": "urn:moirae:accord-02b:reserved-suballocation-v1", "sibling_mode": "RESERVED_SUBALLOCATION", "quantitative_mode": "RESERVED_SUBALLOCATION", "allocation_evidence_required": true },
+    { "profile_id": "urn:moirae:accord-02b:mediated-analysis-v1", "mediation_mode": "PARENT_INTENT_BOUND", "direct_and_mediated_paths_separate": true },
+    { "profile_id": "urn:moirae:accord-02b:event-time-v1", "revocation_mode": "CHECK_AT_EACH_EVENT", "time_ordering": "EVENT_ORDER_ONLY" },
+    { "profile_id": "urn:moirae:accord-02b:workflow-unknown-v1", "sibling_mode": "OVERLAP_RETAINED", "action_combination_mode": "COMPLEMENTARY_WORKFLOW", "unknown_dimension_policy": "RETURN_UNKNOWN" },
+    { "profile_id": "urn:moirae:accord-02b:explicit-inheritance-v1", "missing_value_policy": "RETURN_WIDENED", "approval_omission": "WIDENED" },
+    { "profile_id": "urn:moirae:accord-02b:comparison-required-v1", "profile_compatibility_required": true, "unknown_dimension_policy": "RETURN_UNSUPPORTED" }
+  ],
+  "vectors": [
+    {
+      "vector_id": "vector-01-simple-attenuation",
+      "kind": "direct_comparison",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "parent_grant": { "grant_id": "grant-v01-parent", "subject": "P0", "resources": ["A", "B"], "actions": ["read", "update"] },
+      "child_grant": { "grant_id": "grant-v01-child", "subject": "P1", "resources": ["A"], "actions": ["read"] },
+      "authority_delegation": { "parent_grant_id": "grant-v01-parent", "child_grant_id": "grant-v01-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "expected": { "aggregate_relation": "ATTENUATED", "widening_dimensions": [], "unknown_dimensions": [] }
+    },
+    {
+      "vector_id": "vector-02-action-widening",
+      "kind": "direct_comparison",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "parent_grant": { "grant_id": "grant-v02-parent", "subject": "P0", "resources": ["A"], "actions": ["read"] },
+      "child_grant": { "grant_id": "grant-v02-child", "subject": "P1", "resources": ["A"], "actions": ["delete"] },
+      "authority_delegation": { "parent_grant_id": "grant-v02-parent", "child_grant_id": "grant-v02-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "expected": { "aggregate_relation": "WIDENED", "widening_dimensions": ["action"], "unknown_dimensions": [] }
+    },
+    {
+      "vector_id": "vector-03-expiry-widening",
+      "kind": "direct_comparison",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "parent_grant": { "grant_id": "grant-v03-parent", "subject": "P0", "resources": ["A"], "actions": ["read"], "time": { "not_before": "2026-09-14T10:00:00Z", "expires_at": "2026-09-14T11:00:00Z" } },
+      "child_grant": { "grant_id": "grant-v03-child", "subject": "P1", "resources": ["A"], "actions": ["read"], "time": { "not_before": "2026-09-14T10:05:00Z", "expires_at": "2026-09-14T11:05:00Z" } },
+      "authority_delegation": { "parent_grant_id": "grant-v03-parent", "child_grant_id": "grant-v03-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "expected": { "aggregate_relation": "WIDENED", "widening_dimensions": ["time"], "unknown_dimensions": [] }
+    },
+    {
+      "vector_id": "vector-04-multi-hop-valid",
+      "kind": "multi_hop",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "chain": [
+        { "grant_id": "grant-v04-g0", "subject": "P0", "resources": ["A", "B", "C"], "actions": ["read", "update"], "time": { "expires_at": "2026-09-15T00:00:00Z" }, "remaining_depth": 3 },
+        { "grant_id": "grant-v04-g1", "parent_grant_id": "grant-v04-g0", "subject": "P1", "resources": ["A", "B"], "actions": ["read", "update"], "time": { "expires_at": "2026-09-14T20:00:00Z" }, "remaining_depth": 2 },
+        { "grant_id": "grant-v04-g2", "parent_grant_id": "grant-v04-g1", "subject": "P2", "resources": ["A"], "actions": ["read"], "time": { "expires_at": "2026-09-14T18:00:00Z" }, "remaining_depth": 1 }
+      ],
+      "expected": { "direct_relations": ["ATTENUATED", "ATTENUATED"], "ancestor_relation": "ATTENUATED", "transitivity_basis": "all declared dimensions are closed and transitive" }
+    },
+    {
+      "vector_id": "vector-05-unknown-authority-extension",
+      "kind": "unknown_extension",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "parent_grant": { "grant_id": "grant-v05-parent", "subject": "P0", "resources": ["A"], "actions": ["read"] },
+      "child_grant": { "grant_id": "grant-v05-child", "subject": "P1", "resources": ["A"], "actions": ["read"], "extensions": { "urn:unknown:authority:delegable-counterparty": { "wildcard": true } } },
+      "authority_delegation": { "parent_grant_id": "grant-v05-parent", "child_grant_id": "grant-v05-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "expected": { "aggregate_relation": "UNKNOWN", "unknown_dimensions": ["urn:unknown:authority:delegable-counterparty"], "must_not_emit": ["ATTENUATED"] }
+    },
+    {
+      "vector_id": "vector-06-sibling-resource-separation",
+      "kind": "sibling_composition",
+      "profile_id": "urn:moirae:accord-02b:disjoint-union-v1",
+      "parent_grant": { "grant_id": "grant-v06-parent", "subject": "P0", "resources": ["A", "B"], "actions": ["read"] },
+      "siblings": [
+        { "grant_id": "grant-v06-child-a", "subject": "P1", "resources": ["A"], "actions": ["read"] },
+        { "grant_id": "grant-v06-child-b", "subject": "P2", "resources": ["B"], "actions": ["read"] }
+      ],
+      "authority_delegations": [
+        { "parent_grant_id": "grant-v06-parent", "child_grant_id": "grant-v06-child-a", "subject_relation": "delegation-edge-permitted" },
+        { "parent_grant_id": "grant-v06-parent", "child_grant_id": "grant-v06-child-b", "subject_relation": "delegation-edge-permitted" }
+      ],
+      "composition_profile": { "sibling_mode": "DISJOINT_SCOPES", "overlap_mode": "UNION_IF_PROVEN" },
+      "expected": { "direct_relations": ["ATTENUATED", "ATTENUATED"], "effective_authority": "CONTAINED", "requires_proof": ["resource_disjointness", "parent_authorizes_union"] }
+    },
+    {
+      "vector_id": "vector-07-sibling-shared-budget-failure",
+      "kind": "sibling_composition",
+      "profile_id": "urn:moirae:accord-02b:shared-pool-v1",
+      "parent_grant": { "grant_id": "grant-v07-parent", "subject": "P0", "resources": ["ledger"], "actions": ["transfer"], "quantity": { "mode": "aggregate_cap", "limit": 100, "unit": "synthetic-units" } },
+      "siblings": [
+        { "grant_id": "grant-v07-child-a", "subject": "P1", "resources": ["ledger"], "actions": ["transfer"], "quantity": { "mode": "aggregate_cap", "limit": 80, "unit": "synthetic-units" } },
+        { "grant_id": "grant-v07-child-b", "subject": "P2", "resources": ["ledger"], "actions": ["transfer"], "quantity": { "mode": "aggregate_cap", "limit": 80, "unit": "synthetic-units" } }
+      ],
+      "authority_delegations": [
+        { "parent_grant_id": "grant-v07-parent", "child_grant_id": "grant-v07-child-a", "subject_relation": "delegation-edge-permitted" },
+        { "parent_grant_id": "grant-v07-parent", "child_grant_id": "grant-v07-child-b", "subject_relation": "delegation-edge-permitted" }
+      ],
+      "composition_profile": { "sibling_mode": "SHARED_POOL", "quantitative_mode": "SHARED_POOL", "allocation_evidence": false },
+      "expected": { "direct_relations": ["ATTENUATED", "ATTENUATED"], "effective_authority": "UNKNOWN", "possible_widening_paths": true, "reason_codes": ["SHARED_POOL_ALLOCATION_MISSING"] }
+    },
+    {
+      "vector_id": "vector-08-sibling-reserved-budgets",
+      "kind": "sibling_composition",
+      "profile_id": "urn:moirae:accord-02b:reserved-suballocation-v1",
+      "parent_grant": { "grant_id": "grant-v08-parent", "subject": "P0", "resources": ["ledger"], "actions": ["transfer"], "quantity": { "mode": "aggregate_cap", "limit": 100, "unit": "synthetic-units" } },
+      "siblings": [
+        { "grant_id": "grant-v08-child-a", "subject": "P1", "resources": ["ledger"], "actions": ["transfer"], "quantity": { "mode": "reserved_suballocation", "reserved": 40, "allocation_id": "allocation-v08-a", "unit": "synthetic-units" } },
+        { "grant_id": "grant-v08-child-b", "subject": "P2", "resources": ["ledger"], "actions": ["transfer"], "quantity": { "mode": "reserved_suballocation", "reserved": 60, "allocation_id": "allocation-v08-b", "unit": "synthetic-units" } }
+      ],
+      "authority_delegations": [
+        { "parent_grant_id": "grant-v08-parent", "child_grant_id": "grant-v08-child-a", "subject_relation": "delegation-edge-permitted" },
+        { "parent_grant_id": "grant-v08-parent", "child_grant_id": "grant-v08-child-b", "subject_relation": "delegation-edge-permitted" }
+      ],
+      "composition_profile": { "sibling_mode": "RESERVED_SUBALLOCATION", "quantitative_mode": "RESERVED_SUBALLOCATION", "allocation_evidence": true, "reservations_sum": 100 },
+      "expected": { "direct_relations": ["ATTENUATED", "ATTENUATED"], "effective_authority": "CONTAINED", "possible_widening_paths": false }
+    },
+    {
+      "vector_id": "vector-09-parent-mediated-laundering",
+      "kind": "mediated_authority",
+      "profile_id": "urn:moirae:accord-02b:mediated-analysis-v1",
+      "parent_grant": { "grant_id": "grant-v09-parent", "subject": "P0", "resources": ["publication"], "actions": ["request", "publish"] },
+      "child_grant": { "grant_id": "grant-v09-child", "subject": "P1", "resources": ["publication"], "actions": ["request"] },
+      "authority_delegation": { "parent_grant_id": "grant-v09-parent", "child_grant_id": "grant-v09-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "mediated_path": { "child_task_id": "task-v09-child", "parent_task_id": "task-v09-parent", "effect_id": "effect-v09", "parent_action": "publish", "parent_binding": "loose-request", "child_benefits": true },
+      "expected": { "child_grant_relation": "ATTENUATED", "effective_authority": "POSSIBLE_WIDENING", "possible_widening_paths": true, "direct_child_publish": false }
+    },
+    {
+      "vector_id": "vector-10-bound-parent-mediation",
+      "kind": "mediated_authority",
+      "profile_id": "urn:moirae:accord-02b:mediated-analysis-v1",
+      "parent_grant": { "grant_id": "grant-v10-parent", "subject": "P0", "resources": ["publication"], "actions": ["request", "publish"], "context": { "purpose": "parent-approved-release", "approval": "approval-v10", "effect": "effect-v10" } },
+      "child_grant": { "grant_id": "grant-v10-child", "subject": "P1", "resources": ["publication"], "actions": ["request"], "context": { "purpose": "request-only", "approval": "approval-v10", "effect": "effect-v10", "parent_effect": "effect-v10" } },
+      "authority_delegation": { "parent_grant_id": "grant-v10-parent", "child_grant_id": "grant-v10-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "mediated_path": { "child_task_id": "task-v10-child", "parent_task_id": "task-v10-parent", "effect_id": "effect-v10", "parent_action": "publish", "parent_binding": "parent-intent-approval-effect-bound", "child_substitution_forbidden": true },
+      "expected": { "child_grant_relation": "ATTENUATED", "effective_authority": "SAFE_PARENT_MEDIATION", "possible_widening_paths": false, "direct_child_publish": false }
+    },
+    {
+      "vector_id": "vector-11-revocation-before-dispatch",
+      "kind": "revocation_timing",
+      "profile_id": "urn:moirae:accord-02b:event-time-v1",
+      "grant": { "grant_id": "grant-v11", "issued_at": "2026-09-14T10:00:00Z", "derived_at": "2026-09-14T10:01:00Z", "revoked_at": "2026-09-14T10:02:00Z", "dispatch_at": "2026-09-14T10:03:00Z" },
+      "expected": { "valid_at_derivation": "VALID", "valid_at_admission": "REVOKED", "valid_at_dispatch": "REVOKED", "dispatch_authority": "NOT_VALID", "historical_derivation_preserved": true }
+    },
+    {
+      "vector_id": "vector-12-revocation-after-dispatch",
+      "kind": "revocation_timing",
+      "profile_id": "urn:moirae:accord-02b:event-time-v1",
+      "grant": { "grant_id": "grant-v12", "issued_at": "2026-09-14T10:00:00Z", "derived_at": "2026-09-14T10:01:00Z", "dispatch_at": "2026-09-14T10:02:00Z", "revoked_at": "2026-09-14T10:03:00Z", "effect_occurrence_at": "2026-09-14T10:04:00Z" },
+      "expected": { "valid_at_dispatch": "VALID", "valid_now": "REVOKED", "effect_occurrence_erased": false, "authority_at_dispatch": "VALID", "later_retry": "NOT_VALID" }
+    },
+    {
+      "vector_id": "vector-13-task-only-delegation",
+      "kind": "task_delegation",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "task_delegation": { "delegation_id": "delegation-v13", "parent_task_id": "task-v13-parent", "child_task_id": "task-v13-child" },
+      "expected": { "authority_transfer_inferred": false, "relation": "UNKNOWN", "reason_codes": ["NO_AUTHORITY_GRANT_EDGE"] }
+    },
+    {
+      "vector_id": "vector-14-transport-metadata-spoofing",
+      "kind": "transport_spoofing",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "parent_grant": { "grant_id": "grant-v14-parent", "subject": "P0", "resources": ["A"], "actions": ["read"] },
+      "child_grant": { "grant_id": "grant-v14-child", "subject": "P1", "resources": ["A"], "actions": ["read"] },
+      "authority_delegation": { "parent_grant_id": "grant-v14-parent", "child_grant_id": "grant-v14-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "transport_metadata": { "kind": "mcp_shaped", "tool_name": "read", "claimed_resources": ["A", "B"], "call_id": "mcp-v14" },
+      "expected": { "aggregate_relation": "ATTENUATED", "transport_claim_used_for_authority": false, "resource_basis": "child grant only" }
+    },
+    {
+      "vector_id": "vector-15-complementary-siblings",
+      "kind": "sibling_workflow",
+      "profile_id": "urn:moirae:accord-02b:workflow-unknown-v1",
+      "parent_grant": { "grant_id": "grant-v15-parent", "subject": "P0", "resources": ["release"], "actions": ["prepare", "approve", "execute"] },
+      "siblings": [
+        { "grant_id": "grant-v15-child-a", "subject": "P1", "resources": ["release"], "actions": ["prepare"] },
+        { "grant_id": "grant-v15-child-b", "subject": "P2", "resources": ["release"], "actions": ["approve", "execute"] }
+      ],
+      "authority_delegations": [
+        { "parent_grant_id": "grant-v15-parent", "child_grant_id": "grant-v15-child-a", "subject_relation": "delegation-edge-permitted" },
+        { "parent_grant_id": "grant-v15-parent", "child_grant_id": "grant-v15-child-b", "subject_relation": "delegation-edge-permitted" }
+      ],
+      "composition_profile": { "sibling_mode": "OVERLAP_RETAINED", "action_combination_mode": "COMPLEMENTARY_WORKFLOW" },
+      "expected": { "direct_relations": ["ATTENUATED", "ATTENUATED"], "effective_authority": "UNKNOWN", "possible_widening_paths": true, "reason_codes": ["COMPLEMENTARY_WORKFLOW_NOT_PROVEN"] }
+    },
+    {
+      "vector_id": "vector-16-approval-omission",
+      "kind": "context_comparison",
+      "profile_id": "urn:moirae:accord-02b:explicit-inheritance-v1",
+      "parent_grant": { "grant_id": "grant-v16-parent", "subject": "P0", "resources": ["A"], "actions": ["update"], "approval": "approval-A" },
+      "child_grant": { "grant_id": "grant-v16-child", "subject": "P1", "resources": ["A"], "actions": ["update"] },
+      "authority_delegation": { "parent_grant_id": "grant-v16-parent", "child_grant_id": "grant-v16-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "expected": { "aggregate_relation": "WIDENED", "widening_dimensions": ["approval"], "reason_codes": ["PARENT_APPROVAL_OMITTED"] }
+    },
+    {
+      "vector_id": "vector-17-resource-wildcard",
+      "kind": "resource_comparison",
+      "profile_id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "parent_grant": { "grant_id": "grant-v17-parent", "subject": "P0", "resources": ["A", "B"], "actions": ["read"] },
+      "child_grant": { "grant_id": "grant-v17-child", "subject": "P1", "resources": [{ "provider_wildcard": "*" }], "actions": ["read"] },
+      "authority_delegation": { "parent_grant_id": "grant-v17-parent", "child_grant_id": "grant-v17-child", "subject_relation": "delegation-edge-permitted", "evidence": "synthetic-valid" },
+      "expected": { "aggregate_relation": "UNSUPPORTED", "unsupported_dimensions": ["resource"], "must_not_emit": ["ATTENUATED"] }
+    },
+    {
+      "vector_id": "vector-18-profile-mismatch",
+      "kind": "profile_mismatch",
+      "profile_id": "urn:moirae:accord-02b:comparison-required-v1",
+      "parent_grant": { "grant_id": "grant-v18-parent", "authority_profile": "urn:provider-x:scope-v1", "resources": ["A"], "actions": ["read"] },
+      "child_grant": { "grant_id": "grant-v18-child", "authority_profile": "urn:provider-y:capability-v1", "resources": ["A"], "actions": ["read"] },
+      "authority_delegation": { "parent_grant_id": "grant-v18-parent", "child_grant_id": "grant-v18-child", "subject_relation": "profile-not-compatible", "evidence": "synthetic-link-only" },
+      "expected": { "aggregate_relation": "UNSUPPORTED", "unknown_dimensions": ["profile_compatibility"], "ancestor_transitivity": "NOT_CONCLUDED" }
+    }
+  ]
+}

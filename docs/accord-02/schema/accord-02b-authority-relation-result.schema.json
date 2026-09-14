@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02b:schema:authority-relation-result:0.1",
+  "title": "ACCORD-02B authority relation result",
+  "description": "Structural result schema only. It does not itself authorize execution or prove effective-authority containment.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "comparison_profile", "parent_grant_id", "child_grant_id", "per_dimension", "aggregate_relation", "unknown_dimensions", "widening_dimensions", "reason_codes"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02b:authority-relation-result" },
+    "schema_version": { "const": "0.1" },
+    "comparison_profile": { "type": "string", "minLength": 1 },
+    "parent_grant_id": { "type": "string", "minLength": 1 },
+    "child_grant_id": { "type": "string", "minLength": 1 },
+    "per_dimension": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/dimensionResult" }
+    },
+    "aggregate_relation": { "$ref": "#/$defs/relation" },
+    "unknown_dimensions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "widening_dimensions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "unsupported_dimensions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "incomparable_dimensions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "reason_codes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "source_record_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "effective_authority": { "$ref": "#/$defs/effectiveAuthority" }
+  },
+  "$defs": {
+    "relation": {
+      "enum": ["ATTENUATED", "EQUIVALENT", "WIDENED", "INCOMPARABLE", "UNSUPPORTED", "UNKNOWN"]
+    },
+    "dimensionResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "outcome", "reason_codes"],
+      "properties": {
+        "dimension": { "type": "string", "minLength": 1 },
+        "outcome": { "$ref": "#/$defs/relation" },
+        "reason_codes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "parent_value_digest": { "type": "string" },
+        "child_value_digest": { "type": "string" }
+      }
+    },
+    "effectiveAuthority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "active_grant_ids", "possible_widening_paths", "unresolved_dimensions"],
+      "properties": {
+        "state": { "enum": ["CONTAINED", "POSSIBLE_WIDENING", "WIDENED", "UNKNOWN", "UNSUPPORTED", "CONFLICTING"] },
+        "active_grant_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "direct_capability_summary": { "type": "array", "items": { "type": "object" } },
+        "mediated_paths": { "type": "array", "items": { "type": "object" } },
+        "possible_widening_paths": { "type": "boolean" },
+        "unresolved_dimensions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "reason_codes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    }
+  }
+}

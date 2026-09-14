@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02b:schema:authority-profile:0.1",
+  "title": "ACCORD-02B authority comparison and composition profile",
+  "description": "Structural profile schema only. It does not implement policy, authority enforcement, or arbitrary predicate implication.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile_id", "profile_version", "dimensions", "unknown_dimension_policy", "composition"],
+  "properties": {
+    "profile_id": { "type": "string", "minLength": 1 },
+    "profile_version": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/dimension" }
+    },
+    "authority_bearing_extensions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "descriptive_extension_namespaces": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "unknown_dimension_policy": {
+      "enum": ["RETURN_UNKNOWN", "RETURN_UNSUPPORTED", "REJECT_COMPARISON"]
+    },
+    "composition": { "$ref": "#/$defs/composition" },
+    "time": { "$ref": "#/$defs/time" },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "authority_bearing", "comparator", "missing_value_policy"],
+      "properties": {
+        "name": {
+          "enum": ["subject", "resource", "action", "quantity", "time", "delegation_depth", "audience", "context", "approval", "task_effect_binding"]
+        },
+        "authority_bearing": { "type": "boolean" },
+        "comparator": { "type": "string", "minLength": 1 },
+        "value_language": { "type": "string" },
+        "missing_value_policy": { "enum": ["INHERIT_ONLY_IF_EXPLICIT", "RETURN_UNKNOWN", "RETURN_WIDENED", "NOT_APPLICABLE"] },
+        "transitive": { "type": "boolean" },
+        "composition_mode": { "type": "string" },
+        "units": { "type": "string" },
+        "extension_namespace": { "type": "string" }
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sibling_mode", "overlap_mode", "action_combination_mode", "quantitative_mode", "mediation_mode", "revocation_mode", "transitivity_policy"],
+      "properties": {
+        "sibling_mode": { "enum": ["DISJOINT_SCOPES", "OVERLAP_RETAINED", "MUTUALLY_EXCLUSIVE", "SHARED_POOL", "RESERVED_SUBALLOCATION", "CONTEXTUAL", "NO_COMPOSITION"] },
+        "overlap_mode": { "enum": ["UNION_IF_PROVEN", "RETAIN_SEPARATE", "CONFLICT"] },
+        "action_combination_mode": { "enum": ["INDEPENDENT", "COMPLEMENTARY_WORKFLOW", "CLOSED_ACTION_ALGEBRA", "UNKNOWN"] },
+        "quantitative_mode": { "enum": ["INDEPENDENT_CAP", "SHARED_POOL", "RESERVED_SUBALLOCATION", "NON_COMPOSABLE"] },
+        "mediation_mode": { "enum": ["DENY_UNBOUND", "PARENT_INTENT_BOUND", "PARENT_MAY_ACT_FOR_CHILD", "UNMODELLED"] },
+        "revocation_mode": { "enum": ["CHECK_AT_EACH_EVENT", "ISSUER_STATUS", "UNAVAILABLE"] },
+        "transitivity_policy": { "enum": ["DECLARED_DIMENSIONS_ONLY", "NO_ANCESTOR_INFERENCE", "PROFILE_PROOF_REQUIRED"] }
+      }
+    },
+    "time": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timestamp_format", "clock_ordering", "unknown_order_policy"],
+      "properties": {
+        "timestamp_format": { "const": "RFC3339_UTC" },
+        "clock_ordering": { "enum": ["TRUSTED_PROFILE_CLOCK", "EVENT_ORDER_ONLY", "NO_CROSS_PROCESS_ORDER"] },
+        "max_skew_seconds": { "type": "integer", "minimum": 0 },
+        "unknown_order_policy": { "enum": ["RETURN_UNKNOWN", "RETURN_UNSUPPORTED"] }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "digest_algorithm"],
+      "properties": {
+        "canonicalization": { "const": "RFC8785_JCS" },
+        "digest_algorithm": { "const": "SHA-256" },
+        "signature_profile": { "type": "string" }
+      }
+    }
+  }
+}
