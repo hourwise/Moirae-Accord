@@ -1,0 +1,342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02c:schema:settlement-result:0.1",
+  "title": "ACCORD-02C evidenced external-effect settlement result",
+  "description": "Machine-readable result axes for bounded effect settlement. The schema preserves authority/effect orthogonality and does not itself prove external truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "result_id",
+    "verifier_run_id",
+    "target",
+    "profile",
+    "authority",
+    "effect",
+    "evidence",
+    "conclusion",
+    "reopening",
+    "findings",
+    "generated_at",
+    "verification_time",
+    "integrity"
+  ],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02c:settlement-result" },
+    "schema_version": { "const": "0.1" },
+    "result_id": { "type": "string", "minLength": 1 },
+    "verifier_run_id": { "type": "string", "minLength": 1 },
+    "target": { "$ref": "#/$defs/target" },
+    "profile": { "$ref": "#/$defs/profileAssessment" },
+    "authority": { "$ref": "#/$defs/authorityAssessment" },
+    "effect": { "$ref": "#/$defs/effectAssessment" },
+    "evidence": { "$ref": "#/$defs/evidenceAssessment" },
+    "conclusion": { "$ref": "#/$defs/conclusion" },
+    "reopening": { "$ref": "#/$defs/reopening" },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "trust_assumptions_applied": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "verification_time": { "type": "string", "format": "date-time" },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "statusWithBasis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "basis_record_ids", "reason_codes"],
+      "properties": {
+        "status": { "type": "string", "minLength": 1 },
+        "basis_record_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "reason_codes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "as_of": { "type": "string", "format": "date-time" },
+        "valid_interval": { "$ref": "#/$defs/timeInterval" },
+        "notes": { "type": "string" }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effect_id", "predicate", "attempt_ids", "record_refs"],
+      "properties": {
+        "effect_id": { "type": "string", "minLength": 1 },
+        "predicate": { "$ref": "#/$defs/predicate" },
+        "intent_id": { "type": "string", "minLength": 1 },
+        "task_id": { "type": "string", "minLength": 1 },
+        "delegation_id": { "type": "string", "minLength": 1 },
+        "attempt_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "record_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1, "uniqueItems": true },
+        "provider": { "type": "string", "minLength": 1 },
+        "resource": { "type": "string", "minLength": 1 },
+        "recipient_or_counterparty": { "type": "string", "minLength": 1 }
+      }
+    },
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predicate_id", "kind", "stage", "action", "resource", "target_binding"],
+      "properties": {
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 },
+        "action": { "type": "string", "minLength": 1 },
+        "resource": { "type": "string", "minLength": 1 },
+        "recipient_or_counterparty": { "type": "string" },
+        "provider": { "type": "string" },
+        "external_identifier": { "type": "string" },
+        "target_binding": { "enum": ["EXPLICIT", "PROFILE_DEFINED", "UNKNOWN"] },
+        "stage_predecessors": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "profileAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "compatibility", "interpreted_evidence_profile_ids", "unsupported_extensions", "assumptions_applied"],
+      "properties": {
+        "profile_id": { "type": "string", "minLength": 1 },
+        "compatibility": { "enum": ["COMPATIBLE", "INCOMPATIBLE", "UNKNOWN", "NOT_EVALUATED"] },
+        "interpreted_evidence_profile_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "unsupported_extensions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "assumptions_applied": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "incompatibility_reason": { "type": "string" }
+      }
+    },
+    "authorityStatus": {
+      "enum": ["AUTHORIZED", "INVALID_AUTHORITY", "UNKNOWN_AUTHORITY", "UNSUPPORTED_AUTHORITY", "CONFLICTING_AUTHORITY", "NOT_EVALUATED"]
+    },
+    "authorityAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "at_dispatch", "basis_record_ids", "reason_codes", "does_not_imply"],
+      "properties": {
+        "status": { "$ref": "#/$defs/authorityStatus" },
+        "at_dispatch": { "$ref": "#/$defs/authorityAtTime" },
+        "at_admission": { "$ref": "#/$defs/authorityAtTime" },
+        "at_verification": { "$ref": "#/$defs/authorityAtTime" },
+        "basis_record_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "reason_codes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "does_not_imply": { "type": "array", "minItems": 1, "items": { "enum": ["EFFECT_OCCURRENCE", "NON_OCCURRENCE", "CAUSATION", "RECIPIENT_DELIVERY", "EXACTLY_ONCE"] }, "uniqueItems": true }
+      }
+    },
+    "authorityAtTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evaluated_at", "basis_record_ids"],
+      "properties": {
+        "status": { "$ref": "#/$defs/authorityStatus" },
+        "evaluated_at": { "type": "string", "format": "date-time" },
+        "basis_record_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "revocation_as_of": { "type": "string", "format": "date-time" },
+        "notes": { "type": "string" }
+      }
+    },
+    "occurrenceStatus": {
+      "enum": ["OCCURRENCE_SUPPORTED", "NON_OCCURRENCE_SUPPORTED", "PARTIAL_EFFECT", "CONFLICTING_EVIDENCE", "INSUFFICIENT_EVIDENCE", "INADMISSIBLE_EVIDENCE", "STALE_EVIDENCE", "UNKNOWN"]
+    },
+    "attributionStatus": {
+      "enum": ["ATTRIBUTED_TO_SPECIFIC_ATTEMPT", "ATTRIBUTED_TO_ONE_OR_MORE_ATTEMPTS", "ATTRIBUTION_UNKNOWN", "ATTRIBUTION_CONFLICTING", "INADMISSIBLE", "NOT_APPLICABLE"]
+    },
+    "causalityStatus": {
+      "enum": ["SPECIFIC_ATTEMPT_SUPPORTED", "CAUSED_BY_ONE_OR_MORE_ATTEMPTS", "EFFECT_BOUND", "EXTERNAL_STATE_ONLY", "CAUSATION_UNKNOWN", "CAUSATION_CONFLICTING", "NOT_ASSESSED"]
+    },
+    "effectAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["occurrence", "attribution", "causality", "completeness", "evidence_sufficiency", "freshness", "duplication", "stage_settlement", "unknown_dimensions"],
+      "properties": {
+        "occurrence": { "$ref": "#/$defs/statusWithBasisOccurrence" },
+        "attribution": { "$ref": "#/$defs/statusWithBasisAttribution" },
+        "causality": { "$ref": "#/$defs/statusWithBasisCausality" },
+        "completeness": { "$ref": "#/$defs/statusWithBasisCompleteness" },
+        "evidence_sufficiency": { "$ref": "#/$defs/statusWithBasisSufficiency" },
+        "freshness": { "$ref": "#/$defs/statusWithBasisFreshness" },
+        "duplication": { "$ref": "#/$defs/statusWithBasisDuplication" },
+        "stage_settlement": { "$ref": "#/$defs/stageSettlement" },
+        "unknown_dimensions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "statusWithBasisOccurrence": {
+      "allOf": [{ "$ref": "#/$defs/statusWithBasis" }, { "properties": { "status": { "$ref": "#/$defs/occurrenceStatus" } } }]
+    },
+    "statusWithBasisAttribution": {
+      "allOf": [{ "$ref": "#/$defs/statusWithBasis" }, { "properties": { "status": { "$ref": "#/$defs/attributionStatus" } } }]
+    },
+    "statusWithBasisCausality": {
+      "allOf": [{ "$ref": "#/$defs/statusWithBasis" }, { "properties": { "status": { "$ref": "#/$defs/causalityStatus" } } }]
+    },
+    "statusWithBasisCompleteness": {
+      "allOf": [{ "$ref": "#/$defs/statusWithBasis" }, { "properties": { "status": { "enum": ["COMPLETE", "PARTIAL", "UNKNOWN", "NOT_APPLICABLE"] } } }]
+    },
+    "statusWithBasisSufficiency": {
+      "allOf": [{ "$ref": "#/$defs/statusWithBasis" }, { "properties": { "status": { "enum": ["SUFFICIENT", "INSUFFICIENT", "INADMISSIBLE", "STALE", "CONFLICTING", "PROFILE_INCOMPATIBLE", "UNKNOWN"] } } }]
+    },
+    "statusWithBasisFreshness": {
+      "allOf": [{ "$ref": "#/$defs/statusWithBasis" }, { "properties": { "status": { "enum": ["CURRENT", "STALE", "UNKNOWN", "NOT_APPLICABLE"] } } }]
+    },
+    "statusWithBasisDuplication": {
+      "allOf": [{ "$ref": "#/$defs/statusWithBasis" }, { "properties": { "status": { "enum": ["NONE_SUPPORTED", "POSSIBLE_DUPLICATE", "DUPLICATE_SUPPORTED", "DISTINCT_OCCURRENCES_SUPPORTED", "UNKNOWN", "NOT_APPLICABLE"] } } }]
+    },
+    "stageSettlement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stages", "selected_stage_id", "later_stage_policy"],
+      "properties": {
+        "stages": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/stage" } },
+        "selected_stage_id": { "type": "string", "minLength": 1 },
+        "later_stage_policy": { "enum": ["UNRESOLVED_UNLESS_SEPARATE_EVIDENCE", "NOT_APPLICABLE", "PROFILE_DEFINED"] }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_id", "predicate_id", "state", "independently_settleable", "basis_record_ids"],
+      "properties": {
+        "stage_id": { "type": "string", "minLength": 1 },
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "state": { "enum": ["SUPPORTED", "NOT_SUPPORTED", "UNRESOLVED", "CONFLICTING", "NOT_EVALUATED"] },
+        "independently_settleable": { "type": "boolean" },
+        "prerequisite_stage_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "basis_record_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "reason_codes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "evidenceAdmissibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "evidence_class", "status", "reason_codes", "observer_principal_id", "issuer_principal_id", "trust_root_id"],
+      "properties": {
+        "evidence_id": { "type": "string", "minLength": 1 },
+        "evidence_class": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["ADMISSIBLE", "INADMISSIBLE", "STALE", "WRONG_EFFECT_ID", "WRONG_ATTEMPT_ID", "REPLAYED", "CORRUPT", "INCOMPATIBLE_PROFILE", "UNKNOWN"] },
+        "reason_codes": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "observer_principal_id": { "type": "string", "minLength": 1 },
+        "issuer_principal_id": { "type": "string", "minLength": 1 },
+        "trust_root_id": { "type": "string", "minLength": 1 },
+        "covered_record_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "observerProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "observer_principal_id", "issuer_principal_id", "trust_root_id", "relationship", "operator_boundary", "process_boundary", "external_verifiability"],
+      "properties": {
+        "evidence_id": { "type": "string", "minLength": 1 },
+        "observer_principal_id": { "type": "string", "minLength": 1 },
+        "issuer_principal_id": { "type": "string", "minLength": 1 },
+        "trust_root_id": { "type": "string", "minLength": 1 },
+        "relationship": { "enum": ["SAME_PROCESS", "SAME_OPERATOR_DISTINCT_PROCESS", "SEPARATE_SERVICE_SAME_OPERATOR", "PROVIDER_ORIGINATED", "THIRD_PARTY", "SYNTHETIC_FIXTURE", "UNKNOWN_RELATIONSHIP"] },
+        "operator_boundary": { "type": "string", "minLength": 1 },
+        "process_boundary": { "type": "string", "minLength": 1 },
+        "external_verifiability": { "enum": ["CHECKABLE_FROM_SUPPLIED_MATERIAL", "DETACHED_MATERIAL_REQUIRED", "PRIVATE_STATE_REQUIRED", "UNKNOWN"] }
+      }
+    },
+    "bindingAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "dimension", "status", "binding_method", "bound_values"],
+      "properties": {
+        "evidence_id": { "type": "string", "minLength": 1 },
+        "dimension": { "enum": ["principal_id", "grant_id", "intent_id", "task_id", "delegation_id", "effect_id", "attempt_id", "observer_principal_id", "resource", "action", "recipient_or_counterparty", "provider", "external_identifier", "predicate_id", "event_time", "observation_time"] },
+        "status": { "enum": ["BOUND", "UNBOUND", "MISMATCHED", "AMBIGUOUS", "UNKNOWN"] },
+        "binding_method": { "type": "string", "minLength": 1 },
+        "bound_values": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "notes": { "type": "string" }
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["conflict_id", "evidence_ids", "propositions", "status", "resolution", "basis_record_ids"],
+      "properties": {
+        "conflict_id": { "type": "string", "minLength": 1 },
+        "evidence_ids": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "propositions": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 1 } },
+        "status": { "enum": ["UNRESOLVED", "SUPERSEDED", "PROFILE_PRECEDENCE", "REOPENED", "CONTRADICTORY"] },
+        "resolution": { "enum": ["PRESERVE_CONFLICT", "EXPLICIT_PRECEDENCE", "LATER_EVIDENCE_SUPERSEDES", "REOPEN_PRIOR_RESULT", "NONE"] },
+        "basis_record_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "duplicateDiagnostics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "effect_id", "attempt_ids", "evidence_ids", "reason_codes"],
+      "properties": {
+        "status": { "enum": ["NONE_SUPPORTED", "POSSIBLE_DUPLICATE", "DUPLICATE_SUPPORTED", "DISTINCT_OCCURRENCES_SUPPORTED", "UNKNOWN", "NOT_APPLICABLE"] },
+        "effect_id": { "type": "string", "minLength": 1 },
+        "attempt_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "evidence_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "provider_operation_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "reason_codes": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "evidenceAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["considered_evidence_ids", "admissibility", "observer_provenance", "bindings", "conflicts", "duplicate_diagnostics"],
+      "properties": {
+        "considered_evidence_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "admissibility": { "type": "array", "items": { "$ref": "#/$defs/evidenceAdmissibility" } },
+        "observer_provenance": { "type": "array", "items": { "$ref": "#/$defs/observerProvenance" } },
+        "bindings": { "type": "array", "items": { "$ref": "#/$defs/bindingAssessment" } },
+        "conflicts": { "type": "array", "items": { "$ref": "#/$defs/conflict" } },
+        "duplicate_diagnostics": { "$ref": "#/$defs/duplicateDiagnostics" }
+      }
+    },
+    "conclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall", "reason_codes", "scope", "statement"],
+      "properties": {
+        "overall": { "enum": ["EFFECT_SUPPORTED", "NON_OCCURRENCE_SUPPORTED", "PARTIAL_EFFECT", "CONFLICTING_EVIDENCE", "UNRESOLVED", "INADMISSIBLE_EVIDENCE", "STALE_EVIDENCE", "PROFILE_INCOMPATIBLE", "UNKNOWN", "POSSIBLE_DUPLICATE_EFFECT"] },
+        "reason_codes": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "scope": { "enum": ["TARGET_PREDICATE_ONLY", "TARGET_PREDICATE_AND_PROFILE_INTERVAL", "STAGE_ONLY", "NO_FACTUAL_CONCLUSION"] },
+        "statement": { "type": "string", "minLength": 1 }
+      }
+    },
+    "reopening": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "can_reopen", "finality_scope", "prior_result_ids", "trigger", "reason_codes"],
+      "properties": {
+        "status": { "enum": ["PROVISIONAL", "REOPENABLE", "FINAL_UNDER_PROFILE", "REOPENED", "NOT_FINAL"] },
+        "can_reopen": { "type": "boolean" },
+        "finality_scope": { "enum": ["PROFILE_ONLY", "NAMED_INTERVAL_AND_SCOPE", "NEVER_UNIVERSAL"] },
+        "prior_result_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "trigger": { "enum": ["NONE", "NEW_ADMISSIBLE_EVIDENCE", "CONTRADICTION", "FRESHNESS_REASSESSMENT", "PROFILE_CHANGE", "CORRUPTION_DISCOVERED", "BINDING_REASSESSMENT"] },
+        "reason_codes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_id", "severity", "code", "record_ids", "message"],
+      "properties": {
+        "finding_id": { "type": "string", "minLength": 1 },
+        "severity": { "enum": ["INFO", "WARNING", "ERROR", "UNRESOLVED"] },
+        "code": { "type": "string", "minLength": 1 },
+        "record_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "message": { "type": "string", "minLength": 1 }
+      }
+    },
+    "timeInterval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start", "end", "ordering"],
+      "properties": {
+        "start": { "type": "string", "format": "date-time" },
+        "end": { "type": "string", "format": "date-time" },
+        "ordering": { "enum": ["ORDERED", "OVERLAPPING", "INCOMPARABLE", "UNCERTAIN"] }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_digest", "canonicalization", "digest_algorithm"],
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
+        "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] }
+      }
+    }
+  }
+}

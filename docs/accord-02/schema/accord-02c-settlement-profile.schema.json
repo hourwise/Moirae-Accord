@@ -1,0 +1,418 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+  "title": "ACCORD-02C transport-neutral settlement and evidence profile",
+  "description": "Structural profile schema only. It declares evidence, binding, temporal, trust, negative-evidence, retry, and reopening assumptions; it does not prove source trustworthiness or implement settlement.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "profile_version",
+    "purpose",
+    "understood_evidence_dimensions",
+    "accepted_evidence_classes",
+    "identity_bindings",
+    "temporal_bindings",
+    "integrity",
+    "freshness",
+    "corroboration",
+    "observer_trust_assumptions",
+    "completeness",
+    "negative_evidence",
+    "causal_attribution",
+    "partial_effect",
+    "retry_and_duplicates",
+    "extension_policy",
+    "profile_compatibility",
+    "reopening_and_finality",
+    "authority_effect_orthogonality"
+  ],
+  "properties": {
+    "profile_id": { "type": "string", "pattern": "^urn:[^\\s]+$" },
+    "profile_version": { "type": "string", "minLength": 1 },
+    "purpose": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "understood_evidence_dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evidenceDimension" }
+    },
+    "accepted_evidence_classes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evidenceClass" }
+    },
+    "identity_bindings": { "$ref": "#/$defs/identityBindings" },
+    "temporal_bindings": { "$ref": "#/$defs/temporalBindings" },
+    "integrity": { "$ref": "#/$defs/integrity" },
+    "freshness": { "$ref": "#/$defs/freshness" },
+    "corroboration": { "$ref": "#/$defs/corroboration" },
+    "observer_trust_assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/trustAssumption" }
+    },
+    "completeness": { "$ref": "#/$defs/completeness" },
+    "negative_evidence": { "$ref": "#/$defs/negativeEvidence" },
+    "causal_attribution": { "$ref": "#/$defs/causalAttribution" },
+    "partial_effect": { "$ref": "#/$defs/partialEffect" },
+    "retry_and_duplicates": { "$ref": "#/$defs/retryAndDuplicates" },
+    "extension_policy": { "$ref": "#/$defs/extensionPolicy" },
+    "profile_compatibility": { "$ref": "#/$defs/profileCompatibility" },
+    "reopening_and_finality": { "$ref": "#/$defs/reopeningAndFinality" },
+    "authority_effect_orthogonality": { "$ref": "#/$defs/orthogonality" },
+    "integrity_metadata": { "$ref": "#/$defs/integrityMetadata" }
+  },
+  "$defs": {
+    "bindingName": {
+      "enum": [
+        "principal_id",
+        "grant_id",
+        "intent_id",
+        "task_id",
+        "delegation_id",
+        "effect_id",
+        "attempt_id",
+        "observer_principal_id",
+        "issuer_principal_id",
+        "resource",
+        "action",
+        "recipient_or_counterparty",
+        "provider",
+        "external_identifier",
+        "predicate_id"
+      ]
+    },
+    "timeName": {
+      "enum": [
+        "intent_time",
+        "task_time",
+        "derivation_time",
+        "admission_time",
+        "dispatch_time",
+        "provider_event_time",
+        "observation_time",
+        "evidence_issuance_time",
+        "verification_time",
+        "current_time",
+        "valid_interval",
+        "as_of"
+      ]
+    },
+    "evidenceClassName": {
+      "enum": [
+        "LOCAL_ATTEMPT_DISPATCH_RECORD",
+        "TRANSPORT_ACKNOWLEDGEMENT",
+        "PROVIDER_ACCEPTANCE_RECEIPT",
+        "PROVIDER_EFFECT_RECEIPT",
+        "TARGET_ACKNOWLEDGEMENT",
+        "FIRST_PARTY_OBSERVATION",
+        "INDEPENDENT_OBSERVATION",
+        "SIGNED_ATTESTED_ARTIFACT",
+        "EXTERNAL_STATE_SNAPSHOT",
+        "RECONCILIATION_RESULT",
+        "COMPLETE_NEGATIVE_LEDGER_QUERY",
+        "HUMAN_ASSERTION",
+        "DERIVED_EVIDENCE"
+      ]
+    },
+    "evidenceDimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "axis", "understood", "required_for"],
+      "properties": {
+        "name": {
+          "enum": [
+            "authority",
+            "occurrence",
+            "attribution",
+            "causal_attribution",
+            "completeness",
+            "freshness",
+            "integrity",
+            "observer_provenance",
+            "predicate_identity",
+            "temporal_order",
+            "duplication",
+            "partial_stage",
+            "profile_compatibility"
+          ]
+        },
+        "axis": { "enum": ["AUTHORITY", "FACTUAL_EFFECT", "CROSS_AXIS"] },
+        "understood": { "type": "boolean" },
+        "authority_bearing": { "type": "boolean" },
+        "required_for": {
+          "type": "array",
+          "items": { "enum": ["OCCURRENCE", "NON_OCCURRENCE", "ATTRIBUTION", "CAUSALITY", "PARTIAL_STAGE", "DUPLICATE_DIAGNOSTIC"] },
+          "uniqueItems": true
+        },
+        "semantic_extension_names": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
+    "evidenceClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class", "accepted", "supports", "does_not_prove", "required_bindings", "minimum_integrity"],
+      "properties": {
+        "class": { "$ref": "#/$defs/evidenceClassName" },
+        "accepted": { "type": "boolean" },
+        "supports": {
+          "type": "array",
+          "items": { "enum": ["ATTEMPT_RECORDED", "TRANSPORT_ACCEPTANCE", "PROVIDER_ACCEPTANCE", "OCCURRENCE", "NON_OCCURRENCE", "PARTIAL_STAGE", "ATTRIBUTION", "CAUSALITY", "CORROBORATION"] },
+          "uniqueItems": true
+        },
+        "does_not_prove": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "required_bindings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/bindingName" },
+          "uniqueItems": true
+        },
+        "minimum_integrity": {
+          "enum": ["NONE_DECLARED", "CONTENT_DIGEST", "SIGNED_ATTESTATION", "DETACHED_SIGNATURE", "TRANSPARENCY_LOG_PROOF"]
+        },
+        "accepted_observer_relationships": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/observerRelationship" },
+          "uniqueItems": true
+        },
+        "profile_local_notes": { "type": "string" }
+      }
+    },
+    "identityBindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_for_attributed_occurrence", "required_for_specific_attempt_causality", "wrong_binding_policy"],
+      "properties": {
+        "required_for_attributed_occurrence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/bindingName" },
+          "uniqueItems": true
+        },
+        "required_for_specific_attempt_causality": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/bindingName" },
+          "uniqueItems": true
+        },
+        "optional_bindings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/bindingName" },
+          "uniqueItems": true
+        },
+        "wrong_binding_policy": {
+          "enum": ["EXCLUDE_FROM_TARGET", "RETURN_INADMISSIBLE", "RETURN_UNKNOWN"]
+        },
+        "attempt_set_binding_policy": {
+          "enum": ["EXPLICIT_SET_ONLY", "ALLOW_PROFILE_DECLARED_MULTI_ATTEMPT", "NEVER_INFER"]
+        }
+      }
+    },
+    "temporalBindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_times", "event_observation_distinction", "clock_ordering", "unknown_order_policy", "late_observation_policy"],
+      "properties": {
+        "required_times": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/timeName" },
+          "uniqueItems": true
+        },
+        "event_observation_distinction": { "type": "boolean" },
+        "clock_ordering": { "enum": ["TRUSTED_PROFILE_CLOCK", "EVENT_ORDER_ONLY", "NO_CROSS_PROCESS_ORDER", "INTERVAL_ONLY"] },
+        "max_clock_skew_seconds": { "type": "integer", "minimum": 0 },
+        "unknown_order_policy": { "enum": ["RETURN_UNKNOWN", "RETURN_UNSUPPORTED", "PRESERVE_INTERVAL"] },
+        "late_observation_policy": { "enum": ["ALLOW_IF_EVENT_TIME_FRESH", "ALLOW_AS_STALE_ONLY", "REJECT_FOR_CURRENT_STATE"] },
+        "out_of_order_policy": { "enum": ["PRESERVE_AND_COMPARE", "RETURN_UNKNOWN", "RETURN_CONFLICT"] }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "digest_algorithm", "accepted_mechanisms", "unsupported_mechanism_policy", "signature_scope"],
+      "properties": {
+        "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
+        "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] },
+        "accepted_mechanisms": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["CONTENT_DIGEST", "DETACHED_SIGNATURE", "SIGNED_ATTESTATION", "TRANSPARENCY_LOG_PROOF", "HASH_CHAIN", "NONE_DECLARED"] },
+          "uniqueItems": true
+        },
+        "unsupported_mechanism_policy": { "enum": ["RETURN_UNSUPPORTED", "RETURN_UNKNOWN", "REJECT_EVIDENCE"] },
+        "signature_scope": { "enum": ["DECLARED_COVERAGE_ONLY", "COVERAGE_AND_BINDINGS", "PROFILE_DEFINED"] },
+        "content_digest_required": { "type": "boolean" }
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "stale_result", "future_skew_policy", "freshness_applies_to"],
+      "properties": {
+        "mode": { "enum": ["MAX_AGE", "VALIDITY_INTERVAL", "PROFILE_DEFINED", "NO_CURRENT_STATE_CLAIM"] },
+        "max_age_seconds": { "type": "integer", "minimum": 0 },
+        "max_clock_skew_seconds": { "type": "integer", "minimum": 0 },
+        "stale_result": { "enum": ["STALE_EVIDENCE", "UNKNOWN", "INADMISSIBLE_EVIDENCE"] },
+        "future_skew_policy": { "enum": ["RETURN_UNKNOWN", "REJECT_EVIDENCE", "ALLOW_WITH_DIAGNOSTIC"] },
+        "freshness_applies_to": {
+          "type": "array",
+          "items": { "enum": ["EVENT_TIME", "OBSERVATION_TIME", "EVIDENCE_ISSUANCE_TIME", "AS_OF", "VERIFICATION_TIME"] },
+          "uniqueItems": true
+        },
+        "late_event_time_allowed": { "type": "boolean" }
+      }
+    },
+    "corroboration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["minimum_sources", "require_same_effect_and_predicate", "require_declared_relationship", "independence_policy", "same_artifact_policy"],
+      "properties": {
+        "minimum_sources": { "type": "integer", "minimum": 1 },
+        "minimum_distinct_observers": { "type": "integer", "minimum": 1 },
+        "minimum_distinct_trust_roots": { "type": "integer", "minimum": 1 },
+        "minimum_distinct_operators": { "type": "integer", "minimum": 1 },
+        "require_same_effect_and_predicate": { "type": "boolean" },
+        "require_same_attempt": { "type": "boolean" },
+        "require_declared_relationship": { "type": "boolean" },
+        "independence_policy": { "enum": ["NO_AUTOMATIC_INDEPENDENCE", "REQUIRE_DISTINCT_OPERATOR", "REQUIRE_DISTINCT_ROOT_AND_OPERATOR", "PROFILE_DEFINED"] },
+        "same_artifact_policy": { "enum": ["DO_NOT_COUNT_TWICE", "RETURN_DUPLICATE_DIAGNOSTIC"] }
+      }
+    },
+    "observerRelationship": {
+      "enum": ["SAME_PROCESS", "SAME_OPERATOR_DISTINCT_PROCESS", "SEPARATE_SERVICE_SAME_OPERATOR", "PROVIDER_ORIGINATED", "THIRD_PARTY", "SYNTHETIC_FIXTURE", "UNKNOWN_RELATIONSHIP"]
+    },
+    "trustAssumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assumption_id", "statement", "applies_to", "must_be_disclosed"],
+      "properties": {
+        "assumption_id": { "type": "string", "minLength": 1 },
+        "statement": { "type": "string", "minLength": 1 },
+        "applies_to": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1, "uniqueItems": true },
+        "trust_root_id": { "type": "string", "minLength": 1 },
+        "must_be_disclosed": { "type": "boolean" }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default_assumption", "complete_sources", "scope_binding", "retention_requirement", "partial_source_result"],
+      "properties": {
+        "default_assumption": { "enum": ["NO_COMPLETENESS_ASSUMED", "PROFILE_DEFINED"] },
+        "complete_sources": { "type": "array", "items": { "$ref": "#/$defs/evidenceClassName" }, "uniqueItems": true },
+        "scope_binding": { "enum": ["EFFECT_PREDICATE_RESOURCE_TIME", "PROFILE_DEFINED", "NO_NEGATIVE_CONCLUSION"] },
+        "retention_requirement": { "enum": ["MUST_COVER_RELEVANT_INTERVAL", "MUST_BE_DECLARED", "UNKNOWN_RETENTION_IS_INSUFFICIENT"] },
+        "partial_source_result": { "enum": ["UNKNOWN", "INSUFFICIENT_EVIDENCE", "STALE_EVIDENCE"] }
+      }
+    },
+    "negativeEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["silence_policy", "timeout_policy", "allowed_complete_source_classes", "complete_query_requirements", "stale_negative_policy", "non_occurrence_scope"],
+      "properties": {
+        "silence_policy": { "enum": ["RETURN_UNKNOWN", "RETURN_INSUFFICIENT_EVIDENCE"] },
+        "timeout_policy": { "enum": ["RETURN_UNKNOWN", "RETURN_INSUFFICIENT_EVIDENCE"] },
+        "allowed_complete_source_classes": { "type": "array", "items": { "$ref": "#/$defs/evidenceClassName" }, "uniqueItems": true },
+        "complete_query_requirements": { "type": "array", "minItems": 1, "items": { "enum": ["COMPLETE_STATE_SPACE", "IDENTITY_BOUND", "PREDICATE_BOUND", "RESOURCE_BOUND", "RECIPIENT_BOUND", "INTERVAL_BOUND", "RETENTION_DECLARED", "CONSISTENCY_DECLARED", "FRESH_AT_VERIFICATION", "NO_CONTRADICTORY_EVIDENCE"] }, "uniqueItems": true },
+        "stale_negative_policy": { "enum": ["RETURN_STALE_EVIDENCE", "RETURN_UNKNOWN", "REJECT_NEGATIVE_CONCLUSION"] },
+        "non_occurrence_scope": { "enum": ["PROFILE_BOUND_SCOPE_ONLY", "NEVER_CONCLUDE", "PROFILE_DEFINED"] },
+        "timeout_is_non_occurrence": { "const": false }
+      }
+    },
+    "causalAttribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["levels", "minimum_for_effect_occurrence", "minimum_for_specific_attempt", "unbound_state_policy"],
+      "properties": {
+        "levels": { "type": "array", "minItems": 1, "items": { "enum": ["EXTERNAL_STATE_OBSERVED", "EFFECT_OCCURRENCE_SUPPORTED", "EFFECT_BOUND", "CAUSED_BY_ONE_OR_MORE_ATTEMPTS", "SPECIFIC_ATTEMPT_CAUSED"] }, "uniqueItems": true },
+        "minimum_for_effect_occurrence": { "enum": ["EXTERNAL_STATE_OBSERVED", "EFFECT_OCCURRENCE_SUPPORTED", "EFFECT_BOUND"] },
+        "minimum_for_specific_attempt": { "enum": ["CAUSED_BY_ONE_OR_MORE_ATTEMPTS", "SPECIFIC_ATTEMPT_CAUSED"] },
+        "unbound_state_policy": { "enum": ["OCCURRENCE_WITH_ATTRIBUTION_UNKNOWN", "EXTERNAL_STATE_ONLY", "RETURN_UNKNOWN"] }
+      }
+    },
+    "partialEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_policy", "stage_settlement", "later_stage_requires_new_evidence", "partial_result"],
+      "properties": {
+        "stage_policy": { "enum": ["EXPLICIT_PREDICATE_PER_STAGE", "PROFILE_DEFINED"] },
+        "stage_settlement": { "enum": ["INDEPENDENT_WHEN_BOUND", "PREREQUISITE_CHAIN", "ATOMIC_ONLY"] },
+        "later_stage_requires_new_evidence": { "type": "boolean" },
+        "partial_result": { "enum": ["PARTIAL_EFFECT", "UNKNOWN", "INADMISSIBLE_EVIDENCE"] },
+        "stage_order_field": { "type": "string", "minLength": 1 }
+      }
+    },
+    "retryAndDuplicates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effect_id_retry_rule", "attempt_id_rule", "idempotency_states", "duplicate_outcomes", "attempt_count_policy", "exactly_once_policy"],
+      "properties": {
+        "effect_id_retry_rule": { "const": "REUSE_FOR_LOGICAL_EFFECT" },
+        "attempt_id_rule": { "const": "UNIQUE_PER_ATTEMPT" },
+        "idempotency_states": { "type": "array", "items": { "enum": ["KNOWN_BOUND", "KNOWN_UNBOUND", "UNKNOWN", "EXPLICITLY_ABSENT"] }, "uniqueItems": true },
+        "duplicate_outcomes": { "type": "array", "items": { "enum": ["NONE_SUPPORTED", "POSSIBLE_DUPLICATE", "DUPLICATE_SUPPORTED", "DISTINCT_OCCURRENCES_SUPPORTED", "UNKNOWN"] }, "uniqueItems": true },
+        "attempt_count_policy": { "const": "DO_NOT_INFER_LOGICAL_MULTIPLICITY" },
+        "exactly_once_policy": { "enum": ["NEVER_INFER_WITHOUT_PROFILE_EVIDENCE", "PROFILE_DEFINED"] },
+        "provider_key_binding_required_for_deduplication": { "type": "boolean" }
+      }
+    },
+    "extensionPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["understood_settlement_extensions", "unknown_settlement_bearing", "unknown_descriptive", "preserve_unknown_value"],
+      "properties": {
+        "understood_settlement_extensions": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "unknown_settlement_bearing": { "enum": ["RETURN_UNKNOWN", "RETURN_UNSUPPORTED", "REJECT_INPUT"] },
+        "unknown_descriptive": { "enum": ["PRESERVE_AND_IGNORE", "RETURN_DIAGNOSTIC", "REJECT_INPUT"] },
+        "preserve_unknown_value": { "type": "boolean" }
+      }
+    },
+    "profileCompatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id_binding", "compatible_profile_ids", "incompatible_outcome", "common_interpretation_required"],
+      "properties": {
+        "profile_id_binding": { "enum": ["EXACT_PROFILE_ID", "DECLARED_COMPATIBILITY_SET", "PROFILE_DEFINED"] },
+        "compatible_profile_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "incompatible_outcome": { "enum": ["PROFILE_INCOMPATIBLE", "UNKNOWN", "UNSUPPORTED"] },
+        "common_interpretation_required": { "type": "boolean" }
+      }
+    },
+    "reopeningAndFinality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default_finality", "later_evidence", "reopen_reasons", "finality_scope"],
+      "properties": {
+        "default_finality": { "enum": ["PROVISIONAL", "REOPENABLE", "FINAL_UNDER_PROFILE"] },
+        "later_evidence": { "enum": ["MAY_STRENGTHEN_WEAKEN_SUPERSEDE_CONTRADICT_REOPEN", "PROFILE_DEFINED"] },
+        "reopen_reasons": { "type": "array", "minItems": 1, "items": { "enum": ["NEW_ADMISSIBLE_EVIDENCE", "CONTRADICTION", "FRESHNESS_REASSESSMENT", "PROFILE_CHANGE", "CORRUPTION_DISCOVERED", "BINDING_REASSESSMENT"] }, "uniqueItems": true },
+        "finality_scope": { "enum": ["PROFILE_ONLY", "NAMED_INTERVAL_AND_SCOPE", "NEVER_UNIVERSAL"] }
+      }
+    },
+    "orthogonality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["separate_axes", "forbidden_inferences", "allowed_combinations"],
+      "properties": {
+        "separate_axes": { "const": true },
+        "forbidden_inferences": { "type": "array", "minItems": 2, "items": { "enum": ["INVALID_AUTHORITY_DOES_NOT_IMPLY_NO_EFFECT", "AUTHORIZED_DOES_NOT_IMPLY_EFFECT", "EFFECT_DOES_NOT_IMPLY_AUTHORITY", "AUTHORITY_DOES_NOT_IMPLY_CAUSATION", "DISPATCH_DOES_NOT_IMPLY_EFFECT", "TRANSPORT_ACK_DOES_NOT_IMPLY_DOWNSTREAM_EFFECT", "OBSERVED_STATE_DOES_NOT_IMPLY_SPECIFIC_CAUSE"] }, "uniqueItems": true },
+        "allowed_combinations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "integrityMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "profile_issuer": { "type": "string", "minLength": 1 },
+        "issued_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}
