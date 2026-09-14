@@ -14,7 +14,7 @@
       "description": "A provider-attested receipt binds a single attempt to a logical effect and echoed idempotency key.",
       "bundle": {
         "bundle_id": "urn:accord:example:bundle-001",
-        "bundle_schema_version": "0.1",
+        "bundle_schema_version": "0.2",
         "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
         "records": [
           {
@@ -184,7 +184,7 @@
       "description": "Provider acceptance is observed, but occurrence and attribution evidence are not yet sufficient.",
       "bundle": {
         "bundle_id": "urn:accord:example:bundle-002",
-        "bundle_schema_version": "0.1",
+        "bundle_schema_version": "0.2",
         "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
         "records": [
           {
@@ -321,7 +321,7 @@
       "description": "A qualified provider-state read finds no effect at a stated boundary.",
       "bundle": {
         "bundle_id": "urn:accord:example:bundle-003",
-        "bundle_schema_version": "0.1",
+        "bundle_schema_version": "0.2",
         "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
         "records": [
           {
@@ -469,7 +469,7 @@
       "description": "A child reports success but supplies only a delegate assertion.",
       "bundle": {
         "bundle_id": "urn:accord:example:bundle-004",
-        "bundle_schema_version": "0.1",
+        "bundle_schema_version": "0.2",
         "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
         "records": [
           {
@@ -541,7 +541,7 @@
       "description": "Two attempts share one logical effect and idempotency-key digest but retain distinct attempt identities.",
       "bundle": {
         "bundle_id": "urn:accord:example:bundle-005",
-        "bundle_schema_version": "0.1",
+        "bundle_schema_version": "0.2",
         "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
         "records": [
           {

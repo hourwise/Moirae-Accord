@@ -317,3 +317,31 @@ The final report may say:
 
 No conclusion class is assigned in ACCORD-02D itself; this slice only freezes
 how a later experiment may make the comparison.
+
+## 14. Frozen normalization boundary
+
+Scoring MUST preserve these stages:
+
+```text
+RAW ARM OUTPUT
+      ↓
+FROZEN NORMALIZATION PROFILE
+      ↓
+NORMALIZED CLAIM
+      ↓
+COMPARE WITH SCORER TRUTH
+      ↓
+SCORE
+```
+
+Normalization may interpret only the arm's own raw output under a declared
+adapter profile. It MUST NOT inspect hidden oracle fields, expected outcomes,
+Accord-only settlement labels, or scorer categorical-failure decisions. The
+score record is scorer-only and may contain truth, but it is never an arm input
+and is never referenced from the public scenario catalog.
+
+The R2 result and score schemas preserve raw output, normalized interpretation,
+native Accord results, and scorer truth as separate references. Cross-run,
+cross-arm, and proposition mismatches are rejected under the
+[`accord-02r2-validation-rules.json`](./accord-02r2-validation-rules.json)
+contract.

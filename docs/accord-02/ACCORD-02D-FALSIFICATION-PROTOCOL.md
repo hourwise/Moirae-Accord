@@ -436,3 +436,23 @@ schema, scenario catalog, and future-run result schema:
 - [accord-02d-arm-input-manifest.schema.json](./schema/accord-02d-arm-input-manifest.schema.json)
 - [accord-02d-result-record.schema.json](./schema/accord-02d-result-record.schema.json)
 - [accord-02d-score-record.schema.json](./schema/accord-02d-score-record.schema.json)
+
+## 16. R2 admission boundary
+
+The public scenario catalog is orchestration data only. It contains conditions
+needed to instantiate a case, such as a fault or delegate behavior, but it
+does not contain a scorer expectation locator. Scorer discovery is external
+scorer configuration and joins expectation material to the opaque `scenario_id`
+only on the scorer side.
+
+Before a future run starts, the selected arm manifest MUST pass the
+discriminated arm-input schema and the normative ACCORD-02R2 validation rules.
+The manifest contains typed source references and declared projections, not
+arbitrary nested experiment-controlled values. The complete scenario catalog,
+scorer configuration, expectation catalog, oracle, and score record are never
+arm inputs.
+
+The required public/scorer artifact graph and typed source boundary are frozen
+in [ACCORD-02D-EXPERIMENT-DESIGN.md](./ACCORD-02D-EXPERIMENT-DESIGN.md),
+[ACCORD-02R2-NORMATIVE-VALIDATION-CONTRACT.md](./ACCORD-02R2-NORMATIVE-VALIDATION-CONTRACT.md),
+and [accord-02r2-validation-rules.json](./accord-02r2-validation-rules.json).

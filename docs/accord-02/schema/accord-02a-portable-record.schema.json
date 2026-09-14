@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:moirae:accord-02a:schema:portable-record:0.1",
+  "$id": "urn:moirae:accord-02a:schema:portable-record:0.2",
   "title": "ACCORD-02A portable linked-record bundle",
   "description": "Structural schema only. It does not evaluate Ananke policy, signatures, provider state, or settlement semantics.",
   "type": "object",
@@ -8,7 +8,7 @@
   "required": ["bundle_id", "bundle_schema_version", "profile", "records"],
   "properties": {
     "bundle_id": { "type": "string", "minLength": 1 },
-    "bundle_schema_version": { "const": "0.1" },
+    "bundle_schema_version": { "const": "0.2" },
     "profile": { "type": "string", "minLength": 1 },
     "bundle_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
     "records": {
@@ -163,6 +163,7 @@
             "record_type": { "const": "effect_attempt" },
             "attempt_id": { "type": "string", "minLength": 1 },
             "effect_id": { "type": "string", "minLength": 1 },
+            "proposition_ref": { "$ref": "#/$defs/propositionReference" },
             "task_id": { "type": "string", "minLength": 1 },
             "authority_grant_id": { "type": "string", "minLength": 1 },
             "action_descriptor_hash": { "type": "string", "minLength": 1 },
@@ -184,6 +185,7 @@
             "record_type": { "const": "effect_observation" },
             "observation_id": { "type": "string", "minLength": 1 },
             "effect_id": { "type": "string", "minLength": 1 },
+            "proposition_ref": { "$ref": "#/$defs/propositionReference" },
             "attempt_id": { "type": "string" },
             "observer_principal_id": { "type": "string", "minLength": 1 },
             "observation_kind": { "type": "string", "minLength": 1 },
@@ -205,6 +207,7 @@
             "record_type": { "const": "evidence_artifact" },
             "evidence_id": { "type": "string", "minLength": 1 },
             "evidence_class": { "type": "string", "minLength": 1 },
+            "proposition_ref": { "$ref": "#/$defs/propositionReference" },
             "observer_principal_id": { "type": "string", "minLength": 1 },
             "trust_root_id": { "type": "string", "minLength": 1 },
             "coverage": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
@@ -261,11 +264,24 @@
             "result_id": { "type": "string", "minLength": 1 },
             "verifier_run_id": { "type": "string", "minLength": 1 },
             "target_refs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "proposition_ref": { "$ref": "#/$defs/propositionReference" },
             "settlement": { "type": "object" }
           },
-          "required": ["result_id", "verifier_run_id", "target_refs", "settlement"]
+          "required": ["result_id", "verifier_run_id", "target_refs", "proposition_ref", "settlement"]
         }
       ]
+    },
+    "propositionReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "proposition_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "effect_proposition" },
+        "proposition_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "const": "urn:moirae:accord-02r2:effect-proposition" },
+        "schema_version": { "const": "0.1" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
     }
   }
 }

@@ -1,0 +1,307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r2:validation-rules:0.1",
+  "title": "ACCORD-02R2 normative cross-record validation rules",
+  "version": "0.1",
+  "description": "Deterministic rules for relationships that JSON Schema cannot establish across separately supplied records. These rules are normative specification, not executable validation code.",
+  "rule_families": ["ORACLE_BOUNDARY", "ARM_ISOLATION", "RAW_OUTPUT", "PROJECTION", "LINEAGE", "PROPOSITION", "SCORE_SEPARATION"],
+  "rules": [
+    {
+      "rule_id": "ORC-001",
+      "category": "ORACLE_BOUNDARY",
+      "inputs": ["public scenario catalog", "system-under-test input manifests"],
+      "condition": { "operator": "contains_no_reference", "forbidden_reference_kinds": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD"], "forbidden_locator_fields": ["scorer_expectation_catalog_ref", "oracle_ref", "score_record_ref"] },
+      "failure_code": "ACCORD-02R2-ORACLE-REFERENCE",
+      "severity": "BLOCKING",
+      "required_for": ["structural admission", "experiment-run admission", "scoring admission"]
+    },
+    {
+      "rule_id": "ORC-002",
+      "category": "ORACLE_BOUNDARY",
+      "inputs": ["scorer configuration", "public scenario catalog", "arm manifests"],
+      "condition": { "operator": "one_way_join", "allowed": "scorer expectation -> scenario_id", "forbidden": ["scenario -> scorer expectation locator", "arm manifest -> scorer expectation locator"] },
+      "failure_code": "ACCORD-02R2-ORACLE-REVERSE-JOIN",
+      "severity": "BLOCKING",
+      "required_for": ["experiment-run admission", "scoring admission"]
+    },
+    {
+      "rule_id": "ORC-003",
+      "category": "ORACLE_BOUNDARY",
+      "inputs": ["scenario_id", "fixture identity", "timing configuration"],
+      "condition": { "operator": "opaque_with_respect_to", "field": "scenario_id", "forbidden_semantics": ["expected occurrence", "expected authority relation", "expected categorical failure", "expected delegate honesty"] },
+      "failure_code": "ACCORD-02R2-OPAQUE-SCENARIO-ID",
+      "severity": "MAJOR",
+      "required_for": ["experiment-run admission"]
+    },
+    {
+      "rule_id": "ARM-001",
+      "category": "ARM_ISOLATION",
+      "inputs": ["arm input manifest"],
+      "condition": { "operator": "discriminated_arm_shape", "discriminator": "arm_id", "required": true },
+      "failure_code": "ACCORD-02R2-ARM-DISCRIMINATOR",
+      "severity": "BLOCKING",
+      "required_for": ["structural admission"]
+    },
+    {
+      "rule_id": "ARM-002",
+      "category": "ARM_ISOLATION",
+      "inputs": ["arm_id", "input_profile_id", "arm input profile catalog"],
+      "condition": { "operator": "profile_pair_matches", "by": "arm_id", "profile_id_field": "input_profile_id" },
+      "failure_code": "ACCORD-02R2-ARM-PROFILE-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": ["structural admission", "experiment-run admission"]
+    },
+    {
+      "rule_id": "ARM-003",
+      "category": "ARM_ISOLATION",
+      "inputs": ["arm source references", "arm input profile"],
+      "condition": { "operator": "each_source_type_in", "set": "profile.allowed_source_types", "and_not_in": "profile.forbidden_source_types" },
+      "failure_code": "ACCORD-02R2-SOURCE-TYPE-NOT-ALLOWED",
+      "severity": "BLOCKING",
+      "required_for": ["experiment-run admission"]
+    },
+    {
+      "rule_id": "ARM-004",
+      "category": "ARM_ISOLATION",
+      "inputs": ["source_type", "source_record_ref.record_type"],
+      "condition": { "operator": "source_type_record_type_pair_matches", "pair_table": { "DURABLE_TASK_STATE": ["TASK_STATE"], "ATTEMPT_STATE": ["ATTEMPT"], "EXECUTOR_STATE": ["EXECUTOR_STATE"], "ADMISSION_STATE": ["ADMISSION_STATE"], "DELEGATE_REPORT": ["DELEGATE_REPORT"], "PROVIDER_STATE_READ": ["PROVIDER_STATE_READ"], "RECONCILIATION_RESULT": ["RECONCILIATION_RESULT"], "CLASSIFIER_FEATURE": ["CLASSIFIER_FEATURE"], "PORTABLE_RECORD_BUNDLE": ["PORTABLE_BUNDLE"], "AUTHORITY_PROFILE": ["AUTHORITY_PROFILE"], "SETTLEMENT_PROFILE": ["SETTLEMENT_PROFILE"], "TRUST_ROOT_PROFILE": ["TRUST_ROOT_PROFILE"], "DETACHED_EVIDENCE": ["DETACHED_EVIDENCE"] }, "schema_id_must_be_profile_declared": true, "schema_version_must_match": true },
+      "failure_code": "ACCORD-02R2-SOURCE-RECORD-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": ["structural admission", "experiment-run admission"]
+    },
+    {
+      "rule_id": "ARM-005",
+      "category": "ARM_ISOLATION",
+      "inputs": ["arm input manifest extensions", "source projections"],
+      "condition": { "operator": "no_semantic_extension_bag", "allowed": ["closed source reference", "declared projection fields"], "forbidden": ["oracle fields", "expected-result fields", "unrestricted metadata interpreted as evidence"] },
+      "failure_code": "ACCORD-02R2-ARM-EXTENSION-SMUGGLING",
+      "severity": "BLOCKING",
+      "required_for": ["structural admission", "experiment-run admission"]
+    },
+    {
+      "rule_id": "ARM-006",
+      "category": "ARM_ISOLATION",
+      "inputs": ["ARM-C classifier feature references", "ARM-B-visible source set"],
+      "condition": { "operator": "feature_sources_subset_of", "set": "ARM-B sources plus declared derived features", "forbidden": ["ACCORD settlement result", "verifier projection", "authority answer", "scorer truth"] },
+      "failure_code": "ACCORD-02R2-CLASSIFIER-SOURCE-LEAK",
+      "severity": "BLOCKING",
+      "required_for": ["experiment-run admission"]
+    },
+    {
+      "rule_id": "ARM-007",
+      "category": "ARM_ISOLATION",
+      "inputs": ["arm-visible portable record extensions", "active record/evidence profile"],
+      "condition": { "operator": "extension_classification_required", "allowed_classes": ["NON_SEMANTIC_OPAQUE", "PROFILE_DECLARED", "EVIDENCE_BEARING"], "forbidden_semantics": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "EXPECTED_OUTCOME", "POST_RUN_ADJUDICATION"], "profile_declared_or_evidence_bearing_requires": "active profile namespace or supplied evidence binding" },
+      "failure_code": "ACCORD-02R2-EXTENSION-SEMANTIC-LEAK",
+      "severity": "BLOCKING",
+      "required_for": ["experiment-run admission", "verifier admission"]
+    },
+    {
+      "rule_id": "RAW-001",
+      "category": "RAW_OUTPUT",
+      "inputs": ["raw arm output"],
+      "condition": { "operator": "closed_envelope", "required": ["run_id", "arm_id", "output_type", "payload_schema_id", "payload_digest", "captured_at", "untrusted_system_output"] },
+      "failure_code": "ACCORD-02R2-RAW-ENVELOPE",
+      "severity": "MAJOR",
+      "required_for": ["structural admission", "scoring admission"]
+    },
+    {
+      "rule_id": "RAW-002",
+      "category": "RAW_OUTPUT",
+      "inputs": ["raw arm output"],
+      "condition": { "operator": "exactly_one_of", "fields": ["payload", "payload_ref"] },
+      "failure_code": "ACCORD-02R2-RAW-PAYLOAD-MISSING",
+      "severity": "MAJOR",
+      "required_for": ["scoring admission"]
+    },
+    {
+      "rule_id": "RAW-003",
+      "category": "RAW_OUTPUT",
+      "inputs": ["raw arm output", "other arm inputs"],
+      "condition": { "operator": "not_forwarded_as_input", "raw_output_is": "untrusted_system_output" },
+      "failure_code": "ACCORD-02R2-RAW-CROSS-ARM-FORWARD",
+      "severity": "BLOCKING",
+      "required_for": ["experiment-run admission"]
+    },
+    {
+      "rule_id": "PROJ-001",
+      "category": "PROJECTION",
+      "inputs": ["A verifier projection", "native C settlement result", "named mapping profile", "canonical proposition"],
+      "condition": { "operator": "projection_requires", "kinds": ["VERIFIED", "CORROBORATED", "NO_EFFECT_OBSERVED", "UNKNOWN_PENDING", "UNKNOWN_TERMINAL"], "references": ["native_result_ref", "projection_profile_ref", "proposition_ref"] },
+      "failure_code": "ACCORD-02R2-PROJECTION-LINEAGE-MISSING",
+      "severity": "MAJOR",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "PROJ-002",
+      "category": "PROJECTION",
+      "inputs": ["native C result", "NO_EFFECT_OBSERVED projection"],
+      "condition": { "operator": "complete_negative_required_for", "projection": "NON_OCCURRENCE_SUPPORTED", "requirements": ["identity", "predicate", "stage", "target", "resource_or_applicability", "recipient_or_applicability", "interval", "retention", "freshness", "read_semantics"] },
+      "failure_code": "ACCORD-02R2-NEGATIVE-PROJECTION-UNSUPPORTED",
+      "severity": "MAJOR",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "PROJ-003",
+      "category": "PROJECTION",
+      "inputs": ["native C result", "A projection"],
+      "condition": { "operator": "projection_does_not_add", "dimensions": ["attribution", "causality", "exactly_once", "authority_validity", "later_stage", "universal_truth"] },
+      "failure_code": "ACCORD-02R2-PROJECTION-STRENGTHENING",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "PROJ-004",
+      "category": "PROJECTION",
+      "inputs": ["REJECTED verifier disposition"],
+      "condition": { "operator": "does_not_imply", "dimensions": ["NON_OCCURRENCE_SUPPORTED", "NO_EFFECT", "AUTHORIZED"] },
+      "failure_code": "ACCORD-02R2-REJECTED-HISTORY-REWRITE",
+      "severity": "MAJOR",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "LIN-001",
+      "category": "LINEAGE",
+      "inputs": ["typed reference", "supplied validation bundle"],
+      "condition": { "operator": "resolves_exactly_once", "by": ["record_type", "typed_id", "schema_id", "schema_version"] },
+      "failure_code": "ACCORD-02R2-REFERENCE-MISSING-OR-AMBIGUOUS",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission", "experiment-run admission", "scoring admission"]
+    },
+    {
+      "rule_id": "LIN-002",
+      "category": "LINEAGE",
+      "inputs": ["supplied validation bundle"],
+      "condition": { "operator": "no_duplicate_normative_ids", "scope": "same record_type and schema_id" },
+      "failure_code": "ACCORD-02R2-DUPLICATE-NORMATIVE-ID",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission", "experiment-run admission", "scoring admission"]
+    },
+    {
+      "rule_id": "LIN-003",
+      "category": "LINEAGE",
+      "inputs": ["experiment result", "experiment run", "verifier result", "verifier run"],
+      "condition": { "operator": "same_run_chain", "links": ["result.experiment_run_ref", "verifier_result.verifier_run_ref", "verifier_run.experiment_run_ref"] },
+      "failure_code": "ACCORD-02R2-FOREIGN-VERIFIER-RUN",
+      "severity": "BLOCKING",
+      "required_for": ["scoring admission"]
+    },
+    {
+      "rule_id": "LIN-004",
+      "category": "LINEAGE",
+      "inputs": ["experiment run", "score record", "result record"],
+      "condition": { "operator": "equal", "fields": ["experiment_run.scenario_id", "score_record.scenario_id", "result_record.scenario_id"] },
+      "failure_code": "ACCORD-02R2-SCENARIO-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": ["scoring admission"]
+    },
+    {
+      "rule_id": "LIN-005",
+      "category": "LINEAGE",
+      "inputs": ["experiment run", "score record", "result record"],
+      "condition": { "operator": "equal", "fields": ["assigned_arm", "score_record.arm_id", "result_record.arm_id"] },
+      "failure_code": "ACCORD-02R2-ARM-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": ["scoring admission"]
+    },
+    {
+      "rule_id": "LIN-006",
+      "category": "LINEAGE",
+      "inputs": ["settlement result", "experiment proposition", "result record"],
+      "condition": { "operator": "same_proposition", "fields": ["settlement.proposition_ref", "result.proposition_ref", "proposition.proposition_id"] },
+      "failure_code": "ACCORD-02R2-PROPOSITION-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission", "scoring admission"]
+    },
+    {
+      "rule_id": "LIN-007",
+      "category": "LINEAGE",
+      "inputs": ["all typed references"],
+      "condition": { "operator": "reject_foreign_record", "when": "resolved record is valid but not in the current run/effect/proposition scope" },
+      "failure_code": "ACCORD-02R2-FOREIGN-RESULT",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission", "scoring admission"]
+    },
+    {
+      "rule_id": "LIN-008",
+      "category": "LINEAGE",
+      "inputs": ["provider_operation_id", "transport_call_id", "Accord semantic references"],
+      "condition": { "operator": "type_identity_not_substitutable", "textual_equality_is_not_identity": true },
+      "failure_code": "ACCORD-02R2-EXTERNAL-ID-SUBSTITUTION",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission", "experiment-run admission"]
+    },
+    {
+      "rule_id": "PROP-001",
+      "category": "PROPOSITION",
+      "inputs": ["proposition_ref", "supplied proposition records"],
+      "condition": { "operator": "resolves_exactly_once", "record_type": "effect_proposition" },
+      "failure_code": "ACCORD-02R2-PROPOSITION-REFERENCE",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission", "experiment-run admission", "scoring admission"]
+    },
+    {
+      "rule_id": "PROP-002",
+      "category": "PROPOSITION",
+      "inputs": ["evidence", "observation", "settlement result", "verifier projection"],
+      "condition": { "operator": "same_proposition", "all_settlement_relevant_references": true },
+      "failure_code": "ACCORD-02R2-PROPOSITION-CROSS-LINK-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "PROP-003",
+      "category": "PROPOSITION",
+      "inputs": ["denormalized effect/predicate/stage fields", "canonical proposition"],
+      "condition": { "operator": "match_or_omit", "duplicate_fields_must": "equal canonical descriptor or be absent" },
+      "failure_code": "ACCORD-02R2-PROPOSITION-DUPLICATE-MISMATCH",
+      "severity": "MAJOR",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "PROP-004",
+      "category": "PROPOSITION",
+      "inputs": ["binding slots", "active proposition/profile"],
+      "condition": { "operator": "unknown_or_not_applicable_guarded", "unknown_cannot_satisfy_positive_binding": true, "not_applicable_requires_profile": true },
+      "failure_code": "ACCORD-02R2-BINDING-STATUS-INVALID",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "PROP-005",
+      "category": "PROPOSITION",
+      "inputs": ["attempt attribution", "attempt record", "native C result"],
+      "condition": { "operator": "specific_attempt_claim_requires", "references": ["attempt_id", "same proposition context", "native attribution support"] },
+      "failure_code": "ACCORD-02R2-ATTEMPT-ATTRIBUTION-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": ["verifier admission"]
+    },
+    {
+      "rule_id": "SCORE-001",
+      "category": "SCORE_SEPARATION",
+      "inputs": ["score record", "arm inputs"],
+      "condition": { "operator": "scorer_only", "score_record_never_arm_input": true, "expectations_not_public": true },
+      "failure_code": "ACCORD-02R2-SCORE-ARM-CONTAMINATION",
+      "severity": "BLOCKING",
+      "required_for": ["experiment-run admission", "scoring admission"]
+    },
+    {
+      "rule_id": "SCORE-002",
+      "category": "SCORE_SEPARATION",
+      "inputs": ["raw arm output", "normalization profile", "normalized claim", "scorer truth"],
+      "condition": { "operator": "ordered_pipeline", "sequence": ["RAW_ARM_OUTPUT", "FROZEN_NORMALIZATION", "NORMALIZED_CLAIM", "COMPARE_WITH_SCORER_TRUTH", "SCORE"] },
+      "failure_code": "ACCORD-02R2-SCORE-PIPELINE-REORDERED",
+      "severity": "MAJOR",
+      "required_for": ["scoring admission"]
+    },
+    {
+      "rule_id": "SCORE-003",
+      "category": "SCORE_SEPARATION",
+      "inputs": ["normalization profile", "arm-visible information"],
+      "condition": { "operator": "normalization_uses_only", "allowed": "arm output and frozen adapter rules", "forbidden": ["hidden oracle", "expected outcome", "scorer categorical failure labels"] },
+      "failure_code": "ACCORD-02R2-NORMALIZATION-ORACLE-USE",
+      "severity": "BLOCKING",
+      "required_for": ["scoring admission"]
+    }
+  ]
+}

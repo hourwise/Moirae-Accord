@@ -12,6 +12,7 @@
     "experiment_version",
     "scenario_id",
     "experiment_run_id",
+    "proposition_ref",
     "seed",
     "arm_id",
     "timestamps",
@@ -43,6 +44,9 @@
     "experiment_run_id": {
       "type": "string",
       "minLength": 1
+    },
+    "proposition_ref": {
+      "$ref": "#/$defs/propositionReference"
     },
     "seed": {
       "type": "integer"
@@ -119,28 +123,63 @@
   },
   "$defs": {
     "typedReference": {
+      "oneOf": [
+        { "$ref": "#/$defs/experimentRunReference" },
+        { "$ref": "#/$defs/experimentResultReference" },
+        { "$ref": "#/$defs/verifierRunReference" },
+        { "$ref": "#/$defs/verifierResultReference" },
+        { "$ref": "#/$defs/settlementResultReference" },
+        { "$ref": "#/$defs/authorityResultReference" },
+        { "$ref": "#/$defs/portableBundleReference" },
+        { "$ref": "#/$defs/portableRecordReference" },
+        { "$ref": "#/$defs/attemptReference" },
+        { "$ref": "#/$defs/evidenceReference" },
+        { "$ref": "#/$defs/armInputManifestReference" },
+        { "$ref": "#/$defs/armInputProfileReference" },
+        { "$ref": "#/$defs/classifierFeatureReference" },
+        { "$ref": "#/$defs/mappingProfileReference" },
+        { "$ref": "#/$defs/propositionReference" },
+        { "$ref": "#/$defs/normalizationProfileReference" }
+      ],
+      "unevaluatedProperties": false
+    },
+    "referenceBase": {
       "type": "object",
-      "additionalProperties": false,
-      "required": ["record_type", "record_id", "schema_id", "schema_version"],
+      "required": ["record_type", "schema_id", "schema_version"],
       "properties": {
-        "record_type": { "enum": ["EXPERIMENT_RUN", "EXPERIMENT_RESULT_RECORD", "VERIFIER_RUN", "VERIFIER_RESULT", "SETTLEMENT_RESULT", "AUTHORITY_ANALYSIS_RESULT", "PORTABLE_BUNDLE", "ARM_INPUT_MANIFEST", "MAPPING_PROFILE"] },
-        "record_id": { "type": "string", "minLength": 1 },
+        "record_type": { "type": "string", "minLength": 1 },
         "schema_id": { "type": "string", "minLength": 1 },
         "schema_version": { "type": "string", "minLength": 1 },
         "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       }
     },
+    "experimentRunReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "EXPERIMENT_RUN" }, "experiment_run_id": { "type": "string", "minLength": 1 } }, "required": ["experiment_run_id"] }], "unevaluatedProperties": false },
+    "experimentResultReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "EXPERIMENT_RESULT_RECORD" }, "experiment_result_id": { "type": "string", "minLength": 1 } }, "required": ["experiment_result_id"] }], "unevaluatedProperties": false },
+    "verifierRunReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "VERIFIER_RUN" }, "verifier_run_id": { "type": "string", "minLength": 1 } }, "required": ["verifier_run_id"] }], "unevaluatedProperties": false },
+    "verifierResultReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "VERIFIER_RESULT" }, "verifier_result_id": { "type": "string", "minLength": 1 } }, "required": ["verifier_result_id"] }], "unevaluatedProperties": false },
+    "settlementResultReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "SETTLEMENT_RESULT" }, "settlement_result_id": { "type": "string", "minLength": 1 } }, "required": ["settlement_result_id"] }], "unevaluatedProperties": false },
+    "authorityResultReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "AUTHORITY_ANALYSIS_RESULT" }, "authority_analysis_result_id": { "type": "string", "minLength": 1 } }, "required": ["authority_analysis_result_id"] }], "unevaluatedProperties": false },
+    "portableBundleReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "PORTABLE_BUNDLE" }, "portable_bundle_id": { "type": "string", "minLength": 1 } }, "required": ["portable_bundle_id"] }], "unevaluatedProperties": false },
+    "portableRecordReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "PORTABLE_RECORD" }, "portable_record_id": { "type": "string", "minLength": 1 } }, "required": ["portable_record_id"] }], "unevaluatedProperties": false },
+    "attemptReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "ATTEMPT_RECORD" }, "attempt_id": { "type": "string", "minLength": 1 } }, "required": ["attempt_id"] }], "unevaluatedProperties": false },
+    "evidenceReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "EVIDENCE_ARTIFACT" }, "evidence_id": { "type": "string", "minLength": 1 } }, "required": ["evidence_id"] }], "unevaluatedProperties": false },
+    "armInputManifestReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "ARM_INPUT_MANIFEST" }, "arm_input_manifest_id": { "type": "string", "minLength": 1 } }, "required": ["arm_input_manifest_id"] }], "unevaluatedProperties": false },
+    "armInputProfileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "ARM_INPUT_PROFILE" }, "arm_input_profile_id": { "type": "string", "minLength": 1 } }, "required": ["arm_input_profile_id"] }], "unevaluatedProperties": false },
+    "classifierFeatureReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "CLASSIFIER_FEATURE" }, "classifier_feature_id": { "type": "string", "minLength": 1 } }, "required": ["classifier_feature_id"] }], "unevaluatedProperties": false },
+    "mappingProfileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "MAPPING_PROFILE" }, "mapping_profile_id": { "type": "string", "minLength": 1 } }, "required": ["mapping_profile_id"] }], "unevaluatedProperties": false },
+    "propositionReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "effect_proposition" }, "proposition_id": { "type": "string", "minLength": 1 }, "schema_id": { "const": "urn:moirae:accord-02r2:effect-proposition" }, "schema_version": { "const": "0.1" } }, "required": ["proposition_id"] }], "unevaluatedProperties": false },
+    "normalizationProfileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "NORMALIZATION_PROFILE" }, "normalization_profile_id": { "type": "string", "minLength": 1 } }, "required": ["normalization_profile_id"] }], "unevaluatedProperties": false },
     "lineage": {
       "type": "object",
       "additionalProperties": false,
       "required": ["experiment_run_ref", "result_record_ref", "verifier_run_ref", "verifier_result_ref", "authority_result_ref", "settlement_result_ref"],
       "properties": {
-        "experiment_run_ref": { "$ref": "#/$defs/typedReference" },
-        "result_record_ref": { "$ref": "#/$defs/typedReference" },
-        "verifier_run_ref": { "oneOf": [{ "$ref": "#/$defs/typedReference" }, { "type": "null" }] },
-        "verifier_result_ref": { "oneOf": [{ "$ref": "#/$defs/typedReference" }, { "type": "null" }] },
-        "authority_result_ref": { "oneOf": [{ "$ref": "#/$defs/typedReference" }, { "type": "null" }] },
-        "settlement_result_ref": { "oneOf": [{ "$ref": "#/$defs/typedReference" }, { "type": "null" }] }
+        "experiment_run_ref": { "$ref": "#/$defs/experimentRunReference" },
+        "result_record_ref": { "$ref": "#/$defs/experimentResultReference" },
+        "verifier_run_ref": { "oneOf": [{ "$ref": "#/$defs/verifierRunReference" }, { "type": "null" }] },
+        "verifier_result_ref": { "oneOf": [{ "$ref": "#/$defs/verifierResultReference" }, { "type": "null" }] },
+        "authority_result_ref": { "oneOf": [{ "$ref": "#/$defs/authorityResultReference" }, { "type": "null" }] },
+        "settlement_result_ref": { "oneOf": [{ "$ref": "#/$defs/settlementResultReference" }, { "type": "null" }] }
       }
     },
     "effectBinding": {
@@ -264,7 +303,7 @@
       ],
       "properties": {
         "arm_input_manifest_ref": {
-          "$ref": "#/$defs/typedReference"
+          "$ref": "#/$defs/armInputManifestReference"
         },
         "task_effect_identities": {
           "$ref": "#/$defs/taskEffectIdentities"
@@ -310,6 +349,7 @@
       "required": [
         "task_id",
         "effect_id",
+        "proposition_ref",
         "predicate_binding",
         "record_refs"
       ],
@@ -338,6 +378,9 @@
           "type": "string",
           "minLength": 1
         },
+        "proposition_ref": {
+          "$ref": "#/$defs/propositionReference"
+        },
         "predicate_binding": {
           "$ref": "#/$defs/effectBinding"
         },
@@ -357,6 +400,7 @@
       "required": [
         "attempt_id",
         "effect_id",
+        "proposition_ref",
         "attempt_ordinal",
         "dispatch_state",
         "effect_binding",
@@ -370,6 +414,9 @@
         "effect_id": {
           "type": "string",
           "minLength": 1
+        },
+        "proposition_ref": {
+          "$ref": "#/$defs/propositionReference"
         },
         "attempt_ordinal": {
           "type": "integer",
@@ -406,6 +453,7 @@
         "evidence_id",
         "evidence_class",
         "effect_id",
+        "proposition_ref",
         "observer_principal_id",
         "issuer_principal_id",
         "trust_root_id",
@@ -426,6 +474,9 @@
         "effect_id": {
           "type": "string",
           "minLength": 1
+        },
+        "proposition_ref": {
+          "$ref": "#/$defs/propositionReference"
         },
         "effect_binding": {
           "$ref": "#/$defs/effectBinding"
@@ -684,17 +735,21 @@
       "required": [
         "native_c_result_ref",
         "native_axes",
-        "mapping_profile_ref"
+        "mapping_profile_ref",
+        "proposition_ref"
       ],
       "properties": {
         "native_c_result_ref": {
-          "$ref": "#/$defs/typedReference"
+          "$ref": "#/$defs/settlementResultReference"
         },
         "native_axes": {
           "$ref": "#/$defs/nativeSettlementAxes"
         },
         "mapping_profile_ref": {
-          "$ref": "#/$defs/typedReference"
+          "$ref": "#/$defs/mappingProfileReference"
+        },
+        "proposition_ref": {
+          "$ref": "#/$defs/propositionReference"
         },
         "a_projection": {
           "$ref": "#/$defs/aProjection"
@@ -827,6 +882,7 @@
         "kind",
         "projection_profile_id",
         "native_result_ref",
+        "proposition_ref",
         "effect_id",
         "predicate_id",
         "stage",
@@ -849,6 +905,9 @@
         },
         "native_result_ref": {
           "$ref": "#/$defs/typedReference"
+        },
+        "proposition_ref": {
+          "$ref": "#/$defs/propositionReference"
         },
         "effect_id": {
           "type": "string",
@@ -903,19 +962,17 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "output_schema_id",
-        "output_schema_version",
+        "run_id",
         "arm_id",
         "visibility",
-        "fields",
-        "allowlist_profile_ref"
+        "output_type",
+        "payload_schema_id",
+        "payload_digest",
+        "captured_at",
+        "untrusted_system_output"
       ],
       "properties": {
-        "output_schema_id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "output_schema_version": {
+        "run_id": {
           "type": "string",
           "minLength": 1
         },
@@ -930,46 +987,35 @@
         "visibility": {
           "const": "SYSTEM_VISIBLE"
         },
-        "allowlist_profile_ref": {
+        "output_type": {
+          "enum": ["DURABLE_BASELINE_OUTPUT", "PROVIDER_OBSERVATION_OUTPUT", "CLASSIFIER_OUTPUT", "ACCORD_VERIFIER_OUTPUT", "ARM_SPECIFIC_UNTRUSTED_OUTPUT"]
+        },
+        "payload_schema_id": {
           "type": "string",
           "minLength": 1
         },
-        "fields": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/rawField"
-          },
-          "uniqueItems": true
+        "payload_digest": {
+          "type": "string",
+          "pattern": "^sha-256:[0-9a-f]{64}$"
+        },
+        "payload_ref": {
+          "$ref": "#/$defs/typedReference"
+        },
+        "payload": {
+          "type": ["object", "array", "string", "number", "boolean", "null"]
+        },
+        "captured_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "untrusted_system_output": {
+          "const": true
         }
-      }
-    },
-    "rawField": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "field_path",
-        "value_type",
-        "value"
-      ],
-      "properties": {
-        "field_path": {
-          "type": "string",
-          "minLength": 1
-        },
-        "value_type": {
-          "enum": [
-            "STRING",
-            "BOOLEAN",
-            "INTEGER",
-            "OBJECT",
-            "ARRAY",
-            "DIGEST",
-            "TYPED_REFERENCE",
-            "PROFILE_DEFINED"
-          ]
-        },
-        "value": {}
-      }
+      },
+      "oneOf": [
+        { "required": ["payload"], "not": { "required": ["payload_ref"] } },
+        { "required": ["payload_ref"], "not": { "required": ["payload"] } }
+      ]
     },
     "classifierOutput": {
       "type": "object",
@@ -977,6 +1023,7 @@
       "required": [
         "model_id",
         "feature_refs",
+        "feature_profile_id",
         "prediction",
         "calibration_set_ref",
         "scored_set_isolated",
@@ -990,11 +1037,11 @@
         },
         "feature_refs": {
           "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          },
+          "items": { "$ref": "#/$defs/classifierFeatureReference" },
           "uniqueItems": true
+        },
+        "feature_profile_id": {
+          "const": "urn:moirae:accord-02d:classifier-features:0.1"
         },
         "prediction": {
           "type": "string",
@@ -1008,7 +1055,7 @@
           "const": true
         },
         "input_profile_ref": {
-          "$ref": "#/$defs/typedReference"
+          "$ref": "#/$defs/armInputProfileReference"
         },
         "accord_outcome_fields_absent": {
           "const": true
@@ -1020,11 +1067,15 @@
       "additionalProperties": false,
       "required": [
         "reported_status",
+        "proposition_ref",
         "attempt_count",
         "system_observed_occurrence_count",
         "oracle_not_present_here"
       ],
       "properties": {
+        "proposition_ref": {
+          "$ref": "#/$defs/propositionReference"
+        },
         "reported_status": {
           "enum": [
             "NONE_REPORTED",
@@ -1189,7 +1240,7 @@
           "const": true
         },
         "arm_allowlist_profile_ref": {
-          "$ref": "#/$defs/typedReference"
+          "$ref": "#/$defs/armInputProfileReference"
         },
         "arm_manifest_is_sanitized": {
           "const": true

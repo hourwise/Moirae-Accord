@@ -8,7 +8,6 @@
   "system_under_test_visible": false,
   "expected_results_included": false,
   "scenario_identifiers_opaque_to_expected_result": true,
-  "scorer_expectation_catalog_ref": "docs/accord-02/examples/accord-02d-scorer-expectations.json",
   "arm_input_profile_catalog_ref": "docs/accord-02/examples/accord-02d-arm-input-profiles.json",
   "arms": [
     {"arm_id":"ARM-A-DURABLE","name":"Durable baseline","input_profile_id":"urn:moirae:accord-02d:arm-input:durable:0.1"},

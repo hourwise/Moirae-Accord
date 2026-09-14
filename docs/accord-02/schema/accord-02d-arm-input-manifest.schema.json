@@ -1,88 +1,107 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:moirae:accord-02d:schema:arm-input-manifest:0.1",
-  "title": "ACCORD-02D sanitized arm input manifest",
-  "description": "A run-facing manifest for one arm. It is validated against the referenced arm allowlist and cannot carry scorer-only oracle or expected-result material.",
+  "$id": "urn:moirae:accord-02d:schema:arm-input-manifest:0.2",
+  "title": "ACCORD-02D discriminated sanitized arm input manifest",
+  "description": "A closed, arm-specific manifest of typed source references. It carries no arbitrary experiment-controlled field values and never locates scorer-only expectations.",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "$schema",
-    "schema_id",
-    "schema_version",
-    "information_class",
-    "system_under_test_visible",
-    "experiment_version",
-    "experiment_run_id",
-    "scenario_id",
-    "arm_id",
-    "input_profile_ref",
-    "fields",
-    "scenario_catalog_directly_consumable",
-    "oracle_hidden_from_system",
-    "expected_result_fields_present",
-    "field_allowlist_checked",
-    "integrity"
-  ],
+  "required": ["$schema", "schema_id", "schema_version", "information_class", "system_under_test_visible", "experiment_version", "experiment_run_id", "scenario_id", "arm_id", "input_profile_id", "sources", "scenario_catalog_directly_consumable", "oracle_hidden_from_system", "expected_result_fields_present", "integrity"],
   "properties": {
     "$schema": { "type": "string", "format": "uri" },
     "schema_id": { "const": "urn:moirae:accord-02d:arm-input-manifest" },
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "information_class": { "const": "ARM_INPUT_MANIFEST" },
     "system_under_test_visible": { "const": true },
     "experiment_version": { "type": "string", "minLength": 1 },
     "experiment_run_id": { "type": "string", "minLength": 1 },
     "scenario_id": { "type": "string", "minLength": 1 },
     "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
-    "input_profile_ref": { "type": "string", "minLength": 1 },
-    "fields": {
-      "type": "array",
-      "items": {
-        "allOf": [
-          { "$ref": "#/$defs/fieldValue" },
-          { "$ref": "#/$defs/notScorerField" }
-        ]
-      },
-      "uniqueItems": true
-    },
+    "input_profile_id": { "type": "string", "minLength": 1 },
+    "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceReference" }, "uniqueItems": true },
     "scenario_catalog_directly_consumable": { "const": false },
     "oracle_hidden_from_system": { "const": true },
     "expected_result_fields_present": { "const": false },
-    "field_allowlist_checked": { "const": true },
     "integrity": { "$ref": "#/$defs/integrity" }
   },
+  "oneOf": [
+    { "$ref": "#/$defs/armA" },
+    { "$ref": "#/$defs/armB" },
+    { "$ref": "#/$defs/armC" },
+    { "$ref": "#/$defs/armD" }
+  ],
   "$defs": {
-    "fieldValue": {
+    "commonArmFields": {
+      "type": "object",
+      "required": ["arm_id", "input_profile_id", "sources", "scenario_catalog_directly_consumable", "oracle_hidden_from_system", "expected_result_fields_present"],
+      "properties": {
+        "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+        "input_profile_id": { "type": "string", "minLength": 1 },
+        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceReference" }, "uniqueItems": true },
+        "scenario_catalog_directly_consumable": { "const": false },
+        "oracle_hidden_from_system": { "const": true },
+        "expected_result_fields_present": { "const": false }
+      }
+    },
+    "armA": {
+      "allOf": [
+        { "$ref": "#/$defs/commonArmFields" },
+        { "type": "object", "properties": { "arm_id": { "const": "ARM-A-DURABLE" }, "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:durable:0.1" }, "sources": { "items": { "$ref": "#/$defs/armASource" } } } }
+      ]
+    },
+    "armB": {
+      "allOf": [
+        { "$ref": "#/$defs/commonArmFields" },
+        { "type": "object", "properties": { "arm_id": { "const": "ARM-B-PROVIDER-OBSERVATION" }, "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:provider-observation:0.1" }, "sources": { "items": { "$ref": "#/$defs/armBSource" } } } }
+      ]
+    },
+    "armC": {
+      "allOf": [
+        { "$ref": "#/$defs/commonArmFields" },
+        { "type": "object", "properties": { "arm_id": { "const": "ARM-C-LIGHTWEIGHT-CLASSIFIER" }, "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1" }, "sources": { "items": { "$ref": "#/$defs/armCSource" } } } }
+      ]
+    },
+    "armD": {
+      "allOf": [
+        { "$ref": "#/$defs/commonArmFields" },
+        { "type": "object", "properties": { "arm_id": { "const": "ARM-D-ACCORD-EVIDENCE" }, "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:accord-evidence:0.1" }, "sources": { "items": { "$ref": "#/$defs/armDSource" } } } }
+      ]
+    },
+    "sourceReference": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["field_path", "value_type", "value"],
+      "required": ["source_type", "source_record_ref", "projection"],
       "properties": {
-        "field_path": { "type": "string", "minLength": 1 },
-        "value_type": { "enum": ["STRING", "BOOLEAN", "INTEGER", "OBJECT", "ARRAY", "DIGEST", "TYPED_REFERENCE", "PROFILE_DEFINED"] },
-        "value": {}
+        "source_type": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE", "PORTABLE_RECORD_BUNDLE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"] },
+        "source_record_ref": { "$ref": "#/$defs/sourceRecordReference" },
+        "projection": { "$ref": "#/$defs/projection" }
       }
     },
-    "notScorerField": {
-      "not": {
-        "properties": {
-          "field_path": {
-            "enum": [
-              "oracle_state",
-              "oracle.effect_occurrence",
-              "oracle.duplicate_count",
-              "expected_conformance_bounds",
-              "expected_settlement_bounds",
-              "categorical_failure_relevance",
-              "scorer_only",
-              "scorer.normalized_interpretation",
-              "scorer.categorical_failure_codes",
-              "accord.native_settlement_result",
-              "accord.projected_verifier_result"
-            ]
-          }
-        },
-        "required": ["field_path"]
+    "sourceRecordReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "record_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "enum": ["TASK_STATE", "ATTEMPT", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE", "PORTABLE_BUNDLE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"] },
+        "record_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       }
     },
+    "projection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["projection_id", "schema_id", "field_paths"],
+      "properties": {
+        "projection_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "field_paths": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "armASource": { "allOf": [{ "$ref": "#/$defs/sourceReference" }, { "type": "object", "properties": { "source_type": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT"] } } }] },
+    "armBSource": { "allOf": [{ "$ref": "#/$defs/sourceReference" }, { "type": "object", "properties": { "source_type": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT"] } } }] },
+    "armCSource": { "allOf": [{ "$ref": "#/$defs/sourceReference" }, { "type": "object", "properties": { "source_type": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE"] } } }] },
+    "armDSource": { "allOf": [{ "$ref": "#/$defs/sourceReference" }, { "type": "object", "properties": { "source_type": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "PORTABLE_RECORD_BUNDLE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"] } } }] },
     "integrity": {
       "type": "object",
       "additionalProperties": false,

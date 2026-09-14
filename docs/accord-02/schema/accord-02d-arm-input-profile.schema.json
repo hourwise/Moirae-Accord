@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:moirae:accord-02d:schema:arm-input-profile:0.1",
+  "$id": "urn:moirae:accord-02d:schema:arm-input-profile:0.2",
   "title": "ACCORD-02D per-arm input allowlist catalog",
   "description": "Closed structural contract for the information each experimental arm may receive. It is not a scenario oracle and does not contain expected outcomes.",
   "type": "object",
@@ -18,7 +18,7 @@
   "properties": {
     "$schema": { "type": "string", "format": "uri" },
     "schema_id": { "const": "urn:moirae:accord-02d:arm-input-profile" },
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "information_class": { "const": "ARM_INPUT_ALLOWLIST" },
     "system_under_test_visible": { "const": true },
     "oracle_fields_forbidden": {
@@ -36,9 +36,16 @@
     "profiles": {
       "type": "array",
       "minItems": 4,
+      "maxItems": 4,
       "items": { "$ref": "#/$defs/armProfile" }
     }
   },
+  "allOf": [
+    { "properties": { "profiles": { "contains": { "type": "object", "properties": { "arm_id": { "const": "ARM-A-DURABLE" } }, "required": ["arm_id"] }, "minContains": 1, "maxContains": 1 } } },
+    { "properties": { "profiles": { "contains": { "type": "object", "properties": { "arm_id": { "const": "ARM-B-PROVIDER-OBSERVATION" } }, "required": ["arm_id"] }, "minContains": 1, "maxContains": 1 } } },
+    { "properties": { "profiles": { "contains": { "type": "object", "properties": { "arm_id": { "const": "ARM-C-LIGHTWEIGHT-CLASSIFIER" } }, "required": ["arm_id"] }, "minContains": 1, "maxContains": 1 } } },
+    { "properties": { "profiles": { "contains": { "type": "object", "properties": { "arm_id": { "const": "ARM-D-ACCORD-EVIDENCE" } }, "required": ["arm_id"] }, "minContains": 1, "maxContains": 1 } } }
+  ],
   "$defs": {
     "armProfile": {
       "type": "object",
@@ -55,7 +62,10 @@
         "trust_roots_visible",
         "evidence_profile_visible",
         "classifier_input_fields",
-        "scenario_catalog_directly_consumable"
+        "scenario_catalog_directly_consumable",
+        "allowed_source_types",
+        "forbidden_source_types",
+        "profile_closed"
       ],
       "properties": {
         "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
@@ -99,8 +109,27 @@
           "items": { "type": "string", "minLength": 1 },
           "uniqueItems": true
         },
-        "scenario_catalog_directly_consumable": { "const": false }
-      }
+        "scenario_catalog_directly_consumable": { "const": false },
+        "allowed_source_types": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE", "PORTABLE_RECORD_BUNDLE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"] },
+          "uniqueItems": true
+        },
+        "forbidden_source_types": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "NATIVE_SETTLEMENT_RESULT", "PROJECTED_VERIFIER_RESULT", "PRIVATE_ACCORD_STATE"] },
+          "uniqueItems": true
+        },
+        "profile_closed": { "const": true }
+      },
+      "allOf": [
+        { "if": { "properties": { "arm_id": { "const": "ARM-A-DURABLE" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:durable:0.1" } } } },
+        { "if": { "properties": { "arm_id": { "const": "ARM-B-PROVIDER-OBSERVATION" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:provider-observation:0.1" } } } },
+        { "if": { "properties": { "arm_id": { "const": "ARM-C-LIGHTWEIGHT-CLASSIFIER" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1" } } } },
+        { "if": { "properties": { "arm_id": { "const": "ARM-D-ACCORD-EVIDENCE" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:accord-evidence:0.1" } } } }
+      ]
     },
     "fieldRule": {
       "type": "object",

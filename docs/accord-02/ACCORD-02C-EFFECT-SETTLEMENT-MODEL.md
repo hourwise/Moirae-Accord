@@ -435,3 +435,29 @@ This slice is additive to the candidate branch lineage:
 
 ACCORD-02C consumes those contracts; it does not redefine their identifiers,
 authority ownership, or runtime responsibilities.
+
+## 19. Canonical proposition and projection lineage
+
+Every native settlement result that claims to settle a predicate MUST reference
+one canonical `effect_proposition` descriptor. The descriptor is the binding
+object for the already-defined logical effect claim; it is not a new effect
+ontology and does not assert that the effect occurred.
+
+The descriptor binds `effect_id`, predicate identity, stage, action, and the
+applicable target/resource/recipient/provider dimensions. Observations and
+evidence offered as settlement basis MUST reference the same proposition.
+Duplicate effect/predicate/stage summaries are non-authoritative and must match
+the resolved descriptor or be rejected under the ACCORD-02R2 validation
+contract.
+
+Attempt attribution remains an independent conclusion. Occurrence may be
+supported while the responsible attempt remains unknown. A specific-attempt
+claim requires a resolved attempt in the same proposition context and native
+attribution support.
+
+The native C result is retained when an ACCORD-02A verifier projection is
+created. `VERIFIED`, `CORROBORATED`, `NO_EFFECT_OBSERVED`, and unknown
+projections require native-result, mapping-profile, and proposition lineage.
+`REJECTED` is a non-factual disposition and does not imply non-occurrence.
+See [`accord-02r2-validation-rules.json`](./accord-02r2-validation-rules.json)
+for deterministic cross-record rules.

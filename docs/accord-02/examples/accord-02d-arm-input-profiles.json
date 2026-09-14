@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "schema_id": "urn:moirae:accord-02d:arm-input-profile",
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "information_class": "ARM_INPUT_ALLOWLIST",
   "system_under_test_visible": true,
   "oracle_fields_forbidden": [
@@ -62,7 +62,10 @@
       "trust_roots_visible": false,
       "evidence_profile_visible": false,
       "classifier_input_fields": [],
-      "scenario_catalog_directly_consumable": false
+      "scenario_catalog_directly_consumable": false,
+      "allowed_source_types": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT"],
+      "forbidden_source_types": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "NATIVE_SETTLEMENT_RESULT", "PROJECTED_VERIFIER_RESULT", "PRIVATE_ACCORD_STATE"],
+      "profile_closed": true
     },
     {
       "arm_id": "ARM-B-PROVIDER-OBSERVATION",
@@ -89,6 +92,7 @@
         { "field_path": "provider.acceptance", "source_class": "PROVIDER_OBSERVATION", "value_type": "OBJECT" },
         { "field_path": "provider.state_read", "source_class": "PROVIDER_OBSERVATION", "value_type": "OBJECT" },
         { "field_path": "reconciliation.result", "source_class": "PROVIDER_OBSERVATION", "value_type": "OBJECT" },
+        { "field_path": "timing.elapsed_ms", "source_class": "ORCHESTRATION", "value_type": "INTEGER" },
         { "field_path": "fixture.configuration", "source_class": "ORCHESTRATION", "value_type": "OBJECT" }
       ],
       "forbidden_fields": [
@@ -107,7 +111,10 @@
       "trust_roots_visible": false,
       "evidence_profile_visible": false,
       "classifier_input_fields": [],
-      "scenario_catalog_directly_consumable": false
+      "scenario_catalog_directly_consumable": false,
+      "allowed_source_types": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT"],
+      "forbidden_source_types": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "NATIVE_SETTLEMENT_RESULT", "PROJECTED_VERIFIER_RESULT", "PRIVATE_ACCORD_STATE"],
+      "profile_closed": true
     },
     {
       "arm_id": "ARM-C-LIGHTWEIGHT-CLASSIFIER",
@@ -135,6 +142,7 @@
         { "field_path": "provider.state_read", "source_class": "PROVIDER_OBSERVATION", "value_type": "OBJECT" },
         { "field_path": "reconciliation.result", "source_class": "PROVIDER_OBSERVATION", "value_type": "OBJECT" },
         { "field_path": "classifier.feature_inputs", "source_class": "CLASSIFIER_FEATURE", "value_type": "OBJECT" },
+        { "field_path": "timing.elapsed_ms", "source_class": "ORCHESTRATION", "value_type": "INTEGER" },
         { "field_path": "fixture.configuration", "source_class": "ORCHESTRATION", "value_type": "OBJECT" }
       ],
       "forbidden_fields": [
@@ -154,7 +162,10 @@
       "trust_roots_visible": false,
       "evidence_profile_visible": false,
       "classifier_input_fields": ["attempt.dispatch_state", "executor.durable_state", "provider.acceptance", "provider.state_read", "reconciliation.result", "timing.elapsed_ms"],
-      "scenario_catalog_directly_consumable": false
+      "scenario_catalog_directly_consumable": false,
+      "allowed_source_types": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE"],
+      "forbidden_source_types": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "NATIVE_SETTLEMENT_RESULT", "PROJECTED_VERIFIER_RESULT", "PRIVATE_ACCORD_STATE"],
+      "profile_closed": true
     },
     {
       "arm_id": "ARM-D-ACCORD-EVIDENCE",
@@ -201,7 +212,10 @@
       "trust_roots_visible": true,
       "evidence_profile_visible": true,
       "classifier_input_fields": [],
-      "scenario_catalog_directly_consumable": false
+      "scenario_catalog_directly_consumable": false,
+      "allowed_source_types": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "PORTABLE_RECORD_BUNDLE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"],
+      "forbidden_source_types": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "NATIVE_SETTLEMENT_RESULT", "PROJECTED_VERIFIER_RESULT", "PRIVATE_ACCORD_STATE"],
+      "profile_closed": true
     }
   ]
 }

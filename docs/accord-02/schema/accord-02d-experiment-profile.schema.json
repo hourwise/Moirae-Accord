@@ -101,7 +101,7 @@
         "capabilities": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
         "forbidden_inputs": { "type": "array", "items": { "enum": ["HIDDEN_ORACLE", "ACCORD_SETTLEMENT_LABEL", "ACCORD_EVIDENCE_CLASS_LABEL", "PRIVILEGED_AUTHORITY_ANALYSIS", "PRIVATE_ACCORD_STATE"] }, "uniqueItems": true },
         "fairness_constraints": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
-        "input_profile_id": { "type": "string", "minLength": 1 },
+        "input_profile_id": { "enum": ["urn:moirae:accord-02d:arm-input:durable:0.1", "urn:moirae:accord-02d:arm-input:provider-observation:0.1", "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1", "urn:moirae:accord-02d:arm-input:accord-evidence:0.1"] },
         "input_manifest_schema_id": { "const": "urn:moirae:accord-02d:arm-input-manifest" },
         "scenario_catalog_directly_consumable": { "const": false },
         "classifier": { "$ref": "#/$defs/classifier" }

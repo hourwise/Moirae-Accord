@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r2:schema:effect-proposition:0.1",
+  "title": "ACCORD-02 canonical effect proposition descriptor",
+  "description": "A narrow immutable binding object for an already-defined logical effect claim. It is not a new effect ontology and does not assert occurrence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "proposition_id", "effect_id", "predicate_id", "predicate_kind", "stage", "action", "target_binding", "resource_binding", "recipient_binding", "provider_binding", "integrity"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r2:effect-proposition" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "effect_proposition" },
+    "proposition_id": { "type": "string", "minLength": 1 },
+    "effect_id": { "type": "string", "minLength": 1 },
+    "predicate_id": { "type": "string", "minLength": 1 },
+    "predicate_kind": { "type": "string", "minLength": 1 },
+    "stage": { "type": "string", "minLength": 1 },
+    "action": { "type": "string", "minLength": 1 },
+    "target_binding": { "$ref": "#/$defs/bindingSlot" },
+    "resource_binding": { "$ref": "#/$defs/bindingSlot" },
+    "recipient_binding": { "$ref": "#/$defs/bindingSlot" },
+    "provider_binding": { "$ref": "#/$defs/bindingSlot" },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "bindingSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["BOUND", "NOT_APPLICABLE", "UNKNOWN"] },
+        "value": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "const": "BOUND" } }, "required": ["status"] }, "then": { "required": ["value"] } },
+        { "if": { "properties": { "status": { "enum": ["NOT_APPLICABLE", "UNKNOWN"] } }, "required": ["status"] }, "then": { "not": { "required": ["value"] } } }
+      ]
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_digest", "canonicalization", "digest_algorithm"],
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
+        "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] }
+      }
+    }
+  }
+}

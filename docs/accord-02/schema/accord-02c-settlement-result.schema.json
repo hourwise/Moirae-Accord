@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:moirae:accord-02c:schema:settlement-result:0.1",
+  "$id": "urn:moirae:accord-02c:schema:settlement-result:0.2",
   "title": "ACCORD-02C evidenced external-effect settlement result",
   "description": "Machine-readable result axes for bounded effect settlement. The schema preserves authority/effect orthogonality and does not itself prove external truth.",
   "type": "object",
@@ -24,7 +24,7 @@
   ],
   "properties": {
     "schema_id": { "const": "urn:moirae:accord-02c:settlement-result" },
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "result_id": { "type": "string", "minLength": 1 },
     "verifier_run_id": { "type": "string", "minLength": 1 },
     "target": { "$ref": "#/$defs/target" },
@@ -57,10 +57,11 @@
     "target": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["effect_id", "predicate", "attempt_ids", "record_refs"],
+      "required": ["effect_id", "predicate", "proposition_ref", "attempt_ids", "record_refs"],
       "properties": {
         "effect_id": { "type": "string", "minLength": 1 },
         "predicate": { "$ref": "#/$defs/predicate" },
+        "proposition_ref": { "$ref": "#/$defs/propositionReference" },
         "intent_id": { "type": "string", "minLength": 1 },
         "task_id": { "type": "string", "minLength": 1 },
         "delegation_id": { "type": "string", "minLength": 1 },
@@ -86,6 +87,18 @@
         "external_identifier": { "type": "string" },
         "target_binding": { "enum": ["EXPLICIT", "PROFILE_DEFINED", "UNKNOWN"] },
         "stage_predecessors": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "propositionReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "proposition_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "effect_proposition" },
+        "proposition_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "const": "urn:moirae:accord-02r2:effect-proposition" },
+        "schema_version": { "const": "0.1" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       }
     },
     "profileAssessment": {

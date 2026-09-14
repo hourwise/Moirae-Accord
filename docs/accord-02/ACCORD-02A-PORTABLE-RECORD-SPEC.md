@@ -657,3 +657,23 @@ terms with incompatible meanings.
 | Evidence/conformance | Fates Integration | Outside runtime path. |
 | Transport interoperability | A2A/MCP profiles | Carriage/conformance only. |
 | Runtime/control plane | Accord | Explicitly not created. |
+
+## 14. Canonical effect proposition binding
+
+Records used for settlement MUST carry a `proposition_ref` to the canonical
+`effect_proposition` record defined by
+[`accord-02r2-proposition.schema.json`](./schema/accord-02r2-proposition.schema.json).
+Records that are not used for settlement may omit it.
+The proposition is supplied as that canonical descriptor in the validation
+bundle (it may be a sidecar to the ordinary A portable-record bundle); it is
+not redefined as a second A record variant.
+The proposition descriptor binds an existing logical `effect_id` to its
+predicate, stage, action, and applicable target/resource/recipient/provider
+dimensions. It does not assert occurrence, authority validity, or causality.
+
+Observations, evidence artifacts, settlement results, verifier projections, and
+experiment result records used for settlement MUST resolve to the same
+proposition. Repeated summary fields are non-authoritative and MUST either be
+absent or match the resolved descriptor under the ACCORD-02R2 validation
+contract. A transport message ID or provider operation ID cannot substitute for
+the proposition reference.

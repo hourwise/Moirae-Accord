@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "remediation_id": "urn:moirae:accord-02r2:remediation:0.1",
+  "remediation_version": "0.1",
+  "base_review_commit": "d0aed1da5f54a638c2c357f7a5d9e77e33ad5209",
+  "historical_r1_remediation_commit": "e378116eed1cb540baa230471687bae628448838",
+  "scope_statement": "Bounded machine-enforceable closure of the remaining E-R1 boundary, projection, lineage, proposition, and arm-input findings. No authority-model change.",
+  "findings": [
+    {
+      "finding_id": "E2E-BLOCK-001",
+      "e_r1_status": "OPEN",
+      "current_status": "CLOSED",
+      "files_changed": [
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+        "docs/accord-02/schema/accord-02d-arm-input-manifest.schema.json",
+        "docs/accord-02/schema/accord-02d-arm-input-profile.schema.json",
+        "docs/accord-02/examples/accord-02d-arm-input-profiles.json",
+        "docs/accord-02/accord-02r2-validation-rules.json"
+      ],
+      "structural_remediation": "Removed the public scorer locator and replaced arbitrary manifest field values with discriminated typed source references and closed arm variants.",
+      "normative_rule_ids": ["ORC-001", "ORC-002", "ARM-001", "ARM-002", "ARM-003", "ARM-004", "ARM-005", "ARM-007", "LIN-001"],
+      "adversarial_tests": ["R2-ADV-01", "R2-ADV-02", "R2-ADV-03", "R2-ADV-05"],
+      "residual_limitation": "Cross-document source existence and projection digest checks remain contract rules rather than executable code.",
+      "closure_basis": "No arm-visible schema path contains a scorer locator or arbitrary experiment-controlled value transport; the remaining cross-document checks have named admission rules."
+    },
+    {
+      "finding_id": "E2E-R1-BLOCK-001",
+      "e_r1_status": "OPEN",
+      "current_status": "CLOSED",
+      "files_changed": [
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+        "docs/accord-02/ACCORD-02R2-REMEDIATION.md",
+        "docs/accord-02/accord-02r2-validation-rules.json"
+      ],
+      "structural_remediation": "Deleted scorer_expectation_catalog_ref; scorer discovery is now an external scorer configuration with a one-way scorer-to-scenario join.",
+      "normative_rule_ids": ["ORC-001", "ORC-002", "ARM-007"],
+      "adversarial_tests": ["R2-ADV-01"],
+      "residual_limitation": "The scorer configuration is intentionally outside system-under-test inputs and is not itself an experiment artifact.",
+      "closure_basis": "The public catalog contains no scorer expectation path, URI, object reference, or locator."
+    },
+    {
+      "finding_id": "E2E-MAJOR-001",
+      "e_r1_status": "PARTIALLY_CLOSED",
+      "current_status": "CLOSED",
+      "files_changed": [
+        "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+        "docs/accord-02/schema/accord-02c-settlement-result.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/accord-02r2-validation-rules.json"
+      ],
+      "structural_remediation": "Settlement projections are a discriminated variant requiring native C result, mapping profile, and canonical proposition references; REJECTED is a separate non-settlement disposition.",
+      "normative_rule_ids": ["PROJ-001", "PROJ-002", "PROJ-003", "PROJ-004", "PROP-002"],
+      "adversarial_tests": ["R2-ADV-06", "R2-ADV-07", "R2-ADV-11", "R2-ADV-12"],
+      "residual_limitation": "The mapping profile still defines semantic thresholds; R2 does not make evidence trustworthy or omniscient.",
+      "closure_basis": "A VERIFIED or CORROBORATED projection cannot satisfy the revised A schema without native C and projection-profile lineage."
+    },
+    {
+      "finding_id": "E2E-MAJOR-003",
+      "e_r1_status": "PARTIALLY_CLOSED",
+      "current_status": "CLOSED",
+      "files_changed": [
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/schema/accord-02d-score-record.schema.json",
+        "docs/accord-02/accord-02r2-validation-rules.json"
+      ],
+      "structural_remediation": "Replaced generic record_id references with discriminated typed reference variants and added deterministic resolution, duplicate-ID, run, scenario, arm, proposition, and external-ID rules.",
+      "normative_rule_ids": ["LIN-001", "LIN-002", "LIN-003", "LIN-004", "LIN-005", "LIN-006", "LIN-007", "LIN-008"],
+      "adversarial_tests": ["R2-ADV-08", "R2-ADV-09", "R2-ADV-10"],
+      "residual_limitation": "Referential integrity across separately supplied documents remains a validation-contract operation, not a JSON Schema-only property.",
+      "closure_basis": "Missing, duplicate, wrong-type, foreign-run, scenario-mismatched, and proposition-mismatched references have explicit deterministic rejection rules."
+    },
+    {
+      "finding_id": "E2E-MAJOR-004",
+      "e_r1_status": "PARTIALLY_CLOSED",
+      "current_status": "CLOSED",
+      "files_changed": [
+        "docs/accord-02/schema/accord-02r2-proposition.schema.json",
+        "docs/accord-02/schema/accord-02a-portable-record.schema.json",
+        "docs/accord-02/schema/accord-02c-settlement-result.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/schema/accord-02d-score-record.schema.json",
+        "docs/accord-02/accord-02r2-validation-rules.json"
+      ],
+      "structural_remediation": "Added one canonical effect proposition descriptor and required proposition references on settlement-relevant C/D/A projection paths; duplicate summaries are governed by explicit equality rules.",
+      "normative_rule_ids": ["PROP-001", "PROP-002", "PROP-003", "PROP-004", "PROP-005", "LIN-006"],
+      "adversarial_tests": ["R2-ADV-11", "R2-ADV-12", "R2-ADV-13"],
+      "residual_limitation": "A proposition descriptor binds the claim; it does not prove occurrence, causality, or authority validity.",
+      "closure_basis": "Independent downstream copies cannot silently define a different settlement proposition; unresolved or inapplicable bindings cannot satisfy positive projection rules."
+    },
+    {
+      "finding_id": "E2E-MAJOR-005",
+      "e_r1_status": "PARTIALLY_CLOSED",
+      "current_status": "CLOSED",
+      "files_changed": [
+        "docs/accord-02/schema/accord-02d-arm-input-manifest.schema.json",
+        "docs/accord-02/schema/accord-02d-arm-input-profile.schema.json",
+        "docs/accord-02/examples/accord-02d-arm-input-profiles.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/accord-02r2-validation-rules.json"
+      ],
+      "structural_remediation": "ARM-A/B/C/D manifests are discriminated, profile-paired, source-typed, and closed against scorer/oracle source types; raw outputs are untrusted closed envelopes and classifier features are typed.",
+      "normative_rule_ids": ["ARM-001", "ARM-002", "ARM-003", "ARM-004", "ARM-005", "ARM-006", "ARM-007", "RAW-001", "RAW-002", "RAW-003", "SCORE-003"],
+      "adversarial_tests": ["R2-ADV-02", "R2-ADV-03", "R2-ADV-04", "R2-ADV-05", "R2-ADV-14", "R2-ADV-15"],
+      "residual_limitation": "A future implementation must still resolve typed source records and enforce the declared projection view; R2 makes those checks explicit and admission-relevant.",
+      "closure_basis": "ARM-C cannot select ARM-D's profile or source types, and arbitrary nested experiment-controlled values are no longer part of the manifest shape."
+    }
+  ],
+  "untouched_closed_findings": ["E2E-MAJOR-002"],
+  "intentionally_non_blocking": ["E2E-MINOR-002"],
+  "experiment_executed": false,
+  "acceptance_performed": false,
+  "promotion_performed": false
+}

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:moirae:accord-02a:schema:verifier-result:0.1",
+  "$id": "urn:moirae:accord-02a:schema:verifier-result:0.2",
   "title": "ACCORD-02A verifier result",
   "description": "Structural result schema only. It does not determine whether any external fact is true.",
   "type": "object",
@@ -8,14 +8,15 @@
   "required": ["schema_id", "schema_version", "verifier_run_id", "target", "statuses", "settlement", "generated_at"],
   "properties": {
     "schema_id": { "const": "urn:moirae:accord-02a:verifier-result" },
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "verifier_run_id": { "type": "string", "minLength": 1 },
     "target": {
       "type": "object",
-      "required": ["effect_id", "predicate", "attempt_ids", "bundle_digest"],
+      "required": ["effect_id", "predicate", "proposition_ref", "attempt_ids", "bundle_digest"],
       "properties": {
         "effect_id": { "type": "string", "minLength": 1 },
         "predicate": { "$ref": "#/$defs/predicate" },
+        "proposition_ref": { "$ref": "#/$defs/propositionReference" },
         "attempt_ids": { "type": "array", "items": { "type": "string" } },
         "bundle_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       },
@@ -35,33 +36,10 @@
       "additionalProperties": false
     },
     "settlement": {
-      "type": "object",
-      "required": ["kind", "reason"],
-      "properties": {
-        "kind": { "enum": ["VERIFIED", "CORROBORATED", "NO_EFFECT_OBSERVED", "UNKNOWN_PENDING", "UNKNOWN_TERMINAL", "REJECTED"] },
-        "evidence_class": { "type": "string" },
-        "observer_principal_id": { "type": "string" },
-        "trust_root_id": { "type": "string" },
-        "as_of": { "type": "string", "format": "date-time" },
-        "read_semantics": { "type": "string" },
-        "retry_until": { "type": "string", "format": "date-time" },
-        "reason": { "type": "string", "minLength": 1 }
-      },
-      "allOf": [
-        {
-          "if": { "properties": { "kind": { "enum": ["VERIFIED", "CORROBORATED"] } } },
-          "then": { "required": ["evidence_class", "observer_principal_id", "trust_root_id"] }
-        },
-        {
-          "if": { "properties": { "kind": { "const": "NO_EFFECT_OBSERVED" } } },
-          "then": { "required": ["as_of", "read_semantics", "observer_principal_id", "trust_root_id"] }
-        },
-        {
-          "if": { "properties": { "kind": { "const": "UNKNOWN_PENDING" } } },
-          "then": { "required": ["retry_until"] }
-        }
-      ],
-      "additionalProperties": false
+      "oneOf": [
+        { "$ref": "#/$defs/effectSettlementProjection" },
+        { "$ref": "#/$defs/rejectedSettlement" }
+      ]
     },
     "findings": { "type": "array", "items": { "type": "object" } },
     "trust_assumptions": { "type": "array", "items": { "type": "string" } },
@@ -83,6 +61,80 @@
         "recipient_or_counterparty": { "type": ["string", "null"] },
         "provider": { "type": ["string", "null"] },
         "external_identifier": { "type": ["string", "null"] }
+      }
+    },
+    "effectSettlementProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "reason", "native_result_ref", "projection_profile_ref", "proposition_ref", "effect_id", "predicate_id", "stage"],
+      "properties": {
+        "kind": { "enum": ["VERIFIED", "CORROBORATED", "NO_EFFECT_OBSERVED", "UNKNOWN_PENDING", "UNKNOWN_TERMINAL"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "native_result_ref": { "$ref": "#/$defs/nativeSettlementReference" },
+        "projection_profile_ref": { "$ref": "#/$defs/projectionProfileReference" },
+        "proposition_ref": { "$ref": "#/$defs/propositionReference" },
+        "effect_id": { "type": "string", "minLength": 1 },
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 },
+        "evidence_class": { "type": "string", "minLength": 1 },
+        "observer_principal_id": { "type": "string", "minLength": 1 },
+        "trust_root_id": { "type": "string", "minLength": 1 },
+        "as_of": { "type": "string", "format": "date-time" },
+        "read_semantics": { "type": "string", "minLength": 1 },
+        "retry_until": { "type": "string", "format": "date-time" },
+        "finality_scope": { "enum": ["PROFILE_ONLY", "NAMED_INTERVAL_AND_SCOPE", "NEVER_UNIVERSAL"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "kind": { "enum": ["VERIFIED", "CORROBORATED"] } }, "required": ["kind"] }, "then": { "required": ["evidence_class", "observer_principal_id", "trust_root_id"] } },
+        { "if": { "properties": { "kind": { "const": "NO_EFFECT_OBSERVED" } }, "required": ["kind"] }, "then": { "required": ["as_of", "read_semantics", "observer_principal_id", "trust_root_id"] } },
+        { "if": { "properties": { "kind": { "const": "UNKNOWN_PENDING" } }, "required": ["kind"] }, "then": { "required": ["retry_until"] } },
+        { "if": { "properties": { "kind": { "const": "UNKNOWN_TERMINAL" } }, "required": ["kind"] }, "then": { "required": ["finality_scope"] } }
+      ]
+    },
+    "rejectedSettlement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "reason"],
+      "properties": {
+        "kind": { "const": "REJECTED" },
+        "reason": { "type": "string", "minLength": 1 },
+        "failure_code": { "type": "string", "minLength": 1 }
+      }
+    },
+    "propositionReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "proposition_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "effect_proposition" },
+        "proposition_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "const": "urn:moirae:accord-02r2:effect-proposition" },
+        "schema_version": { "const": "0.1" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "nativeSettlementReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "settlement_result_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "SETTLEMENT_RESULT" },
+        "settlement_result_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "const": "urn:moirae:accord-02c:settlement-result" },
+        "schema_version": { "const": "0.2" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "projectionProfileReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "mapping_profile_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "MAPPING_PROFILE" },
+        "mapping_profile_id": { "const": "urn:moirae:accord-02r1:settlement-vocabulary-map" },
+        "schema_id": { "const": "urn:moirae:accord-02r1:schema:settlement-vocabulary-map:0.1" },
+        "schema_version": { "const": "0.1" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       }
     },
     "integrity": {

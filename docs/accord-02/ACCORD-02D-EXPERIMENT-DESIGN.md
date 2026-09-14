@@ -356,3 +356,59 @@ new Accord runtime or control plane.
 
 For the frozen claims and readiness gate, see
 [ACCORD-02D-FALSIFICATION-PROTOCOL.md](./ACCORD-02D-FALSIFICATION-PROTOCOL.md).
+
+## 16. R2 machine-enforceable information graph
+
+The public and scorer artifact graphs are intentionally separate:
+
+```text
+PUBLIC / SYSTEM-ORCHESTRATION SIDE
+
+Scenario Definition
+      |
+      v
+Experiment Run
+      |
+      +----> Discriminated Arm Input Manifest
+      |             |
+      |             v
+      |        System Under Test
+      |             |
+      |             v
+      +------ Raw Arm Output
+                    |
+                    v
+             Frozen Normalization
+                    |
+                    v
+             Normalized Claim
+
+SCORER-ONLY SIDE
+
+Scorer Configuration
+      +----> Scorer Expectation Catalog -- scenario_id
+      +----> Experimental Oracle
+      v
+Score Record
+```
+
+There is no arrow from a public scenario definition, arm manifest, or
+system-under-test input to the expectation catalog, oracle record, or score
+record. The scorer configuration owns the one-way join from scorer expectation
+to the opaque `scenario_id`. The public scenario catalog contains no scorer
+locator.
+
+Arm manifests use typed source references, not arbitrary field/value pairs.
+The manifest discriminator fixes the arm and its profile. ARM-A/B/C receive
+ordinary baseline sources; ARM-C may add only declared classifier features;
+ARM-D may add portable Accord records, profiles, trust roots, and supplied
+evidence. Scorer expectations, oracle records, score records, native
+settlement results, projected verifier results, and private Accord state are
+not arm sources.
+
+Raw arm output is untrusted output. It is never forwarded as another arm's
+input and it is not scorer truth. Scoring follows raw output, frozen
+normalization, normalized claim, truth comparison, then score. The normative
+cross-record rules are listed in
+[`ACCORD-02R2-NORMATIVE-VALIDATION-CONTRACT.md`](./ACCORD-02R2-NORMATIVE-VALIDATION-CONTRACT.md)
+and [`accord-02r2-validation-rules.json`](./accord-02r2-validation-rules.json).

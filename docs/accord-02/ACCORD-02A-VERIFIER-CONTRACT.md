@@ -367,3 +367,25 @@ ACCORD-02A enables, but does not perform:
 
 The verifier contract is therefore a falsifiability instrument, not a result of
 those experiments.
+
+## 11. ACCORD-02R2 settlement projection boundary
+
+The standalone verifier-result schema distinguishes a settlement projection
+from a rejected disposition. Any `VERIFIED`, `CORROBORATED`,
+`NO_EFFECT_OBSERVED`, `UNKNOWN_PENDING`, or `UNKNOWN_TERMINAL` settlement
+projection MUST carry:
+
+- a typed native ACCORD-02C settlement-result reference;
+- the named ACCORD-02R1 settlement-vocabulary mapping reference;
+- a typed canonical effect-proposition reference; and
+- the effect, predicate, and stage being projected.
+
+The native C result remains authoritative. An A projection MUST NOT add
+attribution, causality, exactly-once semantics, authority validity, later-stage
+completion, or universal truth. `REJECTED` may be emitted before settlement
+analysis and does not imply non-occurrence or absence of external history.
+
+Cross-document reference resolution, proposition equality, and projection
+eligibility are normative validation rules in
+[`accord-02r2-validation-rules.json`](./accord-02r2-validation-rules.json),
+not an unstated future implementation convention.
