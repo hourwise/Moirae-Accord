@@ -1,0 +1,110 @@
+{
+  "acceptance_version": "1.0",
+  "accepted_phase": "ACCORD-02",
+  "acceptance_verdict": "READY_WITH_NONBLOCKING_NOTES",
+  "accepted_candidate_review_commit": "46c62ed4ff3638659a5c70663637b3cf0df2e2cc",
+  "accepted_candidate_review_tree": "4cdea4c031ed7dbbd1e71eeee5f17a9d1e6c2772",
+  "accord_01_accepted_base": "e748028d3ac05112163765afc65ef4224933f6a1",
+  "commit_chain": [
+    {"label": "ACCORD-01", "sha": "e748028d3ac05112163765afc65ef4224933f6a1"},
+    {"label": "ACCORD-02A", "sha": "2e2c036539dcc32f7411b5180e16ba46a7209d1a"},
+    {"label": "ACCORD-02B", "sha": "90c80c77ed0d312c7d5c4e72d7b92b55d4ed1e6f"},
+    {"label": "ACCORD-02C", "sha": "b94f3783c7bf3a65f7698c37ae89bef6e088a5ad"},
+    {"label": "ACCORD-02D", "sha": "9adf15d6005c72e5fbf49d2f3f7f62ca8f7e6354"},
+    {"label": "ACCORD-02E", "sha": "73b63daa9453fd3660c07c1c0b58bf0039302bca"},
+    {"label": "ACCORD-02R1", "sha": "e378116eed1cb540baa230471687bae628448838"},
+    {"label": "ACCORD-02E-R1", "sha": "d0aed1da5f54a638c2c357f7a5d9e77e33ad5209"},
+    {"label": "ACCORD-02R2", "sha": "c05c2b34c1d448055307044605955c80e701333c"},
+    {"label": "ACCORD-02E-R2", "sha": "533126f893f149002828cd4225753e8e2a20b792"},
+    {"label": "ACCORD-02R3", "sha": "93165ef0755b6161c58255d304b505ce5509ec62"},
+    {"label": "ACCORD-02E-R3", "sha": "40424f36037d803820c10119677ee23701f39684"},
+    {"label": "ACCORD-02R4", "sha": "f027ba7ad39c1952414263ee18f2118db2364be7"},
+    {"label": "ACCORD-02E-R4", "sha": "ffa7ff1f351351cb48cd6146409b3ef58c03b83a"},
+    {"label": "ACCORD-02R5", "sha": "664e2cb72d6011df119b4a3935ef36928e51a555"},
+    {"label": "ACCORD-02E-R5", "sha": "46c62ed4ff3638659a5c70663637b3cf0df2e2cc"}
+  ],
+  "active_package": {
+    "package_id": "urn:moirae:accord-02r5:specification-package",
+    "version": "0.1",
+    "policy": "CLOSED_EXACT_VERSION",
+    "schema_contracts": 44,
+    "profile_contracts": 31,
+    "canonicalization_profiles": 1,
+    "role_values": 9,
+    "active_source_schema_pairs": 13,
+    "active_arm_profile_references": 16,
+    "active_validation_rules": 82
+  },
+  "open_findings": {
+    "blocking": 0,
+    "major": 0
+  },
+  "nonblocking_notes": [
+    {
+      "finding_id": "E2E-R4-NOTE-001",
+      "status": "OPEN",
+      "disposition": "DEFERRED_TO_CONFORMANCE_IMPLEMENTATION",
+      "summary": "No standards-complete external JSON Schema or independent implementation interoperability run has yet been performed."
+    },
+    {
+      "finding_id": "E2E-MINOR-002",
+      "status": "OPEN",
+      "disposition": "OPTIONAL_A2A_COVERAGE",
+      "summary": "A2A-shaped transport remains optional for the first scored experiment."
+    }
+  ],
+  "accepted_scope_summary": {
+    "ACCORD-02A": "Portable linked records and verifier contract.",
+    "ACCORD-02B": "Authority attenuation and composition model.",
+    "ACCORD-02C": "Evidence-backed external-effect settlement model.",
+    "ACCORD-02D": "Preregistered falsification and experiment protocol.",
+    "R1-R5": "Oracle isolation, typed lineage, canonical proposition, arm boundaries, validation bundles, registries, profiles, canonicalization, and exact package closure."
+  },
+  "external_verification": {
+    "status": "SUPPORTED_WITH_QUALIFICATION",
+    "scope": "Supplied instance validation bundle plus the exact versioned ACCORD-02 specification-contract package identified by that bundle.",
+    "private_accord_runtime_required": false,
+    "scorer_only_material_required": false,
+    "qualifications": [
+      "Relative to supplied evidence and trust roots.",
+      "Evidence may be incomplete or false.",
+      "Provider correctness is not guaranteed.",
+      "Implementation interoperability has not yet been demonstrated."
+    ]
+  },
+  "explicitly_unproven": [
+    "Empirical superiority over ARM-A, ARM-B, or ARM-C.",
+    "Measured reductions in false confirmation, indeterminacy, duplicate effects, or human escalation.",
+    "Independent-validator or JSON Schema engine interoperability.",
+    "Runtime conformance and provider integration.",
+    "Production readiness, exactly-once external effects, complete mediation, or universal prevention.",
+    "Arbitrary real-world truth, provider honesty, or hidden/unobserved external facts.",
+    "Completed experiment results."
+  ],
+  "review_history": [
+    {"review": "ACCORD-02E", "verdict": "AMEND"},
+    {"review": "ACCORD-02E-R1", "verdict": "AMEND"},
+    {"review": "ACCORD-02E-R2", "verdict": "AMEND"},
+    {"review": "ACCORD-02E-R3", "verdict": "AMEND"},
+    {"review": "ACCORD-02E-R4", "verdict": "AMEND"},
+    {"review": "ACCORD-02E-R5", "verdict": "READY_WITH_NONBLOCKING_NOTES"}
+  ],
+  "acceptance_artifacts": [
+    {"path": "docs/accord-02/ACCORD-02-ACCEPTANCE.md", "role": "acceptance record"},
+    {"path": "docs/accord-02/ACCORD-02-SEAL.md", "role": "seal record"},
+    {"path": "docs/accord-02/accord-02-acceptance-manifest.json", "role": "machine-readable acceptance manifest"}
+  ],
+  "acceptance_commit_sha": null,
+  "acceptance_commit_sha_note": "The acceptance commit SHA is self-referential when embedded in its own tree. It is therefore verified from Git metadata after commit and reported with the exact acceptance tree, parent, and tag target; no circular self-hashing requirement is created.",
+  "accepted_tag": "accord-02-accepted-v1",
+  "promotion": {
+    "previous_main": "e748028d3ac05112163765afc65ef4224933f6a1",
+    "fast_forward_only": true,
+    "push_refs": ["main", "refs/tags/accord-02-accepted-v1"]
+  },
+  "no_experiment_executed": true,
+  "no_classifier_trained": true,
+  "no_validator_implemented": true,
+  "no_verifier_implemented": true,
+  "next_phase_requires_separate_authorization": true
+}
