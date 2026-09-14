@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "review_version": "0.1",
+  "review_id": "urn:moirae:accord-02e-r1:integrated-review:0.1",
+  "reviewed_commits": {
+    "accord_01": "e748028d3ac05112163765afc65ef4224933f6a1",
+    "accord_02a": "2e2c036539dcc32f7411b5180e16ba46a7209d1a",
+    "accord_02b": "90c80c77ed0d312c7d5c4e72d7b92b55d4ed1e6f",
+    "accord_02c": "b94f3783c7bf3a65f7698c37ae89bef6e088a5ad",
+    "accord_02d": "9adf15d6005c72e5fbf49d2f3f7f62ca8f7e6354",
+    "accord_02e_original": "73b63daa9453fd3660c07c1c0b58bf0039302bca",
+    "accord_02r1": "e378116eed1cb540baa230471687bae628448838"
+  },
+  "prior_verdict": "AMEND",
+  "integrated_verdict": "AMEND",
+  "findings": [
+    {
+      "finding_id": "E2E-BLOCK-001",
+      "inherited_from_02e": true,
+      "original_severity": "BLOCKING",
+      "r1_claimed_status": "CLOSED",
+      "current_status": "OPEN",
+      "severity": "BLOCKING",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02D"],
+      "affected_files": [
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+        "docs/accord-02/schema/accord-02d-arm-input-manifest.schema.json",
+        "docs/accord-02/schema/accord-02d-arm-input-profile.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json"
+      ],
+      "summary": "The scorer split is present, but the run-facing boundary is not closed against schema-valid indirection or nested value smuggling.",
+      "adversarial_construction": "The public scenario catalog contains scorer_expectation_catalog_ref. A manifest field with an allowed-looking field path can carry an arbitrary object value containing oracle or expected-result members because fieldValue.value is unconstrained and notScorerField checks only a finite exact path list.",
+      "consequence": "A system under test can be given a public catalog that points at scorer truth, or a schema-valid manifest whose nested object carries scorer truth. The declared information boundary therefore cannot independently reject the leak.",
+      "evidence": [
+        "Public catalog property scorer_expectation_catalog_ref points to the scorer-only catalog.",
+        "Arm manifest fieldValue.value has an unconstrained schema.",
+        "Manifest field_allowlist_checked is a const assertion, not a membership constraint.",
+        "The selected input_profile_ref is an unconstrained string and is not linked to arm_id by schema rules."
+      ],
+      "related_adversarial_cases": ["ADV-18", "ADV-19", "ADV-20", "ADV-R1-01", "ADV-R1-02", "ADV-R1-10"],
+      "acceptance_impact": "BLOCKING",
+      "amendment_required": true
+    },
+    {
+      "finding_id": "E2E-R1-BLOCK-001",
+      "inherited_from_02e": false,
+      "original_severity": "BLOCKING",
+      "r1_claimed_status": null,
+      "current_status": "OPEN",
+      "severity": "BLOCKING",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02D", "02R1"],
+      "affected_files": [
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+        "docs/accord-02/ACCORD-02R1-REMEDIATION.md"
+      ],
+      "summary": "R1 introduced a direct scorer-catalog reference into the public orchestration catalog while describing that catalog as the arm-independent public definition.",
+      "adversarial_construction": "Give the public scenario catalog to a system under test and follow scorer_expectation_catalog_ref, or expose the catalog to an arm with workspace-relative resource access.",
+      "consequence": "The arm-facing object graph has a direct path to protected expectations. SCORER_ONLY labels and a false visibility flag do not prevent traversal.",
+      "evidence": [
+        "The public catalog contains scorer_expectation_catalog_ref.",
+        "The catalog itself is marked orchestration-only rather than being structurally prohibited from arm exposure."
+      ],
+      "related_adversarial_cases": ["OL-02", "OL-06", "ADV-18"],
+      "acceptance_impact": "BLOCKING",
+      "amendment_required": true
+    },
+    {
+      "finding_id": "E2E-MAJOR-001",
+      "inherited_from_02e": true,
+      "original_severity": "MAJOR",
+      "r1_claimed_status": "CLOSED",
+      "current_status": "PARTIALLY_CLOSED",
+      "severity": "MAJOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+        "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json",
+        "docs/accord-02/schema/accord-02r1-settlement-vocabulary-map.schema.json"
+      ],
+      "summary": "The normative map exists and is conservative, but the standalone A verifier-result schema does not require a native C result reference or mapping-profile reference for A-style projections.",
+      "adversarial_construction": "Construct a schema-valid A result with settlement.kind=VERIFIED, evidence_class=PROVIDER_ACCEPTANCE, observer and trust root, but no native C result or mapping profile reference.",
+      "consequence": "The schema permits a projection that the R1 map rejects. A conforming implementation can follow the prose, but the machine-readable A boundary does not independently prevent strengthening.",
+      "evidence": [
+        "A settlement requires kind and reason, with conditional evidence fields only.",
+        "The A settlement object has no native_result_ref or projection_profile_id.",
+        "MAP-001 requires native and mapping references, but that requirement is external to the A schema."
+      ],
+      "related_adversarial_cases": ["SV-01", "SV-04", "SV-05", "SV-06", "SV-08", "ADV-R1-08"],
+      "acceptance_impact": "MAJOR",
+      "amendment_required": true
+    },
+    {
+      "finding_id": "E2E-MAJOR-002",
+      "inherited_from_02e": true,
+      "original_severity": "MAJOR",
+      "r1_claimed_status": "CLOSED",
+      "current_status": "CLOSED",
+      "severity": "MAJOR",
+      "disposition_class": "NON_ISSUE",
+      "affected_slices": ["02B", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md"
+      ],
+      "summary": "Grant relation, effective-authority composition state, and event-time authority validity are separate required structures using the existing B vocabularies.",
+      "adversarial_construction": "Encode ATTENUATED, POSSIBLE_WIDENING, INVALID_AUTHORITY at dispatch, and factual occurrence supported in one result.",
+      "consequence": "The repaired schema represents the combination without conflation, and no residual relation_or_state field was found.",
+      "evidence": [
+        "authority_result requires grant_relation, effective_authority, event_time_validity, and effect_axis_separate=true.",
+        "event_time_validity has independent derivation, admission, dispatch, occurrence, and verification statuses.",
+        "The normative text rejects ATTENUATED or CONTAINED as authorization conclusions."
+      ],
+      "related_adversarial_cases": ["AV-01", "AV-02", "AV-03", "AV-04", "ADV-05", "ADV-08"],
+      "acceptance_impact": "NONE",
+      "amendment_required": false
+    },
+    {
+      "finding_id": "E2E-MAJOR-003",
+      "inherited_from_02e": true,
+      "original_severity": "MAJOR",
+      "r1_claimed_status": "CLOSED",
+      "current_status": "PARTIALLY_CLOSED",
+      "severity": "MAJOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/schema/accord-02d-score-record.schema.json"
+      ],
+      "summary": "Typed references distinguish record categories, but the schemas do not enforce reference existence, run equality, effect equality, or semantic namespaces for the ID values.",
+      "adversarial_construction": "Use an arbitrary provider operation ID as attempt_id, put a verifier-result ID from another run into verifier_result_ref, or use a settlement result for another effect while satisfying the typedReference shape.",
+      "consequence": "Record types are auditable only after an external resolver checks supplied records and duplicated IDs. The schema alone does not detect foreign or mismatched lineage.",
+      "evidence": [
+        "typedReference.record_id is any non-empty string.",
+        "Top-level experiment_run_id is not constrained equal to lineage.experiment_run_ref.record_id.",
+        "The R1 evidence explicitly defers cross-record equality to future verifier/scorer checks."
+      ],
+      "related_adversarial_cases": ["TL-01", "TL-03", "TL-04", "TL-05", "TL-06", "ADV-16", "ADV-R1-07"],
+      "acceptance_impact": "MAJOR",
+      "amendment_required": true
+    },
+    {
+      "finding_id": "E2E-MAJOR-004",
+      "inherited_from_02e": true,
+      "original_severity": "MAJOR",
+      "r1_claimed_status": "CLOSED",
+      "current_status": "PARTIALLY_CLOSED",
+      "severity": "MAJOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/schema/accord-02a-portable-record.schema.json",
+        "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json"
+      ],
+      "summary": "The binding descriptor is now expressible and required in D records, but A bindings remain optional and D does not constrain equality between duplicated effect, predicate, stage, recipient, resource, and attempt fields.",
+      "adversarial_construction": "Provide a correct effect_id with a different predicate or stage inside effect_binding, or provide UNKNOWN binding slots while asserting supported occurrence and a VERIFIED projection.",
+      "consequence": "The model can represent the distinction, but a schema-valid D record can still carry internally inconsistent duplicated bindings unless a future verifier applies the prose/profile rules.",
+      "evidence": [
+        "A effectAttempt, effectObservation, and evidenceArtifact effect_binding fields remain optional.",
+        "D requires descriptors but has no cross-property equality constraints.",
+        "The map is normative but its exact-binding conditions are not encoded as conditional constraints in the D result schema."
+      ],
+      "related_adversarial_cases": ["PB-01", "PB-02", "PB-03", "PB-04", "PB-05", "PB-08", "ADV-R1-03", "ADV-R1-06"],
+      "acceptance_impact": "MAJOR",
+      "amendment_required": true
+    },
+    {
+      "finding_id": "E2E-MAJOR-005",
+      "inherited_from_02e": true,
+      "original_severity": "MAJOR",
+      "r1_claimed_status": "CLOSED",
+      "current_status": "PARTIALLY_CLOSED",
+      "severity": "MAJOR",
+      "disposition_class": "EXPERIMENT_RISK",
+      "affected_slices": ["02D"],
+      "affected_files": [
+        "docs/accord-02/schema/accord-02d-arm-input-profile.schema.json",
+        "docs/accord-02/schema/accord-02d-arm-input-manifest.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/schema/accord-02d-score-record.schema.json"
+      ],
+      "summary": "Allowlist and closed-object artifacts exist, but selected-profile membership and nested field-value safety are deferred to an unimplemented harness check.",
+      "adversarial_construction": "Set arm_id to ARM-C, use an ARM-D input_profile_ref, and include an allowed-looking classifier.feature_inputs field whose unconstrained object value contains Accord settlement output.",
+      "consequence": "The machine-readable manifest can be schema-valid while violating the declared per-arm information set. ARM-C can receive Accord-only outcome material without the schema rejecting it.",
+      "evidence": [
+        "input_profile_ref has only a non-empty string constraint.",
+        "field_allowlist_checked is asserted true rather than derived.",
+        "fieldValue.value accepts any JSON value.",
+        "rawArmOutput.fields values are also unconstrained and membership is not encoded."
+      ],
+      "related_adversarial_cases": ["BI-01", "BI-02", "BI-03", "BI-04", "ADV-19", "ADV-R1-01", "ADV-R1-02", "ADV-R1-10"],
+      "acceptance_impact": "MAJOR",
+      "amendment_required": true
+    },
+    {
+      "finding_id": "E2E-MINOR-001",
+      "inherited_from_02e": true,
+      "original_severity": "MINOR",
+      "r1_claimed_status": "CLOSED",
+      "current_status": "CLOSED",
+      "severity": "MINOR",
+      "disposition_class": "NON_ISSUE",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": ["docs/accord-02/ACCORD-02A-PORTABLE-RECORD-SPEC.md"],
+      "summary": "Provider operation IDs are explicitly external correlation identifiers and cannot replace effect, attempt, verifier, or settlement identities.",
+      "adversarial_construction": "Reuse a provider operation identifier across logical effects or retries.",
+      "consequence": "The semantic rule preserves identity separation, although future profiles must still declare provider-specific uniqueness assumptions.",
+      "evidence": ["The A specification records reuse/collision as a diagnostic and forbids identity merging."],
+      "related_adversarial_cases": ["N-01", "TL-01", "ADV-16"],
+      "acceptance_impact": "NONE",
+      "amendment_required": false
+    },
+    {
+      "finding_id": "E2E-MINOR-002",
+      "inherited_from_02e": true,
+      "original_severity": "MINOR",
+      "r1_claimed_status": "NON_BLOCKING_NOTE",
+      "current_status": "OPEN",
+      "severity": "MINOR",
+      "disposition_class": "DOCUMENTATION_GAP",
+      "affected_slices": ["02D"],
+      "affected_files": ["docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md"],
+      "summary": "A2A-shaped transport remains optional for the first scored experiment, and claims must remain scoped to the exercised transports.",
+      "adversarial_construction": "Describe T1/T2 results as universal transport-neutral evidence for untested T3 behavior.",
+      "consequence": "This remains non-blocking if future reports preserve the minimum-versus-optional coverage boundary.",
+      "evidence": ["The D design requires two transports while retaining T3 as optional."],
+      "related_adversarial_cases": ["ADV-20"],
+      "acceptance_impact": "NON_BLOCKING",
+      "amendment_required": false
+    }
+  ],
+  "summary_counts": {
+    "current_status": {
+      "OPEN": 3,
+      "PARTIALLY_CLOSED": 4,
+      "CLOSED": 2
+    },
+    "severity": {
+      "BLOCKING": 2,
+      "MAJOR": 5,
+      "MINOR": 2,
+      "NOTE": 0
+    },
+    "acceptance_impact": {
+      "BLOCKING": 2,
+      "MAJOR": 4,
+      "NON_BLOCKING": 1,
+      "NONE": 2
+    }
+  },
+  "review_scope_statement": "Fresh review only. No specification, runtime, verifier, harness, classifier, provider, or acceptance artifact was changed by this review.",
+  "experiment_executed": false
+}
