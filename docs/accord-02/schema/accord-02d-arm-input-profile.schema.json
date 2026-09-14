@@ -168,10 +168,11 @@
     "profileReference": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["record_type", "profile_id", "schema_id", "schema_version"],
+      "required": ["record_type", "profile_id", "profile_version", "schema_id", "schema_version"],
       "properties": {
         "record_type": { "const": "PROFILE" },
         "profile_id": { "type": "string", "minLength": 1 },
+        "profile_version": { "type": "string", "minLength": 1 },
         "schema_id": { "type": "string", "minLength": 1 },
         "schema_version": { "type": "string", "minLength": 1 }
       }

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:source-record-contract:0.1",
+  "title": "ACCORD-02R5 typed source-record contracts",
+  "description": "A closed structural envelope for the ten source-schema forms previously absent from the exact package. Source semantics remain governed by the source registry and arm projection.",
+  "type": "object",
+  "additionalProperties": false,
+  "oneOf": [
+    { "$ref": "#/$defs/taskState" },
+    { "$ref": "#/$defs/attempt" },
+    { "$ref": "#/$defs/executorState" },
+    { "$ref": "#/$defs/admissionState" },
+    { "$ref": "#/$defs/delegateReport" },
+    { "$ref": "#/$defs/providerStateRead" },
+    { "$ref": "#/$defs/reconciliationResult" },
+    { "$ref": "#/$defs/classifierFeature" },
+    { "$ref": "#/$defs/trustRootProfile" },
+    { "$ref": "#/$defs/detachedEvidence" }
+  ],
+  "$defs": {
+    "base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_id", "schema_version", "record_type", "record_id", "content"],
+      "properties": {
+        "schema_id": { "type": "string", "enum": ["urn:moirae:accord-02d:source:task-state", "urn:moirae:accord-02d:source:attempt", "urn:moirae:accord-02d:source:executor-state", "urn:moirae:accord-02d:source:admission-state", "urn:moirae:accord-02d:source:delegate-report", "urn:moirae:accord-02d:source:provider-state-read", "urn:moirae:accord-02d:source:reconciliation-result", "urn:moirae:accord-02r3:schema:classifier-feature:0.1", "urn:moirae:accord-02d:source:trust-root-profile", "urn:moirae:accord-02d:source:detached-evidence"] },
+        "schema_version": { "const": "0.1" },
+        "record_type": { "type": "string", "enum": ["TASK_STATE", "ATTEMPT", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"] },
+        "record_id": { "type": "string", "minLength": 1 },
+        "content": { "type": "object" }
+      }
+    },
+    "taskState": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:task-state" }, "record_type": { "const": "TASK_STATE" } } }] },
+    "attempt": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:attempt" }, "record_type": { "const": "ATTEMPT" } } }] },
+    "executorState": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:executor-state" }, "record_type": { "const": "EXECUTOR_STATE" } } }] },
+    "admissionState": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:admission-state" }, "record_type": { "const": "ADMISSION_STATE" } } }] },
+    "delegateReport": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:delegate-report" }, "record_type": { "const": "DELEGATE_REPORT" } } }] },
+    "providerStateRead": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:provider-state-read" }, "record_type": { "const": "PROVIDER_STATE_READ" } } }] },
+    "reconciliationResult": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:reconciliation-result" }, "record_type": { "const": "RECONCILIATION_RESULT" } } }] },
+    "classifierFeature": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02r3:schema:classifier-feature:0.1" }, "record_type": { "const": "CLASSIFIER_FEATURE" } } }] },
+    "trustRootProfile": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:trust-root-profile" }, "record_type": { "const": "TRUST_ROOT_PROFILE" } } }] },
+    "detachedEvidence": { "allOf": [{ "$ref": "#/$defs/base" }, { "type": "object", "properties": { "schema_id": { "const": "urn:moirae:accord-02d:source:detached-evidence" }, "record_type": { "const": "DETACHED_EVIDENCE" } } }] }
+  }
+}

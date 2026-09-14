@@ -1,0 +1,107 @@
+{
+  "remediation_id": "ACCORD-02R5",
+  "status": "CANDIDATE_REMEDIATION_ONLY",
+  "starting_commit": "ffa7ff1f351351cb48cd6146409b3ef58c03b83a",
+  "active_package": {
+    "package_id": "urn:moirae:accord-02r5:specification-package",
+    "package_version": "0.1",
+    "policy": "CLOSED_EXACT_VERSION"
+  },
+  "targeted_findings": [
+    {
+      "finding_id": "E2E-R4-BLOCK-001",
+      "severity": "BLOCKING",
+      "r4_summary": "The exact package does not contain every profile required by the run contracts, and several active arm-profile references are not version pinned.",
+      "r4_acceptance_impact": "BLOCKING",
+      "r5_status": "CLOSED",
+      "files_amended": [
+        "accord-02r5-specification-package.json",
+        "schema/accord-02r5-specification-package.schema.json",
+        "schema/accord-02r5-verifier-profile.schema.json",
+        "schema/accord-02r5-trust-root-profile.schema.json",
+        "schema/accord-02d-arm-input-profile.schema.json",
+        "examples/accord-02d-arm-input-profiles.json",
+        "schema/accord-02r3-experiment-run.schema.json",
+        "schema/accord-02r3-verifier-run.schema.json"
+      ],
+      "structural_change": "R5 package adds EXPERIMENT_PROFILE, VERIFIER_PROFILE, and TRUST_ROOT_PROFILE contracts; arm profileReference requires profile_version; current package references are R5 exact-version pinned.",
+      "validation": ["profile_contract_paths_resolve", "profile_type_id_version_unique", "active_arm_profile_references_versioned", "no_latest_or_default_substitution"],
+      "residual_limitation": "No executable package resolver was built; the contract is statically inspectable and exact-versioned.",
+      "related_historical_findings": ["E2E-R3-BLOCK-001", "E2E-R2-BLOCK-001", "E2E-MAJOR-005"]
+    },
+    {
+      "finding_id": "E2E-R4-BLOCK-002",
+      "severity": "BLOCKING",
+      "r4_summary": "The source-schema membership registry names ten source schema ID/version pairs that are not members of the closed R4 schema-contract inventory.",
+      "r4_acceptance_impact": "BLOCKING",
+      "r5_status": "CLOSED",
+      "files_amended": [
+        "accord-02r5-specification-package.json",
+        "schema/accord-02r5-source-record-contract.schema.json",
+        "schema/accord-02r3-source-schema-registry.schema.json"
+      ],
+      "structural_change": "All 13 active source-schema ID/version pairs resolve through the R5 package; ten formerly absent pairs use the closed typed source-record contract.",
+      "validation": ["source_registry_pairs_count_13", "registry_to_package_coverage_13_of_13", "no_repository_fallback", "source_contract_paths_resolve"],
+      "residual_limitation": "The shared source-record envelope intentionally does not define scenario-specific evidence semantics; source registry and existing profiles remain authoritative.",
+      "related_historical_findings": ["E2E-R3-BLOCK-002", "E2E-R2-MAJOR-001", "E2E-MAJOR-005"]
+    },
+    {
+      "finding_id": "E2E-R4-MAJOR-001",
+      "severity": "MAJOR",
+      "r4_summary": "The declared canonicalization profile does not identify the concrete schema/type form carried by generic bundle entries.",
+      "r4_acceptance_impact": "MAJOR",
+      "r5_status": "CLOSED",
+      "files_amended": [
+        "examples/accord-02r5-canonicalization-profile.json",
+        "schema/accord-02r5-canonicalization-profile.schema.json",
+        "schema/accord-02r3-scorer-bundle.schema.json",
+        "accord-02r5-validation-rules.json"
+      ],
+      "structural_change": "Concrete verifier, experiment, and scorer mappings bind container type, schema ID/version, record type, and content target; scorer entries carry R5 schema identity.",
+      "validation": ["concrete_mapping_count_49", "digest_bearing_forms_covered", "wrong_mapping_rejected", "wrong_digest_failure_only"],
+      "residual_limitation": "Digest verification remains a future implementation/conformance operation; the canonicalization contract is explicit for supplied digests.",
+      "related_historical_findings": ["E2E-R3-MAJOR-003", "E2E-R2-MAJOR-005"]
+    },
+    {
+      "finding_id": "E2E-R4-MAJOR-002",
+      "severity": "MAJOR",
+      "r4_summary": "The R4 closed role vocabulary is enforced for role-visibility field rules but not for the roles arrays that govern source-schema membership.",
+      "r4_acceptance_impact": "MAJOR",
+      "r5_status": "CLOSED",
+      "files_amended": [
+        "schema/accord-02r3-source-schema-registry.schema.json",
+        "accord-02r5-specification-package.json"
+      ],
+      "structural_change": "Source-registry roles use the same nine-value enum as the package role vocabulary and role-visibility profile.",
+      "validation": ["unknown_source_registry_roles_zero", "MAGIC_ADMIN_rejected", "single_authoritative_role_vocabulary"],
+      "residual_limitation": "Future role additions require a new package/profile version; current package does not default unknown roles to visible or private.",
+      "related_historical_findings": ["E2E-R3-MAJOR-001", "E2E-R2-MAJOR-003"]
+    }
+  ],
+  "historical_traceability": {
+    "E2E-BLOCK-001": "PACKAGE_INVENTORY_PORTION_CLOSED; original oracle boundary remains unchanged",
+    "E2E-MAJOR-003": "SCHEMA_AND_DIGEST_LINEAGE_CONTRACT_PORTION_CLOSED",
+    "E2E-MAJOR-004": "NO_CHANGE; canonical proposition semantics preserved",
+    "E2E-MAJOR-005": "PACKAGE_AND_SOURCE_MEMBERSHIP_PORTION_CLOSED; arm oracle isolation preserved"
+  },
+  "static_gate": {
+    "active_profile_missing": 0,
+    "active_profile_versionless": 0,
+    "active_source_schema_missing": 0,
+    "unknown_normative_roles": 0,
+    "digest_forms_without_applicability": 0,
+    "active_rule_ambiguous": 0,
+    "active_rule_unevaluable": 0,
+    "active_rule_contradictory": 0,
+    "targeted_compatibility_ambiguous": 0,
+    "targeted_compatibility_incompatible": 0
+  },
+  "acceptance": {
+    "accepted": false,
+    "promoted": false,
+    "merged": false,
+    "tagged": false,
+    "pushed": false,
+    "next_gate": "A FRESH POST-R5 ACCEPTANCE-READINESS REVIEW IS REQUIRED BEFORE ACCORD-02 ACCEPTANCE."
+  }
+}

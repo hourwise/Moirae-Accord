@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:experiment-runtime-record:0.1",
+  "title": "ACCORD-02R5 experiment runtime record envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "record_id", "content"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r5:schema:experiment-runtime-record:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "enum": ["SCENARIO_DEFINITION", "RAW_ARM_OUTPUT"] },
+    "record_id": { "type": "string", "minLength": 1 },
+    "content": { "type": "object" }
+  }
+}

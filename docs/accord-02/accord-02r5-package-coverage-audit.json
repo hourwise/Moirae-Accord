@@ -1,0 +1,77 @@
+{
+  "artifact": "ACCORD-02R5 package coverage audit",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.1",
+  "contract_policy": "CLOSED_EXACT_VERSION",
+  "counts": {
+    "schema_contracts": 44,
+    "profile_contracts": 31,
+    "canonicalization_profiles": 1,
+    "canonicalization_mappings": 49,
+    "role_vocabulary": 9,
+    "active_source_schema_pairs": 13,
+    "active_arm_profile_references": 16,
+    "validation_rules": 82,
+    "validation_rule_overrides": 3,
+    "validation_dependency_edges": 13
+  },
+  "profile_coverage": {
+    "missing_active_profiles": 0,
+    "versionless_active_profiles": 0,
+    "duplicate_profile_type_id_version": 0,
+    "required_new_contracts": [
+      "EXPERIMENT_PROFILE",
+      "VERIFIER_PROFILE",
+      "TRUST_ROOT_PROFILE"
+    ]
+  },
+  "source_schema_coverage": {
+    "r4_missing_pairs": 10,
+    "r5_active_pairs": 13,
+    "r5_packaged_pairs": 13,
+    "missing_pairs_after_r5": 0,
+    "reverse_package_bijection_required": false
+  },
+  "role_coverage": {
+    "unknown_source_registry_roles": 0,
+    "authoritative_vocabulary": [
+      "ORCHESTRATOR",
+      "DELEGATE_FIXTURE",
+      "PROVIDER_FIXTURE",
+      "OBSERVER_FIXTURE",
+      "ARM-A-DURABLE",
+      "ARM-B-PROVIDER-OBSERVATION",
+      "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+      "ARM-D-ACCORD-EVIDENCE",
+      "SCORER"
+    ]
+  },
+  "digest_coverage": {
+    "unresolved_concrete_forms": 0,
+    "verifier_record_entry_mappings": 11,
+    "experiment_record_entry_mappings": 33,
+    "scorer_entry_mappings": 5,
+    "algorithm": "SHA-256",
+    "method": "RFC8785_JCS",
+    "encoding": "UTF-8",
+    "content_target": "content"
+  },
+  "rule_gate": {
+    "BND-004": {"classification": "DETERMINISTIC_WITH_PROFILE", "profile_input": "exact R5 specification package schema-contract inventory"},
+    "BND-005": {"classification": "DETERMINISTIC_WITH_PROFILE", "profile_input": "exact R5 specification package profile-contract inventory"},
+    "DIGEST-001": {"classification": "DETERMINISTIC_WITH_PROFILE", "profile_input": "exact R5 canonicalization profile and concrete schema mapping"},
+    "acceptance_critical_ambiguous": 0,
+    "acceptance_critical_unevaluable": 0,
+    "acceptance_critical_contradictory": 0,
+    "dependency_cycles": 0
+  },
+  "historical_immutability": {
+    "r4_package_preserved": true,
+    "historical_reviews_preserved": true,
+    "prior_remediation_evidence_preserved": true
+  },
+  "limitations": [
+    "No standards-complete external JSON Schema validator was installed or run.",
+    "No runtime, validator, verifier, harness, experiment, classifier training, provider call, or interoperability run was performed."
+  ]
+}

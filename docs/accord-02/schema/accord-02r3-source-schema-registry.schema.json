@@ -32,7 +32,7 @@
         "source_type": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE", "PORTABLE_RECORD_BUNDLE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"] },
         "record_types": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
         "permitted_schemas": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/schemaMembership" }, "uniqueItems": true },
-        "roles": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "roles": { "type": "array", "minItems": 1, "items": { "enum": ["ORCHESTRATOR", "DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"] }, "uniqueItems": true },
         "derived_allowed": { "type": "boolean" }
       }
     }

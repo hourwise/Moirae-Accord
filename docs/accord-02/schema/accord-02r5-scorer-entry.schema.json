@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:scorer-entry:0.1",
+  "title": "ACCORD-02R5 scorer-entry structural contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_type", "record_id", "scenario_id", "schema_id", "schema_version", "content"],
+  "properties": {
+    "record_type": { "enum": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "CATEGORICAL_FAILURE_EVALUATION", "METRIC_CONTRIBUTION"] },
+    "record_id": { "type": "string", "minLength": 1 },
+    "scenario_id": { "type": "string", "minLength": 1 },
+    "schema_id": { "const": "urn:moirae:accord-02r5:schema:scorer-entry:0.1" },
+    "schema_version": { "const": "0.1" },
+    "content": { "type": "object" },
+    "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+    "canonicalization_profile_ref": { "type": "object", "additionalProperties": false, "required": ["record_type", "profile_id", "profile_version", "schema_id", "schema_version"], "properties": { "record_type": { "const": "CANONICALIZATION_PROFILE" }, "profile_id": { "const": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1" }, "profile_version": { "const": "0.1" }, "schema_id": { "const": "urn:moirae:accord-02r5:schema:canonicalization-profile:0.1" }, "schema_version": { "const": "0.1" } } }
+  },
+  "allOf": [
+    { "if": { "required": ["content_digest"] }, "then": { "required": ["canonicalization_profile_ref"] } }
+  ]
+}

@@ -36,11 +36,13 @@
     "scorerEntry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["record_type", "record_id", "scenario_id", "content"],
+      "required": ["record_type", "record_id", "scenario_id", "schema_id", "schema_version", "content"],
       "properties": {
         "record_type": { "enum": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "CATEGORICAL_FAILURE_EVALUATION", "METRIC_CONTRIBUTION"] },
         "record_id": { "type": "string", "minLength": 1 },
         "scenario_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "const": "urn:moirae:accord-02r5:schema:scorer-entry:0.1" },
+        "schema_version": { "const": "0.1" },
         "content": {},
         "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
         "canonicalization_profile_ref": { "$ref": "#/$defs/canonicalizationProfileReference" }
@@ -55,9 +57,9 @@
       "required": ["record_type", "package_id", "package_version", "schema_id", "schema_version"],
       "properties": {
         "record_type": { "const": "SPECIFICATION_PACKAGE" },
-        "package_id": { "const": "urn:moirae:accord-02r4:specification-package" },
+        "package_id": { "const": "urn:moirae:accord-02r5:specification-package" },
         "package_version": { "const": "0.1" },
-        "schema_id": { "const": "urn:moirae:accord-02r4:schema:specification-package:0.1" },
+        "schema_id": { "const": "urn:moirae:accord-02r5:schema:specification-package:0.1" },
         "schema_version": { "const": "0.1" },
         "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       }
@@ -68,9 +70,9 @@
       "required": ["record_type", "profile_id", "profile_version", "schema_id", "schema_version"],
       "properties": {
         "record_type": { "const": "CANONICALIZATION_PROFILE" },
-        "profile_id": { "const": "urn:moirae:accord-02r4:canonicalization:rfc8785-jcs:0.1" },
+        "profile_id": { "const": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1" },
         "profile_version": { "const": "0.1" },
-        "schema_id": { "const": "urn:moirae:accord-02r4:schema:canonicalization-profile:0.1" },
+        "schema_id": { "const": "urn:moirae:accord-02r5:schema:canonicalization-profile:0.1" },
         "schema_version": { "const": "0.1" },
         "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       }

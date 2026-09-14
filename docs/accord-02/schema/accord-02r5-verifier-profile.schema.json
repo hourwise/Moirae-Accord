@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:verifier-profile:0.1",
+  "title": "ACCORD-02R5 verifier profile contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "profile_id", "profile_version", "allowed_bundle_types", "required_profile_types", "private_state_used", "oracle_used"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r5:schema:verifier-profile:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "VERIFIER_PROFILE" },
+    "profile_id": { "const": "urn:moirae:accord-02r5:verifier:default:0.1" },
+    "profile_version": { "const": "0.1" },
+    "allowed_bundle_types": { "type": "array", "minItems": 1, "items": { "enum": ["VERIFIER_VALIDATION_BUNDLE", "EXPERIMENT_VALIDATION_BUNDLE"] }, "uniqueItems": true },
+    "required_profile_types": { "type": "array", "minItems": 1, "items": { "enum": ["AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "PROJECTION_PROFILE", "EXTENSION_REGISTRY", "PREDICATE_APPLICABILITY_PROFILE", "VALIDATION_RULE_PROFILE", "TRUST_ROOT_PROFILE"] }, "uniqueItems": true },
+    "private_state_used": { "const": false },
+    "oracle_used": { "const": false }
+  }
+}
