@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "review_id": "urn:moirae:accord-02e-r3:validation-rule-review:0.1",
+  "reviewed_rule_sources": [
+    "accord-02r2-validation-rules.json",
+    "accord-02r3-validation-rules.json"
+  ],
+  "combined_rule_count": 71,
+  "classification_vocabulary": ["DETERMINISTIC", "DETERMINISTIC_WITH_PROFILE", "AMBIGUOUS", "UNEVALUABLE", "CONTRADICTORY", "NOT_APPLICABLE"],
+  "classification_counts": {
+    "DETERMINISTIC": 18,
+    "DETERMINISTIC_WITH_PROFILE": 51,
+    "AMBIGUOUS": 0,
+    "UNEVALUABLE": 2,
+    "CONTRADICTORY": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "classification_by_rule": {
+    "ORC-001":"DETERMINISTIC_WITH_PROFILE","ORC-002":"DETERMINISTIC_WITH_PROFILE","ORC-003":"DETERMINISTIC_WITH_PROFILE",
+    "ARM-001":"DETERMINISTIC","ARM-002":"DETERMINISTIC_WITH_PROFILE","ARM-003":"DETERMINISTIC_WITH_PROFILE","ARM-004":"DETERMINISTIC_WITH_PROFILE","ARM-005":"DETERMINISTIC","ARM-006":"DETERMINISTIC_WITH_PROFILE","ARM-007":"DETERMINISTIC_WITH_PROFILE",
+    "RAW-001":"DETERMINISTIC","RAW-002":"DETERMINISTIC","RAW-003":"DETERMINISTIC",
+    "PROJ-001":"DETERMINISTIC_WITH_PROFILE","PROJ-002":"DETERMINISTIC_WITH_PROFILE","PROJ-003":"DETERMINISTIC_WITH_PROFILE","PROJ-004":"DETERMINISTIC",
+    "LIN-001":"DETERMINISTIC_WITH_PROFILE","LIN-002":"DETERMINISTIC","LIN-003":"DETERMINISTIC_WITH_PROFILE","LIN-004":"DETERMINISTIC","LIN-005":"DETERMINISTIC","LIN-006":"DETERMINISTIC_WITH_PROFILE","LIN-007":"DETERMINISTIC_WITH_PROFILE","LIN-008":"DETERMINISTIC",
+    "PROP-001":"DETERMINISTIC_WITH_PROFILE","PROP-002":"DETERMINISTIC_WITH_PROFILE","PROP-003":"DETERMINISTIC_WITH_PROFILE","PROP-004":"DETERMINISTIC_WITH_PROFILE","PROP-005":"DETERMINISTIC_WITH_PROFILE",
+    "SCORE-001":"DETERMINISTIC","SCORE-002":"DETERMINISTIC_WITH_PROFILE","SCORE-003":"DETERMINISTIC_WITH_PROFILE",
+    "BND-001":"DETERMINISTIC","BND-002":"DETERMINISTIC","BND-003":"DETERMINISTIC","BND-004":"UNEVALUABLE","BND-005":"UNEVALUABLE",
+    "RUN-001":"DETERMINISTIC","RUN-002":"DETERMINISTIC","RUN-003":"DETERMINISTIC","RUN-004":"DETERMINISTIC",
+    "EXT-001":"DETERMINISTIC_WITH_PROFILE","EXT-002":"DETERMINISTIC_WITH_PROFILE","EXT-003":"DETERMINISTIC_WITH_PROFILE","EXT-004":"DETERMINISTIC_WITH_PROFILE","EXT-005":"DETERMINISTIC_WITH_PROFILE","EXT-006":"DETERMINISTIC_WITH_PROFILE",
+    "SRC-001":"DETERMINISTIC_WITH_PROFILE","SRC-002":"DETERMINISTIC_WITH_PROFILE","SRC-003":"DETERMINISTIC_WITH_PROFILE","SRC-004":"DETERMINISTIC_WITH_PROFILE",
+    "VIS-001":"DETERMINISTIC_WITH_PROFILE",
+    "NORM-001":"DETERMINISTIC_WITH_PROFILE","NORM-002":"DETERMINISTIC_WITH_PROFILE","NORM-003":"DETERMINISTIC_WITH_PROFILE","NORM-004":"DETERMINISTIC_WITH_PROFILE","NORM-005":"DETERMINISTIC_WITH_PROFILE",
+    "CLF-001":"DETERMINISTIC_WITH_PROFILE","CLF-002":"DETERMINISTIC_WITH_PROFILE","CLF-003":"DETERMINISTIC_WITH_PROFILE","CLF-004":"DETERMINISTIC_WITH_PROFILE",
+    "PRED-001":"DETERMINISTIC_WITH_PROFILE","PRED-002":"DETERMINISTIC_WITH_PROFILE","PRED-003":"DETERMINISTIC_WITH_PROFILE","PRED-004":"DETERMINISTIC_WITH_PROFILE",
+    "DIGEST-001":"DETERMINISTIC_WITH_PROFILE","DIGEST-002":"DETERMINISTIC_WITH_PROFILE","DIGEST-003":"DETERMINISTIC_WITH_PROFILE",
+    "LIN-009":"DETERMINISTIC_WITH_PROFILE","PROP-006":"DETERMINISTIC_WITH_PROFILE"
+  },
+  "rule_review_notes": {
+    "BND-004": {
+      "status": "UNEVALUABLE",
+      "finding_ids": ["E2E-R3-BLOCK-002"],
+      "reason": "The rule requires schema/profile contracts in scope, but bundle inventories do not define a schema-contract record or inline contract source for arbitrary content."
+    },
+    "BND-005": {
+      "status": "UNEVALUABLE",
+      "finding_ids": ["E2E-R3-BLOCK-001"],
+      "reason": "Active profile references use record_type PROFILE, which is not an admitted bundle inventory type, and references contain no profile definition."
+    },
+    "profile_dependent_rules": {
+      "status": "CONDITIONALLY_EVALUABLE",
+      "affected_rule_count": 51,
+      "condition": "The named profile or registry must first be resolvable from the self-contained validation scope; current bundle schemas do not establish that resolution."
+    }
+  },
+  "dependency_review": {
+    "source_graph": "accord-02r3-validation-dependency-graph.json",
+    "rule_dependencies_resolve": true,
+    "acceptance_critical_cycles": 0,
+    "qualification": "An acyclic dependency graph does not supply missing profile or schema-contract records."
+  }
+}
