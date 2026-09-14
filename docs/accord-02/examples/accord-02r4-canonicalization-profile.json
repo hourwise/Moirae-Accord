@@ -1,0 +1,16 @@
+{
+  "schema_id": "urn:moirae:accord-02r4:schema:canonicalization-profile:0.1",
+  "schema_version": "0.1",
+  "profile_id": "urn:moirae:accord-02r4:canonicalization:rfc8785-jcs:0.1",
+  "profile_version": "0.1",
+  "algorithm": "SHA-256",
+  "method": "RFC8785_JCS",
+  "encoding": "UTF-8",
+  "included_fields": ["content"],
+  "excluded_fields": [],
+  "applies_to": [
+    {"schema_id":"urn:moirae:accord-02r3:schema:verifier-validation-bundle:0.1","schema_version":"0.1","record_types":["BUNDLE_RECORD_CONTENT"]},
+    {"schema_id":"urn:moirae:accord-02r3:schema:experiment-validation-bundle:0.1","schema_version":"0.1","record_types":["BUNDLE_RECORD_CONTENT"]},
+    {"schema_id":"urn:moirae:accord-02r3:schema:scorer-bundle:0.1","schema_version":"0.1","record_types":["SCORER_RECORD_CONTENT"]}
+  ]
+}

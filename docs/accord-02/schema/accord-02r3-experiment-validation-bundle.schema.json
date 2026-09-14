@@ -5,7 +5,7 @@
   "description": "The declared experiment-side scope extending a verifier bundle with run, arm, normalization, and scoring-lineage records. It contains no scorer expectation or oracle record.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_id", "schema_version", "bundle_id", "bundle_type", "information_class", "self_contained", "validation_scope_id", "verifier_bundle_ref", "experiment_records", "active_profiles", "scorer_material_present", "system_under_test_visible"],
+  "required": ["schema_id", "schema_version", "bundle_id", "bundle_type", "information_class", "self_contained", "validation_scope_id", "specification_package_ref", "verifier_bundle_ref", "experiment_records", "active_profiles", "scorer_material_present", "system_under_test_visible"],
   "properties": {
     "schema_id": { "const": "urn:moirae:accord-02r3:schema:experiment-validation-bundle:0.1" },
     "schema_version": { "const": "0.1" },
@@ -14,6 +14,7 @@
     "information_class": { "const": "EXPERIMENT_VALIDATION_BUNDLE" },
     "self_contained": { "const": true },
     "validation_scope_id": { "type": "string", "minLength": 1 },
+    "specification_package_ref": { "$ref": "#/$defs/specificationPackageReference" },
     "verifier_bundle_ref": { "$ref": "#/$defs/bundleReference" },
     "experiment_records": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/recordEntry" }, "uniqueItems": true },
     "active_profiles": { "$ref": "#/$defs/activeProfiles" },
@@ -44,16 +45,47 @@
         "schema_id": { "type": "string", "minLength": 1 },
         "schema_version": { "type": "string", "minLength": 1 },
         "content": {},
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "canonicalization_profile_ref": { "$ref": "#/$defs/canonicalizationProfileReference" }
+      },
+      "allOf": [
+        { "if": { "required": ["content_digest"] }, "then": { "required": ["canonicalization_profile_ref"] } }
+      ]
+    },
+    "specificationPackageReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "package_id", "package_version", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "SPECIFICATION_PACKAGE" },
+        "package_id": { "const": "urn:moirae:accord-02r4:specification-package" },
+        "package_version": { "const": "0.1" },
+        "schema_id": { "const": "urn:moirae:accord-02r4:schema:specification-package:0.1" },
+        "schema_version": { "const": "0.1" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "canonicalizationProfileReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "profile_id", "profile_version", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "CANONICALIZATION_PROFILE" },
+        "profile_id": { "const": "urn:moirae:accord-02r4:canonicalization:rfc8785-jcs:0.1" },
+        "profile_version": { "const": "0.1" },
+        "schema_id": { "const": "urn:moirae:accord-02r4:schema:canonicalization-profile:0.1" },
+        "schema_version": { "const": "0.1" },
         "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       }
     },
     "profileReference": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["record_type", "profile_id", "schema_id", "schema_version"],
+      "required": ["record_type", "profile_id", "profile_version", "schema_id", "schema_version"],
       "properties": {
         "record_type": { "const": "PROFILE" },
         "profile_id": { "type": "string", "minLength": 1 },
+        "profile_version": { "type": "string", "minLength": 1 },
         "schema_id": { "type": "string", "minLength": 1 },
         "schema_version": { "type": "string", "minLength": 1 },
         "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }

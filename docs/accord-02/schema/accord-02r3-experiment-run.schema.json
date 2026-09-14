@@ -4,7 +4,7 @@
   "title": "ACCORD-02R3 experiment run record",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_id", "schema_version", "record_type", "experiment_run_id", "experiment_version", "scenario_id", "arm_id", "arm_input_manifest_ref", "experiment_profile_ref", "source_schema_registry_ref", "role_visibility_profile_ref", "validation_rule_profile_ref", "normalization_profile_ref", "status", "oracle_reference_absent", "scorer_expectation_reference_absent"],
+  "required": ["schema_id", "schema_version", "record_type", "experiment_run_id", "experiment_version", "scenario_id", "arm_id", "specification_package_ref", "arm_input_manifest_ref", "experiment_profile_ref", "source_schema_registry_ref", "role_visibility_profile_ref", "validation_rule_profile_ref", "normalization_profile_ref", "status", "oracle_reference_absent", "scorer_expectation_reference_absent"],
   "properties": {
     "schema_id": { "const": "urn:moirae:accord-02r3:schema:experiment-run:0.1" },
     "schema_version": { "const": "0.1" },
@@ -13,6 +13,7 @@
     "experiment_version": { "type": "string", "minLength": 1 },
     "scenario_id": { "type": "string", "minLength": 1 },
     "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+    "specification_package_ref": { "$ref": "#/$defs/specificationPackageReference" },
     "arm_input_manifest_ref": { "$ref": "#/$defs/manifestReference" },
     "experiment_profile_ref": { "$ref": "#/$defs/profileReference" },
     "source_schema_registry_ref": { "$ref": "#/$defs/profileReference" },
@@ -41,10 +42,14 @@
         "record_type": { "type": "string", "minLength": 1 },
         "schema_id": { "type": "string", "minLength": 1 },
         "schema_version": { "type": "string", "minLength": 1 },
-        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "profile_version": { "type": "string", "minLength": 1 },
+        "arm_input_manifest_id": { "type": "string", "minLength": 1 }
       }
     },
     "manifestReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "ARM_INPUT_MANIFEST" }, "arm_input_manifest_id": { "type": "string", "minLength": 1 } }, "required": ["arm_input_manifest_id"] }] },
-    "profileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "PROFILE" }, "profile_id": { "type": "string", "minLength": 1 } }, "required": ["profile_id"] }] }
+    "profileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "PROFILE" }, "profile_id": { "type": "string", "minLength": 1 }, "profile_version": { "type": "string", "minLength": 1 } }, "required": ["profile_id", "profile_version"] }] },
+    "specificationPackageReference": { "type": "object", "additionalProperties": false, "required": ["record_type", "package_id", "package_version", "schema_id", "schema_version"], "properties": { "record_type": { "const": "SPECIFICATION_PACKAGE" }, "package_id": { "const": "urn:moirae:accord-02r4:specification-package" }, "package_version": { "const": "0.1" }, "schema_id": { "const": "urn:moirae:accord-02r4:schema:specification-package:0.1" }, "schema_version": { "const": "0.1" } } }
   }
 }

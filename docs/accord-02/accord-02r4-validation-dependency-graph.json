@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r4:schema:validation-dependency-graph:0.1",
+  "graph_id": "urn:moirae:accord-02r4:validation-dependency-graph:0.1",
+  "version": "0.1",
+  "base_graph": {"graph_id":"urn:moirae:accord-02r3:validation-dependency-graph:0.1","path":"accord-02r3-validation-dependency-graph.json"},
+  "overlay_rule_registry": {"path":"accord-02r4-validation-rules.json","profile_id":"urn:moirae:accord-02r4:validation-rules:0.1"},
+  "added_nodes": ["PKG-001","PKG-002","PROF-001","PROF-002","SCHEMA-001","SCHEMA-002","ROLE-001","DIGEST-CANON-001","DIGEST-CANON-002","DIGEST-CANON-003","SCENARIO-ID-001"],
+  "edges": [
+    {"from":"PKG-002","depends_on":["PKG-001"]},
+    {"from":"PROF-001","depends_on":["PKG-001","PKG-002"]},
+    {"from":"PROF-002","depends_on":["PROF-001"]},
+    {"from":"SCHEMA-001","depends_on":["PKG-001","PKG-002"]},
+    {"from":"SCHEMA-002","depends_on":["SCHEMA-001"]},
+    {"from":"ROLE-001","depends_on":["PKG-001","PKG-002","PROF-001"]},
+    {"from":"DIGEST-CANON-001","depends_on":["PKG-001","PKG-002","PROF-001","SCHEMA-001"]},
+    {"from":"DIGEST-CANON-002","depends_on":["DIGEST-CANON-001","SCHEMA-001"]},
+    {"from":"DIGEST-CANON-003","depends_on":["DIGEST-CANON-001"]},
+    {"from":"DIGEST-001","depends_on":["BND-004","DIGEST-CANON-001","DIGEST-CANON-002","DIGEST-CANON-003"]},
+    {"from":"SCENARIO-ID-001","depends_on":["PROF-001","CLF-001"]},
+    {"from":"BND-004","depends_on":["PKG-001","PKG-002","SCHEMA-001","SCHEMA-002"]},
+    {"from":"BND-005","depends_on":["PKG-001","PKG-002","PROF-001","PROF-002"]}
+  ],
+  "validation_facts": ["SPEC_PACKAGE_RESOLVED","PACKAGE_CONTRACTS_CLOSED","SCHEMA_CONTRACT_RESOLVED","STRUCTURE_VALID","ACTIVE_PROFILE_RESOLVED","PROFILE_VERSIONS_PINNED","ROLE_VOCABULARY_VALID","CANONICALIZATION_PROFILE_RESOLVED","CANONICALIZATION_APPLICABLE","CANONICALIZATION_SUPPORTED","SCENARIO_ID_NON_SEMANTIC"],
+  "acyclicity": {"acceptance_critical":true,"result":"ACYCLIC_BY_DECLARED_DEPENDENCIES","cycles":[]}
+}

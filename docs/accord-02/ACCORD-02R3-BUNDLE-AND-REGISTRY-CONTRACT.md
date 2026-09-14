@@ -65,3 +65,13 @@ provider-accepted-only, duplicate-risk, unknown, or no-claim. It cannot consult
 an expectation, oracle, native settlement result unavailable to that arm, or
 categorical failure result. The scorer compares the normalized claim to truth
 only after normalization.
+
+## R4 exact-contract closure
+
+For the current candidate stack, the package and profile-resolution rules in
+`ACCORD-02R4-SPECIFICATION-PACKAGE-CONTRACT.md` govern the phrase “supplied by
+profile reference” above. A verifier or experiment bundle must carry the exact
+`specification_package_ref`; the package manifest closes the schema/profile/
+registry inventory and pins each active contract version. The R3 text is
+therefore interpreted through the R4 base-plus-overlay rule contract, not
+through an implementation-defined catalog or ambient lookup.

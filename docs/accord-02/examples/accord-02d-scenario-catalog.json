@@ -7,7 +7,15 @@
   "catalog_role": "SCENARIO_DEFINITION_ORCHESTRATION_ONLY",
   "system_under_test_visible": false,
   "expected_results_included": false,
-  "scenario_identifiers_opaque_to_expected_result": true,
+  "scenario_id_policy": {
+    "semantic_role": "CORRELATION_ONLY",
+    "authoritative": false,
+    "evidentiary": false,
+    "allowed_uses": ["CORRELATION", "JOIN", "AUDIT"],
+    "forbidden_uses": ["BASELINE_DECISION", "CLASSIFIER_FEATURE", "VERIFIER_DECISION"],
+    "generation_requirement": "Controlled experiment tooling must generate identifiers without encoding expected occurrence, authority, delegate honesty, fault outcome, duplicate outcome, or categorical-failure classification.",
+    "limitation": "This is a generation and use requirement; the identifier value alone does not cryptographically prove semantic opacity."
+  },
   "arm_input_profile_catalog_ref": "docs/accord-02/examples/accord-02d-arm-input-profiles.json",
   "arms": [
     {"arm_id":"ARM-A-DURABLE","name":"Durable baseline","input_profile_id":"urn:moirae:accord-02d:arm-input:durable:0.1"},

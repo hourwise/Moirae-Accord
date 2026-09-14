@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r4:remediation-evidence:0.1",
+  "remediation_id": "ACCORD-02R4",
+  "base_commit": "40424f36037d803820c10119677ee23701f39684",
+  "package_model": "CLOSED_VERSIONED_SPECIFICATION_PACKAGE",
+  "target_findings": [
+    {
+      "finding_id": "E2E-R3-BLOCK-001",
+      "severity": "BLOCKING",
+      "exact_defect": "Active profile references could not be resolved to supplied profile records or definitions inside validation scope.",
+      "files_changed": ["docs/accord-02/schema/accord-02r3-verifier-validation-bundle.schema.json", "docs/accord-02/schema/accord-02r3-experiment-validation-bundle.schema.json", "docs/accord-02/schema/accord-02r3-experiment-run.schema.json", "docs/accord-02/schema/accord-02r3-verifier-run.schema.json", "docs/accord-02/accord-02r4-specification-package.json", "docs/accord-02/accord-02r4-validation-rules.json"],
+      "semantic_change": "Every active profile resolves by exact profile type/id/version through the closed R4 package inventory; no latest/default/ambient lookup is permitted.",
+      "rule_ids": ["PKG-001", "PKG-002", "PROF-001", "PROF-002", "BND-005"],
+      "adversarial_tests": ["CONTRACT-ADV-01", "CONTRACT-ADV-02", "SCOPE-ADV-01", "SCOPE-ADV-05"],
+      "claimed_status": "CLOSED",
+      "residual_limitation": "A future implementation must still perform standards-conformant schema validation; R4 supplies the contract inventory but no validator executable."
+    },
+    {
+      "finding_id": "E2E-R3-BLOCK-002",
+      "severity": "BLOCKING",
+      "exact_defect": "Generic bundle content selected by schema ID/version had no complete in-scope structural schema-contract registry.",
+      "files_changed": ["docs/accord-02/schema/accord-02r3-verifier-validation-bundle.schema.json", "docs/accord-02/schema/accord-02r3-experiment-validation-bundle.schema.json", "docs/accord-02/schema/accord-02r3-scorer-bundle.schema.json", "docs/accord-02/accord-02r4-specification-package.json", "docs/accord-02/schema/accord-02r4-specification-package.schema.json", "docs/accord-02/accord-02r4-validation-rules.json"],
+      "semantic_change": "Normative record content is admitted only after schema ID/version resolves to one closed package schema contract and validates structurally.",
+      "rule_ids": ["PKG-001", "PKG-002", "SCHEMA-001", "SCHEMA-002", "BND-004"],
+      "adversarial_tests": ["CONTRACT-ADV-03", "CONTRACT-ADV-04", "CONTRACT-ADV-05", "CONTRACT-ADV-06"],
+      "claimed_status": "CLOSED",
+      "residual_limitation": "Generic JSON remains an untrusted content carrier until the referenced package schema contract validates it."
+    },
+    {
+      "finding_id": "E2E-R3-MAJOR-001",
+      "severity": "MAJOR",
+      "exact_defect": "Role visibility fields accepted strings outside the declared role vocabulary.",
+      "files_changed": ["docs/accord-02/schema/accord-02r3-role-visibility-profile.schema.json", "docs/accord-02/accord-02r4-specification-package.json", "docs/accord-02/accord-02r4-validation-rules.json"],
+      "semantic_change": "Producing and consumer roles are closed to the package vocabulary; unknown roles fail before visibility decisions.",
+      "rule_ids": ["ROLE-001"],
+      "adversarial_tests": ["ROLE-ADV-01", "ROLE-ADV-02", "ROLE-ADV-03", "ROLE-ADV-04"],
+      "claimed_status": "CLOSED",
+      "residual_limitation": "Future roles require a new explicitly versioned package/profile."
+    },
+    {
+      "finding_id": "E2E-R3-MAJOR-002",
+      "severity": "MAJOR",
+      "exact_defect": "Scenario-ID opacity was asserted as a boolean rather than bounded as a generation and semantic-use requirement.",
+      "files_changed": ["docs/accord-02/examples/accord-02d-scenario-catalog.json", "docs/accord-02/accord-02r4-validation-rules.json"],
+      "semantic_change": "Scenario IDs are correlation-only, non-authoritative, non-evidentiary, and forbidden as baseline/classifier/verifier semantic predictors; generation must not encode expected outcomes.",
+      "rule_ids": ["SCENARIO-ID-001"],
+      "adversarial_tests": ["SIDE-ADV-01", "SIDE-ADV-02"],
+      "claimed_status": "CLOSED",
+      "residual_limitation": "The requirement does not cryptographically prove opacity of an arbitrary identifier value."
+    },
+    {
+      "finding_id": "E2E-R3-MAJOR-003",
+      "severity": "MAJOR",
+      "exact_defect": "Digest canonicalization was not fixed for every generic bundle-content form.",
+      "files_changed": ["docs/accord-02/schema/accord-02r3-verifier-validation-bundle.schema.json", "docs/accord-02/schema/accord-02r3-experiment-validation-bundle.schema.json", "docs/accord-02/schema/accord-02r3-scorer-bundle.schema.json", "docs/accord-02/schema/accord-02r4-canonicalization-profile.schema.json", "docs/accord-02/examples/accord-02r4-canonicalization-profile.json", "docs/accord-02/accord-02r4-specification-package.json", "docs/accord-02/accord-02r4-validation-rules.json"],
+      "semantic_change": "A supplied digest requires an exact resolvable canonicalization profile that admits the schema/type and algorithm/method; absent or incompatible profiles cannot be silently bypassed.",
+      "rule_ids": ["DIGEST-001", "DIGEST-002", "DIGEST-003", "DIGEST-CANON-001", "DIGEST-CANON-002", "DIGEST-CANON-003"],
+      "adversarial_tests": ["CANON-ADV-01", "CANON-ADV-02", "CANON-ADV-03", "CANON-ADV-04", "CANON-ADV-05"],
+      "claimed_status": "CLOSED",
+      "residual_limitation": "The package uses RFC 8785 JCS and SHA-256 for the declared bundle-content form; other forms require a later explicitly versioned package contract."
+    }
+  ],
+  "historical_partial_closures_completed": ["E2E-BLOCK-001", "E2E-MAJOR-003", "E2E-MAJOR-004", "E2E-MAJOR-005"],
+  "not_reopened": ["E2E-MAJOR-002", "E2E-MINOR-001"],
+  "non_blocking_note_preserved": "E2E-MINOR-002",
+  "execution_status": "SPECIFICATION_ONLY",
+  "experiment_executed": false,
+  "validator_executable_created": false,
+  "runtime_code_written": false
+}

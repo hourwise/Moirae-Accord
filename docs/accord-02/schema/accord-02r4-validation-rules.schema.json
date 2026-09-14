@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r4:schema:validation-rules:0.1",
+  "title": "ACCORD-02R4 validation rule overlay contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$id", "rule_profile_id", "rule_profile_version", "base_rule_registry", "overrides", "rules", "active_rule_count", "classification_gate"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$id": { "const": "urn:moirae:accord-02r4:schema:validation-rules:0.1" },
+    "rule_profile_id": { "const": "urn:moirae:accord-02r4:validation-rules:0.1" },
+    "rule_profile_version": { "const": "0.1" },
+    "base_rule_registry": { "type": "object", "additionalProperties": false, "required": ["path", "profile_id", "profile_version"], "properties": { "path": { "type": "string" }, "profile_id": { "const": "urn:moirae:accord-02r3:validation-rules:0.1" }, "profile_version": { "const": "0.1" } } },
+    "overrides": { "type": "array", "items": { "$ref": "#/$defs/overlayRule" } },
+    "rules": { "type": "array", "items": { "$ref": "#/$defs/rule" } },
+    "active_rule_count": { "const": 82 },
+    "classification_gate": { "type": "object", "additionalProperties": false, "required": ["acceptance_critical_ambiguous", "acceptance_critical_unevaluable", "acceptance_critical_contradictory"], "properties": { "acceptance_critical_ambiguous": { "const": 0 }, "acceptance_critical_unevaluable": { "const": 0 }, "acceptance_critical_contradictory": { "const": 0 } } }
+  },
+  "$defs": {
+    "rule": { "type": "object", "additionalProperties": true, "required": ["rule_id", "category", "classification", "inputs", "condition", "failure_code", "severity", "required_for", "depends_on", "produces"], "properties": { "rule_id": { "type": "string" }, "category": { "type": "string" }, "classification": { "enum": ["DETERMINISTIC", "DETERMINISTIC_WITH_PROFILE", "AMBIGUOUS", "UNEVALUABLE", "CONTRADICTORY", "NOT_APPLICABLE"] }, "inputs": { "type": "array" }, "condition": { "type": "object" }, "failure_code": { "type": "string" }, "severity": { "enum": ["BLOCKING", "MAJOR", "MINOR", "NOTE"] }, "required_for": { "type": "array" }, "depends_on": { "type": "array", "uniqueItems": true }, "produces": { "type": "array", "uniqueItems": true } } },
+    "overlayRule": { "type": "object", "additionalProperties": true, "required": ["rule_id", "replaces_classification", "classification", "inputs", "condition", "failure_code", "depends_on", "produces"], "properties": { "rule_id": { "type": "string" }, "replaces_classification": { "enum": ["DETERMINISTIC", "DETERMINISTIC_WITH_PROFILE", "AMBIGUOUS", "UNEVALUABLE", "CONTRADICTORY"] }, "classification": { "enum": ["DETERMINISTIC", "DETERMINISTIC_WITH_PROFILE"] }, "inputs": { "type": "array" }, "condition": { "type": "object" }, "failure_code": { "type": "string" }, "depends_on": { "type": "array", "uniqueItems": true }, "produces": { "type": "array", "uniqueItems": true } } }
+  }
+}

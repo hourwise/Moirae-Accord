@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:validation-rules:0.1",
+  "title": "ACCORD-02R3 validation rule registry contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$id", "base_rule_closures", "rules"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "$id": { "const": "urn:moirae:accord-02r3:schema:validation-rules:0.1" },
+    "base_rule_closures": { "type": "array", "items": { "$ref": "#/$defs/rule" } },
+    "rules": { "type": "array", "items": { "$ref": "#/$defs/rule" } }
+  },
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["rule_id", "classification", "depends_on", "produces"],
+      "properties": {
+        "rule_id": { "type": "string", "minLength": 1 },
+        "classification": { "enum": ["DETERMINISTIC", "DETERMINISTIC_WITH_PROFILE", "AMBIGUOUS", "UNEVALUABLE", "CONTRADICTORY", "NOT_APPLICABLE"] },
+        "depends_on": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "produces": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    }
+  }
+}
