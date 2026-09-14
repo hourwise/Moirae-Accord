@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02a:schema:verifier-result:0.1",
+  "title": "ACCORD-02A verifier result",
+  "description": "Structural result schema only. It does not determine whether any external fact is true.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "verifier_run_id", "target", "statuses", "settlement", "generated_at"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02a:verifier-result" },
+    "schema_version": { "const": "0.1" },
+    "verifier_run_id": { "type": "string", "minLength": 1 },
+    "target": {
+      "type": "object",
+      "required": ["effect_id", "attempt_ids", "bundle_digest"],
+      "properties": {
+        "effect_id": { "type": "string", "minLength": 1 },
+        "attempt_ids": { "type": "array", "items": { "type": "string" } },
+        "bundle_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "statuses": {
+      "type": "object",
+      "required": ["structural", "cryptographic", "linkage", "authority_evidence", "effect_evidence", "attribution"],
+      "properties": {
+        "structural": { "enum": ["VALID", "INVALID", "UNVERIFIABLE", "INSUFFICIENT"] },
+        "cryptographic": { "enum": ["VALID", "INVALID", "UNVERIFIABLE", "INSUFFICIENT"] },
+        "linkage": { "enum": ["VALID", "INVALID", "UNVERIFIABLE", "INSUFFICIENT"] },
+        "authority_evidence": { "enum": ["CONSISTENT", "INCONSISTENT", "UNVERIFIABLE", "INSUFFICIENT"] },
+        "effect_evidence": { "enum": ["EVIDENCED", "UNKNOWN", "CONFLICTING", "UNVERIFIABLE", "INSUFFICIENT"] },
+        "attribution": { "enum": ["ATTRIBUTED", "UNATTRIBUTED", "CONFLICTING", "UNKNOWN"] }
+      },
+      "additionalProperties": false
+    },
+    "settlement": {
+      "type": "object",
+      "required": ["kind", "reason"],
+      "properties": {
+        "kind": { "enum": ["VERIFIED", "CORROBORATED", "NO_EFFECT_OBSERVED", "UNKNOWN_PENDING", "UNKNOWN_TERMINAL", "REJECTED"] },
+        "evidence_class": { "type": "string" },
+        "observer_principal_id": { "type": "string" },
+        "trust_root_id": { "type": "string" },
+        "as_of": { "type": "string", "format": "date-time" },
+        "read_semantics": { "type": "string" },
+        "retry_until": { "type": "string", "format": "date-time" },
+        "reason": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "enum": ["VERIFIED", "CORROBORATED"] } } },
+          "then": { "required": ["evidence_class", "observer_principal_id", "trust_root_id"] }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "NO_EFFECT_OBSERVED" } } },
+          "then": { "required": ["as_of", "read_semantics", "observer_principal_id", "trust_root_id"] }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "UNKNOWN_PENDING" } } },
+          "then": { "required": ["retry_until"] }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "findings": { "type": "array", "items": { "type": "object" } },
+    "trust_assumptions": { "type": "array", "items": { "type": "string" } },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "integrity": {
+      "type": "object",
+      "required": ["content_digest"],
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

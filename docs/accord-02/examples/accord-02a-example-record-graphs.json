@@ -1,0 +1,643 @@
+{
+  "fixture_profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+  "trust_roots": [
+    {
+      "trust_root_id": "urn:accord:example:root-fixture-001",
+      "root_kind": "fixture_key",
+      "scope": "synthetic provider and authority statements only",
+      "secret_material_included": false
+    }
+  ],
+  "examples": [
+    {
+      "example_id": "example-1-verified-effect",
+      "description": "A provider-attested receipt binds a single attempt to a logical effect and echoed idempotency key.",
+      "bundle": {
+        "bundle_id": "urn:accord:example:bundle-001",
+        "bundle_schema_version": "0.1",
+        "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+        "records": [
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-parent-001",
+            "principal_id": "urn:accord:example:principal-parent-001",
+            "principal_kind": "agent",
+            "roles": ["requestor", "delegate"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-parent-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000001" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-child-001",
+            "principal_id": "urn:accord:example:principal-child-001",
+            "principal_kind": "agent",
+            "roles": ["delegate"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:01Z",
+            "issuer_principal_id": "urn:accord:example:principal-parent-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000002" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-ananke-001",
+            "principal_id": "urn:accord:example:principal-ananke-001",
+            "principal_kind": "service",
+            "roles": ["mediator"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-ananke-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000009" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-horae-001",
+            "principal_id": "urn:accord:example:principal-horae-001",
+            "principal_kind": "service",
+            "roles": ["executor", "mediator"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000010" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-provider-001",
+            "principal_id": "urn:accord:example:principal-provider-001",
+            "principal_kind": "provider",
+            "roles": ["provider", "observer"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-provider-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000014" }
+          },
+          {
+            "record_type": "authority_grant",
+            "record_id": "urn:accord:example:grant-001",
+            "grant_id": "urn:accord:example:grant-001",
+            "subject_principal_id": "urn:accord:example:principal-child-001",
+            "audience": ["synthetic-provider"],
+            "authority_profile": "urn:moirae:accord-02a:authority-fixture:0.1",
+            "constraint_set": { "resource": "fixture://counter/001", "operation": "increment", "max_delta": 1 },
+            "valid_until": "2026-09-14T13:00:00Z",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:02Z",
+            "issuer_principal_id": "urn:accord:example:principal-ananke-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000003" }
+          },
+          {
+            "record_type": "intent",
+            "record_id": "urn:accord:example:intent-001",
+            "intent_id": "urn:accord:example:intent-001",
+            "requestor_principal_id": "urn:accord:example:principal-parent-001",
+            "intent_kind": "increment-fixture-counter",
+            "goal_descriptor": { "resource": "fixture://counter/001", "operation": "increment", "delta": 1 },
+            "authority_grant_id": "urn:accord:example:grant-001",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:03Z",
+            "issuer_principal_id": "urn:accord:example:principal-parent-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000004" }
+          },
+          {
+            "record_type": "task",
+            "record_id": "urn:accord:example:task-001",
+            "task_id": "urn:accord:example:task-001",
+            "intent_id": "urn:accord:example:intent-001",
+            "task_owner_principal_id": "urn:accord:example:principal-child-001",
+            "task_kind": "delegated-effect",
+            "lifecycle_state": "completed",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:04Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000005" }
+          },
+          {
+            "record_type": "effect_attempt",
+            "record_id": "urn:accord:example:attempt-001",
+            "attempt_id": "urn:accord:example:attempt-001",
+            "effect_id": "urn:accord:example:effect-001",
+            "task_id": "urn:accord:example:task-001",
+            "authority_grant_id": "urn:accord:example:grant-001",
+            "action_descriptor_hash": "sha-256:0000000000000000000000000000000000000000000000000000000000000011",
+            "attempted_at": "2026-09-14T12:00:05Z",
+            "dispatcher_principal_id": "urn:accord:example:principal-horae-001",
+            "idempotency_key_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000012",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:05Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000006" }
+          },
+          {
+            "record_type": "effect_observation",
+            "record_id": "urn:accord:example:observation-001",
+            "observation_id": "urn:accord:example:observation-001",
+            "effect_id": "urn:accord:example:effect-001",
+            "attempt_id": "urn:accord:example:attempt-001",
+            "observer_principal_id": "urn:accord:example:principal-provider-001",
+            "observation_kind": "receiver_receipt",
+            "observed_at": "2026-09-14T12:00:06Z",
+            "read_semantics": "provider receipt bound to echoed idempotency key",
+            "observed_state": "occurred",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:06Z",
+            "issuer_principal_id": "urn:accord:example:principal-provider-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000007" }
+          },
+          {
+            "record_type": "evidence_artifact",
+            "record_id": "urn:accord:example:evidence-001",
+            "evidence_id": "urn:accord:example:evidence-001",
+            "evidence_class": "E3_RECEIVER_ATTESTED",
+            "observer_principal_id": "urn:accord:example:principal-provider-001",
+            "trust_root_id": "urn:accord:example:root-fixture-001",
+            "coverage": ["urn:accord:example:effect-001", "urn:accord:example:attempt-001", "urn:accord:example:observation-001"],
+            "captured_at": "2026-09-14T12:00:06Z",
+            "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000013",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:06Z",
+            "issuer_principal_id": "urn:accord:example:principal-provider-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000008" }
+          }
+        ]
+      },
+      "expected_result": {
+        "authority_evidence": "CONSISTENT",
+        "effect_evidence": "EVIDENCED",
+        "attribution": "ATTRIBUTED",
+        "settlement": { "kind": "VERIFIED", "evidence_class": "E3_RECEIVER_ATTESTED", "observer_principal_id": "urn:accord:example:principal-provider-001", "trust_root_id": "urn:accord:example:root-fixture-001" }
+      }
+    },
+    {
+      "example_id": "example-2-unknown-pending",
+      "description": "Provider acceptance is observed, but occurrence and attribution evidence are not yet sufficient.",
+      "bundle": {
+        "bundle_id": "urn:accord:example:bundle-002",
+        "bundle_schema_version": "0.1",
+        "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+        "records": [
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-parent-002",
+            "principal_id": "urn:accord:example:principal-parent-002",
+            "principal_kind": "agent",
+            "roles": ["requestor"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:49Z",
+            "issuer_principal_id": "urn:accord:example:principal-parent-002",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000020" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-child-002",
+            "principal_id": "urn:accord:example:principal-child-002",
+            "principal_kind": "agent",
+            "roles": ["delegate"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:50Z",
+            "issuer_principal_id": "urn:accord:example:principal-parent-002",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000024" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-horae-001",
+            "principal_id": "urn:accord:example:principal-horae-001",
+            "principal_kind": "service",
+            "roles": ["executor", "mediator"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:51Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000025" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-ananke-001",
+            "principal_id": "urn:accord:example:principal-ananke-001",
+            "principal_kind": "service",
+            "roles": ["mediator"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:52Z",
+            "issuer_principal_id": "urn:accord:example:principal-ananke-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000026" }
+          },
+          {
+            "record_type": "authority_grant",
+            "record_id": "urn:accord:example:grant-002",
+            "grant_id": "urn:accord:example:grant-002",
+            "subject_principal_id": "urn:accord:example:principal-child-002",
+            "authority_profile": "urn:moirae:accord-02a:authority-fixture:0.1",
+            "constraint_set": { "resource": "fixture://counter/002", "operation": "increment", "max_delta": 1 },
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:53Z",
+            "issuer_principal_id": "urn:accord:example:principal-ananke-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000027" }
+          },
+          {
+            "record_type": "intent",
+            "record_id": "urn:accord:example:intent-002",
+            "intent_id": "urn:accord:example:intent-002",
+            "requestor_principal_id": "urn:accord:example:principal-child-002",
+            "intent_kind": "increment-fixture-counter",
+            "goal_descriptor": { "resource": "fixture://counter/002", "operation": "increment", "delta": 1 },
+            "authority_grant_id": "urn:accord:example:grant-002",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:54Z",
+            "issuer_principal_id": "urn:accord:example:principal-child-002",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000028" }
+          },
+          {
+            "record_type": "task",
+            "record_id": "urn:accord:example:task-002",
+            "task_id": "urn:accord:example:task-002",
+            "intent_id": "urn:accord:example:intent-002",
+            "task_owner_principal_id": "urn:accord:example:principal-child-002",
+            "task_kind": "delegated-effect",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:00:55Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000029" }
+          },
+          {
+            "record_type": "effect_attempt",
+            "record_id": "urn:accord:example:attempt-002",
+            "attempt_id": "urn:accord:example:attempt-002",
+            "effect_id": "urn:accord:example:effect-002",
+            "task_id": "urn:accord:example:task-002",
+            "authority_grant_id": "urn:accord:example:grant-002",
+            "action_descriptor_hash": "sha-256:0000000000000000000000000000000000000000000000000000000000000021",
+            "attempted_at": "2026-09-14T12:01:00Z",
+            "dispatcher_principal_id": "urn:accord:example:principal-horae-001",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:01:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000022" }
+          },
+          {
+            "record_type": "effect_observation",
+            "record_id": "urn:accord:example:observation-002",
+            "observation_id": "urn:accord:example:observation-002",
+            "effect_id": "urn:accord:example:effect-002",
+            "attempt_id": "urn:accord:example:attempt-002",
+            "observer_principal_id": "urn:accord:example:principal-horae-001",
+            "observation_kind": "provider_response",
+            "observed_at": "2026-09-14T12:01:01Z",
+            "read_semantics": "response acknowledged request acceptance",
+            "observed_state": "accepted",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:01:01Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-001",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000023" }
+          }
+        ]
+      },
+      "expected_result": {
+        "effect_evidence": "UNKNOWN",
+        "attribution": "UNKNOWN",
+        "settlement": { "kind": "UNKNOWN_PENDING", "retry_until": "2026-09-14T12:12:00Z", "reason": "occurrence evidence is not yet available" }
+      }
+    },
+    {
+      "example_id": "example-3-no-effect-observed",
+      "description": "A qualified provider-state read finds no effect at a stated boundary.",
+      "bundle": {
+        "bundle_id": "urn:accord:example:bundle-003",
+        "bundle_schema_version": "0.1",
+        "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+        "records": [
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-parent-003",
+            "principal_id": "urn:accord:example:principal-parent-003",
+            "principal_kind": "agent",
+            "roles": ["requestor"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:49Z",
+            "issuer_principal_id": "urn:accord:example:principal-parent-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000047" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-child-003",
+            "principal_id": "urn:accord:example:principal-child-003",
+            "principal_kind": "agent",
+            "roles": ["delegate"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:50Z",
+            "issuer_principal_id": "urn:accord:example:principal-parent-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000034" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-horae-003",
+            "principal_id": "urn:accord:example:principal-horae-003",
+            "principal_kind": "service",
+            "roles": ["executor", "mediator"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:51Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000035" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-provider-003",
+            "principal_id": "urn:accord:example:principal-provider-003",
+            "principal_kind": "provider",
+            "roles": ["provider", "observer"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:52Z",
+            "issuer_principal_id": "urn:accord:example:principal-provider-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000036" }
+          },
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-ananke-003",
+            "principal_id": "urn:accord:example:principal-ananke-003",
+            "principal_kind": "service",
+            "roles": ["mediator"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:52Z",
+            "issuer_principal_id": "urn:accord:example:principal-ananke-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000046" }
+          },
+          {
+            "record_type": "authority_grant",
+            "record_id": "urn:accord:example:grant-003",
+            "grant_id": "urn:accord:example:grant-003",
+            "subject_principal_id": "urn:accord:example:principal-child-003",
+            "authority_profile": "urn:moirae:accord-02a:authority-fixture:0.1",
+            "constraint_set": { "resource": "fixture://counter/003", "operation": "increment", "max_delta": 1 },
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:53Z",
+            "issuer_principal_id": "urn:accord:example:principal-ananke-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000037" }
+          },
+          {
+            "record_type": "intent",
+            "record_id": "urn:accord:example:intent-003",
+            "intent_id": "urn:accord:example:intent-003",
+            "requestor_principal_id": "urn:accord:example:principal-child-003",
+            "intent_kind": "increment-fixture-counter",
+            "goal_descriptor": { "resource": "fixture://counter/003", "operation": "increment", "delta": 1 },
+            "authority_grant_id": "urn:accord:example:grant-003",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:54Z",
+            "issuer_principal_id": "urn:accord:example:principal-child-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000038" }
+          },
+          {
+            "record_type": "task",
+            "record_id": "urn:accord:example:task-003",
+            "task_id": "urn:accord:example:task-003",
+            "intent_id": "urn:accord:example:intent-003",
+            "task_owner_principal_id": "urn:accord:example:principal-child-003",
+            "task_kind": "delegated-effect",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:03:55Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000039" }
+          },
+          {
+            "record_type": "effect_attempt",
+            "record_id": "urn:accord:example:attempt-003",
+            "attempt_id": "urn:accord:example:attempt-003",
+            "effect_id": "urn:accord:example:effect-003",
+            "task_id": "urn:accord:example:task-003",
+            "authority_grant_id": "urn:accord:example:grant-003",
+            "action_descriptor_hash": "sha-256:0000000000000000000000000000000000000000000000000000000000000031",
+            "attempted_at": "2026-09-14T12:04:00Z",
+            "dispatcher_principal_id": "urn:accord:example:principal-horae-003",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:04:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000032" }
+          },
+          {
+            "record_type": "effect_observation",
+            "record_id": "urn:accord:example:observation-003",
+            "observation_id": "urn:accord:example:observation-003",
+            "effect_id": "urn:accord:example:effect-003",
+            "attempt_id": "urn:accord:example:attempt-003",
+            "observer_principal_id": "urn:accord:example:principal-provider-003",
+            "observation_kind": "provider_state_read",
+            "observed_at": "2026-09-14T12:05:00Z",
+            "as_of": "2026-09-14T12:05:00Z",
+            "read_semantics": "linearizable lookup by echoed idempotency key",
+            "observed_state": "not_found",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:05:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-provider-003",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000033" }
+          }
+        ]
+      },
+      "expected_result": {
+        "settlement": { "kind": "NO_EFFECT_OBSERVED", "as_of": "2026-09-14T12:05:00Z", "read_semantics": "linearizable lookup by echoed idempotency key" }
+      }
+    },
+    {
+      "example_id": "example-4-lying-child",
+      "description": "A child reports success but supplies only a delegate assertion.",
+      "bundle": {
+        "bundle_id": "urn:accord:example:bundle-004",
+        "bundle_schema_version": "0.1",
+        "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+        "records": [
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-child-004",
+            "principal_id": "urn:accord:example:principal-child-004",
+            "principal_kind": "agent",
+            "roles": ["delegate"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:05:50Z",
+            "issuer_principal_id": "urn:accord:example:principal-child-004",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000044" }
+          },
+          {
+            "record_type": "intent",
+            "record_id": "urn:accord:example:intent-004",
+            "intent_id": "urn:accord:example:intent-004",
+            "requestor_principal_id": "urn:accord:example:principal-child-004",
+            "intent_kind": "delegated-effect",
+            "goal_descriptor": { "resource": "fixture://counter/004", "operation": "increment", "delta": 1 },
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:05:51Z",
+            "issuer_principal_id": "urn:accord:example:principal-child-004",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000045" }
+          },
+          {
+            "record_type": "task",
+            "record_id": "urn:accord:example:task-004",
+            "task_id": "urn:accord:example:task-004",
+            "intent_id": "urn:accord:example:intent-004",
+            "task_owner_principal_id": "urn:accord:example:principal-child-004",
+            "task_kind": "delegated-effect",
+            "lifecycle_state": "completed",
+            "delegate_assertion": "success",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:06:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-child-004",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000041" }
+          },
+          {
+            "record_type": "evidence_artifact",
+            "record_id": "urn:accord:example:evidence-004",
+            "evidence_id": "urn:accord:example:evidence-004",
+            "evidence_class": "E0_DELEGATE_ASSERTION",
+            "observer_principal_id": "urn:accord:example:principal-child-004",
+            "trust_root_id": "urn:accord:example:root-fixture-001",
+            "coverage": ["urn:accord:example:task-004"],
+            "captured_at": "2026-09-14T12:06:00Z",
+            "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000042",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:06:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-child-004",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000043" }
+          }
+        ]
+      },
+      "expected_result": {
+        "effect_evidence": "UNKNOWN",
+        "attribution": "UNKNOWN",
+        "settlement": { "kind": "UNKNOWN_PENDING", "reason": "delegate assertion lacks observer-distinct/provider evidence", "retry_until": "2026-09-14T12:16:00Z" }
+      }
+    },
+    {
+      "example_id": "example-5-retry-distinct-attempts",
+      "description": "Two attempts share one logical effect and idempotency-key digest but retain distinct attempt identities.",
+      "bundle": {
+        "bundle_id": "urn:accord:example:bundle-005",
+        "bundle_schema_version": "0.1",
+        "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+        "records": [
+          {
+            "record_type": "principal",
+            "record_id": "urn:accord:example:principal-horae-005",
+            "principal_id": "urn:accord:example:principal-horae-005",
+            "principal_kind": "service",
+            "roles": ["executor", "mediator"],
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:06:50Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-005",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000055" }
+          },
+          {
+            "record_type": "authority_grant",
+            "record_id": "urn:accord:example:grant-005",
+            "grant_id": "urn:accord:example:grant-005",
+            "subject_principal_id": "urn:accord:example:principal-horae-005",
+            "authority_profile": "urn:moirae:accord-02a:authority-fixture:0.1",
+            "constraint_set": { "resource": "fixture://counter/005", "operation": "increment", "max_delta": 1 },
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:06:51Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-005",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000056" }
+          },
+          {
+            "record_type": "task",
+            "record_id": "urn:accord:example:task-005",
+            "task_id": "urn:accord:example:task-005",
+            "intent_id": "urn:accord:example:intent-005",
+            "task_owner_principal_id": "urn:accord:example:principal-horae-005",
+            "task_kind": "retrying-effect",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:06:52Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-005",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000057" }
+          },
+          {
+            "record_type": "intent",
+            "record_id": "urn:accord:example:intent-005",
+            "intent_id": "urn:accord:example:intent-005",
+            "requestor_principal_id": "urn:accord:example:principal-horae-005",
+            "intent_kind": "retrying-effect",
+            "goal_descriptor": { "resource": "fixture://counter/005", "operation": "increment", "delta": 1 },
+            "authority_grant_id": "urn:accord:example:grant-005",
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:06:53Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-005",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000058" }
+          },
+          {
+            "record_type": "effect_attempt",
+            "record_id": "urn:accord:example:attempt-005a",
+            "attempt_id": "urn:accord:example:attempt-005a",
+            "effect_id": "urn:accord:example:effect-005",
+            "task_id": "urn:accord:example:task-005",
+            "authority_grant_id": "urn:accord:example:grant-005",
+            "action_descriptor_hash": "sha-256:0000000000000000000000000000000000000000000000000000000000000051",
+            "attempted_at": "2026-09-14T12:07:00Z",
+            "dispatcher_principal_id": "urn:accord:example:principal-horae-005",
+            "idempotency_key_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000052",
+            "retry_ordinal": 0,
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:07:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-005",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000053" }
+          },
+          {
+            "record_type": "effect_attempt",
+            "record_id": "urn:accord:example:attempt-005b",
+            "attempt_id": "urn:accord:example:attempt-005b",
+            "effect_id": "urn:accord:example:effect-005",
+            "task_id": "urn:accord:example:task-005",
+            "authority_grant_id": "urn:accord:example:grant-005",
+            "action_descriptor_hash": "sha-256:0000000000000000000000000000000000000000000000000000000000000051",
+            "attempted_at": "2026-09-14T12:08:00Z",
+            "dispatcher_principal_id": "urn:accord:example:principal-horae-005",
+            "idempotency_key_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000052",
+            "retry_ordinal": 1,
+            "record_version": "0.1",
+            "profile": "urn:moirae:accord-02a:synthetic-fixture:0.1",
+            "issued_at": "2026-09-14T12:08:00Z",
+            "issuer_principal_id": "urn:accord:example:principal-horae-005",
+            "integrity": { "content_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000054" }
+          }
+        ]
+      },
+      "expected_result": {
+        "attempts": ["urn:accord:example:attempt-005a", "urn:accord:example:attempt-005b"],
+        "settlement": { "kind": "UNKNOWN_PENDING", "reason": "provider occurrence count has not been resolved", "retry_until": "2026-09-14T12:20:00Z" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02a:schema:portable-record:0.1",
+  "title": "ACCORD-02A portable linked-record bundle",
+  "description": "Structural schema only. It does not evaluate Ananke policy, signatures, provider state, or settlement semantics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["bundle_id", "bundle_schema_version", "profile", "records"],
+  "properties": {
+    "bundle_id": { "type": "string", "minLength": 1 },
+    "bundle_schema_version": { "const": "0.1" },
+    "profile": { "type": "string", "minLength": 1 },
+    "bundle_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/principal" },
+          { "$ref": "#/$defs/authorityGrant" },
+          { "$ref": "#/$defs/intent" },
+          { "$ref": "#/$defs/task" },
+          { "$ref": "#/$defs/delegation" },
+          { "$ref": "#/$defs/effectAttempt" },
+          { "$ref": "#/$defs/effectObservation" },
+          { "$ref": "#/$defs/evidenceArtifact" },
+          { "$ref": "#/$defs/settlementResult" }
+        ]
+      }
+    },
+    "detached_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["content_digest", "content_ref"],
+        "properties": {
+          "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+          "content_ref": { "type": "string", "minLength": 1 },
+          "disclosure": { "enum": ["detached", "digest_only", "redacted"] }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": ["record_type", "record_id", "record_version", "profile", "issued_at", "issuer_principal_id", "integrity"],
+      "properties": {
+        "record_type": { "type": "string", "minLength": 1 },
+        "record_id": { "type": "string", "minLength": 1 },
+        "record_version": { "type": "string", "minLength": 1 },
+        "profile": { "type": "string", "minLength": 1 },
+        "issued_at": { "type": "string", "format": "date-time" },
+        "issuer_principal_id": { "type": "string", "minLength": 1 },
+        "integrity": { "$ref": "#/$defs/integrity" },
+        "extensions": { "type": "object" },
+        "disclosure": { "enum": ["full", "digest_only", "detached", "redacted"] }
+      },
+      "additionalProperties": true
+    },
+    "integrity": {
+      "type": "object",
+      "required": ["content_digest"],
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "attestations": { "type": "array", "items": { "type": "object" } }
+      },
+      "additionalProperties": false
+    },
+    "principal": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "principal" },
+            "principal_id": { "type": "string", "minLength": 1 },
+            "principal_kind": { "type": "string", "minLength": 1 },
+            "roles": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+          },
+          "required": ["principal_id", "principal_kind", "roles"]
+        }
+      ]
+    },
+    "authorityGrant": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "authority_grant" },
+            "grant_id": { "type": "string", "minLength": 1 },
+            "subject_principal_id": { "type": "string", "minLength": 1 },
+            "audience": { "type": "array", "items": { "type": "string" } },
+            "authority_profile": { "type": "string", "minLength": 1 },
+            "constraint_set": { "type": "object" },
+            "valid_until": { "type": "string", "format": "date-time" },
+            "parent_grant_id": { "type": "string" },
+            "delegation_id": { "type": "string" }
+          },
+          "required": ["grant_id", "subject_principal_id", "authority_profile", "constraint_set"]
+        }
+      ]
+    },
+    "intent": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "intent" },
+            "intent_id": { "type": "string", "minLength": 1 },
+            "requestor_principal_id": { "type": "string", "minLength": 1 },
+            "intent_kind": { "type": "string", "minLength": 1 },
+            "goal_descriptor": { "type": "object" },
+            "authority_grant_id": { "type": "string" }
+          },
+          "required": ["intent_id", "requestor_principal_id", "intent_kind", "goal_descriptor"]
+        }
+      ]
+    },
+    "task": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "task" },
+            "task_id": { "type": "string", "minLength": 1 },
+            "intent_id": { "type": "string", "minLength": 1 },
+            "task_owner_principal_id": { "type": "string", "minLength": 1 },
+            "task_kind": { "type": "string", "minLength": 1 }
+          },
+          "required": ["task_id", "intent_id", "task_owner_principal_id", "task_kind"]
+        }
+      ]
+    },
+    "delegation": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "delegation" },
+            "delegation_id": { "type": "string", "minLength": 1 },
+            "delegation_kind": { "enum": ["task_delegation", "authority_delegation"] },
+            "parent_task_id": { "type": "string" },
+            "child_task_id": { "type": "string" },
+            "parent_grant_id": { "type": "string" },
+            "child_grant_id": { "type": "string" }
+          },
+          "required": ["delegation_id", "delegation_kind"]
+        }
+      ]
+    },
+    "effectAttempt": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "effect_attempt" },
+            "attempt_id": { "type": "string", "minLength": 1 },
+            "effect_id": { "type": "string", "minLength": 1 },
+            "task_id": { "type": "string", "minLength": 1 },
+            "authority_grant_id": { "type": "string", "minLength": 1 },
+            "action_descriptor_hash": { "type": "string", "minLength": 1 },
+            "attempted_at": { "type": "string", "format": "date-time" },
+            "dispatcher_principal_id": { "type": "string", "minLength": 1 },
+            "idempotency_key_digest": { "type": "string" }
+          },
+          "required": ["attempt_id", "effect_id", "task_id", "authority_grant_id", "action_descriptor_hash", "attempted_at", "dispatcher_principal_id"]
+        }
+      ]
+    },
+    "effectObservation": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "effect_observation" },
+            "observation_id": { "type": "string", "minLength": 1 },
+            "effect_id": { "type": "string", "minLength": 1 },
+            "attempt_id": { "type": "string" },
+            "observer_principal_id": { "type": "string", "minLength": 1 },
+            "observation_kind": { "type": "string", "minLength": 1 },
+            "observed_at": { "type": "string", "format": "date-time" },
+            "read_semantics": { "type": "string", "minLength": 1 },
+            "observed_state": { "type": "string", "minLength": 1 }
+          },
+          "required": ["observation_id", "effect_id", "observer_principal_id", "observation_kind", "observed_at", "read_semantics", "observed_state"]
+        }
+      ]
+    },
+    "evidenceArtifact": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "evidence_artifact" },
+            "evidence_id": { "type": "string", "minLength": 1 },
+            "evidence_class": { "type": "string", "minLength": 1 },
+            "observer_principal_id": { "type": "string", "minLength": 1 },
+            "trust_root_id": { "type": "string", "minLength": 1 },
+            "coverage": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "captured_at": { "type": "string", "format": "date-time" },
+            "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+          },
+          "required": ["evidence_id", "evidence_class", "observer_principal_id", "trust_root_id", "coverage", "captured_at", "content_digest"]
+        }
+      ]
+    },
+    "settlementResult": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "properties": {
+            "record_type": { "const": "settlement_result" },
+            "result_id": { "type": "string", "minLength": 1 },
+            "verifier_run_id": { "type": "string", "minLength": 1 },
+            "target_refs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "settlement": { "type": "object" }
+          },
+          "required": ["result_id", "verifier_run_id", "target_refs", "settlement"]
+        }
+      ]
+    }
+  }
+}
