@@ -1,0 +1,44 @@
+{
+  "review_id": "ACCORD-02E-R5",
+  "review_version": "0.1",
+  "reviewed_commit": "664e2cb72d6011df119b4a3935ef36928e51a555",
+  "rule_source": {
+    "base_r3_rules": 71,
+    "r5_overlay_rules": 11,
+    "r5_overrides": ["BND-004", "BND-005", "DIGEST-001"],
+    "active_rule_count": 82
+  },
+  "active_rule_ids": [
+    "ORC-001","ORC-002","ORC-003","ARM-001","ARM-002","ARM-003","ARM-004","ARM-005","ARM-006","ARM-007","RAW-001","RAW-002","RAW-003","PROJ-001","PROJ-002","PROJ-003","PROJ-004","LIN-001","LIN-002","LIN-003","LIN-004","LIN-005","LIN-006","LIN-007","LIN-008","PROP-001","PROP-002","PROP-003","PROP-004","PROP-005","SCORE-001","SCORE-002","SCORE-003","BND-001","BND-002","BND-003","BND-004","BND-005","RUN-001","RUN-002","RUN-003","RUN-004","EXT-001","EXT-002","EXT-003","EXT-004","EXT-005","EXT-006","SRC-001","SRC-002","SRC-003","SRC-004","VIS-001","NORM-001","NORM-002","NORM-003","NORM-004","NORM-005","CLF-001","CLF-002","CLF-003","CLF-004","PRED-001","PRED-002","PRED-003","PRED-004","DIGEST-001","DIGEST-002","DIGEST-003","LIN-009","PROP-006","PKG-001","PKG-002","PROF-001","PROF-002","SCHEMA-001","SCHEMA-002","ROLE-001","DIGEST-CANON-001","DIGEST-CANON-002","DIGEST-CANON-003","SCENARIO-ID-001"
+  ],
+  "classification_groups": [
+    {
+      "classification": "DETERMINISTIC",
+      "rule_ids": ["ARM-001","ARM-005","RAW-001","RAW-002","RAW-003","PROJ-004","LIN-002","LIN-004","LIN-005","LIN-008","SCORE-001","BND-001","BND-002","BND-003","RUN-001","RUN-002","RUN-003","RUN-004","PROF-002"],
+      "count": 19,
+      "basis": "Closed enum/shape or exact version-presence decision with no selectable profile semantics."
+    },
+    {
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "rule_ids": ["ORC-001","ORC-002","ORC-003","ARM-002","ARM-003","ARM-004","ARM-006","ARM-007","PROJ-001","PROJ-002","PROJ-003","LIN-001","LIN-003","LIN-006","LIN-007","PROP-001","PROP-002","PROP-003","PROP-004","PROP-005","SCORE-002","SCORE-003","BND-004","BND-005","EXT-001","EXT-002","EXT-003","EXT-004","EXT-005","EXT-006","SRC-001","SRC-002","SRC-003","SRC-004","VIS-001","NORM-001","NORM-002","NORM-003","NORM-004","NORM-005","CLF-001","CLF-002","CLF-003","CLF-004","PRED-001","PRED-002","PRED-003","PRED-004","DIGEST-001","DIGEST-002","DIGEST-003","LIN-009","PROP-006","PKG-001","PKG-002","PROF-001","SCHEMA-001","SCHEMA-002","ROLE-001","DIGEST-CANON-001","DIGEST-CANON-002","DIGEST-CANON-003","SCENARIO-ID-001"],
+      "count": 63,
+      "basis": "Decision is deterministic after exact R5 package and the named active profile/registry are resolved."
+    }
+  ],
+  "classification_counts": {"DETERMINISTIC":19,"DETERMINISTIC_WITH_PROFILE":63,"AMBIGUOUS":0,"UNEVALUABLE":0,"CONTRADICTORY":0,"NOT_APPLICABLE":0},
+  "dependency_review": {
+    "dependency_edges_after_deduplication": 151,
+    "cycles": [],
+    "missing_dependencies": [],
+    "undefined_produced_facts": [],
+    "undefined_consumed_facts": [],
+    "active_rule_ids_unique": true,
+    "acceptance_critical_gate": {"ambiguous":0,"unevaluable":0,"contradictory":0}
+  },
+  "override_review": [
+    {"rule_id":"BND-004","historical_classification":"UNEVALUABLE","active_authority":"R5 override","classification":"DETERMINISTIC_WITH_PROFILE"},
+    {"rule_id":"BND-005","historical_classification":"UNEVALUABLE","active_authority":"R5 override","classification":"DETERMINISTIC_WITH_PROFILE"},
+    {"rule_id":"DIGEST-001","historical_classification":"DETERMINISTIC_WITH_PROFILE","active_authority":"R5 override","classification":"DETERMINISTIC_WITH_PROFILE"}
+  ],
+  "review_limitations": ["No external standards-complete JSON Schema validator was installed or run.","No independent executable validator or verifier was implemented.","No experiment or provider call was made."]
+}

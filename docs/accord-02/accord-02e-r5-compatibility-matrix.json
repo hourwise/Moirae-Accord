@@ -1,0 +1,24 @@
+{
+  "matrix_id": "ACCORD-02E-R5-FOCUSED-COMPATIBILITY",
+  "matrix_version": "0.1",
+  "reviewed_commit": "664e2cb72d6011df119b4a3935ef36928e51a555",
+  "allowed_statuses": ["EXACT", "COMPATIBLE", "COMPATIBLE_WITH_PROFILE", "AMBIGUOUS", "INCOMPATIBLE", "NOT_APPLICABLE"],
+  "rows": [
+    {"compatibility_id":"R5-COMP-001","relation":"active R5 package <> package schema","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-002","relation":"package schema contracts <> schema paths","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-003","relation":"package profile contracts <> profile paths","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-004","relation":"active profile references <> package profiles","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-005","relation":"source registry <> package schema contracts","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-006","relation":"source registry roles <> authoritative vocabulary","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-007","relation":"verifier digest forms <> canonicalization mappings","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-008","relation":"experiment digest forms <> canonicalization mappings","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-009","relation":"scorer digest forms <> canonicalization mappings","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-010","relation":"active rules <> R3 base plus R5 overlay","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-011","relation":"active rules <> required profiles","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-012","relation":"verifier bundle <> self-contained scope","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-013","relation":"scorer bundle <> isolated scope","status":"EXACT","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-014","relation":"scenario ID <> classifier/verifier restrictions","status":"COMPATIBLE_WITH_PROFILE","finding_ids":[]},
+    {"compatibility_id":"R5-COMP-015","relation":"R4 package <> R5 package immutability","status":"EXACT","finding_ids":[]}
+  ],
+  "status_counts": {"EXACT":12,"COMPATIBLE":0,"COMPATIBLE_WITH_PROFILE":3,"AMBIGUOUS":0,"INCOMPATIBLE":0,"NOT_APPLICABLE":0}
+}

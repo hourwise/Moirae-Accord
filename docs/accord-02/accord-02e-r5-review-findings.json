@@ -1,0 +1,94 @@
+{
+  "review_id": "ACCORD-02E-R5",
+  "review_version": "0.1",
+  "reviewed_commit": "664e2cb72d6011df119b4a3935ef36928e51a555",
+  "reviewed_parent": "ffa7ff1f351351cb48cd6146409b3ef58c03b83a",
+  "verdict": "READY_WITH_NONBLOCKING_NOTES",
+  "findings": [
+    {
+      "finding_id": "E2E-R4-BLOCK-001",
+      "severity": "BLOCKING",
+      "inherited_from": "ACCORD-02E-R4",
+      "prior_status": "OPEN",
+      "r5_claimed_status": "CLOSED",
+      "current_status": "CLOSED",
+      "disposition": "PACKAGE_PROFILE_INVENTORY_VERIFIED",
+      "affected_files": ["accord-02r5-specification-package.json", "schema/accord-02r5-specification-package.schema.json", "examples/accord-02d-arm-input-profiles.json", "schema/accord-02r3-experiment-run.schema.json", "schema/accord-02r3-verifier-run.schema.json"],
+      "adversarial_construction": "Resolve required experiment, verifier, trust-root, and arm profile references against the exact R5 package; try versionless, wrong-version, wrong-type, duplicate, and repository-local-only substitutions.",
+      "evidence": ["31 package profile-contract keys are unique", "16 active arm profile references contain exact versions", "required experiment/verifier/trust-root contract entries are present", "all declared profile paths exist", "no active profile reference remained unresolved"],
+      "acceptance_impact": "No blocker remains from this finding."
+    },
+    {
+      "finding_id": "E2E-R4-BLOCK-002",
+      "severity": "BLOCKING",
+      "inherited_from": "ACCORD-02E-R4",
+      "prior_status": "OPEN",
+      "r5_claimed_status": "CLOSED",
+      "current_status": "CLOSED",
+      "disposition": "SOURCE_SCHEMA_PACKAGE_COVERAGE_VERIFIED",
+      "affected_files": ["accord-02r5-specification-package.json", "examples/accord-02r3-source-schema-registry.json", "schema/accord-02r5-source-record-contract.schema.json"],
+      "adversarial_construction": "Resolve every active source-registry schema ID/version pair, including a local-only or wrong-version source contract.",
+      "evidence": ["13 unique active source-schema pairs", "13/13 package coverage", "0 missing pairs", "source roles all belong to the package vocabulary"],
+      "acceptance_impact": "No blocker remains from this finding."
+    },
+    {
+      "finding_id": "E2E-R4-MAJOR-001",
+      "severity": "MAJOR",
+      "inherited_from": "ACCORD-02E-R4",
+      "prior_status": "OPEN",
+      "r5_claimed_status": "CLOSED",
+      "current_status": "CLOSED",
+      "disposition": "CONCRETE_DIGEST_APPLICABILITY_VERIFIED",
+      "affected_files": ["examples/accord-02r5-canonicalization-profile.json", "schema/accord-02r3-verifier-validation-bundle.schema.json", "schema/accord-02r3-experiment-validation-bundle.schema.json", "schema/accord-02r3-scorer-bundle.schema.json"],
+      "adversarial_construction": "Supply concrete verifier, experiment, and scorer entries with valid, missing, conflicting, or wrong digests and resolve canonicalization applicability.",
+      "evidence": ["49 canonicalization mapping entries", "70 expanded concrete mapping keys", "all mapped schema pairs are packaged", "scorer entries carry schema ID/version", "no conflicting concrete mapping key"],
+      "acceptance_impact": "No acceptance-critical digest applicability ambiguity remains."
+    },
+    {
+      "finding_id": "E2E-R4-MAJOR-002",
+      "severity": "MAJOR",
+      "inherited_from": "ACCORD-02E-R4",
+      "prior_status": "OPEN",
+      "r5_claimed_status": "CLOSED",
+      "current_status": "CLOSED",
+      "disposition": "AUTHORITATIVE_ROLE_VOCABULARY_VERIFIED",
+      "affected_files": ["schema/accord-02r3-source-schema-registry.schema.json", "examples/accord-02r3-source-schema-registry.json", "accord-02r5-specification-package.json"],
+      "adversarial_construction": "Add MAGIC_ADMIN, a role typo, or an undeclared future role to source-schema membership and visibility inputs.",
+      "evidence": ["single nine-value role vocabulary", "0 invalid source-registry roles", "source registry uses exact role enum", "unknown roles have no default visibility"],
+      "acceptance_impact": "No acceptance-critical role-membership ambiguity remains."
+    },
+    {
+      "finding_id": "E2E-R4-NOTE-001",
+      "severity": "NOTE",
+      "inherited_from": "ACCORD-02E-R4",
+      "prior_status": "OPEN",
+      "r5_claimed_status": "CARRIED",
+      "current_status": "OPEN",
+      "disposition": "DEFERRED_TO_CONFORMANCE_IMPLEMENTATION",
+      "affected_files": [],
+      "adversarial_construction": "Attempt to substitute absence of an external standards-complete validator for a specification decision.",
+      "evidence": ["Schemas parse and local references resolve", "no external standards-complete JSON Schema engine was installed or run"],
+      "acceptance_impact": "Non-blocking note; carry into acceptance/conformance record."
+    },
+    {
+      "finding_id": "E2E-MINOR-002",
+      "severity": "MINOR",
+      "inherited_from": "ACCORD-02E",
+      "prior_status": "OPEN",
+      "r5_claimed_status": "CARRIED",
+      "current_status": "OPEN",
+      "disposition": "OPTIONAL_A2A_COVERAGE",
+      "affected_files": [],
+      "adversarial_construction": "Treat optional A2A coverage as mandatory despite specified T1/T2 transport coverage.",
+      "evidence": ["R5 did not alter transport requirements", "A2A remains explicitly optional for the first scored experiment"],
+      "acceptance_impact": "Non-blocking note only."
+    }
+  ],
+  "new_findings": [],
+  "summary": {
+    "blocking": {"open": 0, "closed": 2},
+    "major": {"open": 0, "closed": 2},
+    "minor": {"open": 1, "closed": 0},
+    "note": {"open": 1, "closed": 0}
+  }
+}
