@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "review_version": "0.1",
+  "review_id": "urn:moirae:accord-02e:integrated-review:0.1",
+  "reviewed_commits": {
+    "accord_01": "e748028d3ac05112163765afc65ef4224933f6a1",
+    "accord_02a": "2e2c036539dcc32f7411b5180e16ba46a7209d1a",
+    "accord_02b": "90c80c77ed0d312c7d5c4e72d7b92b55d4ed1e6f",
+    "accord_02c": "b94f3783c7bf3a65f7698c37ae89bef6e088a5ad",
+    "accord_02d": "9adf15d6005c72e5fbf49d2f3f7f62ca8f7e6354"
+  },
+  "primary_verdict": "AMEND",
+  "allowed_severities": ["BLOCKING", "MAJOR", "MINOR", "NOTE"],
+  "allowed_disposition_classes": [
+    "CONFIRMED_DEFECT",
+    "SPEC_AMBIGUITY",
+    "EXPERIMENT_RISK",
+    "DOCUMENTATION_GAP",
+    "NON_ISSUE",
+    "DEFERRED_TO_IMPLEMENTATION",
+    "DEFERRED_TO_EXPERIMENT"
+  ],
+  "summary_counts": {
+    "severity": {
+      "BLOCKING": 1,
+      "MAJOR": 5,
+      "MINOR": 2,
+      "NOTE": 2
+    },
+    "disposition_class": {
+      "SPEC_AMBIGUITY": 6,
+      "EXPERIMENT_RISK": 1,
+      "DOCUMENTATION_GAP": 1,
+      "NON_ISSUE": 2
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "E2E-BLOCK-001",
+      "severity": "BLOCKING",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02D-FALSIFICATION-PROTOCOL.md",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-MATRIX.md",
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json"
+      ],
+      "summary": "The machine-readable scenario catalog contains oracle_state and expected_conformance_bounds beside the run scenario metadata, but no sanitized system-visible manifest or mandatory field-level separation is defined.",
+      "adversarial_construction": "ADV-18 passes the design catalog or a direct scenario_manifest_ref to a delegate, baseline, classifier, or verifier. The system can read expected occurrence, duplicate, or conformance outcomes before producing its result.",
+      "consequence": "This permits hidden-oracle leakage and circular conformance/scoring. It violates the declared CF-9/CF-3 boundary and can invalidate every comparative metric even if the implementation never reads a separate scorer oracle.",
+      "recommended_disposition": "Split public run manifests from scorer-only expected truth and require outcome-independent scenario identifiers and metadata.",
+      "amendment_required": true,
+      "acceptance_blocking": true,
+      "related_adversarial_cases": ["ADV-18", "ADV-19", "ADV-20"]
+    },
+    {
+      "finding_id": "E2E-MAJOR-001",
+      "severity": "MAJOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02A-VERIFIER-CONTRACT.md",
+        "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md",
+        "docs/accord-02/schema/accord-02c-settlement-result.schema.json",
+        "docs/accord-02/ACCORD-02D-METRICS-AND-SCORING.md",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json"
+      ],
+      "summary": "ACCORD-02A result kinds VERIFIED, CORROBORATED, NO_EFFECT_OBSERVED, UNKNOWN_PENDING, and UNKNOWN_TERMINAL are not normatively mapped to the multidimensional ACCORD-02C/D settlement axes.",
+      "adversarial_construction": "ADV-02, ADV-11, and ADV-13 require the implementation to translate provider acceptance, task completion, or terminal unknown into C occurrence, stage, freshness, reopening, and finality fields.",
+      "consequence": "Different implementations can make different conclusions from the same A result wrapper, including silently treating VERIFIED as universal effect truth or NO_EFFECT_OBSERVED as profile-bounded non-occurrence.",
+      "recommended_disposition": "Add a machine-readable result-vocabulary map that preserves non-equivalence and requires predicate, profile, and axis semantics.",
+      "amendment_required": true,
+      "acceptance_blocking": true,
+      "related_adversarial_cases": ["ADV-02", "ADV-11", "ADV-13"]
+    },
+    {
+      "finding_id": "E2E-MAJOR-002",
+      "severity": "MAJOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02B", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02B-EFFECTIVE-AUTHORITY-COMPOSITION.md",
+        "docs/accord-02/schema/accord-02b-authority-relation-result.schema.json",
+        "docs/accord-02/schema/accord-02c-settlement-result.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json"
+      ],
+      "summary": "ACCORD-02B produces direct grant relations and effective-authority states, while ACCORD-02C/D also carry event-time authority validity statuses; D collapses relation/state values into one relation_or_state field.",
+      "adversarial_construction": "ADV-05, ADV-06, ADV-07, ADV-08, and ADV-15 supply ATTENUATED, CONTAINED, POSSIBLE_WIDENING, or UNKNOWN analysis while the combined result also asks for AUTHORIZED or INVALID_AUTHORITY.",
+      "consequence": "A future implementation could mistake grant attenuation or effective containment for a valid authorization decision, or mistake invalid authority for a widening relation. That undermines the authority/effect orthogonality claim at the machine-readable boundary.",
+      "recommended_disposition": "Separate direct relation, effective-authority composition, and event-time validity into typed fields with explicit source and evaluation time.",
+      "amendment_required": true,
+      "acceptance_blocking": true,
+      "related_adversarial_cases": ["ADV-05", "ADV-06", "ADV-07", "ADV-08", "ADV-15"]
+    },
+    {
+      "finding_id": "E2E-MAJOR-003",
+      "severity": "MAJOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+        "docs/accord-02/schema/accord-02c-settlement-result.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md"
+      ],
+      "summary": "A/C use verifier_run_id and result_id, while D uses experiment run_id and result_record_id; D result_ref is an untyped string and does not require a schema-identified C result or verifier lineage.",
+      "adversarial_construction": "ADV-03 and ADV-16 produce valid-looking experimental records in which a result record, verifier result, provider operation, or experiment run can be confused during external reproduction.",
+      "consequence": "A third party may be unable to determine which verifier invocation emitted which settlement, or may correlate evidence to the wrong run without violating the D schema.",
+      "recommended_disposition": "Require typed references and a complete lineage from experiment run to D result_record_id to verifier_run_id and A/C result_id.",
+      "amendment_required": true,
+      "acceptance_blocking": true,
+      "related_adversarial_cases": ["ADV-03", "ADV-16", "ADV-17"]
+    },
+    {
+      "finding_id": "E2E-MAJOR-004",
+      "severity": "MAJOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/schema/accord-02a-portable-record.schema.json",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md",
+        "docs/accord-02/schema/accord-02c-settlement-result.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json"
+      ],
+      "summary": "C requires predicate/stage-aware settlement, but A has no first-class logical effect/predicate record and D does not require predicate or stage on every attempt/evidence binding.",
+      "adversarial_construction": "ADV-04 and ADV-17 use a correct resource or reused effect_id with a different recipient or stage. ADV-11 supplies provider/task completion without a typed downstream predicate binding.",
+      "consequence": "The prose says early-stage evidence cannot settle a later stage, but underspecified portable records can require undocumented reconstruction or profile translation before that rule is machine-checkable.",
+      "recommended_disposition": "Require effect/predicate/stage references and explicit attempt/no-attempt binding on every settlement-relevant evidence path.",
+      "amendment_required": true,
+      "acceptance_blocking": true,
+      "related_adversarial_cases": ["ADV-04", "ADV-11", "ADV-17"]
+    },
+    {
+      "finding_id": "E2E-MAJOR-005",
+      "severity": "MAJOR",
+      "disposition_class": "EXPERIMENT_RISK",
+      "affected_slices": ["02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02D-FALSIFICATION-PROTOCOL.md",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json"
+      ],
+      "summary": "Baseline fairness and classifier restrictions are explicit in prose but not enforced by a per-arm input manifest or field-level allowlist; baseline output is open-ended and the catalog contains oracle-bearing metadata.",
+      "adversarial_construction": "ADV-19 supplies ARM-C an Accord-only evidence-class or settlement label while retaining a nominal ARM-C result record.",
+      "consequence": "The experiment could appear to compare ordinary engineering baselines while giving a baseline an Accord-specific feature, creating leakage or an unfair comparison without violating the current D schema.",
+      "recommended_disposition": "Freeze arm-specific visible inputs and artifact allowlists, and require the scorer to audit the actual input projection for every run.",
+      "amendment_required": true,
+      "acceptance_blocking": true,
+      "related_adversarial_cases": ["ADV-18", "ADV-19", "ADV-20"]
+    },
+    {
+      "finding_id": "E2E-MINOR-001",
+      "severity": "MINOR",
+      "disposition_class": "SPEC_AMBIGUITY",
+      "affected_slices": ["02A", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02A-PORTABLE-RECORD-SPEC.md",
+        "docs/accord-02/schema/accord-02a-portable-record.schema.json",
+        "docs/accord-02/ACCORD-02C-EVIDENCE-AND-TRUST.md",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json"
+      ],
+      "summary": "Provider operation identifiers are correctly described as non-authoritative, but reuse/collision across logical effects has no explicit profile rule in the machine-readable linkage.",
+      "adversarial_construction": "ADV-10 and ADV-16 reuse or expire provider operation identifiers during retry and cross-effect cases.",
+      "consequence": "A careless implementation could use a provider operation ID as a uniqueness key even though the prose prohibits replacing effect_id or attempt_id.",
+      "recommended_disposition": "Add an explicit provider-operation reuse/collision policy and diagnostic requirement.",
+      "amendment_required": false,
+      "acceptance_blocking": false,
+      "related_adversarial_cases": ["ADV-10", "ADV-16"]
+    },
+    {
+      "finding_id": "E2E-MINOR-002",
+      "severity": "MINOR",
+      "disposition_class": "DOCUMENTATION_GAP",
+      "affected_slices": ["02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-MATRIX.md",
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json"
+      ],
+      "summary": "The first scored minimum requires local and MCP-shaped transports and two surfaces; A2A-shaped transport and the staged S3 surface are defined but not required in the core scored subset.",
+      "adversarial_construction": "A future result could be described broadly as transport-neutral or staged-effect coverage after exercising only the minimum subset.",
+      "consequence": "The claim scope could be overstated even though the minimum experimental design is compliant.",
+      "recommended_disposition": "Keep minimum and optional coverage labels explicit in future reports and do not generalize untested T3/S3 behaviour.",
+      "amendment_required": false,
+      "acceptance_blocking": false,
+      "related_adversarial_cases": ["ADV-11", "ADV-20"]
+    },
+    {
+      "finding_id": "E2E-NOTE-001",
+      "severity": "NOTE",
+      "disposition_class": "NON_ISSUE",
+      "affected_slices": ["02A", "02B", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02A-PORTABLE-RECORD-SPEC.md",
+        "docs/accord-02/ACCORD-02B-AUTHORITY-ATTENUATION-MODEL.md",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md",
+        "docs/accord-02/ACCORD-02D-FALSIFICATION-PROTOCOL.md"
+      ],
+      "summary": "The stack preserves the prior-art boundary and does not claim novelty for delegated credentials, durable execution, receipts, idempotency, reconciliation, or related established mechanisms.",
+      "adversarial_construction": "Claim audit searched for novelty and empirical-result language presented as established fact.",
+      "consequence": "No defect found; future reports must still keep empirical conclusions conditional.",
+      "recommended_disposition": "Retain the present limitation language.",
+      "amendment_required": false,
+      "acceptance_blocking": false,
+      "related_adversarial_cases": []
+    },
+    {
+      "finding_id": "E2E-NOTE-002",
+      "severity": "NOTE",
+      "disposition_class": "NON_ISSUE",
+      "affected_slices": ["02A", "02B", "02C", "02D"],
+      "affected_files": [
+        "docs/accord-02/ACCORD-02A-VERIFIER-CONTRACT.md",
+        "docs/accord-02/ACCORD-02B-EFFECTIVE-AUTHORITY-COMPOSITION.md",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md",
+        "docs/accord-02/ACCORD-02D-FALSIFICATION-PROTOCOL.md"
+      ],
+      "summary": "Conformance and empirical research are explicitly separated, and universal UNKNOWN is not treated as an automatic victory.",
+      "adversarial_construction": "Review tested whether deterministic vector success or universal abstention was described as a research win.",
+      "consequence": "No defect found; the distinction should remain prominent in acceptance materials.",
+      "recommended_disposition": "Retain the present conformance-versus-research boundary.",
+      "amendment_required": false,
+      "acceptance_blocking": false,
+      "related_adversarial_cases": ["ADV-20"]
+    }
+  ]
+}
