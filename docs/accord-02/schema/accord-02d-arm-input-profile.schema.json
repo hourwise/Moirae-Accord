@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02d:schema:arm-input-profile:0.1",
+  "title": "ACCORD-02D per-arm input allowlist catalog",
+  "description": "Closed structural contract for the information each experimental arm may receive. It is not a scenario oracle and does not contain expected outcomes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_id",
+    "schema_version",
+    "information_class",
+    "system_under_test_visible",
+    "oracle_fields_forbidden",
+    "expected_result_fields_forbidden",
+    "profiles"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "schema_id": { "const": "urn:moirae:accord-02d:arm-input-profile" },
+    "schema_version": { "const": "0.1" },
+    "information_class": { "const": "ARM_INPUT_ALLOWLIST" },
+    "system_under_test_visible": { "const": true },
+    "oracle_fields_forbidden": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "expected_result_fields_forbidden": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 4,
+      "items": { "$ref": "#/$defs/armProfile" }
+    }
+  },
+  "$defs": {
+    "armProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "arm_id",
+        "input_profile_id",
+        "allowed_fields",
+        "forbidden_fields",
+        "allowed_evidence_sources",
+        "authority_information",
+        "provider_state_information",
+        "accord_specific_semantics",
+        "trust_roots_visible",
+        "evidence_profile_visible",
+        "classifier_input_fields",
+        "scenario_catalog_directly_consumable"
+      ],
+      "properties": {
+        "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+        "input_profile_id": { "type": "string", "minLength": 1 },
+        "allowed_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fieldRule" },
+          "uniqueItems": true
+        },
+        "forbidden_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/forbiddenField" },
+          "uniqueItems": true
+        },
+        "allowed_evidence_sources": {
+          "type": "array",
+          "items": { "enum": ["NONE", "ORDINARY_EXECUTOR_STATE", "TRANSPORT_ACKNOWLEDGEMENT", "PROVIDER_ACCEPTANCE", "PROVIDER_STATE_READ", "RECONCILIATION", "PORTABLE_RECORD_BUNDLE", "SUPPLIED_EVIDENCE_ARTIFACTS"] },
+          "uniqueItems": true
+        },
+        "authority_information": {
+          "type": "array",
+          "items": { "enum": ["ORDINARY_ADMISSION_STATE", "DECLARED_GRANT_RECORDS", "PORTABLE_AUTHORITY_BUNDLE", "AUTHORITY_PROFILE", "NONE"] },
+          "uniqueItems": true
+        },
+        "provider_state_information": {
+          "type": "array",
+          "items": { "enum": ["NONE", "ACCEPTANCE_ONLY", "ORDINARY_STATE_READ", "RECONCILIATION_READ", "SUPPLIED_EFFECT_EVIDENCE"] },
+          "uniqueItems": true
+        },
+        "accord_specific_semantics": {
+          "type": "array",
+          "items": { "enum": ["NONE", "PORTABLE_IDENTITIES", "EVIDENCE_PROFILE", "TRUST_ROOTS", "ACCORD_02C_NATIVE_SETTLEMENT", "ACCORD_02A_PROJECTED_RESULT", "ACCORD_02B_ANALYSIS"] },
+          "uniqueItems": true
+        },
+        "trust_roots_visible": { "type": "boolean" },
+        "evidence_profile_visible": { "type": "boolean" },
+        "classifier_input_fields": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "scenario_catalog_directly_consumable": { "const": false }
+      }
+    },
+    "fieldRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field_path", "source_class", "value_type"],
+      "properties": {
+        "field_path": { "type": "string", "minLength": 1 },
+        "source_class": { "enum": ["ORCHESTRATION", "TASK_IDENTITY", "ATTEMPT_STATE", "DELEGATE_CLAIM", "TRANSPORT_METADATA", "AUTHORITY_INPUT", "PROVIDER_OBSERVATION", "CLASSIFIER_FEATURE", "PORTABLE_RECORD", "EVIDENCE_ARTIFACT", "PROFILE_OR_TRUST_ROOT"] },
+        "value_type": { "enum": ["STRING", "BOOLEAN", "INTEGER", "OBJECT", "ARRAY", "DIGEST", "TYPED_REFERENCE", "PROFILE_DEFINED"] }
+      }
+    },
+    "forbiddenField": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field_path", "reason"],
+      "properties": {
+        "field_path": { "type": "string", "minLength": 1 },
+        "reason": { "enum": ["HIDDEN_ORACLE", "EXPECTED_RESULT", "SCORER_ONLY", "ACCORD_ONLY_OUTCOME", "PRIVILEGED_AUTHORITY_ANSWER", "PRIVATE_STATE", "POST_RUN_ADJUDICATION"] }
+      }
+    }
+  }
+}

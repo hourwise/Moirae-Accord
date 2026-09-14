@@ -131,6 +131,13 @@ failure of factual occurrence.
 
 The result schema is [the ACCORD-02C settlement result schema](./schema/accord-02c-settlement-result.schema.json).
 
+The native C result is the semantic source of truth for the effect-settlement
+axes. When an implementation also emits an ACCORD-02A verifier-facing
+`settlement.kind`, it MUST retain this native result and apply the named
+[ACCORD-02R1 A/C projection map](./examples/accord-02r1-settlement-vocabulary-map.json);
+it MUST NOT replace the C axes with the
+projection or infer a stronger A kind from a single C status string.
+
 ## 5. Evidence and observation semantics
 
 An observation reports what an observer says was seen at a stated time and read

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02d:schema:scorer-expectation:0.1",
+  "title": "ACCORD-02D scorer-only scenario expectation catalog",
+  "description": "Closed scorer-only expectations. This material is never an input to a delegate, baseline, classifier, provider fixture, or Accord verifier.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["catalog_id", "catalog_version", "information_class", "system_under_test_visible", "expected_results_included", "protected_from_arm_inputs", "source_scenario_catalog_ref", "records"],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "catalog_id": { "const": "urn:moirae:accord-02d:scorer-expectations" },
+    "catalog_version": { "const": "0.2" },
+    "information_class": { "const": "SCORER_ONLY" },
+    "system_under_test_visible": { "const": false },
+    "expected_results_included": { "const": true },
+    "protected_from_arm_inputs": { "const": true },
+    "source_scenario_catalog_ref": { "type": "string", "minLength": 1 },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/expectation" }
+    }
+  },
+  "$defs": {
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scenario_id", "oracle_state", "expected_conformance_bounds", "expected_settlement_bounds", "categorical_failure_relevance"],
+      "properties": {
+        "scenario_id": { "type": "string", "minLength": 1 },
+        "oracle_state": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authority_relation", "effect_occurrence", "duplicate_actual_effect"],
+          "properties": {
+            "authority_relation": { "type": "string", "minLength": 1 },
+            "effect_occurrence": { "enum": ["OCCURS", "DOES_NOT_OCCUR", "DUPLICATE_OCCURS", "UNRESOLVED_TO_SYSTEM", "PARTIAL_STAGE"] },
+            "duplicate_actual_effect": { "type": "boolean" }
+          }
+        },
+        "expected_conformance_bounds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["minimum", "forbidden"],
+          "properties": {
+            "minimum": { "type": "string", "minLength": 1 },
+            "forbidden": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+          }
+        },
+        "expected_settlement_bounds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authority_relation", "factual_occurrence", "duplicate_actual_effect"],
+          "properties": {
+            "authority_relation": { "type": "string", "minLength": 1 },
+            "factual_occurrence": { "type": "string", "minLength": 1 },
+            "duplicate_actual_effect": { "type": "boolean" }
+          }
+        },
+        "categorical_failure_relevance": { "type": "array", "items": { "type": "string", "pattern": "^CF-[0-9]+$" }, "uniqueItems": true }
+      }
+    }
+  }
+}

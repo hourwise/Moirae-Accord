@@ -1,0 +1,857 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "catalog_id": "urn:moirae:accord-02d:scorer-expectations",
+  "catalog_version": "0.2",
+  "information_class": "SCORER_ONLY",
+  "system_under_test_visible": false,
+  "expected_results_included": true,
+  "protected_from_arm_inputs": true,
+  "source_scenario_catalog_ref": "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+  "records": [
+    {
+      "scenario_id": "ACCORD-02D-A01",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "No direct widening under supported component rules",
+        "forbidden": [
+          "WIDENED_AS_ATTENUATED"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A02",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Explicit depth-2 relation preserved",
+        "forbidden": [
+          "UNREPRESENTED_HOP"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A03",
+      "oracle_state": {
+        "authority_relation": "WIDENED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Wider action is surfaced",
+        "forbidden": [
+          "ATTENUATED",
+          "CONTAINED"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "WIDENED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A04",
+      "oracle_state": {
+        "authority_relation": "UNKNOWN",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Unknown authority-bearing extension blocks conclusive containment",
+        "forbidden": [
+          "SILENT_EXTENSION_IGNORE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "UNKNOWN",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2",
+        "CF-4"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A05",
+      "oracle_state": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Shared-budget widening remains possible or unknown",
+        "forbidden": [
+          "AUTOMATIC_CONTAINMENT"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A06",
+      "oracle_state": {
+        "authority_relation": "CONTAINED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Reserved non-overlapping sibling budget may be bounded",
+        "forbidden": [
+          "UNJUSTIFIED_WIDENING"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "CONTAINED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A07",
+      "oracle_state": {
+        "authority_relation": "UNKNOWN",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Complementary capabilities require explicit composition rule",
+        "forbidden": [
+          "SILENT_UNION"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "UNKNOWN",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2",
+        "CF-4"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A08",
+      "oracle_state": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Mediated possible widening distinct from direct child authority",
+        "forbidden": [
+          "DIRECT_CHILD_AUTHORITY_INVENTED"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2",
+        "CF-4"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A09",
+      "oracle_state": {
+        "authority_relation": "UNKNOWN",
+        "effect_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Revocation before dispatch is visible at dispatch",
+        "forbidden": [
+          "AUTHORIZED_AT_DISPATCH"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "UNKNOWN",
+        "factual_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A10",
+      "oracle_state": {
+        "authority_relation": "CONTAINED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Historical dispatch/effect retained; current validity separate",
+        "forbidden": [
+          "HISTORY_ERASURE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "CONTAINED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A11",
+      "oracle_state": {
+        "authority_relation": "UNKNOWN",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Expiry boundary and clock uncertainty remain explicit",
+        "forbidden": [
+          "INVENTED_ORDER"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "UNKNOWN",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-A12",
+      "oracle_state": {
+        "authority_relation": "INCOMPARABLE",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Resource and action dimensions remain distinct",
+        "forbidden": [
+          "UNSUPPORTED_IMPLICATION_AS_CONTAINMENT"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "INCOMPARABLE",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E01",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Dispatch/attempt record only",
+        "forbidden": [
+          "EFFECT_SUPPORTED_FROM_DISPATCH"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E02",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Transport acceptance only",
+        "forbidden": [
+          "DOWNSTREAM_EFFECT_FROM_ACK"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-4"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E03",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Acceptance stage may settle; final effect remains profile-dependent",
+        "forbidden": [
+          "ACCEPTANCE_EQUALS_FINAL_EFFECT"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-12"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E04",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Bound receipt may support occurrence and attribution",
+        "forbidden": [
+          "UNIVERSAL_TRUTH"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E05",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Corroboration preserves observer/root assumptions",
+        "forbidden": [
+          "AUTOMATIC_INDEPENDENCE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1",
+        "CF-3"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E06",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Delegate-only claim remains unknown/unsettled",
+        "forbidden": [
+          "QUALIFIED_VERIFIED"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E07",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Bound evidence can outweigh a false delegate failure claim",
+        "forbidden": [
+          "FALSE_NON_OCCURRENCE_FROM_DELEGATE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1",
+        "CF-7"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E08",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Lost response plus retry inside the idempotency window may remain one actual effect, but does not prove exactly-once in general",
+        "forbidden": [
+          "EXACTLY_ONCE_WITHOUT_EVIDENCE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-5"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E09",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DUPLICATE_OCCURS",
+        "duplicate_actual_effect": true
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Duplicate actual effect distinguished from duplicate attempts",
+        "forbidden": [
+          "EXACTLY_ONCE_CLAIM"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DUPLICATE_OCCURS",
+        "duplicate_actual_effect": true
+      },
+      "categorical_failure_relevance": [
+        "CF-5"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E10",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Scoped non-occurrence only with complete ledger assumptions",
+        "forbidden": [
+          "ABSENCE_OUTSIDE_SCOPE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-7"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E11",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Incomplete empty read remains unresolved",
+        "forbidden": [
+          "DEFINITIVE_NON_OCCURRENCE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-7"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E12",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Conflict retained or explicitly resolved by profile",
+        "forbidden": [
+          "LATEST_TIMESTAMP_ONLY"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E13",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Stale observation cannot settle current state",
+        "forbidden": [
+          "CURRENT_STATE_FROM_STALE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E14",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Wrong attempt evidence and incorrect key reuse are excluded from the selected target",
+        "forbidden": [
+          "ATTEMPT_REASSIGNMENT",
+          "EFFECT_ID_MERGE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-13"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E15",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Other-effect receipt is not reusable",
+        "forbidden": [
+          "EFFECT_ID_MERGE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-13"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E16",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "PARTIAL_STAGE",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Early stage does not settle later stage",
+        "forbidden": [
+          "STAGE_COLLAPSE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "PARTIAL_STAGE",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-12"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E17",
+      "oracle_state": {
+        "authority_relation": "WIDENED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Invalid authority and factual occurrence remain separate",
+        "forbidden": [
+          "NO_EFFECT_FROM_INVALID_AUTHORITY"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "WIDENED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E18",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Valid authority does not create occurrence",
+        "forbidden": [
+          "EFFECT_FROM_AUTHORITY_ONLY"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E19",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Later evidence can reopen prior unknown",
+        "forbidden": [
+          "IRREVERSIBLE_UNKNOWN"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-11"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-E20",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DUPLICATE_OCCURS",
+        "duplicate_actual_effect": true
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Expired idempotency window leaves duplicate risk/unknown",
+        "forbidden": [
+          "EXACTLY_ONCE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DUPLICATE_OCCURS",
+        "duplicate_actual_effect": true
+      },
+      "categorical_failure_relevance": [
+        "CF-5"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-X01",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Valid authority does not upgrade delegate assertion",
+        "forbidden": [
+          "QUALIFIED_VERIFIED"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "DOES_NOT_OCCUR",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-1",
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-X02",
+      "oracle_state": {
+        "authority_relation": "WIDENED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Invalid/widened authority and occurrence coexist",
+        "forbidden": [
+          "NO_EFFECT_FROM_INVALID_AUTHORITY"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "WIDENED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-X03",
+      "oracle_state": {
+        "authority_relation": "CONTAINED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Revocation after dispatch does not erase delayed occurrence",
+        "forbidden": [
+          "HISTORY_ERASURE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "CONTAINED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-X04",
+      "oracle_state": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Composition uncertainty does not erase factual receipt",
+        "forbidden": [
+          "AUTHORITY_EFFECT_COLLAPSE"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-8"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-X05",
+      "oracle_state": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Mediated action and child authorship remain separate",
+        "forbidden": [
+          "DIRECT_AUTHORSHIP_OVERCLAIM"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "POSSIBLE_WIDENING",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-2",
+        "CF-13"
+      ]
+    },
+    {
+      "scenario_id": "ACCORD-02D-X06",
+      "oracle_state": {
+        "authority_relation": "ATTENUATED",
+        "effect_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "expected_conformance_bounds": {
+        "minimum": "Transport metadata cannot create authorization",
+        "forbidden": [
+          "TRANSPORT_AUTHORITY_INJECTION"
+        ]
+      },
+      "expected_settlement_bounds": {
+        "authority_relation": "ATTENUATED",
+        "factual_occurrence": "OCCURS",
+        "duplicate_actual_effect": false
+      },
+      "categorical_failure_relevance": [
+        "CF-4"
+      ]
+    }
+  ]
+}

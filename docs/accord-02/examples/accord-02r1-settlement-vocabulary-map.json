@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "mapping_id": "urn:moirae:accord-02r1:settlement-vocabulary-map",
+  "mapping_version": "0.1",
+  "source_slices": {
+    "a_verifier_schema": "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+    "c_settlement_schema": "docs/accord-02/schema/accord-02c-settlement-result.schema.json"
+  },
+  "native_result_required": true,
+  "rules": [
+    {
+      "rule_id": "MAP-001",
+      "a_kind": "VERIFIED",
+      "description": "A qualified VERIFIED projection is permitted only for the exact requested predicate and stage when the native C result supports occurrence under an admissible, current, compatible profile. It does not assert causality, authority validity, absence of duplicates, or universal truth.",
+      "native_c_requirements": {
+        "overall": ["EFFECT_SUPPORTED"],
+        "occurrence": ["OCCURRENCE_SUPPORTED"],
+        "evidence_sufficiency": ["SUFFICIENT"],
+        "profile_compatibility": ["COMPATIBLE"],
+        "predicate_binding": "EXACT",
+        "stage_state": "SUPPORTED",
+        "finality": "NOT_APPLICABLE",
+        "negative_evidence_rule": "NONE"
+      },
+      "projection_requirements": ["NATIVE_RESULT_REFERENCE", "MAPPING_PROFILE_REFERENCE", "EFFECT_ID", "PREDICATE_ID", "STAGE", "TARGET_BINDING", "EVIDENCE_CLASS", "OBSERVER", "TRUST_ROOT"],
+      "non_implications": ["UNIVERSAL_TRUTH", "EXACTLY_ONCE", "AUTHORIZED", "CAUSALITY_UNLESS_EXPLICIT", "LATER_STAGE", "GOAL_SATISFACTION"]
+    },
+    {
+      "rule_id": "MAP-002",
+      "a_kind": "CORROBORATED",
+      "description": "A CORROBORATED projection requires a native C occurrence-supported result and profile-declared observer-distinct corroboration. Corroboration is not a universal evidence ranking and does not make a later stage or causal claim true.",
+      "native_c_requirements": {
+        "overall": ["EFFECT_SUPPORTED"],
+        "occurrence": ["OCCURRENCE_SUPPORTED"],
+        "evidence_sufficiency": ["SUFFICIENT"],
+        "profile_compatibility": ["COMPATIBLE"],
+        "predicate_binding": "EXACT",
+        "stage_state": "SUPPORTED",
+        "observer_distinct_corroboration": true,
+        "finality": "NOT_APPLICABLE",
+        "negative_evidence_rule": "NONE"
+      },
+      "projection_requirements": ["NATIVE_RESULT_REFERENCE", "MAPPING_PROFILE_REFERENCE", "EFFECT_ID", "PREDICATE_ID", "STAGE", "TARGET_BINDING", "EVIDENCE_CLASS", "OBSERVER", "TRUST_ROOT"],
+      "non_implications": ["UNIVERSAL_TRUTH", "EXACTLY_ONCE", "AUTHORIZED", "CAUSALITY_UNLESS_EXPLICIT", "LATER_STAGE", "GOAL_SATISFACTION"]
+    },
+    {
+      "rule_id": "MAP-003",
+      "a_kind": "NO_EFFECT_OBSERVED",
+      "description": "NO_EFFECT_OBSERVED is an explicitly scoped observation projection. It may remain observation-only when the native C result is unresolved; it may carry bounded non-occurrence only when the complete-negative requirements of the active C profile are satisfied.",
+      "native_c_requirements": {
+        "overall": ["UNRESOLVED", "UNKNOWN", "NON_OCCURRENCE_SUPPORTED"],
+        "occurrence": ["UNKNOWN", "INSUFFICIENT_EVIDENCE", "NON_OCCURRENCE_SUPPORTED"],
+        "evidence_sufficiency": ["INSUFFICIENT", "SUFFICIENT", "UNKNOWN"],
+        "profile_compatibility": ["COMPATIBLE", "UNKNOWN"],
+        "predicate_binding": "REQUIRED_FOR_NEGATIVE",
+        "stage_state": "NOT_EVALUATED",
+        "completeness": "NOT_APPLICABLE",
+        "finality": "NOT_APPLICABLE",
+        "negative_evidence_rule": "OBSERVATION_ONLY"
+      },
+      "projection_requirements": ["NATIVE_RESULT_REFERENCE", "MAPPING_PROFILE_REFERENCE", "EFFECT_ID", "PREDICATE_ID", "STAGE", "TARGET_BINDING", "AS_OF", "READ_SEMANTICS"],
+      "non_implications": ["UNIVERSAL_TRUTH", "EXACTLY_ONCE", "AUTHORIZED", "CAUSALITY_UNLESS_EXPLICIT", "LATER_STAGE", "GOAL_SATISFACTION", "NON_OCCURRENCE_FROM_SILENCE"]
+    },
+    {
+      "rule_id": "MAP-007",
+      "a_kind": "NO_EFFECT_OBSERVED",
+      "description": "The same A observation label may carry a bounded non-occurrence projection only when the native C result explicitly reports profile-bounded NON_OCCURRENCE_SUPPORTED and all complete-negative requirements match the exact predicate, stage, target, resource, recipient, and interval.",
+      "native_c_requirements": {
+        "overall": ["NON_OCCURRENCE_SUPPORTED"],
+        "occurrence": ["NON_OCCURRENCE_SUPPORTED"],
+        "evidence_sufficiency": ["SUFFICIENT"],
+        "profile_compatibility": ["COMPATIBLE"],
+        "predicate_binding": "REQUIRED_FOR_NEGATIVE",
+        "stage_state": "NOT_SUPPORTED",
+        "completeness": "COMPLETE_SATISFIED",
+        "finality": "NOT_APPLICABLE",
+        "negative_evidence_rule": "COMPLETE_PROFILE_SATISFIED"
+      },
+      "projection_requirements": ["NATIVE_RESULT_REFERENCE", "MAPPING_PROFILE_REFERENCE", "EFFECT_ID", "PREDICATE_ID", "STAGE", "TARGET_BINDING", "AS_OF", "READ_SEMANTICS"],
+      "non_implications": ["UNIVERSAL_TRUTH", "EXACTLY_ONCE", "AUTHORIZED", "CAUSALITY_UNLESS_EXPLICIT", "LATER_STAGE", "GOAL_SATISFACTION", "NON_OCCURRENCE_FROM_SILENCE"]
+    },
+    {
+      "rule_id": "MAP-004",
+      "a_kind": "UNKNOWN_PENDING",
+      "description": "UNKNOWN_PENDING is the A projection for an unresolved native C result where the active profile permits further evidence or reopening. It is not a failure assertion and does not authorize blind retry.",
+      "native_c_requirements": {
+        "overall": ["UNRESOLVED", "UNKNOWN", "CONFLICTING_EVIDENCE", "PARTIAL_EFFECT", "STALE_EVIDENCE", "POSSIBLE_DUPLICATE_EFFECT"],
+        "occurrence": ["UNKNOWN", "CONFLICTING_EVIDENCE", "PARTIAL_EFFECT", "STALE_EVIDENCE", "INSUFFICIENT_EVIDENCE"],
+        "evidence_sufficiency": ["INSUFFICIENT", "STALE", "CONFLICTING", "UNKNOWN"],
+        "profile_compatibility": ["COMPATIBLE", "UNKNOWN"],
+        "predicate_binding": "REQUIRED_FOR_OCCURRENCE",
+        "stage_state": "UNRESOLVED",
+        "can_reopen": true,
+        "finality": "REOPENABLE",
+        "negative_evidence_rule": "NONE"
+      },
+      "projection_requirements": ["NATIVE_RESULT_REFERENCE", "MAPPING_PROFILE_REFERENCE", "EFFECT_ID", "PREDICATE_ID", "STAGE", "TARGET_BINDING", "RETRY_UNTIL"],
+      "non_implications": ["UNIVERSAL_TRUTH", "EXACTLY_ONCE", "AUTHORIZED", "LATER_STAGE", "GOAL_SATISFACTION", "METAPHYSICAL_FINALITY"]
+    },
+    {
+      "rule_id": "MAP-005",
+      "a_kind": "UNKNOWN_TERMINAL",
+      "description": "UNKNOWN_TERMINAL is a profile-scoped projection for an unresolved native C result after the profile's retry, retention, or reconciliation boundary. It is not metaphysically final; later evidence may reopen it unless the active profile explicitly forbids reopening within its declared scope.",
+      "native_c_requirements": {
+        "overall": ["UNRESOLVED", "UNKNOWN", "POSSIBLE_DUPLICATE_EFFECT", "STALE_EVIDENCE", "CONFLICTING_EVIDENCE"],
+        "occurrence": ["UNKNOWN", "STALE_EVIDENCE", "CONFLICTING_EVIDENCE", "INSUFFICIENT_EVIDENCE"],
+        "evidence_sufficiency": ["INSUFFICIENT", "STALE", "CONFLICTING", "UNKNOWN"],
+        "profile_compatibility": ["COMPATIBLE", "UNKNOWN"],
+        "predicate_binding": "REQUIRED_FOR_OCCURRENCE",
+        "stage_state": "UNRESOLVED",
+        "can_reopen": false,
+        "finality": "PROFILE_SCOPED_ONLY",
+        "negative_evidence_rule": "NONE"
+      },
+      "projection_requirements": ["NATIVE_RESULT_REFERENCE", "MAPPING_PROFILE_REFERENCE", "EFFECT_ID", "PREDICATE_ID", "STAGE", "TARGET_BINDING", "PROFILE_FINALITY_SCOPE"],
+      "non_implications": ["UNIVERSAL_TRUTH", "EXACTLY_ONCE", "AUTHORIZED", "LATER_STAGE", "GOAL_SATISFACTION", "METAPHYSICAL_FINALITY"]
+    },
+    {
+      "rule_id": "MAP-006",
+      "a_kind": "REJECTED",
+      "description": "REJECTED is an input, integrity, linkage, or profile-compatibility disposition. It is not a factual non-occurrence conclusion and cannot be used to rewrite an external event.",
+      "native_c_requirements": {
+        "overall": ["INADMISSIBLE_EVIDENCE", "PROFILE_INCOMPATIBLE"],
+        "occurrence": ["INADMISSIBLE_EVIDENCE", "UNKNOWN", "STALE_EVIDENCE"],
+        "evidence_sufficiency": ["INADMISSIBLE", "PROFILE_INCOMPATIBLE"],
+        "profile_compatibility": ["INCOMPATIBLE"],
+        "predicate_binding": "NOT_REQUIRED_FOR_REJECTION",
+        "stage_state": "NOT_EVALUATED",
+        "finality": "NOT_APPLICABLE",
+        "negative_evidence_rule": "INADMISSIBLE_OR_INCOMPATIBLE"
+      },
+      "projection_requirements": ["NATIVE_RESULT_REFERENCE", "MAPPING_PROFILE_REFERENCE"],
+      "non_implications": ["UNIVERSAL_TRUTH", "EXACTLY_ONCE", "AUTHORIZED", "CAUSALITY_UNLESS_EXPLICIT", "LATER_STAGE", "GOAL_SATISFACTION", "NON_OCCURRENCE_FROM_SILENCE"]
+    }
+  ],
+  "global_invariants": [
+    "The native ACCORD-02C multidimensional result is retained and is never overwritten by an A-style projection.",
+    "A projection is deterministic only under this named mapping profile and the native C result axes.",
+    "NO_EFFECT_OBSERVED never unconditionally maps to NON_OCCURRENCE_SUPPORTED.",
+    "ATTENUATED and CONTAINED do not imply AUTHORIZED; authority validity remains a separate event-time axis.",
+    "A projected kind never asserts exactly-once occurrence or universal external truth.",
+    "A predicate, stage, target, resource, recipient, effect identity, and relevant attempt binding cannot be substituted by a transport or provider identifier."
+  ]
+}

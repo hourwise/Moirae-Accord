@@ -176,6 +176,17 @@ required structure.
   "verifier_run_id": "urn:accord:example:verifier-run-001",
   "target": {
     "effect_id": "urn:accord:example:effect-001",
+    "predicate": {
+      "predicate_id": "urn:accord:example:predicate-resource-created",
+      "kind": "resource_created",
+      "stage": "resource_created",
+      "action": "create_resource",
+      "resource": "urn:accord:example:resource-001",
+      "target_binding": "resource-001",
+      "recipient_or_counterparty": null,
+      "provider": "urn:accord:example:provider-001",
+      "external_identifier": null
+    },
     "attempt_ids": ["urn:accord:example:attempt-001"],
     "bundle_digest": "sha-256:0000000000000000000000000000000000000000000000000000000000000000"
   },
@@ -249,6 +260,17 @@ interpret either as permission to retry blindly.
 The core contract deliberately has no ordinary `VERIFIED_NO_EFFECT` result.
 Such a result would require an exhaustive evidence profile with explicit limits;
 otherwise absence at one read boundary can be followed by a delayed write.
+
+When an implementation has an ACCORD-02C native settlement result, any A-style
+`settlement.kind` projection MUST use the named
+[ACCORD-02R1 vocabulary map](./examples/accord-02r1-settlement-vocabulary-map.json). The
+native C result, its predicate/stage/effect bindings, and its profile remain
+available beside the projection. `VERIFIED` and `CORROBORATED` are therefore
+qualified projections, not universal truth, exactly-once claims, authority
+decisions, or later-stage completion claims. `NO_EFFECT_OBSERVED` remains an
+observation unless the C profile's complete-negative requirements are
+explicitly satisfied; it has no unconditional mapping to
+`NON_OCCURRENCE_SUPPORTED`.
 
 ## 6. Deterministic uncertainty and conflict rules
 

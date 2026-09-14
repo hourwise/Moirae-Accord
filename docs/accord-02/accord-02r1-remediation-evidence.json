@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "remediation_id": "urn:moirae:accord-02r1:remediation:0.1",
+  "remediation_version": "0.1",
+  "base_commit": "73b63daa9453fd3660c07c1c0b58bf0039302bca",
+  "prior_review_verdict": "AMEND",
+  "acceptance_status": "NOT_ACCEPTED",
+  "targeted_findings": [
+    {
+      "finding_id": "E2E-BLOCK-001",
+      "original_severity": "BLOCKING",
+      "amended_files": [
+        "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+        "docs/accord-02/examples/accord-02d-scorer-expectations.json",
+        "docs/accord-02/schema/accord-02d-scorer-expectation.schema.json",
+        "docs/accord-02/schema/accord-02d-arm-input-manifest.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json"
+      ],
+      "semantic_change": "Expected oracle and conformance material is removed from the orchestration catalog and stored in a separate scorer-only catalog; run-facing records contain only sanitized arm material.",
+      "validation_performed": ["unique public scenario IDs", "one scorer expectation per scenario", "no scorer-only fields in sanitized catalog", "manifest rejects known oracle/expected paths"],
+      "closure_status": "CLOSED",
+      "residual_limitation": "A future harness must still compare manifest field paths to the selected allowlist; this slice does not implement that harness."
+    },
+    {
+      "finding_id": "E2E-MAJOR-001",
+      "original_severity": "MAJOR",
+      "amended_files": [
+        "docs/accord-02/ACCORD-02A-VERIFIER-CONTRACT.md",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md",
+        "docs/accord-02/schema/accord-02r1-settlement-vocabulary-map.schema.json",
+        "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json"
+      ],
+      "semantic_change": "A-style qualified projections are deterministic only under the named map and retain the native C axes.",
+      "validation_performed": ["all six A kinds mapped", "no unconditional NO_EFFECT_OBSERVED to non-occurrence rule", "native result required"],
+      "closure_status": "CLOSED",
+      "residual_limitation": "Profile-specific evidence thresholds still require later implementation and conformance testing."
+    },
+    {
+      "finding_id": "E2E-MAJOR-002",
+      "original_severity": "MAJOR",
+      "amended_files": [
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md"
+      ],
+      "semantic_change": "D carries B grant relation, B effective-authority state, and event-time authority validity as distinct objects.",
+      "validation_performed": ["no relation_or_state union field", "B enums preserved", "invalid dispatch plus supported occurrence representable"],
+      "closure_status": "CLOSED",
+      "residual_limitation": "The schema does not itself evaluate Ananke authority policy."
+    },
+    {
+      "finding_id": "E2E-MAJOR-003",
+      "original_severity": "MAJOR",
+      "amended_files": [
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/schema/accord-02d-score-record.schema.json",
+        "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md"
+      ],
+      "semantic_change": "Experiment and verifier/result links use typed references with record type and schema identity.",
+      "validation_performed": ["lineage chain present", "provider/transport IDs excluded from lineage enum", "baseline null references explicit"],
+      "closure_status": "CLOSED",
+      "residual_limitation": "Cross-record equality of duplicated IDs requires future verifier/scorer checks."
+    },
+    {
+      "finding_id": "E2E-MAJOR-004",
+      "original_severity": "MAJOR",
+      "amended_files": [
+        "docs/accord-02/ACCORD-02A-PORTABLE-RECORD-SPEC.md",
+        "docs/accord-02/schema/accord-02a-portable-record.schema.json",
+        "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+        "docs/accord-02/schema/accord-02c-settlement-profile.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json"
+      ],
+      "semantic_change": "Settlement-relevant records can carry explicit predicate/stage/action/target/resource/recipient/provider/external-identifier bindings and the D result requires them for attempts and evidence.",
+      "validation_performed": ["effect binding includes effect_id and predicate_id", "stage is a recognized C binding", "attempt/evidence mismatch remains representable as unresolved or excluded"],
+      "closure_status": "CLOSED",
+      "residual_limitation": "Applicability and trust of each binding remain profile-dependent."
+    },
+    {
+      "finding_id": "E2E-MAJOR-005",
+      "original_severity": "MAJOR",
+      "amended_files": [
+        "docs/accord-02/schema/accord-02d-experiment-profile.schema.json",
+        "docs/accord-02/schema/accord-02d-arm-input-profile.schema.json",
+        "docs/accord-02/examples/accord-02d-arm-input-profiles.json",
+        "docs/accord-02/schema/accord-02d-arm-input-manifest.schema.json",
+        "docs/accord-02/schema/accord-02d-result-record.schema.json",
+        "docs/accord-02/schema/accord-02d-score-record.schema.json"
+      ],
+      "semantic_change": "Per-arm allowlists, forbidden fields, classifier input subsets, closed raw outputs, and separate scorer normalization are machine-readable.",
+      "validation_performed": ["four arm profiles", "ARM-C forbidden Accord outcomes", "raw output no longer open-ended", "score record separate"],
+      "closure_status": "CLOSED",
+      "residual_limitation": "No harness enforcement is implemented in this design-only remediation."
+    },
+    {
+      "finding_id": "E2E-MINOR-001",
+      "original_severity": "MINOR",
+      "amended_files": [
+        "docs/accord-02/ACCORD-02A-PORTABLE-RECORD-SPEC.md",
+        "docs/accord-02/ACCORD-02R1-REMEDIATION.md"
+      ],
+      "semantic_change": "Provider operation ID reuse is explicitly correlation-only and cannot merge effects or replace attempts.",
+      "validation_performed": ["provider operation ID absent from typed semantic identity enum", "reissue/reuse rule documented"],
+      "closure_status": "CLOSED",
+      "residual_limitation": "Provider-specific uniqueness still requires an explicit profile and evidence."
+    }
+  ],
+  "not_targeted": [
+    {
+      "finding_id": "E2E-MINOR-002",
+      "status": "NON_BLOCKING_NOTE",
+      "reason": "Optional first-experiment A2A coverage remains optional; T1 plus T2 satisfies the minimum transport design."
+    }
+  ],
+  "runtime_or_experiment_executed": false
+}

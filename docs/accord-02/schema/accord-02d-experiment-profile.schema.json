@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:moirae:accord-02d:schema:experiment-profile:0.1",
+  "$id": "urn:moirae:accord-02d:schema:experiment-profile:0.2",
   "title": "ACCORD-02D falsification experiment profile",
   "description": "Structural preregistration schema for a future design-only experiment. It does not implement an experiment harness, execute scenarios, or establish a research result.",
   "type": "object",
@@ -36,7 +36,7 @@
   ],
   "properties": {
     "schema_id": { "const": "urn:moirae:accord-02d:experiment-profile" },
-    "schema_version": { "const": "0.1" },
+    "schema_version": { "const": "0.2" },
     "experiment_id": { "type": "string", "minLength": 1 },
     "experiment_version": { "type": "string", "minLength": 1 },
     "status": { "enum": ["PREREGISTERED_DESIGN_ONLY", "CALIBRATION_ONLY", "SCORED_RUNS_AUTHORIZED_BY_LATER_VERSION"] },
@@ -94,13 +94,16 @@
     "arm": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["arm_id", "name", "capabilities", "forbidden_inputs", "fairness_constraints"],
+      "required": ["arm_id", "name", "capabilities", "forbidden_inputs", "fairness_constraints", "input_profile_id", "input_manifest_schema_id", "scenario_catalog_directly_consumable"],
       "properties": {
         "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
         "name": { "type": "string", "minLength": 1 },
         "capabilities": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
         "forbidden_inputs": { "type": "array", "items": { "enum": ["HIDDEN_ORACLE", "ACCORD_SETTLEMENT_LABEL", "ACCORD_EVIDENCE_CLASS_LABEL", "PRIVILEGED_AUTHORITY_ANALYSIS", "PRIVATE_ACCORD_STATE"] }, "uniqueItems": true },
         "fairness_constraints": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "input_profile_id": { "type": "string", "minLength": 1 },
+        "input_manifest_schema_id": { "const": "urn:moirae:accord-02d:arm-input-manifest" },
+        "scenario_catalog_directly_consumable": { "const": false },
         "classifier": { "$ref": "#/$defs/classifier" }
       }
     },
@@ -248,7 +251,7 @@
     "oracleBoundary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["oracle_id", "hidden_from", "scorer_only_after_run", "records_factual_events", "system_under_test_may_read", "stored_separately"],
+      "required": ["oracle_id", "hidden_from", "scorer_only_after_run", "records_factual_events", "system_under_test_may_read", "stored_separately", "scenario_definition_excludes_expected_results", "arm_manifest_required", "scorer_expectation_catalog_separate", "scenario_identifier_opaque_to_expectation"],
       "properties": {
         "oracle_id": { "type": "string", "minLength": 1 },
         "hidden_from": { "type": "array", "minItems": 1, "items": { "enum": ["DELEGATE", "BASELINE", "CLASSIFIER", "ACCORD_VERIFIER", "PROVIDER_FIXTURE", "OBSERVER"] }, "uniqueItems": true },
@@ -256,6 +259,10 @@
         "records_factual_events": { "type": "array", "minItems": 1, "items": { "enum": ["OCCURRENCE", "NON_OCCURRENCE", "DUPLICATE_COUNT", "RECIPIENT", "RESOURCE", "ATTEMPT_LINKAGE", "EVENT_SEQUENCE"] }, "uniqueItems": true },
         "system_under_test_may_read": { "const": false },
         "stored_separately": { "const": true },
+        "scenario_definition_excludes_expected_results": { "const": true },
+        "arm_manifest_required": { "const": true },
+        "scorer_expectation_catalog_separate": { "const": true },
+        "scenario_identifier_opaque_to_expectation": { "const": true },
         "oracle_leak_is_categorical_failure": { "const": true }
       }
     },
@@ -285,11 +292,12 @@
     "randomization": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["seed_required", "matched_seeds_where_meaningful", "scenario_id_required", "event_order_preserved", "concurrent_bitwise_replay_required"],
+      "required": ["seed_required", "matched_seeds_where_meaningful", "scenario_id_required", "scenario_id_opaque_to_result", "event_order_preserved", "concurrent_bitwise_replay_required"],
       "properties": {
         "seed_required": { "const": true },
         "matched_seeds_where_meaningful": { "const": true },
         "scenario_id_required": { "const": true },
+        "scenario_id_opaque_to_result": { "const": true },
         "event_order_preserved": { "const": true },
         "concurrent_bitwise_replay_required": { "const": false },
         "reconstruction_material_required": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }

@@ -12,10 +12,15 @@ condition, fault schedule, and seed. A logical `effect_id` may have several
 `attempt_id` values; duplicate actual effects are scored from the hidden oracle,
 not inferred from attempt count.
 
-Each run receives a stable `run_id` and records the scenario manifest,
-configuration digest, code/fixture versions, seed, and all event order needed to
-reconstruct the case. A run is not a production transaction and does not imply
-that a provider or distributed system was contacted.
+Each run receives a stable `experiment_run_id` and a separate result-record ID.
+The run-facing artifact contains a sanitized arm input manifest, configuration
+digest, code/fixture versions, seed, and all event order needed to reconstruct
+the case. A run is not a production transaction and does not imply that a
+provider or distributed system was contacted. Every future ARM-D result also
+records typed references linking the experiment run, result record, verifier
+run/result, native ACCORD-02C settlement result, and ACCORD-02B authority
+analysis; baseline arms use an explicit not-applicable reference rather than an
+Accord label.
 
 ## 2. Minimum topology
 
@@ -229,13 +234,25 @@ The authority sub-experiment includes:
 11. parent-mediated possible laundering;
 12. task delegation without authority delegation.
 
-For every case the catalog specifies the declared profile, ground-truth
-authority relation for the fixture, expected 02B relation, effective-authority
-question, and categorical failure relevance.
+For every case the sanitized orchestration catalog specifies only the declared
+fixture/profile references and the assigned condition. Ground-truth authority
+relations, expected 02B relations, settlement bounds, and categorical-failure
+relevance are in the separate scorer-only expectation catalog. The scorer-only
+catalog is marked `SCORER_ONLY`, has `system_under_test_visible=false`, and is
+never an arm input.
 
 Authority status and effect occurrence are scored independently. An invalid
 authority case may still have a factual occurrence, and a valid authority case
 may have no occurrence.
+
+The future result record does not place these concepts in one union field. It
+records the ACCORD-02B grant relation (`ATTENUATED`, `EQUIVALENT`, `WIDENED`,
+`INCOMPARABLE`, `UNSUPPORTED`, or `UNKNOWN`), the ACCORD-02B effective-
+authority state (`CONTAINED`, `POSSIBLE_WIDENING`, `WIDENED`, `UNKNOWN`,
+`UNSUPPORTED`, or `CONFLICTING`), and event-time authority validity at
+derivation, admission, dispatch, occurrence, and verification separately.
+`ATTENUATED` and `CONTAINED` are analysis outcomes, not aliases for
+`AUTHORIZED`.
 
 ## 10. Core, targeted, and boundary selection
 
@@ -291,12 +308,19 @@ labels in baseline features.
 
 The hidden oracle is unavailable to every system-under-test component, including
 the Accord verifier, baseline, delegate, provider fixture, and classifier. The
-scorer may see it only during adjudication.
+scorer may see it only during adjudication. The full scenario catalog is not an
+arm manifest: a future harness must materialize one sanitized manifest per arm
+and validate every field against the machine-readable allowlist in
+`accord-02d-arm-input-profiles.json` and
+`accord-02d-arm-input-manifest.schema.json`.
 
 Provider-visible evidence may be exposed to an arm only where that arm's
 definition permits it. Accord evidence labels are not baseline features. The
 authority bundle supplied to ARM-D is portable evidence, not a private policy
-database.
+database. ARM-A/B/C do not receive Accord settlement results, projections,
+scorer expectations, or privileged effective-authority answers. ARM-C's
+classifier inputs are a declared subset of ARM-B inputs and are frozen before
+scored runs.
 
 ## 14. Exclusions, reruns, and replication
 

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02d:schema:arm-input-manifest:0.1",
+  "title": "ACCORD-02D sanitized arm input manifest",
+  "description": "A run-facing manifest for one arm. It is validated against the referenced arm allowlist and cannot carry scorer-only oracle or expected-result material.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_id",
+    "schema_version",
+    "information_class",
+    "system_under_test_visible",
+    "experiment_version",
+    "experiment_run_id",
+    "scenario_id",
+    "arm_id",
+    "input_profile_ref",
+    "fields",
+    "scenario_catalog_directly_consumable",
+    "oracle_hidden_from_system",
+    "expected_result_fields_present",
+    "field_allowlist_checked",
+    "integrity"
+  ],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "schema_id": { "const": "urn:moirae:accord-02d:arm-input-manifest" },
+    "schema_version": { "const": "0.1" },
+    "information_class": { "const": "ARM_INPUT_MANIFEST" },
+    "system_under_test_visible": { "const": true },
+    "experiment_version": { "type": "string", "minLength": 1 },
+    "experiment_run_id": { "type": "string", "minLength": 1 },
+    "scenario_id": { "type": "string", "minLength": 1 },
+    "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+    "input_profile_ref": { "type": "string", "minLength": 1 },
+    "fields": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/fieldValue" },
+          { "$ref": "#/$defs/notScorerField" }
+        ]
+      },
+      "uniqueItems": true
+    },
+    "scenario_catalog_directly_consumable": { "const": false },
+    "oracle_hidden_from_system": { "const": true },
+    "expected_result_fields_present": { "const": false },
+    "field_allowlist_checked": { "const": true },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "fieldValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field_path", "value_type", "value"],
+      "properties": {
+        "field_path": { "type": "string", "minLength": 1 },
+        "value_type": { "enum": ["STRING", "BOOLEAN", "INTEGER", "OBJECT", "ARRAY", "DIGEST", "TYPED_REFERENCE", "PROFILE_DEFINED"] },
+        "value": {}
+      }
+    },
+    "notScorerField": {
+      "not": {
+        "properties": {
+          "field_path": {
+            "enum": [
+              "oracle_state",
+              "oracle.effect_occurrence",
+              "oracle.duplicate_count",
+              "expected_conformance_bounds",
+              "expected_settlement_bounds",
+              "categorical_failure_relevance",
+              "scorer_only",
+              "scorer.normalized_interpretation",
+              "scorer.categorical_failure_codes",
+              "accord.native_settlement_result",
+              "accord.projected_verifier_result"
+            ]
+          }
+        },
+        "required": ["field_path"]
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_digest", "canonicalization", "digest_algorithm"],
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
+        "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] }
+      }
+    }
+  }
+}

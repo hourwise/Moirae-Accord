@@ -150,6 +150,13 @@ observation MAY refer to several candidate attempts when the provider's own
 semantics make that unavoidable; the verifier then reports attribution as
 ambiguous rather than silently choosing one.
 
+Provider operation IDs are external correlation references. A profile MAY
+declare one provider operation ID unique within a provider ledger, but the
+portable model makes no universal uniqueness assumption: a reused or collided
+provider operation ID MUST remain a diagnostic and MUST NOT merge logical
+effects or substitute for `attempt_id`. Only an explicit effect/attempt binding
+under the selected profile can support attribution.
+
 ### 3.4 Time rules
 
 Times MUST be RFC 3339 timestamps with an explicit UTC offset in a conforming
@@ -309,7 +316,14 @@ idempotency key are reused.
 
 **Optional fields.** `delegation_id`, provider target/profile, client-chosen
 idempotency-key digest, provider operation ID, transport refs, admission
-decision ref, attempt deadline, retry ordinal, and response digest.
+decision ref, attempt deadline, retry ordinal, response digest, and an
+`effect_binding` descriptor. The descriptor binds this attempt to the exact
+`predicate_id`, stage, action, target, resource, recipient/counterparty,
+provider, and external identifier when the selected settlement profile requires
+those dimensions. A settlement-relevant profile MUST reject or leave unresolved
+an attempt whose required binding slot is absent or unknown; it MUST NOT fill a
+slot with a transport ID or provider operation ID merely because that value is
+available.
 
 **Links.** Task, grant, authority decision, delegation edge, observations,
 evidence artifacts, and retry siblings.
@@ -334,7 +348,12 @@ interpreted without the named read semantics.
 
 **Optional fields.** `attempt_id`, provider operation ID, provider resource ID,
 as-of time, freshness limit, attribution assertion, source evidence ref,
-conflict set, and transport refs.
+conflict set, transport refs, and an `effect_binding` descriptor. When an
+observation is offered to settle a predicate, its binding MUST identify the
+exact logical `effect_id`, predicate and stage, plus the profile-applicable
+action, target, resource, recipient/counterparty, provider, and external
+identifier slots. Each slot is explicitly `BOUND`, `NOT_APPLICABLE`, or
+`UNKNOWN`; a missing or `UNKNOWN` required slot prevents a stronger settlement.
 
 **Links.** The observation MUST identify the effect and MAY identify one or
 more attempts. It MUST link to the evidence artifact(s) that carry it.
@@ -355,8 +374,11 @@ claim, identity claim, or linkage claim.
 
 **Optional fields.** Detached content URI, inline content for synthetic
 fixtures, signature/attestation metadata, replay nonce, valid interval,
-freshness, authority/effect/attempt bindings, disclosure mode, and redaction
-descriptor.
+freshness, authority/effect/attempt bindings, `effect_binding`, disclosure
+mode, and redaction descriptor. For settlement-relevant evidence,
+`effect_binding` is the machine-readable proposition descriptor rather than a
+free-form coverage label. It does not make the evidence true; it tells the
+verifier exactly which proposition the evidence claims to cover.
 
 **Links.** Evidence links explicitly to the record IDs and hashes it covers. A
 signature over an evidence artifact is not automatically a signature over the

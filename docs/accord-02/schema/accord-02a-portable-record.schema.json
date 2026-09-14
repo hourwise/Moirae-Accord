@@ -168,7 +168,8 @@
             "action_descriptor_hash": { "type": "string", "minLength": 1 },
             "attempted_at": { "type": "string", "format": "date-time" },
             "dispatcher_principal_id": { "type": "string", "minLength": 1 },
-            "idempotency_key_digest": { "type": "string" }
+            "idempotency_key_digest": { "type": "string" },
+            "effect_binding": { "$ref": "#/$defs/effectBinding" }
           },
           "required": ["attempt_id", "effect_id", "task_id", "authority_grant_id", "action_descriptor_hash", "attempted_at", "dispatcher_principal_id"]
         }
@@ -188,7 +189,8 @@
             "observation_kind": { "type": "string", "minLength": 1 },
             "observed_at": { "type": "string", "format": "date-time" },
             "read_semantics": { "type": "string", "minLength": 1 },
-            "observed_state": { "type": "string", "minLength": 1 }
+            "observed_state": { "type": "string", "minLength": 1 },
+            "effect_binding": { "$ref": "#/$defs/effectBinding" }
           },
           "required": ["observation_id", "effect_id", "observer_principal_id", "observation_kind", "observed_at", "read_semantics", "observed_state"]
         }
@@ -207,9 +209,45 @@
             "trust_root_id": { "type": "string", "minLength": 1 },
             "coverage": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
             "captured_at": { "type": "string", "format": "date-time" },
-            "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+            "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+            "effect_binding": { "$ref": "#/$defs/effectBinding" }
           },
           "required": ["evidence_id", "evidence_class", "observer_principal_id", "trust_root_id", "coverage", "captured_at", "content_digest"]
+        }
+      ]
+    },
+    "effectBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effect_id", "predicate_id", "stage", "action", "target_binding", "resource_binding", "recipient_binding", "provider_binding", "external_identifier_binding"],
+      "properties": {
+        "effect_id": { "type": "string", "minLength": 1 },
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 },
+        "action": { "type": "string", "minLength": 1 },
+        "target_binding": { "$ref": "#/$defs/bindingSlot" },
+        "resource_binding": { "$ref": "#/$defs/bindingSlot" },
+        "recipient_binding": { "$ref": "#/$defs/bindingSlot" },
+        "provider_binding": { "$ref": "#/$defs/bindingSlot" },
+        "external_identifier_binding": { "$ref": "#/$defs/bindingSlot" }
+      }
+    },
+    "bindingSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["BOUND", "NOT_APPLICABLE", "UNKNOWN"] },
+        "value": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "BOUND" } } },
+          "then": { "required": ["value"] }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["NOT_APPLICABLE", "UNKNOWN"] } } },
+          "then": { "not": { "required": ["value"] } }
         }
       ]
     },

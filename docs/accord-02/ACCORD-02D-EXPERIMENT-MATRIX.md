@@ -6,7 +6,9 @@ No matrix cell has been executed or scored.
 The machine-readable catalog is
 [accord-02d-scenario-catalog.json](./examples/accord-02d-scenario-catalog.json).
 This document explains the intended coverage without turning the catalog into
-an executable harness manifest.
+an executable harness manifest. Expected oracle and conformance material is
+kept in the scorer-only [accord-02d-scorer-expectations.json](./examples/accord-02d-scorer-expectations.json),
+and per-arm input is governed by [accord-02d-arm-input-profiles.json](./examples/accord-02d-arm-input-profiles.json).
 
 ## 1. Matrix axes
 

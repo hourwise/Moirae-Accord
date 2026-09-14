@@ -280,9 +280,16 @@ Selection is frozen as three families:
 3. **Boundary cases:** expiry, idempotency-window, freshness, timeout, and
    retry boundaries.
 
-The machine-readable scenario catalog records the family, rationale, expected
-oracle state, expected conformance bounds, primary metrics, and relevant
-categorical failures. It is a design catalog, not an executable manifest.
+The machine-readable scenario catalog records only orchestration conditions:
+family, rationale, assigned topology/surface/transport/delegate/fault/profile
+references, primary metrics, and the fact that scenario identifiers are opaque
+to expected results. It is not directly consumable by an arm. Scorer-only
+oracle state, expected conformance/settlement bounds, and categorical-failure
+relevance are in the separate [accord-02d-scorer-expectations.json](./examples/accord-02d-scorer-expectations.json),
+which is marked `SCORER_ONLY` and `system_under_test_visible=false`. A future
+harness must create a sanitized per-arm manifest and validate it against the
+machine-readable [arm input profiles](./examples/accord-02d-arm-input-profiles.json)
+and [arm input manifest schema](./schema/accord-02d-arm-input-manifest.schema.json).
 
 ## 10. Result and preservation obligations
 
@@ -298,9 +305,12 @@ Each future scored run must preserve content-addressed or immutable records for:
 - hidden scoring-oracle record, stored separately;
 - final scoring, exclusions, rerun status, escalation, and categorical failure.
 
-The future result schema distinguishes system-visible evidence from the hidden
-oracle and scorer-only material. A scored case must be reconstructable without
-making the portable verifier depend on private state.
+The future result schema contains only run-facing/system-visible material. The
+separate [score-record schema](./schema/accord-02d-score-record.schema.json)
+contains expectation references, hidden oracle facts, normalized arm output,
+metric adjudication, exclusions, and categorical failures. A scored case must
+be reconstructable without making the portable verifier depend on private
+state, and the scorer-only record must never be passed back as an arm input.
 
 ## 11. Exclusions, reruns, and replication
 
@@ -327,7 +337,8 @@ No harness is authorized by this slice. Before implementation begins, all of
 the following must be true:
 
 1. ACCORD-02A/B/C/D are reviewed together.
-2. Identity and schema compatibility is checked without modifying frozen files.
+2. Identity and schema compatibility is checked; any later bounded remediation
+   must preserve the prior candidate commits and record its amendments.
 3. Arms and anti-straw-man controls are frozen.
 4. Hidden-oracle and information boundaries are frozen.
 5. Scenario catalog is frozen and versioned.
@@ -340,14 +351,19 @@ the following must be true:
 
 ## 13. Compatibility with ACCORD-02A/B/C
 
-The protocol layers over the prior candidates without editing them.
+The protocol layers over the prior candidates. The bounded R1 remediation adds
+explicit predicate binding to A's portable record shape, separates the machine-
+readable D input/scorer boundaries, and retains the existing B/C semantic
+vocabularies rather than redefining them.
 
 ### ACCORD-02A
 
 The existing identities are sufficient for principals, grants, intents, tasks,
 delegations, effects, attempts, observations, evidence, and verifier results.
 `effect_id` remains the logical effect identity and `attempt_id` remains the
-per-dispatch identity.
+per-dispatch identity. Settlement-relevant records additionally carry the
+profile-controlled predicate/stage/target/resource/recipient/provider binding
+descriptor.
 
 ### ACCORD-02B
 
@@ -363,8 +379,11 @@ uncertainty, stale/inadmissible evidence, attribution, causality, reopening,
 and duplicate-risk distinctions. The effect sub-experiment and result record
 preserve those axes independently from authority.
 
-No genuine compatibility blocker was found. ACCORD-02A/B/C files remain
-unchanged.
+The normative A/C vocabulary projection is the separate named R1 mapping
+profile; the native C result remains primary. The future D result record carries
+separate B relation, effective-authority, and event-time validity axes, with
+typed lineage to any A/C results. These controls do not claim that the research
+question has been answered or that a harness is authorized.
 
 ## 14. Prohibited claims and non-goals
 
@@ -411,4 +430,9 @@ schema, scenario catalog, and future-run result schema:
 - [ACCORD-02D-EXPERIMENT-MATRIX.md](./ACCORD-02D-EXPERIMENT-MATRIX.md)
 - [accord-02d-experiment-profile.schema.json](./schema/accord-02d-experiment-profile.schema.json)
 - [accord-02d-scenario-catalog.json](./examples/accord-02d-scenario-catalog.json)
+- [accord-02d-scorer-expectations.json](./examples/accord-02d-scorer-expectations.json)
+- [accord-02d-arm-input-profiles.json](./examples/accord-02d-arm-input-profiles.json)
+- [accord-02d-arm-input-profile.schema.json](./schema/accord-02d-arm-input-profile.schema.json)
+- [accord-02d-arm-input-manifest.schema.json](./schema/accord-02d-arm-input-manifest.schema.json)
 - [accord-02d-result-record.schema.json](./schema/accord-02d-result-record.schema.json)
+- [accord-02d-score-record.schema.json](./schema/accord-02d-score-record.schema.json)

@@ -80,7 +80,8 @@
         "recipient_or_counterparty",
         "provider",
         "external_identifier",
-        "predicate_id"
+        "predicate_id",
+        "stage"
       ]
     },
     "timeName": {

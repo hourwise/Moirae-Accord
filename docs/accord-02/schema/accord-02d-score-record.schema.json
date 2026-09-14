@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02d:schema:score-record:0.1",
+  "title": "ACCORD-02D scorer-only score record",
+  "description": "A separate scorer artifact containing expectation, hidden oracle, normalization, and metric adjudication. It is never an arm or verifier input.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "score_record_id", "experiment_version", "experiment_run_ref", "result_record_ref", "scenario_id", "arm_id", "information_class", "system_under_test_visible", "oracle_hidden_from_system", "expectation_ref", "actual_oracle_outcome", "normalized_arm_interpretation", "metric_contributions", "categorical_failure_codes", "exclusion", "rerun", "integrity"],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "schema_id": { "const": "urn:moirae:accord-02d:score-record" },
+    "schema_version": { "const": "0.1" },
+    "score_record_id": { "type": "string", "minLength": 1 },
+    "experiment_version": { "type": "string", "minLength": 1 },
+    "experiment_run_ref": { "$ref": "#/$defs/typedReference" },
+    "result_record_ref": { "$ref": "#/$defs/typedReference" },
+    "scenario_id": { "type": "string", "minLength": 1 },
+    "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+    "information_class": { "const": "SCORER_ONLY" },
+    "system_under_test_visible": { "const": false },
+    "oracle_hidden_from_system": { "const": true },
+    "expectation_ref": { "$ref": "#/$defs/typedReference" },
+    "actual_oracle_outcome": { "$ref": "#/$defs/oracleOutcome" },
+    "normalized_arm_interpretation": { "$ref": "#/$defs/normalizedInterpretation" },
+    "metric_contributions": { "type": "array", "items": { "$ref": "#/$defs/metricContribution" } },
+    "categorical_failure_codes": { "type": "array", "items": { "type": "string", "pattern": "^CF-[0-9]+$" }, "uniqueItems": true },
+    "exclusion": { "$ref": "#/$defs/exclusion" },
+    "rerun": { "$ref": "#/$defs/rerun" },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "typedReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "record_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "enum": ["EXPERIMENT_RUN", "EXPERIMENT_RESULT_RECORD", "SCORER_EXPECTATION", "VERIFIER_RUN", "VERIFIER_RESULT", "SETTLEMENT_RESULT", "AUTHORITY_ANALYSIS_RESULT", "PORTABLE_BUNDLE"] },
+        "record_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "oracleOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effect_id", "predicate_id", "stage", "effect_occurrence", "duplicate_count", "recipient", "resource", "attempt_linkage", "event_sequence"],
+      "properties": {
+        "effect_id": { "type": "string", "minLength": 1 },
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 },
+        "effect_occurrence": { "enum": ["OCCURS", "DOES_NOT_OCCUR", "DUPLICATE_OCCURS", "UNRESOLVED_TO_SYSTEM", "PARTIAL_STAGE"] },
+        "duplicate_count": { "type": "integer", "minimum": 0 },
+        "recipient": { "type": ["string", "null"] },
+        "resource": { "type": ["string", "null"] },
+        "attempt_linkage": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "event_sequence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "normalizedInterpretation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_result_ref", "adapter_profile_ref", "occurrence_claim", "attribution_claim", "causal_claim", "indeterminacy_category", "accord_projection_kind"],
+      "properties": {
+        "source_result_ref": { "$ref": "#/$defs/typedReference" },
+        "adapter_profile_ref": { "type": "string", "minLength": 1 },
+        "occurrence_claim": { "enum": ["POSITIVE", "NEGATIVE", "PARTIAL", "CONFLICTING", "UNKNOWN", "REJECTED", "NOT_REPORTED"] },
+        "attribution_claim": { "enum": ["SPECIFIC_ATTEMPT", "ONE_OR_MORE_ATTEMPTS", "UNKNOWN", "CONFLICTING", "NOT_REPORTED"] },
+        "causal_claim": { "enum": ["SPECIFIC_ATTEMPT", "ONE_OR_MORE_ATTEMPTS", "EFFECT_BOUND", "EXTERNAL_STATE_ONLY", "UNKNOWN", "CONFLICTING", "NOT_REPORTED"] },
+        "indeterminacy_category": { "enum": ["NONE", "PENDING", "TERMINAL", "INSUFFICIENT", "STALE", "INADMISSIBLE", "PROFILE_INCOMPATIBLE", "CONFLICTING", "POSSIBLE_DUPLICATE"] },
+        "accord_projection_kind": { "enum": ["VERIFIED", "CORROBORATED", "NO_EFFECT_OBSERVED", "UNKNOWN_PENDING", "UNKNOWN_TERMINAL", "REJECTED", "NOT_APPLICABLE"] }
+      }
+    },
+    "metricContribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric_id", "numerator_increment", "denominator_increment", "reason"],
+      "properties": {
+        "metric_id": { "type": "string", "minLength": 1 },
+        "numerator_increment": { "type": "integer", "minimum": 0 },
+        "denominator_increment": { "type": "integer", "minimum": 0 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason_code", "evidence_refs", "rerun_permitted"],
+      "properties": {
+        "status": { "enum": ["NOT_EXCLUDED", "EXCLUDED"] },
+        "reason_code": { "enum": ["NONE", "FIXTURE_CORRUPTION", "HARNESS_DEFECT_PREVENTED_START", "ORACLE_CORRUPTION", "MACHINE_FAILURE_BEFORE_START"] },
+        "evidence_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "rerun_permitted": { "type": "boolean" }
+      }
+    },
+    "rerun": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "category", "original_result_preserved"],
+      "properties": {
+        "status": { "enum": ["NO_RERUN", "RERUN_PLANNED", "RERUN_COMPLETED"] },
+        "category": { "enum": ["NONE", "NEVER_STARTED", "HARNESS_FAILURE", "PLANNED_REPLICATE", "POST_OUTCOME_REPEAT"] },
+        "original_result_preserved": { "const": true },
+        "original_result_ref": { "$ref": "#/$defs/typedReference" }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_digest", "canonicalization", "digest_algorithm"],
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
+        "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] }
+      }
+    }
+  }
+}

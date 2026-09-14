@@ -12,9 +12,10 @@
     "verifier_run_id": { "type": "string", "minLength": 1 },
     "target": {
       "type": "object",
-      "required": ["effect_id", "attempt_ids", "bundle_digest"],
+      "required": ["effect_id", "predicate", "attempt_ids", "bundle_digest"],
       "properties": {
         "effect_id": { "type": "string", "minLength": 1 },
+        "predicate": { "$ref": "#/$defs/predicate" },
         "attempt_ids": { "type": "array", "items": { "type": "string" } },
         "bundle_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
       },
@@ -68,6 +69,22 @@
     "integrity": { "$ref": "#/$defs/integrity" }
   },
   "$defs": {
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predicate_id", "kind", "stage", "action", "target_binding"],
+      "properties": {
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 },
+        "action": { "type": "string", "minLength": 1 },
+        "resource": { "type": ["string", "null"] },
+        "target_binding": { "type": "string", "minLength": 1 },
+        "recipient_or_counterparty": { "type": ["string", "null"] },
+        "provider": { "type": ["string", "null"] },
+        "external_identifier": { "type": ["string", "null"] }
+      }
+    },
     "integrity": {
       "type": "object",
       "required": ["content_digest"],
