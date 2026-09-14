@@ -1,0 +1,105 @@
+{
+  "profile": "moirae-accord-accord-01-review-evidence-v1",
+  "reviewModel": "Luna XHigh",
+  "reviewProvider": null,
+  "reviewPhases": [
+    {
+      "phase": "PHASE_1_BLIND_REVIEW",
+      "source": "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE1-VERBATIM.md",
+      "sourceSha256": "CD94372836C8A2CCCA8E0292AC84548B830B1C11E0176D0FAD13760EAF6E3FB6",
+      "verdict": "PIVOT",
+      "frozen": true
+    },
+    {
+      "phase": "PHASE_2_ARCHITECTURE_RED_TEAM",
+      "source": "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE2-VERBATIM.md",
+      "sourceSha256": "05B5B47F3E572F41D6118581D6AE328270E28E327B8D6F5549928019082F9508",
+      "verdict": "PIVOT",
+      "frozen": true
+    }
+  ],
+  "externalReviewInputs": [
+    {
+      "path": "docs/reviews/Phase 1 — Independent Adversarial Review.md",
+      "sha256": "CD94372836C8A2CCCA8E0292AC84548B830B1C11E0176D0FAD13760EAF6E3FB6",
+      "preservedAs": "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE1-VERBATIM.md"
+    },
+    {
+      "path": "docs/reviews/ACCORD-01 External Review — Phase 2.md",
+      "sha256": "05B5B47F3E572F41D6118581D6AE328270E28E327B8D6F5549928019082F9508",
+      "preservedAs": "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE2-VERBATIM.md"
+    }
+  ],
+  "verifiedPriorArtClaims": [
+    {"id":"PA-01","result":"CONFIRMED_WITH_QUALIFICATION","subject":"False Success benchmark empirics"},
+    {"id":"PA-02","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Attenuating authorization mechanisms"},
+    {"id":"PA-03","result":"OVERSTATED","subject":"Attenuating-agent-token draft is a finished standard"},
+    {"id":"PA-04","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Atomic commit in-doubt semantics"},
+    {"id":"PA-05","result":"CONFIRMED_WITH_QUALIFICATION","subject":"A2A unspecified task state"},
+    {"id":"PA-06","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Durable execution, retries, and idempotency"},
+    {"id":"PA-07","result":"OVERSTATED","subject":"All workflow engines treat activity return as external truth"},
+    {"id":"PA-08","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Effect receipts and proof-carrying work"},
+    {"id":"PA-09","result":"OVERSTATED","subject":"AP2 solves delegated authority and effect proof generally"},
+    {"id":"PA-10","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Governance/control-plane crowding"},
+    {"id":"PA-11","result":"CONFIRMED_WITH_QUALIFICATION","subject":"A2A does not define native attenuation semantics"},
+    {"id":"PA-12","result":"CONFIRMED_WITH_QUALIFICATION","subject":"A2A does not define general independent effect verification"},
+    {"id":"PA-13","result":"CONFIRMED_WITH_QUALIFICATION","subject":"A2A SEP #1404 is proposal/discussion material"},
+    {"id":"PA-14","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Oracle/observability boundary"},
+    {"id":"PA-15","result":"CONFIRMED","subject":"Completion truth terminology is too strong"},
+    {"id":"PA-16","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Effect attribution differs from observation"},
+    {"id":"PA-17","result":"NOT_CONFIRMED","subject":"20–30% threshold"},
+    {"id":"PA-18","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Depth-1 local smoke test cannot establish joined research claim"},
+    {"id":"PA-19","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Complete mediation and Firecracker boundary"},
+    {"id":"PA-20","result":"CONFIRMED_WITH_QUALIFICATION","subject":"Ananke plus Horae plus portable record/verifier may replace runtime"}
+  ],
+  "disputedOrQualifiedClaims": [
+    "Attenuation prior art is substantial, but an active Internet-Draft is not a finished standard.",
+    "A2A TASK_STATE_UNSPECIFIED is an unknown or indeterminate task state, not an XA effect outcome.",
+    "Durable workflow results are durable records of execution, not universal proof of arbitrary external effects.",
+    "Provider signatures and transparency logs establish claims relative to trust roots; they do not create provider-independent truth.",
+    "The Fates Integration runtime-path criticism reflects an ambiguous diagram, while ACCORD-00 explicitly kept that repository evidence-only.",
+    "The oracle framing is a useful observation limit, not an impossibility theorem.",
+    "The review's 20–30% threshold was unsupported and is not adopted."
+  ],
+  "responseClassifications": {
+    "R-01":"ACCEPTED","R-02":"PARTIALLY_ACCEPTED","R-03":"PARTIALLY_ACCEPTED","R-04":"PARTIALLY_ACCEPTED","R-05":"PARTIALLY_ACCEPTED","R-06":"ACCEPTED","R-07":"ACCEPTED","R-08":"ACCEPTED","R-09":"ACCEPTED","R-10":"ACCEPTED","R-11":"ACCEPTED","R-12":"ACCEPTED","R-13":"ACCEPTED","R-14":"ACCEPTED","R-15":"ACCEPTED","R-16":"ACCEPTED","R-17":"ACCEPTED","R-18":"PARTIALLY_ACCEPTED","R-19":"ACCEPTED","R-20":"ACCEPTED","R-21":"PARTIALLY_ACCEPTED","R-22":"ACCEPTED","R-23":"PARTIALLY_ACCEPTED","R-24":"DEFERRED_FOR_TEST","R-25":"PARTIALLY_ACCEPTED","R-26":"DEFERRED_FOR_TEST","R-27":"ACCEPTED","R-28":"ACCEPTED","R-29":"DEFERRED_FOR_TEST","R-30":"DEFERRED_FOR_TEST","R-31":"ACCEPTED","R-32":"ACCEPTED","R-33":"DEFERRED_FOR_TEST","R-34":"DEFERRED_FOR_TEST","R-35":"ACCEPTED","R-36":"ACCEPTED","R-37":"ACCEPTED","R-38":"ACCEPTED","R-39":"REJECTED_WITH_EVIDENCE","R-40":"REJECTED_WITH_EVIDENCE","R-41":"ACCEPTED","R-42":"ACCEPTED","R-43":"REJECTED_WITH_EVIDENCE"
+  },
+  "finalReviewVerdict": "PIVOT",
+  "finalProjectVerdict": "PIVOT",
+  "projectDisposition": "CONTINUE_AS_RESEARCH_SPECIFICATION_VERIFIER_AND_TEST_PROFILE",
+  "newAccordRuntime": "REJECT",
+  "acceptedResearchQuestions": {
+    "primary": "For external effect surfaces with differing evidence affordances and delegates with differing reliability or honesty, what is the achievable trade-off among false confirmation, indeterminacy, duplicate effects, and human escalation, and can a portable, externally verifiable evidence record that binds authority to task/effect identity materially improve that trade-off over durable execution plus direct provider-state observation and a lightweight classifier baseline?",
+    "secondary": "Under multi-hop delegation and sibling composition, does grant-level monotonic attenuation bound effective authority when parent-mediated laundering, composition, expiry, revocation, and resource dimensions are varied?"
+  },
+  "rejectedClaimsAndTerminology": [
+    "completion truth",
+    "unqualified truth",
+    "unqualified independent verification",
+    "unqualified exactly-once",
+    "whole-process escalation prevention without complete mediation",
+    "NO_VALID_AUTHORITY -> NO_EFFECT as a universal process-wide guarantee"
+  ],
+  "componentOwnership": {
+    "Adrasteia":"portable linked authority/intent/task/effect/evidence record contracts and principal/observer representation",
+    "Ananke":"authority derivation, policy, approval binding, and mediated admission",
+    "Horae":"durable attempts, lifecycle, reconciliation, and authoritative effect state",
+    "Mnemosyne":"deferred provenance and governed memory context",
+    "Fates Integration":"evidence and conformance only",
+    "A2A":"transport/conformance target, not research foundation",
+    "MCP":"transport/tool fixture carrying the same authority and evidence boundary",
+    "Firecracker":"deferred; only for later whole-process mediation claims"
+  },
+  "unresolvedQuestions": [
+    "Exact component-wise authority relations and composition semantics",
+    "How effective authority behaves under sibling composition and parent-mediated laundering",
+    "Evidence-class thresholds for each effect predicate",
+    "Provider-specific idempotency retention and expiry behavior",
+    "Revocation, cancellation, compensation, and saga semantics after dispatch",
+    "How to choose and pre-register metric thresholds after the pilot",
+    "Whether the portable record materially improves the durable-workflow/provider-state baseline",
+    "Which A2A and MCP versions are appropriate conformance fixtures"
+  ],
+  "implementationAllowed": false,
+  "implementationGate": "No implementation is allowed by ACCORD-01C; any later ACCORD-02 scope requires separate explicit acceptance."
+}

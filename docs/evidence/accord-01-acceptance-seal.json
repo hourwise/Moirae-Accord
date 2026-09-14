@@ -1,0 +1,106 @@
+{
+  "profile": "moirae-accord-accord-01-acceptance-v1",
+  "status": "accepted",
+  "scope": "independent-adversarial-review-pivot",
+  "accordRepository": {
+    "path": "D:\\Users\\fleur\\Moirae Accord",
+    "remote": "https://github.com/hourwise/Moirae-Accord",
+    "branch": "main"
+  },
+  "preSealHead": "7494da26e43248e6bc5df5f081e3dc9d5aa831c4",
+  "acceptedAccord00Commit": "ddad3092b8b1d1d4ac5ab496143263ddd6afc587",
+  "acceptedAccord00Tag": "accord-00-accepted-v1",
+  "snapshotRoot": "D:\\Users\\fleur\\Moirae Accord - Source Snapshots\\ACCORD-00-20260913-215700",
+  "externalReview": {
+    "phase1": {
+      "path": "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE1-VERBATIM.md",
+      "sha256": "CD94372836C8A2CCCA8E0292AC84548B830B1C11E0176D0FAD13760EAF6E3FB6",
+      "verdict": "PIVOT"
+    },
+    "phase2": {
+      "path": "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE2-VERBATIM.md",
+      "sha256": "05B5B47F3E572F41D6118581D6AE328270E28E327B8D6F5549928019082F9508",
+      "verdict": "PIVOT"
+    },
+    "preservationIndex": "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-VERBATIM.md",
+    "preservationStatement": "Both review phases are preserved without substantive editing."
+  },
+  "finalVerdict": "PIVOT",
+  "projectDisposition": "CONTINUE_AS_RESEARCH_SPECIFICATION_VERIFIER_AND_TEST_PROFILE",
+  "newAccordRuntime": "REJECT",
+  "acceptedResearchQuestions": {
+    "primary": "For external effect surfaces with differing evidence affordances and delegates with differing reliability or honesty, what is the achievable trade-off among false confirmation, indeterminacy, duplicate effects, and human escalation, and can a portable, externally verifiable evidence record that binds authority to task/effect identity materially improve that trade-off over durable execution plus direct provider-state observation and a lightweight classifier baseline?",
+    "secondary": "Under multi-hop delegation and sibling composition, does grant-level monotonic attenuation bound effective authority when parent-mediated laundering, composition, expiry, revocation, and resource dimensions are varied?"
+  },
+  "deferred": [
+    "ACCORD-02 implementation",
+    "new Accord runtime",
+    "Fates source changes and consumer upgrades",
+    "multi-hop and sibling experiments",
+    "production external-provider effects",
+    "Firecracker and whole-process mediation",
+    "compensation and saga semantics",
+    "Mnemosyne runtime integration",
+    "A2A and MCP implementation beyond later conformance fixtures"
+  ],
+  "componentOwnership": {
+    "Adrasteia": "portable linked record contracts and principal/observer representation",
+    "Ananke": "authority derivation, grant validation, policy, approval binding, and mediated admission",
+    "Horae": "attempt identity, durable execution, reconciliation, and authoritative effect state",
+    "Mnemosyne": "deferred provenance and governed memory context",
+    "Fates Integration": "evidence and conformance only",
+    "A2A": "transport/conformance target, not research foundation",
+    "MCP": "transport/tool fixture carrying the same authority and evidence boundary",
+    "Firecracker": "deferred; only for stronger whole-process mediation claims"
+  },
+  "invariants": [
+    "ACCORD NEVER MINTS AUTHORITY",
+    "NO_SECOND_EFFECT_STATE_STORE_IN_ACCORD",
+    "NO_VALID_AUTHORITY -> NO_AUTHORIZED_MEDIATED_DISPATCH",
+    "REMOTE_COMPLETED != EVIDENCED_EFFECT_SETTLEMENT",
+    "UNKNOWN_PENDING != SUCCESS",
+    "UNKNOWN_TERMINAL != SUCCESS",
+    "NO_ACCEPTABLE_EFFECT_EVIDENCE -> NO_VERIFIED(evidence_class, observer, trust_root)",
+    "NO_WHOLE_PROCESS_ESCALATION_PREVENTION_CLAIM_WITHOUT_COMPLETE_MEDIATION"
+  ],
+  "canonicalTerminology": {
+    "effectSettlement": "evidence-backed effect settlement",
+    "verification": "VERIFIED(evidence_class, observer, trust_root)",
+    "uncertainty": ["UNKNOWN_PENDING", "UNKNOWN_TERMINAL"],
+    "absence": "NO_EFFECT_OBSERVED(as_of, read_semantics)",
+    "attribution": "effect attribution is separate from effect observation",
+    "exactlyOnce": "not used unqualified"
+  },
+  "openQuestions": [
+    "Exact component-wise authority relations and composition semantics",
+    "Effective authority under sibling composition and parent-mediated laundering",
+    "Evidence-class thresholds for each effect predicate",
+    "Provider idempotency retention and expiry behavior",
+    "Revocation, cancellation, compensation, and saga semantics after dispatch",
+    "Pre-registration thresholds after the empirical pilot",
+    "Whether the portable record improves the durable-workflow/provider-state baseline",
+    "Appropriate A2A and MCP conformance fixture versions"
+  ],
+  "artifactSha256": {
+    "docs/reviews/ACCORD-01-BLIND-BRIEF.md": "C5B481DB4491224AB2976616DA4CD9B9F3B6BC52357FF6E0BA12AB4DBFA89C9F",
+    "docs/reviews/ACCORD-01-ARCHITECTURE-APPENDIX.md": "A01CFE37FC686B733B2CD3C57B5882E02D3AF93BDC2EC3F8750C6C1E6D9AF050",
+    "docs/reviews/ACCORD-01-REVIEW-METHOD.md": "BF7C0C659CF401D7CDC4F9C1291226420345CF19C8504D74F23B4695FA0D73AD",
+    "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-TEMPLATE.md": "6C96217877BFA9171F59B748A33B537ED7FA30E8291D59EA764D940C5678D20B",
+    "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE1-VERBATIM.md": "CD94372836C8A2CCCA8E0292AC84548B830B1C11E0176D0FAD13760EAF6E3FB6",
+    "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-PHASE2-VERBATIM.md": "05B5B47F3E572F41D6118581D6AE328270E28E327B8D6F5549928019082F9508",
+    "docs/reviews/ACCORD-01-EXTERNAL-REVIEW-VERBATIM.md": "5BA66876B97EB521A36925961724BD7B0873EA1DCE891280B9994F8CA19C941F",
+    "docs/reviews/ACCORD-01-PRIOR-ART-VERIFICATION.md": "E73BB60C46E594152E8B60094F5A3B35A82CB4CCA50BEC92FC9815A6FB5714DF",
+    "docs/reviews/ACCORD-01-RESPONSE.md": "36FD594DA2B089EA67703FADB593D5F91EEAA3455DE3657072F5450014EE8AC2",
+    "docs/reviews/ACCORD-01-DECISION.md": "A31D9DB31BD3743365AC0F1D5978CEC24AA92B546FB43854ABB05E179BC1FDA8",
+    "docs/reviews/ACCORD-01-ACCEPTANCE.md": "6D959FA6DAAF317A9358615793C74FF55ED35CBFDFE8839AD45E66CD66651345",
+    "docs/evidence/accord-01-review-evidence.json": "C7D4BBEB777F7170568861AE597B8A4CC6DE0DA2CDAA0D6C148766414E71CCB8",
+    "docs/reviews/Phase 1 — Independent Adversarial Review.md": "CD94372836C8A2CCCA8E0292AC84548B830B1C11E0176D0FAD13760EAF6E3FB6",
+    "docs/reviews/ACCORD-01 External Review — Phase 2.md": "05B5B47F3E572F41D6118581D6AE328270E28E327B8D6F5549928019082F9508"
+  },
+  "sourceMutation": false,
+  "snapshotMutation": false,
+  "runtimeImplementation": false,
+  "accord00SealModified": false,
+  "accord02Started": false,
+  "implementationAllowed": false
+}
