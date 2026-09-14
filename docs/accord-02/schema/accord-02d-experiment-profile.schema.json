@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02d:schema:experiment-profile:0.1",
+  "title": "ACCORD-02D falsification experiment profile",
+  "description": "Structural preregistration schema for a future design-only experiment. It does not implement an experiment harness, execute scenarios, or establish a research result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "experiment_id",
+    "experiment_version",
+    "status",
+    "research_questions",
+    "hypotheses",
+    "arms",
+    "topologies",
+    "effect_surfaces",
+    "transports",
+    "delegate_behaviors",
+    "fault_classes",
+    "idempotency_conditions",
+    "evidence_conditions",
+    "authority_conditions",
+    "metrics",
+    "categorical_failures",
+    "oracle_boundary",
+    "selection_strategy",
+    "calibration_policy",
+    "randomization",
+    "preservation",
+    "exclusion_rules",
+    "rerun_policy",
+    "replication",
+    "implementation_readiness"
+  ],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02d:experiment-profile" },
+    "schema_version": { "const": "0.1" },
+    "experiment_id": { "type": "string", "minLength": 1 },
+    "experiment_version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["PREREGISTERED_DESIGN_ONLY", "CALIBRATION_ONLY", "SCORED_RUNS_AUTHORIZED_BY_LATER_VERSION"] },
+    "description": { "type": "string" },
+    "research_questions": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/researchQuestion" } },
+    "hypotheses": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/hypothesis" } },
+    "arms": { "type": "array", "minItems": 4, "items": { "$ref": "#/$defs/arm" } },
+    "topologies": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/topology" } },
+    "effect_surfaces": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/effectSurface" } },
+    "transports": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/transport" } },
+    "delegate_behaviors": { "type": "array", "minItems": 4, "items": { "$ref": "#/$defs/delegateBehavior" } },
+    "fault_classes": { "type": "array", "minItems": 24, "items": { "$ref": "#/$defs/fault" } },
+    "idempotency_conditions": { "type": "array", "minItems": 7, "items": { "$ref": "#/$defs/idempotency" } },
+    "evidence_conditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidenceCondition" } },
+    "authority_conditions": { "type": "array", "minItems": 12, "items": { "$ref": "#/$defs/authorityCondition" } },
+    "metrics": { "type": "array", "minItems": 7, "items": { "$ref": "#/$defs/metric" } },
+    "categorical_failures": { "type": "array", "minItems": 9, "items": { "$ref": "#/$defs/categoricalFailure" } },
+    "oracle_boundary": { "$ref": "#/$defs/oracleBoundary" },
+    "selection_strategy": { "$ref": "#/$defs/selectionStrategy" },
+    "calibration_policy": { "$ref": "#/$defs/calibrationPolicy" },
+    "randomization": { "$ref": "#/$defs/randomization" },
+    "preservation": { "$ref": "#/$defs/preservation" },
+    "exclusion_rules": { "$ref": "#/$defs/exclusionRules" },
+    "rerun_policy": { "$ref": "#/$defs/rerunPolicy" },
+    "replication": { "$ref": "#/$defs/replication" },
+    "implementation_readiness": { "$ref": "#/$defs/implementationReadiness" },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "researchQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["question_id", "text", "positive_result_permitted", "negative_result_permitted"],
+      "properties": {
+        "question_id": { "enum": ["RQ-PRIMARY", "RQ-SECONDARY"] },
+        "text": { "type": "string", "minLength": 1 },
+        "positive_result_permitted": { "type": "boolean" },
+        "negative_result_permitted": { "type": "boolean" },
+        "no_novelty_claim": { "const": true }
+      }
+    },
+    "hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hypothesis_id", "family", "statement", "falsification_trigger", "empirical_status"],
+      "properties": {
+        "hypothesis_id": { "type": "string", "pattern": "^H-[A-Z0-9-]+$" },
+        "family": { "enum": ["AUTHORITY", "EFFECT", "LINKAGE", "EXTERNAL_VERIFICATION", "BASELINE"] },
+        "statement": { "type": "string", "minLength": 1 },
+        "falsification_trigger": { "type": "string", "minLength": 1 },
+        "empirical_status": { "enum": ["OPEN", "DISTINCTION_TO_TEST", "NOT_PRESUMED_TRUE"] },
+        "required_scenarios": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "arm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["arm_id", "name", "capabilities", "forbidden_inputs", "fairness_constraints"],
+      "properties": {
+        "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+        "name": { "type": "string", "minLength": 1 },
+        "capabilities": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "forbidden_inputs": { "type": "array", "items": { "enum": ["HIDDEN_ORACLE", "ACCORD_SETTLEMENT_LABEL", "ACCORD_EVIDENCE_CLASS_LABEL", "PRIVILEGED_AUTHORITY_ANALYSIS", "PRIVATE_ACCORD_STATE"] }, "uniqueItems": true },
+        "fairness_constraints": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "classifier": { "$ref": "#/$defs/classifier" }
+      }
+    },
+    "classifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_family", "allowed_features", "forbidden_features", "calibration_required"],
+      "properties": {
+        "model_family": { "enum": ["RULE_BASED", "LOGISTIC", "OTHER_LIGHTWEIGHT_REPRODUCIBLE"] },
+        "allowed_features": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "forbidden_features": { "type": "array", "minItems": 1, "items": { "enum": ["HIDDEN_ORACLE", "ACCORD_SETTLEMENT_LABEL", "ACCORD_ONLY_EVIDENCE_LABEL", "SCORED_OUTCOME"] }, "uniqueItems": true },
+        "calibration_required": { "type": "boolean" },
+        "training_scored_separation": { "const": true }
+      }
+    },
+    "topology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topology_id", "delegation_depth", "sibling_count", "process_boundaries", "roles_separated"],
+      "properties": {
+        "topology_id": { "type": "string", "minLength": 1 },
+        "delegation_depth": { "type": "integer", "minimum": 0 },
+        "sibling_count": { "type": "integer", "minimum": 0 },
+        "process_boundaries": { "type": "array", "minItems": 1, "items": { "enum": ["DELEGATE_EXECUTOR", "EXECUTOR_PROVIDER", "PROVIDER_OBSERVER", "OBSERVER_VERIFIER", "DELEGATE_VERIFIER"] }, "uniqueItems": true },
+        "roles_separated": { "type": "array", "minItems": 1, "items": { "enum": ["DELEGATE", "EXECUTOR", "MEDIATOR", "PROVIDER", "OBSERVER", "VERIFIER", "SCORER"] }, "uniqueItems": true },
+        "local_processes_allowed": { "type": "boolean" }
+      }
+    },
+    "effectSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surface_id", "name", "evidence_affordances", "representative_predicate", "oracle_capabilities", "not_universal_claim"],
+      "properties": {
+        "surface_id": { "enum": ["S1_STRONG_RECEIPT", "S2_WEAK_AMBIGUOUS", "S3_STAGED_OPTIONAL"] },
+        "name": { "type": "string", "minLength": 1 },
+        "evidence_affordances": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "representative_predicate": { "type": "string", "minLength": 1 },
+        "oracle_capabilities": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "not_universal_claim": { "const": true }
+      }
+    },
+    "transport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transport_id", "name", "envelope_fields", "metadata_non_authoritative", "required_for_first_scored_experiment"],
+      "properties": {
+        "transport_id": { "enum": ["T1_LOCAL_NATIVE", "T2_MCP_SHAPED", "T3_A2A_SHAPED"] },
+        "name": { "type": "string", "minLength": 1 },
+        "envelope_fields": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "metadata_non_authoritative": { "const": true },
+        "required_for_first_scored_experiment": { "type": "boolean" }
+      }
+    },
+    "delegateBehavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["behavior_id", "name", "failure_or_dishonesty_mode", "must_be_distinguished_from"],
+      "properties": {
+        "behavior_id": { "enum": ["HONEST", "LYING_SUCCESS", "LYING_FAILURE", "PARTIALLY_LYING", "FAULTY_NON_MALICIOUS"] },
+        "name": { "type": "string", "minLength": 1 },
+        "failure_or_dishonesty_mode": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "must_be_distinguished_from": { "type": "array", "minItems": 1, "items": { "enum": ["ORDINARY_CRASH", "STALE_MEMORY", "REORDERED_RESPONSE", "PARTIAL_STATE", "OTHER_DISHONESTY_CLASS"] }, "uniqueItems": true }
+      }
+    },
+    "fault": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fault_id", "name", "injection_point", "deterministic_identity_required", "oracle_recorded"],
+      "properties": {
+        "fault_id": { "pattern": "^F[0-9]{2}$" },
+        "name": { "type": "string", "minLength": 1 },
+        "injection_point": { "type": "string", "minLength": 1 },
+        "deterministic_identity_required": { "const": true },
+        "oracle_recorded": { "const": true },
+        "combinable": { "type": "boolean" }
+      }
+    },
+    "idempotency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition_id", "name", "key_state", "window_state", "duplicate_possible", "exactly_once_inference_permitted"],
+      "properties": {
+        "condition_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "key_state": { "enum": ["NONE", "STABLE", "KNOWN_QUERYABLE", "INCORRECT_REUSE"] },
+        "window_state": { "enum": ["NOT_APPLICABLE", "WITHIN_WINDOW", "EXPIRED", "BOUNDARY"] },
+        "duplicate_possible": { "type": "boolean" },
+        "exactly_once_inference_permitted": { "const": false }
+      }
+    },
+    "evidenceCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition_id", "name", "evidence_classes", "property_vector_required", "scalar_ranking_forbidden"],
+      "properties": {
+        "condition_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "evidence_classes": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "property_vector_required": { "type": "array", "minItems": 1, "items": { "enum": ["IDENTITY_BINDING", "PREDICATE_BINDING", "PROVENANCE", "INTEGRITY", "FRESHNESS", "COMPLETENESS", "CAUSAL_STRENGTH", "OBSERVER_DISTINCTION", "PROFILE_COMPATIBILITY"] }, "uniqueItems": true },
+        "scalar_ranking_forbidden": { "const": true }
+      }
+    },
+    "authorityCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["condition_id", "name", "dimensions", "expected_relation_space", "effect_axis_scored_independently"],
+      "properties": {
+        "condition_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "dimensions": { "type": "array", "minItems": 1, "items": { "enum": ["SUBJECT", "RESOURCE", "ACTION", "QUANTITY", "TIME", "DELEGATION_DEPTH", "AUDIENCE", "CONTEXT", "APPROVAL", "TASK_EFFECT_BINDING"] }, "uniqueItems": true },
+        "expected_relation_space": { "type": "array", "minItems": 1, "items": { "enum": ["ATTENUATED", "EQUIVALENT", "WIDENED", "INCOMPARABLE", "UNSUPPORTED", "UNKNOWN", "CONTAINED", "POSSIBLE_WIDENING", "CONFLICTING"] }, "uniqueItems": true },
+        "effect_axis_scored_independently": { "const": true },
+        "required_scenario_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric_id", "name", "metric_class", "numerator_definition", "denominator_definition", "zero_denominator_policy", "primary_or_secondary"],
+      "properties": {
+        "metric_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "metric_class": { "enum": ["FALSE_CONFIRMATION", "INDETERMINACY", "DUPLICATE", "ESCALATION", "EXTERNAL_VERIFIABILITY", "ATTRIBUTION", "AUTHORITY_COMPOSITION", "DIAGNOSTIC"] },
+        "numerator_definition": { "type": "string", "minLength": 1 },
+        "denominator_definition": { "type": "string", "minLength": 1 },
+        "zero_denominator_policy": { "enum": ["REPORT_NOT_APPLICABLE", "REPORT_ZERO_WITH_COUNT", "PRESERVE_MISSING"] },
+        "primary_or_secondary": { "enum": ["PRIMARY", "SECONDARY"] },
+        "reported_by": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "categoricalFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["failure_id", "name", "trigger", "severity", "overrides_aggregate", "rerun_replaces_original"],
+      "properties": {
+        "failure_id": { "pattern": "^CF-[0-9]+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "trigger": { "type": "string", "minLength": 1 },
+        "severity": { "enum": ["CATEGORICAL", "PROTOCOL_INVALIDATING"] },
+        "overrides_aggregate": { "const": true },
+        "rerun_replaces_original": { "const": false },
+        "evidence_required": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "oracleBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["oracle_id", "hidden_from", "scorer_only_after_run", "records_factual_events", "system_under_test_may_read", "stored_separately"],
+      "properties": {
+        "oracle_id": { "type": "string", "minLength": 1 },
+        "hidden_from": { "type": "array", "minItems": 1, "items": { "enum": ["DELEGATE", "BASELINE", "CLASSIFIER", "ACCORD_VERIFIER", "PROVIDER_FIXTURE", "OBSERVER"] }, "uniqueItems": true },
+        "scorer_only_after_run": { "const": true },
+        "records_factual_events": { "type": "array", "minItems": 1, "items": { "enum": ["OCCURRENCE", "NON_OCCURRENCE", "DUPLICATE_COUNT", "RECIPIENT", "RESOURCE", "ATTEMPT_LINKAGE", "EVENT_SEQUENCE"] }, "uniqueItems": true },
+        "system_under_test_may_read": { "const": false },
+        "stored_separately": { "const": true },
+        "oracle_leak_is_categorical_failure": { "const": true }
+      }
+    },
+    "selectionStrategy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cartesian_product_policy", "core_matrix", "targeted_adversarial", "boundary_cases", "easy_positive_only_forbidden"],
+      "properties": {
+        "cartesian_product_policy": { "enum": ["BOUNDED_SUBSET_NOT_FULL_CARTESIAN", "FULL_CARTESIAN_ONLY_IF_JUSTIFIED"] },
+        "core_matrix": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "targeted_adversarial": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "boundary_cases": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "easy_positive_only_forbidden": { "const": true }
+      }
+    },
+    "calibrationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["permitted_parameters", "forbidden_after_scored_observation", "record_before_scoring", "training_scored_separation"],
+      "properties": {
+        "permitted_parameters": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "forbidden_after_scored_observation": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "record_before_scoring": { "const": true },
+        "training_scored_separation": { "const": true }
+      }
+    },
+    "randomization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seed_required", "matched_seeds_where_meaningful", "scenario_id_required", "event_order_preserved", "concurrent_bitwise_replay_required"],
+      "properties": {
+        "seed_required": { "const": true },
+        "matched_seeds_where_meaningful": { "const": true },
+        "scenario_id_required": { "const": true },
+        "event_order_preserved": { "const": true },
+        "concurrent_bitwise_replay_required": { "const": false },
+        "reconstruction_material_required": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "preservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_addressed_or_immutable", "visible_records", "hidden_records", "configuration_digest_required", "result_schema_required"],
+      "properties": {
+        "content_addressed_or_immutable": { "const": true },
+        "visible_records": { "type": "array", "minItems": 1, "items": { "enum": ["SCENARIO_MANIFEST", "ARM_MANIFEST", "AUTHORITY_BUNDLE", "TASK_EFFECT_IDENTITIES", "ATTEMPTS", "FAULT_RECORD", "PROVIDER_EVENTS", "OBSERVATIONS", "EVIDENCE_ARTIFACTS", "VERIFIER_OUTPUT", "BASELINE_OUTPUT", "CLASSIFIER_OUTPUT", "FINAL_SCORING", "EXCLUSION_RERUN", "ESCALATION"] }, "uniqueItems": true },
+        "hidden_records": { "type": "array", "minItems": 1, "items": { "enum": ["TRUTH_ORACLE", "SCORER_ONLY_ADJUDICATION"] }, "uniqueItems": true },
+        "configuration_digest_required": { "const": true },
+        "result_schema_required": { "const": true }
+      }
+    },
+    "exclusionRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_reasons", "forbidden_reasons", "evidence_required", "rerun_record_required"],
+      "properties": {
+        "allowed_reasons": { "type": "array", "minItems": 1, "items": { "enum": ["FIXTURE_CORRUPTION", "HARNESS_DEFECT_PREVENTED_START", "ORACLE_CORRUPTION", "MACHINE_FAILURE_BEFORE_START"] }, "uniqueItems": true },
+        "forbidden_reasons": { "type": "array", "minItems": 1, "items": { "enum": ["ACCORD_PERFORMED_BADLY", "BASELINE_PERFORMED_WELL", "UNKNOWN_RESULT", "DELEGATE_FOOLED_VERIFIER", "DUPLICATE_OCCURRED", "SURPRISING_OUTCOME"] }, "uniqueItems": true },
+        "evidence_required": { "const": true },
+        "rerun_record_required": { "const": true }
+      }
+    },
+    "rerunPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["categories", "post_outcome_repeat_replaces_original", "preserve_all_attempts"],
+      "properties": {
+        "categories": { "type": "array", "minItems": 3, "items": { "enum": ["NEVER_STARTED", "HARNESS_FAILURE", "PLANNED_REPLICATE", "POST_OUTCOME_REPEAT"] }, "uniqueItems": true },
+        "post_outcome_repeat_replaces_original": { "const": false },
+        "preserve_all_attempts": { "const": true }
+      }
+    },
+    "replication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deterministic_minimum_replicates", "stochastic_requires_seeded_replicates", "sample_size_threshold_fixed_here", "pilot_estimation_allowed"],
+      "properties": {
+        "deterministic_minimum_replicates": { "type": "integer", "minimum": 1 },
+        "stochastic_requires_seeded_replicates": { "const": true },
+        "sample_size_threshold_fixed_here": { "const": false },
+        "pilot_estimation_allowed": { "const": true },
+        "pilot_must_be_declared_before_scoring": { "const": true }
+      }
+    },
+    "implementationReadiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prior_slices_reviewed_together", "schemas_compatible", "arms_frozen", "oracle_boundary_frozen", "catalog_frozen_and_versioned", "metrics_frozen", "categorical_failures_frozen", "calibration_scored_frozen", "no_live_provider_required", "runtime_boundaries_unchanged", "harness_authorized_here"],
+      "properties": {
+        "prior_slices_reviewed_together": { "const": true },
+        "schemas_compatible": { "const": true },
+        "arms_frozen": { "const": true },
+        "oracle_boundary_frozen": { "const": true },
+        "catalog_frozen_and_versioned": { "const": true },
+        "metrics_frozen": { "const": true },
+        "categorical_failures_frozen": { "const": true },
+        "calibration_scored_frozen": { "const": true },
+        "no_live_provider_required": { "const": true },
+        "runtime_boundaries_unchanged": { "const": true },
+        "harness_authorized_here": { "const": false }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "digest_algorithm"],
+      "properties": {
+        "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
+        "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    }
+  }
+}

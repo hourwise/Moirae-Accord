@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02d:schema:result-record:0.1",
+  "title": "ACCORD-02D future experiment result record",
+  "description": "Schema for a future scored execution record. System-visible inputs and outputs are separated from scorer-only oracle and adjudication fields.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "result_record_id",
+    "experiment_version",
+    "scenario_id",
+    "run_id",
+    "seed",
+    "arm_id",
+    "timestamps",
+    "configuration_digest",
+    "system_visible",
+    "scorer_only",
+    "visibility_boundary",
+    "integrity"
+  ],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02d:result-record" },
+    "schema_version": { "const": "0.1" },
+    "result_record_id": { "type": "string", "minLength": 1 },
+    "experiment_version": { "type": "string", "minLength": 1 },
+    "scenario_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "seed": { "type": "integer" },
+    "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+    "timestamps": { "$ref": "#/$defs/timestamps" },
+    "configuration_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+    "topology_id": { "type": "string", "minLength": 1 },
+    "effect_surface_id": { "enum": ["S1_STRONG_RECEIPT", "S2_WEAK_AMBIGUOUS", "S3_STAGED_OPTIONAL"] },
+    "transport_id": { "enum": ["T1_LOCAL_NATIVE", "T2_MCP_SHAPED", "T3_A2A_SHAPED"] },
+    "delegate_behavior_id": { "enum": ["HONEST", "LYING_SUCCESS", "LYING_FAILURE", "PARTIALLY_LYING", "FAULTY_NON_MALICIOUS"] },
+    "fault_injection": { "$ref": "#/$defs/faultInjection" },
+    "idempotency_condition_id": { "type": "string", "minLength": 1 },
+    "authority_profile_id": { "type": "string", "minLength": 1 },
+    "evidence_profile_id": { "type": "string", "minLength": 1 },
+    "system_visible": { "$ref": "#/$defs/systemVisible" },
+    "scorer_only": { "$ref": "#/$defs/scorerOnly" },
+    "visibility_boundary": { "$ref": "#/$defs/visibilityBoundary" },
+    "integrity": { "$ref": "#/$defs/integrity" }
+  },
+  "$defs": {
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_started_at", "run_finished_at"],
+      "properties": {
+        "run_started_at": { "type": "string", "format": "date-time" },
+        "run_finished_at": { "type": "string", "format": "date-time" },
+        "dispatch_at": { "type": "string", "format": "date-time" },
+        "provider_event_at": { "type": "string", "format": "date-time" },
+        "observation_at": { "type": "string", "format": "date-time" },
+        "verification_at": { "type": "string", "format": "date-time" },
+        "scoring_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "faultInjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fault_ids", "fixture_identity", "planned", "observed", "injection_record_ref"],
+      "properties": {
+        "fault_ids": { "type": "array", "items": { "type": "string", "pattern": "^F[0-9]{2}$" }, "uniqueItems": true },
+        "fixture_identity": { "type": "string", "minLength": 1 },
+        "planned": { "type": "boolean" },
+        "observed": { "type": "boolean" },
+        "injection_record_ref": { "type": "string", "minLength": 1 },
+        "delivery_point": { "type": "string" },
+        "deviation_reason": { "type": "string" }
+      }
+    },
+    "systemVisible": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scenario_manifest_ref", "task_effect_identities", "attempts", "observed_evidence", "authority_result", "settlement_result", "baseline_or_system_output", "duplicate_effect_report", "escalation", "verifier_reproducibility"],
+      "properties": {
+        "scenario_manifest_ref": { "type": "string", "minLength": 1 },
+        "task_effect_identities": { "$ref": "#/$defs/taskEffectIdentities" },
+        "attempts": { "type": "array", "items": { "$ref": "#/$defs/attempt" } },
+        "observed_evidence": { "type": "array", "items": { "$ref": "#/$defs/observedEvidence" } },
+        "authority_result": { "$ref": "#/$defs/authorityResult" },
+        "settlement_result": { "$ref": "#/$defs/settlementResult" },
+        "baseline_or_system_output": { "type": "object", "additionalProperties": true },
+        "classifier_output": { "$ref": "#/$defs/classifierOutput" },
+        "duplicate_effect_report": { "$ref": "#/$defs/duplicateReport" },
+        "escalation": { "$ref": "#/$defs/escalation" },
+        "verifier_reproducibility": { "$ref": "#/$defs/verifierReproducibility" }
+      }
+    },
+    "taskEffectIdentities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "effect_id", "predicate_id", "record_refs"],
+      "properties": {
+        "principal_id": { "type": "string", "minLength": 1 },
+        "grant_id": { "type": "string", "minLength": 1 },
+        "intent_id": { "type": "string", "minLength": 1 },
+        "task_id": { "type": "string", "minLength": 1 },
+        "delegation_id": { "type": "string", "minLength": 1 },
+        "effect_id": { "type": "string", "minLength": 1 },
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "record_refs": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempt_id", "effect_id", "attempt_ordinal", "dispatch_state", "record_ref"],
+      "properties": {
+        "attempt_id": { "type": "string", "minLength": 1 },
+        "effect_id": { "type": "string", "minLength": 1 },
+        "attempt_ordinal": { "type": "integer", "minimum": 1 },
+        "dispatch_state": { "enum": ["NOT_DISPATCHED", "DISPATCHED", "ACKNOWLEDGEMENT_UNCERTAIN", "FAILED", "COMPLETED", "UNKNOWN"] },
+        "provider_operation_id": { "type": "string" },
+        "idempotency_key_digest": { "type": "string" },
+        "record_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "observedEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "evidence_class", "effect_id", "observer_principal_id", "issuer_principal_id", "trust_root_id", "profile_id", "visibility", "record_ref"],
+      "properties": {
+        "evidence_id": { "type": "string", "minLength": 1 },
+        "evidence_class": { "type": "string", "minLength": 1 },
+        "effect_id": { "type": "string", "minLength": 1 },
+        "attempt_ids": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "observer_principal_id": { "type": "string", "minLength": 1 },
+        "issuer_principal_id": { "type": "string", "minLength": 1 },
+        "trust_root_id": { "type": "string", "minLength": 1 },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "visibility": { "const": "SYSTEM_VISIBLE" },
+        "event_time": { "type": "string", "format": "date-time" },
+        "observed_at": { "type": "string", "format": "date-time" },
+        "record_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "authorityResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "relation_or_state", "profile_id", "source_record_refs", "effect_axis_separate"],
+      "properties": {
+        "status": { "enum": ["AUTHORIZED", "INVALID_AUTHORITY", "UNKNOWN_AUTHORITY", "UNSUPPORTED_AUTHORITY", "CONFLICTING_AUTHORITY", "NOT_EVALUATED"] },
+        "relation_or_state": { "enum": ["ATTENUATED", "EQUIVALENT", "WIDENED", "INCOMPARABLE", "UNSUPPORTED", "UNKNOWN", "CONTAINED", "POSSIBLE_WIDENING", "CONFLICTING"] },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "source_record_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "effect_axis_separate": { "const": true },
+        "reason_codes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "settlementResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "occurrence", "attribution", "causality", "freshness", "duplication", "profile_compatibility", "result_ref"],
+      "properties": {
+        "status": { "enum": ["EFFECT_SUPPORTED", "NON_OCCURRENCE_SUPPORTED", "PARTIAL_EFFECT", "CONFLICTING_EVIDENCE", "UNRESOLVED", "INADMISSIBLE_EVIDENCE", "STALE_EVIDENCE", "PROFILE_INCOMPATIBLE", "UNKNOWN", "POSSIBLE_DUPLICATE_EFFECT"] },
+        "occurrence": { "enum": ["OCCURRENCE_SUPPORTED", "NON_OCCURRENCE_SUPPORTED", "PARTIAL_EFFECT", "CONFLICTING_EVIDENCE", "INSUFFICIENT_EVIDENCE", "INADMISSIBLE_EVIDENCE", "STALE_EVIDENCE", "UNKNOWN"] },
+        "attribution": { "enum": ["ATTRIBUTED_TO_SPECIFIC_ATTEMPT", "ATTRIBUTED_TO_ONE_OR_MORE_ATTEMPTS", "ATTRIBUTION_UNKNOWN", "ATTRIBUTION_CONFLICTING", "INADMISSIBLE", "NOT_APPLICABLE"] },
+        "causality": { "enum": ["SPECIFIC_ATTEMPT_SUPPORTED", "CAUSED_BY_ONE_OR_MORE_ATTEMPTS", "EFFECT_BOUND", "EXTERNAL_STATE_ONLY", "CAUSATION_UNKNOWN", "CAUSATION_CONFLICTING", "NOT_ASSESSED"] },
+        "freshness": { "enum": ["CURRENT", "STALE", "UNKNOWN", "NOT_APPLICABLE"] },
+        "duplication": { "enum": ["NONE_SUPPORTED", "POSSIBLE_DUPLICATE", "DUPLICATE_SUPPORTED", "DISTINCT_OCCURRENCES_SUPPORTED", "UNKNOWN", "NOT_APPLICABLE"] },
+        "profile_compatibility": { "enum": ["COMPATIBLE", "INCOMPATIBLE", "UNKNOWN", "NOT_EVALUATED"] },
+        "result_ref": { "type": "string", "minLength": 1 },
+        "reason_codes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "classifierOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_id", "feature_refs", "prediction", "calibration_set_ref", "scored_set_isolated"],
+      "properties": {
+        "model_id": { "type": "string", "minLength": 1 },
+        "feature_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "prediction": { "type": "string", "minLength": 1 },
+        "calibration_set_ref": { "type": "string", "minLength": 1 },
+        "scored_set_isolated": { "const": true }
+      }
+    },
+    "duplicateReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reported_status", "attempt_count", "system_observed_occurrence_count", "oracle_not_present_here"],
+      "properties": {
+        "reported_status": { "enum": ["NONE_REPORTED", "POSSIBLE_DUPLICATE", "DUPLICATE_REPORTED", "UNKNOWN"] },
+        "attempt_count": { "type": "integer", "minimum": 0 },
+        "system_observed_occurrence_count": { "type": "integer", "minimum": 0 },
+        "oracle_not_present_here": { "const": true },
+        "reason_codes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      }
+    },
+    "escalation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "triggers", "human_saw_hidden_oracle", "disposition"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "triggers": { "type": "array", "items": { "enum": ["CONFLICTING_EVIDENCE", "UNKNOWN_TERMINAL", "HIGH_VALUE_AUTHORITY_AMBIGUITY", "DUPLICATE_RISK", "UNSUPPORTED_PROFILE", "ATTRIBUTION_CONFLICT", "INFRASTRUCTURE_REVIEW"] }, "uniqueItems": true },
+        "human_saw_hidden_oracle": { "const": false },
+        "disposition": { "enum": ["NOT_APPLICABLE", "PENDING", "RESOLVED", "UNRESOLVED"] },
+        "latency_ms": { "type": "number", "minimum": 0 },
+        "record_ref": { "type": "string" }
+      }
+    },
+    "verifierReproducibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input_record_refs", "private_state_used", "independent_reproduction_status", "failure_categories"],
+      "properties": {
+        "input_record_refs": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "private_state_used": { "const": false },
+        "independent_reproduction_status": { "enum": ["NOT_ATTEMPTED", "REPRODUCED", "NOT_REPRODUCED", "INCOMPATIBLE_PROFILE", "MISSING_MATERIAL"] },
+        "failure_categories": { "type": "array", "items": { "enum": ["MISSING_LINK", "HIDDEN_STATE_DEPENDENCY", "UNSUPPORTED_EXTENSION", "DIGEST_MISMATCH", "NONDETERMINISTIC_RESULT", "PROFILE_INCOMPATIBLE", "DETACHED_MATERIAL_UNAVAILABLE", "LABEL_AXIS_MISMATCH"] }, "uniqueItems": true },
+        "reproduction_run_ref": { "type": "string" }
+      }
+    },
+    "scorerOnly": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visibility", "actual_oracle_outcome", "final_scoring", "categorical_failure_codes", "exclusion", "rerun"],
+      "properties": {
+        "visibility": { "const": "SCORER_ONLY" },
+        "actual_oracle_outcome": { "$ref": "#/$defs/oracleOutcome" },
+        "final_scoring": { "$ref": "#/$defs/finalScoring" },
+        "categorical_failure_codes": { "type": "array", "items": { "type": "string", "pattern": "^CF-[0-9]+$" }, "uniqueItems": true },
+        "exclusion": { "$ref": "#/$defs/exclusion" },
+        "rerun": { "$ref": "#/$defs/rerun" }
+      }
+    },
+    "oracleOutcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effect_occurrence", "duplicate_count", "recipient", "resource", "attempt_linkage", "event_sequence"],
+      "properties": {
+        "effect_occurrence": { "enum": ["OCCURS", "DOES_NOT_OCCUR", "DUPLICATE_OCCURS", "UNRESOLVED_TO_SYSTEM", "PARTIAL_STAGE"] },
+        "duplicate_count": { "type": "integer", "minimum": 0 },
+        "recipient": { "type": "string", "minLength": 1 },
+        "resource": { "type": "string", "minLength": 1 },
+        "attempt_linkage": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "event_sequence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "finalScoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric_contributions", "scoring_profile_id", "scored_status"],
+      "properties": {
+        "metric_contributions": { "type": "array", "items": { "$ref": "#/$defs/metricContribution" } },
+        "scoring_profile_id": { "type": "string", "minLength": 1 },
+        "scored_status": { "enum": ["SCORED", "EXCLUDED", "PENDING_RERUN", "NOT_STARTED"] }
+      }
+    },
+    "metricContribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric_id", "numerator_increment", "denominator_increment", "reason"],
+      "properties": {
+        "metric_id": { "type": "string", "minLength": 1 },
+        "numerator_increment": { "type": "integer", "minimum": 0 },
+        "denominator_increment": { "type": "integer", "minimum": 0 },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason_code", "evidence_refs", "rerun_permitted"],
+      "properties": {
+        "status": { "enum": ["NOT_EXCLUDED", "EXCLUDED"] },
+        "reason_code": { "enum": ["NONE", "FIXTURE_CORRUPTION", "HARNESS_DEFECT_PREVENTED_START", "ORACLE_CORRUPTION", "MACHINE_FAILURE_BEFORE_START"] },
+        "evidence_refs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "rerun_permitted": { "type": "boolean" }
+      }
+    },
+    "rerun": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "category", "original_result_preserved"],
+      "properties": {
+        "status": { "enum": ["NO_RERUN", "RERUN_PLANNED", "RERUN_COMPLETED"] },
+        "category": { "enum": ["NONE", "NEVER_STARTED", "HARNESS_FAILURE", "PLANNED_REPLICATE", "POST_OUTCOME_REPEAT"] },
+        "original_result_preserved": { "const": true },
+        "original_result_ref": { "type": "string" }
+      }
+    },
+    "visibilityBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system_visible_fields", "scorer_only_fields", "oracle_hidden_from_system", "scorer_is_not_portable_verifier"],
+      "properties": {
+        "system_visible_fields": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "scorer_only_fields": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "oracle_hidden_from_system": { "const": true },
+        "scorer_is_not_portable_verifier": { "const": true }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_digest", "canonicalization", "digest_algorithm"],
+      "properties": {
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+        "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
+        "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] }
+      }
+    }
+  }
+}
