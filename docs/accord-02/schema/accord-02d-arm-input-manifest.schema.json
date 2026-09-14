@@ -5,18 +5,23 @@
   "description": "A closed, arm-specific manifest of typed source references. It carries no arbitrary experiment-controlled field values and never locates scorer-only expectations.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["$schema", "schema_id", "schema_version", "information_class", "system_under_test_visible", "experiment_version", "experiment_run_id", "scenario_id", "arm_id", "input_profile_id", "sources", "scenario_catalog_directly_consumable", "oracle_hidden_from_system", "expected_result_fields_present", "integrity"],
+  "required": ["$schema", "schema_id", "schema_version", "information_class", "system_under_test_visible", "arm_input_manifest_id", "experiment_version", "experiment_run_id", "scenario_id", "arm_id", "input_profile_id", "source_schema_registry_ref", "role_visibility_profile_ref", "validation_rule_profile_ref", "sources", "scenario_catalog_directly_consumable", "oracle_hidden_from_system", "expected_result_fields_present", "integrity"],
   "properties": {
     "$schema": { "type": "string", "format": "uri" },
     "schema_id": { "const": "urn:moirae:accord-02d:arm-input-manifest" },
     "schema_version": { "const": "0.2" },
     "information_class": { "const": "ARM_INPUT_MANIFEST" },
     "system_under_test_visible": { "const": true },
+    "arm_input_manifest_id": { "type": "string", "minLength": 1 },
     "experiment_version": { "type": "string", "minLength": 1 },
     "experiment_run_id": { "type": "string", "minLength": 1 },
     "scenario_id": { "type": "string", "minLength": 1 },
     "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
     "input_profile_id": { "type": "string", "minLength": 1 },
+    "source_schema_registry_ref": { "$ref": "#/$defs/profileReference" },
+    "role_visibility_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "validation_rule_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "classifier_feature_profile_ref": { "$ref": "#/$defs/profileReference" },
     "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceReference" }, "uniqueItems": true },
     "scenario_catalog_directly_consumable": { "const": false },
     "oracle_hidden_from_system": { "const": true },
@@ -29,17 +34,26 @@
     { "$ref": "#/$defs/armC" },
     { "$ref": "#/$defs/armD" }
   ],
+  "allOf": [
+    { "if": { "properties": { "arm_id": { "const": "ARM-C-LIGHTWEIGHT-CLASSIFIER" } }, "required": ["arm_id"] }, "then": { "required": ["classifier_feature_profile_ref"] } },
+    { "if": { "properties": { "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-D-ACCORD-EVIDENCE"] } }, "required": ["arm_id"] }, "then": { "not": { "required": ["classifier_feature_profile_ref"] } } }
+  ],
   "$defs": {
     "commonArmFields": {
       "type": "object",
-      "required": ["arm_id", "input_profile_id", "sources", "scenario_catalog_directly_consumable", "oracle_hidden_from_system", "expected_result_fields_present"],
+      "required": ["arm_input_manifest_id", "arm_id", "input_profile_id", "source_schema_registry_ref", "role_visibility_profile_ref", "validation_rule_profile_ref", "sources", "scenario_catalog_directly_consumable", "oracle_hidden_from_system", "expected_result_fields_present"],
       "properties": {
+        "arm_input_manifest_id": { "type": "string", "minLength": 1 },
         "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
         "input_profile_id": { "type": "string", "minLength": 1 },
+        "source_schema_registry_ref": { "$ref": "#/$defs/profileReference" },
+        "role_visibility_profile_ref": { "$ref": "#/$defs/profileReference" },
+        "validation_rule_profile_ref": { "$ref": "#/$defs/profileReference" },
         "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceReference" }, "uniqueItems": true },
         "scenario_catalog_directly_consumable": { "const": false },
         "oracle_hidden_from_system": { "const": true },
-        "expected_result_fields_present": { "const": false }
+        "expected_result_fields_present": { "const": false },
+        "classifier_feature_profile_ref": { "$ref": "#/$defs/profileReference" }
       }
     },
     "armA": {
@@ -110,6 +124,17 @@
         "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
         "canonicalization": { "enum": ["RFC8785_JCS", "PROFILE_DEFINED_CANONICAL_FORM"] },
         "digest_algorithm": { "enum": ["SHA-256", "PROFILE_DEFINED"] }
+      }
+    },
+    "profileReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "profile_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "PROFILE" },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 }
       }
     }
   }

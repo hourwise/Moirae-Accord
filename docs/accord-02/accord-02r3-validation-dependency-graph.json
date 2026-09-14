@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:validation-dependency-graph:0.1",
+  "graph_id": "urn:moirae:accord-02r3:validation-dependency-graph:0.1",
+  "version": "0.1",
+  "source_registry": "accord-02r3-validation-rules.json",
+  "node_sets": {
+    "base_r2_rules": ["ORC-001", "ORC-002", "ORC-003", "ARM-001", "ARM-002", "ARM-003", "ARM-004", "ARM-005", "ARM-006", "ARM-007", "RAW-001", "RAW-002", "RAW-003", "PROJ-001", "PROJ-002", "PROJ-003", "PROJ-004", "LIN-001", "LIN-002", "LIN-003", "LIN-004", "LIN-005", "LIN-006", "LIN-007", "LIN-008", "PROP-001", "PROP-002", "PROP-003", "PROP-004", "PROP-005", "SCORE-001", "SCORE-002", "SCORE-003"],
+    "r3_rules": ["BND-001", "BND-002", "BND-003", "BND-004", "BND-005", "RUN-001", "RUN-002", "RUN-003", "RUN-004", "EXT-001", "EXT-002", "EXT-003", "EXT-004", "EXT-005", "EXT-006", "SRC-001", "SRC-002", "SRC-003", "SRC-004", "VIS-001", "NORM-001", "NORM-002", "NORM-003", "NORM-004", "NORM-005", "CLF-001", "CLF-002", "CLF-003", "CLF-004", "PRED-001", "PRED-002", "PRED-003", "PRED-004", "DIGEST-001", "DIGEST-002", "DIGEST-003", "LIN-009", "PROP-006"]
+  },
+  "edges": {
+    "base_rule_depends_on": "accord-02r3-validation-rules.json#/base_rule_closures[*]/depends_on",
+    "r3_rule_depends_on": "accord-02r3-validation-rules.json#/rules[*]/depends_on",
+    "edge_semantics": "source rule cannot be evaluated until every listed dependency fact has been produced in the same declared validation scope"
+  },
+  "evaluation_layers": [
+    { "layer": 1, "facts": ["STRUCTURE_VALID", "BUNDLE_SCOPE_DECLARED"] },
+    { "layer": 2, "facts": ["ACTIVE_PROFILES_RESOLVED", "NORMATIVE_IDS_UNIQUE", "REFERENCE_RESOLVED", "DIGEST_VALID", "REFERENCE_TARGET_STRUCTURALLY_VALID"] },
+    { "layer": 3, "facts": ["EXTENSIONS_CLASSIFIED", "SOURCE_MEMBERSHIP_VALID", "VISIBILITY_VALID", "PROPOSITION_RESOLVED", "REQUIRED_BINDINGS_RESOLVED"] },
+    { "layer": 4, "facts": ["LINEAGE_VALID", "PROJECTION_LINEAGE_PRESENT", "NORMALIZATION_TRUTH_FREE", "SCORE_PIPELINE_ORDERED"] }
+  ],
+  "acyclicity": { "acceptance_critical": true, "result": "ACYCLIC_BY_DECLARED_DEPENDENCIES", "cycles": [] }
+}

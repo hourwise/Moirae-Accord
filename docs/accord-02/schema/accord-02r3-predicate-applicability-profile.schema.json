@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:predicate-applicability-profile:0.1",
+  "title": "ACCORD-02R3 predicate binding applicability profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "profile_id", "profile_version", "dimensions", "predicates"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:predicate-applicability-profile:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "PREDICATE_APPLICABILITY_PROFILE" },
+    "profile_id": { "const": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1" },
+    "profile_version": { "const": "1.0" },
+    "dimensions": { "type": "array", "items": { "enum": ["target", "resource", "recipient", "provider", "attempt_attribution"] }, "uniqueItems": true },
+    "predicates": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/predicate" }, "uniqueItems": true }
+  },
+  "$defs": {
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predicate_id", "stage", "bindings"],
+      "properties": {
+        "predicate_id": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 },
+        "bindings": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["target", "resource", "recipient", "provider", "attempt_attribution"],
+          "properties": {
+            "target": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+            "resource": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+            "recipient": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+            "provider": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+            "attempt_attribution": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] }
+          }
+        }
+      }
+    }
+  }
+}

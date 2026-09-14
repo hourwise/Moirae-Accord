@@ -461,3 +461,11 @@ projections require native-result, mapping-profile, and proposition lineage.
 `REJECTED` is a non-factual disposition and does not imply non-occurrence.
 See [`accord-02r2-validation-rules.json`](./accord-02r2-validation-rules.json)
 for deterministic cross-record rules.
+
+The active R3 validation scope is supplied by a self-contained verifier bundle
+and its declared settlement, extension, predicate-applicability, trust, and
+validation-rule profiles. `resolve(type, id, scope)` never consults an ambient
+provider/session/database. A supplied digest is checked against the record's
+declared canonical form; a mismatch rejects the reference and does not imply a
+factual effect conclusion. The R3 overlay is
+[`accord-02r3-validation-rules.json`](./accord-02r3-validation-rules.json).

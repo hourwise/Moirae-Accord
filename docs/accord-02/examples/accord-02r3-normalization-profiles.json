@@ -1,0 +1,80 @@
+{
+  "schema_id": "urn:moirae:accord-02r3:schema:normalization-profile-catalog:0.1",
+  "schema_version": "0.1",
+  "catalog_id": "urn:moirae:accord-02r3:normalization-profiles:0.1",
+  "profiles": [
+    {
+      "schema_id": "urn:moirae:accord-02r3:schema:normalization-profile:0.1",
+      "schema_version": "0.1",
+      "record_type": "NORMALIZATION_PROFILE",
+      "profile_id": "urn:moirae:accord-02r3:normalization:arm-a:0.1",
+      "profile_version": "0.1",
+      "arm_id": "ARM-A-DURABLE",
+      "accepted_output_types": ["DURABLE_BASELINE_OUTPUT"],
+      "rules": [
+        { "rule_id": "A-OCCURRENCE", "source_path": "payload.durable_state.effect_status", "claim_field": "occurrence_claim", "mapping": { "COMPLETED": "POSITIVE", "FAILED": "NEGATIVE", "PENDING": "UNKNOWN" }, "on_missing": "UNKNOWN_CLAIM" },
+        { "rule_id": "A-ATTEMPT", "source_path": "payload.attempt_id", "claim_field": "attribution_claim", "mapping": { "BOUND": "SPECIFIC_ATTEMPT" }, "on_missing": "NO_CLAIM" }
+      ],
+      "ignored_fields": ["payload.oracle", "payload.expected", "payload.scorer"],
+      "malformed_output": "REJECTED",
+      "ambiguous_output": "UNKNOWN_CLAIM",
+      "oracle_input_forbidden": true,
+      "scorer_expectation_input_forbidden": true
+    },
+    {
+      "schema_id": "urn:moirae:accord-02r3:schema:normalization-profile:0.1",
+      "schema_version": "0.1",
+      "record_type": "NORMALIZATION_PROFILE",
+      "profile_id": "urn:moirae:accord-02r3:normalization:arm-b:0.1",
+      "profile_version": "0.1",
+      "arm_id": "ARM-B-PROVIDER-OBSERVATION",
+      "accepted_output_types": ["PROVIDER_OBSERVATION_OUTPUT"],
+      "rules": [
+        { "rule_id": "B-ACCEPTANCE", "source_path": "payload.provider.acceptance", "claim_field": "occurrence_claim", "mapping": { "ACCEPTED": "PROVIDER_ACCEPTED_ONLY", "NOT_ACCEPTED": "UNKNOWN", "UNKNOWN": "UNKNOWN" }, "on_missing": "UNKNOWN_CLAIM" },
+        { "rule_id": "B-STATE", "source_path": "payload.provider.state_read", "claim_field": "provider_stage_claim", "mapping": { "VISIBLE": "STATE_OBSERVED", "ABSENT": "NO_MATCHING_STATE", "INCOMPLETE": "INCOMPLETE_STATE" }, "on_missing": "NO_CLAIM" }
+      ],
+      "ignored_fields": ["payload.oracle", "payload.expected", "payload.accord"],
+      "malformed_output": "REJECTED",
+      "ambiguous_output": "UNKNOWN_CLAIM",
+      "oracle_input_forbidden": true,
+      "scorer_expectation_input_forbidden": true
+    },
+    {
+      "schema_id": "urn:moirae:accord-02r3:schema:normalization-profile:0.1",
+      "schema_version": "0.1",
+      "record_type": "NORMALIZATION_PROFILE",
+      "profile_id": "urn:moirae:accord-02r3:normalization:arm-c:0.1",
+      "profile_version": "0.1",
+      "arm_id": "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+      "accepted_output_types": ["CLASSIFIER_OUTPUT"],
+      "rules": [
+        { "rule_id": "C-PREDICTION", "source_path": "payload.prediction", "claim_field": "occurrence_claim", "mapping": { "OCCURRED": "POSITIVE", "DID_NOT_OCCUR": "NEGATIVE", "UNKNOWN": "UNKNOWN", "ACCEPTED_ONLY": "PROVIDER_ACCEPTED_ONLY" }, "on_missing": "UNKNOWN_CLAIM" },
+        { "rule_id": "C-CONFIDENCE", "source_path": "payload.confidence_class", "claim_field": "indeterminacy_category", "mapping": { "HIGH": "NONE", "LOW": "INSUFFICIENT", "ABSTAIN": "TERMINAL" }, "on_missing": "NO_CLAIM" }
+      ],
+      "ignored_fields": ["payload.oracle", "payload.expected", "payload.accord_settlement", "payload.verifier_result"],
+      "malformed_output": "REJECTED",
+      "ambiguous_output": "UNKNOWN_CLAIM",
+      "oracle_input_forbidden": true,
+      "scorer_expectation_input_forbidden": true
+    },
+    {
+      "schema_id": "urn:moirae:accord-02r3:schema:normalization-profile:0.1",
+      "schema_version": "0.1",
+      "record_type": "NORMALIZATION_PROFILE",
+      "profile_id": "urn:moirae:accord-02r3:normalization:arm-d:0.1",
+      "profile_version": "0.1",
+      "arm_id": "ARM-D-ACCORD-EVIDENCE",
+      "accepted_output_types": ["ACCORD_VERIFIER_OUTPUT"],
+      "rules": [
+        { "rule_id": "D-NATIVE-PROJECTION", "source_path": "payload.settlement.kind", "claim_field": "occurrence_claim", "mapping": { "VERIFIED": "POSITIVE", "CORROBORATED": "POSITIVE", "NO_EFFECT_OBSERVED": "NO_CLAIM", "UNKNOWN_PENDING": "UNKNOWN", "UNKNOWN_TERMINAL": "UNKNOWN", "REJECTED": "NO_CLAIM" }, "on_missing": "REJECTED" },
+        { "rule_id": "D-NO-EFFECT-OBSERVATION", "source_path": "payload.settlement.kind", "claim_field": "provider_stage_claim", "mapping": { "NO_EFFECT_OBSERVED": "OBSERVATION_ONLY" }, "on_missing": "NO_CLAIM" },
+        { "rule_id": "D-ATTRIBUTION", "source_path": "payload.statuses.attribution", "claim_field": "attribution_claim", "mapping": { "ATTRIBUTED": "SPECIFIC_ATTEMPT", "UNATTRIBUTED": "UNKNOWN", "UNKNOWN": "UNKNOWN", "CONFLICTING": "CONFLICTING" }, "on_missing": "NO_CLAIM" }
+      ],
+      "ignored_fields": ["payload.oracle", "payload.expected", "payload.scorer"],
+      "malformed_output": "REJECTED",
+      "ambiguous_output": "UNKNOWN_CLAIM",
+      "oracle_input_forbidden": true,
+      "scorer_expectation_input_forbidden": true
+    }
+  ]
+}

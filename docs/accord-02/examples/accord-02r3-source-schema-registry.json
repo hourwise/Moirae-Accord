@@ -1,0 +1,23 @@
+{
+  "$schema": "urn:moirae:accord-02r3:schema:source-schema-registry:0.1",
+  "schema_id": "urn:moirae:accord-02r3:schema:source-schema-registry:0.1",
+  "schema_version": "0.1",
+  "record_type": "SOURCE_SCHEMA_REGISTRY",
+  "registry_id": "urn:moirae:accord-02r3:source-schemas:0.1",
+  "registry_version": "0.1",
+  "entries": [
+    { "source_type": "DURABLE_TASK_STATE", "record_types": ["TASK_STATE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:task-state", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "ATTEMPT_STATE", "record_types": ["ATTEMPT"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:attempt", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "EXECUTOR_STATE", "record_types": ["EXECUTOR_STATE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:executor-state", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "ADMISSION_STATE", "record_types": ["ADMISSION_STATE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:admission-state", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "DELEGATE_REPORT", "record_types": ["DELEGATE_REPORT"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:delegate-report", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "PROVIDER_STATE_READ", "record_types": ["PROVIDER_STATE_READ"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:provider-state-read", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "RECONCILIATION_RESULT", "record_types": ["RECONCILIATION_RESULT"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:reconciliation-result", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "CLASSIFIER_FEATURE", "record_types": ["CLASSIFIER_FEATURE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02r3:schema:classifier-feature:0.1", "schema_version": "0.1", "content_mode": "DERIVED_TYPED_FEATURE" }], "roles": ["ARM-C-LIGHTWEIGHT-CLASSIFIER"], "derived_allowed": true },
+    { "source_type": "PORTABLE_RECORD_BUNDLE", "record_types": ["PORTABLE_BUNDLE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02a:schema:portable-record:0.2", "schema_version": "0.2", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "AUTHORITY_PROFILE", "record_types": ["AUTHORITY_PROFILE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02b:schema:authority-profile:0.1", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "SETTLEMENT_PROFILE", "record_types": ["SETTLEMENT_PROFILE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02c:schema:settlement-profile:0.1", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "TRUST_ROOT_PROFILE", "record_types": ["TRUST_ROOT_PROFILE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:trust-root-profile", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false },
+    { "source_type": "DETACHED_EVIDENCE", "record_types": ["DETACHED_EVIDENCE"], "permitted_schemas": [{ "schema_id": "urn:moirae:accord-02d:source:detached-evidence", "schema_version": "0.1", "content_mode": "TYPED_REFERENCE" }], "roles": ["ARM-D-ACCORD-EVIDENCE"], "derived_allowed": false }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:scorer-bundle:0.1",
+  "title": "ACCORD-02R3 scorer-only bundle",
+  "description": "A scorer-side envelope that may join experiment records to expectations and oracle truth. It is never a verifier or arm input.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "bundle_id", "bundle_type", "information_class", "system_under_test_visible", "arm_input_allowed", "verifier_input_allowed", "experiment_bundle_ref", "scorer_records"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:scorer-bundle:0.1" },
+    "schema_version": { "const": "0.1" },
+    "bundle_id": { "type": "string", "minLength": 1 },
+    "bundle_type": { "const": "SCORER_BUNDLE" },
+    "information_class": { "const": "SCORER_ONLY" },
+    "system_under_test_visible": { "const": false },
+    "arm_input_allowed": { "const": false },
+    "verifier_input_allowed": { "const": false },
+    "experiment_bundle_ref": { "$ref": "#/$defs/experimentBundleReference" },
+    "scorer_records": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/scorerEntry" }, "uniqueItems": true },
+    "scorer_config_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+  },
+  "$defs": {
+    "experimentBundleReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "bundle_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "EXPERIMENT_VALIDATION_BUNDLE" },
+        "bundle_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "const": "urn:moirae:accord-02r3:schema:experiment-validation-bundle:0.1" },
+        "schema_version": { "const": "0.1" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "scorerEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "record_id", "scenario_id", "content"],
+      "properties": {
+        "record_type": { "enum": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "CATEGORICAL_FAILURE_EVALUATION", "METRIC_CONTRIBUTION"] },
+        "record_id": { "type": "string", "minLength": 1 },
+        "scenario_id": { "type": "string", "minLength": 1 },
+        "content": {}
+      }
+    }
+  }
+}

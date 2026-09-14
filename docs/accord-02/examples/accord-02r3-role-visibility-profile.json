@@ -1,0 +1,23 @@
+{
+  "$schema": "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1",
+  "schema_id": "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1",
+  "schema_version": "0.1",
+  "profile_id": "urn:moirae:accord-02r3:role-visibility:0.1",
+  "profile_version": "0.1",
+  "roles": ["ORCHESTRATOR", "DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"],
+  "field_rules": [
+    { "field_family": "scenario.scenario_id", "producing_role": "ORCHESTRATOR", "consumer_roles": ["ORCHESTRATOR", "DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"], "visibility": "ARM_VISIBLE", "semantic_use": "OBSERVABLE_INPUT" },
+    { "field_family": "scenario.topology_id", "producing_role": "ORCHESTRATOR", "consumer_roles": ["DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"], "visibility": "ARM_VISIBLE", "semantic_use": "OBSERVABLE_INPUT" },
+    { "field_family": "scenario.effect_surface_id", "producing_role": "ORCHESTRATOR", "consumer_roles": ["PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"], "visibility": "ARM_VISIBLE", "semantic_use": "OBSERVABLE_INPUT" },
+    { "field_family": "scenario.transport_id", "producing_role": "ORCHESTRATOR", "consumer_roles": ["DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"], "visibility": "ARM_VISIBLE", "semantic_use": "OBSERVABLE_INPUT" },
+    { "field_family": "scenario.delegate_behavior_id", "producing_role": "ORCHESTRATOR", "consumer_roles": ["DELEGATE_FIXTURE", "SCORER"], "visibility": "FIXTURE_PRIVATE", "semantic_use": "CONFIGURATION_ONLY" },
+    { "field_family": "scenario.fault_ids", "producing_role": "ORCHESTRATOR", "consumer_roles": ["DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "SCORER"], "visibility": "FIXTURE_PRIVATE", "semantic_use": "CONFIGURATION_ONLY" },
+    { "field_family": "scenario.authority_condition_id", "producing_role": "ORCHESTRATOR", "consumer_roles": ["DELEGATE_FIXTURE", "SCORER"], "visibility": "ORCHESTRATOR_ONLY", "semantic_use": "CONFIGURATION_ONLY" },
+    { "field_family": "scenario.idempotency_condition_id", "producing_role": "ORCHESTRATOR", "consumer_roles": ["PROVIDER_FIXTURE", "SCORER"], "visibility": "FIXTURE_PRIVATE", "semantic_use": "CONFIGURATION_ONLY" },
+    { "field_family": "fixture.configuration", "producing_role": "ORCHESTRATOR", "consumer_roles": ["DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "SCORER"], "visibility": "FIXTURE_PRIVATE", "semantic_use": "CONFIGURATION_ONLY" },
+    { "field_family": "oracle.*", "producing_role": "SCORER", "consumer_roles": ["SCORER"], "visibility": "SCORER_ONLY", "semantic_use": "SCORING_ONLY" },
+    { "field_family": "expected.*", "producing_role": "SCORER", "consumer_roles": ["SCORER"], "visibility": "SCORER_ONLY", "semantic_use": "SCORING_ONLY" },
+    { "field_family": "provider.state_read", "producing_role": "PROVIDER_FIXTURE", "consumer_roles": ["ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"], "visibility": "PROVIDER_VISIBLE", "semantic_use": "OBSERVABLE_INPUT" },
+    { "field_family": "portable.record_bundle", "producing_role": "OBSERVER_FIXTURE", "consumer_roles": ["ARM-D-ACCORD-EVIDENCE", "SCORER"], "visibility": "ARM_VISIBLE", "semantic_use": "OBSERVABLE_INPUT" }
+  ]
+}

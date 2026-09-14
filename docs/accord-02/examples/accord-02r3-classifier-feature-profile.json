@@ -1,0 +1,17 @@
+{
+  "schema_id": "urn:moirae:accord-02r3:schema:classifier-feature-profile:0.1",
+  "schema_version": "0.1",
+  "record_type": "CLASSIFIER_FEATURE_PROFILE",
+  "profile_id": "urn:moirae:accord-02d:classifier-features:0.1",
+  "profile_version": "0.1",
+  "arm_id": "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+  "features": [
+    { "feature_id": "attempt.dispatch_state", "feature_type": "CATEGORICAL", "source_type": "ATTEMPT_STATE", "source_path": "dispatch_state", "derivation": "IDENTITY", "allowed_for_arm_b": true },
+    { "feature_id": "attempt.ordinal", "feature_type": "INTEGER", "source_type": "ATTEMPT_STATE", "source_path": "attempt_ordinal", "derivation": "IDENTITY", "allowed_for_arm_b": true },
+    { "feature_id": "executor.durable_state", "feature_type": "CATEGORICAL", "source_type": "EXECUTOR_STATE", "source_path": "durable_state", "derivation": "IDENTITY", "allowed_for_arm_b": true },
+    { "feature_id": "provider.acceptance", "feature_type": "CATEGORICAL", "source_type": "PROVIDER_STATE_READ", "source_path": "acceptance", "derivation": "IDENTITY", "allowed_for_arm_b": true },
+    { "feature_id": "provider.state_read", "feature_type": "CATEGORICAL", "source_type": "PROVIDER_STATE_READ", "source_path": "state_read", "derivation": "IDENTITY", "allowed_for_arm_b": true },
+    { "feature_id": "reconciliation.status", "feature_type": "CATEGORICAL", "source_type": "RECONCILIATION_RESULT", "source_path": "status", "derivation": "IDENTITY", "allowed_for_arm_b": true }
+  ],
+  "forbidden_upstream_sources": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "SETTLEMENT_RESULT", "VERIFIER_RESULT", "AUTHORITY_ANALYSIS_RESULT", "EFFECT_PROPOSITION"]
+}

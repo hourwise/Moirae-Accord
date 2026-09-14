@@ -13,6 +13,9 @@
     "system_under_test_visible",
     "oracle_fields_forbidden",
     "expected_result_fields_forbidden",
+    "source_schema_registry_ref",
+    "role_visibility_profile_ref",
+    "validation_rule_profile_ref",
     "profiles"
   ],
   "properties": {
@@ -33,6 +36,9 @@
       "items": { "type": "string", "minLength": 1 },
       "uniqueItems": true
     },
+    "source_schema_registry_ref": { "$ref": "#/$defs/profileReference" },
+    "role_visibility_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "validation_rule_profile_ref": { "$ref": "#/$defs/profileReference" },
     "profiles": {
       "type": "array",
       "minItems": 4,
@@ -65,6 +71,9 @@
         "scenario_catalog_directly_consumable",
         "allowed_source_types",
         "forbidden_source_types",
+        "source_schema_registry_ref",
+        "role_visibility_profile_ref",
+        "validation_rule_profile_ref",
         "profile_closed"
       ],
       "properties": {
@@ -122,13 +131,19 @@
           "items": { "enum": ["SCORER_EXPECTATION", "ORACLE_RECORD", "SCORE_RECORD", "NATIVE_SETTLEMENT_RESULT", "PROJECTED_VERIFIER_RESULT", "PRIVATE_ACCORD_STATE"] },
           "uniqueItems": true
         },
+        "source_schema_registry_ref": { "$ref": "#/$defs/profileReference" },
+        "role_visibility_profile_ref": { "$ref": "#/$defs/profileReference" },
+        "validation_rule_profile_ref": { "$ref": "#/$defs/profileReference" },
+        "classifier_feature_profile_ref": { "$ref": "#/$defs/profileReference" },
         "profile_closed": { "const": true }
       },
       "allOf": [
         { "if": { "properties": { "arm_id": { "const": "ARM-A-DURABLE" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:durable:0.1" } } } },
         { "if": { "properties": { "arm_id": { "const": "ARM-B-PROVIDER-OBSERVATION" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:provider-observation:0.1" } } } },
         { "if": { "properties": { "arm_id": { "const": "ARM-C-LIGHTWEIGHT-CLASSIFIER" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1" } } } },
-        { "if": { "properties": { "arm_id": { "const": "ARM-D-ACCORD-EVIDENCE" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:accord-evidence:0.1" } } } }
+        { "if": { "properties": { "arm_id": { "const": "ARM-D-ACCORD-EVIDENCE" } }, "required": ["arm_id"] }, "then": { "properties": { "input_profile_id": { "const": "urn:moirae:accord-02d:arm-input:accord-evidence:0.1" } } } },
+        { "if": { "properties": { "arm_id": { "const": "ARM-C-LIGHTWEIGHT-CLASSIFIER" } }, "required": ["arm_id"] }, "then": { "required": ["classifier_feature_profile_ref"] } },
+        { "if": { "properties": { "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-D-ACCORD-EVIDENCE"] } }, "required": ["arm_id"] }, "then": { "not": { "required": ["classifier_feature_profile_ref"] } } }
       ]
     },
     "fieldRule": {
@@ -148,6 +163,17 @@
       "properties": {
         "field_path": { "type": "string", "minLength": 1 },
         "reason": { "enum": ["HIDDEN_ORACLE", "EXPECTED_RESULT", "SCORER_ONLY", "ACCORD_ONLY_OUTCOME", "PRIVILEGED_AUTHORITY_ANSWER", "PRIVATE_STATE", "POST_RUN_ADJUDICATION"] }
+      }
+    },
+    "profileReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "profile_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "PROFILE" },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 }
       }
     }
   }

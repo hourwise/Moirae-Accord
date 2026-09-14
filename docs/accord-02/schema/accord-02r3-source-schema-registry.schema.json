@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:source-schema-registry:0.1",
+  "title": "ACCORD-02R3 arm source-schema membership registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "registry_id", "registry_version", "entries"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:source-schema-registry:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "SOURCE_SCHEMA_REGISTRY" },
+    "registry_id": { "const": "urn:moirae:accord-02r3:source-schemas:0.1" },
+    "registry_version": { "const": "0.1" },
+    "entries": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/entry" }, "uniqueItems": true }
+  },
+  "$defs": {
+    "schemaMembership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_id", "schema_version", "content_mode"],
+      "properties": {
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_mode": { "enum": ["TYPED_REFERENCE", "INLINE_TYPED_RECORD", "DERIVED_TYPED_FEATURE"] }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_type", "record_types", "permitted_schemas", "roles", "derived_allowed"],
+      "properties": {
+        "source_type": { "enum": ["DURABLE_TASK_STATE", "ATTEMPT_STATE", "EXECUTOR_STATE", "ADMISSION_STATE", "DELEGATE_REPORT", "PROVIDER_STATE_READ", "RECONCILIATION_RESULT", "CLASSIFIER_FEATURE", "PORTABLE_RECORD_BUNDLE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "TRUST_ROOT_PROFILE", "DETACHED_EVIDENCE"] },
+        "record_types": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "permitted_schemas": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/schemaMembership" }, "uniqueItems": true },
+        "roles": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "derived_allowed": { "type": "boolean" }
+      }
+    }
+  }
+}

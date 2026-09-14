@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:verifier-validation-bundle:0.1",
+  "title": "ACCORD-02R3 self-contained verifier validation bundle",
+  "description": "The complete declared scope for reproducing a verifier result. It contains supplied records and active profiles only; it has no ambient repository or scorer material.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "bundle_id", "bundle_type", "information_class", "self_contained", "validation_scope_id", "record_inventory", "active_profiles", "scorer_material_present", "system_under_test_visible"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:verifier-validation-bundle:0.1" },
+    "schema_version": { "const": "0.1" },
+    "bundle_id": { "type": "string", "minLength": 1 },
+    "bundle_type": { "const": "VERIFIER_VALIDATION_BUNDLE" },
+    "information_class": { "const": "VERIFIER_VALIDATION_BUNDLE" },
+    "self_contained": { "const": true },
+    "validation_scope_id": { "type": "string", "minLength": 1 },
+    "record_inventory": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/recordEntry" }, "uniqueItems": true },
+    "active_profiles": { "$ref": "#/$defs/activeProfiles" },
+    "scorer_material_present": { "const": false },
+    "system_under_test_visible": { "const": true },
+    "bundle_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+  },
+  "$defs": {
+    "recordEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "record_id", "schema_id", "schema_version", "content"],
+      "properties": {
+        "record_type": { "enum": ["PRINCIPAL", "AUTHORITY_GRANT", "INTENT", "TASK", "DELEGATION", "EFFECT_ATTEMPT", "EFFECT_OBSERVATION", "EVIDENCE_ARTIFACT", "effect_proposition", "AUTHORITY_ANALYSIS_RESULT", "SETTLEMENT_RESULT", "VERIFIER_RUN", "VERIFIER_RESULT", "PORTABLE_BUNDLE", "TRUST_ROOT_PROFILE", "AUTHORITY_PROFILE", "SETTLEMENT_PROFILE", "PROJECTION_PROFILE", "PREDICATE_APPLICABILITY_PROFILE", "EXTENSION_REGISTRY", "DETACHED_EVIDENCE"] },
+        "record_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content": {},
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "profileReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "profile_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "PROFILE" },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "activeProfiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validation_rule_profile", "extension_registry", "predicate_applicability_profile"],
+      "properties": {
+        "validation_rule_profile": { "$ref": "#/$defs/profileReference" },
+        "extension_registry": { "$ref": "#/$defs/profileReference" },
+        "predicate_applicability_profile": { "$ref": "#/$defs/profileReference" },
+        "authority_profile": { "$ref": "#/$defs/profileReference" },
+        "settlement_profile": { "$ref": "#/$defs/profileReference" },
+        "projection_profile": { "$ref": "#/$defs/profileReference" },
+        "trust_root_profile": { "$ref": "#/$defs/profileReference" }
+      }
+    }
+  }
+}

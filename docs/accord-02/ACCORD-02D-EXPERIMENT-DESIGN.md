@@ -412,3 +412,11 @@ normalization, normalized claim, truth comparison, then score. The normative
 cross-record rules are listed in
 [`ACCORD-02R2-NORMATIVE-VALIDATION-CONTRACT.md`](./ACCORD-02R2-NORMATIVE-VALIDATION-CONTRACT.md)
 and [`accord-02r2-validation-rules.json`](./accord-02r2-validation-rules.json).
+
+ACCORD-02R3 supplies the concrete bundle and profile contracts used to make
+those boundaries decidable: an experiment run binds its sanitized arm manifest,
+source-schema registry, role-visibility profile, validation-rule profile, and
+normalization/classifier profile where applicable. Orchestration condition
+labels remain private to the roles named by the visibility profile. The
+experiment-validation bundle contains no scorer expectations or oracle truth;
+the scorer-only bundle is joined by the scorer after normalization.

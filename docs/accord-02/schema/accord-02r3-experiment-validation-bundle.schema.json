@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:experiment-validation-bundle:0.1",
+  "title": "ACCORD-02R3 experiment validation bundle",
+  "description": "The declared experiment-side scope extending a verifier bundle with run, arm, normalization, and scoring-lineage records. It contains no scorer expectation or oracle record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "bundle_id", "bundle_type", "information_class", "self_contained", "validation_scope_id", "verifier_bundle_ref", "experiment_records", "active_profiles", "scorer_material_present", "system_under_test_visible"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:experiment-validation-bundle:0.1" },
+    "schema_version": { "const": "0.1" },
+    "bundle_id": { "type": "string", "minLength": 1 },
+    "bundle_type": { "const": "EXPERIMENT_VALIDATION_BUNDLE" },
+    "information_class": { "const": "EXPERIMENT_VALIDATION_BUNDLE" },
+    "self_contained": { "const": true },
+    "validation_scope_id": { "type": "string", "minLength": 1 },
+    "verifier_bundle_ref": { "$ref": "#/$defs/bundleReference" },
+    "experiment_records": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/recordEntry" }, "uniqueItems": true },
+    "active_profiles": { "$ref": "#/$defs/activeProfiles" },
+    "scorer_material_present": { "const": false },
+    "system_under_test_visible": { "const": false },
+    "bundle_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+  },
+  "$defs": {
+    "bundleReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "bundle_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "VERIFIER_VALIDATION_BUNDLE" },
+        "bundle_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "const": "urn:moirae:accord-02r3:schema:verifier-validation-bundle:0.1" },
+        "schema_version": { "const": "0.1" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "recordEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "record_id", "schema_id", "schema_version", "content"],
+      "properties": {
+        "record_type": { "enum": ["SCENARIO_DEFINITION", "EXPERIMENT_RUN", "ARM_INPUT_MANIFEST", "RAW_ARM_OUTPUT", "NORMALIZED_CLAIM", "EXPERIMENT_RESULT_RECORD", "VERIFIER_RUN", "VERIFIER_RESULT", "AUTHORITY_ANALYSIS_RESULT", "SETTLEMENT_RESULT", "PORTABLE_BUNDLE", "SOURCE_SCHEMA_REGISTRY", "ROLE_VISIBILITY_PROFILE", "NORMALIZATION_PROFILE", "CLASSIFIER_FEATURE_PROFILE", "VALIDATION_RULE_PROFILE", "effect_proposition"] },
+        "record_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content": {},
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "profileReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "profile_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "PROFILE" },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "activeProfiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validation_rule_profile", "source_schema_registry", "role_visibility_profile", "predicate_applicability_profile"],
+      "properties": {
+        "validation_rule_profile": { "$ref": "#/$defs/profileReference" },
+        "source_schema_registry": { "$ref": "#/$defs/profileReference" },
+        "role_visibility_profile": { "$ref": "#/$defs/profileReference" },
+        "predicate_applicability_profile": { "$ref": "#/$defs/profileReference" },
+        "normalization_profile": { "$ref": "#/$defs/profileReference" },
+        "classifier_feature_profile": { "$ref": "#/$defs/profileReference" }
+      }
+    }
+  }
+}

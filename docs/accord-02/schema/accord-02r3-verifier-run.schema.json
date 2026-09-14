@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:verifier-run:0.1",
+  "title": "ACCORD-02R3 verifier run record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "verifier_run_id", "input_bundle_ref", "verifier_profile_ref", "settlement_profile_ref", "extension_registry_ref", "predicate_applicability_profile_ref", "validation_rule_profile_ref", "produced_result_ref", "private_state_used", "oracle_used"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:verifier-run:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "VERIFIER_RUN" },
+    "verifier_run_id": { "type": "string", "minLength": 1 },
+    "experiment_run_ref": { "$ref": "#/$defs/experimentRunReference" },
+    "input_bundle_ref": { "$ref": "#/$defs/bundleReference" },
+    "verifier_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "authority_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "settlement_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "projection_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "extension_registry_ref": { "$ref": "#/$defs/profileReference" },
+    "predicate_applicability_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "validation_rule_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "produced_result_ref": { "$ref": "#/$defs/resultReference" },
+    "started_at": { "type": "string", "format": "date-time" },
+    "ended_at": { "type": "string", "format": "date-time" },
+    "private_state_used": { "const": false },
+    "oracle_used": { "const": false }
+  },
+  "$defs": {
+    "referenceBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "experimentRunReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "EXPERIMENT_RUN" }, "experiment_run_id": { "type": "string", "minLength": 1 } }, "required": ["experiment_run_id"] }] },
+    "bundleReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "VERIFIER_VALIDATION_BUNDLE" }, "bundle_id": { "type": "string", "minLength": 1 } }, "required": ["bundle_id"] }] },
+    "profileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "PROFILE" }, "profile_id": { "type": "string", "minLength": 1 } }, "required": ["profile_id"] }] },
+    "resultReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "VERIFIER_RESULT" }, "verifier_result_id": { "type": "string", "minLength": 1 } }, "required": ["verifier_result_id"] }] }
+  }
+}

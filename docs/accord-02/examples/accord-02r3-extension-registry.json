@@ -1,0 +1,17 @@
+{
+  "$schema": "urn:moirae:accord-02r3:schema:extension-registry:0.1",
+  "schema_id": "urn:moirae:accord-02r3:schema:extension-registry:0.1",
+  "schema_version": "0.1",
+  "record_type": "EXTENSION_REGISTRY",
+  "registry_id": "urn:moirae:accord-02r3:extensions:0.1",
+  "registry_version": "0.1",
+  "extensions": [
+    {
+      "extension_id": "display-note",
+      "namespace": "https://example.invalid/moirae/accord-02r3/display",
+      "classification": "NON_SEMANTIC",
+      "applies_to": ["portable_record", "verifier_output"],
+      "admission": "IGNORE_FOR_SEMANTICS"
+    }
+  ]
+}

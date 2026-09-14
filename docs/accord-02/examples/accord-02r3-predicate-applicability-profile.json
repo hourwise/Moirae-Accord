@@ -1,0 +1,13 @@
+{
+  "schema_id": "urn:moirae:accord-02r3:schema:predicate-applicability-profile:0.1",
+  "schema_version": "0.1",
+  "record_type": "PREDICATE_APPLICABILITY_PROFILE",
+  "profile_id": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1",
+  "profile_version": "1.0",
+  "dimensions": ["target", "resource", "recipient", "provider", "attempt_attribution"],
+  "predicates": [
+    { "predicate_id": "create_resource", "stage": "resource_created", "bindings": { "target": "REQUIRED", "resource": "REQUIRED", "recipient": "NOT_APPLICABLE", "provider": "OPTIONAL", "attempt_attribution": "OPTIONAL" } },
+    { "predicate_id": "deliver_item", "stage": "recipient_acknowledged", "bindings": { "target": "REQUIRED", "resource": "OPTIONAL", "recipient": "REQUIRED", "provider": "OPTIONAL", "attempt_attribution": "OPTIONAL" } },
+    { "predicate_id": "provider_acceptance", "stage": "provider_accepted", "bindings": { "target": "REQUIRED", "resource": "OPTIONAL", "recipient": "OPTIONAL", "provider": "REQUIRED", "attempt_attribution": "OPTIONAL" } }
+  ]
+}

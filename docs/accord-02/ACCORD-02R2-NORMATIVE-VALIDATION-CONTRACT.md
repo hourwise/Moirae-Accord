@@ -8,6 +8,14 @@ The machine-readable rule registry is
 Each rule has a stable identifier, structured inputs and condition, failure
 code, severity, and admission scopes.
 
+ACCORD-02R3 activates the bounded closure overlay
+[`accord-02r3-validation-rules.json`](./accord-02r3-validation-rules.json).
+The R2 registry and identifiers remain preserved; the overlay supplies the
+declared validation scope, profile/registry inputs, dependencies, produced
+facts, extension/source/visibility/normalization/predicate/digest rules, and
+the closure classification for all 33 R2 rules. A rule may be evaluated only
+from records and profiles in the active self-contained bundle.
+
 ## Enforcement layers
 
 1. JSON Schema performs structural admission: closed objects, discriminated
@@ -63,14 +71,17 @@ The value must resolve to the required typed record in the supplied bundle.
 
 An arm-visible portable record may retain an `extensions` member because the
 portable-record model supports profile-governed extensions. That member is not
-an unrestricted input channel. Under `ARM-007`, every extension is classified
-as one of `NON_SEMANTIC_OPAQUE`, `PROFILE_DECLARED`, or `EVIDENCE_BEARING`.
-`PROFILE_DECLARED` extensions must resolve to a namespace declared by the
-active profile; `EVIDENCE_BEARING` extensions must be bound as supplied
-evidence. Scorer expectations, oracle records, score records, expected
-outcomes, and post-run adjudication are forbidden extension semantics. An
-unclassified or forbidden extension causes admission failure and cannot be
-repaired by an outcome label.
+an unrestricted input channel. The preserved R2 `ARM-007` vocabulary remains
+historical base evidence; under the active R3 overlay, every relevant
+extension is classified by the supplied extension registry as
+`NON_SEMANTIC`, `PROFILE_DECLARED`, `AUTHORITY_BEARING`, `SETTLEMENT_BEARING`,
+`EVIDENCE_BEARING`, or `UNKNOWN_FORBIDDEN`. The R3 classification and its
+admission action are authoritative for an R3 validation scope. Authority-,
+settlement-, and evidence-bearing extensions require their declared comparator
+or profile/binding; scorer expectations, oracle records, score records,
+expected outcomes, and post-run adjudication are forbidden extension
+semantics. An unclassified or forbidden extension causes admission failure and
+cannot be repaired by an outcome label.
 
 Source type to source-record-type compatibility is the explicit machine-readable
 `pair_table` in `ARM-004`; the source schema identifier and version must also
@@ -135,3 +146,19 @@ This contract does not execute validation, implement a verifier, create an
 experiment harness, provide cryptographic trust, or establish external ground
 truth. It makes the required decisions and failure conditions explicit so a
 future implementation cannot replace them with undocumented local behavior.
+
+## R3 scope and dependency closure
+
+The active bundle contracts are
+[`accord-02r3-verifier-validation-bundle.schema.json`](./schema/accord-02r3-verifier-validation-bundle.schema.json),
+[`accord-02r3-experiment-validation-bundle.schema.json`](./schema/accord-02r3-experiment-validation-bundle.schema.json),
+and [`accord-02r3-scorer-bundle.schema.json`](./schema/accord-02r3-scorer-bundle.schema.json).
+The machine-readable dependency graph is
+[`accord-02r3-validation-dependency-graph.json`](./accord-02r3-validation-dependency-graph.json).
+
+Resolution first establishes the supplied scope and active profiles, then
+checks typed IDs, structure, optional digests, extension/source membership,
+role visibility, proposition applicability, lineage, projection, and scoring
+boundaries. `MISSING`, `DUPLICATE`, `WRONG_TYPE`,
+`STRUCTURALLY_INVALID_REFERENCE_TARGET`, and digest failures are validation
+failures only; none is a claim about external occurrence or non-occurrence.

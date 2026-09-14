@@ -677,3 +677,11 @@ proposition. Repeated summary fields are non-authoritative and MUST either be
 absent or match the resolved descriptor under the ACCORD-02R2 validation
 contract. A transport message ID or provider operation ID cannot substitute for
 the proposition reference.
+
+For ACCORD-02R3, the portable-record `extensions` member is governed by the
+supplied extension registry
+[`accord-02r3-extension-registry.json`](./examples/accord-02r3-extension-registry.json).
+An unregistered extension is `UNKNOWN_FORBIDDEN` for authority/effect/verifier
+purposes; a non-semantic extension is opaque and cannot influence a conclusion.
+Authority-, settlement-, and evidence-bearing extensions require the matching
+declared profile/comparator before they can be admitted.

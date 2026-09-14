@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1",
+  "title": "ACCORD-02R3 role and condition visibility profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "profile_id", "profile_version", "roles", "field_rules"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1" },
+    "schema_version": { "const": "0.1" },
+    "profile_id": { "const": "urn:moirae:accord-02r3:role-visibility:0.1" },
+    "profile_version": { "const": "0.1" },
+    "roles": { "type": "array", "items": { "enum": ["ORCHESTRATOR", "DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"] }, "uniqueItems": true },
+    "field_rules": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/fieldRule" }, "uniqueItems": true }
+  },
+  "$defs": {
+    "fieldRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field_family", "producing_role", "consumer_roles", "visibility", "semantic_use"],
+      "properties": {
+        "field_family": { "type": "string", "minLength": 1 },
+        "producing_role": { "type": "string", "minLength": 1 },
+        "consumer_roles": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "visibility": { "enum": ["ORCHESTRATOR_ONLY", "FIXTURE_PRIVATE", "PROVIDER_VISIBLE", "ARM_VISIBLE", "SCORER_ONLY"] },
+        "semantic_use": { "enum": ["CONFIGURATION_ONLY", "OBSERVABLE_INPUT", "SCORING_ONLY", "NEVER_SETTLEMENT_EVIDENCE"] }
+      }
+    }
+  }
+}

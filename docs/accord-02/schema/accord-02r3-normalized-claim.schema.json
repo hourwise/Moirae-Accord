@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:normalized-claim:0.1",
+  "title": "ACCORD-02R3 normalized arm claim",
+  "description": "An untrusted, deterministic interpretation of one arm's raw output. It is not scorer truth and is not automatically an Accord settlement.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "normalized_claim_id", "run_id", "arm_id", "raw_output_ref", "normalization_profile_ref", "occurrence_claim", "attribution_claim", "causal_claim", "indeterminacy_category", "oracle_input_used", "scorer_truth_used"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:normalized-claim:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "NORMALIZED_CLAIM" },
+    "normalized_claim_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+    "raw_output_ref": { "$ref": "#/$defs/reference" },
+    "normalization_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "occurrence_claim": { "enum": ["POSITIVE", "NEGATIVE", "PARTIAL", "PROVIDER_ACCEPTED_ONLY", "DUPLICATE_RISK", "UNKNOWN", "NO_CLAIM", "CONFLICTING"] },
+    "attribution_claim": { "enum": ["SPECIFIC_ATTEMPT", "ONE_OR_MORE_ATTEMPTS", "UNKNOWN", "CONFLICTING", "NO_CLAIM"] },
+    "causal_claim": { "enum": ["SPECIFIC_ATTEMPT", "ONE_OR_MORE_ATTEMPTS", "EFFECT_BOUND", "EXTERNAL_STATE_ONLY", "UNKNOWN", "CONFLICTING", "NO_CLAIM"] },
+    "indeterminacy_category": { "enum": ["NONE", "PENDING", "TERMINAL", "INSUFFICIENT", "STALE", "INADMISSIBLE", "PROFILE_INCOMPATIBLE", "CONFLICTING", "POSSIBLE_DUPLICATE"] },
+    "provider_stage_claim": { "type": "string", "minLength": 1 },
+    "oracle_input_used": { "const": false },
+    "scorer_truth_used": { "const": false }
+  },
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "record_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "RAW_ARM_OUTPUT" },
+        "record_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "profileReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "profile_id", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "const": "PROFILE" },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

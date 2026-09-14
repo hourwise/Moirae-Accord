@@ -5,7 +5,7 @@
   "description": "A separate scorer artifact containing expectation, hidden oracle, normalization, and metric adjudication. It is never an arm or verifier input.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_id", "schema_version", "score_record_id", "experiment_version", "experiment_run_ref", "result_record_ref", "proposition_ref", "scenario_id", "arm_id", "information_class", "system_under_test_visible", "oracle_hidden_from_system", "expectation_ref", "actual_oracle_outcome", "normalized_arm_interpretation", "metric_contributions", "categorical_failure_codes", "exclusion", "rerun", "integrity"],
+  "required": ["schema_id", "schema_version", "score_record_id", "experiment_version", "experiment_run_ref", "result_record_ref", "raw_arm_output_ref", "normalized_claim_ref", "proposition_ref", "scenario_id", "arm_id", "information_class", "system_under_test_visible", "oracle_hidden_from_system", "expectation_ref", "actual_oracle_outcome", "normalized_arm_interpretation", "metric_contributions", "categorical_failure_codes", "exclusion", "rerun", "integrity"],
   "properties": {
     "$schema": { "type": "string", "format": "uri" },
     "schema_id": { "const": "urn:moirae:accord-02d:score-record" },
@@ -14,6 +14,8 @@
     "experiment_version": { "type": "string", "minLength": 1 },
     "experiment_run_ref": { "$ref": "#/$defs/experimentRunReference" },
     "result_record_ref": { "$ref": "#/$defs/experimentResultReference" },
+    "raw_arm_output_ref": { "$ref": "#/$defs/rawArmOutputReference" },
+    "normalized_claim_ref": { "$ref": "#/$defs/normalizedClaimReference" },
     "proposition_ref": { "$ref": "#/$defs/propositionReference" },
     "scenario_id": { "type": "string", "minLength": 1 },
     "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
@@ -65,6 +67,8 @@
     "portableBundleReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "PORTABLE_BUNDLE" }, "portable_bundle_id": { "type": "string", "minLength": 1 } }, "required": ["portable_bundle_id"] }], "unevaluatedProperties": false },
     "propositionReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "effect_proposition" }, "proposition_id": { "type": "string", "minLength": 1 }, "schema_id": { "const": "urn:moirae:accord-02r2:effect-proposition" }, "schema_version": { "const": "0.1" } }, "required": ["proposition_id"] }], "unevaluatedProperties": false },
     "normalizationProfileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "NORMALIZATION_PROFILE" }, "normalization_profile_id": { "type": "string", "minLength": 1 } }, "required": ["normalization_profile_id"] }], "unevaluatedProperties": false },
+    "rawArmOutputReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "RAW_ARM_OUTPUT" }, "raw_arm_output_id": { "type": "string", "minLength": 1 } }, "required": ["raw_arm_output_id"] }], "unevaluatedProperties": false },
+    "normalizedClaimReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "NORMALIZED_CLAIM" }, "normalized_claim_id": { "type": "string", "minLength": 1 } }, "required": ["normalized_claim_id"] }], "unevaluatedProperties": false },
     "oracleOutcome": {
       "type": "object",
       "additionalProperties": false,

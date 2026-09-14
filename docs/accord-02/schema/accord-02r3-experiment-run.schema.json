@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:experiment-run:0.1",
+  "title": "ACCORD-02R3 experiment run record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "experiment_run_id", "experiment_version", "scenario_id", "arm_id", "arm_input_manifest_ref", "experiment_profile_ref", "source_schema_registry_ref", "role_visibility_profile_ref", "validation_rule_profile_ref", "normalization_profile_ref", "status", "oracle_reference_absent", "scorer_expectation_reference_absent"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:experiment-run:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "EXPERIMENT_RUN" },
+    "experiment_run_id": { "type": "string", "minLength": 1 },
+    "experiment_version": { "type": "string", "minLength": 1 },
+    "scenario_id": { "type": "string", "minLength": 1 },
+    "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE"] },
+    "arm_input_manifest_ref": { "$ref": "#/$defs/manifestReference" },
+    "experiment_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "source_schema_registry_ref": { "$ref": "#/$defs/profileReference" },
+    "role_visibility_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "validation_rule_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "normalization_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "classifier_feature_profile_ref": { "$ref": "#/$defs/profileReference" },
+    "seed": { "type": "integer", "minimum": 0 },
+    "configuration_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" },
+    "started_at": { "type": "string", "format": "date-time" },
+    "ended_at": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["ASSIGNED", "STARTED", "COMPLETED", "FAILED_TO_START", "EXCLUDED"] },
+    "oracle_reference_absent": { "const": true },
+    "scorer_expectation_reference_absent": { "const": true }
+  },
+  "allOf": [
+    { "if": { "properties": { "arm_id": { "const": "ARM-C-LIGHTWEIGHT-CLASSIFIER" } }, "required": ["arm_id"] }, "then": { "required": ["classifier_feature_profile_ref"] } },
+    { "if": { "properties": { "arm_id": { "enum": ["ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-D-ACCORD-EVIDENCE"] } }, "required": ["arm_id"] }, "then": { "not": { "required": ["classifier_feature_profile_ref"] } } }
+  ],
+  "$defs": {
+    "referenceBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_type", "schema_id", "schema_version"],
+      "properties": {
+        "record_type": { "type": "string", "minLength": 1 },
+        "schema_id": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "manifestReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "ARM_INPUT_MANIFEST" }, "arm_input_manifest_id": { "type": "string", "minLength": 1 } }, "required": ["arm_input_manifest_id"] }] },
+    "profileReference": { "allOf": [{ "$ref": "#/$defs/referenceBase" }, { "type": "object", "properties": { "record_type": { "const": "PROFILE" }, "profile_id": { "type": "string", "minLength": 1 } }, "required": ["profile_id"] }] }
+  }
+}

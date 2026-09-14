@@ -303,5 +303,13 @@
       "severity": "BLOCKING",
       "required_for": ["scoring admission"]
     }
-  ]
+  ],
+  "active_r3_overlay": {
+    "overlay_id": "urn:moirae:accord-02r3:schema:validation-rules:0.1",
+    "overlay_path": "accord-02r3-validation-rules.json",
+    "status": "ACTIVE_FOR_ACCORD_02R3",
+    "base_rules_preserved": true,
+    "base_rule_dependencies_and_closures": "accord-02r3-validation-rules.json#/base_rule_closures",
+    "additional_rules": "accord-02r3-validation-rules.json#/rules"
+  }
 }

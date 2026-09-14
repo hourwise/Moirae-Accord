@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r3:schema:extension-registry:0.1",
+  "title": "ACCORD-02R3 extension classification registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "registry_id", "registry_version", "extensions"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02r3:schema:extension-registry:0.1" },
+    "schema_version": { "const": "0.1" },
+    "record_type": { "const": "EXTENSION_REGISTRY" },
+    "registry_id": { "const": "urn:moirae:accord-02r3:extensions:0.1" },
+    "registry_version": { "const": "0.1" },
+    "extensions": { "type": "array", "items": { "$ref": "#/$defs/extension" }, "uniqueItems": true }
+  },
+  "$defs": {
+    "extension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["extension_id", "namespace", "classification", "applies_to", "admission"],
+      "properties": {
+        "extension_id": { "type": "string", "minLength": 1 },
+        "namespace": { "type": "string", "format": "uri" },
+        "classification": { "enum": ["NON_SEMANTIC", "PROFILE_DECLARED", "AUTHORITY_BEARING", "SETTLEMENT_BEARING", "EVIDENCE_BEARING", "UNKNOWN_FORBIDDEN"] },
+        "applies_to": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "profile_id": { "type": "string", "minLength": 1 },
+        "admission": { "enum": ["IGNORE_FOR_SEMANTICS", "REQUIRE_DECLARED_PROFILE", "REQUIRE_AUTHORITY_COMPARATOR", "REQUIRE_SETTLEMENT_PROFILE", "REQUIRE_EVIDENCE_BINDING", "REJECT"] }
+      }
+    }
+  }
+}
