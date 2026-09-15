@@ -1,0 +1,36 @@
+{
+  "status": "CANDIDATE / ANALYSIS — NOT ACCEPTED",
+  "accepted_sources": [
+    "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md",
+    "docs/accord-02/ACCORD-02C-EVIDENCE-AND-TRUST.md",
+    "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md",
+    "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json",
+    "docs/accord-02/examples/accord-02c-settlement-test-vectors.json"
+  ],
+  "terms": [
+    { "term": "attempt_recorded", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:98", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "CLAIM_NOT_STAGE" },
+    { "term": "dispatch", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:22,98", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": true, "classification": "LIFECYCLE_OR_ATTEMPT_EVENT_NOT_TARGET_STAGE" },
+    { "term": "transport_acknowledgement", "source": "ACCORD-02C-EVIDENCE-AND-TRUST.md:43; V002 observation/evidence", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": true, "classification": "EVIDENCE_CLASS_OR_OBSERVATION_KIND_NOT_STAGE" },
+    { "term": "provider_acceptance", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:61,70; V014/V021", "normative": true, "schema_enumerated": false, "profile_enumerated": true, "vector_used": true, "classification": "PREDICATE_OR_STAGE_TERM" },
+    { "term": "provider_accepted", "source": "accord-02r3-predicate-applicability-profile.json:11", "normative": true, "schema_enumerated": true, "profile_enumerated": true, "vector_used": false, "classification": "PROFILE_STAGE" },
+    { "term": "processing_started", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:62,227", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "C_PROSE_PREDICATE_EXAMPLE" },
+    { "term": "provider_effect", "source": "ACCORD-02C-EVIDENCE-AND-TRUST.md:45; provider_effect_receipt observations", "normative": false, "schema_enumerated": false, "profile_enumerated": false, "vector_used": true, "classification": "EVIDENCE_DESCRIPTION_NOT_ACCEPTED_STAGE" },
+    { "term": "resource_created", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:63; accord-02r3-predicate-applicability-profile.json:9; V017/V022", "normative": true, "schema_enumerated": true, "profile_enumerated": true, "vector_used": true, "classification": "PREDICATE_AND_PROFILE_STAGE_WITH_UNMAPPED_URN" },
+    { "term": "resource_visible", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:64,72", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "C_PROSE_PREDICATE_WITHOUT_ACTIVE_PROFILE_ROW" },
+    { "term": "recipient_acknowledgement", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:65,71,228; V014 input.stages", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": true, "classification": "C_PROSE_AND_VECTOR_STAGE_TERM" },
+    { "term": "recipient_acknowledged", "source": "accord-02r3-predicate-applicability-profile.json:10", "normative": true, "schema_enumerated": true, "profile_enumerated": true, "vector_used": false, "classification": "PROFILE_STAGE_SPELLING_VARIANT_NOT_DECLARED_ALIAS" },
+    { "term": "payment_authorized", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:66", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "C_PROSE_PREDICATE_EXAMPLE" },
+    { "term": "payment_settled", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:67", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "C_PROSE_PREDICATE_EXAMPLE" },
+    { "term": "publication_created", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:68", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "C_PROSE_PREDICATE_EXAMPLE" },
+    { "term": "publication_visible", "source": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:68,228", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "C_PROSE_PREDICATE_EXAMPLE" },
+    { "term": "settled", "source": "No accepted stage enumeration found; settlement is a result process/dimension", "normative": false, "schema_enumerated": false, "profile_enumerated": false, "vector_used": false, "classification": "NOT_ESTABLISHED_AS_STAGE" },
+    { "term": "complete-negative", "source": "V013 target and ACCORD-02C sections 9 / Evidence and Trust section 8", "normative": true, "schema_enumerated": false, "profile_enumerated": false, "vector_used": true, "classification": "NEGATIVE_PREDICATE_OR_QUERY_TYPE_NOT_POSITIVE_STAGE" }
+  ],
+  "stage_ordering": {
+    "global_total_order_present": false,
+    "profile_scoped_order_or_dependency_required": true,
+    "vector_supplied_order": { "vector_id": "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT", "stages": ["provider_acceptance", "recipient_acknowledgement"], "status": "LOCAL_VECTOR_INPUT_ONLY" },
+    "optional_experiment_surface": "ACCORD-02D-EXPERIMENT-DESIGN.md:118-121 lists acceptance, processing, creation, visibility, and recipient acknowledgement as an optional staged fixture surface; it is not an accepted universal order.",
+    "conclusion": "Accepted material defines stage-specific settlement and profile-scoped ordering, but does not define a single global stage vocabulary or total order."
+  }
+}

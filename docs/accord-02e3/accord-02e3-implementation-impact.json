@@ -1,0 +1,43 @@
+{
+  "status": "CANDIDATE / ANALYSIS — NOT ACCEPTED",
+  "implementation_boundary": "No ACCORD-03 code is changed or used as normative evidence.",
+  "options": {
+    "OPTION_A_EXPLICIT_STAGE_PER_VECTOR": {
+      "predicate_resolution": "Exact tuple resolution can be reused after vector targets receive explicit stages and URN-to-profile identity is declared.",
+      "binding": "Proposition descriptor and evidence coverage must carry the same exact stage.",
+      "settlement": "Partial/evidence outcomes become evaluable against a declared requested stage.",
+      "projection": "R1 mapping can use existing stage-bearing projection requirements.",
+      "vector_execution": "All 23 vectors require fixture amendment and re-certification.",
+      "certification": "E2 vector certification can target 23 exact tuples after amendment."
+    },
+    "OPTION_B_GENERIC_EXTERNAL_EFFECT_STAGELESS": {
+      "predicate_resolution": "Would require a new stage-less resolution path, contrary to the current exact stage-bearing contract.",
+      "binding": "Would need a new generic proposition identity rule.",
+      "settlement": "Would need explicit provider-acceptance, occurrence, partial-effect, and later-stage rules.",
+      "projection": "Would need non-strengthening rules for stage-less output.",
+      "vector_execution": "Could not be adopted by implementation without a broader semantic change.",
+      "certification": "Not certifiable from current package."
+    },
+    "OPTION_C_GENERIC_PLUS_REQUESTED_MINIMUM_STAGE": {
+      "predicate_resolution": "Requires a new target minimum-stage field and a profile-bound ordering/comparison contract.",
+      "binding": "Evidence must bind the same generic predicate and satisfy the minimum-stage relation.",
+      "settlement": "Partial effect becomes a below-minimum-stage result.",
+      "projection": "Projection must preserve requested minimum stage and not strengthen it.",
+      "vector_execution": "All affected vectors require explicit minimum stage values.",
+      "certification": "Needs new package version and new test vectors."
+    },
+    "OPTION_D_TYPED_HYBRID": {
+      "predicate_resolution": "Exact stage-specific registry for positive rows plus distinct typed contracts for generic external effect and complete-negative.",
+      "binding": "Positive propositions retain exact stage; negative/query propositions bind scope, interval, completeness, retention, and freshness.",
+      "settlement": "Preserves partial staged effects and bounded non-occurrence without forcing negative evidence into a positive stage row.",
+      "projection": "Existing native-C projection can remain stage/proposition constrained.",
+      "vector_execution": "Requires explicit decision for 18 external-effect vectors and V013.",
+      "certification": "Requires fresh package/vector certification after normative amendment."
+    }
+  },
+  "implementation_change_status": "NONE",
+  "preserved_backlog": [
+    "ACCORD-03R1 external implementation assessment findings",
+    "ACCORD-03R2 cross-assessor implementation/certification remediation findings"
+  ]
+}

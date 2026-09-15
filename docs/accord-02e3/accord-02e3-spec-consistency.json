@@ -1,0 +1,17 @@
+{
+  "status": "CANDIDATE / ANALYSIS — NOT ACCEPTED",
+  "checks": [
+    { "id": "E3-CONS-001", "statement": "C says intended predicate and stage are always carried in target and evidence", "status": "PASS", "basis": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:70-74" },
+    { "id": "E3-CONS-002", "statement": "All 23 vectors carry an explicit target.stage", "status": "FAIL", "basis": "Inventory found zero explicit target.stage values" },
+    { "id": "E3-CONS-003", "statement": "A vector can provide a selected target stage through input.stages alone", "status": "FAIL", "basis": "V014 lists two stages without selecting the requested target; no accepted selection rule exists" },
+    { "id": "E3-CONS-004", "statement": "The active applicability profile contains rows for every vector predicate identifier", "status": "FAIL", "basis": "Profile contains only create_resource, deliver_item, and provider_acceptance" },
+    { "id": "E3-CONS-005", "statement": "C defines stage-specific non-alias semantics", "status": "PASS", "basis": "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:70-73,216-229" },
+    { "id": "E3-CONS-006", "statement": "C defines a global total order over every stage-like term", "status": "FAIL", "basis": "C requires profile-scoped order/dependency; no universal order is supplied" },
+    { "id": "E3-CONS-007", "statement": "Complete-negative is a positive lifecycle stage", "status": "FAIL", "basis": "C and Evidence and Trust define it as bounded negative evidence/query semantics" },
+    { "id": "E3-CONS-008", "statement": "R1 projection requires stage/proposition lineage", "status": "PASS", "basis": "accord-02r1-settlement-vocabulary-map.json MAP-001 through MAP-007" },
+    { "id": "E3-CONS-009", "statement": "Accepted material determines a unique stage for all external-effect vectors", "status": "FAIL", "basis": "Generic target and stage fields are absent; evidence classes do not supply an accepted stage mapping" },
+    { "id": "E3-CONS-010", "statement": "The accepted package can be amended without modifying 0.1", "status": "PASS", "basis": "E1/E2 versioning boundary" }
+  ],
+  "counts": { "pass": 4, "fail": 6, "ambiguous": 0 },
+  "conclusion": "The accepted model has clear stage-specific intent but does not provide enough input/registry semantics for complete deterministic resolution."
+}

@@ -1,0 +1,65 @@
+{
+  "status": "CANDIDATE / ANALYSIS — NOT ACCEPTED",
+  "options": [
+    {
+      "id": "OPTION_A_EXPLICIT_STAGE_PER_VECTOR",
+      "description": "Add an explicit target stage to every affected vector and retain exact predicate/stage resolution.",
+      "faithfulness": "HIGH",
+      "new_semantic_decisions": "HIGH",
+      "existing_vector_effect": "Requires decisions for all 18 external-effect vectors and V013; V014 requires selecting the requested later stage.",
+      "fail_closed": "HIGH",
+      "independent_implementability": "HIGH after decisions are made",
+      "partial_effect_compatibility": "HIGH",
+      "negative_evidence_compatibility": "Requires separate typed negative contract",
+      "practicality": "Good capture shape; producers can bind a target stage if the experiment declares one",
+      "assessment": "Viable amendment shape, but accepted material does not select all required stages."
+    },
+    {
+      "id": "OPTION_B_GENERIC_EXTERNAL_EFFECT_STAGELESS",
+      "description": "Treat external-effect as one stage-less generic predicate and make stage output-only.",
+      "faithfulness": "LOW_TO_MEDIUM",
+      "new_semantic_decisions": "HIGH",
+      "existing_vector_effect": "Could preserve broad outcomes but leaves provider acceptance, occurrence, and recipient acknowledgement boundaries undefined.",
+      "fail_closed": "LOW",
+      "independent_implementability": "FAILS without a new rule for what generic occurrence means",
+      "partial_effect_compatibility": "LOW; PARTIAL_EFFECT has no requested later stage",
+      "negative_evidence_compatibility": "LOW; bounded absence needs a named proposition",
+      "practicality": "Easy to capture but semantically unsafe",
+      "assessment": "Falsified by C's requirement that intended predicate and stage be carried and by the V014 partial-stage case."
+    },
+    {
+      "id": "OPTION_C_GENERIC_PLUS_REQUESTED_MINIMUM_STAGE",
+      "description": "Retain generic external-effect but add an explicit requested minimum/target stage field.",
+      "faithfulness": "MEDIUM_TO_HIGH",
+      "new_semantic_decisions": "MEDIUM_TO_HIGH",
+      "existing_vector_effect": "Requires a stage for each vector and a rule for minimum-stage satisfaction and partial effect.",
+      "fail_closed": "HIGH",
+      "independent_implementability": "HIGH after stage vocabulary and ordering are supplied",
+      "partial_effect_compatibility": "HIGH if the minimum-stage relation is explicit",
+      "negative_evidence_compatibility": "Separate negative contract still required",
+      "practicality": "Capture is plausible but introduces a new target field and comparison semantics",
+      "assessment": "Bounded possibility, not determined by accepted material."
+    },
+    {
+      "id": "OPTION_D_TYPED_HYBRID",
+      "description": "Use exact stage-specific positive predicates where defined; use a distinct generic-effect contract and a distinct complete-negative contract for the remaining families.",
+      "faithfulness": "HIGH",
+      "new_semantic_decisions": "MEDIUM_TO_HIGH",
+      "existing_vector_effect": "Preserves resource-created, recipient acknowledgement, and provider acceptance intent; external-effect and complete-negative need explicit contracts.",
+      "fail_closed": "HIGH",
+      "independent_implementability": "HIGH only after the two remaining contracts are written",
+      "partial_effect_compatibility": "HIGH",
+      "negative_evidence_compatibility": "HIGH",
+      "practicality": "Best separation of positive and negative capture requirements",
+      "assessment": "Preferred design direction, but not yet a complete normative decision."
+    }
+  ],
+  "falsification_summary": {
+    "OPTION_B": "Rejected as a complete model because it cannot explain V014's earlier-supported/later-unresolved result without a requested target stage.",
+    "OPTION_A": "Does not by itself define the missing stage choices; it is a data-shape amendment, not a completed semantic decision.",
+    "OPTION_C": "Preserves a generic predicate only by adding new minimum-stage and ordering semantics.",
+    "OPTION_D": "Most faithful bounded direction, but still requires a generic-effect contract and a negative proposition contract."
+  },
+  "recommended_direction": "OPTION_D_TYPED_HYBRID",
+  "recommendation_status": "DIRECTION_ONLY — NOT NORMATIVE"
+}
