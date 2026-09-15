@@ -1,0 +1,13 @@
+{
+  "candidate_status": "CANDIDATE — NOT ACCEPTED",
+  "checks": [
+    { "id": "CONS-001", "statement": "Accepted 0.1 package remains byte-for-byte unchanged", "status": "PASS" },
+    { "id": "CONS-002", "statement": "Registry resolution key is exact predicate_id plus stage", "status": "PASS" },
+    { "id": "CONS-003", "statement": "Unknown predicate behavior is explicit", "status": "PASS" },
+    { "id": "CONS-004", "statement": "No lexical or stage-only fallback is admitted", "status": "PASS" },
+    { "id": "CONS-005", "statement": "All 23 accepted vectors resolve exactly once", "status": "FAIL", "reason": "Stage is absent or non-selected in the accepted vector inputs." },
+    { "id": "CONS-006", "statement": "Complete-negative semantics are fully registry-bound", "status": "FAIL", "reason": "The accepted vector has completeness flags but no accepted target-stage/negative-applicability contract." },
+    { "id": "CONS-007", "statement": "Resource-visible semantics are explicitly supported", "status": "FAIL", "reason": "No accepted applicability or settlement capability defines them." }
+  ],
+  "verdict": "AMENDMENT_DESIGN_INCOMPLETE"
+}

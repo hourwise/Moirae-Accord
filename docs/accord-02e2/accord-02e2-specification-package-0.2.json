@@ -1,0 +1,15 @@
+{
+  "candidate_status": "CANDIDATE — NOT ACCEPTED",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "closure_policy": "CLOSED_EXACT_VERSION",
+  "supersedes": { "package_id": "urn:moirae:accord-02r5:specification-package", "package_version": "0.1", "immutable": true },
+  "candidate_kind": "ADDITIVE_REGISTRY_AMENDMENT",
+  "added_contracts": [
+    { "contract_type": "PREDICATE_REGISTRY_SCHEMA", "id": "urn:moirae:accord-02e2:schema:predicate-registry:0.1", "path": "docs/accord-02e2/accord-02e2-predicate-registry.schema.json" },
+    { "contract_type": "PREDICATE_REGISTRY", "id": "urn:moirae:accord-02e2:predicate-registry", "version": "0.1", "path": "docs/accord-02e2/accord-02e2-predicate-registry.json" }
+  ],
+  "inherited_inventory_assertion": { "schema_contracts": 44, "profile_contracts": 31, "canonicalization_profiles": 1, "role_values": 9, "active_source_schema_pairs": 13, "active_arm_profile_references": 16, "active_validation_rules": 82 },
+  "resolution_contract": { "key": ["predicate_id", "stage"], "unknown_predicate": "UNKNOWN_PREDICATE", "missing_stage": "UNRESOLVED_INPUT_STAGE", "fallback": "FORBIDDEN" },
+  "candidate_closure": { "status": "INCOMPLETE", "accepted_vectors_resolved": 0, "accepted_vectors_total": 23, "blocking_reason": "Accepted vector inputs omit the stage required by the exact registry key; completing the package requires a further normative amendment to the accepted C vector/target contract." }
+}

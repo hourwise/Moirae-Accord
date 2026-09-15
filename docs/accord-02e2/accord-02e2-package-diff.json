@@ -1,0 +1,13 @@
+{
+  "candidate_status": "CANDIDATE — NOT ACCEPTED",
+  "from_package": { "package_id": "urn:moirae:accord-02r5:specification-package", "version": "0.1", "immutable": true },
+  "to_package": { "package_id": "urn:moirae:accord-02r5:specification-package", "version": "0.2", "status": "candidate_only" },
+  "changes": [
+    { "kind": "ADD", "contract": "predicate registry schema", "path": "docs/accord-02e2/accord-02e2-predicate-registry.schema.json" },
+    { "kind": "ADD", "contract": "predicate registry candidate", "path": "docs/accord-02e2/accord-02e2-predicate-registry.json" },
+    { "kind": "ADD", "contract": "language-neutral resolution vectors", "path": "docs/accord-02e2/accord-02e2-predicate-resolution-vectors.json" }
+  ],
+  "unchanged_assertions": ["Accepted 0.1 package is not modified.", "No alias, prefix, suffix, punctuation, display-name, or stage-only fallback is introduced.", "No accepted vector is rewritten."],
+  "closure_status": "INCOMPLETE",
+  "reason": "The additive registry contract is explicit, but the current accepted vectors do not supply the stage needed to resolve their target tuples."
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_status": "CANDIDATE — NOT ACCEPTED",
+  "implementation_impact": {
+    "accord_03a": "No change. Package resolver must not load candidate 0.2 until accepted.",
+    "accord_03b": "No change. Structural validation cannot synthesize missing target stages.",
+    "accord_03c": "No change. Settlement/verifier must fail closed on unresolved predicate-stage identity.",
+    "accord_03d": "No change. Existing conformance corpus must remain based on accepted 0.1 semantics.",
+    "future_required_if_amended": [
+      "Add explicit stage to each affected accepted target/effect vector, or define a normative non-positive predicate contract that does not use an inferred stage.",
+      "Define complete-negative applicability as a first-class accepted contract.",
+      "Decide whether resource-visible is supported; if so, add its exact profile row and evidence capability.",
+      "Re-run package and vector certification after the normative amendment."
+    ]
+  },
+  "external_backlog_preserved": ["ACCORD-03R1 external implementation assessment", "ACCORD-03R2 cross-assessor implementation/certification remediation"]
+}

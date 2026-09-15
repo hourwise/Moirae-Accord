@@ -1,0 +1,56 @@
+{
+  "$schema": "urn:moirae:accord-02e2:schema:predicate-registry:0.1",
+  "candidate_status": "CANDIDATE — NOT ACCEPTED",
+  "registry_id": "urn:moirae:accord-02e2:predicate-registry",
+  "registry_version": "0.1",
+  "resolution_key": ["predicate_id", "stage"],
+  "unknown_predicate_behavior": "UNKNOWN_PREDICATE",
+  "entries": [
+    {
+      "predicate_id": "urn:accord:02c:predicate:resource-created",
+      "stage": "resource_created",
+      "kind": "POSITIVE_EFFECT",
+      "category": "RESOURCE_CREATION",
+      "profile_predicate_id": "create_resource",
+      "profile_stage": "resource_created",
+      "bindings": { "target": "REQUIRED", "resource": "REQUIRED", "recipient": "NOT_APPLICABLE", "provider": "OPTIONAL", "attempt_attribution": "OPTIONAL" },
+      "evidence_capability_ref": "urn:moirae:accord-02e2:evidence-capability:resource-created:0.1",
+      "negative_policy": "NOT_APPLICABLE",
+      "resolution_mode": "EXACT_PREDICATE_AND_STAGE"
+    },
+    {
+      "predicate_id": "urn:accord:02c:predicate:recipient-ack",
+      "stage": "recipient_acknowledged",
+      "kind": "POSITIVE_EFFECT",
+      "category": "RECIPIENT_DELIVERY",
+      "profile_predicate_id": "deliver_item",
+      "profile_stage": "recipient_acknowledged",
+      "bindings": { "target": "REQUIRED", "resource": "OPTIONAL", "recipient": "REQUIRED", "provider": "OPTIONAL", "attempt_attribution": "OPTIONAL" },
+      "evidence_capability_ref": "urn:moirae:accord-02e2:evidence-capability:recipient-ack:0.1",
+      "negative_policy": "NOT_APPLICABLE",
+      "resolution_mode": "EXACT_PREDICATE_AND_STAGE"
+    },
+    {
+      "predicate_id": "urn:accord:02c:predicate:provider-acceptance",
+      "stage": "provider_accepted",
+      "kind": "POSITIVE_EFFECT",
+      "category": "PROVIDER_ACCEPTANCE",
+      "profile_predicate_id": "provider_acceptance",
+      "profile_stage": "provider_accepted",
+      "bindings": { "target": "REQUIRED", "resource": "OPTIONAL", "recipient": "OPTIONAL", "provider": "REQUIRED", "attempt_attribution": "OPTIONAL" },
+      "evidence_capability_ref": "urn:moirae:accord-02e2:evidence-capability:provider-acceptance:0.1",
+      "negative_policy": "NOT_APPLICABLE",
+      "resolution_mode": "EXACT_PREDICATE_AND_STAGE"
+    }
+  ],
+  "unresolved_declarations": [
+    { "predicate_id": "urn:accord:02c:predicate:external-effect", "status": "UNRESOLVED_INPUT_STAGE", "reason": "All 18 accepted external-effect vectors omit target.stage and no accepted registry supplies a default stage." },
+    { "predicate_id": "urn:accord:02c:predicate:complete-negative", "status": "UNRESOLVED_NEGATIVE_CONTRACT", "reason": "The accepted vector declares negative-query completeness flags but omits a target stage or accepted negative predicate applicability contract." },
+    { "predicate_id": "urn:accord:02c:predicate:resource-visible", "status": "UNSUPPORTED", "reason": "No accepted predicate-applicability row or settlement capability defines resource-visible semantics." }
+  ],
+  "non_rules": [
+    "No predicate_id prefix, suffix, punctuation, display-name, or stage-only fallback is permitted.",
+    "Evidence class, vector identifier, attempt outcome, and observed state cannot synthesize a missing target stage.",
+    "An unresolved predicate/stage tuple cannot produce a positive settlement result."
+  ]
+}

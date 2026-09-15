@@ -1,0 +1,32 @@
+{
+  "candidate_status": "CANDIDATE — NOT ACCEPTED",
+  "resolver": {
+    "resolution_key": ["predicate_id", "stage"],
+    "algorithm": [
+      "Read the supplied predicate_id and stage.",
+      "Match exactly one registry entry on both fields.",
+      "Return UNKNOWN_PREDICATE when predicate_id is absent from the registry.",
+      "Return UNKNOWN_STAGE_FOR_PREDICATE when predicate_id exists but the tuple does not.",
+      "Return AMBIGUOUS_PREDICATE_STAGE when more than one entry has the same tuple.",
+      "Never infer a missing stage from evidence, vector ID, attempt outcome, or display text."
+    ]
+  },
+  "vectors": [
+    { "id": "REG-EXACT-RESOURCE-CREATED", "input": { "predicate_id": "urn:accord:02c:predicate:resource-created", "stage": "resource_created" }, "expected": "RESOLVED" },
+    { "id": "REG-EXACT-RECIPIENT-ACK", "input": { "predicate_id": "urn:accord:02c:predicate:recipient-ack", "stage": "recipient_acknowledged" }, "expected": "RESOLVED" },
+    { "id": "REG-EXACT-PROVIDER-ACCEPTANCE", "input": { "predicate_id": "urn:accord:02c:predicate:provider-acceptance", "stage": "provider_accepted" }, "expected": "RESOLVED" },
+    { "id": "REG-UNKNOWN-PREDICATE", "input": { "predicate_id": "urn:accord:02c:predicate:unknown", "stage": "unknown" }, "expected": "UNKNOWN_PREDICATE" },
+    { "id": "REG-UNKNOWN-STAGE", "input": { "predicate_id": "urn:accord:02c:predicate:resource-created", "stage": "recipient_acknowledged" }, "expected": "UNKNOWN_STAGE_FOR_PREDICATE" },
+    { "id": "REG-MISSING-STAGE", "input": { "predicate_id": "urn:accord:02c:predicate:external-effect" }, "expected": "UNRESOLVED_INPUT_STAGE" }
+  ],
+  "accepted_vector_gate": {
+    "source": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+    "vector_ids": ["ACCORD-02C-V001-DISPATCH-ONLY", "ACCORD-02C-V002-TRANSPORT-ACK-ONLY", "ACCORD-02C-V003-STRONG-BOUND-RECEIPT", "ACCORD-02C-V004-INDEPENDENT-CORROBORATION", "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE", "ACCORD-02C-V006-STALE-OBSERVATION", "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY", "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING", "ACCORD-02C-V009-REPLAYED-EVIDENCE", "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS", "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE", "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE", "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE", "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT", "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED", "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT", "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION", "ACCORD-02C-V018-INCOMPATIBLE-PROFILES", "ACCORD-02C-V019-CLOCK-AMBIGUITY", "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION", "ACCORD-02C-V021-RECIPIENT-MISMATCH", "ACCORD-02C-V022-PARTIAL-CORRUPTION", "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE"],
+    "resolution_status": "NOT_CERTIFIABLE",
+    "reason": "The accepted vector targets do not provide a single explicit stage for the resolution key. V014 provides two stages without selecting one; all other affected vectors omit target.stage.",
+    "resolved": 0,
+    "unresolved": 23,
+    "ambiguous": 0,
+    "lexical_fallbacks": 0
+  }
+}

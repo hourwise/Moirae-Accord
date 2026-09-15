@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e2:schema:predicate-registry:0.1",
+  "title": "ACCORD-02E2 predicate registry candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["candidate_status", "registry_id", "registry_version", "resolution_key", "unknown_predicate_behavior", "entries", "unresolved_declarations"],
+  "properties": {
+    "candidate_status": { "const": "CANDIDATE — NOT ACCEPTED" },
+    "registry_id": { "type": "string", "minLength": 1 },
+    "registry_version": { "type": "string", "minLength": 1 },
+    "resolution_key": { "const": ["predicate_id", "stage"] },
+    "unknown_predicate_behavior": { "const": "UNKNOWN_PREDICATE" },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["predicate_id", "stage", "kind", "category", "profile_predicate_id", "profile_stage", "bindings", "evidence_capability_ref", "negative_policy", "resolution_mode"],
+        "properties": {
+          "predicate_id": { "type": "string", "minLength": 1 },
+          "stage": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["POSITIVE_EFFECT", "NEGATIVE_EVIDENCE"] },
+          "category": { "type": "string", "minLength": 1 },
+          "profile_predicate_id": { "type": "string", "minLength": 1 },
+          "profile_stage": { "type": "string", "minLength": 1 },
+          "bindings": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["target", "resource", "recipient", "provider", "attempt_attribution"],
+            "properties": {
+              "target": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+              "resource": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+              "recipient": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+              "provider": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] },
+              "attempt_attribution": { "enum": ["REQUIRED", "OPTIONAL", "NOT_APPLICABLE"] }
+            }
+          },
+          "evidence_capability_ref": { "type": "string", "minLength": 1 },
+          "negative_policy": { "enum": ["NOT_APPLICABLE", "COMPLETE_SCOPE_REQUIRED"] },
+          "resolution_mode": { "const": "EXACT_PREDICATE_AND_STAGE" }
+        }
+      }
+    },
+    "unresolved_declarations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["predicate_id", "status", "reason"],
+        "properties": {
+          "predicate_id": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["UNSUPPORTED", "UNRESOLVED_INPUT_STAGE", "UNRESOLVED_NEGATIVE_CONTRACT"] },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
