@@ -1,0 +1,504 @@
+{
+  "schema_id": "urn:moirae:accord-02e4r1:schema:canonicalization-profile:0.2",
+  "schema_version": "0.2",
+  "profile_id": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+  "profile_version": "0.2",
+  "algorithm": "SHA-256",
+  "method": "RFC8785_JCS",
+  "encoding": "UTF-8",
+  "included_fields": [
+    "content"
+  ],
+  "excluded_fields": [],
+  "applies_to": [
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02a:schema:portable-record:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "PORTABLE_BUNDLE",
+        "PRINCIPAL",
+        "AUTHORITY_GRANT",
+        "INTENT",
+        "TASK",
+        "DELEGATION",
+        "EFFECT_ATTEMPT",
+        "EFFECT_OBSERVATION",
+        "EVIDENCE_ARTIFACT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02a:schema:verifier-result:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "VERIFIER_RESULT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02b:schema:authority-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "AUTHORITY_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02b:schema:authority-relation-result:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "AUTHORITY_ANALYSIS_RESULT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "SETTLEMENT_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02c:schema:settlement-result:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "SETTLEMENT_RESULT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r1:schema:settlement-vocabulary-map:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "PROJECTION_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r2:schema:effect-proposition:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "effect_proposition"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:verifier-run:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "VERIFIER_RUN"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:extension-registry:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "EXTENSION_REGISTRY"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:predicate-applicability-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "PREDICATE_APPLICABILITY_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02a:schema:portable-record:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "PORTABLE_BUNDLE",
+        "PRINCIPAL",
+        "AUTHORITY_GRANT",
+        "INTENT",
+        "TASK",
+        "DELEGATION",
+        "EFFECT_ATTEMPT",
+        "EFFECT_OBSERVATION",
+        "EVIDENCE_ARTIFACT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02a:schema:verifier-result:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "VERIFIER_RESULT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02b:schema:authority-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "AUTHORITY_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02b:schema:authority-relation-result:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "AUTHORITY_ANALYSIS_RESULT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "SETTLEMENT_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02c:schema:settlement-result:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "SETTLEMENT_RESULT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:schema:arm-input-manifest:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "ARM_INPUT_MANIFEST"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:schema:result-record:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "EXPERIMENT_RESULT_RECORD"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:schema:arm-input-profile:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "ARM_INPUT_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:schema:experiment-profile:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "EXPERIMENT_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r2:schema:effect-proposition:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "effect_proposition"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:experiment-run:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "EXPERIMENT_RUN"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:experiment-validation-bundle:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "EXPERIMENT_VALIDATION_BUNDLE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:extension-registry:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "EXTENSION_REGISTRY"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:normalization-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "NORMALIZATION_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:normalized-claim:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "NORMALIZED_CLAIM"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:predicate-applicability-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "PREDICATE_APPLICABILITY_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "ROLE_VISIBILITY_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:source-schema-registry:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "SOURCE_SCHEMA_REGISTRY"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:classifier-feature-profile:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "CLASSIFIER_FEATURE_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:verifier-run:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "VERIFIER_RUN"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:validation-rules:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "VALIDATION_RULE_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r5:schema:experiment-runtime-record:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "SCENARIO_DEFINITION",
+        "RAW_ARM_OUTPUT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:task-state",
+      "schema_version": "0.1",
+      "record_types": [
+        "TASK_STATE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:attempt",
+      "schema_version": "0.1",
+      "record_types": [
+        "ATTEMPT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:executor-state",
+      "schema_version": "0.1",
+      "record_types": [
+        "EXECUTOR_STATE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:admission-state",
+      "schema_version": "0.1",
+      "record_types": [
+        "ADMISSION_STATE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:delegate-report",
+      "schema_version": "0.1",
+      "record_types": [
+        "DELEGATE_REPORT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:provider-state-read",
+      "schema_version": "0.1",
+      "record_types": [
+        "PROVIDER_STATE_READ"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:reconciliation-result",
+      "schema_version": "0.1",
+      "record_types": [
+        "RECONCILIATION_RESULT"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:classifier-feature:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "CLASSIFIER_FEATURE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:trust-root-profile",
+      "schema_version": "0.1",
+      "record_types": [
+        "TRUST_ROOT_PROFILE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:source:detached-evidence",
+      "schema_version": "0.1",
+      "record_types": [
+        "DETACHED_EVIDENCE"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "SCORER_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:schema:result-record:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "EXPERIMENT_RESULT_RECORD"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "SCORER_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:schema:score-record:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "SCORE_RECORD"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "SCORER_ENTRY",
+      "schema_id": "urn:moirae:accord-02d:schema:scorer-expectation:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "SCORER_EXPECTATION"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "SCORER_ENTRY",
+      "schema_id": "urn:moirae:accord-02r3:schema:normalized-claim:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "NORMALIZED_CLAIM"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "SCORER_ENTRY",
+      "schema_id": "urn:moirae:accord-02r5:schema:scorer-entry:0.1",
+      "schema_version": "0.1",
+      "record_types": [
+        "SCORER_EXPECTATION",
+        "ORACLE_RECORD",
+        "SCORE_RECORD",
+        "CATEGORICAL_FAILURE_EVALUATION",
+        "METRIC_CONTRIBUTION"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "effect_proposition"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "VERIFIER_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02e4r1:schema:negative-scope-proposition:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "negative_scope_proposition"
+      ],
+      "content_target": "content"
+    },
+    {
+      "container_type": "EXPERIMENT_RECORD_ENTRY",
+      "schema_id": "urn:moirae:accord-02e4r1:schema:settlement-vector-catalog:0.2",
+      "schema_version": "0.2",
+      "record_types": [
+        "SETTLEMENT_VECTOR_CATALOG"
+      ],
+      "content_target": "content"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "manifest_id": "urn:moirae:accord-02e4r1:external-review-manifest",
+  "candidate_commit": "27670a6733b86c6061a8bb5c6188a266b7b3cb85",
+  "candidate_branch": "codex/accord-02e4r1-dual-review-remediation",
+  "assessments": [
+    {
+      "assessor": "CLAUDE",
+      "path": "docs/reviews/INDEPENDENT ACCORD 02E4 NORMATIVE AMENDMENT REVIEW CLAUDE.md",
+      "source_hash_declared_by_r1_prompt": "sha-256:3249637710b2b01374f48063933b7840e0382933a9a64424f4a83de3db81a2e1",
+      "actual_local_sha256": "sha-256:e6ef0eaae53c3b6338073509a155edee451f7bcab9aa0189190956dd89d6d852",
+      "actual_bytes": 26101,
+      "source_hash_match": false,
+      "normalization_performed": false
+    },
+    {
+      "assessor": "DEEPSEEK",
+      "path": "docs/reviews/INDEPENDENT ACCORD 02E4 PACKAGE FALSIFICATION REVIEW DEEPSEEK.md",
+      "source_hash_declared_by_r1_prompt": "sha-256:e6a50ef50be84d15291a0fb3a2c4bda646708209af134ada9d0cdc6988c73348",
+      "actual_local_sha256": "sha-256:551475fd9d4554308c6e5a76c84ca0652beaf788942789114911b08398daf1e1",
+      "actual_bytes": 40395,
+      "source_hash_match": false,
+      "normalization_performed": false
+    }
+  ],
+  "hash_note": "The supplied local files were preserved byte-for-byte. Their actual local hashes do not match the hash/byte metadata in the R1 instruction; no source-hash match is claimed."
+}

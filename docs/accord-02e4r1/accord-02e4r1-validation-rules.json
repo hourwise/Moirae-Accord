@@ -1,0 +1,505 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r1:schema:validation-rules:0.2",
+  "rule_profile_id": "urn:moirae:accord-02e4r1:validation-rules:0.2",
+  "rule_profile_version": "0.2",
+  "record_type": "VALIDATION_RULE_PROFILE",
+  "base_rule_registry": {
+    "path": "docs/accord-02/accord-02r5-validation-rules.json",
+    "profile_id": "urn:moirae:accord-02r5:validation-rules:0.1",
+    "profile_version": "0.1"
+  },
+  "overlay_semantics": "The active R1 candidate rule set is the accepted R5 active set plus this explicit versioned overlay. Candidate obligations are not silently assigned to historical rules.",
+  "overrides": [
+    {
+      "rule_id": "BND-004",
+      "replaces_classification": "UNEVALUABLE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "declared bundle scope",
+        "closed R5 specification package",
+        "schema-contract registry"
+      ],
+      "condition": {
+        "operator": "resolve_schema_contract",
+        "resolution_scope": "exact R5 package contract inventory",
+        "outcomes": [
+          "RESOLVED",
+          "MISSING",
+          "DUPLICATE",
+          "WRONG_TYPE",
+          "STRUCTURALLY_INVALID",
+          "UNSUPPORTED_VERSION"
+        ]
+      },
+      "failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "SCHEMA-001",
+        "SCHEMA-002"
+      ],
+      "produces": [
+        "SCHEMA_CONTRACT_RESOLVED"
+      ]
+    },
+    {
+      "rule_id": "BND-005",
+      "replaces_classification": "UNEVALUABLE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "active profile references",
+        "closed R5 specification package",
+        "profile-contract inventory"
+      ],
+      "condition": {
+        "operator": "resolve_active_profiles",
+        "resolution_scope": "exact R5 package profile inventory",
+        "outcomes": [
+          "RESOLVED",
+          "MISSING",
+          "DUPLICATE",
+          "WRONG_PROFILE_TYPE",
+          "UNSUPPORTED_VERSION",
+          "STRUCTURALLY_INVALID"
+        ]
+      },
+      "failure_code": "ACCORD-02R5-ACTIVE-PROFILE-RESOLUTION-FAILURE",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "PROF-002"
+      ],
+      "produces": [
+        "ACTIVE_PROFILES_RESOLVED"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "replaces_classification": "DETERMINISTIC_WITH_PROFILE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "typed reference",
+        "resolved record",
+        "resolved schema contract",
+        "supplied content digest",
+        "exact R5 canonicalization profile"
+      ],
+      "condition": {
+        "operator": "canonical_content_digest_matches",
+        "algorithm": "SHA-256",
+        "canonicalization": "resolved ACCORD-02R5 RFC8785_JCS profile",
+        "content_target": "content",
+        "profile_required_when_digest_supplied": true
+      },
+      "failure_code": "ACCORD-02R5-DIGEST-MISMATCH",
+      "depends_on": [
+        "BND-004",
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002",
+        "DIGEST-CANON-003"
+      ],
+      "produces": [
+        "DIGEST_VALID"
+      ]
+    }
+  ],
+  "candidate_additions": [
+    {
+      "rule_id": "E4R1-PRED-001",
+      "category": "PREDICATE_APPLICABILITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "exact UTF-8 predicate/stage tuple resolves to one row"
+      },
+      "failure_code": "PREDICATE_TUPLE_RESOLUTION_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PRED-004",
+        "PKG-002"
+      ],
+      "produces": [
+        "E4R1-PRED-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "category": "FAIL_CLOSED",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "unknown, wrong-stage, unsupported, or undeclared tuples cannot produce a positive result"
+      },
+      "failure_code": "PREDICATE_FAIL_CLOSED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PRED-002_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "category": "EXACT_IDENTIFIER",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "identifier comparison is case-sensitive code-point equality with no normalization or lexical fallback"
+      },
+      "failure_code": "PREDICATE_IDENTIFIER_NOT_EXACT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PRED-003_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "category": "PREDICATE_AUTHORITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "only the active R1 predicate registry is normative; retired lexical profiles are unavailable"
+      },
+      "failure_code": "COMPETING_PREDICATE_AUTHORITY",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-003"
+      ],
+      "produces": [
+        "E4R1-AUTH-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "category": "BINDING_AUTHORITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "registry required bindings are authoritative and profile requirements are additive"
+      },
+      "failure_code": "BINDING_AUTHORITY_CONTRADICTION",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PRED-001",
+        "PRED-002",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-BIND-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "category": "PROPOSITION_KIND",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "proposition kind and schema must match the resolved tuple kind"
+      },
+      "failure_code": "PROPOSITION_KIND_MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "SCHEMA-002",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PROP-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "category": "PARTIAL_EFFECT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "partial effect requires a supported direct predecessor and later-stage evidence requirement"
+      },
+      "failure_code": "PARTIAL_EFFECT_PREREQUISITE_UNSATISFIED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-BIND-001",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PART-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "category": "PREDECESSOR_IDENTITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "predecessor support must bind to the same logical effect and exact predecessor tuple"
+      },
+      "failure_code": "PREDECESSOR_EFFECT_MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PART-001",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PART-002_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "category": "PREDECESSOR_GRAPH",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "predecessor edges are direct, unique, non-self, non-dangling, and acyclic"
+      },
+      "failure_code": "PREDECESSOR_GRAPH_INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001",
+        "PKG-002"
+      ],
+      "produces": [
+        "E4R1-PART-003_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "category": "NEGATIVE_SCOPE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "negative settlement is bounded by exact negated predicate/stage and complete scope requirements"
+      },
+      "failure_code": "NEGATIVE_SCOPE_INCOMPLETE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-BIND-001"
+      ],
+      "produces": [
+        "E4R1-NEG-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "category": "NEGATIVE_SCOPE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "silence, timeout, stale, incomplete, or contradictory reads cannot support non-occurrence"
+      },
+      "failure_code": "NEGATIVE_SCOPE_NOT_SUFFICIENT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-NEG-001"
+      ],
+      "produces": [
+        "E4R1-NEG-002_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "category": "NON_ENTAILMENT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "generic occurrence, positive stage, authority, and effect remain orthogonal"
+      },
+      "failure_code": "FORBIDDEN_ENTAILMENT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-AUTH-001"
+      ],
+      "produces": [
+        "E4R1-ENT-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "category": "CANONICALIZATION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "each concrete candidate digest form resolves one canonicalization mapping and target"
+      },
+      "failure_code": "CANONICALIZATION_MAPPING_INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002"
+      ],
+      "produces": [
+        "E4R1-CANON-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "category": "EXPECTATION_CONTRACT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "all accepted expected axes, reason codes, and prohibitions remain present and comparable"
+      },
+      "failure_code": "EXPECTATION_CONTRACT_INCOMPLETE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PKG-002"
+      ],
+      "produces": [
+        "E4R1-EXPECT-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "category": "CANDIDATE_CLOSURE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator": "candidate package closure checks detect duplicate, dangling, unsafe, contradictory, and unresolved contracts"
+      },
+      "failure_code": "CANDIDATE_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-001",
+        "E4R1-PART-003",
+        "E4R1-CANON-001"
+      ],
+      "produces": [
+        "E4R1-CLOSE-001_SATISFIED"
+      ]
+    }
+  ],
+  "active_rule_count": 97,
+  "classification_gate": {
+    "acceptance_critical_ambiguous": 0,
+    "acceptance_critical_unevaluable": 0,
+    "acceptance_critical_contradictory": 0
+  }
+}

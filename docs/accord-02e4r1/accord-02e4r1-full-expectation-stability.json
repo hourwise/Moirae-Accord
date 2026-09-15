@@ -1,0 +1,14 @@
+{
+  "candidate_catalog": "urn:moirae:accord-02e4r1:catalog:settlement-vectors@0.2",
+  "source_catalog": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+  "vector_count": 23,
+  "vectors_compared": 23,
+  "field_by_field": true,
+  "expected_axes_per_vector": 13,
+  "must_not_conclude_vectors": 23,
+  "reason_code_vectors": 23,
+  "changed_expected_outcomes": [],
+  "missing_fields": [],
+  "full_semantics_preserved": true,
+  "status": "PASS"
+}

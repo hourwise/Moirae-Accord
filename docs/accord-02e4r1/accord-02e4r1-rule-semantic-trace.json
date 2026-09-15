@@ -1,0 +1,84 @@
+{
+  "rule_inventory_decision": "VERSIONED_RULE_OVERLAY_REQUIRED",
+  "base_active_rules": 82,
+  "candidate_overlay_rules": 15,
+  "active_candidate_rules": 97,
+  "mapped_obligations": [
+    {
+      "obligation": "PREDICATE_APPLICABILITY",
+      "rule_id": "E4R1-PRED-001",
+      "operator": "exact UTF-8 predicate/stage tuple resolves to one row"
+    },
+    {
+      "obligation": "FAIL_CLOSED",
+      "rule_id": "E4R1-PRED-002",
+      "operator": "unknown, wrong-stage, unsupported, or undeclared tuples cannot produce a positive result"
+    },
+    {
+      "obligation": "EXACT_IDENTIFIER",
+      "rule_id": "E4R1-PRED-003",
+      "operator": "identifier comparison is case-sensitive code-point equality with no normalization or lexical fallback"
+    },
+    {
+      "obligation": "PREDICATE_AUTHORITY",
+      "rule_id": "E4R1-AUTH-001",
+      "operator": "only the active R1 predicate registry is normative; retired lexical profiles are unavailable"
+    },
+    {
+      "obligation": "BINDING_AUTHORITY",
+      "rule_id": "E4R1-BIND-001",
+      "operator": "registry required bindings are authoritative and profile requirements are additive"
+    },
+    {
+      "obligation": "PROPOSITION_KIND",
+      "rule_id": "E4R1-PROP-001",
+      "operator": "proposition kind and schema must match the resolved tuple kind"
+    },
+    {
+      "obligation": "PARTIAL_EFFECT",
+      "rule_id": "E4R1-PART-001",
+      "operator": "partial effect requires a supported direct predecessor and later-stage evidence requirement"
+    },
+    {
+      "obligation": "PREDECESSOR_IDENTITY",
+      "rule_id": "E4R1-PART-002",
+      "operator": "predecessor support must bind to the same logical effect and exact predecessor tuple"
+    },
+    {
+      "obligation": "PREDECESSOR_GRAPH",
+      "rule_id": "E4R1-PART-003",
+      "operator": "predecessor edges are direct, unique, non-self, non-dangling, and acyclic"
+    },
+    {
+      "obligation": "NEGATIVE_SCOPE",
+      "rule_id": "E4R1-NEG-001",
+      "operator": "negative settlement is bounded by exact negated predicate/stage and complete scope requirements"
+    },
+    {
+      "obligation": "NEGATIVE_SCOPE",
+      "rule_id": "E4R1-NEG-002",
+      "operator": "silence, timeout, stale, incomplete, or contradictory reads cannot support non-occurrence"
+    },
+    {
+      "obligation": "NON_ENTAILMENT",
+      "rule_id": "E4R1-ENT-001",
+      "operator": "generic occurrence, positive stage, authority, and effect remain orthogonal"
+    },
+    {
+      "obligation": "CANONICALIZATION",
+      "rule_id": "E4R1-CANON-001",
+      "operator": "each concrete candidate digest form resolves one canonicalization mapping and target"
+    },
+    {
+      "obligation": "EXPECTATION_CONTRACT",
+      "rule_id": "E4R1-EXPECT-001",
+      "operator": "all accepted expected axes, reason codes, and prohibitions remain present and comparable"
+    },
+    {
+      "obligation": "CANDIDATE_CLOSURE",
+      "rule_id": "E4R1-CLOSE-001",
+      "operator": "candidate package closure checks detect duplicate, dangling, unsafe, contradictory, and unresolved contracts"
+    }
+  ],
+  "unmapped_obligations": []
+}

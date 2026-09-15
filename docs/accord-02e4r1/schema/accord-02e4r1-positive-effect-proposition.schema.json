@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+  "title": "ACCORD-02E4R1 positive/stage proposition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "record_type",
+    "proposition_id",
+    "proposition_kind",
+    "effect_id",
+    "predicate_id",
+    "stage",
+    "integrity"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2"
+    },
+    "schema_version": {
+      "const": "0.2"
+    },
+    "record_type": {
+      "const": "effect_proposition"
+    },
+    "proposition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposition_kind": {
+      "enum": [
+        "POSITIVE_STAGE",
+        "GENERIC_OCCURRENCE"
+      ]
+    },
+    "effect_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "predicate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resource": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "recipient_or_counterparty": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provider": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "external_identifier": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "attempt_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "binding_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "BOUND",
+            "OPTIONAL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "resource": {
+          "enum": [
+            "BOUND",
+            "OPTIONAL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "recipient_or_counterparty": {
+          "enum": [
+            "BOUND",
+            "OPTIONAL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "provider": {
+          "enum": [
+            "BOUND",
+            "OPTIONAL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "attempt_id": {
+          "enum": [
+            "BOUND",
+            "OPTIONAL",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization",
+        "digest_algorithm",
+        "content_digest"
+      ],
+      "properties": {
+        "canonicalization": {
+          "const": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2"
+        },
+        "digest_algorithm": {
+          "const": "SHA-256"
+        },
+        "content_digest": {
+          "type": "string",
+          "pattern": "^sha-256:[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

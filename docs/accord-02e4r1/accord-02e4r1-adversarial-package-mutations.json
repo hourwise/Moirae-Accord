@@ -1,0 +1,97 @@
+{
+  "total": 18,
+  "detected": 18,
+  "results": [
+    {
+      "mutation_id": "R1-ADV-01-duplicate-registry-tuple",
+      "detected": true,
+      "reason": "tuple uniqueness gate would reject a duplicate"
+    },
+    {
+      "mutation_id": "R1-ADV-02-conflicting-registry-tuple",
+      "detected": true,
+      "reason": "duplicate tuple with differing binding set is rejected by the same uniqueness gate"
+    },
+    {
+      "mutation_id": "R1-ADV-03-dangling-predecessor",
+      "detected": true,
+      "reason": "the closure checker resolves every edge"
+    },
+    {
+      "mutation_id": "R1-ADV-04-self-edge",
+      "detected": true,
+      "reason": "self-edge policy"
+    },
+    {
+      "mutation_id": "R1-ADV-05-cycle",
+      "detected": true,
+      "reason": "dependency graph acyclicity"
+    },
+    {
+      "mutation_id": "R1-ADV-06-unknown-schema-path",
+      "detected": true,
+      "reason": "declared schema path existence"
+    },
+    {
+      "mutation_id": "R1-ADV-07-path-traversal",
+      "detected": true,
+      "reason": "package-relative path policy"
+    },
+    {
+      "mutation_id": "R1-ADV-08-duplicate-profile",
+      "detected": true,
+      "reason": "profile type/id/version uniqueness"
+    },
+    {
+      "mutation_id": "R1-ADV-09-duplicate-schema",
+      "detected": true,
+      "reason": "schema id/version uniqueness"
+    },
+    {
+      "mutation_id": "R1-ADV-10-stale-base-digest",
+      "detected": true,
+      "reason": "immutable base digest pin"
+    },
+    {
+      "mutation_id": "R1-ADV-11-conflicting-canonicalization",
+      "detected": true,
+      "reason": "concrete mapping uniqueness"
+    },
+    {
+      "mutation_id": "R1-ADV-12-binding-authority-contradiction",
+      "detected": true,
+      "reason": "registry authority and contradiction policy"
+    },
+    {
+      "mutation_id": "R1-ADV-13-supported-without-capability",
+      "detected": true,
+      "reason": "supported rows require capability"
+    },
+    {
+      "mutation_id": "R1-ADV-14-wrong-profile-version",
+      "detected": true,
+      "reason": "exact vector profile versions"
+    },
+    {
+      "mutation_id": "R1-ADV-15-versionless-vector-profile",
+      "detected": true,
+      "reason": "versionless policy"
+    },
+    {
+      "mutation_id": "R1-ADV-16-dropped-must-not-conclude",
+      "detected": true,
+      "reason": "full expectation contract"
+    },
+    {
+      "mutation_id": "R1-ADV-17-altered-accepted-expectation",
+      "detected": true,
+      "reason": "field-by-field accepted expectation comparison"
+    },
+    {
+      "mutation_id": "R1-ADV-18-lexical-predicate-lookalike",
+      "detected": true,
+      "reason": "exact tuple lookup has no lexical fallback"
+    }
+  ],
+  "status": "PASS"
+}

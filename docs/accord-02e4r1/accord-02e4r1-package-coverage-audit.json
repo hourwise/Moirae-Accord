@@ -1,0 +1,30 @@
+{
+  "contract_class": {
+    "schema_contracts": {
+      "active": 51,
+      "candidate_additions": 7,
+      "missing": 0
+    },
+    "profile_contracts": {
+      "active": 32,
+      "active_vector_references": 23,
+      "missing": 0,
+      "versionless": 0
+    },
+    "canonicalization_mappings": {
+      "profile_mappings": 52,
+      "candidate_concrete_forms": 3,
+      "unresolved": 0
+    },
+    "roles": {
+      "vocabulary": 9,
+      "unknown": 0
+    },
+    "validation_rules": {
+      "active": 97,
+      "candidate_overlay": 15,
+      "missing_dependencies": 0,
+      "cycles": 0
+    }
+  }
+}

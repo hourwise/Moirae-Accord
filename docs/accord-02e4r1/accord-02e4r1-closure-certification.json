@@ -1,0 +1,101 @@
+{
+  "candidate_id": "ACCORD-02E4R1",
+  "candidate_base_commit": "27670a6733b86c6061a8bb5c6188a266b7b3cb85",
+  "candidate_branch": "codex/accord-02e4r1-dual-review-remediation",
+  "package": {
+    "package_id": "urn:moirae:accord-02r5:specification-package",
+    "package_version": "0.2",
+    "contract_policy": "CLOSED_EXACT_VERSION",
+    "base_package_sha256": "sha-256:fbb9c3cc97355905e7e12632706e6a982ea1187748f4d2259641f41d20be105c",
+    "active_inventory": {
+      "schema_contracts": 51,
+      "profile_contracts": 32,
+      "canonicalization_profiles": 1,
+      "roles": 9,
+      "active_source_schema_pairs": 13,
+      "active_arm_profile_references": 16,
+      "active_validation_rules": 97
+    }
+  },
+  "closure_status": "PASS",
+  "closure_checks": {
+    "candidate_schemas_valid": true,
+    "candidate_instances_valid": true,
+    "candidate_paths_closed": true,
+    "profile_references_exact": 23,
+    "profile_references_unresolved": 0,
+    "profile_references_versionless": 0,
+    "predicate_authorities_active": 1,
+    "dangling_contract_references": 0,
+    "duplicate_predicate_stage_tuples": 0,
+    "predecessor_edges_dangling": 0,
+    "predecessor_self_edges": 0,
+    "predecessor_cycles": 0,
+    "canonicalization_mappings_total": 52,
+    "candidate_canonicalization_forms": 3,
+    "canonicalization_mappings_unresolved": 0,
+    "expected_vectors_compared": 23,
+    "expected_vectors_changed": 0,
+    "full_semantics_preserved": true,
+    "adversarial_mutations_detected": "18/18",
+    "active_rule_count": 97,
+    "rule_dependency_cycles": 0,
+    "closure_errors": 0
+  },
+  "environment": {
+    "python": "3.14",
+    "jsonschema": "4.26.0",
+    "rfc3339_validator": "0.1.4",
+    "rfc3987_syntax": "1.1.0",
+    "rfc8785": "0.1.4",
+    "dialect": "Draft 2020-12"
+  },
+  "external_reviews": [
+    {
+      "assessor": "CLAUDE",
+      "path": "docs/reviews/INDEPENDENT ACCORD 02E4 NORMATIVE AMENDMENT REVIEW CLAUDE.md",
+      "actual_sha256": "sha-256:e6ef0eaae53c3b6338073509a155edee451f7bcab9aa0189190956dd89d6d852",
+      "actual_bytes": 26101,
+      "declared_source_sha256": "sha-256:3249637710b2b01374f48063933b7840e0382933a9a64424f4a83de3db81a2e1",
+      "declared_source_bytes": 34949,
+      "source_hash_match": false,
+      "normalization_performed": false
+    },
+    {
+      "assessor": "DEEPSEEK",
+      "path": "docs/reviews/INDEPENDENT ACCORD 02E4 PACKAGE FALSIFICATION REVIEW DEEPSEEK.md",
+      "actual_sha256": "sha-256:551475fd9d4554308c6e5a76c84ca0652beaf788942789114911b08398daf1e1",
+      "actual_bytes": 40395,
+      "declared_source_sha256": "sha-256:e6a50ef50be84d15291a0fb3a2c4bda646708209af134ada9d0cdc6988c73348",
+      "declared_source_bytes": 51701,
+      "source_hash_match": false,
+      "normalization_performed": false
+    }
+  ],
+  "rule_inventory_decision": {
+    "policy": "VERSIONED_RULE_OVERLAY_REQUIRED",
+    "base_active_rules": 82,
+    "candidate_overlay_rules": 15,
+    "active_candidate_rules": 97,
+    "unmapped_obligations": []
+  },
+  "findings": {
+    "ingested_total": 51,
+    "claude_total": 20,
+    "deepseek_total": 31,
+    "blocking_or_major_closed_by_candidate": 23,
+    "minor_or_note_carried_forward": 28,
+    "unresolved_blocking_or_major": 0
+  },
+  "accepted_boundaries": {
+    "e4_historical_artifacts_modified": false,
+    "accord_03_modified": false,
+    "accord_03_started": false,
+    "package_0_2_accepted": false,
+    "main_advanced": false,
+    "tag_created": false,
+    "push_performed": false
+  },
+  "verdict": "AMENDMENT_CANDIDATE_READY_FOR_DUAL_REASSESSMENT",
+  "next_gate": "AMENDMENT_CANDIDATE_READY_FOR_FRESH_DUAL_INDEPENDENT_REASSESSMENT_BEFORE_PACKAGE_0_2_ACCEPTANCE"
+}

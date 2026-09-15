@@ -1,0 +1,17 @@
+{
+  "engine": "jsonschema",
+  "version": "4.26.0",
+  "dialect": "Draft 2020-12",
+  "schemas_checked": 7,
+  "instance_groups_checked": [
+    "package",
+    "predicate-registry",
+    "normative-contracts",
+    "canonicalization-profile",
+    "settlement-profiles",
+    "settlement-vector-catalog",
+    "23 target propositions"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r1:schema:normative-contracts:0.2",
+  "title": "ACCORD-02E4R1 normative closure contracts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_id",
+    "contract_version",
+    "record_type",
+    "exact_identifier_policy",
+    "fail_closed_policy",
+    "binding_authority_policy",
+    "predecessor_policy",
+    "partial_effect_policy",
+    "negative_scope_contracts",
+    "entailment_policy",
+    "predicate_authority_policy",
+    "closure_checks",
+    "invariants",
+    "evidence_capability_contracts"
+  ],
+  "properties": {
+    "contract_id": {
+      "const": "urn:moirae:accord-02e4r1:contract:normative-settlement"
+    },
+    "contract_version": {
+      "const": "0.2"
+    },
+    "record_type": {
+      "const": "NORMATIVE_SETTLEMENT_CONTRACTS"
+    },
+    "exact_identifier_policy": {
+      "type": "object"
+    },
+    "fail_closed_policy": {
+      "type": "object"
+    },
+    "binding_authority_policy": {
+      "type": "object"
+    },
+    "predecessor_policy": {
+      "type": "object"
+    },
+    "partial_effect_policy": {
+      "type": "object"
+    },
+    "negative_scope_contracts": {
+      "type": "array",
+      "minItems": 1
+    },
+    "entailment_policy": {
+      "type": "object"
+    },
+    "predicate_authority_policy": {
+      "type": "object"
+    },
+    "closure_checks": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "check_id",
+          "rule",
+          "failure_code"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "check_id": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          },
+          "failure_code": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "invariants": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "invariant_id",
+          "statement",
+          "normative_reference"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "invariant_id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "normative_reference": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence_capability_contracts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "capability_id",
+          "capability_version",
+          "predicate_id",
+          "stage",
+          "kind",
+          "supported_evidence_classes",
+          "required_bindings",
+          "does_not_prove"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "capability_id": {
+            "type": "string"
+          },
+          "capability_version": {
+            "type": "string"
+          },
+          "predicate_id": {
+            "type": "string"
+          },
+          "stage": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "supported_evidence_classes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "required_bindings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "does_not_prove": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    }
+  }
+}

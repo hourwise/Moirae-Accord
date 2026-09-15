@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r1:schema:settlement-vector-catalog:0.2",
+  "title": "ACCORD-02E4R1 complete typed settlement-vector catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "catalog_id",
+    "catalog_version",
+    "source_catalog",
+    "integrity",
+    "vectors"
+  ],
+  "properties": {
+    "catalog_id": {
+      "const": "urn:moirae:accord-02e4r1:catalog:settlement-vectors"
+    },
+    "catalog_version": {
+      "const": "0.2"
+    },
+    "source_catalog": {
+      "const": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json"
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization",
+        "digest_algorithm",
+        "content_digest"
+      ],
+      "properties": {
+        "canonicalization": {
+          "const": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2"
+        },
+        "digest_algorithm": {
+          "const": "SHA-256"
+        },
+        "content_digest": {
+          "type": "string",
+          "pattern": "^sha-256:[0-9a-f]{64}$"
+        }
+      }
+    },
+    "vectors": {
+      "type": "array",
+      "minItems": 23,
+      "items": {
+        "$ref": "#/$defs/vector"
+      }
+    }
+  },
+  "$defs": {
+    "profileRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_type",
+        "profile_id",
+        "profile_version"
+      ],
+      "properties": {
+        "profile_type": {
+          "const": "SETTLEMENT_PROFILE"
+        },
+        "profile_id": {
+          "type": "string"
+        },
+        "profile_version": {
+          "type": "string"
+        }
+      }
+    },
+    "tuple": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate_id",
+        "stage"
+      ],
+      "properties": {
+        "predicate_id": {
+          "type": "string"
+        },
+        "stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_status",
+        "profile_compatibility",
+        "overall",
+        "occurrence",
+        "attribution",
+        "causality",
+        "completeness",
+        "sufficiency",
+        "freshness",
+        "duplication",
+        "finality",
+        "reason_codes",
+        "must_not_conclude"
+      ],
+      "properties": {
+        "authority_status": {
+          "type": "string"
+        },
+        "profile_compatibility": {
+          "type": "string"
+        },
+        "overall": {
+          "type": "string"
+        },
+        "occurrence": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "causality": {
+          "type": "string"
+        },
+        "completeness": {
+          "type": "string"
+        },
+        "sufficiency": {
+          "type": "string"
+        },
+        "freshness": {
+          "type": "string"
+        },
+        "duplication": {
+          "type": "string"
+        },
+        "finality": {
+          "type": "string"
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "must_not_conclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vector_id",
+        "source_vector_ref",
+        "settlement_profile_ref",
+        "evidence_profile_ref",
+        "effect_id",
+        "target",
+        "expected",
+        "semantic_status"
+      ],
+      "properties": {
+        "vector_id": {
+          "type": "string"
+        },
+        "source_vector_ref": {
+          "type": "string"
+        },
+        "settlement_profile_ref": {
+          "$ref": "#/$defs/profileRef"
+        },
+        "evidence_profile_ref": {
+          "$ref": "#/$defs/profileRef"
+        },
+        "effect_id": {
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "expected": {
+          "$ref": "#/$defs/expected"
+        },
+        "semantic_status": {
+          "enum": [
+            "SEMANTICS_PRESERVED",
+            "SEMANTICS_AMENDED"
+          ]
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proposition",
+        "applicability",
+        "target_resolution"
+      ],
+      "properties": {
+        "proposition": {
+          "type": "object",
+          "required": [
+            "schema_id",
+            "schema_version",
+            "record_type",
+            "proposition_id",
+            "proposition_kind"
+          ]
+        },
+        "applicability": {
+          "$ref": "#/$defs/tuple"
+        },
+        "target_resolution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "proposition_schema_id",
+            "predecessor_edges",
+            "binding_policy",
+            "same_effect_policy"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "POSITIVE_STAGE",
+                "GENERIC_OCCURRENCE",
+                "NEGATIVE_SCOPE"
+              ]
+            },
+            "proposition_schema_id": {
+              "type": "string"
+            },
+            "predecessor_edges": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/tuple"
+              },
+              "uniqueItems": true
+            },
+            "binding_policy": {
+              "const": "REGISTRY_EXACT_TUPLE"
+            },
+            "same_effect_policy": {
+              "const": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+            },
+            "negative_scope_contract_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "recipient_mismatch_policy": {
+              "enum": [
+                "RETURN_PARTIAL_EFFECT_WITH_ATTRIBUTION_CONFLICT",
+                "RETURN_INADMISSIBLE"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

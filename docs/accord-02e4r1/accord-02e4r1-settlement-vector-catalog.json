@@ -1,0 +1,1503 @@
+{
+  "catalog_id": "urn:moirae:accord-02e4r1:catalog:settlement-vectors",
+  "catalog_version": "0.2",
+  "source_catalog": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+  "vectors": [
+    {
+      "vector_id": "ACCORD-02C-V001-DISPATCH-ONLY",
+      "source_vector_ref": "ACCORD-02C-V001-DISPATCH-ONLY",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E01",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V001-DISPATCH-ONLY",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E01",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:b41a23e55d341dec39eddd7ecbbc0f7ecb977e683e09a7e63f3f6f48626fe2d8"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "INSUFFICIENT_EVIDENCE",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "NOT_APPLICABLE",
+        "duplication": "NOT_APPLICABLE",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "DISPATCH_IS_NOT_EFFECT"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+      "source_vector_ref": "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E02",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E02",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:119e3588af1dcf3ca036cfa28816315f1f6866bc600c5224f77951d49f2e2e51"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "PARTIAL",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "TRANSPORT_ACK_NOT_DOWNSTREAM_EFFECT"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "RECIPIENT_DELIVERY"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+      "source_vector_ref": "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E03",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E03",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:2ac3697f44bbac5051575ae3700fd14e5a954705c9fab974c60b38aef95c405f"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "BOUND_PROVIDER_EFFECT_RECEIPT"
+        ],
+        "must_not_conclude": [
+          "UNIVERSAL_TRUTH",
+          "EXACTLY_ONCE"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+      "source_vector_ref": "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E04",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E04",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:6e50ea5e4275da1f39e467eded0be740b3d223687a218e792c3f0d461dc3d0e3"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "CAUSED_BY_ONE_OR_MORE_ATTEMPTS",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "CORROBORATED_BY_OBSERVER_DISTINCT_SOURCE"
+        ],
+        "must_not_conclude": [
+          "NO_COLLUSION"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+      "source_vector_ref": "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E05",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E05",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:e954c8a60f317bc181a3184638b9771acd204603f35cb3162124e9510804b581"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "CONFLICTING_EVIDENCE",
+        "occurrence": "CONFLICTING_EVIDENCE",
+        "attribution": "ATTRIBUTION_CONFLICTING",
+        "causality": "CAUSATION_CONFLICTING",
+        "completeness": "UNKNOWN",
+        "sufficiency": "CONFLICTING",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "ADMISSIBLE_EVIDENCE_CONFLICT"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V006-STALE-OBSERVATION",
+      "source_vector_ref": "ACCORD-02C-V006-STALE-OBSERVATION",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E06",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V006-STALE-OBSERVATION",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E06",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:e14d779ed89f4e1335532da5fd0352f46888e37971379de3e092029ee11ed205"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "STALE_EVIDENCE",
+        "occurrence": "STALE_EVIDENCE",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "EFFECT_BOUND",
+        "completeness": "UNKNOWN",
+        "sufficiency": "STALE",
+        "freshness": "STALE",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "EVIDENCE_OUTSIDE_FRESHNESS_WINDOW"
+        ],
+        "must_not_conclude": [
+          "CURRENT_STATE"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+      "source_vector_ref": "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E07",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E07",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:b09c431e76308ea3f812c5ebcc95893331ab1dbb3e3325d88e5d7199b40ffe6c"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "INADMISSIBLE_EVIDENCE",
+        "occurrence": "INADMISSIBLE_EVIDENCE",
+        "attribution": "INADMISSIBLE",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INADMISSIBLE",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "WRONG_EFFECT_ID"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+      "source_vector_ref": "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E08",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E08",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:f47ade3d2bc5ff96ad6c13360984989ba17c4a24abbd40a20f1d8cf4486b1f6e"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "INSUFFICIENT_EVIDENCE",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "PARTIAL",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "WRONG_ATTEMPT_ID"
+        ],
+        "must_not_conclude": [
+          "ATTRIBUTED_TO_SPECIFIC_ATTEMPT"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+      "source_vector_ref": "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E09",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V009-REPLAYED-EVIDENCE",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E09",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:cbc00a6b418b0adefb9e4cef2997c44c42c1c16d4097207adda6ab3fb4c979de"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "INADMISSIBLE_EVIDENCE",
+        "occurrence": "INADMISSIBLE_EVIDENCE",
+        "attribution": "INADMISSIBLE",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INADMISSIBLE",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "REPLAYED_OTHER_EFFECT_ARTIFACT",
+          "WRONG_EFFECT_ID"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+      "source_vector_ref": "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E10",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E10",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:6dfa146a20b730b526f8a0fbf22d9c3096dc7a325e4475f77451a920088e0dcc"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "RETRY_ATTEMPTS_SHARE_EFFECT_ID",
+          "A3_BOUND_SUCCESS"
+        ],
+        "must_not_conclude": [
+          "THREE_LOGICAL_EFFECTS"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+      "source_vector_ref": "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E11",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E11",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:ab20980974ef768a62236b148d9e518836415fc602b296c860d30850c796795c"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "POSSIBLE_DUPLICATE_EFFECT",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_ONE_OR_MORE_ATTEMPTS",
+        "causality": "CAUSED_BY_ONE_OR_MORE_ATTEMPTS",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "POSSIBLE_DUPLICATE",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "ACKNOWLEDGEMENT_LOST",
+          "MULTIPLE_PROVIDER_OPERATION_IDS"
+        ],
+        "must_not_conclude": [
+          "EXACTLY_ONCE",
+          "TWO_CONFIRMED_OCCURRENCES"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+      "source_vector_ref": "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E12",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E12",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:4d610a7210a85be98aeab76d2bbd08d1889be805ad7656acfe3023e59681cd24"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "NOT_APPLICABLE",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "TIMEOUT_IS_NOT_NON_OCCURRENCE"
+        ],
+        "must_not_conclude": [
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+      "source_vector_ref": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E13",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:negative-scope-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "negative_scope_proposition",
+          "proposition_id": "urn:moirae:accord-02e4r1:proposition:ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+          "proposition_kind": "NEGATIVE_SCOPE",
+          "predicate_id": "urn:accord:02c:predicate:complete-negative",
+          "stage": null,
+          "effect_id": "urn:accord:02c:effect:E13",
+          "negated_predicate_id": "urn:accord:02c:predicate:external-effect",
+          "negated_stage": "effect",
+          "scope": {
+            "state_space": "COMPLETE",
+            "interval": "BOUND_BY_EFFECT_INTERVAL",
+            "retention_reference": "DECLARED_BY_EVIDENCE",
+            "read_semantics": "COMPLETE_LEDGER_QUERY",
+            "consistency": "DECLARED_BY_EVIDENCE"
+          },
+          "evidence_profile_id": "urn:accord:02c:profile:conservative-v1",
+          "evidence_profile_version": "0.2",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:dd683d88c63a5800e6cef2e006fb1b4f59c805fc40867f1b80dcc58be6e12c5d"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:complete-negative",
+          "stage": null
+        },
+        "target_resolution": {
+          "kind": "NEGATIVE_SCOPE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:negative-scope-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT",
+          "negative_scope_contract_ref": "urn:moirae:accord-02e4r1:contract:bounded-negative-scope@0.2"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "NON_OCCURRENCE_SUPPORTED",
+        "occurrence": "NON_OCCURRENCE_SUPPORTED",
+        "attribution": "NOT_APPLICABLE",
+        "causality": "NOT_ASSESSED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "COMPLETE_NEGATIVE_LEDGER_SCOPE_ACCEPTED"
+        ],
+        "must_not_conclude": [
+          "UNIVERSAL_ABSENCE_OUTSIDE_SCOPE"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+      "source_vector_ref": "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E14",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+          "proposition_kind": "POSITIVE_STAGE",
+          "effect_id": "urn:accord:02c:effect:E14",
+          "predicate_id": "urn:accord:02c:predicate:recipient-ack",
+          "stage": "recipient_acknowledged",
+          "recipient_or_counterparty": "urn:accord:02c:principal:recipient",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:ba8c86445be03b975d9b6d8f350bedf46c2d82e49e21c4d5ffe4f0e2011f13f0"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:recipient-ack",
+          "stage": "recipient_acknowledged"
+        },
+        "target_resolution": {
+          "kind": "POSITIVE_STAGE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [
+            {
+              "predicate_id": "urn:accord:02c:predicate:provider-acceptance",
+              "stage": "provider_accepted"
+            }
+          ],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "PARTIAL_EFFECT",
+        "occurrence": "PARTIAL_EFFECT",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "EARLY_STAGE_SUPPORTED",
+          "LATER_STAGE_UNRESOLVED"
+        ],
+        "must_not_conclude": [
+          "RECIPIENT_ACKNOWLEDGEMENT"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+      "source_vector_ref": "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E15",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E15",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:57c573cc1bd6066831ce9351470d5ac443f13b52ea3d11055db44e7990acee93"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "INVALID_AUTHORITY",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "NO_VALID_AUTHORITY_DOES_NOT_IMPLY_NO_EFFECT"
+        ],
+        "must_not_conclude": [
+          "VALID_AUTHORITY",
+          "NO_EFFECT"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+      "source_vector_ref": "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E16",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E16",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:5257a45dad2fce817557c638cf0c30bc6506dc15deaecf87d6d8b5035143bf42"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "INVALID_AUTHORITY",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "REVOCATION_DOES_NOT_ERASE_HISTORY"
+        ],
+        "must_not_conclude": [
+          "DISPATCH_DID_NOT_OCCUR",
+          "EFFECT_DID_NOT_OCCUR"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+      "source_vector_ref": "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E17",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+          "proposition_kind": "POSITIVE_STAGE",
+          "effect_id": "urn:accord:02c:effect:E17",
+          "predicate_id": "urn:accord:02c:predicate:resource-created",
+          "stage": "resource_created",
+          "resource": "urn:accord:02c:resource:E17",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:1446159a7a9a9c46b2ee6987d1662fa1c06976da6696fdaec6ea2f56f7a51b53"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:resource-created",
+          "stage": "resource_created"
+        },
+        "target_resolution": {
+          "kind": "POSITIVE_STAGE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "UNKNOWN_AUTHORITY",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "MATCHING_STATE_WITHOUT_CAUSAL_BINDING"
+        ],
+        "must_not_conclude": [
+          "SPECIFIC_ATTEMPT_CAUSED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+      "source_vector_ref": "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:incompatible-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E18",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E18",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:e0e904a5224b20a88d63fcdc08066a86071a59790d77bde58ea7deb866a51227"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "UNKNOWN_AUTHORITY",
+        "profile_compatibility": "INCOMPATIBLE",
+        "overall": "PROFILE_INCOMPATIBLE",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "PROFILE_INCOMPATIBLE",
+        "freshness": "UNKNOWN",
+        "duplication": "UNKNOWN",
+        "finality": "NOT_FINAL",
+        "reason_codes": [
+          "NO_COMMON_SETTLEMENT_PROFILE"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+      "source_vector_ref": "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E19",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V019-CLOCK-AMBIGUITY",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E19",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:0059e1723651d86391fde3fac5d2303706c4570c6484075c2b23297faf748d49"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "UNKNOWN",
+        "sufficiency": "UNKNOWN",
+        "freshness": "UNKNOWN",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "CLOCK_ORDER_UNRESOLVED"
+        ],
+        "must_not_conclude": [
+          "ORDERED_CAUSATION"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+      "source_vector_ref": "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E20",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E20",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:2e188a6e9841b7534710a4bafa3d527880f49371df84074bf6580f6e247907a0"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "UNKNOWN",
+        "overall": "UNKNOWN",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "UNKNOWN",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "NOT_FINAL",
+        "reason_codes": [
+          "UNKNOWN_SETTLEMENT_BEARING_EXTENSION"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+      "source_vector_ref": "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E21",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V021-RECIPIENT-MISMATCH",
+          "proposition_kind": "POSITIVE_STAGE",
+          "effect_id": "urn:accord:02c:effect:E21",
+          "predicate_id": "urn:accord:02c:predicate:recipient-ack",
+          "stage": "recipient_acknowledged",
+          "recipient_or_counterparty": "urn:accord:02c:principal:recipient",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:d82e4cd7a35f1db3c6e28594e95a21089ec835c80e12cc2b1c67b3b987675b9d"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:recipient-ack",
+          "stage": "recipient_acknowledged"
+        },
+        "target_resolution": {
+          "kind": "POSITIVE_STAGE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [
+            {
+              "predicate_id": "urn:accord:02c:predicate:provider-acceptance",
+              "stage": "provider_accepted"
+            }
+          ],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT",
+          "recipient_mismatch_policy": "RETURN_PARTIAL_EFFECT_WITH_ATTRIBUTION_CONFLICT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "PARTIAL_EFFECT",
+        "occurrence": "PARTIAL_EFFECT",
+        "attribution": "ATTRIBUTION_CONFLICTING",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "PARTIAL",
+        "sufficiency": "CONFLICTING",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "RECIPIENT_BINDING_MISMATCH",
+          "ACCEPTANCE_NOT_DELIVERY"
+        ],
+        "must_not_conclude": [
+          "TARGET_RECIPIENT_ACKNOWLEDGED"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+      "source_vector_ref": "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E22",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V022-PARTIAL-CORRUPTION",
+          "proposition_kind": "POSITIVE_STAGE",
+          "effect_id": "urn:accord:02c:effect:E22",
+          "predicate_id": "urn:accord:02c:predicate:resource-created",
+          "stage": "resource_created",
+          "resource": "urn:accord:02c:resource:E22",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:0c50b4417289861c60af47a905b268b998f6ea3acff194c9b9f22c18e18aa3f0"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:resource-created",
+          "stage": "resource_created"
+        },
+        "target_resolution": {
+          "kind": "POSITIVE_STAGE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "CORRUPT_ARTIFACT_EXCLUDED",
+          "VALID_ARTIFACT_REMAINS"
+        ],
+        "must_not_conclude": [
+          "CORROBORATION_FROM_CORRUPT_ARTIFACT"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    },
+    {
+      "vector_id": "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+      "source_vector_ref": "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+      "settlement_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "evidence_profile_ref": {
+        "profile_type": "SETTLEMENT_PROFILE",
+        "profile_id": "urn:accord:02c:profile:conservative-v1",
+        "profile_version": "0.2"
+      },
+      "effect_id": "urn:accord:02c:effect:E23",
+      "target": {
+        "proposition": {
+          "schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "schema_version": "0.2",
+          "record_type": "effect_proposition",
+          "proposition_id": "urn:accord:02e4r1:proposition:ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+          "proposition_kind": "GENERIC_OCCURRENCE",
+          "effect_id": "urn:accord:02c:effect:E23",
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect",
+          "integrity": {
+            "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+            "digest_algorithm": "SHA-256",
+            "content_digest": "sha-256:30add1e93b78c5a32c6ff058eb1dd0031680fb0f7ac71b2d29982ac12cd64f8c"
+          }
+        },
+        "applicability": {
+          "predicate_id": "urn:accord:02c:predicate:external-effect",
+          "stage": "effect"
+        },
+        "target_resolution": {
+          "kind": "GENERIC_OCCURRENCE",
+          "proposition_schema_id": "urn:moirae:accord-02e4r1:schema:positive-effect-proposition:0.2",
+          "predecessor_edges": [],
+          "binding_policy": "REGISTRY_EXACT_TUPLE",
+          "same_effect_policy": "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+        }
+      },
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "CONFLICTING_EVIDENCE",
+        "occurrence": "CONFLICTING_EVIDENCE",
+        "attribution": "ATTRIBUTION_CONFLICTING",
+        "causality": "CAUSATION_CONFLICTING",
+        "completeness": "UNKNOWN",
+        "sufficiency": "CONFLICTING",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENED",
+        "reason_codes": [
+          "LATER_ADMISSIBLE_CONTRADICTION",
+          "PRIOR_RESULT_REOPENED"
+        ],
+        "must_not_conclude": [
+          "IRREVERSIBLE_FINALITY"
+        ]
+      },
+      "semantic_status": "SEMANTICS_PRESERVED"
+    }
+  ],
+  "integrity": {
+    "canonicalization": "urn:moirae:accord-02e4r1:canonicalization:rfc8785-jcs:0.2",
+    "digest_algorithm": "SHA-256",
+    "content_digest": "sha-256:b96e1d2acc60a5c1ce2323306f51ae488bbe912834ae6ba8e14ddc0ae87625f4"
+  }
+}

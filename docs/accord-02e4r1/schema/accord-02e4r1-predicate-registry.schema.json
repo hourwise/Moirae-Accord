@@ -1,0 +1,527 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r1:schema:predicate-registry:0.2",
+  "title": "ACCORD-02E4R1 canonical predicate applicability registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "profile_version",
+    "schema_id",
+    "schema_version",
+    "record_type",
+    "registry_id",
+    "registry_version",
+    "resolution_key",
+    "canonical_vocabulary",
+    "binding_vocabulary",
+    "stage_ordering_policy",
+    "stage_ordering_scope",
+    "global_total_order",
+    "exact_identifier_policy",
+    "fail_closed_policy",
+    "binding_authority_policy",
+    "predecessor_policy",
+    "entailment_policy",
+    "closure_contract_ref",
+    "entries"
+  ],
+  "properties": {
+    "profile_id": {
+      "const": "urn:moirae:accord-02e4:predicate-applicability:0.2"
+    },
+    "profile_version": {
+      "const": "0.2"
+    },
+    "schema_id": {
+      "const": "urn:moirae:accord-02e4r1:schema:predicate-registry:0.2"
+    },
+    "schema_version": {
+      "const": "0.2"
+    },
+    "record_type": {
+      "const": "PREDICATE_APPLICABILITY_PROFILE"
+    },
+    "registry_id": {
+      "const": "urn:moirae:accord-02e4r1:registry:predicate-applicability"
+    },
+    "registry_version": {
+      "const": "0.2"
+    },
+    "resolution_key": {
+      "const": [
+        "predicate_id",
+        "stage"
+      ]
+    },
+    "canonical_vocabulary": {
+      "const": "CANONICAL_C_VECTOR_URNS"
+    },
+    "binding_vocabulary": {
+      "const": "urn:moirae:accord-02c:schema:settlement-profile:0.1#/$defs/bindingName"
+    },
+    "stage_ordering_policy": {
+      "const": "EXPLICIT_PREDECESSOR_EDGES_ONLY"
+    },
+    "stage_ordering_scope": {
+      "const": "PROFILE_AND_PREDICATE_FAMILY"
+    },
+    "global_total_order": {
+      "const": false
+    },
+    "exact_identifier_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "encoding",
+        "equality",
+        "case_sensitive",
+        "unicode_normalization",
+        "trim",
+        "case_folding",
+        "punctuation_normalization",
+        "prefix_suffix_matching",
+        "lexical_similarity",
+        "namespace_fallback"
+      ],
+      "properties": {
+        "encoding": {
+          "const": "UTF-8"
+        },
+        "equality": {
+          "const": "CODE_POINT_STRING_EQUALITY"
+        },
+        "case_sensitive": {
+          "const": true
+        },
+        "unicode_normalization": {
+          "const": "NONE"
+        },
+        "trim": {
+          "const": false
+        },
+        "case_folding": {
+          "const": false
+        },
+        "punctuation_normalization": {
+          "const": false
+        },
+        "prefix_suffix_matching": {
+          "const": false
+        },
+        "lexical_similarity": {
+          "const": false
+        },
+        "namespace_fallback": {
+          "const": false
+        }
+      }
+    },
+    "fail_closed_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unknown_predicate",
+        "wrong_stage",
+        "undeclared_tuple",
+        "unsupported_predicate",
+        "missing_required_binding",
+        "unsupported_proposition_kind",
+        "profile_not_resolvable"
+      ],
+      "properties": {
+        "unknown_predicate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason_code"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "UNKNOWN",
+                "INADMISSIBLE_EVIDENCE",
+                "PROFILE_INCOMPATIBLE",
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            },
+            "reason_code": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "wrong_stage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason_code"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "UNKNOWN",
+                "INADMISSIBLE_EVIDENCE",
+                "PROFILE_INCOMPATIBLE",
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            },
+            "reason_code": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "undeclared_tuple": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason_code"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "UNKNOWN",
+                "INADMISSIBLE_EVIDENCE",
+                "PROFILE_INCOMPATIBLE",
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            },
+            "reason_code": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "unsupported_predicate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason_code"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "UNKNOWN",
+                "INADMISSIBLE_EVIDENCE",
+                "PROFILE_INCOMPATIBLE",
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            },
+            "reason_code": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "missing_required_binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason_code"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "UNKNOWN",
+                "INADMISSIBLE_EVIDENCE",
+                "PROFILE_INCOMPATIBLE",
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            },
+            "reason_code": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "unsupported_proposition_kind": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason_code"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "UNKNOWN",
+                "INADMISSIBLE_EVIDENCE",
+                "PROFILE_INCOMPATIBLE",
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            },
+            "reason_code": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "profile_not_resolvable": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason_code"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "UNKNOWN",
+                "INADMISSIBLE_EVIDENCE",
+                "PROFILE_INCOMPATIBLE",
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            },
+            "reason_code": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "binding_authority_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required_sets_authority",
+        "profile_requirements",
+        "proposition_status",
+        "contradiction_policy"
+      ],
+      "properties": {
+        "required_sets_authority": {
+          "const": "REGISTRY_BY_EXACT_TUPLE"
+        },
+        "profile_requirements": {
+          "const": "ADDITIVE_EVIDENCE_REQUIREMENTS_ONLY"
+        },
+        "proposition_status": {
+          "const": "OBSERVATIONAL_NOT_PERMISSIVE"
+        },
+        "contradiction_policy": {
+          "const": "FAIL_VALIDATION"
+        }
+      }
+    },
+    "predecessor_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "edges_are_explicit",
+        "transitivity",
+        "same_effect_required",
+        "duplicate_tuple_policy",
+        "self_edge_policy",
+        "dangling_edge_policy",
+        "cycle_policy"
+      ],
+      "properties": {
+        "edges_are_explicit": {
+          "const": true
+        },
+        "transitivity": {
+          "const": "NO_IMPLICIT_TRANSITIVITY"
+        },
+        "same_effect_required": {
+          "const": true
+        },
+        "duplicate_tuple_policy": {
+          "const": "FAIL_VALIDATION"
+        },
+        "self_edge_policy": {
+          "const": "FAIL_VALIDATION"
+        },
+        "dangling_edge_policy": {
+          "const": "FAIL_VALIDATION"
+        },
+        "cycle_policy": {
+          "const": "FAIL_VALIDATION"
+        }
+      }
+    },
+    "entailment_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generic_occurrence_entails_positive_stage",
+        "positive_stage_entails_generic_occurrence",
+        "effect_settlement_entails_authority",
+        "authority_entails_effect"
+      ],
+      "properties": {
+        "generic_occurrence_entails_positive_stage": {
+          "const": false
+        },
+        "positive_stage_entails_generic_occurrence": {
+          "const": false
+        },
+        "effect_settlement_entails_authority": {
+          "const": false
+        },
+        "authority_entails_effect": {
+          "const": false
+        }
+      }
+    },
+    "closure_contract_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "$defs": {
+    "bindingName": {
+      "enum": [
+        "principal_id",
+        "grant_id",
+        "intent_id",
+        "task_id",
+        "delegation_id",
+        "effect_id",
+        "attempt_id",
+        "observer_principal_id",
+        "issuer_principal_id",
+        "resource",
+        "action",
+        "recipient_or_counterparty",
+        "provider",
+        "external_identifier",
+        "predicate_id",
+        "stage"
+      ]
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predicate_id",
+        "stage",
+        "kind",
+        "support_status",
+        "required_bindings",
+        "optional_bindings",
+        "not_applicable_bindings",
+        "predecessor_edges",
+        "stage_settlement",
+        "later_stage_policy",
+        "evidence_capability_ref",
+        "proposition_schema_id",
+        "negative_scope_contract_ref"
+      ],
+      "properties": {
+        "predicate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "POSITIVE_STAGE",
+            "GENERIC_OCCURRENCE",
+            "NEGATIVE_SCOPE"
+          ]
+        },
+        "support_status": {
+          "enum": [
+            "SUPPORTED",
+            "UNSUPPORTED"
+          ]
+        },
+        "required_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bindingName"
+          },
+          "uniqueItems": true
+        },
+        "optional_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bindingName"
+          },
+          "uniqueItems": true
+        },
+        "not_applicable_bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bindingName"
+          },
+          "uniqueItems": true
+        },
+        "predecessor_edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predicate_id",
+              "stage"
+            ],
+            "properties": {
+              "predicate_id": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string"
+              }
+            }
+          },
+          "uniqueItems": true
+        },
+        "stage_settlement": {
+          "enum": [
+            "INDEPENDENT_WHEN_BOUND",
+            "PREREQUISITE_CHAIN",
+            "ATOMIC_ONLY",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "later_stage_policy": {
+          "enum": [
+            "NEW_EVIDENCE_REQUIRED",
+            "NO_IMPLICIT_SUCCESSOR",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence_capability_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "proposition_schema_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "negative_scope_contract_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unsupported_reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
