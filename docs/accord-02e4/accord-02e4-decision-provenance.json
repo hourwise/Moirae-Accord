@@ -1,0 +1,24 @@
+{
+  "candidate_id": "ACCORD-02E4",
+  "status": "CANDIDATE / NOT ACCEPTED",
+  "accepted_intent_clarifications": [
+    "Settlement is proposition-specific and stage-bound.",
+    "Provider acceptance is not recipient acknowledgement.",
+    "Resource creation is distinct from resource visibility.",
+    "Negative evidence is bounded and is not a positive lifecycle stage.",
+    "Attempt attribution and causality remain separate from occurrence.",
+    "Existing bindingName vocabulary remains authoritative."
+  ],
+  "new_normative_decisions_authorized_by_e4": [
+    "MODIFIED_OPTION_D_TYPED_HYBRID",
+    "external-effect is GENERIC_OCCURRENCE at explicit stage effect with no successors.",
+    "complete-negative is NEGATIVE_SCOPE with registry stage null and explicit negated_stage.",
+    "resource-created, provider-acceptance, and recipient-ack receive canonical C-vector URN rows.",
+    "recipient-ack has an explicit provider-acceptance predecessor edge.",
+    "resource-visible is explicitly unsupported in candidate 0.2.",
+    "candidate settlement profile instances are completed and exact-version pinned.",
+    "E13 is corrected by binding its negative proposition to external-effect/effect without modifying accepted 0.1."
+  ],
+  "not_claimed": ["cryptographic opacity of scenario IDs", "empirical outcome", "provider truth", "universal stage ordering", "acceptance of candidate 0.2"],
+  "provenance_rule": "Candidate decisions are recorded separately from accepted 0.1 evidence; independent review must assess both fidelity and adequacy."
+}

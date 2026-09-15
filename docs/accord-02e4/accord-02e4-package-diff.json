@@ -1,0 +1,22 @@
+{
+  "candidate_package": "urn:moirae:accord-02r5:specification-package@0.2",
+  "base_package": "urn:moirae:accord-02r5:specification-package@0.1",
+  "base_sha256": "sha-256:fbb9c3cc97355905e7e12632706e6a982ea1187748f4d2259641f41d20be105c",
+  "policy": "EXACT_BASE_PLUS_ENUMERATED_CANDIDATE_CHANGES",
+  "unchanged": ["ACCORD-02A", "ACCORD-02B", "ACCORD-02C settlement taxonomy", "ACCORD-02D experiment hypotheses and metrics", "R1-R3 validation boundaries", "R4 package identity semantics"],
+  "replacements": [
+    { "contract_class": "SETTLEMENT_PROFILE", "id": "urn:accord:02c:profile:conservative-v1", "old_version": "0.1", "new_version": "0.2", "reason": "Complete typed-hybrid binding, stage, negative-evidence, and orthogonality fields." },
+    { "contract_class": "SETTLEMENT_PROFILE", "id": "urn:accord:02c:profile:incompatible-v1", "old_version": "0.1", "new_version": "0.2", "reason": "Complete profile contract while retaining deterministic incompatibility fixture behavior." }
+  ],
+  "additions": [
+    { "contract_class": "SCHEMA", "id": "urn:moirae:accord-02e4:schema:specification-package:0.2", "path": "schema/accord-02e4-specification-package.schema.json" },
+    { "contract_class": "SCHEMA", "id": "urn:moirae:accord-02e4:schema:positive-effect-proposition:0.2", "path": "schema/accord-02e4-positive-effect-proposition.schema.json" },
+    { "contract_class": "SCHEMA", "id": "urn:moirae:accord-02e4:schema:negative-scope-proposition:0.2", "path": "schema/accord-02e4-negative-scope-proposition.schema.json" },
+    { "contract_class": "SCHEMA", "id": "urn:moirae:accord-02e4:schema:predicate-registry:0.2", "path": "schema/accord-02e4-predicate-registry.schema.json" },
+    { "contract_class": "SCHEMA", "id": "urn:moirae:accord-02e4:schema:settlement-vector-catalog:0.2", "path": "schema/accord-02e4-settlement-vector-catalog.schema.json" },
+    { "contract_class": "PROFILE", "id": "urn:moirae:accord-02e4:predicate-applicability:0.2", "path": "accord-02e4-predicate-applicability-registry.json" },
+    { "contract_class": "BINDING_CONTRACT", "id": "urn:moirae:accord-02e4:contract:predicate-binding:0.2", "path": "accord-02e4-predicate-applicability-registry.json", "resolution": "Binding vocabulary and tuple rules are embedded in the package-bound predicate registry; the accepted C bindingName enum remains authoritative." }
+  ],
+  "effective_inventory": { "schema_contracts": { "base": 44, "added": 5, "effective": 49 }, "profile_contracts": { "base": 31, "replaced": 2, "added": 1, "effective": 32 }, "canonicalization_profiles": 1, "roles": 9, "active_source_schema_pairs": 13, "active_arm_profile_references": 16, "active_validation_rules": 82 },
+  "no_fallback": "No contract outside the base manifest or enumerated candidate additions/replacements is in scope."
+}

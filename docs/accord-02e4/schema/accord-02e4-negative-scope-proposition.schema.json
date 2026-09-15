@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4:schema:negative-scope-proposition:0.2",
+  "title": "ACCORD-02E4 bounded negative-scope proposition",
+  "description": "A proposition about non-occurrence of one named positive predicate and stage within an explicit bounded scope.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "record_type", "proposition_id", "proposition_kind", "predicate_id", "stage", "effect_id", "negated_predicate_id", "negated_stage", "scope", "evidence_profile_id", "integrity"],
+  "properties": {
+    "schema_id": { "const": "urn:moirae:accord-02e4:schema:negative-scope-proposition:0.2" },
+    "schema_version": { "const": "0.2" },
+    "record_type": { "const": "negative_scope_proposition" },
+    "proposition_id": { "type": "string", "minLength": 1 },
+    "proposition_kind": { "const": "NEGATIVE_SCOPE" },
+    "predicate_id": { "const": "urn:accord:02c:predicate:complete-negative" },
+    "stage": { "type": "null" },
+    "effect_id": { "type": "string", "minLength": 1 },
+    "negated_predicate_id": { "type": "string", "minLength": 1 },
+    "negated_stage": { "type": "string", "minLength": 1 },
+    "action": { "type": ["string", "null"] },
+    "resource": { "type": ["string", "null"] },
+    "recipient_or_counterparty": { "type": ["string", "null"] },
+    "provider": { "type": ["string", "null"] },
+    "external_identifier": { "type": ["string", "null"] },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state_space", "interval", "retention_reference", "read_semantics", "consistency"],
+      "properties": {
+        "state_space": { "type": "string", "minLength": 1 },
+        "interval": { "type": "string", "minLength": 1 },
+        "retention_reference": { "type": "string", "minLength": 1 },
+        "read_semantics": { "type": "string", "minLength": 1 },
+        "consistency": { "type": "string", "minLength": 1 }
+      }
+    },
+    "evidence_profile_id": { "type": "string", "minLength": 1 },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "digest_algorithm", "content_digest"],
+      "properties": {
+        "canonicalization": { "const": "urn:moirae:accord-02r4:canonicalization:rfc8785-jcs:0.1" },
+        "digest_algorithm": { "const": "SHA-256" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    }
+  }
+}

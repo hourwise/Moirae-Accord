@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4:schema:settlement-vector-catalog:0.2",
+  "title": "ACCORD-02E4 typed settlement vector catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["catalog_id", "catalog_version", "source_catalog", "vectors"],
+  "properties": {
+    "catalog_id": { "const": "urn:moirae:accord-02e4:catalog:settlement-vectors" },
+    "catalog_version": { "const": "0.2" },
+    "source_catalog": { "const": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json" },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalization", "digest_algorithm", "content_digest"],
+      "properties": {
+        "canonicalization": { "const": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1" },
+        "digest_algorithm": { "const": "SHA-256" },
+        "content_digest": { "type": "string", "pattern": "^sha-256:[0-9a-f]{64}$" }
+      }
+    },
+    "vectors": {
+      "type": "array",
+      "minItems": 23,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["vector_id", "source_vector_ref", "effect_id", "target", "expected", "semantic_status"],
+        "properties": {
+          "vector_id": { "type": "string", "minLength": 1 },
+          "source_vector_ref": { "type": "string", "minLength": 1 },
+          "effect_id": { "type": "string", "minLength": 1 },
+          "target": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["predicate_id", "stage", "proposition_kind"],
+            "properties": {
+              "predicate_id": { "type": "string", "minLength": 1 },
+              "stage": { "type": ["string", "null"] },
+              "proposition_kind": { "enum": ["POSITIVE_STAGE", "GENERIC_OCCURRENCE", "NEGATIVE_SCOPE"] },
+              "effect_id": { "type": "string", "minLength": 1 },
+              "predecessor": { "type": "object", "additionalProperties": false, "required": ["predicate_id", "stage"], "properties": { "predicate_id": { "type": "string", "minLength": 1 }, "stage": { "type": "string", "minLength": 1 } } },
+              "negative_scope": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["negated_predicate_id", "negated_stage", "state_space", "interval", "retention", "read_semantics", "consistency", "freshness"],
+                "properties": {
+                  "negated_predicate_id": { "type": "string", "minLength": 1 },
+                  "negated_stage": { "type": "string", "minLength": 1 },
+                  "state_space": { "type": "string", "minLength": 1 },
+                  "interval": { "type": "string", "minLength": 1 },
+                  "retention": { "type": "string", "minLength": 1 },
+                  "read_semantics": { "type": "string", "minLength": 1 },
+                  "consistency": { "type": "string", "minLength": 1 },
+                  "freshness": { "type": "string", "minLength": 1 }
+                }
+              },
+              "causal_attribution": { "type": "string", "minLength": 1 },
+              "mismatch_policy": { "type": "string", "minLength": 1 }
+            }
+          },
+          "expected": { "type": "object", "additionalProperties": true, "required": ["overall", "occurrence"] },
+          "semantic_status": { "enum": ["SEMANTICS_PRESERVED"] }
+        }
+      }
+    }
+  }
+}

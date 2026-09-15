@@ -1,0 +1,46 @@
+{
+  "candidate_id": "ACCORD-02E4-NORMATIVE-SETTLEMENT-0.2",
+  "status": "CANDIDATE / NOT ACCEPTED",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "model": "MODIFIED_OPTION_D_TYPED_HYBRID",
+  "canonical_identity": { "key": ["predicate_id", "stage"], "vocabulary": "CANONICAL_C_VECTOR_URNS", "dual_profile_predicate_id": false, "lexical_fallback": false },
+  "binding_vocabulary": ["principal_id", "grant_id", "intent_id", "task_id", "delegation_id", "effect_id", "attempt_id", "observer_principal_id", "issuer_principal_id", "resource", "action", "recipient_or_counterparty", "provider", "external_identifier", "predicate_id", "stage"],
+  "stage_ordering": { "model": "EXPLICIT_PREDECESSOR_EDGES_ONLY", "scope": "PROFILE_AND_PREDICATE_FAMILY", "global_total_order": false, "empty_predecessors": "NO_PARTIAL_EFFECT" },
+  "positive_stage": {
+    "resolution": "Exact predicate_id plus stage tuple resolves to one registry entry.",
+    "occurrence_supported": "The exact requested predicate and stage is supported by admissible sufficiently bound evidence.",
+    "non_entailments": ["OTHER_STAGE", "ATTEMPT_ATTRIBUTION", "CAUSALITY", "AUTHORITY", "EXACTLY_ONCE"]
+  },
+  "partial_effect": {
+    "required": ["selected_target_stage_not_supported", "declared_predecessor_supported", "predecessor_policy_satisfied", "later_stage_evidence_required", "evidence_admissible_and_compatible"],
+    "forbidden_without": ["DECLARED_PREDECESSOR", "SUPPORTED_PREDECESSOR", "LATER_STAGE_QUERY"],
+    "atomic_only": "UNREACHABLE"
+  },
+  "generic_occurrence": {
+    "predicate_id": "urn:accord:02c:predicate:external-effect",
+    "stage": "effect",
+    "kind": "GENERIC_OCCURRENCE",
+    "predecessors": [],
+    "partial_effect": "UNREACHABLE",
+    "successors": [],
+    "meaning": "Only the named logical external effect occurred."
+  },
+  "negative_scope": {
+    "predicate_id": "urn:accord:02c:predicate:complete-negative",
+    "registry_stage": null,
+    "negative_proposition_required": ["proposition_identity", "negated_predicate_id", "negated_stage", "effect_id", "scope", "interval", "complete_evidence_class", "retention", "consistency", "freshness"],
+    "non_occurrence_scope": "Only the named negated predicate/stage and supplied bounded scope.",
+    "silence_timeout_stale_or_incomplete_read": "NOT_SUFFICIENT"
+  },
+  "canonical_rows": [
+    { "predicate_id": "urn:accord:02c:predicate:resource-created", "stage": "resource_created", "kind": "POSITIVE_STAGE", "status": "SUPPORTED" },
+    { "predicate_id": "urn:accord:02c:predicate:recipient-ack", "stage": "recipient_acknowledged", "kind": "POSITIVE_STAGE", "status": "SUPPORTED", "predecessor": { "predicate_id": "urn:accord:02c:predicate:provider-acceptance", "stage": "provider_accepted" } },
+    { "predicate_id": "urn:accord:02c:predicate:provider-acceptance", "stage": "provider_accepted", "kind": "POSITIVE_STAGE", "status": "SUPPORTED" },
+    { "predicate_id": "urn:accord:02c:predicate:external-effect", "stage": "effect", "kind": "GENERIC_OCCURRENCE", "status": "SUPPORTED" },
+    { "predicate_id": "urn:accord:02c:predicate:complete-negative", "stage": null, "kind": "NEGATIVE_SCOPE", "status": "SUPPORTED" },
+    { "predicate_id": "urn:accord:02c:predicate:resource-visible", "stage": "resource_visible", "kind": "POSITIVE_STAGE", "status": "UNSUPPORTED" }
+  ],
+  "explicit_unsupported": ["urn:accord:02c:predicate:resource-visible/resource_visible"],
+  "authority_effect_orthogonality": { "preserved": true, "invalid_authority_does_not_imply_no_effect": true, "effect_does_not_imply_authority": true }
+}

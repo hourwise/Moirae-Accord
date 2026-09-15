@@ -1,0 +1,18 @@
+{
+  "candidate_id": "ACCORD-02E4",
+  "status": "CANDIDATE / NOT ACCEPTED",
+  "checks": [
+    { "id": "E4-CONS-001", "statement": "Every candidate vector has an explicit typed target", "status": "PASS", "count": 23 },
+    { "id": "E4-CONS-002", "statement": "Every candidate positive target uses a canonical predicate URN and explicit stage", "status": "PASS", "count": 22 },
+    { "id": "E4-CONS-003", "statement": "The negative vector is bound to a negated positive predicate and stage", "status": "PASS", "count": 1 },
+    { "id": "E4-CONS-004", "statement": "Every supported candidate registry tuple has one resolution row", "status": "PASS", "count": 5 },
+    { "id": "E4-CONS-005", "statement": "Resource visibility is not silently admitted", "status": "PASS", "count": 1 },
+    { "id": "E4-CONS-006", "statement": "Partial effect has a non-empty explicit predecessor requirement", "status": "PASS" },
+    { "id": "E4-CONS-007", "statement": "Generic occurrence has no successor or partial-stage semantics", "status": "PASS" },
+    { "id": "E4-CONS-008", "statement": "Candidate settlement profiles contain all required 0.1 schema properties", "status": "PASS", "count": 2 },
+    { "id": "E4-CONS-009", "statement": "Candidate package has a distinct exact version and immutable 0.1 base binding", "status": "PASS" },
+    { "id": "E4-CONS-010", "statement": "Candidate outcome summaries preserve all 23 accepted expected outcome categories", "status": "PASS", "count": 23 }
+  ],
+  "counts": { "pass": 10, "fail": 0, "ambiguous": 0, "unresolved_target_tuples": 0, "unresolved_profiles": 0 },
+  "limitations": ["JSON parsing and bounded structural checks performed without installing a standards-complete JSON Schema dependency in this specification-only task.", "Candidate 0.2 remains subject to independent review and acceptance decision."]
+}

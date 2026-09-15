@@ -1,0 +1,83 @@
+{
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "package_schema_id": "urn:moirae:accord-02e4:schema:specification-package:0.2",
+  "package_schema_version": "0.2",
+  "contract_policy": "CLOSED_EXACT_VERSION",
+  "base_package": {
+    "package_id": "urn:moirae:accord-02r5:specification-package",
+    "package_version": "0.1",
+    "package_path": "docs/accord-02/accord-02r5-specification-package.json",
+    "package_sha256": "sha-256:fbb9c3cc97355905e7e12632706e6a982ea1187748f4d2259641f41d20be105c",
+    "inheritance_policy": "EXACT_UNCHANGED_CONTRACTS",
+    "schema_contract_count": 44,
+    "profile_contract_count": 31,
+    "canonicalization_profile_count": 1,
+    "role_count": 9,
+    "active_source_schema_pair_count": 13,
+    "active_arm_profile_reference_count": 16,
+    "active_rule_count": 82
+  },
+  "effective_inventory": {
+    "schema_contracts": 49,
+    "profile_contracts": 32,
+    "canonicalization_profiles": 1,
+    "roles": 9,
+    "active_source_schema_pairs": 13,
+    "active_arm_profile_references": 16,
+    "active_validation_rules": 82
+  },
+  "schema_contract_additions": [
+    { "schema_id": "urn:moirae:accord-02e4:schema:specification-package:0.2", "schema_version": "0.2", "normative_record_types": ["SPECIFICATION_PACKAGE"], "schema_path": "schema/accord-02e4-specification-package.schema.json", "contract_kind": "SPECIFICATION_CONTRACT_SCHEMA", "allowed_bundle_types": ["SPECIFICATION_PACKAGE"], "canonicalization_profile_id": null, "digest_policy": "FORBIDDEN" },
+    { "schema_id": "urn:moirae:accord-02e4:schema:positive-effect-proposition:0.2", "schema_version": "0.2", "normative_record_types": ["effect_proposition"], "schema_path": "schema/accord-02e4-positive-effect-proposition.schema.json", "contract_kind": "INSTANCE_RECORD_SCHEMA", "allowed_bundle_types": ["VERIFIER_VALIDATION_BUNDLE", "EXPERIMENT_VALIDATION_BUNDLE", "SCORER_BUNDLE"], "canonicalization_profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1", "digest_policy": "REQUIRED" },
+    { "schema_id": "urn:moirae:accord-02e4:schema:negative-scope-proposition:0.2", "schema_version": "0.2", "normative_record_types": ["negative_scope_proposition"], "schema_path": "schema/accord-02e4-negative-scope-proposition.schema.json", "contract_kind": "INSTANCE_RECORD_SCHEMA", "allowed_bundle_types": ["VERIFIER_VALIDATION_BUNDLE", "EXPERIMENT_VALIDATION_BUNDLE", "SCORER_BUNDLE"], "canonicalization_profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1", "digest_policy": "REQUIRED" },
+    { "schema_id": "urn:moirae:accord-02e4:schema:predicate-registry:0.2", "schema_version": "0.2", "normative_record_types": ["PREDICATE_APPLICABILITY_PROFILE"], "schema_path": "schema/accord-02e4-predicate-registry.schema.json", "contract_kind": "SPECIFICATION_CONTRACT_SCHEMA", "allowed_bundle_types": ["SPECIFICATION_PACKAGE", "VERIFIER_VALIDATION_BUNDLE", "EXPERIMENT_VALIDATION_BUNDLE"], "canonicalization_profile_id": null, "digest_policy": "FORBIDDEN" },
+    { "schema_id": "urn:moirae:accord-02e4:schema:settlement-vector-catalog:0.2", "schema_version": "0.2", "normative_record_types": ["SETTLEMENT_VECTOR_CATALOG"], "schema_path": "schema/accord-02e4-settlement-vector-catalog.schema.json", "contract_kind": "SPECIFICATION_CONTRACT_SCHEMA", "allowed_bundle_types": ["SPECIFICATION_PACKAGE", "EXPERIMENT_VALIDATION_BUNDLE"], "canonicalization_profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1", "digest_policy": "OPTIONAL" }
+  ],
+  "profile_contract_replacements": [
+    { "profile_type": "SETTLEMENT_PROFILE", "profile_id": "urn:accord:02c:profile:conservative-v1", "profile_version": "0.2", "schema_id": "urn:moirae:accord-02c:schema:settlement-profile:0.1", "schema_version": "0.1", "profile_path": "profiles/accord-02e4-settlement-profile-conservative-v2.json", "record_type": "SETTLEMENT_PROFILE", "selector": "urn:accord:02c:profile:conservative-v1", "replaces_profile_version": "0.1" },
+    { "profile_type": "SETTLEMENT_PROFILE", "profile_id": "urn:accord:02c:profile:incompatible-v1", "profile_version": "0.2", "schema_id": "urn:moirae:accord-02c:schema:settlement-profile:0.1", "schema_version": "0.1", "profile_path": "profiles/accord-02e4-settlement-profile-incompatible-v2.json", "record_type": "SETTLEMENT_PROFILE", "selector": "urn:accord:02c:profile:incompatible-v1", "replaces_profile_version": "0.1" }
+  ],
+  "profile_contract_additions": [
+    { "profile_type": "PREDICATE_APPLICABILITY_PROFILE", "profile_id": "urn:moirae:accord-02e4:predicate-applicability:0.2", "profile_version": "0.2", "schema_id": "urn:moirae:accord-02e4:schema:predicate-registry:0.2", "schema_version": "0.2", "profile_path": "accord-02e4-predicate-applicability-registry.json", "record_type": "PREDICATE_APPLICABILITY_PROFILE", "selector": null, "replaces_profile_version": null }
+  ],
+  "canonicalization_profiles": [
+    { "profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1", "profile_version": "0.1", "schema_id": "urn:moirae:accord-02r5:schema:canonicalization-profile:0.1", "schema_version": "0.1", "profile_path": "examples/accord-02r5-canonicalization-profile.json" }
+  ],
+  "canonicalization_applicability": [
+    { "mapping_id": "E4-CANON-POSITIVE-PROPOSITION", "container_type": "CANDIDATE_PROPOSITION_RECORD", "schema_id": "urn:moirae:accord-02e4:schema:positive-effect-proposition:0.2", "schema_version": "0.2", "record_types": ["effect_proposition"], "canonicalization_profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1", "canonicalization_profile_version": "0.1", "content_target": "record_without_integrity_content_digest", "digest_algorithm": "SHA-256", "digest_field": "integrity.content_digest", "digest_optional": false },
+    { "mapping_id": "E4-CANON-NEGATIVE-PROPOSITION", "container_type": "CANDIDATE_PROPOSITION_RECORD", "schema_id": "urn:moirae:accord-02e4:schema:negative-scope-proposition:0.2", "schema_version": "0.2", "record_types": ["negative_scope_proposition"], "canonicalization_profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1", "canonicalization_profile_version": "0.1", "content_target": "record_without_integrity_content_digest", "digest_algorithm": "SHA-256", "digest_field": "integrity.content_digest", "digest_optional": false },
+    { "mapping_id": "E4-CANON-VECTOR-CATALOG", "container_type": "EXPERIMENT_RECORD_ENTRY", "schema_id": "urn:moirae:accord-02e4:schema:settlement-vector-catalog:0.2", "schema_version": "0.2", "record_types": ["SETTLEMENT_VECTOR_CATALOG"], "canonicalization_profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1", "canonicalization_profile_version": "0.1", "content_target": "record_without_integrity_content_digest", "digest_algorithm": "SHA-256", "digest_field": "integrity.content_digest", "digest_optional": true }
+  ],
+  "role_vocabulary": ["ORCHESTRATOR", "DELEGATE_FIXTURE", "PROVIDER_FIXTURE", "OBSERVER_FIXTURE", "ARM-A-DURABLE", "ARM-B-PROVIDER-OBSERVATION", "ARM-C-LIGHTWEIGHT-CLASSIFIER", "ARM-D-ACCORD-EVIDENCE", "SCORER"],
+  "validation_rule_contract": {
+    "base_profile_id": "urn:moirae:accord-02r3:validation-rules:0.1",
+    "base_profile_version": "0.1",
+    "overlay_profile_id": "urn:moirae:accord-02r5:validation-rules:0.1",
+    "overlay_profile_version": "0.1",
+    "overlay_path": "accord-02r5-validation-rules.json",
+    "dependency_graph_id": "urn:moirae:accord-02r5:validation-dependency-graph:0.1",
+    "dependency_graph_version": "0.1",
+    "dependency_graph_path": "accord-02r5-validation-dependency-graph.json",
+    "composition": "BASE_RULES_PLUS_EXPLICIT_OVERLAY",
+    "override_policy": "R4_BASE_HISTORY_PLUS_R5_EXPLICIT_CANDIDATE_OVERRIDES"
+  },
+  "active_profile_reference_policy": {
+    "resolution_key": ["profile_type", "profile_id", "profile_version"],
+    "missing_policy": "FAIL_VALIDATION",
+    "versionless_policy": "FAIL_VALIDATION",
+    "substitution_policy": "NO_LATEST_NO_CURRENT_NO_COMPATIBLE_SUBSTITUTION",
+    "active_overrides": [
+      { "old_profile_id": "urn:accord:02c:profile:conservative-v1", "old_profile_version": "0.1", "new_profile_id": "urn:accord:02c:profile:conservative-v1", "new_profile_version": "0.2" },
+      { "old_profile_id": "urn:accord:02c:profile:incompatible-v1", "old_profile_version": "0.1", "new_profile_id": "urn:accord:02c:profile:incompatible-v1", "new_profile_version": "0.2" },
+      { "old_profile_id": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1", "old_profile_version": "1.0", "new_profile_id": "urn:moirae:accord-02e4:predicate-applicability:0.2", "new_profile_version": "0.2" }
+    ]
+  },
+  "candidate_notes": {
+    "candidate_only": true,
+    "base_is_immutable": true,
+    "repository_fallback": false,
+    "specification_scope": "The effective package is exactly the sealed base inventory with the enumerated replacements/additions; no undeclared contract is available.",
+    "negative_stage_marker": "null is reserved for the NEGATIVE_SCOPE registry tuple; the negated positive stage is explicit inside the negative proposition."
+  }
+}

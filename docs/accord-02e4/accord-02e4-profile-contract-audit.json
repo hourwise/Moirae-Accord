@@ -1,0 +1,33 @@
+{
+  "candidate_package": "urn:moirae:accord-02r5:specification-package@0.2",
+  "resolution_key": ["profile_type", "profile_id", "profile_version"],
+  "active_reference_count": 16,
+  "resolved_count": 16,
+  "missing_count": 0,
+  "versionless_count": 0,
+  "duplicate_count": 0,
+  "substitution_policy": "NO_LATEST_NO_CURRENT_NO_COMPATIBLE_SUBSTITUTION",
+  "reference_groups": [
+    { "profile_type": "VALIDATION_RULE_PROFILE", "base_contracts": 2, "candidate_active": 1, "resolution": "EXACT_BASE_INVENTORY" },
+    { "profile_type": "EXPERIMENT_PROFILE", "base_contracts": 1, "candidate_active": 1, "resolution": "EXACT_BASE_INVENTORY" },
+    { "profile_type": "VERIFIER_PROFILE", "base_contracts": 1, "candidate_active": 1, "resolution": "EXACT_BASE_INVENTORY" },
+    { "profile_type": "TRUST_ROOT_PROFILE", "base_contracts": 1, "candidate_active": 1, "resolution": "EXACT_BASE_INVENTORY" },
+    { "profile_type": "AUTHORITY_PROFILE", "base_contracts": 9, "candidate_active": 9, "resolution": "EXACT_BASE_INVENTORY" },
+    { "profile_type": "SETTLEMENT_PROFILE", "base_contracts": 2, "candidate_active": 2, "resolution": "CANDIDATE_REPLACEMENT_VERSION_0_2" },
+    { "profile_type": "PREDICATE_APPLICABILITY_PROFILE", "base_contracts": 1, "candidate_active": 1, "resolution": "CANDIDATE_ADDITION_0_2" }
+  ],
+  "active_resolution_examples": [
+    { "profile_type": "EXPERIMENT_PROFILE", "profile_id": "urn:moirae:accord-02d:experiment-profile", "profile_version": "0.2", "status": "RESOLVED" },
+    { "profile_type": "VERIFIER_PROFILE", "profile_id": "urn:moirae:accord-02r5:verifier:default:0.1", "profile_version": "0.1", "status": "RESOLVED" },
+    { "profile_type": "TRUST_ROOT_PROFILE", "profile_id": "urn:moirae:accord-02a:trust-root:fixture-v1", "profile_version": "0.1", "status": "RESOLVED" },
+    { "profile_type": "SETTLEMENT_PROFILE", "profile_id": "urn:accord:02c:profile:conservative-v1", "profile_version": "0.2", "status": "RESOLVED" },
+    { "profile_type": "SETTLEMENT_PROFILE", "profile_id": "urn:accord:02c:profile:incompatible-v1", "profile_version": "0.2", "status": "RESOLVED" },
+    { "profile_type": "PREDICATE_APPLICABILITY_PROFILE", "profile_id": "urn:moirae:accord-02e4:predicate-applicability:0.2", "profile_version": "0.2", "status": "RESOLVED" }
+  ],
+  "rejected_resolution_examples": [
+    { "input": "correct id + version omitted", "status": "VERSIONLESS_REJECTED" },
+    { "input": "correct id + 0.1 settlement version", "status": "SUPERSEDED_VERSION_REJECTED" },
+    { "input": "local profile absent from candidate inventory", "status": "MISSING_REJECTED" },
+    { "input": "same id/version with different profile type", "status": "WRONG_PROFILE_TYPE_REJECTED" }
+  ]
+}
