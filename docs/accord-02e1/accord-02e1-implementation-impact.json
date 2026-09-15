@@ -1,0 +1,88 @@
+{
+  "analysis_id": "ACCORD-02E1",
+  "accepted_specification_commit": "5a8bf1e577f71132665ece271e70e30e87df5676",
+  "verdict": "NORMATIVE_AMENDMENT_REQUIRED",
+  "implementation_change_in_this_task": false,
+  "eventual_decision_requirements": [
+    "Resolve predicate identifiers by exact identifier plus explicit versioned registry or exact profile membership.",
+    "Do not use prefix, suffix, punctuation, stage, or prose similarity as an alias.",
+    "Define negative complete-negative applicability separately from positive stage rows if that predicate remains a target.",
+    "Require every settlement vector target and evidence predicate binding to resolve under the same closed contract.",
+    "Preserve proposition identity, stage identity, binding requirements, and projection non-strengthening constraints."
+  ],
+  "affected_surfaces": [
+    {
+      "surface": "settlement predicate resolution",
+      "paths": ["accord_conformance/settlement_engine.py"],
+      "current_issue": "The R2 implementation has an explicit fallback that selects a same-stage applicability row when an unregistered predicate_id starts with urn:.",
+      "observed_location": "R2 commit 99da6ad0b5d6f535843b4c240a837b2b9f861b12, settlement_engine.py:_predicate_row",
+      "eventual_action": "Replace fallback with the amended exact predicate registry/profile resolution; reject or return profile mismatch when no exact mapping exists."
+    },
+    {
+      "surface": "proposition validation",
+      "paths": ["accord_conformance/validation_engine.py"],
+      "current_issue": "PRED-004 performs exact (predicate_id, stage) lookup in the three-row profile and therefore cannot admit the vector URN predicates without an accepted bridge.",
+      "eventual_action": "Resolve the canonical predicate through the amended contract before applying required/optional/NOT_APPLICABLE bindings."
+    },
+    {
+      "surface": "evidence capability and admissibility",
+      "paths": ["accord_conformance/settlement_engine.py", "docs/accord-02/ACCORD-02C-EVIDENCE-AND-TRUST.md"],
+      "current_issue": "Evidence predicates use both URN fixture identifiers and profile-local names; capability decisions can otherwise inherit the wrong stage row.",
+      "eventual_action": "Apply the exact resolved predicate entry to evidence class, stage, binding, and negative-evidence capability checks."
+    },
+    {
+      "surface": "native settlement to portable projection",
+      "paths": ["accord_conformance/projection_engine.py", "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json"],
+      "current_issue": "The R1 map requires exact predicate binding but does not define predicate-ID vocabulary translation.",
+      "eventual_action": "Require the amended predicate resolution before MAP-001/MAP-002 positive projection; retain exact proposition and stage identities."
+    },
+    {
+      "surface": "accepted vector execution",
+      "paths": ["docs/accord-02/examples/accord-02c-settlement-test-vectors.json", "tests/accord_conformance_fixtures/03r2-cases.json"],
+      "current_issue": "The accepted C vectors contain 23 target predicate IDs that are not direct members of the applicability profile.",
+      "eventual_action": "Re-run vector conformance after the amendment; do not change expected outcomes merely to fit implementation behavior."
+    },
+    {
+      "surface": "rule coverage and certification",
+      "paths": ["docs/accord-02/accord-02r3-validation-rules.json", "docs/accord-03/accord-03r2-rule-implementation-trace.json", "docs/accord-03/accord-03r2-rule-certification.json"],
+      "current_issue": "PRED-001 through PRED-004 and projection rules currently rely on a profile resolution that does not cover the vector vocabulary.",
+      "eventual_action": "Add amendment-specific rule inputs and regression coverage after the normative package version is accepted."
+    },
+    {
+      "surface": "historical adversarial fixtures",
+      "paths": ["tests/accord_conformance_fixtures/03d-cases.json", "tests/accord_conformance_fixtures/03r1-cases.json", "tests/accord_conformance_fixtures/03r2-cases.json"],
+      "current_issue": "Predicate/stage and projection attacks may currently be evaluated through the fallback rather than an accepted exact mapping.",
+      "eventual_action": "Reclassify affected fixtures only after the amended predicate registry and expected mapping are frozen."
+    }
+  ],
+  "deferred_external_implementation_findings": {
+    "claude": [
+      "undeclared top-level authority-bearing fields",
+      "projection provenance order-dependence",
+      "unsubstantiated rule trace",
+      "historical mapping quality"
+    ],
+    "deepseek": [
+      "missing/unreadable evidence binding slots",
+      "caller request mutation/cross-call contamination",
+      "duplicate JSON acceptance on verify CLI",
+      "unsafe shared-pool allocation boolean",
+      "unverified declared evidence digest",
+      "observed-state lexical interpretation",
+      "subject/delegatee comparison",
+      "_minimal_result crash",
+      "projected provenance ordering",
+      "rule-trace/harness deficiencies"
+    ],
+    "disposition": "DEFERRED_TO_ACCORD-03R3"
+  },
+  "required_future_artifacts": [
+    "versioned predicate registry or explicit profile extension",
+    "amended package inventory entry",
+    "amended predicate applicability schema/profile if required",
+    "vector-to-predicate resolution tests",
+    "V014 and V021 regression fixtures",
+    "complete-negative resolution fixture",
+    "external-effect generic-predicate resolution fixture"
+  ]
+}

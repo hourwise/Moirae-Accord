@@ -1,0 +1,367 @@
+{
+  "analysis_id": "ACCORD-02E1",
+  "analysis_title": "Predicate applicability erratum / amendment analysis",
+  "verdict": "NORMATIVE_AMENDMENT_REQUIRED",
+  "accepted_specification": {
+    "tag": "accord-02-accepted-v1",
+    "commit": "5a8bf1e577f71132665ece271e70e30e87df5676",
+    "package_id": "urn:moirae:accord-02r5:specification-package",
+    "package_version": "0.1",
+    "package_policy": "CLOSED_EXACT_VERSION",
+    "analysis_branch": "codex/accord-02e1-predicate-applicability-analysis"
+  },
+  "scope": {
+    "accepted_files_scanned": [
+      "docs/accord-02/ACCORD-02A-PORTABLE-RECORD-SPEC.md",
+      "docs/accord-02/ACCORD-02A-VERIFIER-CONTRACT.md",
+      "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md",
+      "docs/accord-02/ACCORD-02C-EVIDENCE-AND-TRUST.md",
+      "docs/accord-02/ACCORD-02C-SETTLEMENT-CONFORMANCE-VECTORS.md",
+      "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md",
+      "docs/accord-02/ACCORD-02D-FALSIFICATION-PROTOCOL.md",
+      "docs/accord-02/accord-02r3-validation-rules.json",
+      "docs/accord-02/accord-02r5-specification-package.json",
+      "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+      "docs/accord-02/examples/accord-02d-scenario-catalog.json",
+      "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json",
+      "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json",
+      "docs/accord-02/schema/accord-02r3-predicate-applicability-profile.schema.json",
+      "docs/accord-02/schema/accord-02a-verifier-result.schema.json",
+      "docs/accord-02/schema/accord-02c-settlement-result.schema.json"
+    ],
+    "name_normalization_allowed": false,
+    "stage_only_resolution_allowed": false,
+    "implementation_fallback_considered_normative": false
+  },
+  "counts": {
+    "settlement_vectors": 23,
+    "distinct_settlement_vector_target_predicate_ids": 4,
+    "distinct_settlement_catalog_predicate_uris": 6,
+    "distinct_profile_predicate_ids": 3,
+    "exact_vector_applicability_resolutions": 0,
+    "explicit_predicate_aliases_or_mappings": 0,
+    "unresolved_vectors": 23,
+    "ambiguous_or_non_derivable_vectors": 23
+  },
+  "predicate_entries": [
+    {
+      "identifier": "urn:accord:02c:predicate:external-effect",
+      "identifier_kind": "settlement_vector_predicate_uri",
+      "source_artifacts": [
+        "docs/accord-02/examples/accord-02c-settlement-test-vectors.json:44-71",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:55-74"
+      ],
+      "normative_status": "NORMATIVE_FIXTURE_IDENTIFIER",
+      "profile_membership": [],
+      "stages_observed": [],
+      "bindings_observed": [],
+      "referenced_vectors": [
+        "ACCORD-02C-V001-DISPATCH-ONLY",
+        "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+        "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+        "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+        "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+        "ACCORD-02C-V006-STALE-OBSERVATION",
+        "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+        "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+        "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+        "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+        "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+        "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+        "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+        "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+        "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+        "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+        "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+        "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE"
+      ],
+      "explicit_aliases_or_mappings": [],
+      "analysis_status": "UNRESOLVED_TO_APPLICABILITY_PROFILE",
+      "notes": "The identifier is used for multiple evidence and settlement situations but no canonical profile row or stage-specific mapping is supplied."
+    },
+    {
+      "identifier": "urn:accord:02c:predicate:provider-acceptance",
+      "identifier_kind": "settlement_catalog_and_evidence_predicate_uri",
+      "source_artifacts": [
+        "docs/accord-02/examples/accord-02c-settlement-test-vectors.json:39,143"
+      ],
+      "normative_status": "NORMATIVE_FIXTURE_IDENTIFIER",
+      "profile_membership": [],
+      "stages_observed": ["provider_acceptance"],
+      "bindings_observed": ["provider"],
+      "referenced_vectors": ["ACCORD-02C-V014-PARTIAL-STAGED-EFFECT"],
+      "explicit_aliases_or_mappings": [],
+      "analysis_status": "UNRESOLVED_TO_APPLICABILITY_PROFILE",
+      "notes": "The accepted applicability profile uses provider_acceptance without the URN identifier; no mapping is declared."
+    },
+    {
+      "identifier": "urn:accord:02c:predicate:recipient-ack",
+      "identifier_kind": "settlement_vector_predicate_uri",
+      "source_artifacts": [
+        "docs/accord-02/examples/accord-02c-settlement-test-vectors.json:40,62,69,256,305"
+      ],
+      "normative_status": "NORMATIVE_FIXTURE_IDENTIFIER",
+      "profile_membership": [],
+      "stages_observed": ["provider_acceptance", "recipient_acknowledgement"],
+      "bindings_observed": ["recipient", "attempt_attribution"],
+      "referenced_vectors": [
+        "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+        "ACCORD-02C-V021-RECIPIENT-MISMATCH"
+      ],
+      "explicit_aliases_or_mappings": [],
+      "analysis_status": "UNRESOLVED_TO_APPLICABILITY_PROFILE",
+      "notes": "deliver_item is a plausible human interpretation, but the accepted material does not declare recipient-ack as an alias for deliver_item or recipient_acknowledgement as an alias for recipient_acknowledged."
+    },
+    {
+      "identifier": "urn:accord:02c:predicate:resource-created",
+      "identifier_kind": "settlement_vector_predicate_uri",
+      "source_artifacts": [
+        "docs/accord-02/examples/accord-02c-settlement-test-vectors.json:41,65,70,277,312",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:63"
+      ],
+      "normative_status": "NORMATIVE_FIXTURE_IDENTIFIER",
+      "profile_membership": [],
+      "stages_observed": ["resource_created"],
+      "bindings_observed": ["resource", "target"],
+      "referenced_vectors": [
+        "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+        "ACCORD-02C-V022-PARTIAL-CORRUPTION"
+      ],
+      "explicit_aliases_or_mappings": [],
+      "analysis_status": "UNRESOLVED_TO_APPLICABILITY_PROFILE",
+      "notes": "create_resource is a plausible human interpretation, but spelling and stage similarity are not accepted mapping rules."
+    },
+    {
+      "identifier": "urn:accord:02c:predicate:resource-visible",
+      "identifier_kind": "settlement_catalog_predicate_uri",
+      "source_artifacts": [
+        "docs/accord-02/examples/accord-02c-settlement-test-vectors.json:42",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:64"
+      ],
+      "normative_status": "NORMATIVE_FIXTURE_IDENTIFIER",
+      "profile_membership": [],
+      "stages_observed": [],
+      "bindings_observed": [],
+      "referenced_vectors": [],
+      "explicit_aliases_or_mappings": [],
+      "analysis_status": "UNRESOLVED_AND_UNUSED",
+      "notes": "The catalog declares the predicate, but the accepted predicate-applicability profile does not."
+    },
+    {
+      "identifier": "urn:accord:02c:predicate:complete-negative",
+      "identifier_kind": "settlement_vector_predicate_uri",
+      "source_artifacts": [
+        "docs/accord-02/examples/accord-02c-settlement-test-vectors.json:43,249",
+        "docs/accord-02/ACCORD-02C-SETTLEMENT-CONFORMANCE-VECTORS.md:50",
+        "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:228-245"
+      ],
+      "normative_status": "NORMATIVE_NEGATIVE_SETTLEMENT_FIXTURE_IDENTIFIER",
+      "profile_membership": [],
+      "stages_observed": [],
+      "bindings_observed": ["target", "resource", "recipient", "interval", "retention", "freshness"],
+      "referenced_vectors": ["ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"],
+      "explicit_aliases_or_mappings": [],
+      "analysis_status": "UNRESOLVED_AND_SEMANTICALLY_DISTINCT",
+      "notes": "The accepted text treats complete-negative as a profile-bounded negative-evidence condition, not as one of the three positive applicability rows. It therefore needs an explicit negative predicate/applicability contract if retained as a target predicate."
+    },
+    {
+      "identifier": "urn:accord:example:predicate-resource-created",
+      "identifier_kind": "A_verifier_example_predicate_uri",
+      "source_artifacts": ["docs/accord-02/ACCORD-02A-VERIFIER-CONTRACT.md:170-183"],
+      "normative_status": "ILLUSTRATIVE_EXAMPLE",
+      "profile_membership": [],
+      "stages_observed": ["resource_created"],
+      "bindings_observed": ["resource", "target"],
+      "referenced_vectors": [],
+      "explicit_aliases_or_mappings": [],
+      "analysis_status": "NOT_PROFILE_RESOLVABLE",
+      "notes": "The example also uses kind=resource_created and action=create_resource, but the example does not declare a mapping to the applicability profile."
+    }
+  ],
+  "profile_local_predicate_rows": [
+    {
+      "predicate_id": "create_resource",
+      "profile_id": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1",
+      "profile_version": "1.0",
+      "stage": "resource_created",
+      "bindings": {
+        "target": "REQUIRED",
+        "resource": "REQUIRED",
+        "recipient": "NOT_APPLICABLE",
+        "provider": "OPTIONAL",
+        "attempt_attribution": "OPTIONAL"
+      },
+      "source": "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json:17-39"
+    },
+    {
+      "predicate_id": "deliver_item",
+      "profile_id": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1",
+      "profile_version": "1.0",
+      "stage": "recipient_acknowledged",
+      "bindings": {
+        "target": "REQUIRED",
+        "resource": "OPTIONAL",
+        "recipient": "REQUIRED",
+        "provider": "OPTIONAL",
+        "attempt_attribution": "OPTIONAL"
+      },
+      "source": "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json:17-39"
+    },
+    {
+      "predicate_id": "provider_acceptance",
+      "profile_id": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1",
+      "profile_version": "1.0",
+      "stage": "provider_accepted",
+      "bindings": {
+        "target": "REQUIRED",
+        "resource": "OPTIONAL",
+        "recipient": "OPTIONAL",
+        "provider": "REQUIRED",
+        "attempt_attribution": "OPTIONAL"
+      },
+      "source": "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json:17-39"
+    }
+  ],
+  "additional_normative_predicate_terms": [
+    {
+      "term": "processing_started",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:60,227",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "resource_created",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:63,72,227",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "resource_visible",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:64,73",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "recipient_acknowledgement",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:65,71,228",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "payment_authorized",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:66",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "payment_settled",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:67",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "publication_created",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:68",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "publication_visible",
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:68,228",
+      "status": "PROSE_VOCABULARY_ONLY",
+      "profile_membership": []
+    },
+    {
+      "term": "deliver_or_publish_item",
+      "source": "docs/accord-02/ACCORD-02D-EXPERIMENT-DESIGN.md:115; docs/accord-02/examples/accord-02d-scenario-catalog.json:42",
+      "status": "SCENARIO_SURFACE_PREDICATE_TERM",
+      "profile_membership": []
+    }
+  ],
+  "applicability_profile": {
+    "profile_id": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1",
+    "profile_version": "1.0",
+    "source": "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json",
+    "declared_rows": ["create_resource", "deliver_item", "provider_acceptance"],
+    "declared_aliases": [],
+    "declared_registry": false
+  },
+  "settlement_vectors": [
+    {"vector_id":"ACCORD-02C-V001-DISPATCH-ONLY","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"UNRESOLVED","expected_occurrence":"INSUFFICIENT_EVIDENCE"},
+    {"vector_id":"ACCORD-02C-V002-TRANSPORT-ACK-ONLY","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"UNRESOLVED","expected_occurrence":"UNKNOWN"},
+    {"vector_id":"ACCORD-02C-V003-STRONG-BOUND-RECEIPT","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"EFFECT_SUPPORTED","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V004-INDEPENDENT-CORROBORATION","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"EFFECT_SUPPORTED","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"CONFLICTING_EVIDENCE","expected_occurrence":"CONFLICTING_EVIDENCE"},
+    {"vector_id":"ACCORD-02C-V006-STALE-OBSERVATION","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"STALE_EVIDENCE","expected_occurrence":"STALE_EVIDENCE"},
+    {"vector_id":"ACCORD-02C-V007-WRONG-EFFECT-IDENTITY","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"INADMISSIBLE_EVIDENCE","expected_occurrence":"INADMISSIBLE_EVIDENCE"},
+    {"vector_id":"ACCORD-02C-V008-WRONG-ATTEMPT-BINDING","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"UNRESOLVED","expected_occurrence":"INSUFFICIENT_EVIDENCE"},
+    {"vector_id":"ACCORD-02C-V009-REPLAYED-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"INADMISSIBLE_EVIDENCE","expected_occurrence":"INADMISSIBLE_EVIDENCE"},
+    {"vector_id":"ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"EFFECT_SUPPORTED","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"POSSIBLE_DUPLICATE_EFFECT","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"UNRESOLVED","expected_occurrence":"UNKNOWN"},
+    {"vector_id":"ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE","predicate_id":"urn:accord:02c:predicate:complete-negative","stages":[],"expected_overall":"NON_OCCURRENCE_SUPPORTED","expected_occurrence":"NON_OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V014-PARTIAL-STAGED-EFFECT","predicate_id":"urn:accord:02c:predicate:recipient-ack","stages":["provider_acceptance","recipient_acknowledgement"],"expected_overall":"PARTIAL_EFFECT","expected_occurrence":"PARTIAL_EFFECT"},
+    {"vector_id":"ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"EFFECT_SUPPORTED","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"EFFECT_SUPPORTED","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION","predicate_id":"urn:accord:02c:predicate:resource-created","stages":[],"expected_overall":"EFFECT_SUPPORTED","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V018-INCOMPATIBLE-PROFILES","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"PROFILE_INCOMPATIBLE","expected_occurrence":"UNKNOWN"},
+    {"vector_id":"ACCORD-02C-V019-CLOCK-AMBIGUITY","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"UNRESOLVED","expected_occurrence":"UNKNOWN"},
+    {"vector_id":"ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"UNKNOWN","expected_occurrence":"UNKNOWN"},
+    {"vector_id":"ACCORD-02C-V021-RECIPIENT-MISMATCH","predicate_id":"urn:accord:02c:predicate:recipient-ack","stages":[],"expected_overall":"PARTIAL_EFFECT","expected_occurrence":"PARTIAL_EFFECT"},
+    {"vector_id":"ACCORD-02C-V022-PARTIAL-CORRUPTION","predicate_id":"urn:accord:02c:predicate:resource-created","stages":[],"expected_overall":"EFFECT_SUPPORTED","expected_occurrence":"OCCURRENCE_SUPPORTED"},
+    {"vector_id":"ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","stages":[],"expected_overall":"CONFLICTING_EVIDENCE","expected_occurrence":"CONFLICTING_EVIDENCE"}
+  ],
+  "resolution_matrix": [
+    {"vector_id":"ACCORD-02C-V001-DISPATCH-ONLY","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V002-TRANSPORT-ACK-ONLY","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V003-STRONG-BOUND-RECEIPT","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V004-INDEPENDENT-CORROBORATION","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V006-STALE-OBSERVATION","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V007-WRONG-EFFECT-IDENTITY","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V008-WRONG-ATTEMPT-BINDING","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V009-REPLAYED-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE","predicate_id":"urn:accord:02c:predicate:complete-negative","exact_applicability_row":null,"candidate_rows":[],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"NONE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V014-PARTIAL-STAGED-EFFECT","predicate_id":"urn:accord:02c:predicate:recipient-ack","exact_applicability_row":null,"candidate_rows":["deliver_item"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"NONE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION","predicate_id":"urn:accord:02c:predicate:resource-created","exact_applicability_row":null,"candidate_rows":["create_resource"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"NONE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V018-INCOMPATIBLE-PROFILES","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V019-CLOCK-AMBIGUITY","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V021-RECIPIENT-MISMATCH","predicate_id":"urn:accord:02c:predicate:recipient-ack","exact_applicability_row":null,"candidate_rows":["deliver_item"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"NONE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V022-PARTIAL-CORRUPTION","predicate_id":"urn:accord:02c:predicate:resource-created","exact_applicability_row":null,"candidate_rows":["create_resource"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"NONE_POSSIBLE"},
+    {"vector_id":"ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE","predicate_id":"urn:accord:02c:predicate:external-effect","exact_applicability_row":null,"candidate_rows":["create_resource","deliver_item","provider_acceptance"],"explicit_mapping":null,"resolution":"UNRESOLVED","derivability":"MULTIPLE_POSSIBLE"}
+  ],
+  "explicit_bridge_search": {
+    "predicate_alias_registry": false,
+    "predicate_mapping_profile": false,
+    "canonical_predicate_registry": false,
+    "profile_local_alias_field": false,
+    "stage_implies_predicate_rule": false,
+    "r1_mapping_profile": {
+      "path": "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json",
+      "maps_predicate_ids": false,
+      "maps": ["native C result axes and conditions to A-style result kinds"],
+      "predicate_requirement": "predicate_binding=EXACT",
+      "conclusion": "It requires an already-resolved predicate; it does not resolve one."
+    }
+  },
+  "important_non_alias_rules": [
+    {
+      "source": "docs/accord-02/ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md:70-74",
+      "rule": "Predicates in one workflow are not aliases; intended predicate and stage are carried in target and bound in evidence."
+    },
+    {
+      "source": "docs/accord-02/ACCORD-02A-VERIFIER-CONTRACT.md:304-318",
+      "rule": "The verifier's distinct semantic predicates are not aliases for one another."
+    },
+    {
+      "source": "docs/accord-02/accord-02r3-validation-rules.json:PRED-004",
+      "rule": "predicate_stage_profile_matches_proposition is required, but the profile lookup key is not bridged from the URN fixture vocabulary."
+    }
+  ]
+}
