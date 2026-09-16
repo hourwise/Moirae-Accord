@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:operator-registry:0.2",
+  "contract_id": "urn:moirae:accord-02e4r3:operator-registry",
+  "contract_version": "0.2",
+  "operators": [
+    {
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "derive schema-annotated reference edges and require exact resolution",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "execute the referenced canonical content-target operator and compare SHA-256",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "DEPENDENCY_GRAPH_EQUALS_RULES",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "derive every dependency pair from active rules and require exact materialized equality and acyclicity",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "execute every typed negative-scope requirement against the declared evidence contract",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require registry bindings, capability requirements, and provenance separation to compose",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "PREDICATE_REGISTRY_VALID",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require exact predicate-stage uniqueness and predecessor eligibility",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "PARTIAL_EFFECT_POLICY_VALID",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "apply target support and predecessor validity policy",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "PROFILE_PAIR_COMPATIBLE",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "evaluate the declared settlement/evidence profile relation",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "STRICT_SCHEMA_VALID",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require Draft 2020-12 schemas with required fields and closed objects",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "EXPECTATION_SET_EQUAL",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "compare all 13 expected axes for all 23 source vectors",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "EFFECTIVE_INVENTORY_VALID",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "derive base plus replacements plus additions minus retirements and resolve every path",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "evaluate the rule's declared assertion against its source artifact classes",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "EXACT_VALUE_EQUAL",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "compare typed values without coercion",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "EXACT_TUPLE_EXISTS",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require a declared exact tuple",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "SCOPE_BINDINGS_COMPLETE",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require each scope dimension or the explicit not-applicable token",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "RFC3339_INTERVAL_VALID",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "parse RFC3339 endpoints and require ordered inclusive interval",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "INTEGER_RANGE_COVERS",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require retention seconds to cover the observed interval",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "ENUM_ALLOWED",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require the actual value to be in the declared allowed set",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "TIMESTAMP_AGE_LE_MAX",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "require verification time minus observation time not to exceed the declared maximum",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "operator_id": "COUNT_ADMISSIBLE_EVIDENCE_EQ",
+      "operand_schema": {
+        "type": "object"
+      },
+      "input_artifact_classes": [
+        "EFFECTIVE_PACKAGE"
+      ],
+      "evaluation_semantics": "derive, deduplicate, and count admissible same-scope positive evidence",
+      "result_type": "BOOLEAN_WITH_FAILURE_CODE",
+      "error_behavior": "FAIL_CLOSED"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-24:0.2",
+  "title": "ACCORD-02E4R3 effective profile 24",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "arm_id": {
+      "type": "string",
+      "enum": [
+        "ARM-C-LIGHTWEIGHT-CLASSIFIER"
+      ]
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "allowed_for_arm_b": {
+            "type": "boolean"
+          },
+          "derivation": {
+            "type": "string",
+            "enum": [
+              "IDENTITY"
+            ]
+          },
+          "feature_id": {
+            "type": "string",
+            "enum": [
+              "attempt.dispatch_state",
+              "attempt.ordinal",
+              "executor.durable_state",
+              "provider.acceptance",
+              "provider.state_read",
+              "reconciliation.status"
+            ]
+          },
+          "feature_type": {
+            "type": "string",
+            "enum": [
+              "CATEGORICAL",
+              "INTEGER"
+            ]
+          },
+          "source_path": {
+            "type": "string",
+            "enum": [
+              "acceptance",
+              "attempt_ordinal",
+              "dispatch_state",
+              "durable_state",
+              "state_read",
+              "status"
+            ]
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "ATTEMPT_STATE",
+              "EXECUTOR_STATE",
+              "PROVIDER_STATE_READ",
+              "RECONCILIATION_RESULT"
+            ]
+          }
+        },
+        "required": [
+          "allowed_for_arm_b",
+          "derivation",
+          "feature_id",
+          "feature_type",
+          "source_path",
+          "source_type"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "forbidden_upstream_sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "AUTHORITY_ANALYSIS_RESULT",
+          "EFFECT_PROPOSITION",
+          "ORACLE_RECORD",
+          "SCORER_EXPECTATION",
+          "SCORE_RECORD",
+          "SETTLEMENT_RESULT",
+          "VERIFIER_RESULT"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "profile_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02d:classifier-features:0.1"
+      ]
+    },
+    "profile_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "CLASSIFIER_FEATURE_PROFILE"
+      ]
+    },
+    "schema_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:schema:classifier-feature-profile:0.1"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    }
+  },
+  "required": [
+    "arm_id",
+    "features",
+    "forbidden_upstream_sources",
+    "profile_id",
+    "profile_version",
+    "record_type",
+    "schema_id",
+    "schema_version"
+  ]
+}

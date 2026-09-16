@@ -1,0 +1,365 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-20:0.2",
+  "title": "ACCORD-02E4R3 effective profile 20",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:normalization-profiles:0.1"
+      ]
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "accepted_output_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ACCORD_VERIFIER_OUTPUT",
+                "CLASSIFIER_OUTPUT",
+                "DURABLE_BASELINE_OUTPUT",
+                "PROVIDER_OBSERVATION_OUTPUT"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "ambiguous_output": {
+            "type": "string",
+            "enum": [
+              "UNKNOWN_CLAIM"
+            ]
+          },
+          "arm_id": {
+            "type": "string",
+            "enum": [
+              "ARM-A-DURABLE",
+              "ARM-B-PROVIDER-OBSERVATION",
+              "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+              "ARM-D-ACCORD-EVIDENCE"
+            ]
+          },
+          "ignored_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "payload.accord",
+                "payload.accord_settlement",
+                "payload.expected",
+                "payload.oracle",
+                "payload.scorer",
+                "payload.verifier_result"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "malformed_output": {
+            "type": "string",
+            "enum": [
+              "REJECTED"
+            ]
+          },
+          "oracle_input_forbidden": {
+            "type": "boolean"
+          },
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02r3:normalization:arm-a:0.1",
+              "urn:moirae:accord-02r3:normalization:arm-b:0.1",
+              "urn:moirae:accord-02r3:normalization:arm-c:0.1",
+              "urn:moirae:accord-02r3:normalization:arm-d:0.1"
+            ]
+          },
+          "profile_version": {
+            "type": "string",
+            "enum": [
+              "0.1"
+            ]
+          },
+          "record_type": {
+            "type": "string",
+            "enum": [
+              "NORMALIZATION_PROFILE"
+            ]
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "claim_field": {
+                  "type": "string",
+                  "enum": [
+                    "attribution_claim",
+                    "indeterminacy_category",
+                    "occurrence_claim",
+                    "provider_stage_claim"
+                  ]
+                },
+                "mapping": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "ABSENT": {
+                      "type": "string",
+                      "enum": [
+                        "NO_MATCHING_STATE"
+                      ]
+                    },
+                    "ABSTAIN": {
+                      "type": "string",
+                      "enum": [
+                        "TERMINAL"
+                      ]
+                    },
+                    "ACCEPTED": {
+                      "type": "string",
+                      "enum": [
+                        "PROVIDER_ACCEPTED_ONLY"
+                      ]
+                    },
+                    "ACCEPTED_ONLY": {
+                      "type": "string",
+                      "enum": [
+                        "PROVIDER_ACCEPTED_ONLY"
+                      ]
+                    },
+                    "ATTRIBUTED": {
+                      "type": "string",
+                      "enum": [
+                        "SPECIFIC_ATTEMPT"
+                      ]
+                    },
+                    "BOUND": {
+                      "type": "string",
+                      "enum": [
+                        "SPECIFIC_ATTEMPT"
+                      ]
+                    },
+                    "COMPLETED": {
+                      "type": "string",
+                      "enum": [
+                        "POSITIVE"
+                      ]
+                    },
+                    "CONFLICTING": {
+                      "type": "string",
+                      "enum": [
+                        "CONFLICTING"
+                      ]
+                    },
+                    "CORROBORATED": {
+                      "type": "string",
+                      "enum": [
+                        "POSITIVE"
+                      ]
+                    },
+                    "DID_NOT_OCCUR": {
+                      "type": "string",
+                      "enum": [
+                        "NEGATIVE"
+                      ]
+                    },
+                    "FAILED": {
+                      "type": "string",
+                      "enum": [
+                        "NEGATIVE"
+                      ]
+                    },
+                    "HIGH": {
+                      "type": "string",
+                      "enum": [
+                        "NONE"
+                      ]
+                    },
+                    "INCOMPLETE": {
+                      "type": "string",
+                      "enum": [
+                        "INCOMPLETE_STATE"
+                      ]
+                    },
+                    "LOW": {
+                      "type": "string",
+                      "enum": [
+                        "INSUFFICIENT"
+                      ]
+                    },
+                    "NOT_ACCEPTED": {
+                      "type": "string",
+                      "enum": [
+                        "UNKNOWN"
+                      ]
+                    },
+                    "NO_EFFECT_OBSERVED": {
+                      "type": "string",
+                      "enum": [
+                        "NO_CLAIM",
+                        "OBSERVATION_ONLY"
+                      ]
+                    },
+                    "OCCURRED": {
+                      "type": "string",
+                      "enum": [
+                        "POSITIVE"
+                      ]
+                    },
+                    "PENDING": {
+                      "type": "string",
+                      "enum": [
+                        "UNKNOWN"
+                      ]
+                    },
+                    "REJECTED": {
+                      "type": "string",
+                      "enum": [
+                        "NO_CLAIM"
+                      ]
+                    },
+                    "UNATTRIBUTED": {
+                      "type": "string",
+                      "enum": [
+                        "UNKNOWN"
+                      ]
+                    },
+                    "UNKNOWN": {
+                      "type": "string",
+                      "enum": [
+                        "UNKNOWN"
+                      ]
+                    },
+                    "UNKNOWN_PENDING": {
+                      "type": "string",
+                      "enum": [
+                        "UNKNOWN"
+                      ]
+                    },
+                    "UNKNOWN_TERMINAL": {
+                      "type": "string",
+                      "enum": [
+                        "UNKNOWN"
+                      ]
+                    },
+                    "VERIFIED": {
+                      "type": "string",
+                      "enum": [
+                        "POSITIVE"
+                      ]
+                    },
+                    "VISIBLE": {
+                      "type": "string",
+                      "enum": [
+                        "STATE_OBSERVED"
+                      ]
+                    }
+                  },
+                  "required": []
+                },
+                "on_missing": {
+                  "type": "string",
+                  "enum": [
+                    "NO_CLAIM",
+                    "REJECTED",
+                    "UNKNOWN_CLAIM"
+                  ]
+                },
+                "rule_id": {
+                  "type": "string",
+                  "enum": [
+                    "A-ATTEMPT",
+                    "A-OCCURRENCE",
+                    "B-ACCEPTANCE",
+                    "B-STATE",
+                    "C-CONFIDENCE",
+                    "C-PREDICTION",
+                    "D-ATTRIBUTION",
+                    "D-NATIVE-PROJECTION",
+                    "D-NO-EFFECT-OBSERVATION"
+                  ]
+                },
+                "source_path": {
+                  "type": "string",
+                  "enum": [
+                    "payload.attempt_id",
+                    "payload.confidence_class",
+                    "payload.durable_state.effect_status",
+                    "payload.prediction",
+                    "payload.provider.acceptance",
+                    "payload.provider.state_read",
+                    "payload.settlement.kind",
+                    "payload.statuses.attribution"
+                  ]
+                }
+              },
+              "required": [
+                "claim_field",
+                "mapping",
+                "on_missing",
+                "rule_id",
+                "source_path"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "schema_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02r3:schema:normalization-profile:0.1"
+            ]
+          },
+          "schema_version": {
+            "type": "string",
+            "enum": [
+              "0.1"
+            ]
+          },
+          "scorer_expectation_input_forbidden": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "accepted_output_types",
+          "ambiguous_output",
+          "arm_id",
+          "ignored_fields",
+          "malformed_output",
+          "oracle_input_forbidden",
+          "profile_id",
+          "profile_version",
+          "record_type",
+          "rules",
+          "schema_id",
+          "schema_version",
+          "scorer_expectation_input_forbidden"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "schema_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:schema:normalization-profile-catalog:0.1"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    }
+  },
+  "required": [
+    "catalog_id",
+    "profiles",
+    "schema_id",
+    "schema_version"
+  ]
+}

@@ -1,0 +1,1546 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:specification-package:0.2",
+  "title": "ACCORD-02E4R3 specification package",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r5:specification-package:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "acceptance_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "package_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r5:specification-package"
+          ]
+        },
+        "package_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        }
+      },
+      "required": [
+        "package_id",
+        "package_version"
+      ]
+    },
+    "active_contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contract_class": {
+            "type": "string",
+            "enum": [
+              "NORMATIVE_CONTRACT",
+              "SCHEMA"
+            ]
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "object_version": {
+            "type": "string",
+            "enum": [
+              "0.2"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "schema": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reference_kind": {
+                "enum": [
+                  "SCHEMA"
+                ]
+              },
+              "schema_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02e4r3:schema:canonicalization-profile:0.2",
+                  "urn:moirae:accord-02e4r3:schema:complete-negative-evidence:0.2",
+                  "urn:moirae:accord-02e4r3:schema:dependency-graph:0.2",
+                  "urn:moirae:accord-02e4r3:schema:negative-scope-requirements:0.2",
+                  "urn:moirae:accord-02e4r3:schema:normative-contracts:0.2",
+                  "urn:moirae:accord-02e4r3:schema:operator-registry:0.2",
+                  "urn:moirae:accord-02e4r3:schema:partial-effect-policy:0.2",
+                  "urn:moirae:accord-02e4r3:schema:predicate-registry:0.2",
+                  "urn:moirae:accord-02e4r3:schema:profile-semantics:0.2",
+                  "urn:moirae:accord-02e4r3:schema:reference-semantics:0.2",
+                  "urn:moirae:accord-02e4r3:schema:settlement-vector-catalog:0.2",
+                  "urn:moirae:accord-02e4r3:schema:source-schema-registry:0.2",
+                  "urn:moirae:accord-02e4r3:schema:validation-rules:0.2"
+                ]
+              },
+              "schema_version": {
+                "type": "string",
+                "enum": [
+                  "0.2"
+                ]
+              }
+            },
+            "required": [
+              "reference_kind",
+              "schema_id",
+              "schema_version"
+            ],
+            "x-normative-reference": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE"
+            ]
+          }
+        },
+        "required": [
+          "contract_class",
+          "object_id",
+          "object_version",
+          "path",
+          "status"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "canonicalization_profile_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:canonicalization-profile"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "contract_policy": {
+      "type": "string",
+      "enum": [
+        "CLOSED_EXACT_VERSION"
+      ]
+    },
+    "dependency_graph_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:dependency-graph"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "design_freeze": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accepted_outcome_changes": {
+          "type": "integer"
+        },
+        "expected_axes": {
+          "type": "integer"
+        },
+        "prohibitions": {
+          "type": "integer"
+        },
+        "vectors": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "accepted_outcome_changes",
+        "expected_axes",
+        "prohibitions",
+        "vectors"
+      ]
+    },
+    "digest_convention": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "external_lineage": {
+          "type": "string",
+          "enum": [
+            "RAW_FILE_BYTES_SHA256"
+          ]
+        },
+        "self_digest": {
+          "type": "string",
+          "enum": [
+            "RFC8785_JCS_EXCLUDING_/lineage/current_candidate/digest"
+          ]
+        }
+      },
+      "required": [
+        "external_lineage",
+        "self_digest"
+      ]
+    },
+    "inventory_derivation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "additions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contract_class": {
+                "type": "string",
+                "enum": [
+                  "NORMATIVE_CONTRACT",
+                  "SCHEMA"
+                ]
+              },
+              "object_id": {
+                "type": "string"
+              },
+              "object_version": {
+                "type": "string",
+                "enum": [
+                  "0.2"
+                ]
+              },
+              "path": {
+                "type": "string"
+              },
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "reference_kind": {
+                    "enum": [
+                      "SCHEMA"
+                    ]
+                  },
+                  "schema_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:moirae:accord-02e4r3:schema:canonicalization-profile:0.2",
+                      "urn:moirae:accord-02e4r3:schema:complete-negative-evidence:0.2",
+                      "urn:moirae:accord-02e4r3:schema:dependency-graph:0.2",
+                      "urn:moirae:accord-02e4r3:schema:negative-scope-requirements:0.2",
+                      "urn:moirae:accord-02e4r3:schema:normative-contracts:0.2",
+                      "urn:moirae:accord-02e4r3:schema:operator-registry:0.2",
+                      "urn:moirae:accord-02e4r3:schema:partial-effect-policy:0.2",
+                      "urn:moirae:accord-02e4r3:schema:predicate-registry:0.2",
+                      "urn:moirae:accord-02e4r3:schema:profile-semantics:0.2",
+                      "urn:moirae:accord-02e4r3:schema:reference-semantics:0.2",
+                      "urn:moirae:accord-02e4r3:schema:settlement-vector-catalog:0.2",
+                      "urn:moirae:accord-02e4r3:schema:source-schema-registry:0.2",
+                      "urn:moirae:accord-02e4r3:schema:validation-rules:0.2"
+                    ]
+                  },
+                  "schema_version": {
+                    "type": "string",
+                    "enum": [
+                      "0.2"
+                    ]
+                  }
+                },
+                "required": [
+                  "reference_kind",
+                  "schema_id",
+                  "schema_version"
+                ],
+                "x-normative-reference": true
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ACTIVE"
+                ]
+              }
+            },
+            "required": [
+              "contract_class",
+              "object_id",
+              "object_version",
+              "path",
+              "status"
+            ]
+          },
+          "uniqueItems": false
+        },
+        "base": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "package_id": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02r5:specification-package"
+              ]
+            },
+            "package_version": {
+              "type": "string",
+              "enum": [
+                "0.1"
+              ]
+            }
+          },
+          "required": [
+            "package_id",
+            "package_version"
+          ]
+        },
+        "derivation_required": {
+          "type": "boolean"
+        },
+        "formula": {
+          "type": "string",
+          "enum": [
+            "BASE + REPLACEMENTS + ADDITIONS - RETIREMENTS"
+          ]
+        },
+        "replacements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "candidate settlement contracts supersede same-class 0.1 members only on acceptance"
+            ]
+          },
+          "uniqueItems": false
+        },
+        "retirements": {
+          "type": "array",
+          "items": false,
+          "uniqueItems": false
+        }
+      },
+      "required": [
+        "additions",
+        "base",
+        "derivation_required",
+        "formula",
+        "replacements",
+        "retirements"
+      ]
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "base_package": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "digest": {
+              "type": "string",
+              "enum": [
+                "sha-256:fbb9c3cc97355905e7e12632706e6a982ea1187748f4d2259641f41d20be105c"
+              ]
+            },
+            "package_id": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02r5:specification-package"
+              ]
+            },
+            "package_version": {
+              "type": "string",
+              "enum": [
+                "0.1"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "enum": [
+                "docs/accord-02/accord-02r5-specification-package.json"
+              ]
+            }
+          },
+          "required": [
+            "digest",
+            "package_id",
+            "package_version",
+            "path"
+          ]
+        },
+        "current_candidate": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "digest": {
+              "type": "string",
+              "enum": [
+                "sha-256:93ff500c344712575b40f21d6b58d32622f75e8447c0467959d331cfbaf4b512"
+              ]
+            },
+            "package_id": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02r5:specification-package"
+              ]
+            },
+            "package_version": {
+              "type": "string",
+              "enum": [
+                "0.2"
+              ]
+            }
+          },
+          "required": [
+            "digest",
+            "package_id",
+            "package_version"
+          ]
+        },
+        "previous_rejected_candidate": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "digest": {
+              "type": "string",
+              "enum": [
+                "sha-256:c4ef2cbb33e87ecc6ee85d7b6451db19297b1deb9ce8d930b2abd4411683e8dd"
+              ]
+            },
+            "package_id": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02e4r2:specification-package"
+              ]
+            },
+            "package_version": {
+              "type": "string",
+              "enum": [
+                "0.2"
+              ]
+            },
+            "path": {
+              "type": "string",
+              "enum": [
+                "docs/accord-02e4r2/accord-02e4r2-specification-package-0.2.json"
+              ]
+            },
+            "provenance_only": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "digest",
+            "package_id",
+            "package_version",
+            "path",
+            "provenance_only"
+          ]
+        }
+      },
+      "required": [
+        "base_package",
+        "current_candidate",
+        "previous_rejected_candidate"
+      ]
+    },
+    "negative_evidence_contract_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:complete-negative-evidence"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "negative_scope_requirements_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:negative-scope-requirements"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "on_acceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "relation": {
+          "type": "string",
+          "enum": [
+            "AMENDS_AND_SUPERSEDES"
+          ]
+        },
+        "replaces": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "package_id": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02r5:specification-package"
+              ]
+            },
+            "package_version": {
+              "type": "string",
+              "enum": [
+                "0.1"
+              ]
+            }
+          },
+          "required": [
+            "package_id",
+            "package_version"
+          ]
+        }
+      },
+      "required": [
+        "relation",
+        "replaces"
+      ]
+    },
+    "operator_registry_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:operator-registry"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "package_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r5:specification-package"
+      ]
+    },
+    "package_schema_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference_kind": {
+          "enum": [
+            "SCHEMA"
+          ]
+        },
+        "schema_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:schema:specification-package:0.2"
+          ]
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        }
+      },
+      "required": [
+        "reference_kind",
+        "schema_id",
+        "schema_version"
+      ],
+      "x-normative-reference": true
+    },
+    "package_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "path_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "absolute_paths": {
+          "type": "string",
+          "enum": [
+            "FORBIDDEN"
+          ]
+        },
+        "parent_traversal": {
+          "type": "string",
+          "enum": [
+            "FORBIDDEN"
+          ]
+        },
+        "path_base": {
+          "type": "string",
+          "enum": [
+            "REPOSITORY_ROOT"
+          ]
+        },
+        "repository_search_fallback": {
+          "type": "string",
+          "enum": [
+            "FORBIDDEN"
+          ]
+        }
+      },
+      "required": [
+        "absolute_paths",
+        "parent_traversal",
+        "path_base",
+        "repository_search_fallback"
+      ]
+    },
+    "profile_contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contract_class": {
+            "type": "string",
+            "enum": [
+              "PROFILE"
+            ]
+          },
+          "overlay_contract_id": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:validation-rules:0.1"
+                ]
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "profile_id": {
+            "type": "string"
+          },
+          "profile_path": {
+            "type": "string",
+            "enum": [
+              "docs/accord-02/accord-02r3-validation-rules.json",
+              "docs/accord-02/accord-02r5-validation-rules.json",
+              "docs/accord-02/examples/accord-02b-authority-test-vectors.json",
+              "docs/accord-02/examples/accord-02d-arm-input-profiles.json",
+              "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json",
+              "docs/accord-02/examples/accord-02r3-classifier-feature-profile.json",
+              "docs/accord-02/examples/accord-02r3-extension-registry.json",
+              "docs/accord-02/examples/accord-02r3-normalization-profiles.json",
+              "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json",
+              "docs/accord-02/examples/accord-02r3-role-visibility-profile.json",
+              "docs/accord-02/examples/accord-02r3-source-schema-registry.json",
+              "docs/accord-02/schema/accord-02d-experiment-profile.schema.json",
+              "docs/accord-02/schema/accord-02r5-trust-root-profile.schema.json",
+              "docs/accord-02/schema/accord-02r5-verifier-profile.schema.json",
+              "docs/accord-02e4r2/accord-02e4r2-predicate-applicability-registry.json",
+              "docs/accord-02e4r2/canonicalization/accord-02e4r2-canonicalization-profile.json",
+              "docs/accord-02e4r2/profiles/accord-02e4r2-settlement-profile-conservative-v2.json",
+              "docs/accord-02e4r2/profiles/accord-02e4r2-settlement-profile-incompatible-v2.json"
+            ]
+          },
+          "profile_type": {
+            "type": "string",
+            "enum": [
+              "ARM_INPUT_PROFILE",
+              "AUTHORITY_PROFILE",
+              "CANONICALIZATION_PROFILE",
+              "CLASSIFIER_FEATURE_PROFILE",
+              "EXPERIMENT_PROFILE",
+              "EXTENSION_REGISTRY",
+              "NORMALIZATION_PROFILE",
+              "PREDICATE_APPLICABILITY_PROFILE",
+              "PROJECTION_PROFILE",
+              "ROLE_VISIBILITY_PROFILE",
+              "SETTLEMENT_PROFILE",
+              "SOURCE_SCHEMA_REGISTRY",
+              "TRUST_ROOT_PROFILE",
+              "VALIDATION_RULE_PROFILE",
+              "VERIFIER_PROFILE"
+            ]
+          },
+          "profile_version": {
+            "type": "string",
+            "enum": [
+              "0.1",
+              "0.2",
+              "1.0"
+            ]
+          },
+          "record_type": {
+            "type": "string",
+            "enum": [
+              "ARM_INPUT_PROFILE",
+              "AUTHORITY_PROFILE",
+              "CANONICALIZATION_PROFILE",
+              "CLASSIFIER_FEATURE_PROFILE",
+              "EXPERIMENT_PROFILE",
+              "EXTENSION_REGISTRY",
+              "NORMALIZATION_PROFILE",
+              "PREDICATE_APPLICABILITY_PROFILE",
+              "PROJECTION_PROFILE",
+              "ROLE_VISIBILITY_PROFILE",
+              "SETTLEMENT_PROFILE",
+              "SOURCE_SCHEMA_REGISTRY",
+              "TRUST_ROOT_PROFILE",
+              "VALIDATION_RULE_PROFILE",
+              "VERIFIER_PROFILE"
+            ]
+          },
+          "replacement_policy": {
+            "type": "string",
+            "enum": [
+              "REPLACES_R1_ACTIVE_PREDICATE_PROFILE"
+            ]
+          },
+          "retired": {
+            "type": "boolean"
+          },
+          "retirement_policy": {
+            "type": "string",
+            "enum": [
+              "NOT_ACTIVE_NOT_RESOLVABLE"
+            ]
+          },
+          "schema_id": {
+            "type": "string"
+          },
+          "schema_version": {
+            "type": "string",
+            "enum": [
+              "0.1",
+              "0.2"
+            ]
+          },
+          "selector": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:closed-set-static-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:disjoint-union-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:shared-pool-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:reserved-suballocation-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:mediated-analysis-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:event-time-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:accord:02b:workflow-unknown-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:explicit-inheritance-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02b:comparison-required-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:accord:02c:profile:conservative-v1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:accord:02c:profile:incompatible-v1"
+                ]
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:normalization:arm-a:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:normalization:arm-b:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:normalization:arm-c:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:normalization:arm-d:0.1"
+                ]
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02d:arm-input:durable:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02d:arm-input:provider-observation:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02d:arm-input:accord-evidence:0.1"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "RETIRED"
+            ]
+          }
+        },
+        "required": [
+          "contract_class",
+          "profile_id",
+          "profile_path",
+          "profile_type",
+          "profile_version",
+          "record_type",
+          "schema_id",
+          "schema_version",
+          "status"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "reference_semantics_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:reference-semantics"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "schema_contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "allowed_bundle_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "EXPERIMENT_VALIDATION_BUNDLE",
+                "SCORER_BUNDLE",
+                "SPECIFICATION_PACKAGE",
+                "VERIFIER_VALIDATION_BUNDLE"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "canonicalization_profile_id": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.1"
+                ]
+              }
+            ]
+          },
+          "canonicalization_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contract_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2"
+                ]
+              },
+              "contract_version": {
+                "type": "string",
+                "enum": [
+                  "0.2"
+                ]
+              }
+            },
+            "required": [
+              "contract_id",
+              "contract_version"
+            ]
+          },
+          "contract_class": {
+            "type": "string",
+            "enum": [
+              "SCHEMA"
+            ]
+          },
+          "contract_kind": {
+            "type": "string",
+            "enum": [
+              "BUNDLE_SCHEMA",
+              "INSTANCE_RECORD_SCHEMA",
+              "RUN_RECORD_SCHEMA",
+              "SPECIFICATION_CONTRACT_SCHEMA"
+            ]
+          },
+          "digest_policy": {
+            "type": "string",
+            "enum": [
+              "FORBIDDEN",
+              "OPTIONAL",
+              "REQUIRED"
+            ]
+          },
+          "normative_record_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "schema_id": {
+            "type": "string"
+          },
+          "schema_path": {
+            "type": "string"
+          },
+          "schema_version": {
+            "type": "string",
+            "enum": [
+              "0.1",
+              "0.2"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE"
+            ]
+          }
+        },
+        "required": [
+          "contract_class",
+          "schema_id",
+          "schema_path",
+          "schema_version",
+          "status"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "source_schema_registry_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:source-schema-registry"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "CANDIDATE_UNACCEPTED"
+      ]
+    },
+    "validation_rules_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:validation-rules"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "acceptance_target",
+    "active_contracts",
+    "canonicalization_profile_ref",
+    "contract_policy",
+    "dependency_graph_ref",
+    "design_freeze",
+    "digest_convention",
+    "inventory_derivation",
+    "lineage",
+    "negative_evidence_contract_ref",
+    "negative_scope_requirements_ref",
+    "on_acceptance",
+    "operator_registry_ref",
+    "package_id",
+    "package_schema_ref",
+    "package_version",
+    "path_resolution",
+    "profile_contracts",
+    "reference_semantics_ref",
+    "schema_contracts",
+    "source_schema_registry_ref",
+    "status",
+    "validation_rules_ref"
+  ]
+}

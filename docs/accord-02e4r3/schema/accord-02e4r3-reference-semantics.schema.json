@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:reference-semantics:0.2",
+  "title": "ACCORD-02E4R3 reference-semantics",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:reference-semantics:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:reference-semantics"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "discovery": {
+      "type": "string",
+      "enum": [
+        "SCHEMA_X_NORMATIVE_REFERENCE"
+      ]
+    },
+    "equality": {
+      "type": "string",
+      "enum": [
+        "CODE_POINT_EXACT"
+      ]
+    },
+    "fallback": {
+      "type": "string",
+      "enum": [
+        "FORBIDDEN"
+      ]
+    },
+    "identity": {
+      "type": "string",
+      "enum": [
+        "OBJECT_ID_AND_EXPLICIT_VERSION"
+      ]
+    },
+    "latest_substitution": {
+      "type": "boolean"
+    },
+    "normalization": {
+      "type": "string",
+      "enum": [
+        "NONE"
+      ]
+    },
+    "self_registration": {
+      "type": "boolean"
+    },
+    "source_vector_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "catalog_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02c:settlement-test-vectors"
+          ]
+        },
+        "catalog_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "enum": [
+            "docs/accord-02/examples/accord-02c-settlement-test-vectors.json"
+          ]
+        }
+      },
+      "required": [
+        "catalog_id",
+        "catalog_version",
+        "path"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "contract_id",
+    "contract_version",
+    "discovery",
+    "equality",
+    "fallback",
+    "identity",
+    "latest_substitution",
+    "normalization",
+    "self_registration",
+    "source_vector_target"
+  ]
+}

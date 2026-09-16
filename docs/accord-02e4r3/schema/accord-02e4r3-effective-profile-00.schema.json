@@ -1,0 +1,733 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-00:0.2",
+  "title": "ACCORD-02E4R3 effective profile 00",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:schema:validation-rules:0.1"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "base_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r2:validation-rules:0.1"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "enum": [
+            "accord-02r2-validation-rules.json"
+          ]
+        },
+        "preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "path",
+        "preserved"
+      ]
+    },
+    "base_rule_closures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "classification": {
+            "type": "string",
+            "enum": [
+              "DETERMINISTIC",
+              "DETERMINISTIC_WITH_PROFILE"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ARM-001",
+                "ARM-002",
+                "ARM-003",
+                "BND-001",
+                "BND-002",
+                "BND-003",
+                "BND-005",
+                "CLF-001",
+                "DIGEST-001",
+                "EXT-001",
+                "LIN-001",
+                "NORM-001",
+                "NORM-002",
+                "PRED-001",
+                "PROJ-001",
+                "PROP-001",
+                "RAW-001",
+                "RUN-001",
+                "RUN-002",
+                "SRC-001",
+                "VIS-001"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "produces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "rule_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "classification",
+          "depends_on",
+          "produces",
+          "rule_id"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "profile_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:validation-rules:0.1"
+      ]
+    },
+    "rule_classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "BND-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "BND-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "BND-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "BND-004": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "BND-005": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "CLF-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "CLF-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "CLF-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "CLF-004": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "DIGEST-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "DIGEST-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "DIGEST-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "EXT-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "EXT-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "EXT-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "EXT-004": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "EXT-005": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "EXT-006": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "LIN-009": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "NORM-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "NORM-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "NORM-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "NORM-004": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "NORM-005": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "PRED-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "PRED-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "PRED-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "PRED-004": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "PROP-006": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "RUN-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "RUN-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "RUN-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "RUN-004": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC"
+          ]
+        },
+        "SRC-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "SRC-002": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "SRC-003": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "SRC-004": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        },
+        "VIS-001": {
+          "type": "string",
+          "enum": [
+            "DETERMINISTIC_WITH_PROFILE"
+          ]
+        }
+      },
+      "required": [
+        "BND-001",
+        "BND-002",
+        "BND-003",
+        "BND-004",
+        "BND-005",
+        "CLF-001",
+        "CLF-002",
+        "CLF-003",
+        "CLF-004",
+        "DIGEST-001",
+        "DIGEST-002",
+        "DIGEST-003",
+        "EXT-001",
+        "EXT-002",
+        "EXT-003",
+        "EXT-004",
+        "EXT-005",
+        "EXT-006",
+        "LIN-009",
+        "NORM-001",
+        "NORM-002",
+        "NORM-003",
+        "NORM-004",
+        "NORM-005",
+        "PRED-001",
+        "PRED-002",
+        "PRED-003",
+        "PRED-004",
+        "PROP-006",
+        "RUN-001",
+        "RUN-002",
+        "RUN-003",
+        "RUN-004",
+        "SRC-001",
+        "SRC-002",
+        "SRC-003",
+        "SRC-004",
+        "VIS-001"
+      ]
+    },
+    "rule_families": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "BUNDLE",
+          "CLASSIFIER_FEATURE",
+          "DIGEST",
+          "EXTENSION",
+          "LINEAGE_CLOSURE",
+          "NORMALIZATION",
+          "PREDICATE_APPLICABILITY",
+          "ROLE_VISIBILITY",
+          "RUN_CONTRACT",
+          "SOURCE_MEMBERSHIP"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "BUNDLE",
+              "CLASSIFIER_FEATURE",
+              "DIGEST",
+              "EXTENSION",
+              "LINEAGE_CLOSURE",
+              "NORMALIZATION",
+              "PREDICATE_APPLICABILITY",
+              "ROLE_VISIBILITY",
+              "RUN_CONTRACT",
+              "SOURCE_MEMBERSHIP"
+            ]
+          },
+          "condition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "algorithm": {
+                "type": "string",
+                "enum": [
+                  "SHA-256"
+                ]
+              },
+              "allowed": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "applicable normalization profile",
+                    "raw arm output"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "arm_and_verifier_bundles_forbid": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "ORACLE_RECORD",
+                    "SCORER_EXPECTATION",
+                    "SCORE_RECORD"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "canonicalization": {
+                "type": "string",
+                "enum": [
+                  "record_declared_canonicalization"
+                ]
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "arm_id",
+                    "arm_input_manifest_ref",
+                    "classifier_feature_profile_ref when ARM-C",
+                    "experiment_profile_ref",
+                    "experiment_run_id",
+                    "experiment_run_ref when experiment-scoped",
+                    "extension_registry_ref",
+                    "input_bundle_ref",
+                    "input_profile_id",
+                    "normalization_profile_ref",
+                    "predicate_applicability_profile_ref",
+                    "produced_result_ref",
+                    "record_type",
+                    "role_visibility_profile_ref",
+                    "scenario_id",
+                    "schema_id",
+                    "schema_version",
+                    "settlement_profile_ref",
+                    "source_schema_registry_ref",
+                    "source_type",
+                    "validation_rule_profile_ref",
+                    "verifier_profile_ref",
+                    "verifier_run_id"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "fixture_private_not_arm_visible": {
+                "type": "boolean"
+              },
+              "forbidden": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "AUTHORITY_ANALYSIS_RESULT",
+                    "CATEGORICAL_FAILURE_EVALUATION",
+                    "ORACLE_RECORD",
+                    "SCORER_EXPECTATION",
+                    "SETTLEMENT_RESULT",
+                    "VERIFIER_RESULT",
+                    "attribution",
+                    "authority",
+                    "database search",
+                    "filesystem search",
+                    "hidden cache",
+                    "network lookup",
+                    "normalization",
+                    "occurrence",
+                    "private Accord state",
+                    "settlement"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "forbidden_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "oracle_ref",
+                    "score_record_ref",
+                    "scorer_expectation_ref"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "invalid_target_result": {
+                "type": "string",
+                "enum": [
+                  "STRUCTURALLY_INVALID_REFERENCE_TARGET"
+                ]
+              },
+              "operator": {
+                "type": "string"
+              },
+              "oracle_used": {
+                "type": "boolean"
+              },
+              "private_state_used": {
+                "type": "boolean"
+              },
+              "required_profile_classes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "classifier features when ARM-C",
+                    "extension registry",
+                    "normalization when scoring",
+                    "predicate applicability",
+                    "role visibility when experiment-scoped",
+                    "source schema registry when experiment-scoped",
+                    "validation rules"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "result_enum": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "DUPLICATE",
+                    "MISSING",
+                    "RESOLVED",
+                    "STRUCTURALLY_INVALID",
+                    "WRONG_TYPE"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "schema_selection": {
+                "type": "string",
+                "enum": [
+                  "record schema_id and schema_version select the declared structural contract in the supplied scope"
+                ]
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "supplied validation bundle"
+                ]
+              },
+              "selection": {
+                "type": "string",
+                "enum": [
+                  "never_first_match"
+                ]
+              },
+              "unknown_result": {
+                "type": "string",
+                "enum": [
+                  "UNKNOWN_FORBIDDEN"
+                ]
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ARM-001",
+                "ARM-002",
+                "BND-001",
+                "BND-002",
+                "BND-003",
+                "BND-004",
+                "BND-005",
+                "CLF-001",
+                "CLF-002",
+                "DIGEST-001",
+                "EXT-001",
+                "LIN-001",
+                "LIN-002",
+                "NORM-001",
+                "NORM-002",
+                "NORM-003",
+                "PRED-001",
+                "PROP-001",
+                "PROP-002",
+                "RAW-001",
+                "RUN-001",
+                "RUN-002",
+                "SRC-001"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "failure_code": {
+            "type": "string"
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "produces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "required_for": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "experiment-run admission",
+                "scoring admission",
+                "structural admission",
+                "verifier admission"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "BLOCKING",
+              "MAJOR"
+            ]
+          }
+        },
+        "required": [
+          "category",
+          "condition",
+          "depends_on",
+          "failure_code",
+          "inputs",
+          "produces",
+          "required_for",
+          "rule_id",
+          "severity"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "scope_contract": {
+      "type": "string",
+      "enum": [
+        "validation scope is the explicit supplied record/profile set in the active bundle; no ambient repository, database, network, cache, or private Accord state is searched"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "enum": [
+        "ACCORD-02R3 active validation-rule closure overlay"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "base_registry",
+    "base_rule_closures",
+    "profile_id",
+    "rule_classification",
+    "rule_families",
+    "rules",
+    "scope_contract",
+    "title",
+    "version"
+  ]
+}

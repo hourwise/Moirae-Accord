@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:canonicalization-profile:0.2",
+  "title": "ACCORD-02E4R3 canonicalization-profile",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:canonicalization-profile:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "algorithm": {
+      "type": "string",
+      "enum": [
+        "SHA-256"
+      ]
+    },
+    "applies_to": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "canonicalization_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contract_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02e4r3:canonicalization-profile"
+                ]
+              },
+              "contract_version": {
+                "type": "string",
+                "enum": [
+                  "0.2"
+                ]
+              },
+              "reference_kind": {
+                "enum": [
+                  "CONTRACT"
+                ]
+              }
+            },
+            "required": [
+              "contract_id",
+              "contract_version",
+              "reference_kind"
+            ],
+            "x-normative-reference": true
+          },
+          "container_type": {
+            "type": "string",
+            "enum": [
+              "EXPERIMENT_RECORD_ENTRY",
+              "SCORER_ENTRY",
+              "VERIFIER_RECORD_ENTRY"
+            ]
+          },
+          "content_target_id": {
+            "type": "string",
+            "enum": [
+              "ENTRY_CONTENT",
+              "RECORD_EXCLUDING_INTEGRITY",
+              "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST"
+            ]
+          },
+          "record_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "schema_id": {
+            "type": "string"
+          },
+          "schema_version": {
+            "type": "string",
+            "enum": [
+              "0.1",
+              "0.2"
+            ]
+          }
+        },
+        "required": [
+          "canonicalization_profile_ref",
+          "container_type",
+          "content_target_id",
+          "record_types",
+          "schema_id",
+          "schema_version"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "content_target_registry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "content_target_id": {
+            "type": "string",
+            "enum": [
+              "ENTRY_CONTENT",
+              "RECORD_EXCLUDING_INTEGRITY",
+              "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST"
+            ]
+          },
+          "duplicate_pointer_policy": {
+            "type": "string",
+            "enum": [
+              "ERROR"
+            ]
+          },
+          "json_pointers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "/content",
+                "/integrity",
+                "/integrity/content_digest"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "missing_pointer_policy": {
+            "type": "string",
+            "enum": [
+              "ERROR"
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "EXCLUDE_JSON_POINTERS",
+              "INCLUDE_JSON_POINTERS"
+            ]
+          },
+          "operator_id": {
+            "type": "string",
+            "enum": [
+              "ENTRY_CONTENT",
+              "RECORD_EXCLUDING_INTEGRITY",
+              "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST"
+            ]
+          },
+          "pointer_semantics": {
+            "type": "string",
+            "enum": [
+              "RFC6901"
+            ]
+          },
+          "result_type": {
+            "type": "string",
+            "enum": [
+              "JSON_VALUE"
+            ]
+          }
+        },
+        "required": [
+          "content_target_id",
+          "duplicate_pointer_policy",
+          "json_pointers",
+          "missing_pointer_policy",
+          "mode",
+          "operator_id",
+          "pointer_semantics",
+          "result_type"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "encoding": {
+      "type": "string",
+      "enum": [
+        "UTF-8"
+      ]
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "RFC8785_JCS"
+      ]
+    },
+    "profile_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:canonicalization-profile"
+      ]
+    },
+    "profile_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "single_source_of_truth": {
+      "type": "string",
+      "enum": [
+        "CONTENT_TARGET_REGISTRY"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "algorithm",
+    "applies_to",
+    "content_target_registry",
+    "encoding",
+    "method",
+    "profile_id",
+    "profile_version",
+    "single_source_of_truth"
+  ]
+}

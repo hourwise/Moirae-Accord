@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:complete-negative-evidence:0.2",
+  "title": "ACCORD-02E4R3 complete-negative-evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:complete-negative-evidence:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "accepted_v013_input_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "complete_negative_evidence": {
+          "type": "string",
+          "enum": [
+            "read_scope_complete"
+          ]
+        },
+        "fresh_at_verification": {
+          "type": "string",
+          "enum": [
+            "observed_at/verification_time"
+          ]
+        },
+        "no_contradictory_positive_evidence": {
+          "type": "string",
+          "enum": [
+            "DERIVED_FROM_EVIDENCE_UNIVERSE"
+          ]
+        },
+        "scope_complete": {
+          "type": "string",
+          "enum": [
+            "scope_bindings"
+          ]
+        }
+      },
+      "required": [
+        "complete_negative_evidence",
+        "fresh_at_verification",
+        "no_contradictory_positive_evidence",
+        "scope_complete"
+      ]
+    },
+    "consistency_level": {
+      "type": "string",
+      "enum": [
+        "SNAPSHOT_COMPLETE"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:complete-negative-evidence"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "contradiction_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "caller_supplied_count_allowed": {
+          "type": "boolean"
+        },
+        "deduplicate_by": {
+          "type": "string",
+          "enum": [
+            "evidence_id"
+          ]
+        },
+        "filter": {
+          "type": "string",
+          "enum": [
+            "ADMISSIBLE_SAME_EFFECT_PREDICATE_STAGE_POSITIVE"
+          ]
+        },
+        "required_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "caller_supplied_count_allowed",
+        "deduplicate_by",
+        "filter",
+        "required_count"
+      ]
+    },
+    "effect_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:effect:v013"
+      ]
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "COMPLETE_NEGATIVE_LEDGER_QUERY"
+      ]
+    },
+    "evidence_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:evidence:v013:complete-negative"
+      ]
+    },
+    "evidence_universe": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "admissible": {
+            "type": "boolean"
+          },
+          "effect_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:effect:v013"
+            ]
+          },
+          "evidence_class": {
+            "type": "string",
+            "enum": [
+              "COMPLETE_NEGATIVE_LEDGER_QUERY"
+            ]
+          },
+          "evidence_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:evidence:v013:complete-negative"
+            ]
+          },
+          "predicate_id": {
+            "type": "string",
+            "enum": [
+              "urn:accord:02c:predicate:external-effect"
+            ]
+          },
+          "proposition": {
+            "type": "string",
+            "enum": [
+              "NEGATIVE"
+            ]
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "effect"
+            ]
+          }
+        },
+        "required": [
+          "admissible",
+          "effect_id",
+          "evidence_class",
+          "evidence_id",
+          "predicate_id",
+          "proposition",
+          "stage"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "freshness_max_age_seconds": {
+      "type": "integer"
+    },
+    "observed_at": {
+      "type": "string",
+      "enum": [
+        "2024-01-01T00:00:01Z"
+      ]
+    },
+    "observed_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "as_of": {
+          "type": "string",
+          "enum": [
+            "2024-01-01T00:00:01Z"
+          ]
+        },
+        "endpoints": {
+          "type": "string",
+          "enum": [
+            "INCLUSIVE"
+          ]
+        },
+        "not_before": {
+          "type": "string",
+          "enum": [
+            "2024-01-01T00:00:00Z"
+          ]
+        }
+      },
+      "required": [
+        "as_of",
+        "endpoints",
+        "not_before"
+      ]
+    },
+    "predicate_id": {
+      "type": "string",
+      "enum": [
+        "urn:accord:02c:predicate:external-effect"
+      ]
+    },
+    "read_scope_complete": {
+      "type": "boolean"
+    },
+    "read_semantics": {
+      "type": "string",
+      "enum": [
+        "COMPLETE_LEDGER_QUERY"
+      ]
+    },
+    "retention_window_seconds": {
+      "type": "integer"
+    },
+    "scope_bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "action-v013"
+          ]
+        },
+        "provider": {
+          "type": "string",
+          "enum": [
+            "provider-v013"
+          ]
+        },
+        "recipient": {
+          "type": "string",
+          "enum": [
+            "NOT_APPLICABLE"
+          ]
+        },
+        "resource": {
+          "type": "string",
+          "enum": [
+            "resource-v013"
+          ]
+        }
+      },
+      "required": [
+        "action",
+        "provider",
+        "recipient",
+        "resource"
+      ]
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "effect"
+      ]
+    },
+    "verification_time": {
+      "type": "string",
+      "enum": [
+        "2024-01-01T00:00:02Z"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "accepted_v013_input_mapping",
+    "consistency_level",
+    "contract_id",
+    "contract_version",
+    "contradiction_policy",
+    "effect_id",
+    "evidence_class",
+    "evidence_id",
+    "evidence_universe",
+    "freshness_max_age_seconds",
+    "observed_at",
+    "observed_interval",
+    "predicate_id",
+    "read_scope_complete",
+    "read_semantics",
+    "retention_window_seconds",
+    "scope_bindings",
+    "stage",
+    "verification_time"
+  ]
+}

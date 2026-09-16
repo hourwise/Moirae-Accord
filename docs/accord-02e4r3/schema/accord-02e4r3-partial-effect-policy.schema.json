@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:partial-effect-policy:0.2",
+  "title": "ACCORD-02E4R3 partial-effect-policy",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:partial-effect-policy:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:partial-effect-policy"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "cycle": {
+      "type": "string",
+      "enum": [
+        "REJECT"
+      ]
+    },
+    "dangling_target": {
+      "type": "string",
+      "enum": [
+        "REJECT"
+      ]
+    },
+    "direct_predecessor_required": {
+      "type": "boolean"
+    },
+    "same_effect_required": {
+      "type": "boolean"
+    },
+    "self_edge": {
+      "type": "string",
+      "enum": [
+        "REJECT"
+      ]
+    },
+    "target_already_supported": {
+      "type": "string",
+      "enum": [
+        "NOT_PARTIAL_EFFECT"
+      ]
+    },
+    "unknown_tuple": {
+      "type": "string",
+      "enum": [
+        "REJECT"
+      ]
+    },
+    "unsupported_tuple": {
+      "type": "string",
+      "enum": [
+        "REJECT"
+      ]
+    },
+    "wrong_effect": {
+      "type": "string",
+      "enum": [
+        "REJECT"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "contract_id",
+    "contract_version",
+    "cycle",
+    "dangling_target",
+    "direct_predecessor_required",
+    "same_effect_required",
+    "self_edge",
+    "target_already_supported",
+    "unknown_tuple",
+    "unsupported_tuple",
+    "wrong_effect"
+  ]
+}

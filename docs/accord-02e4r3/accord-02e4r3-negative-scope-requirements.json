@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:negative-scope-requirements:0.2",
+  "contract_id": "urn:moirae:accord-02e4r3:negative-scope-requirements",
+  "contract_version": "0.2",
+  "evidence_contract_ref": {
+    "reference_kind": "CONTRACT",
+    "contract_id": "urn:moirae:accord-02e4r3:complete-negative-evidence",
+    "contract_version": "0.2"
+  },
+  "requirements": [
+    {
+      "requirement_id": "COMPLETE_STATE_SPACE",
+      "operator_id": "EXACT_VALUE_EQUAL",
+      "operands": {
+        "pointer": "/read_scope_complete",
+        "expected": true
+      }
+    },
+    {
+      "requirement_id": "IDENTITY_BOUND",
+      "operator_id": "EXACT_TUPLE_EXISTS",
+      "operands": {
+        "fields": [
+          "effect_id",
+          "predicate_id",
+          "stage"
+        ]
+      }
+    },
+    {
+      "requirement_id": "SCOPE_BOUND",
+      "operator_id": "SCOPE_BINDINGS_COMPLETE",
+      "operands": {
+        "fields": [
+          "resource",
+          "action",
+          "recipient",
+          "provider"
+        ],
+        "not_applicable_token": "NOT_APPLICABLE"
+      }
+    },
+    {
+      "requirement_id": "INTERVAL_BOUND",
+      "operator_id": "RFC3339_INTERVAL_VALID",
+      "operands": {
+        "endpoints": "INCLUSIVE"
+      }
+    },
+    {
+      "requirement_id": "RETENTION_DECLARED",
+      "operator_id": "INTEGER_RANGE_COVERS",
+      "operands": {
+        "interval_pointer": "/observed_interval",
+        "retention_pointer": "/retention_window_seconds"
+      }
+    },
+    {
+      "requirement_id": "CONSISTENCY_DECLARED",
+      "operator_id": "ENUM_ALLOWED",
+      "operands": {
+        "pointer": "/consistency_level",
+        "allowed": [
+          "SNAPSHOT_COMPLETE"
+        ]
+      }
+    },
+    {
+      "requirement_id": "COMPLETE_READ_SEMANTICS",
+      "operator_id": "ENUM_ALLOWED",
+      "operands": {
+        "pointer": "/read_semantics",
+        "allowed": [
+          "COMPLETE_LEDGER_QUERY"
+        ]
+      }
+    },
+    {
+      "requirement_id": "FRESH_AT_VERIFICATION",
+      "operator_id": "TIMESTAMP_AGE_LE_MAX",
+      "operands": {
+        "observed_at": "/observed_at",
+        "verification_time": "/verification_time",
+        "max_age": "/freshness_max_age_seconds"
+      }
+    },
+    {
+      "requirement_id": "NO_CONTRADICTORY_EVIDENCE",
+      "operator_id": "COUNT_ADMISSIBLE_EVIDENCE_EQ",
+      "operands": {
+        "universe": "/evidence_universe",
+        "expected": 0
+      }
+    },
+    {
+      "requirement_id": "ACCEPTED_COMPLETE_SOURCE_CLASS",
+      "operator_id": "ENUM_ALLOWED",
+      "operands": {
+        "pointer": "/evidence_class",
+        "allowed": [
+          "COMPLETE_NEGATIVE_LEDGER_QUERY"
+        ]
+      }
+    }
+  ]
+}

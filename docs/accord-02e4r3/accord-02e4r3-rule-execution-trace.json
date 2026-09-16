@@ -1,0 +1,1618 @@
+{
+  "blocking_rules": [
+    {
+      "rule_id": "ORC-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "ORC-001",
+        "source_artifact_classes": [
+          "public scenario catalog",
+          "system-under-test input manifests"
+        ],
+        "declared_assertion_id": "CONTAINS_NO_REFERENCE"
+      },
+      "source_artifacts": [
+        "public scenario catalog",
+        "system-under-test input manifests"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ORC-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "ORC-002",
+        "source_artifact_classes": [
+          "scorer configuration",
+          "public scenario catalog",
+          "arm manifests"
+        ],
+        "declared_assertion_id": "ONE_WAY_JOIN"
+      },
+      "source_artifacts": [
+        "scorer configuration",
+        "public scenario catalog",
+        "arm manifests"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-001",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "ARM-001",
+        "source_artifact_classes": [
+          "arm input manifest"
+        ],
+        "declared_assertion_id": "DISCRIMINATED_ARM_SHAPE"
+      },
+      "source_artifacts": [
+        "arm input manifest"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-002",
+      "operator": "PROFILE_PAIR_COMPATIBLE",
+      "operands": {
+        "rule_id": "ARM-002",
+        "source_artifact_classes": [
+          "arm_id",
+          "input_profile_id",
+          "arm input profile catalog"
+        ],
+        "declared_assertion_id": "PROFILE_PAIR_MATCHES"
+      },
+      "source_artifacts": [
+        "arm_id",
+        "input_profile_id",
+        "arm input profile catalog"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "ARM-003",
+        "source_artifact_classes": [
+          "arm source references",
+          "arm input profile"
+        ],
+        "declared_assertion_id": "EACH_SOURCE_TYPE_IN"
+      },
+      "source_artifacts": [
+        "arm source references",
+        "arm input profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-004",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "ARM-004",
+        "source_artifact_classes": [
+          "source_type",
+          "source_record_ref.record_type"
+        ],
+        "declared_assertion_id": "SOURCE_TYPE_RECORD_TYPE_PAIR_MATCHES"
+      },
+      "source_artifacts": [
+        "source_type",
+        "source_record_ref.record_type"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-005",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "ARM-005",
+        "source_artifact_classes": [
+          "arm input manifest extensions",
+          "source projections"
+        ],
+        "declared_assertion_id": "NO_SEMANTIC_EXTENSION_BAG"
+      },
+      "source_artifacts": [
+        "arm input manifest extensions",
+        "source projections"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-006",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "ARM-006",
+        "source_artifact_classes": [
+          "ARM-C classifier feature references",
+          "ARM-B-visible source set"
+        ],
+        "declared_assertion_id": "FEATURE_SOURCES_SUBSET_OF"
+      },
+      "source_artifacts": [
+        "ARM-C classifier feature references",
+        "ARM-B-visible source set"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-007",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "ARM-007",
+        "source_artifact_classes": [
+          "arm-visible portable record extensions",
+          "active record/evidence profile"
+        ],
+        "declared_assertion_id": "EXTENSION_CLASSIFICATION_REQUIRED"
+      },
+      "source_artifacts": [
+        "arm-visible portable record extensions",
+        "active record/evidence profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RAW-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "RAW-003",
+        "source_artifact_classes": [
+          "raw arm output",
+          "other arm inputs"
+        ],
+        "declared_assertion_id": "NOT_FORWARDED_AS_INPUT"
+      },
+      "source_artifacts": [
+        "raw arm output",
+        "other arm inputs"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROJ-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "PROJ-003",
+        "source_artifact_classes": [
+          "native C result",
+          "A projection"
+        ],
+        "declared_assertion_id": "PROJECTION_DOES_NOT_ADD"
+      },
+      "source_artifacts": [
+        "native C result",
+        "A projection"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "LIN-001",
+        "source_artifact_classes": [
+          "typed reference",
+          "supplied validation bundle"
+        ],
+        "declared_assertion_id": "RESOLVES_EXACTLY_ONCE"
+      },
+      "source_artifacts": [
+        "typed reference",
+        "supplied validation bundle"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-002",
+        "source_artifact_classes": [
+          "supplied validation bundle"
+        ],
+        "declared_assertion_id": "NO_DUPLICATE_NORMATIVE_IDS"
+      },
+      "source_artifacts": [
+        "supplied validation bundle"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-003",
+        "source_artifact_classes": [
+          "experiment result",
+          "experiment run",
+          "verifier result",
+          "verifier run"
+        ],
+        "declared_assertion_id": "SAME_RUN_CHAIN"
+      },
+      "source_artifacts": [
+        "experiment result",
+        "experiment run",
+        "verifier result",
+        "verifier run"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-004",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-004",
+        "source_artifact_classes": [
+          "experiment run",
+          "score record",
+          "result record"
+        ],
+        "declared_assertion_id": "EQUAL"
+      },
+      "source_artifacts": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-005",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-005",
+        "source_artifact_classes": [
+          "experiment run",
+          "score record",
+          "result record"
+        ],
+        "declared_assertion_id": "EQUAL"
+      },
+      "source_artifacts": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-006",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-006",
+        "source_artifact_classes": [
+          "settlement result",
+          "experiment proposition",
+          "result record"
+        ],
+        "declared_assertion_id": "SAME_PROPOSITION"
+      },
+      "source_artifacts": [
+        "settlement result",
+        "experiment proposition",
+        "result record"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-007",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-007",
+        "source_artifact_classes": [
+          "all typed references"
+        ],
+        "declared_assertion_id": "REJECT_FOREIGN_RECORD"
+      },
+      "source_artifacts": [
+        "all typed references"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-008",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-008",
+        "source_artifact_classes": [
+          "provider_operation_id",
+          "transport_call_id",
+          "Accord semantic references"
+        ],
+        "declared_assertion_id": "TYPE_IDENTITY_NOT_SUBSTITUTABLE"
+      },
+      "source_artifacts": [
+        "provider_operation_id",
+        "transport_call_id",
+        "Accord semantic references"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "PROP-001",
+        "source_artifact_classes": [
+          "proposition_ref",
+          "supplied proposition records"
+        ],
+        "declared_assertion_id": "RESOLVES_EXACTLY_ONCE"
+      },
+      "source_artifacts": [
+        "proposition_ref",
+        "supplied proposition records"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "PROP-002",
+        "source_artifact_classes": [
+          "evidence",
+          "observation",
+          "settlement result",
+          "verifier projection"
+        ],
+        "declared_assertion_id": "SAME_PROPOSITION"
+      },
+      "source_artifacts": [
+        "evidence",
+        "observation",
+        "settlement result",
+        "verifier projection"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-004",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "PROP-004",
+        "source_artifact_classes": [
+          "binding slots",
+          "active proposition/profile"
+        ],
+        "declared_assertion_id": "UNKNOWN_OR_NOT_APPLICABLE_GUARDED"
+      },
+      "source_artifacts": [
+        "binding slots",
+        "active proposition/profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-005",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "PROP-005",
+        "source_artifact_classes": [
+          "attempt attribution",
+          "attempt record",
+          "native C result"
+        ],
+        "declared_assertion_id": "SPECIFIC_ATTEMPT_CLAIM_REQUIRES"
+      },
+      "source_artifacts": [
+        "attempt attribution",
+        "attempt record",
+        "native C result"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCORE-001",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "SCORE-001",
+        "source_artifact_classes": [
+          "score record",
+          "arm inputs"
+        ],
+        "declared_assertion_id": "SCORER_ONLY"
+      },
+      "source_artifacts": [
+        "score record",
+        "arm inputs"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCORE-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "SCORE-003",
+        "source_artifact_classes": [
+          "normalization profile",
+          "arm-visible information"
+        ],
+        "declared_assertion_id": "NORMALIZATION_USES_ONLY"
+      },
+      "source_artifacts": [
+        "normalization profile",
+        "arm-visible information"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-001",
+      "operator": "EFFECTIVE_INVENTORY_VALID",
+      "operands": {
+        "rule_id": "BND-001",
+        "source_artifact_classes": [
+          "declared bundle envelope"
+        ],
+        "declared_assertion_id": "BUNDLE_TYPE_AND_INVENTORY_CLOSED"
+      },
+      "source_artifacts": [
+        "declared bundle envelope"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "BND-002",
+        "source_artifact_classes": [
+          "bundle record inventory",
+          "active profiles"
+        ],
+        "declared_assertion_id": "SELF_CONTAINED_SCOPE"
+      },
+      "source_artifacts": [
+        "bundle record inventory",
+        "active profiles"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "BND-003",
+        "source_artifact_classes": [
+          "bundle information class",
+          "visibility flags"
+        ],
+        "declared_assertion_id": "SCORER_MATERIAL_SEPARATED"
+      },
+      "source_artifacts": [
+        "bundle information class",
+        "visibility flags"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-004",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "BND-004",
+        "source_artifact_classes": [
+          "declared bundle scope",
+          "closed R5 specification package",
+          "schema-contract registry"
+        ],
+        "declared_assertion_id": "RESOLVE_SCHEMA_CONTRACT"
+      },
+      "source_artifacts": [
+        "declared bundle scope",
+        "closed R5 specification package",
+        "schema-contract registry"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-005",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "BND-005",
+        "source_artifact_classes": [
+          "active profile references",
+          "closed R5 specification package",
+          "profile-contract inventory"
+        ],
+        "declared_assertion_id": "RESOLVE_ACTIVE_PROFILES"
+      },
+      "source_artifacts": [
+        "active profile references",
+        "closed R5 specification package",
+        "profile-contract inventory"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-001",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "RUN-001",
+        "source_artifact_classes": [
+          "experiment run record"
+        ],
+        "declared_assertion_id": "EXPERIMENT_RUN_BINDS"
+      },
+      "source_artifacts": [
+        "experiment run record"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-002",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "RUN-002",
+        "source_artifact_classes": [
+          "verifier run record"
+        ],
+        "declared_assertion_id": "VERIFIER_RUN_BINDS"
+      },
+      "source_artifacts": [
+        "verifier run record"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "RUN-003",
+        "source_artifact_classes": [
+          "experiment run",
+          "arm manifest"
+        ],
+        "declared_assertion_id": "RUN_AND_MANIFEST_AGREE"
+      },
+      "source_artifacts": [
+        "experiment run",
+        "arm manifest"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-004",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "RUN-004",
+        "source_artifact_classes": [
+          "experiment run",
+          "verifier run"
+        ],
+        "declared_assertion_id": "NO_SCORER_REFERENCE"
+      },
+      "source_artifacts": [
+        "experiment run",
+        "verifier run"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-001",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "EXT-001",
+        "source_artifact_classes": [
+          "extension registry",
+          "portable record extensions"
+        ],
+        "declared_assertion_id": "EVERY_RELEVANT_EXTENSION_CLASSIFIED"
+      },
+      "source_artifacts": [
+        "extension registry",
+        "portable record extensions"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "EXT-002",
+        "source_artifact_classes": [
+          "extension registry",
+          "NON_SEMANTIC extensions"
+        ],
+        "declared_assertion_id": "NON_SEMANTIC_NOT_USED_FOR"
+      },
+      "source_artifacts": [
+        "extension registry",
+        "NON_SEMANTIC extensions"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "EXT-003",
+        "source_artifact_classes": [
+          "AUTHORITY_BEARING extension",
+          "authority profile"
+        ],
+        "declared_assertion_id": "COMPARATOR_REQUIRED"
+      },
+      "source_artifacts": [
+        "AUTHORITY_BEARING extension",
+        "authority profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-004",
+      "operator": "PROFILE_PAIR_COMPATIBLE",
+      "operands": {
+        "rule_id": "EXT-004",
+        "source_artifact_classes": [
+          "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+          "settlement/evidence profile"
+        ],
+        "declared_assertion_id": "PROFILE_SEMANTICS_REQUIRED"
+      },
+      "source_artifacts": [
+        "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+        "settlement/evidence profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-005",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "EXT-005",
+        "source_artifact_classes": [
+          "unknown or incompatible extension"
+        ],
+        "declared_assertion_id": "CANNOT_STRENGTHEN_RESULT"
+      },
+      "source_artifacts": [
+        "unknown or incompatible extension"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-006",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "EXT-006",
+        "source_artifact_classes": [
+          "arm-visible portable bundle",
+          "extension registry"
+        ],
+        "declared_assertion_id": "REGISTRY_IN_SCOPE_BEFORE_USE"
+      },
+      "source_artifacts": [
+        "arm-visible portable bundle",
+        "extension registry"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-001",
+      "operator": "STRICT_SCHEMA_VALID",
+      "operands": {
+        "rule_id": "SRC-001",
+        "source_artifact_classes": [
+          "arm source reference",
+          "source-schema registry"
+        ],
+        "declared_assertion_id": "SCHEMA_MEMBERSHIP"
+      },
+      "source_artifacts": [
+        "arm source reference",
+        "source-schema registry"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "SRC-002",
+        "source_artifact_classes": [
+          "source reference",
+          "source-schema registry"
+        ],
+        "declared_assertion_id": "WRONG_SOURCE_CLASS_REJECTED"
+      },
+      "source_artifacts": [
+        "source reference",
+        "source-schema registry"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-004",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "SRC-004",
+        "source_artifact_classes": [
+          "provider/transport/raw output",
+          "portable evidence"
+        ],
+        "declared_assertion_id": "EXTERNAL_RECORD_NOT_PORTABLE_EVIDENCE_BY_SHAPE"
+      },
+      "source_artifacts": [
+        "provider/transport/raw output",
+        "portable evidence"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "VIS-001",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "VIS-001",
+        "source_artifact_classes": [
+          "role-visibility profile",
+          "arm manifest fields"
+        ],
+        "declared_assertion_id": "FIELD_CONSUMER_IS_ALLOWED"
+      },
+      "source_artifacts": [
+        "role-visibility profile",
+        "arm manifest fields"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-001",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "NORM-001",
+        "source_artifact_classes": [
+          "raw arm output",
+          "normalization profile"
+        ],
+        "declared_assertion_id": "INPUTS_ONLY"
+      },
+      "source_artifacts": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "NORM-002",
+        "source_artifact_classes": [
+          "normalization process inputs"
+        ],
+        "declared_assertion_id": "ORACLE_AND_SCORER_TRUTH_ABSENT"
+      },
+      "source_artifacts": [
+        "normalization process inputs"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-005",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "NORM-005",
+        "source_artifact_classes": [
+          "normalized claim",
+          "scorer truth"
+        ],
+        "declared_assertion_id": "COMPARISON_AFTER_NORMALIZATION"
+      },
+      "source_artifacts": [
+        "normalized claim",
+        "scorer truth"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-001",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "CLF-001",
+        "source_artifact_classes": [
+          "classifier feature",
+          "classifier feature profile"
+        ],
+        "declared_assertion_id": "FEATURE_REGISTERED"
+      },
+      "source_artifacts": [
+        "classifier feature",
+        "classifier feature profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-002",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "CLF-002",
+        "source_artifact_classes": [
+          "derived classifier feature",
+          "ARM-C source set"
+        ],
+        "declared_assertion_id": "DERIVATION_SUBSET_OF_ALLOWED_SOURCES"
+      },
+      "source_artifacts": [
+        "derived classifier feature",
+        "ARM-C source set"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-003",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "CLF-003",
+        "source_artifact_classes": [
+          "classifier feature derivation"
+        ],
+        "declared_assertion_id": "FORBIDDEN_UPSTREAM_ABSENT"
+      },
+      "source_artifacts": [
+        "classifier feature derivation"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-004",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "CLF-004",
+        "source_artifact_classes": [
+          "classifier feature"
+        ],
+        "declared_assertion_id": "UNKNOWN_FEATURE_REJECTED"
+      },
+      "source_artifacts": [
+        "classifier feature"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-001",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "PRED-001",
+        "source_artifact_classes": [
+          "canonical proposition",
+          "predicate applicability profile"
+        ],
+        "declared_assertion_id": "REQUIRED_BINDING_NOT_UNKNOWN_OR_NA_FOR_POSITIVE_PROJECTION"
+      },
+      "source_artifacts": [
+        "canonical proposition",
+        "predicate applicability profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-002",
+      "operator": "PREDICATE_REGISTRY_VALID",
+      "operands": {
+        "rule_id": "PRED-002",
+        "source_artifact_classes": [
+          "binding slot",
+          "predicate applicability profile"
+        ],
+        "declared_assertion_id": "NOT_APPLICABLE_PROFILE_DECLARED"
+      },
+      "source_artifacts": [
+        "binding slot",
+        "predicate applicability profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-003",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "PRED-003",
+        "source_artifact_classes": [
+          "binding slot"
+        ],
+        "declared_assertion_id": "UNKNOWN_NOT_POSITIVE_BINDING"
+      },
+      "source_artifacts": [
+        "binding slot"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-004",
+      "operator": "PREDICATE_REGISTRY_VALID",
+      "operands": {
+        "rule_id": "PRED-004",
+        "source_artifact_classes": [
+          "proposition",
+          "evidence",
+          "settlement result",
+          "predicate profile"
+        ],
+        "declared_assertion_id": "PREDICATE_STAGE_PROFILE_MATCHES_PROPOSITION"
+      },
+      "source_artifacts": [
+        "proposition",
+        "evidence",
+        "settlement result",
+        "predicate profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "operator": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "operands": {
+        "rule_id": "DIGEST-001",
+        "source_artifact_classes": [
+          "typed reference",
+          "resolved record",
+          "resolved schema contract",
+          "supplied content digest",
+          "exact R5 canonicalization profile"
+        ],
+        "declared_assertion_id": "CANONICAL_CONTENT_DIGEST_MATCHES"
+      },
+      "source_artifacts": [
+        "typed reference",
+        "resolved record",
+        "resolved schema contract",
+        "supplied content digest",
+        "exact R5 canonicalization profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "operator": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "operands": {
+        "rule_id": "DIGEST-002",
+        "source_artifact_classes": [
+          "typed reference",
+          "profile"
+        ],
+        "declared_assertion_id": "DIGEST_ABSENT_ONLY_IF_OPTIONAL"
+      },
+      "source_artifacts": [
+        "typed reference",
+        "profile"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-009",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "LIN-009",
+        "source_artifact_classes": [
+          "resolved typed reference target"
+        ],
+        "declared_assertion_id": "TARGET_STRUCTURE_VALID"
+      },
+      "source_artifacts": [
+        "resolved typed reference target"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-006",
+      "operator": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operands": {
+        "rule_id": "PROP-006",
+        "source_artifact_classes": [
+          "proposition_id",
+          "proposition descriptors in scope"
+        ],
+        "declared_assertion_id": "ONE_DESCRIPTOR_PER_PROPOSITION_ID"
+      },
+      "source_artifacts": [
+        "proposition_id",
+        "proposition descriptors in scope"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PKG-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "PKG-001",
+        "source_artifact_classes": [
+          "specification_package_ref",
+          "closed R5 package manifest"
+        ],
+        "declared_assertion_id": "EXACT_PACKAGE_RESOLVES"
+      },
+      "source_artifacts": [
+        "specification_package_ref",
+        "closed R5 package manifest"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PKG-002",
+      "operator": "EFFECTIVE_INVENTORY_VALID",
+      "operands": {
+        "rule_id": "PKG-002",
+        "source_artifact_classes": [
+          "package schema/profile/rule/canonicalization inventories"
+        ],
+        "declared_assertion_id": "CONTRACT_INVENTORY_CLOSED_AND_UNIQUE"
+      },
+      "source_artifacts": [
+        "package schema/profile/rule/canonicalization inventories"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROF-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "PROF-001",
+        "source_artifact_classes": [
+          "profile_type",
+          "profile_id",
+          "profile_version",
+          "R5 package profile inventory"
+        ],
+        "declared_assertion_id": "RESOLVE_PROFILE"
+      },
+      "source_artifacts": [
+        "profile_type",
+        "profile_id",
+        "profile_version",
+        "R5 package profile inventory"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROF-002",
+      "operator": "PROFILE_PAIR_COMPATIBLE",
+      "operands": {
+        "rule_id": "PROF-002",
+        "source_artifact_classes": [
+          "active profile references"
+        ],
+        "declared_assertion_id": "EXACT_VERSION_PINNED"
+      },
+      "source_artifacts": [
+        "active profile references"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "SCHEMA-001",
+        "source_artifact_classes": [
+          "record schema_id",
+          "record schema_version",
+          "R5 package schema-contract inventory"
+        ],
+        "declared_assertion_id": "RESOLVE_SCHEMA_CONTRACT"
+      },
+      "source_artifacts": [
+        "record schema_id",
+        "record schema_version",
+        "R5 package schema-contract inventory"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "operator": "STRICT_SCHEMA_VALID",
+      "operands": {
+        "rule_id": "SCHEMA-002",
+        "source_artifact_classes": [
+          "record content",
+          "resolved schema contract"
+        ],
+        "declared_assertion_id": "VALIDATE_STRUCTURE"
+      },
+      "source_artifacts": [
+        "record content",
+        "resolved schema contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ROLE-001",
+      "operator": "EFFECTIVE_INVENTORY_VALID",
+      "operands": {
+        "rule_id": "ROLE-001",
+        "source_artifact_classes": [
+          "producing_role",
+          "consumer_roles",
+          "R5 package role vocabulary"
+        ],
+        "declared_assertion_id": "ALL_ROLES_IN_CLOSED_VOCABULARY"
+      },
+      "source_artifacts": [
+        "producing_role",
+        "consumer_roles",
+        "R5 package role vocabulary"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "DIGEST-CANON-001",
+        "source_artifact_classes": [
+          "supplied digest",
+          "canonicalization profile reference",
+          "R5 package canonicalization inventory"
+        ],
+        "declared_assertion_id": "DIGEST_PROFILE_RESOLVES_WHEN_DIGEST_SUPPLIED"
+      },
+      "source_artifacts": [
+        "supplied digest",
+        "canonicalization profile reference",
+        "R5 package canonicalization inventory"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "operator": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "operands": {
+        "rule_id": "DIGEST-CANON-002",
+        "source_artifact_classes": [
+          "resolved canonicalization profile",
+          "concrete record schema_id/version",
+          "concrete record_type",
+          "container type"
+        ],
+        "declared_assertion_id": "PROFILE_ADMITS_CONCRETE_RECORD_FORM"
+      },
+      "source_artifacts": [
+        "resolved canonicalization profile",
+        "concrete record schema_id/version",
+        "concrete record_type",
+        "container type"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "operator": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "operands": {
+        "rule_id": "DIGEST-CANON-003",
+        "source_artifact_classes": [
+          "canonicalization profile",
+          "algorithm and method fields"
+        ],
+        "declared_assertion_id": "ALGORITHM_AND_METHOD_SUPPORTED"
+      },
+      "source_artifacts": [
+        "canonicalization profile",
+        "algorithm and method fields"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "E4R1-PRED-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "EXACT_UTF_8_PREDICATE_STAGE_TUPLE_RESOLVES_TO_ONE_ROW"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "operator": "PREDICATE_REGISTRY_VALID",
+      "operands": {
+        "rule_id": "E4R1-PRED-002",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "UNKNOWN_WRONG_STAGE_UNSUPPORTED_OR_UNDECLARED_TUPLES_CANNOT_PRODUCE_A_POSITIVE_RESULT"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "operator": "PREDICATE_REGISTRY_VALID",
+      "operands": {
+        "rule_id": "E4R1-PRED-003",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "IDENTIFIER_COMPARISON_IS_CASE_SENSITIVE_CODE_POINT_EQUALITY_WITH_NO_NORMALIZATION_OR_LEXICAL_FAL"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "E4R1-AUTH-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "ONLY_THE_ACTIVE_R1_PREDICATE_REGISTRY_IS_NORMATIVE_RETIRED_LEXICAL_PROFILES_ARE_UNAVAILABLE"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "E4R1-BIND-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "REGISTRY_REQUIRED_BINDINGS_ARE_AUTHORITATIVE_AND_PROFILE_REQUIREMENTS_ARE_ADDITIVE"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "E4R1-PROP-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "PROPOSITION_KIND_AND_SCHEMA_MUST_MATCH_THE_RESOLVED_TUPLE_KIND"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "operator": "PREDICATE_REGISTRY_VALID",
+      "operands": {
+        "rule_id": "E4R1-PART-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "PARTIAL_EFFECT_REQUIRES_A_SUPPORTED_DIRECT_PREDECESSOR_AND_LATER_STAGE_EVIDENCE_REQUIREMENT"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "E4R1-PART-002",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "PREDECESSOR_SUPPORT_MUST_BIND_TO_THE_SAME_LOGICAL_EFFECT_AND_EXACT_PREDECESSOR_TUPLE"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "operator": "DEPENDENCY_GRAPH_EQUALS_RULES",
+      "operands": {
+        "rule_id": "E4R1-PART-003",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "PREDECESSOR_EDGES_ARE_DIRECT_UNIQUE_NON_SELF_NON_DANGLING_AND_ACYCLIC"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "operator": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "operands": {
+        "rule_id": "E4R1-NEG-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "NEGATIVE_SETTLEMENT_IS_BOUNDED_BY_EXACT_NEGATED_PREDICATE_STAGE_AND_COMPLETE_SCOPE_REQUIREMENTS"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "operator": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "operands": {
+        "rule_id": "E4R1-NEG-002",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "SILENCE_TIMEOUT_STALE_INCOMPLETE_OR_CONTRADICTORY_READS_CANNOT_SUPPORT_NON_OCCURRENCE"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "E4R1-ENT-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "GENERIC_OCCURRENCE_POSITIVE_STAGE_AUTHORITY_AND_EFFECT_REMAIN_ORTHOGONAL"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "E4R1-CANON-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "EACH_CONCRETE_CANDIDATE_DIGEST_FORM_RESOLVES_ONE_CANONICALIZATION_MAPPING_AND_TARGET"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "operator": "EXPECTATION_SET_EQUAL",
+      "operands": {
+        "rule_id": "E4R1-EXPECT-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "ALL_ACCEPTED_EXPECTED_AXES_REASON_CODES_AND_PROHIBITIONS_REMAIN_PRESENT_AND_COMPARABLE"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "E4R1-CLOSE-001",
+        "source_artifact_classes": [
+          "R1 exact candidate package",
+          "declared validation scope",
+          "resolved candidate contract"
+        ],
+        "declared_assertion_id": "CANDIDATE_PACKAGE_CLOSURE_CHECKS_DETECT_DUPLICATE_DANGLING_UNSAFE_CONTRADICTORY_AND_UNRESOLVED_C"
+      },
+      "source_artifacts": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "E4R2-REF-001",
+        "source_artifact_classes": [
+          "R2 exact candidate package",
+          "declared reference registry",
+          "resolved contracts"
+        ],
+        "declared_assertion_id": "ALL_NON_NULL_REFERENCE_FIELDS_USE_ONE_EXACT_OBJECT_ID_VERSION_REPRESENTATION_AND_RESOLVE"
+      },
+      "source_artifacts": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "E4R2-CANON-001",
+        "source_artifact_classes": [
+          "R2 exact candidate package",
+          "declared reference registry",
+          "resolved contracts"
+        ],
+        "declared_assertion_id": "EVERY_DIGEST_BEARING_FORM_RESOLVES_A_DECLARED_TARGET_WITH_NO_RECORD_TYPE_CONVENTION"
+      },
+      "source_artifacts": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "operator": "BINDING_COMPOSITION_VALID",
+      "operands": {
+        "rule_id": "E4R2-BIND-001",
+        "source_artifact_classes": [
+          "R2 exact candidate package",
+          "declared reference registry",
+          "resolved contracts"
+        ],
+        "declared_assertion_id": "REGISTRY_BINDINGS_AND_EVIDENCE_CAPABILITIES_COMPOSE_WITHOUT_FORBIDDEN_INTERSECTIONS"
+      },
+      "source_artifacts": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "operator": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "operands": {
+        "rule_id": "E4R2-NEG-001",
+        "source_artifact_classes": [
+          "R2 exact candidate package",
+          "declared reference registry",
+          "resolved contracts"
+        ],
+        "declared_assertion_id": "ALL_COMPLETE_NEGATIVE_REQUIREMENTS_MAP_TO_OBSERVED_PROPOSITION_PROFILE_EVIDENCE_FIELDS"
+      },
+      "source_artifacts": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "operator": "REFERENCE_GRAPH_CLOSED",
+      "operands": {
+        "rule_id": "E4R2-GRAPH-001",
+        "source_artifact_classes": [
+          "R2 exact candidate package",
+          "declared reference registry",
+          "resolved contracts"
+        ],
+        "declared_assertion_id": "ALL_ACTIVE_RULE_IDS_ARE_NODES_AND_EVERY_DEPENDENCY_TARGET_RESOLVES"
+      },
+      "source_artifacts": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "operator": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "operands": {
+        "rule_id": "E4R2-PROFILE-001",
+        "source_artifact_classes": [
+          "R2 exact candidate package",
+          "declared reference registry",
+          "resolved contracts"
+        ],
+        "declared_assertion_id": "DIGEST_OPTIONALITY_IS_SCOPED_TO_EVIDENCE_ARTIFACTS_AND_NEVER_WEAKENS_REQUIRED_SCHEMA_DIGEST_POLI"
+      },
+      "source_artifacts": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "operator": "EFFECTIVE_INVENTORY_VALID",
+      "operands": {
+        "rule_id": "E4R2-CLOSE-001",
+        "source_artifact_classes": [
+          "R2 exact candidate package",
+          "declared reference registry",
+          "resolved contracts"
+        ],
+        "declared_assertion_id": "CLOSURE_COUNTS_AND_MUTATION_RESULTS_ARE_COMPUTED_FROM_ARTIFACTS_RATHER_THAN_LITERALS"
+      },
+      "source_artifacts": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "result": "PASS"
+    }
+  ],
+  "count": 91
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:partial-effect-policy:0.2",
+  "contract_id": "urn:moirae:accord-02e4r3:partial-effect-policy",
+  "contract_version": "0.2",
+  "same_effect_required": true,
+  "direct_predecessor_required": true,
+  "target_already_supported": "NOT_PARTIAL_EFFECT",
+  "unknown_tuple": "REJECT",
+  "unsupported_tuple": "REJECT",
+  "wrong_effect": "REJECT",
+  "self_edge": "REJECT",
+  "cycle": "REJECT",
+  "dangling_target": "REJECT"
+}

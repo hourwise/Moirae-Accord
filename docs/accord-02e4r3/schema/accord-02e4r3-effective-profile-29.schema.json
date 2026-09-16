@@ -1,0 +1,636 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-29:0.2",
+  "title": "ACCORD-02E4R3 effective profile 29",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "expected_result_fields_forbidden": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "accord.native_settlement_result",
+          "accord.projected_verifier_result",
+          "categorical_failure_relevance",
+          "expected_conformance_bounds",
+          "expected_settlement_bounds",
+          "scorer.categorical_failure_codes",
+          "scorer.normalized_interpretation",
+          "scorer_only"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "information_class": {
+      "type": "string",
+      "enum": [
+        "ARM_INPUT_ALLOWLIST"
+      ]
+    },
+    "oracle_fields_forbidden": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "oracle.attempt_linkage",
+          "oracle.duplicate_count",
+          "oracle.effect_occurrence",
+          "oracle.event_sequence",
+          "oracle_state"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "accord_specific_semantics": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ACCORD_02A_PROJECTED_RESULT",
+                "ACCORD_02B_ANALYSIS",
+                "ACCORD_02C_NATIVE_SETTLEMENT",
+                "EVIDENCE_PROFILE",
+                "NONE",
+                "PORTABLE_IDENTITIES",
+                "TRUST_ROOTS"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "allowed_evidence_sources": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "NONE",
+                "ORDINARY_EXECUTOR_STATE",
+                "PORTABLE_RECORD_BUNDLE",
+                "PROVIDER_ACCEPTANCE",
+                "PROVIDER_STATE_READ",
+                "RECONCILIATION",
+                "SUPPLIED_EVIDENCE_ARTIFACTS",
+                "TRANSPORT_ACKNOWLEDGEMENT"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "allowed_fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "field_path": {
+                  "type": "string"
+                },
+                "source_class": {
+                  "type": "string",
+                  "enum": [
+                    "ATTEMPT_STATE",
+                    "AUTHORITY_INPUT",
+                    "CLASSIFIER_FEATURE",
+                    "DELEGATE_CLAIM",
+                    "EVIDENCE_ARTIFACT",
+                    "ORCHESTRATION",
+                    "PORTABLE_RECORD",
+                    "PROFILE_OR_TRUST_ROOT",
+                    "PROVIDER_OBSERVATION",
+                    "TASK_IDENTITY",
+                    "TRANSPORT_METADATA"
+                  ]
+                },
+                "value_type": {
+                  "type": "string",
+                  "enum": [
+                    "ARRAY",
+                    "INTEGER",
+                    "OBJECT",
+                    "STRING",
+                    "TYPED_REFERENCE"
+                  ]
+                }
+              },
+              "required": [
+                "field_path",
+                "source_class",
+                "value_type"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "allowed_source_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ADMISSION_STATE",
+                "ATTEMPT_STATE",
+                "AUTHORITY_PROFILE",
+                "CLASSIFIER_FEATURE",
+                "DELEGATE_REPORT",
+                "DETACHED_EVIDENCE",
+                "DURABLE_TASK_STATE",
+                "EXECUTOR_STATE",
+                "PORTABLE_RECORD_BUNDLE",
+                "PROVIDER_STATE_READ",
+                "RECONCILIATION_RESULT",
+                "SETTLEMENT_PROFILE",
+                "TRUST_ROOT_PROFILE"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "arm_id": {
+            "type": "string",
+            "enum": [
+              "ARM-A-DURABLE",
+              "ARM-B-PROVIDER-OBSERVATION",
+              "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+              "ARM-D-ACCORD-EVIDENCE"
+            ]
+          },
+          "authority_information": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "AUTHORITY_PROFILE",
+                "DECLARED_GRANT_RECORDS",
+                "ORDINARY_ADMISSION_STATE",
+                "PORTABLE_AUTHORITY_BUNDLE"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "classifier_feature_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "profile_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02d:classifier-features:0.1"
+                ]
+              },
+              "profile_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              },
+              "record_type": {
+                "type": "string",
+                "enum": [
+                  "PROFILE"
+                ]
+              },
+              "schema_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:schema:classifier-feature-profile:0.1"
+                ]
+              },
+              "schema_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              }
+            },
+            "required": [
+              "profile_id",
+              "profile_version",
+              "record_type",
+              "schema_id",
+              "schema_version"
+            ]
+          },
+          "classifier_input_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "attempt.dispatch_state",
+                "executor.durable_state",
+                "provider.acceptance",
+                "provider.state_read",
+                "reconciliation.result",
+                "timing.elapsed_ms"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "evidence_profile_visible": {
+            "type": "boolean"
+          },
+          "forbidden_fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "field_path": {
+                  "type": "string",
+                  "enum": [
+                    "accord.evidence_class_label",
+                    "accord.native_settlement_result",
+                    "accord.private_state",
+                    "accord.projected_verifier_result",
+                    "authority.expected_relation",
+                    "authority.privileged_analysis",
+                    "expected.*",
+                    "oracle.*",
+                    "scorer.*"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "enum": [
+                    "ACCORD_ONLY_OUTCOME",
+                    "EXPECTED_RESULT",
+                    "HIDDEN_ORACLE",
+                    "PRIVATE_STATE",
+                    "PRIVILEGED_AUTHORITY_ANSWER",
+                    "SCORER_ONLY"
+                  ]
+                }
+              },
+              "required": [
+                "field_path",
+                "reason"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "forbidden_source_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "NATIVE_SETTLEMENT_RESULT",
+                "ORACLE_RECORD",
+                "PRIVATE_ACCORD_STATE",
+                "PROJECTED_VERIFIER_RESULT",
+                "SCORER_EXPECTATION",
+                "SCORE_RECORD"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "input_profile_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02d:arm-input:accord-evidence:0.1",
+              "urn:moirae:accord-02d:arm-input:durable:0.1",
+              "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1",
+              "urn:moirae:accord-02d:arm-input:provider-observation:0.1"
+            ]
+          },
+          "profile_closed": {
+            "type": "boolean"
+          },
+          "provider_state_information": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ACCEPTANCE_ONLY",
+                "NONE",
+                "ORDINARY_STATE_READ",
+                "RECONCILIATION_READ",
+                "SUPPLIED_EFFECT_EVIDENCE"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "role_visibility_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "profile_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:role-visibility:0.1"
+                ]
+              },
+              "profile_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              },
+              "record_type": {
+                "type": "string",
+                "enum": [
+                  "PROFILE"
+                ]
+              },
+              "schema_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1"
+                ]
+              },
+              "schema_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              }
+            },
+            "required": [
+              "profile_id",
+              "profile_version",
+              "record_type",
+              "schema_id",
+              "schema_version"
+            ]
+          },
+          "scenario_catalog_directly_consumable": {
+            "type": "boolean"
+          },
+          "source_schema_registry_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "profile_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:source-schemas:0.1"
+                ]
+              },
+              "profile_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              },
+              "record_type": {
+                "type": "string",
+                "enum": [
+                  "PROFILE"
+                ]
+              },
+              "schema_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r3:schema:source-schema-registry:0.1"
+                ]
+              },
+              "schema_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              }
+            },
+            "required": [
+              "profile_id",
+              "profile_version",
+              "record_type",
+              "schema_id",
+              "schema_version"
+            ]
+          },
+          "trust_roots_visible": {
+            "type": "boolean"
+          },
+          "validation_rule_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "profile_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:validation-rules:0.1"
+                ]
+              },
+              "profile_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              },
+              "record_type": {
+                "type": "string",
+                "enum": [
+                  "PROFILE"
+                ]
+              },
+              "schema_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02r5:schema:validation-rules:0.1"
+                ]
+              },
+              "schema_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              }
+            },
+            "required": [
+              "profile_id",
+              "profile_version",
+              "record_type",
+              "schema_id",
+              "schema_version"
+            ]
+          }
+        },
+        "required": [
+          "accord_specific_semantics",
+          "allowed_evidence_sources",
+          "allowed_fields",
+          "allowed_source_types",
+          "arm_id",
+          "authority_information",
+          "classifier_input_fields",
+          "evidence_profile_visible",
+          "forbidden_fields",
+          "forbidden_source_types",
+          "input_profile_id",
+          "profile_closed",
+          "provider_state_information",
+          "role_visibility_profile_ref",
+          "scenario_catalog_directly_consumable",
+          "source_schema_registry_ref",
+          "trust_roots_visible",
+          "validation_rule_profile_ref"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "role_visibility_profile_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r3:role-visibility:0.1"
+          ]
+        },
+        "profile_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        },
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "PROFILE"
+          ]
+        },
+        "schema_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1"
+          ]
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        }
+      },
+      "required": [
+        "profile_id",
+        "profile_version",
+        "record_type",
+        "schema_id",
+        "schema_version"
+      ]
+    },
+    "schema_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02d:arm-input-profile"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "source_schema_registry_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r3:source-schemas:0.1"
+          ]
+        },
+        "profile_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        },
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "PROFILE"
+          ]
+        },
+        "schema_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r3:schema:source-schema-registry:0.1"
+          ]
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        }
+      },
+      "required": [
+        "profile_id",
+        "profile_version",
+        "record_type",
+        "schema_id",
+        "schema_version"
+      ]
+    },
+    "system_under_test_visible": {
+      "type": "boolean"
+    },
+    "validation_rule_profile_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r5:validation-rules:0.1"
+          ]
+        },
+        "profile_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        },
+        "record_type": {
+          "type": "string",
+          "enum": [
+            "PROFILE"
+          ]
+        },
+        "schema_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r5:schema:validation-rules:0.1"
+          ]
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        }
+      },
+      "required": [
+        "profile_id",
+        "profile_version",
+        "record_type",
+        "schema_id",
+        "schema_version"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "expected_result_fields_forbidden",
+    "information_class",
+    "oracle_fields_forbidden",
+    "profiles",
+    "role_visibility_profile_ref",
+    "schema_id",
+    "schema_version",
+    "source_schema_registry_ref",
+    "system_under_test_visible",
+    "validation_rule_profile_ref"
+  ]
+}

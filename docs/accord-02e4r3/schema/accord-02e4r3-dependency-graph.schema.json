@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:dependency-graph:0.2",
+  "title": "ACCORD-02E4R3 dependency-graph",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:dependency-graph:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:dependency-graph"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "derivation": {
+      "type": "string",
+      "enum": [
+        "RULES[].DEPENDS_ON"
+      ]
+    },
+    "derived_from": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:validation-rules"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "from": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "depends_on",
+          "from"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "node_inventory": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": false
+    },
+    "required_equality": {
+      "type": "string",
+      "enum": [
+        "EXACT_NODE_AND_EDGE_SET"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "contract_id",
+    "contract_version",
+    "derivation",
+    "derived_from",
+    "edges",
+    "node_inventory",
+    "required_equality"
+  ]
+}

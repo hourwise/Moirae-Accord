@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-03:0.2",
+  "title": "ACCORD-02E4R3 effective profile 03",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r5:schema:verifier-profile:0.1"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "additionalProperties": {
+      "type": "boolean"
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowed_bundle_types": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enum": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "EXPERIMENT_VALIDATION_BUNDLE",
+                      "VERIFIER_VALIDATION_BUNDLE"
+                    ]
+                  },
+                  "uniqueItems": false
+                }
+              },
+              "required": [
+                "enum"
+              ]
+            },
+            "minItems": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "array"
+              ]
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "items",
+            "minItems",
+            "type",
+            "uniqueItems"
+          ]
+        },
+        "oracle_used": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "private_state_used": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "profile_id": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02r5:verifier:default:0.1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "profile_version": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "0.1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "record_type": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "VERIFIER_PROFILE"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "required_profile_types": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enum": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "AUTHORITY_PROFILE",
+                      "EXTENSION_REGISTRY",
+                      "PREDICATE_APPLICABILITY_PROFILE",
+                      "PROJECTION_PROFILE",
+                      "SETTLEMENT_PROFILE",
+                      "TRUST_ROOT_PROFILE",
+                      "VALIDATION_RULE_PROFILE"
+                    ]
+                  },
+                  "uniqueItems": false
+                }
+              },
+              "required": [
+                "enum"
+              ]
+            },
+            "minItems": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "array"
+              ]
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "items",
+            "minItems",
+            "type",
+            "uniqueItems"
+          ]
+        },
+        "schema_id": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02r5:schema:verifier-profile:0.1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "schema_version": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "0.1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        }
+      },
+      "required": [
+        "allowed_bundle_types",
+        "oracle_used",
+        "private_state_used",
+        "profile_id",
+        "profile_version",
+        "record_type",
+        "required_profile_types",
+        "schema_id",
+        "schema_version"
+      ]
+    },
+    "required": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "allowed_bundle_types",
+          "oracle_used",
+          "private_state_used",
+          "profile_id",
+          "profile_version",
+          "record_type",
+          "required_profile_types",
+          "schema_id",
+          "schema_version"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "title": {
+      "type": "string",
+      "enum": [
+        "ACCORD-02R5 verifier profile contract"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "object"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "additionalProperties",
+    "properties",
+    "required",
+    "title",
+    "type"
+  ]
+}

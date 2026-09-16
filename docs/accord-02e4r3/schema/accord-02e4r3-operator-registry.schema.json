@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:operator-registry:0.2",
+  "title": "ACCORD-02E4R3 operator-registry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:operator-registry:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:operator-registry"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "error_behavior": {
+            "type": "string",
+            "enum": [
+              "FAIL_CLOSED"
+            ]
+          },
+          "evaluation_semantics": {
+            "type": "string",
+            "enum": [
+              "apply target support and predecessor validity policy",
+              "compare all 13 expected axes for all 23 source vectors",
+              "compare typed values without coercion",
+              "derive base plus replacements plus additions minus retirements and resolve every path",
+              "derive every dependency pair from active rules and require exact materialized equality and acyclicity",
+              "derive schema-annotated reference edges and require exact resolution",
+              "derive, deduplicate, and count admissible same-scope positive evidence",
+              "evaluate the declared settlement/evidence profile relation",
+              "evaluate the rule's declared assertion against its source artifact classes",
+              "execute every typed negative-scope requirement against the declared evidence contract",
+              "execute the referenced canonical content-target operator and compare SHA-256",
+              "parse RFC3339 endpoints and require ordered inclusive interval",
+              "require Draft 2020-12 schemas with required fields and closed objects",
+              "require a declared exact tuple",
+              "require each scope dimension or the explicit not-applicable token",
+              "require exact predicate-stage uniqueness and predecessor eligibility",
+              "require registry bindings, capability requirements, and provenance separation to compose",
+              "require retention seconds to cover the observed interval",
+              "require the actual value to be in the declared allowed set",
+              "require verification time minus observation time not to exceed the declared maximum"
+            ]
+          },
+          "input_artifact_classes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "EFFECTIVE_PACKAGE"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "operand_schema": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "object"
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "operator_id": {
+            "type": "string",
+            "enum": [
+              "BINDING_COMPOSITION_VALID",
+              "COUNT_ADMISSIBLE_EVIDENCE_EQ",
+              "DECLARED_CONTRACT_INVARIANT_VALID",
+              "DEPENDENCY_GRAPH_EQUALS_RULES",
+              "DIGEST_MATCHES_DECLARED_MAPPING",
+              "EFFECTIVE_INVENTORY_VALID",
+              "ENUM_ALLOWED",
+              "EXACT_TUPLE_EXISTS",
+              "EXACT_VALUE_EQUAL",
+              "EXPECTATION_SET_EQUAL",
+              "INTEGER_RANGE_COVERS",
+              "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+              "PARTIAL_EFFECT_POLICY_VALID",
+              "PREDICATE_REGISTRY_VALID",
+              "PROFILE_PAIR_COMPATIBLE",
+              "REFERENCE_GRAPH_CLOSED",
+              "RFC3339_INTERVAL_VALID",
+              "SCOPE_BINDINGS_COMPLETE",
+              "STRICT_SCHEMA_VALID",
+              "TIMESTAMP_AGE_LE_MAX"
+            ]
+          },
+          "result_type": {
+            "type": "string",
+            "enum": [
+              "BOOLEAN_WITH_FAILURE_CODE"
+            ]
+          }
+        },
+        "required": [
+          "error_behavior",
+          "evaluation_semantics",
+          "input_artifact_classes",
+          "operand_schema",
+          "operator_id",
+          "result_type"
+        ]
+      },
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "contract_id",
+    "contract_version",
+    "operators"
+  ]
+}

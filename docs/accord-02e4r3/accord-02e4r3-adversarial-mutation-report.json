@@ -1,0 +1,266 @@
+{
+  "total": 32,
+  "detected": 32,
+  "cases": [
+    {
+      "mutation_id": "LINEAGE-UNRELATED",
+      "detected": true,
+      "failure_codes": [
+        "LINEAGE_IDENTITY"
+      ]
+    },
+    {
+      "mutation_id": "LINEAGE-BASE-DIGEST",
+      "detected": true,
+      "failure_codes": [
+        "LINEAGE_DIGEST:base_package"
+      ]
+    },
+    {
+      "mutation_id": "LINEAGE-SELF-DIGEST",
+      "detected": true,
+      "failure_codes": [
+        "SELF_DIGEST"
+      ]
+    },
+    {
+      "mutation_id": "LINEAGE-OPEN-POLICY",
+      "detected": true,
+      "failure_codes": [
+        "OPEN_CONTRACT_POLICY"
+      ]
+    },
+    {
+      "mutation_id": "PATH-WRONG-BASE",
+      "detected": true,
+      "failure_codes": [
+        "WRONG_PATH_BASE"
+      ]
+    },
+    {
+      "mutation_id": "PATH-TRAVERSAL",
+      "detected": true,
+      "failure_codes": [
+        "INVALID_PATH:docs/../escape.json",
+        "INSTANCE_PATH_INVALID:urn:moirae:accord-02e4r2:registry:predicate-applicability"
+      ]
+    },
+    {
+      "mutation_id": "PATH-INHERITED-WRONG-ROOT",
+      "detected": true,
+      "failure_codes": [
+        "INVALID_PATH:schema/missing.json",
+        "SCHEMA_PATH_INVALID:urn:moirae:accord-02a:schema:portable-record:0.2"
+      ]
+    },
+    {
+      "mutation_id": "REFERENCE-GARBAGE",
+      "detected": true,
+      "failure_codes": [
+        "UNRESOLVED_REFERENCE:package/operator_registry_ref:('CONTRACT', 'urn:garbage', '0.2')"
+      ]
+    },
+    {
+      "mutation_id": "REFERENCE-OMITTED-VERSION",
+      "detected": true,
+      "failure_codes": [
+        "UNRESOLVED_REFERENCE:package/operator_registry_ref:('CONTRACT', 'urn:moirae:accord-02e4r3:operator-registry', None)"
+      ]
+    },
+    {
+      "mutation_id": "CANON-INCLUDE",
+      "detected": true,
+      "failure_codes": [
+        "DIGEST_MISMATCH:ACCORD-02C-V001-DISPATCH-ONLY",
+        "DIGEST_MISMATCH:ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+        "DIGEST_MISMATCH:ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+        "DIGEST_MISMATCH:ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+        "DIGEST_MISMATCH:ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+        "DIGEST_MISMATCH:ACCORD-02C-V006-STALE-OBSERVATION",
+        "DIGEST_MISMATCH:ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+        "DIGEST_MISMATCH:ACCORD-02C-V008-WRONG-ATTEMPT-BINDING"
+      ]
+    },
+    {
+      "mutation_id": "CANON-MISSING-POINTER",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:canonicalization-profile/content_target_registry/0/json_pointers/0:ENUM",
+        "KeyError:ACCORD-02C-V001-DISPATCH-ONLY",
+        "KeyError:ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+        "KeyError:ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+        "KeyError:ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+        "KeyError:ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+        "KeyError:ACCORD-02C-V006-STALE-OBSERVATION",
+        "KeyError:ACCORD-02C-V007-WRONG-EFFECT-IDENTITY"
+      ]
+    },
+    {
+      "mutation_id": "CANON-DUPLICATE-TARGET",
+      "detected": true,
+      "failure_codes": [
+        "DUPLICATE_TARGET"
+      ]
+    },
+    {
+      "mutation_id": "CANON-WRONG-TARGET-ID",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:canonicalization-profile/applies_to/0/content_target_id:ENUM"
+      ]
+    },
+    {
+      "mutation_id": "RULE-UNKNOWN-OPERATOR",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:validation-rules/rules/0/condition/operator_id:ENUM",
+        "UNKNOWN_RULE_OPERATOR:ORC-001"
+      ]
+    },
+    {
+      "mutation_id": "RULE-MALFORMED-OPERANDS",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:validation-rules/rules/0/condition/operands:TYPE",
+        "MALFORMED_RULE_OPERANDS:ORC-001"
+      ]
+    },
+    {
+      "mutation_id": "RULE-MISSING-DEPENDENCY",
+      "detected": true,
+      "failure_codes": [
+        "EDGE_SET_MISMATCH",
+        "MISSING_DEPENDENCY_TARGET"
+      ]
+    },
+    {
+      "mutation_id": "RULE-CYCLE",
+      "detected": true,
+      "failure_codes": [
+        "EDGE_SET_MISMATCH",
+        "DEPENDENCY_CYCLE:ORC-001"
+      ]
+    },
+    {
+      "mutation_id": "GRAPH-RULE-OMITTED",
+      "detected": true,
+      "failure_codes": [
+        "NODE_SET_MISMATCH"
+      ]
+    },
+    {
+      "mutation_id": "BINDING-RECIPIENT-REMOVED",
+      "detected": true,
+      "failure_codes": [
+        "CAPABILITY_NOT_SUBSET:('urn:accord:02c:predicate:recipient-ack', 'recipient_acknowledged')"
+      ]
+    },
+    {
+      "mutation_id": "BINDING-NA-CONFLICT",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r2:registry:predicate-applicability/entries/0/not_applicable_bindings/1:ENUM",
+        "BINDING_INTERSECTION:('urn:accord:02c:predicate:external-effect', 'effect')",
+        "CAPABILITY_NA_CONFLICT:('urn:accord:02c:predicate:external-effect', 'effect')"
+      ]
+    },
+    {
+      "mutation_id": "BINDING-PROVENANCE-PROMOTED",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r2:registry:predicate-applicability/entries/0/required_bindings/3:ENUM",
+        "PROVENANCE_AS_IDENTITY:('urn:accord:02c:predicate:external-effect', 'effect')"
+      ]
+    },
+    {
+      "mutation_id": "BINDING-UNSUPPORTED-CAPABILITY",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r2:registry:predicate-applicability/entries/0/evidence_capability_ref:NO_ONEOF_MATCH",
+        "UNRESOLVED_REFERENCE:docs/accord-02e4r3/accord-02e4r3-predicate-registry.json/entries/0/evidence_capability_ref:('CONTRACT', 'urn:unsupported', '0.2')",
+        "CAPABILITY_UNRESOLVED:('urn:accord:02c:predicate:external-effect', 'effect')"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-STALE",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/verification_time:ENUM",
+        "NEGATIVE:FRESH_AT_VERIFICATION"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-RETENTION",
+      "detected": true,
+      "failure_codes": [
+        "NEGATIVE:RETENTION_DECLARED"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-MISSING-RETENTION",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/retention_window_seconds:REQUIRED",
+        "NEGATIVE:RETENTION_DECLARED"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-INCOMPLETE",
+      "detected": true,
+      "failure_codes": [
+        "NEGATIVE:COMPLETE_STATE_SPACE"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-CONSISTENCY",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/consistency_level:ENUM",
+        "NEGATIVE:CONSISTENCY_DECLARED"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-SOURCE",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/evidence_class:ENUM",
+        "NEGATIVE:ACCEPTED_COMPLETE_SOURCE_CLASS"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-INTERVAL",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/observed_interval/not_before:ENUM",
+        "NEGATIVE:INTERVAL_BOUND"
+      ]
+    },
+    {
+      "mutation_id": "NEGATIVE-CONTRADICTION",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/evidence_universe/1/evidence_id:ENUM",
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/evidence_universe/1/evidence_class:ENUM",
+        "INSTANCE:urn:moirae:accord-02e4r3:complete-negative-evidence/evidence_universe/1/proposition:ENUM",
+        "NEGATIVE:NO_CONTRADICTORY_EVIDENCE"
+      ]
+    },
+    {
+      "mutation_id": "PARTIAL-SUPPORTED-TARGET",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r3:partial-effect-policy/target_already_supported:ENUM",
+        "SUPPORTED_TARGET_PARTIAL_EFFECT"
+      ]
+    },
+    {
+      "mutation_id": "PARTIAL-UNSUPPORTED-PREDECESSOR",
+      "detected": true,
+      "failure_codes": [
+        "INSTANCE:urn:moirae:accord-02e4r2:registry:predicate-applicability/entries/2/predecessor_edges/0/predicate_id:ENUM",
+        "INSTANCE:urn:moirae:accord-02e4r2:registry:predicate-applicability/entries/2/predecessor_edges/0/stage:ENUM",
+        "UNSUPPORTED_PREDECESSOR"
+      ]
+    }
+  ]
+}

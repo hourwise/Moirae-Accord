@@ -1,0 +1,26 @@
+{
+  "repository_certifier": {
+    "status": "PASS",
+    "material_failure_set": [],
+    "rules": 104,
+    "dependency_pairs": 127,
+    "references": 234,
+    "unresolved_references": 0,
+    "vectors": 23
+  },
+  "fresh_external_evaluator": {
+    "location": "TEMPORARY_OUTSIDE_REPOSITORY",
+    "imports_builder": false,
+    "imports_repository_certifier": false,
+    "implementation": "PYTHON_STANDARD_LIBRARY_ONLY",
+    "status": "PASS",
+    "material_failure_set": [],
+    "rules": 104,
+    "dependency_pairs": 127,
+    "references": 234,
+    "unresolved_references": 0,
+    "vectors": 23
+  },
+  "same_conformance_outcome": true,
+  "same_material_failure_set": true
+}

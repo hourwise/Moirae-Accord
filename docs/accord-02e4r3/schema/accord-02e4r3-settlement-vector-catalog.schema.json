@@ -1,0 +1,1206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:settlement-vector-catalog:0.2",
+  "title": "ACCORD-02E4R3 settlement-vector-catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:settlement-vector-catalog:0.2"
+      ]
+    },
+    "catalog_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:settlement-vector-catalog"
+      ]
+    },
+    "catalog_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "canonicalization": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2"
+          ]
+        },
+        "content_digest": {
+          "type": "string",
+          "enum": [
+            "sha-256:3fb1861ece1cc555ff136e92097556c8c5eb63f9ad360c72d69a6368384ff657"
+          ]
+        },
+        "digest_algorithm": {
+          "type": "string",
+          "enum": [
+            "SHA-256"
+          ]
+        }
+      },
+      "required": [
+        "canonicalization",
+        "content_digest",
+        "digest_algorithm"
+      ]
+    },
+    "source_catalog": {
+      "type": "string",
+      "enum": [
+        "docs/accord-02/examples/accord-02c-settlement-test-vectors.json"
+      ]
+    },
+    "vectors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "effect_id": {
+            "type": "string",
+            "enum": [
+              "urn:accord:02c:effect:E01",
+              "urn:accord:02c:effect:E02",
+              "urn:accord:02c:effect:E03",
+              "urn:accord:02c:effect:E04",
+              "urn:accord:02c:effect:E05",
+              "urn:accord:02c:effect:E06",
+              "urn:accord:02c:effect:E07",
+              "urn:accord:02c:effect:E08",
+              "urn:accord:02c:effect:E09",
+              "urn:accord:02c:effect:E10",
+              "urn:accord:02c:effect:E11",
+              "urn:accord:02c:effect:E12",
+              "urn:accord:02c:effect:E13",
+              "urn:accord:02c:effect:E14",
+              "urn:accord:02c:effect:E15",
+              "urn:accord:02c:effect:E16",
+              "urn:accord:02c:effect:E17",
+              "urn:accord:02c:effect:E18",
+              "urn:accord:02c:effect:E19",
+              "urn:accord:02c:effect:E20",
+              "urn:accord:02c:effect:E21",
+              "urn:accord:02c:effect:E22",
+              "urn:accord:02c:effect:E23"
+            ]
+          },
+          "evidence_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "profile_id": {
+                "type": "string",
+                "enum": [
+                  "urn:accord:02c:profile:conservative-v1",
+                  "urn:accord:02c:profile:incompatible-v1"
+                ]
+              },
+              "profile_type": {
+                "type": "string",
+                "enum": [
+                  "SETTLEMENT_PROFILE"
+                ]
+              },
+              "profile_version": {
+                "type": "string",
+                "enum": [
+                  "0.2"
+                ]
+              },
+              "reference_kind": {
+                "enum": [
+                  "PROFILE"
+                ]
+              }
+            },
+            "required": [
+              "profile_id",
+              "profile_type",
+              "profile_version",
+              "reference_kind"
+            ],
+            "x-normative-reference": true
+          },
+          "evidence_profile_role": {
+            "type": "string",
+            "enum": [
+              "SAME_PROFILE_EVIDENCE_VIEW"
+            ]
+          },
+          "expected": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "attribution": {
+                "type": "string",
+                "enum": [
+                  "ATTRIBUTED_TO_ONE_OR_MORE_ATTEMPTS",
+                  "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+                  "ATTRIBUTION_CONFLICTING",
+                  "ATTRIBUTION_UNKNOWN",
+                  "INADMISSIBLE",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "authority_status": {
+                "type": "string",
+                "enum": [
+                  "AUTHORIZED",
+                  "INVALID_AUTHORITY",
+                  "UNKNOWN_AUTHORITY"
+                ]
+              },
+              "causality": {
+                "type": "string",
+                "enum": [
+                  "CAUSATION_CONFLICTING",
+                  "CAUSATION_UNKNOWN",
+                  "CAUSED_BY_ONE_OR_MORE_ATTEMPTS",
+                  "EFFECT_BOUND",
+                  "NOT_ASSESSED",
+                  "SPECIFIC_ATTEMPT_SUPPORTED"
+                ]
+              },
+              "completeness": {
+                "type": "string",
+                "enum": [
+                  "COMPLETE",
+                  "PARTIAL",
+                  "UNKNOWN"
+                ]
+              },
+              "duplication": {
+                "type": "string",
+                "enum": [
+                  "NONE_SUPPORTED",
+                  "NOT_APPLICABLE",
+                  "POSSIBLE_DUPLICATE",
+                  "UNKNOWN"
+                ]
+              },
+              "finality": {
+                "type": "string",
+                "enum": [
+                  "NOT_FINAL",
+                  "REOPENABLE",
+                  "REOPENED"
+                ]
+              },
+              "freshness": {
+                "type": "string",
+                "enum": [
+                  "CURRENT",
+                  "NOT_APPLICABLE",
+                  "STALE",
+                  "UNKNOWN"
+                ]
+              },
+              "must_not_conclude": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+                    "CORROBORATION_FROM_CORRUPT_ARTIFACT",
+                    "CURRENT_STATE",
+                    "DISPATCH_DID_NOT_OCCUR",
+                    "EFFECT_DID_NOT_OCCUR",
+                    "EXACTLY_ONCE",
+                    "IRREVERSIBLE_FINALITY",
+                    "NON_OCCURRENCE_SUPPORTED",
+                    "NO_COLLUSION",
+                    "NO_EFFECT",
+                    "OCCURRENCE_SUPPORTED",
+                    "ORDERED_CAUSATION",
+                    "RECIPIENT_ACKNOWLEDGEMENT",
+                    "RECIPIENT_DELIVERY",
+                    "SPECIFIC_ATTEMPT_CAUSED",
+                    "TARGET_RECIPIENT_ACKNOWLEDGED",
+                    "THREE_LOGICAL_EFFECTS",
+                    "TWO_CONFIRMED_OCCURRENCES",
+                    "UNIVERSAL_ABSENCE_OUTSIDE_SCOPE",
+                    "UNIVERSAL_TRUTH",
+                    "VALID_AUTHORITY"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "occurrence": {
+                "type": "string",
+                "enum": [
+                  "CONFLICTING_EVIDENCE",
+                  "INADMISSIBLE_EVIDENCE",
+                  "INSUFFICIENT_EVIDENCE",
+                  "NON_OCCURRENCE_SUPPORTED",
+                  "OCCURRENCE_SUPPORTED",
+                  "PARTIAL_EFFECT",
+                  "STALE_EVIDENCE",
+                  "UNKNOWN"
+                ]
+              },
+              "overall": {
+                "type": "string",
+                "enum": [
+                  "CONFLICTING_EVIDENCE",
+                  "EFFECT_SUPPORTED",
+                  "INADMISSIBLE_EVIDENCE",
+                  "NON_OCCURRENCE_SUPPORTED",
+                  "PARTIAL_EFFECT",
+                  "POSSIBLE_DUPLICATE_EFFECT",
+                  "PROFILE_INCOMPATIBLE",
+                  "STALE_EVIDENCE",
+                  "UNKNOWN",
+                  "UNRESOLVED"
+                ]
+              },
+              "profile_compatibility": {
+                "type": "string",
+                "enum": [
+                  "COMPATIBLE",
+                  "INCOMPATIBLE",
+                  "UNKNOWN"
+                ]
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": false
+              },
+              "sufficiency": {
+                "type": "string",
+                "enum": [
+                  "CONFLICTING",
+                  "INADMISSIBLE",
+                  "INSUFFICIENT",
+                  "PROFILE_INCOMPATIBLE",
+                  "STALE",
+                  "SUFFICIENT",
+                  "UNKNOWN"
+                ]
+              }
+            },
+            "required": [
+              "attribution",
+              "authority_status",
+              "causality",
+              "completeness",
+              "duplication",
+              "finality",
+              "freshness",
+              "must_not_conclude",
+              "occurrence",
+              "overall",
+              "profile_compatibility",
+              "reason_codes",
+              "sufficiency"
+            ]
+          },
+          "semantic_status": {
+            "type": "string",
+            "enum": [
+              "SEMANTICS_PRESERVED"
+            ]
+          },
+          "settlement_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "profile_id": {
+                "type": "string",
+                "enum": [
+                  "urn:accord:02c:profile:conservative-v1"
+                ]
+              },
+              "profile_type": {
+                "type": "string",
+                "enum": [
+                  "SETTLEMENT_PROFILE"
+                ]
+              },
+              "profile_version": {
+                "type": "string",
+                "enum": [
+                  "0.2"
+                ]
+              },
+              "reference_kind": {
+                "enum": [
+                  "PROFILE"
+                ]
+              }
+            },
+            "required": [
+              "profile_id",
+              "profile_type",
+              "profile_version",
+              "reference_kind"
+            ],
+            "x-normative-reference": true
+          },
+          "source_vector_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "catalog_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02c:settlement-test-vectors"
+                ]
+              },
+              "catalog_version": {
+                "type": "string",
+                "enum": [
+                  "0.1"
+                ]
+              },
+              "normative_role": {
+                "type": "string",
+                "enum": [
+                  "SETTLEMENT_INPUT"
+                ]
+              },
+              "reference_kind": {
+                "enum": [
+                  "SOURCE_VECTOR"
+                ]
+              },
+              "vector_id": {
+                "type": "string",
+                "enum": [
+                  "ACCORD-02C-V001-DISPATCH-ONLY",
+                  "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+                  "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+                  "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+                  "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+                  "ACCORD-02C-V006-STALE-OBSERVATION",
+                  "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+                  "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+                  "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+                  "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+                  "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+                  "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+                  "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+                  "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+                  "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+                  "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+                  "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+                  "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+                  "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+                  "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+                  "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+                  "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+                  "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE"
+                ]
+              }
+            },
+            "required": [
+              "catalog_id",
+              "catalog_version",
+              "normative_role",
+              "reference_kind",
+              "vector_id"
+            ],
+            "x-normative-reference": true
+          },
+          "target": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "applicability": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "predicate_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02c:predicate:complete-negative",
+                      "urn:accord:02c:predicate:external-effect",
+                      "urn:accord:02c:predicate:recipient-ack",
+                      "urn:accord:02c:predicate:resource-created"
+                    ]
+                  },
+                  "stage": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "recipient_acknowledged"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "resource_created"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "recipient_acknowledged"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "resource_created"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "predicate_id",
+                  "stage"
+                ]
+              },
+              "canonicalization_ref": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "contract_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:moirae:accord-02e4r3:canonicalization-profile"
+                    ]
+                  },
+                  "contract_version": {
+                    "type": "string",
+                    "enum": [
+                      "0.2"
+                    ]
+                  },
+                  "reference_kind": {
+                    "enum": [
+                      "CONTRACT"
+                    ]
+                  }
+                },
+                "required": [
+                  "contract_id",
+                  "contract_version",
+                  "reference_kind"
+                ],
+                "x-normative-reference": true
+              },
+              "proposition": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "effect_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02c:effect:E01",
+                      "urn:accord:02c:effect:E02",
+                      "urn:accord:02c:effect:E03",
+                      "urn:accord:02c:effect:E04",
+                      "urn:accord:02c:effect:E05",
+                      "urn:accord:02c:effect:E06",
+                      "urn:accord:02c:effect:E07",
+                      "urn:accord:02c:effect:E08",
+                      "urn:accord:02c:effect:E09",
+                      "urn:accord:02c:effect:E10",
+                      "urn:accord:02c:effect:E11",
+                      "urn:accord:02c:effect:E12",
+                      "urn:accord:02c:effect:E13",
+                      "urn:accord:02c:effect:E14",
+                      "urn:accord:02c:effect:E15",
+                      "urn:accord:02c:effect:E16",
+                      "urn:accord:02c:effect:E17",
+                      "urn:accord:02c:effect:E18",
+                      "urn:accord:02c:effect:E19",
+                      "urn:accord:02c:effect:E20",
+                      "urn:accord:02c:effect:E21",
+                      "urn:accord:02c:effect:E22",
+                      "urn:accord:02c:effect:E23"
+                    ]
+                  },
+                  "evidence_profile_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02c:profile:conservative-v1"
+                    ]
+                  },
+                  "evidence_profile_version": {
+                    "type": "string",
+                    "enum": [
+                      "0.2"
+                    ]
+                  },
+                  "integrity": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "canonicalization": {
+                        "type": "string",
+                        "enum": [
+                          "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2"
+                        ]
+                      },
+                      "content_digest": {
+                        "type": "string",
+                        "enum": [
+                          "sha-256:00da77e35b87c10e9ea553b533eff24c5bc0e4fae514a1c570829999061d7c8c",
+                          "sha-256:0f4554c2bc158084dd1271928885d095bd721dc4e074cb55f5c19bd36548df3a",
+                          "sha-256:1122d4feeaff3e94294bee4475eb077c9dff610ee5298a89c5b2a40c22004f65",
+                          "sha-256:1ec15a87c83ac079188e0ccaf7fe90a247d9f17c35265b0fd243ada0d65ae225",
+                          "sha-256:1fa9cd8604d16ef83f03990cf4a833af35153d1fc590983e455ca2164131ef6b",
+                          "sha-256:2f93aeef36c209f9135339092c93b6d1cef7025aba519a77c3749b2dd19b472d",
+                          "sha-256:41a062290d5c30bceb0120201a67bad3dc5af85bcd95225eb485f050e531315e",
+                          "sha-256:44e8c92e511939484961c7ec185150f57ff24b259655b28f7744b5939aefcad7",
+                          "sha-256:45b634efb5faf663fb99d0b71cd0f6404be332ff1e03e82dea62452d92cbc6b2",
+                          "sha-256:4607f6a446c9a5f6df6685ecbe3355d5b4666adaa09a7d5603292091ba5c1e9d",
+                          "sha-256:48097fcd0bcde35b75a289b9fa0407988c7b3936cc53303fe5395b6371712f73",
+                          "sha-256:5c62a13410a8f286630819314b12242da57b15134fbc85fdfc45a89c61a00305",
+                          "sha-256:6de81b0d4249d0cfc360f5059d3fb5fdc153de16fbc1478ab15cb062dee243c0",
+                          "sha-256:706ad693999c9c04a3c2d822b84a2834cb5275bb3fdf199ee46bdd8142eb6656",
+                          "sha-256:74060af92edc83fa5290092c9ee2a043b8b1ee0228afc1e415aec4966e3fcd17",
+                          "sha-256:8685ca8fdabf3f3abf0bdc3847b5948610febc032a05a9e1df2d7072f4b0688f",
+                          "sha-256:b6427c6ee3ee26bdaa4e54f2c7db2e04efa8f1fbbd6b4e3149eac24acfea4f64",
+                          "sha-256:b6758076cf92d4a000db05c35b67e908dc0bfa501f221dced6c99c273972f769",
+                          "sha-256:b6e24275c8c5fff3fb9a652e0a82cb12c1a84ad3a3911cf1101de825bfae5815",
+                          "sha-256:b840377519dc87aa603fd7b708d740482f6133ce900c5e1529ea9aebc0670912",
+                          "sha-256:d21a17e2df9de82c3b58e4ebd7ff57ee4b0cb854e0a9f3c507e4606288ee9628",
+                          "sha-256:f56d8b9b304126448a0288a83ef505bbe77943a499766080d2052292a449f24a",
+                          "sha-256:f8e84442d14ee1623a295631e9f13a91cc15047279ff316138bab074a5fc17c8"
+                        ]
+                      },
+                      "digest_algorithm": {
+                        "type": "string",
+                        "enum": [
+                          "SHA-256"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "canonicalization",
+                      "content_digest",
+                      "digest_algorithm"
+                    ]
+                  },
+                  "negated_predicate_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02c:predicate:external-effect"
+                    ]
+                  },
+                  "negated_stage": {
+                    "type": "string",
+                    "enum": [
+                      "effect"
+                    ]
+                  },
+                  "predicate_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02c:predicate:complete-negative",
+                      "urn:accord:02c:predicate:external-effect",
+                      "urn:accord:02c:predicate:recipient-ack",
+                      "urn:accord:02c:predicate:resource-created"
+                    ]
+                  },
+                  "proposition_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V001-DISPATCH-ONLY",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V006-STALE-OBSERVATION",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V009-REPLAYED-EVIDENCE",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V019-CLOCK-AMBIGUITY",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V021-RECIPIENT-MISMATCH",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V022-PARTIAL-CORRUPTION",
+                      "urn:accord:02e4r1:proposition:ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+                      "urn:moirae:accord-02e4r2:proposition:ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+                    ]
+                  },
+                  "proposition_kind": {
+                    "type": "string",
+                    "enum": [
+                      "GENERIC_OCCURRENCE",
+                      "NEGATIVE_SCOPE",
+                      "POSITIVE_STAGE"
+                    ]
+                  },
+                  "recipient_or_counterparty": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02c:principal:recipient"
+                    ]
+                  },
+                  "record_type": {
+                    "type": "string",
+                    "enum": [
+                      "effect_proposition",
+                      "negative_scope_proposition"
+                    ]
+                  },
+                  "resource": {
+                    "type": "string",
+                    "enum": [
+                      "urn:accord:02c:resource:E17",
+                      "urn:accord:02c:resource:E22"
+                    ]
+                  },
+                  "schema_id": {
+                    "type": "string",
+                    "enum": [
+                      "urn:moirae:accord-02e4r2:schema:negative-scope-proposition:0.2",
+                      "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2"
+                    ]
+                  },
+                  "schema_version": {
+                    "type": "string",
+                    "enum": [
+                      "0.2"
+                    ]
+                  },
+                  "scope": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "action_binding": {
+                        "type": "string",
+                        "enum": [
+                          "NOT_APPLICABLE"
+                        ]
+                      },
+                      "as_of": {
+                        "type": "string",
+                        "enum": [
+                          "2024-01-01T00:00:01Z"
+                        ]
+                      },
+                      "consistency_level": {
+                        "type": "string",
+                        "enum": [
+                          "SNAPSHOT_COMPLETE"
+                        ]
+                      },
+                      "freshness_max_age_seconds": {
+                        "type": "integer"
+                      },
+                      "not_before": {
+                        "type": "string",
+                        "enum": [
+                          "2024-01-01T00:00:00Z"
+                        ]
+                      },
+                      "provider_binding": {
+                        "type": "string",
+                        "enum": [
+                          "NOT_APPLICABLE"
+                        ]
+                      },
+                      "read_semantics": {
+                        "type": "string",
+                        "enum": [
+                          "COMPLETE_LEDGER_QUERY"
+                        ]
+                      },
+                      "recipient_binding": {
+                        "type": "string",
+                        "enum": [
+                          "NOT_APPLICABLE"
+                        ]
+                      },
+                      "resource_binding": {
+                        "type": "string",
+                        "enum": [
+                          "NOT_APPLICABLE"
+                        ]
+                      },
+                      "retention_window_seconds": {
+                        "type": "integer"
+                      },
+                      "state_space": {
+                        "type": "string",
+                        "enum": [
+                          "COMPLETE"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "action_binding",
+                      "as_of",
+                      "consistency_level",
+                      "freshness_max_age_seconds",
+                      "not_before",
+                      "provider_binding",
+                      "read_semantics",
+                      "recipient_binding",
+                      "resource_binding",
+                      "retention_window_seconds",
+                      "state_space"
+                    ]
+                  },
+                  "stage": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "recipient_acknowledged"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "resource_created"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "recipient_acknowledged"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "resource_created"
+                        ]
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "effect"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "effect_id",
+                  "integrity",
+                  "predicate_id",
+                  "proposition_id",
+                  "proposition_kind",
+                  "record_type",
+                  "schema_id",
+                  "schema_version",
+                  "stage"
+                ]
+              },
+              "target_resolution": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "binding_policy": {
+                    "type": "string",
+                    "enum": [
+                      "REGISTRY_EXACT_TUPLE"
+                    ]
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "GENERIC_OCCURRENCE",
+                      "NEGATIVE_SCOPE",
+                      "POSITIVE_STAGE"
+                    ]
+                  },
+                  "negative_scope_contract_ref": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "contract_id": {
+                        "type": "string",
+                        "enum": [
+                          "urn:moirae:accord-02e4r2:contract:bounded-negative-scope"
+                        ]
+                      },
+                      "contract_version": {
+                        "type": "string",
+                        "enum": [
+                          "0.2"
+                        ]
+                      },
+                      "reference_kind": {
+                        "enum": [
+                          "CONTRACT"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "contract_id",
+                      "contract_version",
+                      "reference_kind"
+                    ],
+                    "x-normative-reference": true
+                  },
+                  "predecessor_edges": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "predicate_id": {
+                          "type": "string",
+                          "enum": [
+                            "urn:accord:02c:predicate:provider-acceptance"
+                          ]
+                        },
+                        "stage": {
+                          "type": "string",
+                          "enum": [
+                            "provider_accepted"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "predicate_id",
+                        "stage"
+                      ]
+                    },
+                    "uniqueItems": false
+                  },
+                  "proposition_schema_ref": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "reference_kind": {
+                        "enum": [
+                          "SCHEMA"
+                        ]
+                      },
+                      "schema_id": {
+                        "type": "string",
+                        "enum": [
+                          "urn:moirae:accord-02e4r2:schema:negative-scope-proposition:0.2",
+                          "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2"
+                        ]
+                      },
+                      "schema_version": {
+                        "type": "string",
+                        "enum": [
+                          "0.2"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "reference_kind",
+                      "schema_id",
+                      "schema_version"
+                    ],
+                    "x-normative-reference": true
+                  },
+                  "recipient_mismatch_policy": {
+                    "type": "string",
+                    "enum": [
+                      "RETURN_PARTIAL_EFFECT_WITH_ATTRIBUTION_CONFLICT"
+                    ]
+                  },
+                  "same_effect_policy": {
+                    "type": "string",
+                    "enum": [
+                      "REQUIRED_FOR_PREDECESSOR_SUPPORT"
+                    ]
+                  }
+                },
+                "required": [
+                  "binding_policy",
+                  "kind",
+                  "predecessor_edges",
+                  "proposition_schema_ref",
+                  "same_effect_policy"
+                ]
+              }
+            },
+            "required": [
+              "applicability",
+              "canonicalization_ref",
+              "proposition",
+              "target_resolution"
+            ]
+          },
+          "vector_id": {
+            "type": "string",
+            "enum": [
+              "ACCORD-02C-V001-DISPATCH-ONLY",
+              "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+              "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+              "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+              "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+              "ACCORD-02C-V006-STALE-OBSERVATION",
+              "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+              "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+              "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+              "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+              "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+              "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+              "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+              "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+              "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+              "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+              "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+              "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+              "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+              "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+              "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+              "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+              "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE"
+            ]
+          }
+        },
+        "required": [
+          "effect_id",
+          "evidence_profile_ref",
+          "evidence_profile_role",
+          "expected",
+          "semantic_status",
+          "settlement_profile_ref",
+          "source_vector_ref",
+          "target",
+          "vector_id"
+        ]
+      },
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "$id",
+    "catalog_id",
+    "catalog_version",
+    "integrity",
+    "source_catalog",
+    "vectors"
+  ]
+}

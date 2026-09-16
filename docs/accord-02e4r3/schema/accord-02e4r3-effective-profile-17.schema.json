@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-17:0.2",
+  "title": "ACCORD-02E4R3 effective profile 17",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:schema:extension-registry:0.1"
+      ]
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "admission": {
+            "type": "string",
+            "enum": [
+              "IGNORE_FOR_SEMANTICS"
+            ]
+          },
+          "applies_to": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "portable_record",
+                "verifier_output"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "NON_SEMANTIC"
+            ]
+          },
+          "extension_id": {
+            "type": "string",
+            "enum": [
+              "display-note"
+            ]
+          },
+          "namespace": {
+            "type": "string",
+            "enum": [
+              "https://example.invalid/moirae/accord-02r3/display"
+            ]
+          }
+        },
+        "required": [
+          "admission",
+          "applies_to",
+          "classification",
+          "extension_id",
+          "namespace"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "EXTENSION_REGISTRY"
+      ]
+    },
+    "registry_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:extensions:0.1"
+      ]
+    },
+    "registry_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    },
+    "schema_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:schema:extension-registry:0.1"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "extensions",
+    "record_type",
+    "registry_id",
+    "registry_version",
+    "schema_id",
+    "schema_version"
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:validation-rules:0.2",
+  "title": "ACCORD-02E4R3 validation-rules",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:validation-rules:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:validation-rules"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "operator_registry_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:operator-registry"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "DETERMINISTIC",
+              "DETERMINISTIC_WITH_PROFILE"
+            ]
+          },
+          "condition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "operands": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "declared_assertion_id": {
+                    "type": "string"
+                  },
+                  "rule_id": {
+                    "type": "string"
+                  },
+                  "source_artifact_classes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "uniqueItems": false
+                  }
+                },
+                "required": [
+                  "declared_assertion_id",
+                  "rule_id",
+                  "source_artifact_classes"
+                ]
+              },
+              "operator_id": {
+                "type": "string",
+                "enum": [
+                  "BINDING_COMPOSITION_VALID",
+                  "DECLARED_CONTRACT_INVARIANT_VALID",
+                  "DEPENDENCY_GRAPH_EQUALS_RULES",
+                  "DIGEST_MATCHES_DECLARED_MAPPING",
+                  "EFFECTIVE_INVENTORY_VALID",
+                  "EXPECTATION_SET_EQUAL",
+                  "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+                  "PREDICATE_REGISTRY_VALID",
+                  "PROFILE_PAIR_COMPATIBLE",
+                  "REFERENCE_GRAPH_CLOSED",
+                  "STRICT_SCHEMA_VALID"
+                ]
+              }
+            },
+            "required": [
+              "operands",
+              "operator_id"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "failure_code": {
+            "type": "string"
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "produces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "replaces_classification": {
+            "type": "string",
+            "enum": [
+              "DETERMINISTIC_WITH_PROFILE",
+              "UNEVALUABLE"
+            ]
+          },
+          "required_for": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "candidate closure",
+                "experiment-run admission",
+                "final independent reassessment",
+                "scoring admission",
+                "settlement amendment conformance",
+                "structural admission",
+                "verifier admission"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "BLOCKING",
+              "MAJOR"
+            ]
+          }
+        },
+        "required": [
+          "condition",
+          "failure_code",
+          "inputs",
+          "rule_id",
+          "severity"
+        ]
+      },
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "contract_id",
+    "contract_version",
+    "operator_registry_ref",
+    "rules"
+  ]
+}

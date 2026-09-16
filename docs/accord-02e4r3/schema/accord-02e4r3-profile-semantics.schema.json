@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:profile-semantics:0.2",
+  "title": "ACCORD-02E4R3 profile-semantics",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:profile-semantics:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "compatibility_relation": {
+      "type": "string",
+      "enum": [
+        "EXACT_PROFILE_OR_DECLARED_COMPATIBLE_PAIR"
+      ]
+    },
+    "compatible_pairs": {
+      "type": "array",
+      "items": false,
+      "uniqueItems": false
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:profile-semantics"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "evidence_profile_ref_domain": {
+      "type": "string",
+      "enum": [
+        "EVIDENCE_ADMISSIBILITY_AND_INTERPRETATION_POLICY"
+      ]
+    },
+    "missing_reference": {
+      "type": "string",
+      "enum": [
+        "FAIL_PROFILE_RESOLUTION"
+      ]
+    },
+    "same_profile_result": {
+      "type": "string",
+      "enum": [
+        "COMPATIBLE"
+      ]
+    },
+    "settlement_profile_ref_domain": {
+      "type": "string",
+      "enum": [
+        "SETTLEMENT_DECISION_POLICY"
+      ]
+    },
+    "undeclared_different_pair_result": {
+      "type": "string",
+      "enum": [
+        "INCOMPATIBLE"
+      ]
+    },
+    "unresolved_reference": {
+      "type": "string",
+      "enum": [
+        "FAIL_PROFILE_RESOLUTION"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "compatibility_relation",
+    "compatible_pairs",
+    "contract_id",
+    "contract_version",
+    "evidence_profile_ref_domain",
+    "missing_reference",
+    "same_profile_result",
+    "settlement_profile_ref_domain",
+    "undeclared_different_pair_result",
+    "unresolved_reference"
+  ]
+}

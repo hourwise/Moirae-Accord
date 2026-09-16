@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:negative-scope-requirements:0.2",
+  "title": "ACCORD-02E4R3 negative-scope-requirements",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:negative-scope-requirements:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:negative-scope-requirements"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "evidence_contract_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r3:complete-negative-evidence"
+          ]
+        },
+        "contract_version": {
+          "type": "string",
+          "enum": [
+            "0.2"
+          ]
+        },
+        "reference_kind": {
+          "enum": [
+            "CONTRACT"
+          ]
+        }
+      },
+      "required": [
+        "contract_id",
+        "contract_version",
+        "reference_kind"
+      ],
+      "x-normative-reference": true
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "operands": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowed": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "COMPLETE_LEDGER_QUERY",
+                    "COMPLETE_NEGATIVE_LEDGER_QUERY",
+                    "SNAPSHOT_COMPLETE"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "endpoints": {
+                "type": "string",
+                "enum": [
+                  "INCLUSIVE"
+                ]
+              },
+              "expected": {
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "action",
+                    "effect_id",
+                    "predicate_id",
+                    "provider",
+                    "recipient",
+                    "resource",
+                    "stage"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "interval_pointer": {
+                "type": "string",
+                "enum": [
+                  "/observed_interval"
+                ]
+              },
+              "max_age": {
+                "type": "string",
+                "enum": [
+                  "/freshness_max_age_seconds"
+                ]
+              },
+              "not_applicable_token": {
+                "type": "string",
+                "enum": [
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "observed_at": {
+                "type": "string",
+                "enum": [
+                  "/observed_at"
+                ]
+              },
+              "pointer": {
+                "type": "string",
+                "enum": [
+                  "/consistency_level",
+                  "/evidence_class",
+                  "/read_scope_complete",
+                  "/read_semantics"
+                ]
+              },
+              "retention_pointer": {
+                "type": "string",
+                "enum": [
+                  "/retention_window_seconds"
+                ]
+              },
+              "universe": {
+                "type": "string",
+                "enum": [
+                  "/evidence_universe"
+                ]
+              },
+              "verification_time": {
+                "type": "string",
+                "enum": [
+                  "/verification_time"
+                ]
+              }
+            },
+            "required": []
+          },
+          "operator_id": {
+            "type": "string",
+            "enum": [
+              "COUNT_ADMISSIBLE_EVIDENCE_EQ",
+              "ENUM_ALLOWED",
+              "EXACT_TUPLE_EXISTS",
+              "EXACT_VALUE_EQUAL",
+              "INTEGER_RANGE_COVERS",
+              "RFC3339_INTERVAL_VALID",
+              "SCOPE_BINDINGS_COMPLETE",
+              "TIMESTAMP_AGE_LE_MAX"
+            ]
+          },
+          "requirement_id": {
+            "type": "string",
+            "enum": [
+              "ACCEPTED_COMPLETE_SOURCE_CLASS",
+              "COMPLETE_READ_SEMANTICS",
+              "COMPLETE_STATE_SPACE",
+              "CONSISTENCY_DECLARED",
+              "FRESH_AT_VERIFICATION",
+              "IDENTITY_BOUND",
+              "INTERVAL_BOUND",
+              "NO_CONTRADICTORY_EVIDENCE",
+              "RETENTION_DECLARED",
+              "SCOPE_BOUND"
+            ]
+          }
+        },
+        "required": [
+          "operands",
+          "operator_id",
+          "requirement_id"
+        ]
+      },
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "contract_id",
+    "contract_version",
+    "evidence_contract_ref",
+    "requirements"
+  ]
+}

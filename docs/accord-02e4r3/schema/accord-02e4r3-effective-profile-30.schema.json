@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-30:0.2",
+  "title": "ACCORD-02E4R3 effective profile 30",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r2:schema:canonicalization-profile:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "algorithm": {
+      "type": "string",
+      "enum": [
+        "SHA-256"
+      ]
+    },
+    "applies_to": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "canonicalization_profile_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contract_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2"
+                ]
+              },
+              "contract_version": {
+                "type": "string",
+                "enum": [
+                  "0.2"
+                ]
+              }
+            },
+            "required": [
+              "contract_id",
+              "contract_version"
+            ]
+          },
+          "container_type": {
+            "type": "string",
+            "enum": [
+              "EXPERIMENT_RECORD_ENTRY",
+              "SCORER_ENTRY",
+              "VERIFIER_RECORD_ENTRY"
+            ]
+          },
+          "content_target": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "excluded_json_pointers": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "/integrity",
+                    "/integrity/content_digest"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "included_content": {
+                "type": "string",
+                "enum": [
+                  "ALL_REMAINING_MEMBERS",
+                  "DECLARED_CONTENT_MEMBER_ONLY"
+                ]
+              },
+              "included_json_pointers": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "/content"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "EXCLUDE_JSON_POINTERS",
+                  "INCLUDE_JSON_POINTERS"
+                ]
+              }
+            },
+            "required": [
+              "excluded_json_pointers",
+              "included_content",
+              "mode"
+            ]
+          },
+          "content_target_id": {
+            "type": "string",
+            "enum": [
+              "ENTRY_CONTENT",
+              "RECORD_EXCLUDING_INTEGRITY",
+              "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST"
+            ]
+          },
+          "record_types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "schema_id": {
+            "type": "string"
+          },
+          "schema_version": {
+            "type": "string",
+            "enum": [
+              "0.1",
+              "0.2"
+            ]
+          }
+        },
+        "required": [
+          "canonicalization_profile_ref",
+          "container_type",
+          "content_target",
+          "content_target_id",
+          "record_types",
+          "schema_id",
+          "schema_version"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "content_target_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ENTRY_CONTENT": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "included_json_pointers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "/content"
+                ]
+              },
+              "uniqueItems": false
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "INCLUDE_JSON_POINTERS"
+              ]
+            }
+          },
+          "required": [
+            "included_json_pointers",
+            "mode"
+          ]
+        },
+        "RECORD_EXCLUDING_INTEGRITY": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "excluded_json_pointers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "/integrity"
+                ]
+              },
+              "uniqueItems": false
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "EXCLUDE_JSON_POINTERS"
+              ]
+            }
+          },
+          "required": [
+            "excluded_json_pointers",
+            "mode"
+          ]
+        },
+        "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "excluded_json_pointers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "/integrity/content_digest"
+                ]
+              },
+              "uniqueItems": false
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "EXCLUDE_JSON_POINTERS"
+              ]
+            }
+          },
+          "required": [
+            "excluded_json_pointers",
+            "mode"
+          ]
+        }
+      },
+      "required": [
+        "ENTRY_CONTENT",
+        "RECORD_EXCLUDING_INTEGRITY",
+        "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST"
+      ]
+    },
+    "encoding": {
+      "type": "string",
+      "enum": [
+        "UTF-8"
+      ]
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "RFC8785_JCS"
+      ]
+    },
+    "profile_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2"
+      ]
+    },
+    "profile_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "schema_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r2:schema:canonicalization-profile:0.2"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "algorithm",
+    "applies_to",
+    "content_target_registry",
+    "encoding",
+    "method",
+    "profile_id",
+    "profile_version",
+    "schema_id",
+    "schema_version"
+  ]
+}

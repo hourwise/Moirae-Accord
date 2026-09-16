@@ -1,0 +1,970 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:normative-contracts:0.2",
+  "title": "ACCORD-02E4R3 normative-contracts",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:normative-contracts:0.2"
+      ]
+    },
+    "binding_authority_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contradiction_policy": {
+          "type": "string",
+          "enum": [
+            "FAIL_VALIDATION"
+          ]
+        },
+        "profile_requirements": {
+          "type": "string",
+          "enum": [
+            "ADDITIVE_EVIDENCE_REQUIREMENTS_ONLY"
+          ]
+        },
+        "proposition_status": {
+          "type": "string",
+          "enum": [
+            "OBSERVATIONAL_NOT_PERMISSIVE"
+          ]
+        },
+        "required_sets_authority": {
+          "type": "string",
+          "enum": [
+            "REGISTRY_BY_EXACT_TUPLE"
+          ]
+        }
+      },
+      "required": [
+        "contradiction_policy",
+        "profile_requirements",
+        "proposition_status",
+        "required_sets_authority"
+      ]
+    },
+    "binding_composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "capability_required_evidence_provenance_bindings": {
+          "type": "string",
+          "enum": [
+            "ADDITIVE_AND_NON_PROPOSITIONAL"
+          ]
+        },
+        "capability_required_proposition_bindings": {
+          "type": "string",
+          "enum": [
+            "MUST_BE_SUBSET_COMPATIBLE_WITH_REGISTRY"
+          ]
+        },
+        "forbidden_intersection": {
+          "type": "string",
+          "enum": [
+            "REQUIRED_PROPOSITION_BINDINGS_MAY_NOT_INTERSECT_NOT_APPLICABLE_BINDINGS"
+          ]
+        },
+        "profile_evidence_class_requirements": {
+          "type": "string",
+          "enum": [
+            "ADDITIVE_TO_CAPABILITY_WITHOUT_WEAKENING_REGISTRY"
+          ]
+        },
+        "registry_proposition_bindings": {
+          "type": "string",
+          "enum": [
+            "AUTHORITATIVE"
+          ]
+        }
+      },
+      "required": [
+        "capability_required_evidence_provenance_bindings",
+        "capability_required_proposition_bindings",
+        "forbidden_intersection",
+        "profile_evidence_class_requirements",
+        "registry_proposition_bindings"
+      ]
+    },
+    "closure_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "check_id": {
+            "type": "string",
+            "enum": [
+              "CLOSE-001",
+              "CLOSE-002",
+              "CLOSE-003",
+              "CLOSE-004",
+              "CLOSE-005",
+              "CLOSE-006",
+              "CLOSE-007",
+              "CLOSE-008",
+              "CLOSE-009",
+              "CLOSE-010",
+              "CLOSE-011",
+              "CLOSE-012",
+              "CLOSE-013",
+              "CLOSE-014",
+              "CLOSE-015",
+              "CLOSE-016",
+              "CLOSE-017"
+            ]
+          },
+          "failure_code": {
+            "type": "string",
+            "enum": [
+              "BINDING_AUTHORITY_CONTRADICTION",
+              "CANONICALIZATION_MAPPING_INVALID",
+              "COMPETING_PREDICATE_AUTHORITY",
+              "DANGLING_CONTRACT_REFERENCE",
+              "DANGLING_PREDECESSOR",
+              "DUPLICATE_PREDICATE_STAGE_TUPLE",
+              "DUPLICATE_PROFILE_CONTRACT",
+              "DUPLICATE_SCHEMA_CONTRACT",
+              "EXPECTATION_CONTRACT_INCOMPLETE",
+              "NEGATIVE_SCOPE_MAPPING_INCOMPLETE",
+              "PACKAGE_PATH_INVALID",
+              "PREDECESSOR_GRAPH_INVALID",
+              "REFERENCE_REPRESENTATION_INVALID",
+              "RULE_INVENTORY_INVALID",
+              "UNSUPPORTED_CAPABILITY_CONTRADICTION",
+              "VECTOR_PROFILE_UNRESOLVABLE",
+              "VECTOR_TARGET_INVALID"
+            ]
+          },
+          "rule": {
+            "type": "string",
+            "enum": [
+              "active candidate rule inventory and dependencies are closed",
+              "all declared contract references resolve",
+              "all declared package paths exist and are package-relative",
+              "all package references use object ID/version representation",
+              "all vector profiles exact-version resolve",
+              "all vector target propositions validate",
+              "canonicalization mapping concrete and unique",
+              "full expected axes and prohibitions are present",
+              "legacy lexical predicate authority is retired",
+              "negative requirement map is complete and observed",
+              "predecessor edges resolve",
+              "predecessor graph has no self-edge or cycle",
+              "predicate tuple unique",
+              "profile type/id/version unique",
+              "registry required bindings and profile requirements do not contradict",
+              "schema ids and versions unique",
+              "unsupported rows cannot carry active capabilities"
+            ]
+          }
+        },
+        "required": [
+          "check_id",
+          "failure_code",
+          "rule"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:normative-contracts"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "entailment_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "authority_entails_effect": {
+          "type": "boolean"
+        },
+        "earlier_stage_entails_later_stage": {
+          "type": "boolean"
+        },
+        "effect_settlement_entails_authority": {
+          "type": "boolean"
+        },
+        "generic_occurrence_entails_positive_stage": {
+          "type": "boolean"
+        },
+        "occurrence_entails_attempt_attribution": {
+          "type": "boolean"
+        },
+        "positive_stage_entails_generic_occurrence": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority_entails_effect",
+        "earlier_stage_entails_later_stage",
+        "effect_settlement_entails_authority",
+        "generic_occurrence_entails_positive_stage",
+        "occurrence_entails_attempt_attribution",
+        "positive_stage_entails_generic_occurrence"
+      ]
+    },
+    "evidence_capability_contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "capability_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02e4r2:evidence-capability:complete-negative",
+              "urn:moirae:accord-02e4r2:evidence-capability:external-effect",
+              "urn:moirae:accord-02e4r2:evidence-capability:provider-acceptance",
+              "urn:moirae:accord-02e4r2:evidence-capability:recipient-ack",
+              "urn:moirae:accord-02e4r2:evidence-capability:resource-created"
+            ]
+          },
+          "capability_version": {
+            "type": "string",
+            "enum": [
+              "0.2"
+            ]
+          },
+          "does_not_prove": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "CAUSALITY",
+                "NON_OCCURRENCE",
+                "OCCURRENCE",
+                "SPECIFIC_ATTEMPT_CAUSED"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "GENERIC_OCCURRENCE",
+              "NEGATIVE_SCOPE",
+              "POSITIVE_STAGE"
+            ]
+          },
+          "predicate_id": {
+            "type": "string",
+            "enum": [
+              "urn:accord:02c:predicate:complete-negative",
+              "urn:accord:02c:predicate:external-effect",
+              "urn:accord:02c:predicate:provider-acceptance",
+              "urn:accord:02c:predicate:recipient-ack",
+              "urn:accord:02c:predicate:resource-created"
+            ]
+          },
+          "required_evidence_provenance_bindings": {
+            "type": "array",
+            "items": false,
+            "uniqueItems": false
+          },
+          "required_proposition_bindings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "effect_id",
+                "predicate_id",
+                "provider",
+                "recipient_or_counterparty",
+                "resource",
+                "stage"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "stage": {
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "effect"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "resource_created"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "recipient_acknowledged"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "provider_accepted"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "supported_evidence_classes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "COMPLETE_NEGATIVE_LEDGER_QUERY",
+                "EXTERNAL_STATE_SNAPSHOT",
+                "INDEPENDENT_OBSERVATION",
+                "PROVIDER_ACCEPTANCE_RECEIPT",
+                "PROVIDER_EFFECT_RECEIPT",
+                "SIGNED_ATTESTED_ARTIFACT",
+                "TARGET_ACKNOWLEDGEMENT"
+              ]
+            },
+            "uniqueItems": false
+          }
+        },
+        "required": [
+          "capability_id",
+          "capability_version",
+          "does_not_prove",
+          "kind",
+          "predicate_id",
+          "required_evidence_provenance_bindings",
+          "required_proposition_bindings",
+          "stage",
+          "supported_evidence_classes"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "exact_identifier_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "case_folding": {
+          "type": "boolean"
+        },
+        "case_sensitive": {
+          "type": "boolean"
+        },
+        "encoding": {
+          "type": "string",
+          "enum": [
+            "UTF-8"
+          ]
+        },
+        "equality": {
+          "type": "string",
+          "enum": [
+            "CODE_POINT_STRING_EQUALITY"
+          ]
+        },
+        "lexical_similarity": {
+          "type": "boolean"
+        },
+        "namespace_fallback": {
+          "type": "boolean"
+        },
+        "prefix_suffix_matching": {
+          "type": "boolean"
+        },
+        "punctuation_normalization": {
+          "type": "boolean"
+        },
+        "trim": {
+          "type": "boolean"
+        },
+        "unicode_normalization": {
+          "type": "string",
+          "enum": [
+            "NONE"
+          ]
+        }
+      },
+      "required": [
+        "case_folding",
+        "case_sensitive",
+        "encoding",
+        "equality",
+        "lexical_similarity",
+        "namespace_fallback",
+        "prefix_suffix_matching",
+        "punctuation_normalization",
+        "trim",
+        "unicode_normalization"
+      ]
+    },
+    "fail_closed_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "missing_required_binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "type": "string",
+              "enum": [
+                "REQUIRED_BINDING_MISSING"
+              ]
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "INADMISSIBLE_EVIDENCE"
+              ]
+            }
+          },
+          "required": [
+            "reason_code",
+            "result"
+          ]
+        },
+        "profile_not_resolvable": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "type": "string",
+              "enum": [
+                "PROFILE_UNRESOLVABLE"
+              ]
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "PROFILE_INCOMPATIBLE"
+              ]
+            }
+          },
+          "required": [
+            "reason_code",
+            "result"
+          ]
+        },
+        "undeclared_tuple": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "type": "string",
+              "enum": [
+                "PREDICATE_STAGE_TUPLE_UNDECLARED"
+              ]
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "reason_code",
+            "result"
+          ]
+        },
+        "unknown_predicate": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "type": "string",
+              "enum": [
+                "PREDICATE_UNKNOWN"
+              ]
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "reason_code",
+            "result"
+          ]
+        },
+        "unsupported_predicate": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "type": "string",
+              "enum": [
+                "PREDICATE_UNSUPPORTED"
+              ]
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "reason_code",
+            "result"
+          ]
+        },
+        "unsupported_proposition_kind": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "type": "string",
+              "enum": [
+                "PROPOSITION_KIND_UNSUPPORTED"
+              ]
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "STRUCTURAL_PROFILE_INCOMPATIBLE"
+              ]
+            }
+          },
+          "required": [
+            "reason_code",
+            "result"
+          ]
+        },
+        "wrong_stage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "reason_code": {
+              "type": "string",
+              "enum": [
+                "PREDICATE_STAGE_MISMATCH"
+              ]
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "UNKNOWN"
+              ]
+            }
+          },
+          "required": [
+            "reason_code",
+            "result"
+          ]
+        }
+      },
+      "required": [
+        "missing_required_binding",
+        "profile_not_resolvable",
+        "undeclared_tuple",
+        "unknown_predicate",
+        "unsupported_predicate",
+        "unsupported_proposition_kind",
+        "wrong_stage"
+      ]
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "invariant_id": {
+            "type": "string",
+            "enum": [
+              "INV-001",
+              "INV-002",
+              "INV-003",
+              "INV-004",
+              "INV-005",
+              "INV-006",
+              "INV-007",
+              "INV-008",
+              "INV-009"
+            ]
+          },
+          "normative_reference": {
+            "type": "string",
+            "enum": [
+              "E4R1-BIND-001",
+              "E4R1-CLOSE-015",
+              "E4R1-ENT-001",
+              "E4R1-PRED-002",
+              "E4R1-PRED-003"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "enum": [
+              "Adding inadmissible evidence cannot strengthen a settlement result.",
+              "An unknown tuple cannot become positive.",
+              "Earlier stage evidence cannot settle a later stage.",
+              "Generic occurrence and positive stage are non-entailing in both directions.",
+              "Lexical variation cannot grant predicate semantics.",
+              "Permutation of evidence in a non-ordered collection cannot change the normative result.",
+              "Removing evidence cannot strengthen a settlement result.",
+              "Replay of the same artifact cannot increase corroboration.",
+              "Sufficient exact evidence remains capable of a positive result when all profile requirements are met."
+            ]
+          }
+        },
+        "required": [
+          "invariant_id",
+          "normative_reference",
+          "statement"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "negative_scope_contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "accepted_source_class": {
+            "type": "string",
+            "enum": [
+              "COMPLETE_NEGATIVE_LEDGER_QUERY"
+            ]
+          },
+          "consistency": {
+            "type": "string",
+            "enum": [
+              "EVIDENCE_CONSISTENCY_LEVEL_MEETS_PROFILE"
+            ]
+          },
+          "contract_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02e4r2:contract:bounded-negative-scope"
+            ]
+          },
+          "contract_version": {
+            "type": "string",
+            "enum": [
+              "0.2"
+            ]
+          },
+          "contradictory_evidence": {
+            "type": "string",
+            "enum": [
+              "EVALUATE_ADMISSIBLE_POSITIVE_SET; FAIL_VALIDATION_IF_CONTRADICTORY"
+            ]
+          },
+          "freshness": {
+            "type": "string",
+            "enum": [
+              "OBSERVED_AT_WITHIN_MAX_AGE_OF_VERIFICATION"
+            ]
+          },
+          "interval": {
+            "type": "string",
+            "enum": [
+              "EXPLICIT_NOT_BEFORE_AND_AS_OF"
+            ]
+          },
+          "predicate_binding": {
+            "type": "string",
+            "enum": [
+              "EXACT_NEGATED_PREDICATE_ID_AND_STAGE"
+            ]
+          },
+          "reference_kind": {
+            "enum": [
+              "CONTRACT"
+            ]
+          },
+          "required_evidence_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "consistency_level",
+                "contradictory_positive_evidence_count",
+                "evidence_class",
+                "observed_at",
+                "read_scope_complete",
+                "retention_window_seconds",
+                "verification_time"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "required_proposition_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "effect_id",
+                "negated_predicate_id",
+                "negated_stage",
+                "scope.as_of",
+                "scope.consistency_level",
+                "scope.not_before",
+                "scope.read_semantics",
+                "scope.retention_window_seconds"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "requirement_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ACCEPTED_COMPLETE_SOURCE_CLASS",
+                "COMPLETE_READ_SEMANTICS",
+                "COMPLETE_STATE_SPACE",
+                "CONSISTENCY_DECLARED",
+                "FRESH_AT_VERIFICATION",
+                "IDENTITY_BOUND",
+                "INTERVAL_BOUND",
+                "NO_CONTRADICTORY_EVIDENCE",
+                "PREDICATE_BOUND",
+                "RESOURCE_ACTION_RECIPIENT_PROVIDER_SCOPE",
+                "RETENTION_DECLARED",
+                "STAGE_BOUND"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "resource_action_recipient_provider_scope": {
+            "type": "string",
+            "enum": [
+              "BOUND_WHERE_APPLICABLE"
+            ]
+          },
+          "retention": {
+            "type": "string",
+            "enum": [
+              "EVIDENCE_RETENTION_WINDOW_COVERS_QUERY_INTERVAL"
+            ]
+          },
+          "silence_timeout_stale_or_incomplete": {
+            "type": "string",
+            "enum": [
+              "NOT_SUFFICIENT"
+            ]
+          },
+          "state_space": {
+            "type": "string",
+            "enum": [
+              "COMPLETE"
+            ]
+          }
+        },
+        "required": [
+          "accepted_source_class",
+          "consistency",
+          "contract_id",
+          "contract_version",
+          "contradictory_evidence",
+          "freshness",
+          "interval",
+          "predicate_binding",
+          "reference_kind",
+          "required_evidence_fields",
+          "required_proposition_fields",
+          "requirement_ids",
+          "resource_action_recipient_provider_scope",
+          "retention",
+          "silence_timeout_stale_or_incomplete",
+          "state_space"
+        ],
+        "x-normative-reference": true
+      },
+      "uniqueItems": false
+    },
+    "partial_effect_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "atomic_only": {
+          "type": "string",
+          "enum": [
+            "NOT_PARTIAL_EFFECT"
+          ]
+        },
+        "empty_predecessors": {
+          "type": "string",
+          "enum": [
+            "NOT_PARTIAL_EFFECT"
+          ]
+        },
+        "incompatible_or_inadmissible": {
+          "type": "string",
+          "enum": [
+            "INADMISSIBLE_OR_UNKNOWN"
+          ]
+        },
+        "later_stage_requires_new_evidence": {
+          "type": "boolean"
+        },
+        "no_supported_predecessor": {
+          "type": "string",
+          "enum": [
+            "NOT_PARTIAL_EFFECT"
+          ]
+        },
+        "same_effect_required": {
+          "type": "boolean"
+        },
+        "supported_predecessor": {
+          "type": "string",
+          "enum": [
+            "POTENTIAL_PARTIAL_EFFECT"
+          ]
+        }
+      },
+      "required": [
+        "atomic_only",
+        "empty_predecessors",
+        "incompatible_or_inadmissible",
+        "later_stage_requires_new_evidence",
+        "no_supported_predecessor",
+        "same_effect_required",
+        "supported_predecessor"
+      ]
+    },
+    "predecessor_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cycle_policy": {
+          "type": "string",
+          "enum": [
+            "FAIL_VALIDATION"
+          ]
+        },
+        "dangling_edge_policy": {
+          "type": "string",
+          "enum": [
+            "FAIL_VALIDATION"
+          ]
+        },
+        "direct_edges_only": {
+          "type": "boolean"
+        },
+        "duplicate_tuple_policy": {
+          "type": "string",
+          "enum": [
+            "FAIL_VALIDATION"
+          ]
+        },
+        "edges_are_explicit": {
+          "type": "boolean"
+        },
+        "same_effect_required": {
+          "type": "boolean"
+        },
+        "self_edge_policy": {
+          "type": "string",
+          "enum": [
+            "FAIL_VALIDATION"
+          ]
+        },
+        "transitivity": {
+          "type": "string",
+          "enum": [
+            "NO_IMPLICIT_TRANSITIVITY"
+          ]
+        }
+      },
+      "required": [
+        "cycle_policy",
+        "dangling_edge_policy",
+        "direct_edges_only",
+        "duplicate_tuple_policy",
+        "edges_are_explicit",
+        "same_effect_required",
+        "self_edge_policy",
+        "transitivity"
+      ]
+    },
+    "predicate_authority_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "active_authority": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02e4r2:registry:predicate-applicability"
+          ]
+        },
+        "lexical_resolution": {
+          "type": "string",
+          "enum": [
+            "FORBIDDEN"
+          ]
+        },
+        "retired_authorities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02r3:predicate-applicability:fixture-v1"
+            ]
+          },
+          "uniqueItems": false
+        },
+        "retired_policy": {
+          "type": "string",
+          "enum": [
+            "NOT_ACTIVE_NOT_RESOLVABLE"
+          ]
+        }
+      },
+      "required": [
+        "active_authority",
+        "lexical_resolution",
+        "retired_authorities",
+        "retired_policy"
+      ]
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "NORMATIVE_SETTLEMENT_CONTRACTS"
+      ]
+    },
+    "reference_kind": {
+      "enum": [
+        "CONTRACT"
+      ]
+    }
+  },
+  "required": [
+    "$id",
+    "binding_authority_policy",
+    "binding_composition",
+    "closure_checks",
+    "contract_id",
+    "contract_version",
+    "entailment_policy",
+    "evidence_capability_contracts",
+    "exact_identifier_policy",
+    "fail_closed_policy",
+    "invariants",
+    "negative_scope_contracts",
+    "partial_effect_policy",
+    "predecessor_policy",
+    "predicate_authority_policy",
+    "record_type",
+    "reference_kind"
+  ],
+  "x-normative-reference": true
+}

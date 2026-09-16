@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:source-schema-registry:0.2",
+  "title": "ACCORD-02E4R3 source-schema-registry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:source-schema-registry:0.2"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "contract_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02e4r3:source-schema-registry"
+      ]
+    },
+    "contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "content_mode": {
+            "type": "string",
+            "enum": [
+              "DERIVED_TYPED_FEATURE",
+              "TYPED_REFERENCE"
+            ]
+          },
+          "derived_allowed": {
+            "type": "boolean"
+          },
+          "record_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ADMISSION_STATE",
+                "ATTEMPT",
+                "AUTHORITY_PROFILE",
+                "CLASSIFIER_FEATURE",
+                "DELEGATE_REPORT",
+                "DETACHED_EVIDENCE",
+                "EXECUTOR_STATE",
+                "PORTABLE_BUNDLE",
+                "PROVIDER_STATE_READ",
+                "RECONCILIATION_RESULT",
+                "SETTLEMENT_PROFILE",
+                "TASK_STATE",
+                "TRUST_ROOT_PROFILE"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ARM-A-DURABLE",
+                "ARM-B-PROVIDER-OBSERVATION",
+                "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+                "ARM-D-ACCORD-EVIDENCE"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "schema_ref": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reference_kind": {
+                "enum": [
+                  "SCHEMA"
+                ]
+              },
+              "schema_id": {
+                "type": "string",
+                "enum": [
+                  "urn:moirae:accord-02a:schema:portable-record:0.2",
+                  "urn:moirae:accord-02b:schema:authority-profile:0.1",
+                  "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+                  "urn:moirae:accord-02d:source:admission-state",
+                  "urn:moirae:accord-02d:source:attempt",
+                  "urn:moirae:accord-02d:source:delegate-report",
+                  "urn:moirae:accord-02d:source:detached-evidence",
+                  "urn:moirae:accord-02d:source:executor-state",
+                  "urn:moirae:accord-02d:source:provider-state-read",
+                  "urn:moirae:accord-02d:source:reconciliation-result",
+                  "urn:moirae:accord-02d:source:task-state",
+                  "urn:moirae:accord-02d:source:trust-root-profile",
+                  "urn:moirae:accord-02r3:schema:classifier-feature:0.1"
+                ]
+              },
+              "schema_version": {
+                "type": "string",
+                "enum": [
+                  "0.1",
+                  "0.2"
+                ]
+              }
+            },
+            "required": [
+              "reference_kind",
+              "schema_id",
+              "schema_version"
+            ],
+            "x-normative-reference": true
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "ADMISSION_STATE",
+              "ATTEMPT_STATE",
+              "AUTHORITY_PROFILE",
+              "CLASSIFIER_FEATURE",
+              "DELEGATE_REPORT",
+              "DETACHED_EVIDENCE",
+              "DURABLE_TASK_STATE",
+              "EXECUTOR_STATE",
+              "PORTABLE_RECORD_BUNDLE",
+              "PROVIDER_STATE_READ",
+              "RECONCILIATION_RESULT",
+              "SETTLEMENT_PROFILE",
+              "TRUST_ROOT_PROFILE"
+            ]
+          }
+        },
+        "required": [
+          "content_mode",
+          "derived_allowed",
+          "record_types",
+          "roles",
+          "schema_ref",
+          "source_type"
+        ]
+      },
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "contract_id",
+    "contract_version",
+    "entries"
+  ]
+}

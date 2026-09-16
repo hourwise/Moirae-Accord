@@ -1,0 +1,79 @@
+{
+  "candidate": "ACCORD-02E4R3",
+  "review_evidence": [
+    {
+      "assessor": "CLAUDE",
+      "source_path": "D:\\Users\\fleur\\Moirae Accord - External Reviews\\E4R2\\E4R2 CLAUDE FINAL REASSESSMENT.md",
+      "preserved_path": "docs/accord-02e4r3/reviews/E4R2 CLAUDE FINAL REASSESSMENT.md",
+      "byte_count": 20266,
+      "sha256": "sha-256:302cc037b9c9e528c2a0d98e96e1080c46bf012c87511abfe267f4d1548f648f",
+      "byte_identical": true
+    },
+    {
+      "assessor": "DEEPSEEK",
+      "source_path": "D:\\Users\\fleur\\Moirae Accord - External Reviews\\E4R2\\E4R2 DEEPSEEK FINAL AUDIT.md",
+      "preserved_path": "docs/accord-02e4r3/reviews/E4R2 DEEPSEEK FINAL AUDIT.md",
+      "byte_count": 46508,
+      "sha256": "sha-256:cbf0893a180ed4f4fd05b76aebe86ad4ee9e817371451e9305603cae78026245",
+      "byte_identical": true
+    },
+    {
+      "assessor": "VSCODE_CODEX",
+      "source_path": "D:\\Users\\fleur\\Moirae Accord - External Reviews\\E4R2\\E4R2 VSCODE CODEX BLIND AUDIT.md",
+      "preserved_path": "docs/accord-02e4r3/reviews/E4R2 VSCODE CODEX BLIND AUDIT.md",
+      "byte_count": 23948,
+      "sha256": "sha-256:07828ad7b0947e1536386ae42bd7034cd49ad0392e23c513a5004ff7b29f2b4d",
+      "byte_identical": true
+    },
+    {
+      "assessor": "JULES",
+      "source_path": "D:\\Users\\fleur\\Moirae Accord - External Reviews\\E4R2\\E4R2 JULES TARGETED FINAL VERIFICATION.md",
+      "preserved_path": "docs/accord-02e4r3/reviews/E4R2 JULES TARGETED FINAL VERIFICATION.md",
+      "byte_count": 6009,
+      "sha256": "sha-256:8c02aaad47a05c8cf36d89d678a44f24bf79cbc02e3eb3271453644350e92c57",
+      "byte_identical": true
+    }
+  ],
+  "classifications": {
+    "CONFIRMED": [
+      "E4R2-CLAUDE-BLOCK-001",
+      "E4R2-CLAUDE-MAJOR-001",
+      "E4R2-CLAUDE-MAJOR-002",
+      "E4R2-CLAUDE-MAJOR-003",
+      "E4R2-CLAUDE-MAJOR-004",
+      "E4R2-CLAUDE-MAJOR-005",
+      "E4R2-CLAUDE-MAJOR-006",
+      "E4R2-CLAUDE-MAJOR-007",
+      "E4R2-DEEPSEEK-BLOCK-01",
+      "E4R2-DEEPSEEK-BLOCK-02",
+      "E4R2-DEEPSEEK-MAJOR-01",
+      "E4R2-DEEPSEEK-MAJOR-02",
+      "E4R2-DEEPSEEK-MAJOR-03",
+      "E4R2-DEEPSEEK-MAJOR-04",
+      "E4R2-DEEPSEEK-MAJOR-05",
+      "E4R2-VSCODE-CODEX-BLOCK-001",
+      "E4R2-VSCODE-CODEX-BLOCK-002",
+      "E4R2-VSCODE-CODEX-BLOCK-003",
+      "E4R2-VSCODE-CODEX-BLOCK-004",
+      "E4R2-VSCODE-CODEX-MAJOR-001",
+      "E4R2-VSCODE-CODEX-MAJOR-002",
+      "JULES-CANONICALIZATION-EVALUATOR",
+      "JULES-RULE-GRAPH-MOCKED-MUTATION",
+      "JULES-PACKAGE-LINEAGE",
+      "JULES-EFFECTIVE-VALIDATION"
+    ],
+    "OVERLAPS_OTHER_FINDING": [
+      "E4R2-CLAUDE-MINOR-002",
+      "JULES-REFERENCE-CLOSURE"
+    ],
+    "REFUTED_WITH_REPRODUCER": [
+      "CLAUDE-V013-FULLY-SOUND-AS-INDEPENDENT-EVIDENCE-CONTRACT"
+    ],
+    "REQUIRES_FORMALISATION": [
+      "JULES-NEGATIVE-SCOPE",
+      "JULES-BINDING-AUTHORITY"
+    ],
+    "OUT_OF_SCOPE": []
+  },
+  "normalization_performed": false
+}

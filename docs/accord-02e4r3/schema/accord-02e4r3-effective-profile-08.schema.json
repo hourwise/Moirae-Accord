@@ -1,0 +1,1383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-08:0.2",
+  "title": "ACCORD-02E4R3 effective profile 08",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "fixture_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "composition": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "action_combination_mode": {
+              "type": "string",
+              "enum": [
+                "UNKNOWN"
+              ]
+            },
+            "mediation_mode": {
+              "type": "string",
+              "enum": [
+                "DENY_UNBOUND"
+              ]
+            },
+            "overlap_mode": {
+              "type": "string",
+              "enum": [
+                "RETAIN_SEPARATE"
+              ]
+            },
+            "quantitative_mode": {
+              "type": "string",
+              "enum": [
+                "NON_COMPOSABLE"
+              ]
+            },
+            "revocation_mode": {
+              "type": "string",
+              "enum": [
+                "CHECK_AT_EACH_EVENT"
+              ]
+            },
+            "sibling_mode": {
+              "type": "string",
+              "enum": [
+                "NO_COMPOSITION"
+              ]
+            },
+            "transitivity_policy": {
+              "type": "string",
+              "enum": [
+                "DECLARED_DIMENSIONS_ONLY"
+              ]
+            }
+          },
+          "required": [
+            "action_combination_mode",
+            "mediation_mode",
+            "overlap_mode",
+            "quantitative_mode",
+            "revocation_mode",
+            "sibling_mode",
+            "transitivity_policy"
+          ]
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "action",
+              "approval",
+              "audience",
+              "context",
+              "delegation_depth",
+              "quantity",
+              "resource",
+              "subject",
+              "task_effect_binding",
+              "time"
+            ]
+          },
+          "uniqueItems": false
+        },
+        "profile_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02b:closed-set-static-v1"
+          ]
+        },
+        "unknown_dimension_policy": {
+          "type": "string",
+          "enum": [
+            "RETURN_UNKNOWN"
+          ]
+        }
+      },
+      "required": [
+        "composition",
+        "dimensions",
+        "profile_id",
+        "unknown_dimension_policy"
+      ]
+    },
+    "profile_catalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "action_combination_mode": {
+            "type": "string",
+            "enum": [
+              "COMPLEMENTARY_WORKFLOW"
+            ]
+          },
+          "action_comparator": {
+            "type": "string",
+            "enum": [
+              "finite-set-subset"
+            ]
+          },
+          "allocation_evidence_required": {
+            "type": "boolean"
+          },
+          "approval_omission": {
+            "type": "string",
+            "enum": [
+              "WIDENED"
+            ]
+          },
+          "direct_and_mediated_paths_separate": {
+            "type": "boolean"
+          },
+          "mediation_mode": {
+            "type": "string",
+            "enum": [
+              "PARENT_INTENT_BOUND"
+            ]
+          },
+          "missing_value_policy": {
+            "type": "string",
+            "enum": [
+              "RETURN_WIDENED"
+            ]
+          },
+          "overlap_mode": {
+            "type": "string",
+            "enum": [
+              "UNION_IF_PROVEN"
+            ]
+          },
+          "profile_compatibility_required": {
+            "type": "boolean"
+          },
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02b:closed-set-static-v1",
+              "urn:moirae:accord-02b:comparison-required-v1",
+              "urn:moirae:accord-02b:disjoint-union-v1",
+              "urn:moirae:accord-02b:event-time-v1",
+              "urn:moirae:accord-02b:explicit-inheritance-v1",
+              "urn:moirae:accord-02b:mediated-analysis-v1",
+              "urn:moirae:accord-02b:reserved-suballocation-v1",
+              "urn:moirae:accord-02b:shared-pool-v1",
+              "urn:moirae:accord-02b:workflow-unknown-v1"
+            ]
+          },
+          "quantitative_mode": {
+            "type": "string",
+            "enum": [
+              "NON_COMPOSABLE",
+              "RESERVED_SUBALLOCATION",
+              "SHARED_POOL"
+            ]
+          },
+          "resource_comparator": {
+            "type": "string",
+            "enum": [
+              "finite-set-subset"
+            ]
+          },
+          "revocation_mode": {
+            "type": "string",
+            "enum": [
+              "CHECK_AT_EACH_EVENT"
+            ]
+          },
+          "sibling_mode": {
+            "type": "string",
+            "enum": [
+              "DISJOINT_SCOPES",
+              "OVERLAP_RETAINED",
+              "RESERVED_SUBALLOCATION",
+              "SHARED_POOL"
+            ]
+          },
+          "time_comparator": {
+            "type": "string",
+            "enum": [
+              "bounded-interval"
+            ]
+          },
+          "time_ordering": {
+            "type": "string",
+            "enum": [
+              "EVENT_ORDER_ONLY"
+            ]
+          },
+          "transitive": {
+            "type": "boolean"
+          },
+          "unknown_dimension_policy": {
+            "type": "string",
+            "enum": [
+              "RETURN_UNKNOWN",
+              "RETURN_UNSUPPORTED"
+            ]
+          }
+        },
+        "required": [
+          "profile_id"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "schema_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02b:authority-test-vectors"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    },
+    "vectors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "authority_delegation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "child_grant_id": {
+                "type": "string",
+                "enum": [
+                  "grant-v01-child",
+                  "grant-v02-child",
+                  "grant-v03-child",
+                  "grant-v05-child",
+                  "grant-v09-child",
+                  "grant-v10-child",
+                  "grant-v14-child",
+                  "grant-v16-child",
+                  "grant-v17-child",
+                  "grant-v18-child"
+                ]
+              },
+              "evidence": {
+                "type": "string",
+                "enum": [
+                  "synthetic-link-only",
+                  "synthetic-valid"
+                ]
+              },
+              "parent_grant_id": {
+                "type": "string",
+                "enum": [
+                  "grant-v01-parent",
+                  "grant-v02-parent",
+                  "grant-v03-parent",
+                  "grant-v05-parent",
+                  "grant-v09-parent",
+                  "grant-v10-parent",
+                  "grant-v14-parent",
+                  "grant-v16-parent",
+                  "grant-v17-parent",
+                  "grant-v18-parent"
+                ]
+              },
+              "subject_relation": {
+                "type": "string",
+                "enum": [
+                  "delegation-edge-permitted",
+                  "profile-not-compatible"
+                ]
+              }
+            },
+            "required": [
+              "child_grant_id",
+              "evidence",
+              "parent_grant_id",
+              "subject_relation"
+            ]
+          },
+          "authority_delegations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "child_grant_id": {
+                  "type": "string",
+                  "enum": [
+                    "grant-v06-child-a",
+                    "grant-v06-child-b",
+                    "grant-v07-child-a",
+                    "grant-v07-child-b",
+                    "grant-v08-child-a",
+                    "grant-v08-child-b",
+                    "grant-v15-child-a",
+                    "grant-v15-child-b"
+                  ]
+                },
+                "parent_grant_id": {
+                  "type": "string",
+                  "enum": [
+                    "grant-v06-parent",
+                    "grant-v07-parent",
+                    "grant-v08-parent",
+                    "grant-v15-parent"
+                  ]
+                },
+                "subject_relation": {
+                  "type": "string",
+                  "enum": [
+                    "delegation-edge-permitted"
+                  ]
+                }
+              },
+              "required": [
+                "child_grant_id",
+                "parent_grant_id",
+                "subject_relation"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "chain": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "read",
+                      "update"
+                    ]
+                  },
+                  "uniqueItems": false
+                },
+                "grant_id": {
+                  "type": "string",
+                  "enum": [
+                    "grant-v04-g0",
+                    "grant-v04-g1",
+                    "grant-v04-g2"
+                  ]
+                },
+                "parent_grant_id": {
+                  "type": "string",
+                  "enum": [
+                    "grant-v04-g0",
+                    "grant-v04-g1"
+                  ]
+                },
+                "remaining_depth": {
+                  "type": "integer"
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "A",
+                      "B",
+                      "C"
+                    ]
+                  },
+                  "uniqueItems": false
+                },
+                "subject": {
+                  "type": "string",
+                  "enum": [
+                    "P0",
+                    "P1",
+                    "P2"
+                  ]
+                },
+                "time": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "expires_at": {
+                      "type": "string",
+                      "enum": [
+                        "2026-09-14T18:00:00Z",
+                        "2026-09-14T20:00:00Z",
+                        "2026-09-15T00:00:00Z"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "expires_at"
+                  ]
+                }
+              },
+              "required": [
+                "actions",
+                "grant_id",
+                "remaining_depth",
+                "resources",
+                "subject",
+                "time"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "child_grant": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "delete",
+                    "read",
+                    "request",
+                    "update"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "authority_profile": {
+                "type": "string",
+                "enum": [
+                  "urn:provider-y:capability-v1"
+                ]
+              },
+              "context": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "approval": {
+                    "type": "string",
+                    "enum": [
+                      "approval-v10"
+                    ]
+                  },
+                  "effect": {
+                    "type": "string",
+                    "enum": [
+                      "effect-v10"
+                    ]
+                  },
+                  "parent_effect": {
+                    "type": "string",
+                    "enum": [
+                      "effect-v10"
+                    ]
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "enum": [
+                      "request-only"
+                    ]
+                  }
+                },
+                "required": [
+                  "approval",
+                  "effect",
+                  "parent_effect",
+                  "purpose"
+                ]
+              },
+              "extensions": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "urn:unknown:authority:delegable-counterparty": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "wildcard": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "wildcard"
+                    ]
+                  }
+                },
+                "required": [
+                  "urn:unknown:authority:delegable-counterparty"
+                ]
+              },
+              "grant_id": {
+                "type": "string",
+                "enum": [
+                  "grant-v01-child",
+                  "grant-v02-child",
+                  "grant-v03-child",
+                  "grant-v05-child",
+                  "grant-v09-child",
+                  "grant-v10-child",
+                  "grant-v14-child",
+                  "grant-v16-child",
+                  "grant-v17-child",
+                  "grant-v18-child"
+                ]
+              },
+              "resources": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "A"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "A"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "A"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "A"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "publication"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "publication"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "A"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "A"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "provider_wildcard": {
+                          "type": "string",
+                          "enum": [
+                            "*"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "provider_wildcard"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "A"
+                      ]
+                    }
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "subject": {
+                "type": "string",
+                "enum": [
+                  "P1"
+                ]
+              },
+              "time": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "expires_at": {
+                    "type": "string",
+                    "enum": [
+                      "2026-09-14T11:05:00Z"
+                    ]
+                  },
+                  "not_before": {
+                    "type": "string",
+                    "enum": [
+                      "2026-09-14T10:05:00Z"
+                    ]
+                  }
+                },
+                "required": [
+                  "expires_at",
+                  "not_before"
+                ]
+              }
+            },
+            "required": [
+              "actions",
+              "grant_id",
+              "resources"
+            ]
+          },
+          "composition_profile": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "action_combination_mode": {
+                "type": "string",
+                "enum": [
+                  "COMPLEMENTARY_WORKFLOW"
+                ]
+              },
+              "allocation_evidence": {
+                "type": "boolean"
+              },
+              "overlap_mode": {
+                "type": "string",
+                "enum": [
+                  "UNION_IF_PROVEN"
+                ]
+              },
+              "quantitative_mode": {
+                "type": "string",
+                "enum": [
+                  "RESERVED_SUBALLOCATION",
+                  "SHARED_POOL"
+                ]
+              },
+              "reservations_sum": {
+                "type": "integer"
+              },
+              "sibling_mode": {
+                "type": "string",
+                "enum": [
+                  "DISJOINT_SCOPES",
+                  "OVERLAP_RETAINED",
+                  "RESERVED_SUBALLOCATION",
+                  "SHARED_POOL"
+                ]
+              }
+            },
+            "required": [
+              "sibling_mode"
+            ]
+          },
+          "expected": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregate_relation": {
+                "type": "string",
+                "enum": [
+                  "ATTENUATED",
+                  "UNKNOWN",
+                  "UNSUPPORTED",
+                  "WIDENED"
+                ]
+              },
+              "ancestor_relation": {
+                "type": "string",
+                "enum": [
+                  "ATTENUATED"
+                ]
+              },
+              "ancestor_transitivity": {
+                "type": "string",
+                "enum": [
+                  "NOT_CONCLUDED"
+                ]
+              },
+              "authority_at_dispatch": {
+                "type": "string",
+                "enum": [
+                  "VALID"
+                ]
+              },
+              "authority_transfer_inferred": {
+                "type": "boolean"
+              },
+              "child_grant_relation": {
+                "type": "string",
+                "enum": [
+                  "ATTENUATED"
+                ]
+              },
+              "direct_child_publish": {
+                "type": "boolean"
+              },
+              "direct_relations": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "ATTENUATED"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "dispatch_authority": {
+                "type": "string",
+                "enum": [
+                  "NOT_VALID"
+                ]
+              },
+              "effect_occurrence_erased": {
+                "type": "boolean"
+              },
+              "effective_authority": {
+                "type": "string",
+                "enum": [
+                  "CONTAINED",
+                  "POSSIBLE_WIDENING",
+                  "SAFE_PARENT_MEDIATION",
+                  "UNKNOWN"
+                ]
+              },
+              "historical_derivation_preserved": {
+                "type": "boolean"
+              },
+              "later_retry": {
+                "type": "string",
+                "enum": [
+                  "NOT_VALID"
+                ]
+              },
+              "must_not_emit": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "ATTENUATED"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "possible_widening_paths": {
+                "type": "boolean"
+              },
+              "reason_codes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "COMPLEMENTARY_WORKFLOW_NOT_PROVEN",
+                    "NO_AUTHORITY_GRANT_EDGE",
+                    "PARENT_APPROVAL_OMITTED",
+                    "SHARED_POOL_ALLOCATION_MISSING"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "relation": {
+                "type": "string",
+                "enum": [
+                  "UNKNOWN"
+                ]
+              },
+              "requires_proof": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "parent_authorizes_union",
+                    "resource_disjointness"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "resource_basis": {
+                "type": "string",
+                "enum": [
+                  "child grant only"
+                ]
+              },
+              "transitivity_basis": {
+                "type": "string",
+                "enum": [
+                  "all declared dimensions are closed and transitive"
+                ]
+              },
+              "transport_claim_used_for_authority": {
+                "type": "boolean"
+              },
+              "unknown_dimensions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "profile_compatibility",
+                    "urn:unknown:authority:delegable-counterparty"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "unsupported_dimensions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "resource"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "valid_at_admission": {
+                "type": "string",
+                "enum": [
+                  "REVOKED"
+                ]
+              },
+              "valid_at_derivation": {
+                "type": "string",
+                "enum": [
+                  "VALID"
+                ]
+              },
+              "valid_at_dispatch": {
+                "type": "string",
+                "enum": [
+                  "REVOKED",
+                  "VALID"
+                ]
+              },
+              "valid_now": {
+                "type": "string",
+                "enum": [
+                  "REVOKED"
+                ]
+              },
+              "widening_dimensions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "action",
+                    "approval",
+                    "time"
+                  ]
+                },
+                "uniqueItems": false
+              }
+            },
+            "required": []
+          },
+          "grant": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "derived_at": {
+                "type": "string",
+                "enum": [
+                  "2026-09-14T10:01:00Z"
+                ]
+              },
+              "dispatch_at": {
+                "type": "string",
+                "enum": [
+                  "2026-09-14T10:02:00Z",
+                  "2026-09-14T10:03:00Z"
+                ]
+              },
+              "effect_occurrence_at": {
+                "type": "string",
+                "enum": [
+                  "2026-09-14T10:04:00Z"
+                ]
+              },
+              "grant_id": {
+                "type": "string",
+                "enum": [
+                  "grant-v11",
+                  "grant-v12"
+                ]
+              },
+              "issued_at": {
+                "type": "string",
+                "enum": [
+                  "2026-09-14T10:00:00Z"
+                ]
+              },
+              "revoked_at": {
+                "type": "string",
+                "enum": [
+                  "2026-09-14T10:02:00Z",
+                  "2026-09-14T10:03:00Z"
+                ]
+              }
+            },
+            "required": [
+              "derived_at",
+              "dispatch_at",
+              "grant_id",
+              "issued_at",
+              "revoked_at"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "context_comparison",
+              "direct_comparison",
+              "mediated_authority",
+              "multi_hop",
+              "profile_mismatch",
+              "resource_comparison",
+              "revocation_timing",
+              "sibling_composition",
+              "sibling_workflow",
+              "task_delegation",
+              "transport_spoofing",
+              "unknown_extension"
+            ]
+          },
+          "mediated_path": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "child_benefits": {
+                "type": "boolean"
+              },
+              "child_substitution_forbidden": {
+                "type": "boolean"
+              },
+              "child_task_id": {
+                "type": "string",
+                "enum": [
+                  "task-v09-child",
+                  "task-v10-child"
+                ]
+              },
+              "effect_id": {
+                "type": "string",
+                "enum": [
+                  "effect-v09",
+                  "effect-v10"
+                ]
+              },
+              "parent_action": {
+                "type": "string",
+                "enum": [
+                  "publish"
+                ]
+              },
+              "parent_binding": {
+                "type": "string",
+                "enum": [
+                  "loose-request",
+                  "parent-intent-approval-effect-bound"
+                ]
+              },
+              "parent_task_id": {
+                "type": "string",
+                "enum": [
+                  "task-v09-parent",
+                  "task-v10-parent"
+                ]
+              }
+            },
+            "required": [
+              "child_task_id",
+              "effect_id",
+              "parent_action",
+              "parent_binding",
+              "parent_task_id"
+            ]
+          },
+          "parent_grant": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "approve",
+                    "execute",
+                    "prepare",
+                    "publish",
+                    "read",
+                    "request",
+                    "transfer",
+                    "update"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "approval": {
+                "type": "string",
+                "enum": [
+                  "approval-A"
+                ]
+              },
+              "authority_profile": {
+                "type": "string",
+                "enum": [
+                  "urn:provider-x:scope-v1"
+                ]
+              },
+              "context": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "approval": {
+                    "type": "string",
+                    "enum": [
+                      "approval-v10"
+                    ]
+                  },
+                  "effect": {
+                    "type": "string",
+                    "enum": [
+                      "effect-v10"
+                    ]
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "enum": [
+                      "parent-approved-release"
+                    ]
+                  }
+                },
+                "required": [
+                  "approval",
+                  "effect",
+                  "purpose"
+                ]
+              },
+              "grant_id": {
+                "type": "string",
+                "enum": [
+                  "grant-v01-parent",
+                  "grant-v02-parent",
+                  "grant-v03-parent",
+                  "grant-v05-parent",
+                  "grant-v06-parent",
+                  "grant-v07-parent",
+                  "grant-v08-parent",
+                  "grant-v09-parent",
+                  "grant-v10-parent",
+                  "grant-v14-parent",
+                  "grant-v15-parent",
+                  "grant-v16-parent",
+                  "grant-v17-parent",
+                  "grant-v18-parent"
+                ]
+              },
+              "quantity": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "limit": {
+                    "type": "integer"
+                  },
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "aggregate_cap"
+                    ]
+                  },
+                  "unit": {
+                    "type": "string",
+                    "enum": [
+                      "synthetic-units"
+                    ]
+                  }
+                },
+                "required": [
+                  "limit",
+                  "mode",
+                  "unit"
+                ]
+              },
+              "resources": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "B",
+                    "ledger",
+                    "publication",
+                    "release"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "subject": {
+                "type": "string",
+                "enum": [
+                  "P0"
+                ]
+              },
+              "time": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "expires_at": {
+                    "type": "string",
+                    "enum": [
+                      "2026-09-14T11:00:00Z"
+                    ]
+                  },
+                  "not_before": {
+                    "type": "string",
+                    "enum": [
+                      "2026-09-14T10:00:00Z"
+                    ]
+                  }
+                },
+                "required": [
+                  "expires_at",
+                  "not_before"
+                ]
+              }
+            },
+            "required": [
+              "actions",
+              "grant_id",
+              "resources"
+            ]
+          },
+          "profile_id": {
+            "type": "string",
+            "enum": [
+              "urn:moirae:accord-02b:closed-set-static-v1",
+              "urn:moirae:accord-02b:comparison-required-v1",
+              "urn:moirae:accord-02b:disjoint-union-v1",
+              "urn:moirae:accord-02b:event-time-v1",
+              "urn:moirae:accord-02b:explicit-inheritance-v1",
+              "urn:moirae:accord-02b:mediated-analysis-v1",
+              "urn:moirae:accord-02b:reserved-suballocation-v1",
+              "urn:moirae:accord-02b:shared-pool-v1",
+              "urn:moirae:accord-02b:workflow-unknown-v1"
+            ]
+          },
+          "siblings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "actions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "approve",
+                      "execute",
+                      "prepare",
+                      "read",
+                      "transfer"
+                    ]
+                  },
+                  "uniqueItems": false
+                },
+                "grant_id": {
+                  "type": "string",
+                  "enum": [
+                    "grant-v06-child-a",
+                    "grant-v06-child-b",
+                    "grant-v07-child-a",
+                    "grant-v07-child-b",
+                    "grant-v08-child-a",
+                    "grant-v08-child-b",
+                    "grant-v15-child-a",
+                    "grant-v15-child-b"
+                  ]
+                },
+                "quantity": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "allocation_id": {
+                      "type": "string",
+                      "enum": [
+                        "allocation-v08-a",
+                        "allocation-v08-b"
+                      ]
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "aggregate_cap",
+                        "reserved_suballocation"
+                      ]
+                    },
+                    "reserved": {
+                      "type": "integer"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "synthetic-units"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "mode",
+                    "unit"
+                  ]
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "A",
+                      "B",
+                      "ledger",
+                      "release"
+                    ]
+                  },
+                  "uniqueItems": false
+                },
+                "subject": {
+                  "type": "string",
+                  "enum": [
+                    "P1",
+                    "P2"
+                  ]
+                }
+              },
+              "required": [
+                "actions",
+                "grant_id",
+                "resources",
+                "subject"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "task_delegation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "child_task_id": {
+                "type": "string",
+                "enum": [
+                  "task-v13-child"
+                ]
+              },
+              "delegation_id": {
+                "type": "string",
+                "enum": [
+                  "delegation-v13"
+                ]
+              },
+              "parent_task_id": {
+                "type": "string",
+                "enum": [
+                  "task-v13-parent"
+                ]
+              }
+            },
+            "required": [
+              "child_task_id",
+              "delegation_id",
+              "parent_task_id"
+            ]
+          },
+          "transport_metadata": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "call_id": {
+                "type": "string",
+                "enum": [
+                  "mcp-v14"
+                ]
+              },
+              "claimed_resources": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "A",
+                    "B"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "mcp_shaped"
+                ]
+              },
+              "tool_name": {
+                "type": "string",
+                "enum": [
+                  "read"
+                ]
+              }
+            },
+            "required": [
+              "call_id",
+              "claimed_resources",
+              "kind",
+              "tool_name"
+            ]
+          },
+          "vector_id": {
+            "type": "string",
+            "enum": [
+              "vector-01-simple-attenuation",
+              "vector-02-action-widening",
+              "vector-03-expiry-widening",
+              "vector-04-multi-hop-valid",
+              "vector-05-unknown-authority-extension",
+              "vector-06-sibling-resource-separation",
+              "vector-07-sibling-shared-budget-failure",
+              "vector-08-sibling-reserved-budgets",
+              "vector-09-parent-mediated-laundering",
+              "vector-10-bound-parent-mediation",
+              "vector-11-revocation-before-dispatch",
+              "vector-12-revocation-after-dispatch",
+              "vector-13-task-only-delegation",
+              "vector-14-transport-metadata-spoofing",
+              "vector-15-complementary-siblings",
+              "vector-16-approval-omission",
+              "vector-17-resource-wildcard",
+              "vector-18-profile-mismatch"
+            ]
+          }
+        },
+        "required": [
+          "expected",
+          "kind",
+          "profile_id",
+          "vector_id"
+        ]
+      },
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "fixture_profile",
+    "profile_catalog",
+    "schema_id",
+    "schema_version",
+    "vectors"
+  ]
+}

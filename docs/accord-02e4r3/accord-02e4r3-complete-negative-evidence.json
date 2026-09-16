@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:complete-negative-evidence:0.2",
+  "contract_id": "urn:moirae:accord-02e4r3:complete-negative-evidence",
+  "contract_version": "0.2",
+  "evidence_id": "urn:moirae:evidence:v013:complete-negative",
+  "effect_id": "urn:moirae:effect:v013",
+  "predicate_id": "urn:accord:02c:predicate:external-effect",
+  "stage": "effect",
+  "scope_bindings": {
+    "resource": "resource-v013",
+    "action": "action-v013",
+    "recipient": "NOT_APPLICABLE",
+    "provider": "provider-v013"
+  },
+  "observed_interval": {
+    "not_before": "2024-01-01T00:00:00Z",
+    "as_of": "2024-01-01T00:00:01Z",
+    "endpoints": "INCLUSIVE"
+  },
+  "retention_window_seconds": 86400,
+  "consistency_level": "SNAPSHOT_COMPLETE",
+  "read_semantics": "COMPLETE_LEDGER_QUERY",
+  "observed_at": "2024-01-01T00:00:01Z",
+  "verification_time": "2024-01-01T00:00:02Z",
+  "freshness_max_age_seconds": 300,
+  "evidence_class": "COMPLETE_NEGATIVE_LEDGER_QUERY",
+  "read_scope_complete": true,
+  "accepted_v013_input_mapping": {
+    "complete_negative_evidence": "read_scope_complete",
+    "scope_complete": "scope_bindings",
+    "fresh_at_verification": "observed_at/verification_time",
+    "no_contradictory_positive_evidence": "DERIVED_FROM_EVIDENCE_UNIVERSE"
+  },
+  "evidence_universe": [
+    {
+      "evidence_id": "urn:moirae:evidence:v013:complete-negative",
+      "evidence_class": "COMPLETE_NEGATIVE_LEDGER_QUERY",
+      "admissible": true,
+      "effect_id": "urn:moirae:effect:v013",
+      "predicate_id": "urn:accord:02c:predicate:external-effect",
+      "stage": "effect",
+      "proposition": "NEGATIVE"
+    }
+  ],
+  "contradiction_policy": {
+    "filter": "ADMISSIBLE_SAME_EFFECT_PREDICATE_STAGE_POSITIVE",
+    "deduplicate_by": "evidence_id",
+    "required_count": 0,
+    "caller_supplied_count_allowed": false
+  }
+}

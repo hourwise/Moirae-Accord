@@ -1,0 +1,499 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-01:0.2",
+  "title": "ACCORD-02E4R3 effective profile 01",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r5:schema:validation-rules:0.1"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "active_rule_count": {
+      "type": "integer"
+    },
+    "base_rule_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "enum": [
+            "accord-02r3-validation-rules.json"
+          ]
+        },
+        "profile_id": {
+          "type": "string",
+          "enum": [
+            "urn:moirae:accord-02r3:validation-rules:0.1"
+          ]
+        },
+        "profile_version": {
+          "type": "string",
+          "enum": [
+            "0.1"
+          ]
+        }
+      },
+      "required": [
+        "path",
+        "profile_id",
+        "profile_version"
+      ]
+    },
+    "classification_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "acceptance_critical_ambiguous": {
+          "type": "integer"
+        },
+        "acceptance_critical_contradictory": {
+          "type": "integer"
+        },
+        "acceptance_critical_unevaluable": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "acceptance_critical_ambiguous",
+        "acceptance_critical_contradictory",
+        "acceptance_critical_unevaluable"
+      ]
+    },
+    "overlay_semantics": {
+      "type": "string",
+      "enum": [
+        "The active R5 rule set is the R3 base registry plus these explicit R5 overrides and additions. No base rule is silently deleted; the R5 package is the authoritative package for this composition."
+      ]
+    },
+    "overrides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "classification": {
+            "type": "string",
+            "enum": [
+              "DETERMINISTIC_WITH_PROFILE"
+            ]
+          },
+          "condition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "algorithm": {
+                "type": "string",
+                "enum": [
+                  "SHA-256"
+                ]
+              },
+              "canonicalization": {
+                "type": "string",
+                "enum": [
+                  "resolved ACCORD-02R5 RFC8785_JCS profile"
+                ]
+              },
+              "content_target": {
+                "type": "string",
+                "enum": [
+                  "content"
+                ]
+              },
+              "operator": {
+                "type": "string",
+                "enum": [
+                  "canonical_content_digest_matches",
+                  "resolve_active_profiles",
+                  "resolve_schema_contract"
+                ]
+              },
+              "outcomes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "DUPLICATE",
+                    "MISSING",
+                    "RESOLVED",
+                    "STRUCTURALLY_INVALID",
+                    "UNSUPPORTED_VERSION",
+                    "WRONG_PROFILE_TYPE",
+                    "WRONG_TYPE"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "profile_required_when_digest_supplied": {
+                "type": "boolean"
+              },
+              "resolution_scope": {
+                "type": "string",
+                "enum": [
+                  "exact R5 package contract inventory",
+                  "exact R5 package profile inventory"
+                ]
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "BND-004",
+                "DIGEST-CANON-001",
+                "DIGEST-CANON-002",
+                "DIGEST-CANON-003",
+                "PKG-001",
+                "PKG-002",
+                "PROF-001",
+                "PROF-002",
+                "SCHEMA-001",
+                "SCHEMA-002"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "failure_code": {
+            "type": "string",
+            "enum": [
+              "ACCORD-02R5-ACTIVE-PROFILE-RESOLUTION-FAILURE",
+              "ACCORD-02R5-DIGEST-MISMATCH",
+              "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE"
+            ]
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "active profile references",
+                "closed R5 specification package",
+                "declared bundle scope",
+                "exact R5 canonicalization profile",
+                "profile-contract inventory",
+                "resolved record",
+                "resolved schema contract",
+                "schema-contract registry",
+                "supplied content digest",
+                "typed reference"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "produces": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ACTIVE_PROFILES_RESOLVED",
+                "DIGEST_VALID",
+                "SCHEMA_CONTRACT_RESOLVED"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "replaces_classification": {
+            "type": "string",
+            "enum": [
+              "DETERMINISTIC_WITH_PROFILE",
+              "UNEVALUABLE"
+            ]
+          },
+          "rule_id": {
+            "type": "string",
+            "enum": [
+              "BND-004",
+              "BND-005",
+              "DIGEST-001"
+            ]
+          }
+        },
+        "required": [
+          "classification",
+          "condition",
+          "depends_on",
+          "failure_code",
+          "inputs",
+          "produces",
+          "replaces_classification",
+          "rule_id"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "VALIDATION_RULE_PROFILE"
+      ]
+    },
+    "rule_profile_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r5:validation-rules:0.1"
+      ]
+    },
+    "rule_profile_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "DIGEST_CANONICALIZATION",
+              "PROFILE_RESOLUTION",
+              "ROLE_VOCABULARY",
+              "SCENARIO_ID_POLICY",
+              "SCHEMA_CONTRACT",
+              "SPECIFICATION_PACKAGE"
+            ]
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "DETERMINISTIC",
+              "DETERMINISTIC_WITH_PROFILE"
+            ]
+          },
+          "condition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "active_source_schema_coverage_required": {
+                "type": "boolean"
+              },
+              "algorithm": {
+                "type": "string",
+                "enum": [
+                  "SHA-256"
+                ]
+              },
+              "content_target": {
+                "type": "string",
+                "enum": [
+                  "content"
+                ]
+              },
+              "encoding": {
+                "type": "string",
+                "enum": [
+                  "UTF-8"
+                ]
+              },
+              "exact_version_required": {
+                "type": "boolean"
+              },
+              "forbidden_uses": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "BASELINE_DECISION",
+                    "CLASSIFIER_FEATURE",
+                    "VERIFIER_DECISION"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "method": {
+                "type": "string",
+                "enum": [
+                  "RFC8785_JCS"
+                ]
+              },
+              "no_fallback": {
+                "type": "boolean"
+              },
+              "no_latest_or_default": {
+                "type": "boolean"
+              },
+              "operator": {
+                "type": "string",
+                "enum": [
+                  "algorithm_and_method_supported",
+                  "all_roles_in_closed_vocabulary",
+                  "contract_inventory_closed_and_unique",
+                  "correlation_only_and_non_semantic",
+                  "digest_profile_resolves_when_digest_supplied",
+                  "exact_package_resolves",
+                  "exact_version_pinned",
+                  "profile_admits_concrete_record_form",
+                  "resolve_profile",
+                  "resolve_schema_contract",
+                  "validate_structure"
+                ]
+              },
+              "outcomes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "DUPLICATE",
+                    "MISSING",
+                    "RECORD_SCHEMA_MISMATCH",
+                    "RESOLVED",
+                    "SCHEMA_CONTRACT_MISSING",
+                    "SCHEMA_VERSION_UNSUPPORTED",
+                    "STRUCTURALLY_INVALID",
+                    "STRUCTURE_VALID",
+                    "UNSUPPORTED_VERSION",
+                    "WRONG_PROFILE_TYPE"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "record_type_must_be_permitted": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "CLF-001",
+                "DIGEST-CANON-001",
+                "PKG-001",
+                "PKG-002",
+                "PROF-001",
+                "SCHEMA-001"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "failure_code": {
+            "type": "string",
+            "enum": [
+              "ACCORD-02R5-CANONICALIZATION-INCOMPATIBLE",
+              "ACCORD-02R5-CANONICALIZATION-MISSING",
+              "ACCORD-02R5-CANONICALIZATION-UNSUPPORTED",
+              "ACCORD-02R5-PACKAGE-CONTRACT-DUPLICATE-OR-DANGLING",
+              "ACCORD-02R5-PACKAGE-MISSING-OR-MISMATCH",
+              "ACCORD-02R5-PROFILE-RESOLUTION-FAILURE",
+              "ACCORD-02R5-PROFILE-VERSION-UNPINNED",
+              "ACCORD-02R5-SCENARIO-ID-SEMANTIC-USE",
+              "ACCORD-02R5-SCHEMA-CONTRACT-FAILURE",
+              "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+              "ACCORD-02R5-UNKNOWN-ROLE"
+            ]
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": false
+          },
+          "produces": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ACTIVE_PROFILE_RESOLVED",
+                "CANONICALIZATION_APPLICABLE",
+                "CANONICALIZATION_PROFILE_RESOLVED",
+                "CANONICALIZATION_SUPPORTED",
+                "PACKAGE_CONTRACTS_CLOSED",
+                "PROFILE_VERSIONS_PINNED",
+                "ROLE_VOCABULARY_VALID",
+                "SCENARIO_ID_NON_SEMANTIC",
+                "SCHEMA_CONTRACT_RESOLVED",
+                "SPEC_PACKAGE_RESOLVED",
+                "STRUCTURE_VALID"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "required_for": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "experiment-run admission",
+                "scoring admission",
+                "structural admission",
+                "verifier admission"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "rule_id": {
+            "type": "string",
+            "enum": [
+              "DIGEST-CANON-001",
+              "DIGEST-CANON-002",
+              "DIGEST-CANON-003",
+              "PKG-001",
+              "PKG-002",
+              "PROF-001",
+              "PROF-002",
+              "ROLE-001",
+              "SCENARIO-ID-001",
+              "SCHEMA-001",
+              "SCHEMA-002"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "BLOCKING",
+              "MAJOR"
+            ]
+          }
+        },
+        "required": [
+          "category",
+          "classification",
+          "condition",
+          "depends_on",
+          "failure_code",
+          "inputs",
+          "produces",
+          "required_for",
+          "rule_id",
+          "severity"
+        ]
+      },
+      "uniqueItems": false
+    }
+  },
+  "required": [
+    "$id",
+    "$schema",
+    "active_rule_count",
+    "base_rule_registry",
+    "classification_gate",
+    "overlay_semantics",
+    "overrides",
+    "record_type",
+    "rule_profile_id",
+    "rule_profile_version",
+    "rules"
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-19:0.2",
+  "title": "ACCORD-02E4R3 effective profile 19",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1"
+      ]
+    },
+    "field_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "consumer_roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ARM-A-DURABLE",
+                "ARM-B-PROVIDER-OBSERVATION",
+                "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+                "ARM-D-ACCORD-EVIDENCE",
+                "DELEGATE_FIXTURE",
+                "OBSERVER_FIXTURE",
+                "ORCHESTRATOR",
+                "PROVIDER_FIXTURE",
+                "SCORER"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "field_family": {
+            "type": "string",
+            "enum": [
+              "expected.*",
+              "fixture.configuration",
+              "oracle.*",
+              "portable.record_bundle",
+              "provider.state_read",
+              "scenario.authority_condition_id",
+              "scenario.delegate_behavior_id",
+              "scenario.effect_surface_id",
+              "scenario.fault_ids",
+              "scenario.idempotency_condition_id",
+              "scenario.scenario_id",
+              "scenario.topology_id",
+              "scenario.transport_id"
+            ]
+          },
+          "producing_role": {
+            "type": "string",
+            "enum": [
+              "OBSERVER_FIXTURE",
+              "ORCHESTRATOR",
+              "PROVIDER_FIXTURE",
+              "SCORER"
+            ]
+          },
+          "semantic_use": {
+            "type": "string",
+            "enum": [
+              "CONFIGURATION_ONLY",
+              "OBSERVABLE_INPUT",
+              "SCORING_ONLY"
+            ]
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "ARM_VISIBLE",
+              "FIXTURE_PRIVATE",
+              "ORCHESTRATOR_ONLY",
+              "PROVIDER_VISIBLE",
+              "SCORER_ONLY"
+            ]
+          }
+        },
+        "required": [
+          "consumer_roles",
+          "field_family",
+          "producing_role",
+          "semantic_use",
+          "visibility"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "profile_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:role-visibility:0.1"
+      ]
+    },
+    "profile_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ARM-A-DURABLE",
+          "ARM-B-PROVIDER-OBSERVATION",
+          "ARM-C-LIGHTWEIGHT-CLASSIFIER",
+          "ARM-D-ACCORD-EVIDENCE",
+          "DELEGATE_FIXTURE",
+          "OBSERVER_FIXTURE",
+          "ORCHESTRATOR",
+          "PROVIDER_FIXTURE",
+          "SCORER"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "schema_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1"
+      ]
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "field_rules",
+    "profile_id",
+    "profile_version",
+    "roles",
+    "schema_id",
+    "schema_version"
+  ]
+}

@@ -1,0 +1,520 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-04:0.2",
+  "title": "ACCORD-02E4R3 effective profile 04",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$defs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "root": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "properties": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "algorithm_profile": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "minLength": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "minLength",
+                    "type"
+                  ]
+                },
+                "authenticated_claim_types": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "minLength": {
+                          "type": "integer"
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "minLength",
+                        "type"
+                      ]
+                    },
+                    "minItems": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "array"
+                      ]
+                    },
+                    "uniqueItems": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "minItems",
+                    "type",
+                    "uniqueItems"
+                  ]
+                },
+                "operator_boundary_declaration": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "minLength": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "minLength",
+                    "type"
+                  ]
+                },
+                "revocation_or_replacement_rule": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "minLength": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "minLength",
+                    "type"
+                  ]
+                },
+                "root_kind": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "enum": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "fixture_key",
+                          "pinned_issuer",
+                          "provider_profile",
+                          "public_key",
+                          "transparency_log"
+                        ]
+                      },
+                      "uniqueItems": false
+                    }
+                  },
+                  "required": [
+                    "enum"
+                  ]
+                },
+                "subject_scope": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "minLength": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "minLength",
+                    "type"
+                  ]
+                },
+                "trust_root_id": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "minLength": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "minLength",
+                    "type"
+                  ]
+                },
+                "validity_interval": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "additionalProperties": {
+                      "type": "boolean"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "not_after": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "format": {
+                              "type": "string",
+                              "enum": [
+                                "date-time"
+                              ]
+                            },
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "string"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "format",
+                            "type"
+                          ]
+                        },
+                        "not_before": {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "format": {
+                              "type": "string",
+                              "enum": [
+                                "date-time"
+                              ]
+                            },
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "string"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "format",
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "not_after",
+                        "not_before"
+                      ]
+                    },
+                    "required": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "not_after",
+                          "not_before"
+                        ]
+                      },
+                      "uniqueItems": false
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "object"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "additionalProperties",
+                    "properties",
+                    "required",
+                    "type"
+                  ]
+                },
+                "verification_material_reference": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "minLength": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "minLength",
+                    "type"
+                  ]
+                }
+              },
+              "required": [
+                "algorithm_profile",
+                "authenticated_claim_types",
+                "operator_boundary_declaration",
+                "revocation_or_replacement_rule",
+                "root_kind",
+                "subject_scope",
+                "trust_root_id",
+                "validity_interval",
+                "verification_material_reference"
+              ]
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "algorithm_profile",
+                  "authenticated_claim_types",
+                  "operator_boundary_declaration",
+                  "revocation_or_replacement_rule",
+                  "root_kind",
+                  "subject_scope",
+                  "trust_root_id",
+                  "validity_interval",
+                  "verification_material_reference"
+                ]
+              },
+              "uniqueItems": false
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "object"
+              ]
+            }
+          },
+          "required": [
+            "additionalProperties",
+            "properties",
+            "required",
+            "type"
+          ]
+        }
+      },
+      "required": [
+        "root"
+      ]
+    },
+    "$id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r5:schema:trust-root-profile:0.1"
+      ]
+    },
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "additionalProperties": {
+      "type": "boolean"
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "profile_id": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02a:trust-root:fixture-v1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "profile_version": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "0.1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "record_type": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "TRUST_ROOT_PROFILE"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "roots": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "enum": [
+                    "#/$defs/root"
+                  ]
+                }
+              },
+              "required": [
+                "$ref"
+              ]
+            },
+            "minItems": {
+              "type": "integer"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "array"
+              ]
+            },
+            "uniqueItems": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "items",
+            "minItems",
+            "type",
+            "uniqueItems"
+          ]
+        },
+        "schema_id": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "urn:moirae:accord-02r5:schema:trust-root-profile:0.1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        },
+        "schema_version": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "const": {
+              "type": "string",
+              "enum": [
+                "0.1"
+              ]
+            }
+          },
+          "required": [
+            "const"
+          ]
+        }
+      },
+      "required": [
+        "profile_id",
+        "profile_version",
+        "record_type",
+        "roots",
+        "schema_id",
+        "schema_version"
+      ]
+    },
+    "required": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "profile_id",
+          "profile_version",
+          "record_type",
+          "roots",
+          "schema_id",
+          "schema_version"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "title": {
+      "type": "string",
+      "enum": [
+        "ACCORD-02R5 trust-root profile contract"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "object"
+      ]
+    }
+  },
+  "required": [
+    "$defs",
+    "$id",
+    "$schema",
+    "additionalProperties",
+    "properties",
+    "required",
+    "title",
+    "type"
+  ]
+}

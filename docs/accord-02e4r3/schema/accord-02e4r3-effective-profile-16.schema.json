@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:schema:effective-profile-16:0.2",
+  "title": "ACCORD-02E4R3 effective profile 16",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "https://json-schema.org/draft/2020-12/schema"
+      ]
+    },
+    "global_invariants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "A predicate, stage, target, resource, recipient, effect identity, and relevant attempt binding cannot be substituted by a transport or provider identifier.",
+          "A projected kind never asserts exactly-once occurrence or universal external truth.",
+          "A projection is deterministic only under this named mapping profile and the native C result axes.",
+          "ATTENUATED and CONTAINED do not imply AUTHORIZED; authority validity remains a separate event-time axis.",
+          "NO_EFFECT_OBSERVED never unconditionally maps to NON_OCCURRENCE_SUPPORTED.",
+          "The native ACCORD-02C multidimensional result is retained and is never overwritten by an A-style projection."
+        ]
+      },
+      "uniqueItems": false
+    },
+    "mapping_id": {
+      "type": "string",
+      "enum": [
+        "urn:moirae:accord-02r1:settlement-vocabulary-map"
+      ]
+    },
+    "mapping_version": {
+      "type": "string",
+      "enum": [
+        "0.1"
+      ]
+    },
+    "native_result_required": {
+      "type": "boolean"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "a_kind": {
+            "type": "string",
+            "enum": [
+              "CORROBORATED",
+              "NO_EFFECT_OBSERVED",
+              "REJECTED",
+              "UNKNOWN_PENDING",
+              "UNKNOWN_TERMINAL",
+              "VERIFIED"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "enum": [
+              "A CORROBORATED projection requires a native C occurrence-supported result and profile-declared observer-distinct corroboration. Corroboration is not a universal evidence ranking and does not make a later stage or causal claim true.",
+              "A qualified VERIFIED projection is permitted only for the exact requested predicate and stage when the native C result supports occurrence under an admissible, current, compatible profile. It does not assert causality, authority validity, absence of duplicates, or universal truth.",
+              "NO_EFFECT_OBSERVED is an explicitly scoped observation projection. It may remain observation-only when the native C result is unresolved; it may carry bounded non-occurrence only when the complete-negative requirements of the active C profile are satisfied.",
+              "REJECTED is an input, integrity, linkage, or profile-compatibility disposition. It is not a factual non-occurrence conclusion and cannot be used to rewrite an external event.",
+              "The same A observation label may carry a bounded non-occurrence projection only when the native C result explicitly reports profile-bounded NON_OCCURRENCE_SUPPORTED and all complete-negative requirements match the exact predicate, stage, target, resource, recipient, and interval.",
+              "UNKNOWN_PENDING is the A projection for an unresolved native C result where the active profile permits further evidence or reopening. It is not a failure assertion and does not authorize blind retry.",
+              "UNKNOWN_TERMINAL is a profile-scoped projection for an unresolved native C result after the profile's retry, retention, or reconciliation boundary. It is not metaphysically final; later evidence may reopen it unless the active profile explicitly forbids reopening within its declared scope."
+            ]
+          },
+          "native_c_requirements": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "can_reopen": {
+                "type": "boolean"
+              },
+              "completeness": {
+                "type": "string",
+                "enum": [
+                  "COMPLETE_SATISFIED",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "evidence_sufficiency": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "CONFLICTING",
+                    "INADMISSIBLE",
+                    "INSUFFICIENT",
+                    "PROFILE_INCOMPATIBLE",
+                    "STALE",
+                    "SUFFICIENT",
+                    "UNKNOWN"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "finality": {
+                "type": "string",
+                "enum": [
+                  "NOT_APPLICABLE",
+                  "PROFILE_SCOPED_ONLY",
+                  "REOPENABLE"
+                ]
+              },
+              "negative_evidence_rule": {
+                "type": "string",
+                "enum": [
+                  "COMPLETE_PROFILE_SATISFIED",
+                  "INADMISSIBLE_OR_INCOMPATIBLE",
+                  "NONE",
+                  "OBSERVATION_ONLY"
+                ]
+              },
+              "observer_distinct_corroboration": {
+                "type": "boolean"
+              },
+              "occurrence": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "CONFLICTING_EVIDENCE",
+                    "INADMISSIBLE_EVIDENCE",
+                    "INSUFFICIENT_EVIDENCE",
+                    "NON_OCCURRENCE_SUPPORTED",
+                    "OCCURRENCE_SUPPORTED",
+                    "PARTIAL_EFFECT",
+                    "STALE_EVIDENCE",
+                    "UNKNOWN"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "overall": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "CONFLICTING_EVIDENCE",
+                    "EFFECT_SUPPORTED",
+                    "INADMISSIBLE_EVIDENCE",
+                    "NON_OCCURRENCE_SUPPORTED",
+                    "PARTIAL_EFFECT",
+                    "POSSIBLE_DUPLICATE_EFFECT",
+                    "PROFILE_INCOMPATIBLE",
+                    "STALE_EVIDENCE",
+                    "UNKNOWN",
+                    "UNRESOLVED"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "predicate_binding": {
+                "type": "string",
+                "enum": [
+                  "EXACT",
+                  "NOT_REQUIRED_FOR_REJECTION",
+                  "REQUIRED_FOR_NEGATIVE",
+                  "REQUIRED_FOR_OCCURRENCE"
+                ]
+              },
+              "profile_compatibility": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "COMPATIBLE",
+                    "INCOMPATIBLE",
+                    "UNKNOWN"
+                  ]
+                },
+                "uniqueItems": false
+              },
+              "stage_state": {
+                "type": "string",
+                "enum": [
+                  "NOT_EVALUATED",
+                  "NOT_SUPPORTED",
+                  "SUPPORTED",
+                  "UNRESOLVED"
+                ]
+              }
+            },
+            "required": [
+              "evidence_sufficiency",
+              "finality",
+              "negative_evidence_rule",
+              "occurrence",
+              "overall",
+              "predicate_binding",
+              "profile_compatibility",
+              "stage_state"
+            ]
+          },
+          "non_implications": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "AUTHORIZED",
+                "CAUSALITY_UNLESS_EXPLICIT",
+                "EXACTLY_ONCE",
+                "GOAL_SATISFACTION",
+                "LATER_STAGE",
+                "METAPHYSICAL_FINALITY",
+                "NON_OCCURRENCE_FROM_SILENCE",
+                "UNIVERSAL_TRUTH"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "projection_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "AS_OF",
+                "EFFECT_ID",
+                "EVIDENCE_CLASS",
+                "MAPPING_PROFILE_REFERENCE",
+                "NATIVE_RESULT_REFERENCE",
+                "OBSERVER",
+                "PREDICATE_ID",
+                "PROFILE_FINALITY_SCOPE",
+                "READ_SEMANTICS",
+                "RETRY_UNTIL",
+                "STAGE",
+                "TARGET_BINDING",
+                "TRUST_ROOT"
+              ]
+            },
+            "uniqueItems": false
+          },
+          "rule_id": {
+            "type": "string",
+            "enum": [
+              "MAP-001",
+              "MAP-002",
+              "MAP-003",
+              "MAP-004",
+              "MAP-005",
+              "MAP-006",
+              "MAP-007"
+            ]
+          }
+        },
+        "required": [
+          "a_kind",
+          "description",
+          "native_c_requirements",
+          "non_implications",
+          "projection_requirements",
+          "rule_id"
+        ]
+      },
+      "uniqueItems": false
+    },
+    "source_slices": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "a_verifier_schema": {
+          "type": "string",
+          "enum": [
+            "docs/accord-02/schema/accord-02a-verifier-result.schema.json"
+          ]
+        },
+        "c_settlement_schema": {
+          "type": "string",
+          "enum": [
+            "docs/accord-02/schema/accord-02c-settlement-result.schema.json"
+          ]
+        }
+      },
+      "required": [
+        "a_verifier_schema",
+        "c_settlement_schema"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "global_invariants",
+    "mapping_id",
+    "mapping_version",
+    "native_result_required",
+    "rules",
+    "source_slices"
+  ]
+}

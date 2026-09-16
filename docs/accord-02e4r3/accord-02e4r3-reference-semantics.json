@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r3:reference-semantics:0.2",
+  "contract_id": "urn:moirae:accord-02e4r3:reference-semantics",
+  "contract_version": "0.2",
+  "discovery": "SCHEMA_X_NORMATIVE_REFERENCE",
+  "identity": "OBJECT_ID_AND_EXPLICIT_VERSION",
+  "equality": "CODE_POINT_EXACT",
+  "normalization": "NONE",
+  "fallback": "FORBIDDEN",
+  "latest_substitution": false,
+  "self_registration": false,
+  "source_vector_target": {
+    "catalog_id": "urn:moirae:accord-02c:settlement-test-vectors",
+    "catalog_version": "0.1",
+    "path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json"
+  }
+}
