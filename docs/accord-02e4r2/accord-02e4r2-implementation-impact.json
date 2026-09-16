@@ -1,0 +1,11 @@
+{
+  "implementation_impact": "BOUNDED_PACKAGE_CONSUMER_UPDATE",
+  "required_changes": [
+    "resolve object ID/version references",
+    "consume canonicalization target registry",
+    "validate negative requirement map",
+    "use full active rule graph",
+    "enforce proposition/evidence provenance binding separation"
+  ],
+  "runtime_or_experiment_changes": false
+}

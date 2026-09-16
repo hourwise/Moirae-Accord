@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r2:schema:validation-rules:0.2",
+  "title": "ACCORD-02E4R2 validation rules",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  }
+}

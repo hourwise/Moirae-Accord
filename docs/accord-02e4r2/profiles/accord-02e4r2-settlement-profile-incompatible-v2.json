@@ -1,0 +1,472 @@
+{
+  "profile_id": "urn:accord:02c:profile:incompatible-v1",
+  "profile_version": "0.2",
+  "purpose": "Candidate ACCORD-02E4 explicitly incompatible settlement profile fixture",
+  "description": "Candidate replacement profile used to exercise deterministic profile incompatibility; its contract remains structurally complete.",
+  "understood_evidence_dimensions": [
+    {
+      "name": "authority",
+      "axis": "AUTHORITY",
+      "understood": true,
+      "required_for": []
+    },
+    {
+      "name": "occurrence",
+      "axis": "FACTUAL_EFFECT",
+      "understood": true,
+      "required_for": [
+        "OCCURRENCE"
+      ]
+    },
+    {
+      "name": "attribution",
+      "axis": "FACTUAL_EFFECT",
+      "understood": true,
+      "required_for": [
+        "ATTRIBUTION"
+      ]
+    },
+    {
+      "name": "causal_attribution",
+      "axis": "FACTUAL_EFFECT",
+      "understood": true,
+      "required_for": [
+        "CAUSALITY"
+      ]
+    },
+    {
+      "name": "completeness",
+      "axis": "FACTUAL_EFFECT",
+      "understood": true,
+      "required_for": [
+        "NON_OCCURRENCE"
+      ]
+    },
+    {
+      "name": "freshness",
+      "axis": "CROSS_AXIS",
+      "understood": true,
+      "required_for": [
+        "OCCURRENCE",
+        "NON_OCCURRENCE"
+      ]
+    },
+    {
+      "name": "integrity",
+      "axis": "CROSS_AXIS",
+      "understood": true,
+      "required_for": [
+        "OCCURRENCE",
+        "NON_OCCURRENCE"
+      ]
+    },
+    {
+      "name": "observer_provenance",
+      "axis": "CROSS_AXIS",
+      "understood": true,
+      "required_for": [
+        "OCCURRENCE"
+      ]
+    },
+    {
+      "name": "predicate_identity",
+      "axis": "FACTUAL_EFFECT",
+      "understood": true,
+      "required_for": [
+        "OCCURRENCE",
+        "NON_OCCURRENCE"
+      ]
+    },
+    {
+      "name": "temporal_order",
+      "axis": "CROSS_AXIS",
+      "understood": true,
+      "required_for": [
+        "OCCURRENCE",
+        "NON_OCCURRENCE",
+        "PARTIAL_STAGE"
+      ]
+    },
+    {
+      "name": "duplication",
+      "axis": "FACTUAL_EFFECT",
+      "understood": true,
+      "required_for": [
+        "DUPLICATE_DIAGNOSTIC"
+      ]
+    },
+    {
+      "name": "partial_stage",
+      "axis": "FACTUAL_EFFECT",
+      "understood": true,
+      "required_for": [
+        "PARTIAL_STAGE"
+      ]
+    },
+    {
+      "name": "profile_compatibility",
+      "axis": "CROSS_AXIS",
+      "understood": true,
+      "required_for": []
+    }
+  ],
+  "accepted_evidence_classes": [
+    {
+      "class": "LOCAL_ATTEMPT_DISPATCH_RECORD",
+      "accepted": true,
+      "supports": [
+        "ATTEMPT_RECORDED"
+      ],
+      "does_not_prove": [
+        "OCCURRENCE",
+        "NON_OCCURRENCE"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "attempt_id"
+      ],
+      "minimum_integrity": "NONE_DECLARED"
+    },
+    {
+      "class": "TRANSPORT_ACKNOWLEDGEMENT",
+      "accepted": true,
+      "supports": [
+        "TRANSPORT_ACCEPTANCE"
+      ],
+      "does_not_prove": [
+        "OCCURRENCE",
+        "NON_OCCURRENCE"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "attempt_id"
+      ],
+      "minimum_integrity": "CONTENT_DIGEST"
+    },
+    {
+      "class": "PROVIDER_ACCEPTANCE_RECEIPT",
+      "accepted": true,
+      "supports": [
+        "PROVIDER_ACCEPTANCE"
+      ],
+      "does_not_prove": [
+        "OCCURRENCE",
+        "ATTRIBUTION",
+        "CAUSALITY"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "provider"
+      ],
+      "minimum_integrity": "SIGNED_ATTESTATION"
+    },
+    {
+      "class": "PROVIDER_EFFECT_RECEIPT",
+      "accepted": true,
+      "supports": [
+        "OCCURRENCE",
+        "ATTRIBUTION"
+      ],
+      "does_not_prove": [
+        "CAUSALITY",
+        "NON_OCCURRENCE"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage"
+      ],
+      "minimum_integrity": "SIGNED_ATTESTATION"
+    },
+    {
+      "class": "TARGET_ACKNOWLEDGEMENT",
+      "accepted": true,
+      "supports": [
+        "OCCURRENCE"
+      ],
+      "does_not_prove": [
+        "CAUSALITY",
+        "NON_OCCURRENCE"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "recipient_or_counterparty"
+      ],
+      "minimum_integrity": "SIGNED_ATTESTATION"
+    },
+    {
+      "class": "INDEPENDENT_OBSERVATION",
+      "accepted": true,
+      "supports": [
+        "OCCURRENCE",
+        "CORROBORATION"
+      ],
+      "does_not_prove": [
+        "CAUSALITY",
+        "NON_OCCURRENCE"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "observer_principal_id"
+      ],
+      "minimum_integrity": "CONTENT_DIGEST"
+    },
+    {
+      "class": "SIGNED_ATTESTED_ARTIFACT",
+      "accepted": true,
+      "supports": [
+        "OCCURRENCE",
+        "CORROBORATION"
+      ],
+      "does_not_prove": [
+        "CAUSALITY",
+        "NON_OCCURRENCE"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "issuer_principal_id"
+      ],
+      "minimum_integrity": "SIGNED_ATTESTATION"
+    },
+    {
+      "class": "EXTERNAL_STATE_SNAPSHOT",
+      "accepted": true,
+      "supports": [
+        "OCCURRENCE"
+      ],
+      "does_not_prove": [
+        "CAUSALITY",
+        "NON_OCCURRENCE"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "observer_principal_id"
+      ],
+      "minimum_integrity": "CONTENT_DIGEST"
+    },
+    {
+      "class": "COMPLETE_NEGATIVE_LEDGER_QUERY",
+      "accepted": true,
+      "supports": [
+        "NON_OCCURRENCE"
+      ],
+      "does_not_prove": [
+        "OCCURRENCE",
+        "CAUSALITY"
+      ],
+      "required_bindings": [
+        "effect_id",
+        "predicate_id"
+      ],
+      "minimum_integrity": "SIGNED_ATTESTATION"
+    }
+  ],
+  "identity_bindings": {
+    "required_for_attributed_occurrence": [
+      "effect_id",
+      "predicate_id",
+      "stage"
+    ],
+    "required_for_specific_attempt_causality": [
+      "effect_id",
+      "predicate_id",
+      "stage",
+      "attempt_id"
+    ],
+    "optional_bindings": [
+      "action",
+      "resource",
+      "recipient_or_counterparty",
+      "provider",
+      "external_identifier",
+      "observer_principal_id",
+      "issuer_principal_id",
+      "attempt_id"
+    ],
+    "wrong_binding_policy": "RETURN_INADMISSIBLE",
+    "attempt_set_binding_policy": "EXPLICIT_SET_ONLY"
+  },
+  "temporal_bindings": {
+    "required_times": [
+      "provider_event_time",
+      "observation_time",
+      "evidence_issuance_time"
+    ],
+    "event_observation_distinction": true,
+    "clock_ordering": "INTERVAL_ONLY",
+    "unknown_order_policy": "RETURN_UNKNOWN",
+    "late_observation_policy": "ALLOW_AS_STALE_ONLY",
+    "out_of_order_policy": "RETURN_UNKNOWN"
+  },
+  "integrity": {
+    "canonicalization": "RFC8785_JCS",
+    "digest_algorithm": "SHA-256",
+    "accepted_mechanisms": [
+      "CONTENT_DIGEST",
+      "SIGNED_ATTESTATION",
+      "DETACHED_SIGNATURE"
+    ],
+    "unsupported_mechanism_policy": "RETURN_UNKNOWN",
+    "signature_scope": "COVERAGE_AND_BINDINGS",
+    "content_digest_required": false,
+    "integrity_policy_scope": "EVIDENCE_ARTIFACTS_WITHIN_PROFILE",
+    "content_digest_requirement": "OPTIONAL_UNLESS_SCHEMA_CONTRACT_REQUIRES"
+  },
+  "freshness": {
+    "mode": "PROFILE_DEFINED",
+    "stale_result": "STALE_EVIDENCE",
+    "future_skew_policy": "RETURN_UNKNOWN",
+    "freshness_applies_to": [
+      "EVENT_TIME",
+      "OBSERVATION_TIME",
+      "EVIDENCE_ISSUANCE_TIME",
+      "AS_OF",
+      "VERIFICATION_TIME"
+    ]
+  },
+  "corroboration": {
+    "minimum_sources": 2,
+    "minimum_distinct_observers": 2,
+    "require_same_effect_and_predicate": true,
+    "require_declared_relationship": true,
+    "independence_policy": "NO_AUTOMATIC_INDEPENDENCE",
+    "same_artifact_policy": "DO_NOT_COUNT_TWICE"
+  },
+  "observer_trust_assumptions": [
+    {
+      "assumption_id": "INCOMPATIBLE_SOURCE_IDENTITY",
+      "statement": "This profile is intentionally not compatible with the conservative candidate profile.",
+      "applies_to": [
+        "PROFILE_COMPATIBILITY"
+      ],
+      "must_be_disclosed": true
+    }
+  ],
+  "completeness": {
+    "default_assumption": "NO_COMPLETENESS_ASSUMED",
+    "complete_sources": [
+      "COMPLETE_NEGATIVE_LEDGER_QUERY"
+    ],
+    "scope_binding": "EFFECT_PREDICATE_RESOURCE_TIME",
+    "retention_requirement": "MUST_BE_DECLARED",
+    "partial_source_result": "UNKNOWN"
+  },
+  "negative_evidence": {
+    "silence_policy": "RETURN_UNKNOWN",
+    "timeout_policy": "RETURN_UNKNOWN",
+    "allowed_complete_source_classes": [
+      "COMPLETE_NEGATIVE_LEDGER_QUERY"
+    ],
+    "complete_query_requirements": [
+      "COMPLETE_STATE_SPACE",
+      "IDENTITY_BOUND",
+      "PREDICATE_BOUND",
+      "RESOURCE_BOUND",
+      "RECIPIENT_BOUND",
+      "INTERVAL_BOUND",
+      "RETENTION_DECLARED",
+      "CONSISTENCY_DECLARED",
+      "FRESH_AT_VERIFICATION",
+      "NO_CONTRADICTORY_EVIDENCE"
+    ],
+    "stale_negative_policy": "RETURN_STALE_EVIDENCE",
+    "non_occurrence_scope": "PROFILE_BOUND_SCOPE_ONLY",
+    "timeout_is_non_occurrence": false,
+    "complete_query_requirement_map_ref": {
+      "contract_id": "urn:moirae:accord-02e4r2:contract:negative-requirement-map",
+      "contract_version": "0.2"
+    }
+  },
+  "causal_attribution": {
+    "levels": [
+      "EXTERNAL_STATE_OBSERVED",
+      "EFFECT_OCCURRENCE_SUPPORTED",
+      "EFFECT_BOUND",
+      "CAUSED_BY_ONE_OR_MORE_ATTEMPTS",
+      "SPECIFIC_ATTEMPT_CAUSED"
+    ],
+    "minimum_for_effect_occurrence": "EFFECT_OCCURRENCE_SUPPORTED",
+    "minimum_for_specific_attempt": "SPECIFIC_ATTEMPT_CAUSED",
+    "unbound_state_policy": "OCCURRENCE_WITH_ATTRIBUTION_UNKNOWN"
+  },
+  "partial_effect": {
+    "stage_policy": "EXPLICIT_PREDICATE_PER_STAGE",
+    "stage_settlement": "PREREQUISITE_CHAIN",
+    "later_stage_requires_new_evidence": true,
+    "partial_result": "PARTIAL_EFFECT",
+    "stage_order_field": "stage_predecessors"
+  },
+  "retry_and_duplicates": {
+    "effect_id_retry_rule": "REUSE_FOR_LOGICAL_EFFECT",
+    "attempt_id_rule": "UNIQUE_PER_ATTEMPT",
+    "idempotency_states": [
+      "KNOWN_BOUND",
+      "KNOWN_UNBOUND",
+      "UNKNOWN",
+      "EXPLICITLY_ABSENT"
+    ],
+    "duplicate_outcomes": [
+      "NONE_SUPPORTED",
+      "POSSIBLE_DUPLICATE",
+      "DUPLICATE_SUPPORTED",
+      "DISTINCT_OCCURRENCES_SUPPORTED",
+      "UNKNOWN"
+    ],
+    "attempt_count_policy": "DO_NOT_INFER_LOGICAL_MULTIPLICITY",
+    "exactly_once_policy": "NEVER_INFER_WITHOUT_PROFILE_EVIDENCE",
+    "provider_key_binding_required_for_deduplication": false
+  },
+  "extension_policy": {
+    "understood_settlement_extensions": [],
+    "unknown_settlement_bearing": "RETURN_UNKNOWN",
+    "unknown_descriptive": "PRESERVE_AND_IGNORE",
+    "preserve_unknown_value": true
+  },
+  "profile_compatibility": {
+    "profile_id_binding": "EXACT_PROFILE_ID",
+    "compatible_profile_ids": [],
+    "incompatible_outcome": "PROFILE_INCOMPATIBLE",
+    "common_interpretation_required": true,
+    "self_identity_policy": "SELF_IS_NOT_A_COUNTERPART",
+    "pairwise_evaluation": "COMPARE_DISTINCT_PROFILE_IDENTITIES_ONLY"
+  },
+  "reopening_and_finality": {
+    "default_finality": "REOPENABLE",
+    "later_evidence": "MAY_STRENGTHEN_WEAKEN_SUPERSEDE_CONTRADICT_REOPEN",
+    "reopen_reasons": [
+      "NEW_ADMISSIBLE_EVIDENCE",
+      "CONTRADICTION",
+      "FRESHNESS_REASSESSMENT",
+      "PROFILE_CHANGE",
+      "CORRUPTION_DISCOVERED",
+      "BINDING_REASSESSMENT"
+    ],
+    "finality_scope": "NEVER_UNIVERSAL"
+  },
+  "authority_effect_orthogonality": {
+    "separate_axes": true,
+    "forbidden_inferences": [
+      "INVALID_AUTHORITY_DOES_NOT_IMPLY_NO_EFFECT",
+      "AUTHORIZED_DOES_NOT_IMPLY_EFFECT",
+      "EFFECT_DOES_NOT_IMPLY_AUTHORITY",
+      "AUTHORITY_DOES_NOT_IMPLY_CAUSATION",
+      "DISPATCH_DOES_NOT_IMPLY_EFFECT",
+      "TRANSPORT_ACK_DOES_NOT_IMPLY_DOWNSTREAM_EFFECT",
+      "OBSERVED_STATE_DOES_NOT_IMPLY_SPECIFIC_CAUSE"
+    ],
+    "allowed_combinations": [
+      "INVALID_AUTHORITY+OCCURRENCE_SUPPORTED",
+      "AUTHORIZED+UNKNOWN"
+    ]
+  }
+}

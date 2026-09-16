@@ -1,0 +1,53 @@
+{
+  "candidate": "ACCORD-02E4R2",
+  "assessors": [
+    {
+      "assessor": "CLAUDE",
+      "source_path": "docs/reviews/INDEPENDENT ACCORD 02E4 NORMATIVE AMENDMENT REVIEW CLAUDE.md",
+      "source_sha256": "sha-256:e6ef0eaae53c3b6338073509a155edee451f7bcab9aa0189190956dd89d6d852",
+      "finding_ids": [
+        "E4R1-CLAUDE-MAJOR-001",
+        "E4R1-CLAUDE-MAJOR-002",
+        "E4R1-CLAUDE-MAJOR-003"
+      ]
+    },
+    {
+      "assessor": "DEEPSEEK",
+      "source_path": "docs/reviews/INDEPENDENT ACCORD 02E4 PACKAGE FALSIFICATION REVIEW DEEPSEEK.md",
+      "source_sha256": "sha-256:551475fd9d4554308c6e5a76c84ca0652beaf788942789114911b08398daf1e1",
+      "finding_ids": [
+        "E4R1-DEEPSEEK-BLOCK-01",
+        "E4R1-DEEPSEEK-BLOCK-02",
+        "E4R1-DEEPSEEK-MAJOR-01",
+        "E4R1-DEEPSEEK-MAJOR-02",
+        "E4R1-DEEPSEEK-MAJOR-03",
+        "E4R1-DEEPSEEK-MAJOR-04"
+      ]
+    },
+    {
+      "assessor": "JULES",
+      "source_path": null,
+      "source_sha256": "UNAVAILABLE",
+      "finding_ids": [],
+      "confirmed_defect_classes": [
+        "CANONICALIZATION_CONTRACT_MISMATCH",
+        "EXACT_REFERENCE_RESOLUTION",
+        "NEGATIVE_SCOPE_REFERENCE_MUTATION",
+        "BINDING_CONTRADICTION",
+        "NEGATIVE_SCOPE_COMPLETENESS"
+      ]
+    }
+  ],
+  "reproduced_defect_classes": [
+    "CANONICALIZATION_CONTRACT_MISMATCH",
+    "EXACT_REFERENCE_RESOLUTION",
+    "NEGATIVE_SCOPE_REFERENCE_MUTATION",
+    "BINDING_CONTRADICTION",
+    "NEGATIVE_SCOPE_COMPLETENESS",
+    "RULE_GRAPH_REGISTRATION",
+    "PROFILE_DIGEST_OPTIONALITY",
+    "CHECKER_HARDCODING"
+  ],
+  "jules_report_source_hash": "UNAVAILABLE",
+  "normalization_performed": false
+}

@@ -1,0 +1,2069 @@
+{
+  "reference_policy": {
+    "identity": "OBJECT_ID_AND_EXPLICIT_VERSION",
+    "equality": "CODE_POINT_EXACT",
+    "normalization": "NONE",
+    "fallback": "FORBIDDEN",
+    "nullable_optional_slots": "NOT_DANGLING_WHEN_NULL_AND_SCHEMA_PERMITS_NULL"
+  },
+  "references": [
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/0",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:validation-rules:0.1",
+      "version": "0.1",
+      "target_class": "VALIDATION_RULE_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/1",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r5:validation-rules:0.1",
+      "version": "0.1",
+      "target_class": "VALIDATION_RULE_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/2",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:experiment-profile",
+      "version": "0.2",
+      "target_class": "EXPERIMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/3",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r5:verifier:default:0.1",
+      "version": "0.1",
+      "target_class": "VERIFIER_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/4",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02a:trust-root:fixture-v1",
+      "version": "0.1",
+      "target_class": "TRUST_ROOT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/5",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:closed-set-static-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/6",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:disjoint-union-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/7",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:shared-pool-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/8",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:reserved-suballocation-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/9",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:mediated-analysis-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/10",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:event-time-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/11",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:workflow-unknown-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/12",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:explicit-inheritance-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/13",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02b:comparison-required-v1",
+      "version": "1.0",
+      "target_class": "AUTHORITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/14",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/15",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:incompatible-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/16",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r1:settlement-vocabulary-map",
+      "version": "0.1",
+      "target_class": "PROJECTION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/17",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:extensions:0.1",
+      "version": "0.1",
+      "target_class": "EXTENSION_REGISTRY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/18",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:source-schemas:0.1",
+      "version": "0.1",
+      "target_class": "SOURCE_SCHEMA_REGISTRY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/19",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:role-visibility:0.1",
+      "version": "0.1",
+      "target_class": "ROLE_VISIBILITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/20",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-a:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/21",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-b:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/22",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-c:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/23",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-d:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/24",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:classifier-features:0.1",
+      "version": "0.1",
+      "target_class": "CLASSIFIER_FEATURE_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/25",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:predicate-applicability:fixture-v1",
+      "version": "1.0",
+      "target_class": "PREDICATE_APPLICABILITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/26",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:durable:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/27",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:provider-observation:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/28",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/29",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:accord-evidence:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/30",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/profile_contracts/31",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:registry:predicate-applicability",
+      "version": "0.2",
+      "target_class": "PREDICATE_APPLICABILITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/0",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02a:schema:portable-record:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/1",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02a:schema:verifier-result:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/2",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02b:schema:authority-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/3",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02b:schema:authority-relation-result:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/4",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/5",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02c:schema:settlement-result:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/6",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:schema:arm-input-manifest:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/7",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:schema:arm-input-profile:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/8",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:schema:experiment-profile:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/9",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:schema:result-record:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/10",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:schema:score-record:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/11",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:schema:scorer-expectation:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/12",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r1:schema:settlement-vocabulary-map:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/13",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r2:schema:effect-proposition:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/14",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:classifier-feature-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/15",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:experiment-run:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/16",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:experiment-validation-bundle:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/17",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:extension-registry:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/18",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:normalization-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/19",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:normalized-claim:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/20",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:predicate-applicability-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/21",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:role-visibility-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/22",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:scorer-bundle:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/23",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:source-schema-registry:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/24",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:verifier-run:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/25",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:verifier-validation-bundle:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/26",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:validation-rules:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/27",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r5:schema:validation-rules:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/28",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r5:schema:specification-package:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/29",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r5:schema:canonicalization-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/30",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r5:schema:verifier-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/31",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r5:schema:trust-root-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/32",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r5:schema:experiment-runtime-record:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/33",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r5:schema:scorer-entry:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/34",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:task-state",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/35",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:attempt",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/36",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:executor-state",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/37",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:admission-state",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/38",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:delegate-report",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/39",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:provider-state-read",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/40",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:reconciliation-result",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/41",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:classifier-feature:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/42",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:trust-root-profile",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/43",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:detached-evidence",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/44",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:specification-package:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/45",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/46",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:negative-scope-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/47",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:predicate-registry:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/48",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:settlement-vector-catalog:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/49",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:normative-contracts:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/50",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:canonicalization-profile:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/schema_contracts/51",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:settlement-profile:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/canonicalization_profiles/0",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/contract_inventory/normative_contracts/0",
+      "reference_type": "NORMATIVE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:contract:normative-settlement",
+      "version": "0.2",
+      "target_class": "NORMATIVE_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/contract_inventory/dependency_graph_contracts/0",
+      "reference_type": "DEPENDENCY_GRAPH",
+      "id": "urn:moirae:accord-02e4r2:validation-dependency-graph",
+      "version": "0.2",
+      "target_class": "DEPENDENCY_GRAPH",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/contract_inventory/validation_rule_contracts/0",
+      "reference_type": "VALIDATION_RULE_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:validation-rules",
+      "version": "0.2",
+      "target_class": "VALIDATION_RULE_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/closure_contract_ref",
+      "reference_type": "NORMATIVE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:contract:normative-settlement",
+      "version": "0.2",
+      "target_class": "NORMATIVE_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/binding_vocabulary_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/0/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/0/evidence_capability_ref",
+      "reference_type": "EVIDENCE_CAPABILITY",
+      "id": "urn:moirae:accord-02e4r2:evidence-capability:external-effect",
+      "version": "0.2",
+      "target_class": "EVIDENCE_CAPABILITY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/1/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/1/evidence_capability_ref",
+      "reference_type": "EVIDENCE_CAPABILITY",
+      "id": "urn:moirae:accord-02e4r2:evidence-capability:resource-created",
+      "version": "0.2",
+      "target_class": "EVIDENCE_CAPABILITY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/2/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/2/evidence_capability_ref",
+      "reference_type": "EVIDENCE_CAPABILITY",
+      "id": "urn:moirae:accord-02e4r2:evidence-capability:recipient-ack",
+      "version": "0.2",
+      "target_class": "EVIDENCE_CAPABILITY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/3/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/3/evidence_capability_ref",
+      "reference_type": "EVIDENCE_CAPABILITY",
+      "id": "urn:moirae:accord-02e4r2:evidence-capability:provider-acceptance",
+      "version": "0.2",
+      "target_class": "EVIDENCE_CAPABILITY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/4/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:negative-scope-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/4/negative_scope_contract_ref",
+      "reference_type": "NORMATIVE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:contract:bounded-negative-scope",
+      "version": "0.2",
+      "target_class": "NORMATIVE_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/4/evidence_capability_ref",
+      "reference_type": "EVIDENCE_CAPABILITY",
+      "id": "urn:moirae:accord-02e4r2:evidence-capability:complete-negative",
+      "version": "0.2",
+      "target_class": "EVIDENCE_CAPABILITY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "registry",
+      "json_pointer": "/entries/5/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/0/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/0/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/0/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/0/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/1/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/1/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/1/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/1/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/2/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/2/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/2/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/2/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/3/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/3/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/3/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/3/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/4/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/4/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/4/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/4/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/5/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/5/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/5/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/5/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/6/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/6/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/6/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/6/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/7/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/7/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/7/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/7/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/8/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/8/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/8/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/8/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/9/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/9/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/9/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/9/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/10/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/10/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/10/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/10/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/11/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/11/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/11/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/11/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/12/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/12/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/12/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/12/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:negative-scope-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/12/target/target_resolution/negative_scope_contract_ref",
+      "reference_type": "NORMATIVE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:contract:bounded-negative-scope",
+      "version": "0.2",
+      "target_class": "NORMATIVE_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/13/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/13/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/13/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/13/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/14/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/14/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/14/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/14/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/15/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/15/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/15/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/15/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/16/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/16/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/16/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/16/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/17/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/17/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:incompatible-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/17/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/17/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/18/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/18/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/18/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/18/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/19/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/19/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/19/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/19/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/20/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/20/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/20/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/20/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/21/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/21/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/21/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/21/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/22/settlement_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/22/evidence_profile_ref",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/22/target/canonicalization_ref",
+      "reference_type": "CANONICALIZATION_PROFILE",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "catalog",
+      "json_pointer": "/vectors/22/target/target_resolution/proposition_schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/0",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:conservative-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/1",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:accord:02c:profile:incompatible-v1",
+      "version": "0.2",
+      "target_class": "SETTLEMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/2",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:validation-rules:0.1",
+      "version": "0.1",
+      "target_class": "VALIDATION_RULE_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/3",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r5:validation-rules:0.1",
+      "version": "0.1",
+      "target_class": "VALIDATION_RULE_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/4",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:experiment-profile",
+      "version": "0.2",
+      "target_class": "EXPERIMENT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/5",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r5:verifier:default:0.1",
+      "version": "0.1",
+      "target_class": "VERIFIER_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/6",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02a:trust-root:fixture-v1",
+      "version": "0.1",
+      "target_class": "TRUST_ROOT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/7",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:source-schemas:0.1",
+      "version": "0.1",
+      "target_class": "SOURCE_SCHEMA_REGISTRY",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/8",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:role-visibility:0.1",
+      "version": "0.1",
+      "target_class": "ROLE_VISIBILITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/9",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-a:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/10",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-b:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/11",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-c:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/12",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02r3:normalization:arm-d:0.1",
+      "version": "0.1",
+      "target_class": "NORMALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/13",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:classifier-features:0.1",
+      "version": "0.1",
+      "target_class": "CLASSIFIER_FEATURE_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/14",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:durable:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/15",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:provider-observation:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/16",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/17",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02d:arm-input:accord-evidence:0.1",
+      "version": "0.1",
+      "target_class": "ARM_INPUT_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/18",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+      "version": "0.2",
+      "target_class": "CANONICALIZATION_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "package",
+      "json_pointer": "/active_profile_references/19",
+      "reference_type": "PROFILE_CONTRACT",
+      "id": "urn:moirae:accord-02e4r2:registry:predicate-applicability",
+      "version": "0.2",
+      "target_class": "PREDICATE_APPLICABILITY_PROFILE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/0/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:task-state",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/1/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:attempt",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/2/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:executor-state",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/3/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:admission-state",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/4/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:delegate-report",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/5/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:provider-state-read",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/6/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:reconciliation-result",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/7/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02r3:schema:classifier-feature:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/8/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02a:schema:portable-record:0.2",
+      "version": "0.2",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/9/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02b:schema:authority-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/10/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/11/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:trust-root-profile",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "source_artifact": "source-schema-registry",
+      "json_pointer": "/entries/12/schema_ref",
+      "reference_type": "SCHEMA_CONTRACT",
+      "id": "urn:moirae:accord-02d:source:detached-evidence",
+      "version": "0.1",
+      "target_class": "SCHEMA_CONTRACT",
+      "resolution_status": "RESOLVED"
+    }
+  ],
+  "summary": {
+    "total_non_null": 228,
+    "resolved": 228,
+    "unresolved": 0,
+    "nullable_optional_slots": 0
+  }
+}

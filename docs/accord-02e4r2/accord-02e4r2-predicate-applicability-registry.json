@@ -1,0 +1,374 @@
+{
+  "profile_id": "urn:moirae:accord-02e4r2:registry:predicate-applicability",
+  "profile_version": "0.2",
+  "schema_id": "urn:moirae:accord-02e4r2:schema:predicate-registry",
+  "schema_version": "0.2",
+  "record_type": "PREDICATE_APPLICABILITY_PROFILE",
+  "registry_id": "urn:moirae:accord-02e4r2:registry:predicate-applicability",
+  "registry_version": "0.2",
+  "resolution_key": [
+    "predicate_id",
+    "stage"
+  ],
+  "canonical_vocabulary": "CANONICAL_C_VECTOR_URNS",
+  "binding_vocabulary": "urn:moirae:accord-02c:schema:settlement-profile:0.1#/$defs/bindingName",
+  "stage_ordering_policy": "EXPLICIT_PREDECESSOR_EDGES_ONLY",
+  "stage_ordering_scope": "PROFILE_AND_PREDICATE_FAMILY",
+  "global_total_order": false,
+  "entries": [
+    {
+      "predicate_id": "urn:accord:02c:predicate:external-effect",
+      "stage": "effect",
+      "kind": "GENERIC_OCCURRENCE",
+      "support_status": "SUPPORTED",
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage"
+      ],
+      "optional_bindings": [
+        "action",
+        "resource",
+        "provider",
+        "external_identifier",
+        "attempt_id"
+      ],
+      "not_applicable_bindings": [
+        "recipient_or_counterparty"
+      ],
+      "predecessor_edges": [],
+      "stage_settlement": "ATOMIC_ONLY",
+      "later_stage_policy": "NO_IMPLICIT_SUCCESSOR",
+      "evidence_capability_ref": {
+        "contract_id": "urn:moirae:accord-02e4r2:evidence-capability:external-effect",
+        "contract_version": "0.2"
+      },
+      "negative_scope_contract_ref": null,
+      "proposition_schema_ref": {
+        "schema_id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+        "schema_version": "0.2"
+      },
+      "proposition_binding_sets": {
+        "required": [
+          "effect_id",
+          "predicate_id",
+          "stage"
+        ],
+        "optional": [
+          "action",
+          "resource",
+          "provider",
+          "external_identifier",
+          "attempt_id"
+        ],
+        "not_applicable": [
+          "recipient_or_counterparty"
+        ]
+      }
+    },
+    {
+      "predicate_id": "urn:accord:02c:predicate:resource-created",
+      "stage": "resource_created",
+      "kind": "POSITIVE_STAGE",
+      "support_status": "SUPPORTED",
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "resource"
+      ],
+      "optional_bindings": [
+        "action",
+        "provider",
+        "external_identifier",
+        "attempt_id"
+      ],
+      "not_applicable_bindings": [
+        "recipient_or_counterparty"
+      ],
+      "predecessor_edges": [],
+      "stage_settlement": "INDEPENDENT_WHEN_BOUND",
+      "later_stage_policy": "NO_IMPLICIT_SUCCESSOR",
+      "evidence_capability_ref": {
+        "contract_id": "urn:moirae:accord-02e4r2:evidence-capability:resource-created",
+        "contract_version": "0.2"
+      },
+      "negative_scope_contract_ref": null,
+      "proposition_schema_ref": {
+        "schema_id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+        "schema_version": "0.2"
+      },
+      "proposition_binding_sets": {
+        "required": [
+          "effect_id",
+          "predicate_id",
+          "stage",
+          "resource"
+        ],
+        "optional": [
+          "action",
+          "provider",
+          "external_identifier",
+          "attempt_id"
+        ],
+        "not_applicable": [
+          "recipient_or_counterparty"
+        ]
+      }
+    },
+    {
+      "predicate_id": "urn:accord:02c:predicate:recipient-ack",
+      "stage": "recipient_acknowledged",
+      "kind": "POSITIVE_STAGE",
+      "support_status": "SUPPORTED",
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "recipient_or_counterparty"
+      ],
+      "optional_bindings": [
+        "action",
+        "resource",
+        "provider",
+        "external_identifier",
+        "attempt_id"
+      ],
+      "not_applicable_bindings": [],
+      "predecessor_edges": [
+        {
+          "predicate_id": "urn:accord:02c:predicate:provider-acceptance",
+          "stage": "provider_accepted"
+        }
+      ],
+      "stage_settlement": "PREREQUISITE_CHAIN",
+      "later_stage_policy": "NEW_EVIDENCE_REQUIRED",
+      "evidence_capability_ref": {
+        "contract_id": "urn:moirae:accord-02e4r2:evidence-capability:recipient-ack",
+        "contract_version": "0.2"
+      },
+      "negative_scope_contract_ref": null,
+      "proposition_schema_ref": {
+        "schema_id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+        "schema_version": "0.2"
+      },
+      "proposition_binding_sets": {
+        "required": [
+          "effect_id",
+          "predicate_id",
+          "stage",
+          "recipient_or_counterparty"
+        ],
+        "optional": [
+          "action",
+          "resource",
+          "provider",
+          "external_identifier",
+          "attempt_id"
+        ],
+        "not_applicable": []
+      }
+    },
+    {
+      "predicate_id": "urn:accord:02c:predicate:provider-acceptance",
+      "stage": "provider_accepted",
+      "kind": "POSITIVE_STAGE",
+      "support_status": "SUPPORTED",
+      "required_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "provider"
+      ],
+      "optional_bindings": [
+        "action",
+        "resource",
+        "recipient_or_counterparty",
+        "external_identifier",
+        "attempt_id"
+      ],
+      "not_applicable_bindings": [],
+      "predecessor_edges": [],
+      "stage_settlement": "INDEPENDENT_WHEN_BOUND",
+      "later_stage_policy": "NO_IMPLICIT_SUCCESSOR",
+      "evidence_capability_ref": {
+        "contract_id": "urn:moirae:accord-02e4r2:evidence-capability:provider-acceptance",
+        "contract_version": "0.2"
+      },
+      "negative_scope_contract_ref": null,
+      "proposition_schema_ref": {
+        "schema_id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+        "schema_version": "0.2"
+      },
+      "proposition_binding_sets": {
+        "required": [
+          "effect_id",
+          "predicate_id",
+          "stage",
+          "provider"
+        ],
+        "optional": [
+          "action",
+          "resource",
+          "recipient_or_counterparty",
+          "external_identifier",
+          "attempt_id"
+        ],
+        "not_applicable": []
+      }
+    },
+    {
+      "predicate_id": "urn:accord:02c:predicate:complete-negative",
+      "stage": null,
+      "kind": "NEGATIVE_SCOPE",
+      "support_status": "SUPPORTED",
+      "required_bindings": [
+        "effect_id",
+        "predicate_id"
+      ],
+      "optional_bindings": [
+        "action",
+        "resource",
+        "recipient_or_counterparty",
+        "provider",
+        "external_identifier"
+      ],
+      "not_applicable_bindings": [
+        "stage",
+        "attempt_id"
+      ],
+      "predecessor_edges": [],
+      "stage_settlement": "NOT_APPLICABLE",
+      "later_stage_policy": "NOT_APPLICABLE",
+      "evidence_capability_ref": {
+        "contract_id": "urn:moirae:accord-02e4r2:evidence-capability:complete-negative",
+        "contract_version": "0.2"
+      },
+      "negative_scope_contract_ref": {
+        "contract_id": "urn:moirae:accord-02e4r2:contract:bounded-negative-scope",
+        "contract_version": "0.2"
+      },
+      "proposition_schema_ref": {
+        "schema_id": "urn:moirae:accord-02e4r2:schema:negative-scope-proposition:0.2",
+        "schema_version": "0.2"
+      },
+      "proposition_binding_sets": {
+        "required": [
+          "effect_id",
+          "predicate_id"
+        ],
+        "optional": [
+          "action",
+          "resource",
+          "recipient_or_counterparty",
+          "provider",
+          "external_identifier"
+        ],
+        "not_applicable": [
+          "stage",
+          "attempt_id"
+        ]
+      }
+    },
+    {
+      "predicate_id": "urn:accord:02c:predicate:resource-visible",
+      "stage": "resource_visible",
+      "kind": "POSITIVE_STAGE",
+      "support_status": "UNSUPPORTED",
+      "required_bindings": [],
+      "optional_bindings": [],
+      "not_applicable_bindings": [],
+      "predecessor_edges": [],
+      "stage_settlement": "ATOMIC_ONLY",
+      "later_stage_policy": "NO_IMPLICIT_SUCCESSOR",
+      "evidence_capability_ref": null,
+      "negative_scope_contract_ref": null,
+      "unsupported_reason": "No active evidence capability or settlement profile row is declared for resource visibility in candidate 0.2.",
+      "proposition_schema_ref": {
+        "schema_id": "urn:moirae:accord-02e4r2:schema:positive-effect-proposition:0.2",
+        "schema_version": "0.2"
+      },
+      "proposition_binding_sets": {
+        "required": [],
+        "optional": [],
+        "not_applicable": []
+      }
+    }
+  ],
+  "exact_identifier_policy": {
+    "encoding": "UTF-8",
+    "equality": "CODE_POINT_STRING_EQUALITY",
+    "case_sensitive": true,
+    "unicode_normalization": "NONE",
+    "trim": false,
+    "case_folding": false,
+    "punctuation_normalization": false,
+    "prefix_suffix_matching": false,
+    "lexical_similarity": false,
+    "namespace_fallback": false
+  },
+  "fail_closed_policy": {
+    "unknown_predicate": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_UNKNOWN"
+    },
+    "wrong_stage": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_STAGE_MISMATCH"
+    },
+    "undeclared_tuple": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_STAGE_TUPLE_UNDECLARED"
+    },
+    "unsupported_predicate": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_UNSUPPORTED"
+    },
+    "missing_required_binding": {
+      "result": "INADMISSIBLE_EVIDENCE",
+      "reason_code": "REQUIRED_BINDING_MISSING"
+    },
+    "unsupported_proposition_kind": {
+      "result": "STRUCTURAL_PROFILE_INCOMPATIBLE",
+      "reason_code": "PROPOSITION_KIND_UNSUPPORTED"
+    },
+    "profile_not_resolvable": {
+      "result": "PROFILE_INCOMPATIBLE",
+      "reason_code": "PROFILE_UNRESOLVABLE"
+    }
+  },
+  "binding_authority_policy": {
+    "proposition_bindings": "REGISTRY_EXACT_TUPLE_AUTHORITATIVE",
+    "evidence_capability_bindings": "ADDITIVE_EVIDENCE_REQUIREMENTS_ONLY",
+    "evidence_provenance_bindings": "SEPARATE_FROM_PROPOSITION_IDENTITY",
+    "provenance_fields": [
+      "observer_principal_id",
+      "issuer_principal_id"
+    ],
+    "contradiction_policy": "FAIL_VALIDATION"
+  },
+  "predecessor_policy": {
+    "edges_are_explicit": true,
+    "transitivity": "NO_IMPLICIT_TRANSITIVITY",
+    "same_effect_required": true,
+    "duplicate_tuple_policy": "FAIL_VALIDATION",
+    "self_edge_policy": "FAIL_VALIDATION",
+    "dangling_edge_policy": "FAIL_VALIDATION",
+    "cycle_policy": "FAIL_VALIDATION"
+  },
+  "entailment_policy": {
+    "generic_occurrence_entails_positive_stage": false,
+    "positive_stage_entails_generic_occurrence": false,
+    "effect_settlement_entails_authority": false,
+    "authority_entails_effect": false
+  },
+  "closure_contract_ref": {
+    "contract_id": "urn:moirae:accord-02e4r2:contract:normative-settlement",
+    "contract_version": "0.2"
+  },
+  "binding_vocabulary_ref": {
+    "schema_id": "urn:moirae:accord-02c:schema:settlement-profile:0.1",
+    "schema_version": "0.1",
+    "json_pointer": "/$defs/bindingName"
+  }
+}

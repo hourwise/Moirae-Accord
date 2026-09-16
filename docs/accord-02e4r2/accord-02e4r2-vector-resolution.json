@@ -1,0 +1,169 @@
+{
+  "vector_count": 23,
+  "exact": 23,
+  "unresolved": 0,
+  "ambiguous": 0,
+  "vectors": [
+    {
+      "vector_id": "ACCORD-02C-V001-DISPATCH-ONLY",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V006-STALE-OBSERVATION",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    },
+    {
+      "vector_id": "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+      "schema": true,
+      "settlement_profile": true,
+      "evidence_profile": true,
+      "canonicalization": true
+    }
+  ]
+}

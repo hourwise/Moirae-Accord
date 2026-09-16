@@ -1,0 +1,224 @@
+{
+  "vector_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+  "expected_overall": "NON_OCCURRENCE_SUPPORTED",
+  "requirements": [
+    {
+      "requirement_id": "COMPLETE_STATE_SPACE",
+      "source_fields": {
+        "proposition": [
+          "/scope/state_space"
+        ],
+        "evidence": [
+          "/read_scope_complete"
+        ],
+        "profile": [
+          "/completeness/default_assumption"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_INCOMPLETE"
+    },
+    {
+      "requirement_id": "IDENTITY_BOUND",
+      "source_fields": {
+        "proposition": [
+          "/effect_id",
+          "/negated_predicate_id",
+          "/negated_stage"
+        ],
+        "evidence": [
+          "/effect_id",
+          "/predicate_id",
+          "/stage"
+        ],
+        "profile": [
+          "/identity_bindings"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_IDENTITY_MISMATCH"
+    },
+    {
+      "requirement_id": "PREDICATE_BOUND",
+      "source_fields": {
+        "proposition": [
+          "/negated_predicate_id"
+        ],
+        "evidence": [
+          "/predicate_id"
+        ],
+        "profile": [
+          "/negative_evidence/complete_query_requirements"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_PREDICATE_MISMATCH"
+    },
+    {
+      "requirement_id": "STAGE_BOUND",
+      "source_fields": {
+        "proposition": [
+          "/negated_stage"
+        ],
+        "evidence": [
+          "/stage"
+        ],
+        "profile": [
+          "/negative_evidence/scope_binding"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_STAGE_MISMATCH"
+    },
+    {
+      "requirement_id": "RESOURCE_ACTION_RECIPIENT_PROVIDER_SCOPE",
+      "source_fields": {
+        "proposition": [
+          "/scope/resource_binding",
+          "/scope/action_binding",
+          "/scope/recipient_binding",
+          "/scope/provider_binding"
+        ],
+        "evidence": [
+          "/resource_binding",
+          "/action_binding",
+          "/recipient_binding",
+          "/provider_binding"
+        ],
+        "profile": [
+          "/negative_evidence/scope_binding"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_DIMENSION_UNBOUND"
+    },
+    {
+      "requirement_id": "INTERVAL_BOUND",
+      "source_fields": {
+        "proposition": [
+          "/scope/not_before",
+          "/scope/as_of"
+        ],
+        "evidence": [
+          "/observed_interval/not_before",
+          "/observed_interval/as_of"
+        ],
+        "profile": [
+          "/negative_scope_contracts/0/interval"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_INTERVAL_UNBOUND"
+    },
+    {
+      "requirement_id": "RETENTION_DECLARED",
+      "source_fields": {
+        "proposition": [
+          "/scope/retention_window_seconds"
+        ],
+        "evidence": [
+          "/retention_window_seconds"
+        ],
+        "profile": [
+          "/negative_scope_contracts/0/retention"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_RETENTION_UNDECLARED"
+    },
+    {
+      "requirement_id": "CONSISTENCY_DECLARED",
+      "source_fields": {
+        "proposition": [
+          "/scope/consistency_level"
+        ],
+        "evidence": [
+          "/consistency_level"
+        ],
+        "profile": [
+          "/negative_scope_contracts/0/consistency"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_CONSISTENCY_UNDECLARED"
+    },
+    {
+      "requirement_id": "COMPLETE_READ_SEMANTICS",
+      "source_fields": {
+        "proposition": [
+          "/scope/read_semantics"
+        ],
+        "evidence": [
+          "/read_semantics"
+        ],
+        "profile": [
+          "/negative_scope_contracts/0/accepted_source_class"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_READ_INCOMPLETE"
+    },
+    {
+      "requirement_id": "FRESH_AT_VERIFICATION",
+      "source_fields": {
+        "proposition": [
+          "/scope/freshness_max_age_seconds"
+        ],
+        "evidence": [
+          "/observed_at",
+          "/verification_time"
+        ],
+        "profile": [
+          "/negative_scope_contracts/0/freshness"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_STALE"
+    },
+    {
+      "requirement_id": "NO_CONTRADICTORY_EVIDENCE",
+      "source_fields": {
+        "proposition": [],
+        "evidence": [
+          "/contradictory_positive_evidence_count"
+        ],
+        "profile": [
+          "/negative_scope_contracts/0/contradictory_evidence"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_CONTRADICTORY"
+    },
+    {
+      "requirement_id": "ACCEPTED_COMPLETE_SOURCE_CLASS",
+      "source_fields": {
+        "proposition": [],
+        "evidence": [
+          "/evidence_class"
+        ],
+        "profile": [
+          "/negative_scope_contracts/0/accepted_source_class"
+        ]
+      },
+      "observed_value": "SATISFIED_BY_EXPLICIT_V013_CONTRACT_AND_SCOPE",
+      "result": "PASS",
+      "failure_code": "NEGATIVE_SCOPE_SOURCE_CLASS_INVALID"
+    }
+  ],
+  "mutation_policy": {
+    "each_requirement_removed_or_invalidated": "NON_OCCURRENCE_SUPPORTED_UNREACHABLE",
+    "contradictory_positive_evidence": "NON_OCCURRENCE_SUPPORTED_UNREACHABLE"
+  },
+  "determinism": "ALL_REQUIREMENTS_ARE_FIELD_OR_PROFILE_RESOLVABLE"
+}

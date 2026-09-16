@@ -1,0 +1,12 @@
+{
+  "profile_id": "urn:moirae:accord-02e4r2:canonicalization:rfc8785-jcs:0.2",
+  "method": "RFC8785_JCS",
+  "algorithm": "SHA-256",
+  "mapping_count": 52,
+  "candidate_digest_forms": 24,
+  "errors": [],
+  "reorder_stable": true,
+  "semantic_mutation_changes_digest": true,
+  "tampered_digest_rejected": true,
+  "status": "PASS"
+}

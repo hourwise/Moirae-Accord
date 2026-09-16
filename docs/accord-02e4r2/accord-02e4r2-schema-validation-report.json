@@ -1,0 +1,11 @@
+{
+  "dialect": "Draft 2020-12",
+  "json_documents_parsed": 37,
+  "json_parse_errors": [],
+  "candidate_instance_errors": 0,
+  "schema_errors": 0,
+  "local_ref_errors": 0,
+  "external_standards_validator": "4.26.0",
+  "rfc8785_validator": "0.1.4",
+  "status": "PASS"
+}

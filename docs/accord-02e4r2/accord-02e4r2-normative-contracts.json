@@ -1,0 +1,390 @@
+{
+  "contract_id": "urn:moirae:accord-02e4r2:contract:normative-settlement",
+  "contract_version": "0.2",
+  "record_type": "NORMATIVE_SETTLEMENT_CONTRACTS",
+  "exact_identifier_policy": {
+    "encoding": "UTF-8",
+    "equality": "CODE_POINT_STRING_EQUALITY",
+    "case_sensitive": true,
+    "unicode_normalization": "NONE",
+    "trim": false,
+    "case_folding": false,
+    "punctuation_normalization": false,
+    "prefix_suffix_matching": false,
+    "lexical_similarity": false,
+    "namespace_fallback": false
+  },
+  "fail_closed_policy": {
+    "unknown_predicate": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_UNKNOWN"
+    },
+    "wrong_stage": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_STAGE_MISMATCH"
+    },
+    "undeclared_tuple": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_STAGE_TUPLE_UNDECLARED"
+    },
+    "unsupported_predicate": {
+      "result": "UNKNOWN",
+      "reason_code": "PREDICATE_UNSUPPORTED"
+    },
+    "missing_required_binding": {
+      "result": "INADMISSIBLE_EVIDENCE",
+      "reason_code": "REQUIRED_BINDING_MISSING"
+    },
+    "unsupported_proposition_kind": {
+      "result": "STRUCTURAL_PROFILE_INCOMPATIBLE",
+      "reason_code": "PROPOSITION_KIND_UNSUPPORTED"
+    },
+    "profile_not_resolvable": {
+      "result": "PROFILE_INCOMPATIBLE",
+      "reason_code": "PROFILE_UNRESOLVABLE"
+    }
+  },
+  "binding_authority_policy": {
+    "required_sets_authority": "REGISTRY_BY_EXACT_TUPLE",
+    "profile_requirements": "ADDITIVE_EVIDENCE_REQUIREMENTS_ONLY",
+    "proposition_status": "OBSERVATIONAL_NOT_PERMISSIVE",
+    "contradiction_policy": "FAIL_VALIDATION"
+  },
+  "predecessor_policy": {
+    "edges_are_explicit": true,
+    "transitivity": "NO_IMPLICIT_TRANSITIVITY",
+    "same_effect_required": true,
+    "duplicate_tuple_policy": "FAIL_VALIDATION",
+    "self_edge_policy": "FAIL_VALIDATION",
+    "dangling_edge_policy": "FAIL_VALIDATION",
+    "cycle_policy": "FAIL_VALIDATION",
+    "direct_edges_only": true
+  },
+  "partial_effect_policy": {
+    "supported_predecessor": "POTENTIAL_PARTIAL_EFFECT",
+    "no_supported_predecessor": "NOT_PARTIAL_EFFECT",
+    "atomic_only": "NOT_PARTIAL_EFFECT",
+    "empty_predecessors": "NOT_PARTIAL_EFFECT",
+    "incompatible_or_inadmissible": "INADMISSIBLE_OR_UNKNOWN",
+    "same_effect_required": true,
+    "later_stage_requires_new_evidence": true
+  },
+  "negative_scope_contracts": [
+    {
+      "contract_id": "urn:moirae:accord-02e4r2:contract:bounded-negative-scope",
+      "contract_version": "0.2",
+      "state_space": "COMPLETE",
+      "predicate_binding": "EXACT_NEGATED_PREDICATE_ID_AND_STAGE",
+      "resource_action_recipient_provider_scope": "BOUND_WHERE_APPLICABLE",
+      "interval": "EXPLICIT_NOT_BEFORE_AND_AS_OF",
+      "retention": "EVIDENCE_RETENTION_WINDOW_COVERS_QUERY_INTERVAL",
+      "consistency": "EVIDENCE_CONSISTENCY_LEVEL_MEETS_PROFILE",
+      "freshness": "OBSERVED_AT_WITHIN_MAX_AGE_OF_VERIFICATION",
+      "contradictory_evidence": "EVALUATE_ADMISSIBLE_POSITIVE_SET; FAIL_VALIDATION_IF_CONTRADICTORY",
+      "accepted_source_class": "COMPLETE_NEGATIVE_LEDGER_QUERY",
+      "silence_timeout_stale_or_incomplete": "NOT_SUFFICIENT",
+      "required_proposition_fields": [
+        "effect_id",
+        "negated_predicate_id",
+        "negated_stage",
+        "scope.not_before",
+        "scope.as_of",
+        "scope.retention_window_seconds",
+        "scope.consistency_level",
+        "scope.read_semantics"
+      ],
+      "required_evidence_fields": [
+        "evidence_class",
+        "observed_at",
+        "verification_time",
+        "retention_window_seconds",
+        "consistency_level",
+        "read_scope_complete",
+        "contradictory_positive_evidence_count"
+      ],
+      "requirement_ids": [
+        "COMPLETE_STATE_SPACE",
+        "IDENTITY_BOUND",
+        "PREDICATE_BOUND",
+        "STAGE_BOUND",
+        "RESOURCE_ACTION_RECIPIENT_PROVIDER_SCOPE",
+        "INTERVAL_BOUND",
+        "RETENTION_DECLARED",
+        "CONSISTENCY_DECLARED",
+        "COMPLETE_READ_SEMANTICS",
+        "FRESH_AT_VERIFICATION",
+        "NO_CONTRADICTORY_EVIDENCE",
+        "ACCEPTED_COMPLETE_SOURCE_CLASS"
+      ]
+    }
+  ],
+  "entailment_policy": {
+    "generic_occurrence_entails_positive_stage": false,
+    "positive_stage_entails_generic_occurrence": false,
+    "effect_settlement_entails_authority": false,
+    "authority_entails_effect": false,
+    "earlier_stage_entails_later_stage": false,
+    "occurrence_entails_attempt_attribution": false
+  },
+  "predicate_authority_policy": {
+    "active_authority": "urn:moirae:accord-02e4r2:registry:predicate-applicability",
+    "retired_authorities": [
+      "urn:moirae:accord-02r3:predicate-applicability:fixture-v1"
+    ],
+    "retired_policy": "NOT_ACTIVE_NOT_RESOLVABLE",
+    "lexical_resolution": "FORBIDDEN"
+  },
+  "closure_checks": [
+    {
+      "check_id": "CLOSE-001",
+      "rule": "schema ids and versions unique",
+      "failure_code": "DUPLICATE_SCHEMA_CONTRACT"
+    },
+    {
+      "check_id": "CLOSE-002",
+      "rule": "profile type/id/version unique",
+      "failure_code": "DUPLICATE_PROFILE_CONTRACT"
+    },
+    {
+      "check_id": "CLOSE-003",
+      "rule": "all declared package paths exist and are package-relative",
+      "failure_code": "PACKAGE_PATH_INVALID"
+    },
+    {
+      "check_id": "CLOSE-004",
+      "rule": "all declared contract references resolve",
+      "failure_code": "DANGLING_CONTRACT_REFERENCE"
+    },
+    {
+      "check_id": "CLOSE-005",
+      "rule": "predicate tuple unique",
+      "failure_code": "DUPLICATE_PREDICATE_STAGE_TUPLE"
+    },
+    {
+      "check_id": "CLOSE-006",
+      "rule": "predecessor edges resolve",
+      "failure_code": "DANGLING_PREDECESSOR"
+    },
+    {
+      "check_id": "CLOSE-007",
+      "rule": "predecessor graph has no self-edge or cycle",
+      "failure_code": "PREDECESSOR_GRAPH_INVALID"
+    },
+    {
+      "check_id": "CLOSE-008",
+      "rule": "unsupported rows cannot carry active capabilities",
+      "failure_code": "UNSUPPORTED_CAPABILITY_CONTRADICTION"
+    },
+    {
+      "check_id": "CLOSE-009",
+      "rule": "canonicalization mapping concrete and unique",
+      "failure_code": "CANONICALIZATION_MAPPING_INVALID"
+    },
+    {
+      "check_id": "CLOSE-010",
+      "rule": "registry required bindings and profile requirements do not contradict",
+      "failure_code": "BINDING_AUTHORITY_CONTRADICTION"
+    },
+    {
+      "check_id": "CLOSE-011",
+      "rule": "all vector profiles exact-version resolve",
+      "failure_code": "VECTOR_PROFILE_UNRESOLVABLE"
+    },
+    {
+      "check_id": "CLOSE-012",
+      "rule": "all vector target propositions validate",
+      "failure_code": "VECTOR_TARGET_INVALID"
+    },
+    {
+      "check_id": "CLOSE-013",
+      "rule": "full expected axes and prohibitions are present",
+      "failure_code": "EXPECTATION_CONTRACT_INCOMPLETE"
+    },
+    {
+      "check_id": "CLOSE-014",
+      "rule": "legacy lexical predicate authority is retired",
+      "failure_code": "COMPETING_PREDICATE_AUTHORITY"
+    },
+    {
+      "check_id": "CLOSE-015",
+      "rule": "active candidate rule inventory and dependencies are closed",
+      "failure_code": "RULE_INVENTORY_INVALID"
+    },
+    {
+      "check_id": "CLOSE-016",
+      "rule": "all package references use object ID/version representation",
+      "failure_code": "REFERENCE_REPRESENTATION_INVALID"
+    },
+    {
+      "check_id": "CLOSE-017",
+      "rule": "negative requirement map is complete and observed",
+      "failure_code": "NEGATIVE_SCOPE_MAPPING_INCOMPLETE"
+    }
+  ],
+  "invariants": [
+    {
+      "invariant_id": "INV-001",
+      "statement": "Adding inadmissible evidence cannot strengthen a settlement result.",
+      "normative_reference": "E4R1-ENT-001"
+    },
+    {
+      "invariant_id": "INV-002",
+      "statement": "Removing evidence cannot strengthen a settlement result.",
+      "normative_reference": "E4R1-ENT-001"
+    },
+    {
+      "invariant_id": "INV-003",
+      "statement": "Permutation of evidence in a non-ordered collection cannot change the normative result.",
+      "normative_reference": "E4R1-CLOSE-015"
+    },
+    {
+      "invariant_id": "INV-004",
+      "statement": "Replay of the same artifact cannot increase corroboration.",
+      "normative_reference": "E4R1-ENT-001"
+    },
+    {
+      "invariant_id": "INV-005",
+      "statement": "Lexical variation cannot grant predicate semantics.",
+      "normative_reference": "E4R1-PRED-003"
+    },
+    {
+      "invariant_id": "INV-006",
+      "statement": "Earlier stage evidence cannot settle a later stage.",
+      "normative_reference": "E4R1-ENT-001"
+    },
+    {
+      "invariant_id": "INV-007",
+      "statement": "An unknown tuple cannot become positive.",
+      "normative_reference": "E4R1-PRED-002"
+    },
+    {
+      "invariant_id": "INV-008",
+      "statement": "Sufficient exact evidence remains capable of a positive result when all profile requirements are met.",
+      "normative_reference": "E4R1-BIND-001"
+    },
+    {
+      "invariant_id": "INV-009",
+      "statement": "Generic occurrence and positive stage are non-entailing in both directions.",
+      "normative_reference": "E4R1-ENT-001"
+    }
+  ],
+  "evidence_capability_contracts": [
+    {
+      "capability_id": "urn:moirae:accord-02e4r2:evidence-capability:external-effect",
+      "capability_version": "0.2",
+      "predicate_id": "urn:accord:02c:predicate:external-effect",
+      "stage": "effect",
+      "kind": "GENERIC_OCCURRENCE",
+      "supported_evidence_classes": [
+        "PROVIDER_EFFECT_RECEIPT",
+        "INDEPENDENT_OBSERVATION",
+        "SIGNED_ATTESTED_ARTIFACT",
+        "EXTERNAL_STATE_SNAPSHOT"
+      ],
+      "required_proposition_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage"
+      ],
+      "required_evidence_provenance_bindings": [],
+      "does_not_prove": [
+        "NON_OCCURRENCE",
+        "CAUSALITY",
+        "SPECIFIC_ATTEMPT_CAUSED"
+      ]
+    },
+    {
+      "capability_id": "urn:moirae:accord-02e4r2:evidence-capability:resource-created",
+      "capability_version": "0.2",
+      "predicate_id": "urn:accord:02c:predicate:resource-created",
+      "stage": "resource_created",
+      "kind": "POSITIVE_STAGE",
+      "supported_evidence_classes": [
+        "INDEPENDENT_OBSERVATION",
+        "SIGNED_ATTESTED_ARTIFACT",
+        "EXTERNAL_STATE_SNAPSHOT"
+      ],
+      "required_proposition_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "resource"
+      ],
+      "required_evidence_provenance_bindings": [],
+      "does_not_prove": [
+        "CAUSALITY",
+        "SPECIFIC_ATTEMPT_CAUSED"
+      ]
+    },
+    {
+      "capability_id": "urn:moirae:accord-02e4r2:evidence-capability:recipient-ack",
+      "capability_version": "0.2",
+      "predicate_id": "urn:accord:02c:predicate:recipient-ack",
+      "stage": "recipient_acknowledged",
+      "kind": "POSITIVE_STAGE",
+      "supported_evidence_classes": [
+        "TARGET_ACKNOWLEDGEMENT",
+        "INDEPENDENT_OBSERVATION",
+        "SIGNED_ATTESTED_ARTIFACT"
+      ],
+      "required_proposition_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "recipient_or_counterparty"
+      ],
+      "required_evidence_provenance_bindings": [],
+      "does_not_prove": [
+        "CAUSALITY",
+        "SPECIFIC_ATTEMPT_CAUSED"
+      ]
+    },
+    {
+      "capability_id": "urn:moirae:accord-02e4r2:evidence-capability:provider-acceptance",
+      "capability_version": "0.2",
+      "predicate_id": "urn:accord:02c:predicate:provider-acceptance",
+      "stage": "provider_accepted",
+      "kind": "POSITIVE_STAGE",
+      "supported_evidence_classes": [
+        "PROVIDER_ACCEPTANCE_RECEIPT"
+      ],
+      "required_proposition_bindings": [
+        "effect_id",
+        "predicate_id",
+        "stage",
+        "provider"
+      ],
+      "required_evidence_provenance_bindings": [],
+      "does_not_prove": [
+        "OCCURRENCE",
+        "CAUSALITY"
+      ]
+    },
+    {
+      "capability_id": "urn:moirae:accord-02e4r2:evidence-capability:complete-negative",
+      "capability_version": "0.2",
+      "predicate_id": "urn:accord:02c:predicate:complete-negative",
+      "stage": null,
+      "kind": "NEGATIVE_SCOPE",
+      "supported_evidence_classes": [
+        "COMPLETE_NEGATIVE_LEDGER_QUERY"
+      ],
+      "required_proposition_bindings": [
+        "effect_id",
+        "predicate_id"
+      ],
+      "required_evidence_provenance_bindings": [],
+      "does_not_prove": [
+        "OCCURRENCE",
+        "CAUSALITY"
+      ]
+    }
+  ],
+  "binding_composition": {
+    "registry_proposition_bindings": "AUTHORITATIVE",
+    "capability_required_proposition_bindings": "MUST_BE_SUBSET_COMPATIBLE_WITH_REGISTRY",
+    "capability_required_evidence_provenance_bindings": "ADDITIVE_AND_NON_PROPOSITIONAL",
+    "profile_evidence_class_requirements": "ADDITIVE_TO_CAPABILITY_WITHOUT_WEAKENING_REGISTRY",
+    "forbidden_intersection": "REQUIRED_PROPOSITION_BINDINGS_MAY_NOT_INTERSECT_NOT_APPLICABLE_BINDINGS"
+  }
+}

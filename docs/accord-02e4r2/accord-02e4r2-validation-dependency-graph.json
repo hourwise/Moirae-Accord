@@ -1,0 +1,471 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r2:schema:validation-dependency-graph:0.2",
+  "graph_id": "urn:moirae:accord-02e4r2:validation-dependency-graph",
+  "version": "0.2",
+  "node_inventory": [
+    "ORC-001",
+    "ORC-002",
+    "ORC-003",
+    "ARM-001",
+    "ARM-002",
+    "ARM-003",
+    "ARM-004",
+    "ARM-005",
+    "ARM-006",
+    "ARM-007",
+    "RAW-001",
+    "RAW-002",
+    "RAW-003",
+    "PROJ-001",
+    "PROJ-002",
+    "PROJ-003",
+    "PROJ-004",
+    "LIN-001",
+    "LIN-002",
+    "LIN-003",
+    "LIN-004",
+    "LIN-005",
+    "LIN-006",
+    "LIN-007",
+    "LIN-008",
+    "PROP-001",
+    "PROP-002",
+    "PROP-003",
+    "PROP-004",
+    "PROP-005",
+    "SCORE-001",
+    "SCORE-002",
+    "SCORE-003",
+    "BND-001",
+    "BND-002",
+    "BND-003",
+    "BND-004",
+    "BND-005",
+    "RUN-001",
+    "RUN-002",
+    "RUN-003",
+    "RUN-004",
+    "EXT-001",
+    "EXT-002",
+    "EXT-003",
+    "EXT-004",
+    "EXT-005",
+    "EXT-006",
+    "SRC-001",
+    "SRC-002",
+    "SRC-003",
+    "SRC-004",
+    "VIS-001",
+    "NORM-001",
+    "NORM-002",
+    "NORM-003",
+    "NORM-004",
+    "NORM-005",
+    "CLF-001",
+    "CLF-002",
+    "CLF-003",
+    "CLF-004",
+    "PRED-001",
+    "PRED-002",
+    "PRED-003",
+    "PRED-004",
+    "DIGEST-001",
+    "DIGEST-002",
+    "DIGEST-003",
+    "LIN-009",
+    "PROP-006",
+    "PKG-001",
+    "PKG-002",
+    "PROF-001",
+    "PROF-002",
+    "SCHEMA-001",
+    "SCHEMA-002",
+    "ROLE-001",
+    "DIGEST-CANON-001",
+    "DIGEST-CANON-002",
+    "DIGEST-CANON-003",
+    "SCENARIO-ID-001",
+    "E4R1-PRED-001",
+    "E4R1-PRED-002",
+    "E4R1-PRED-003",
+    "E4R1-AUTH-001",
+    "E4R1-BIND-001",
+    "E4R1-PROP-001",
+    "E4R1-PART-001",
+    "E4R1-PART-002",
+    "E4R1-PART-003",
+    "E4R1-NEG-001",
+    "E4R1-NEG-002",
+    "E4R1-ENT-001",
+    "E4R1-CANON-001",
+    "E4R1-EXPECT-001",
+    "E4R1-CLOSE-001",
+    "E4R2-REF-001",
+    "E4R2-CANON-001",
+    "E4R2-BIND-001",
+    "E4R2-NEG-001",
+    "E4R2-GRAPH-001",
+    "E4R2-PROFILE-001",
+    "E4R2-CLOSE-001"
+  ],
+  "edges": [
+    {
+      "from": "PKG-002",
+      "depends_on": [
+        "PKG-001"
+      ]
+    },
+    {
+      "from": "PROF-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ]
+    },
+    {
+      "from": "PROF-002",
+      "depends_on": [
+        "PROF-001"
+      ]
+    },
+    {
+      "from": "SCHEMA-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ]
+    },
+    {
+      "from": "SCHEMA-002",
+      "depends_on": [
+        "SCHEMA-001"
+      ]
+    },
+    {
+      "from": "ROLE-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001"
+      ]
+    },
+    {
+      "from": "DIGEST-CANON-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "SCHEMA-001"
+      ]
+    },
+    {
+      "from": "DIGEST-CANON-002",
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "SCHEMA-001"
+      ]
+    },
+    {
+      "from": "DIGEST-CANON-003",
+      "depends_on": [
+        "DIGEST-CANON-001"
+      ]
+    },
+    {
+      "from": "DIGEST-001",
+      "depends_on": [
+        "BND-004",
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002",
+        "DIGEST-CANON-003"
+      ]
+    },
+    {
+      "from": "SCENARIO-ID-001",
+      "depends_on": [
+        "PROF-001",
+        "CLF-001"
+      ]
+    },
+    {
+      "from": "BND-004",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "SCHEMA-001",
+        "SCHEMA-002"
+      ]
+    },
+    {
+      "from": "BND-005",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "PROF-002"
+      ]
+    },
+    {
+      "from": "E4R1-PRED-001",
+      "depends_on": [
+        "PRED-004",
+        "PKG-002"
+      ]
+    },
+    {
+      "from": "E4R1-PRED-002",
+      "depends_on": [
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "from": "E4R1-PRED-003",
+      "depends_on": [
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "from": "E4R1-AUTH-001",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-003"
+      ]
+    },
+    {
+      "from": "E4R1-BIND-001",
+      "depends_on": [
+        "PRED-001",
+        "PRED-002",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "from": "E4R1-PROP-001",
+      "depends_on": [
+        "SCHEMA-002",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "from": "E4R1-PART-001",
+      "depends_on": [
+        "E4R1-BIND-001",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "from": "E4R1-PART-002",
+      "depends_on": [
+        "E4R1-PART-001",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "from": "E4R1-PART-003",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "PKG-002"
+      ]
+    },
+    {
+      "from": "E4R1-NEG-001",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-BIND-001"
+      ]
+    },
+    {
+      "from": "E4R1-NEG-002",
+      "depends_on": [
+        "E4R1-NEG-001"
+      ]
+    },
+    {
+      "from": "E4R1-ENT-001",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-AUTH-001"
+      ]
+    },
+    {
+      "from": "E4R1-CANON-001",
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002"
+      ]
+    },
+    {
+      "from": "E4R1-EXPECT-001",
+      "depends_on": [
+        "PKG-002"
+      ]
+    },
+    {
+      "from": "E4R1-CLOSE-001",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-001",
+        "E4R1-PART-003",
+        "E4R1-CANON-001"
+      ]
+    },
+    {
+      "from": "E4R2-REF-001",
+      "depends_on": [
+        "PKG-002"
+      ]
+    },
+    {
+      "from": "E4R2-CANON-001",
+      "depends_on": [
+        "DIGEST-CANON-002"
+      ]
+    },
+    {
+      "from": "E4R2-BIND-001",
+      "depends_on": [
+        "E4R1-BIND-001"
+      ]
+    },
+    {
+      "from": "E4R2-NEG-001",
+      "depends_on": [
+        "E4R1-NEG-001"
+      ]
+    },
+    {
+      "from": "E4R2-GRAPH-001",
+      "depends_on": [
+        "E4R1-PART-003"
+      ]
+    },
+    {
+      "from": "E4R2-PROFILE-001",
+      "depends_on": [
+        "PKG-002"
+      ]
+    },
+    {
+      "from": "E4R2-CLOSE-001",
+      "depends_on": [
+        "E4R1-CLOSE-001",
+        "E4R2-REF-001",
+        "E4R2-CANON-001",
+        "E4R2-NEG-001",
+        "E4R2-GRAPH-001"
+      ]
+    }
+  ],
+  "validation_facts": [
+    "ORC-001_SATISFIED",
+    "ORC-002_SATISFIED",
+    "ORC-003_SATISFIED",
+    "ARM-001_SATISFIED",
+    "ARM-002_SATISFIED",
+    "ARM-003_SATISFIED",
+    "ARM-004_SATISFIED",
+    "ARM-005_SATISFIED",
+    "ARM-006_SATISFIED",
+    "ARM-007_SATISFIED",
+    "RAW-001_SATISFIED",
+    "RAW-002_SATISFIED",
+    "RAW-003_SATISFIED",
+    "PROJ-001_SATISFIED",
+    "PROJ-002_SATISFIED",
+    "PROJ-003_SATISFIED",
+    "PROJ-004_SATISFIED",
+    "LIN-001_SATISFIED",
+    "LIN-002_SATISFIED",
+    "LIN-003_SATISFIED",
+    "LIN-004_SATISFIED",
+    "LIN-005_SATISFIED",
+    "LIN-006_SATISFIED",
+    "LIN-007_SATISFIED",
+    "LIN-008_SATISFIED",
+    "PROP-001_SATISFIED",
+    "PROP-002_SATISFIED",
+    "PROP-003_SATISFIED",
+    "PROP-004_SATISFIED",
+    "PROP-005_SATISFIED",
+    "SCORE-001_SATISFIED",
+    "SCORE-002_SATISFIED",
+    "SCORE-003_SATISFIED",
+    "BND-001_SATISFIED",
+    "BND-002_SATISFIED",
+    "BND-003_SATISFIED",
+    "BND-004_SATISFIED",
+    "BND-005_SATISFIED",
+    "RUN-001_SATISFIED",
+    "RUN-002_SATISFIED",
+    "RUN-003_SATISFIED",
+    "RUN-004_SATISFIED",
+    "EXT-001_SATISFIED",
+    "EXT-002_SATISFIED",
+    "EXT-003_SATISFIED",
+    "EXT-004_SATISFIED",
+    "EXT-005_SATISFIED",
+    "EXT-006_SATISFIED",
+    "SRC-001_SATISFIED",
+    "SRC-002_SATISFIED",
+    "SRC-003_SATISFIED",
+    "SRC-004_SATISFIED",
+    "VIS-001_SATISFIED",
+    "NORM-001_SATISFIED",
+    "NORM-002_SATISFIED",
+    "NORM-003_SATISFIED",
+    "NORM-004_SATISFIED",
+    "NORM-005_SATISFIED",
+    "CLF-001_SATISFIED",
+    "CLF-002_SATISFIED",
+    "CLF-003_SATISFIED",
+    "CLF-004_SATISFIED",
+    "PRED-001_SATISFIED",
+    "PRED-002_SATISFIED",
+    "PRED-003_SATISFIED",
+    "PRED-004_SATISFIED",
+    "DIGEST-001_SATISFIED",
+    "DIGEST-002_SATISFIED",
+    "DIGEST-003_SATISFIED",
+    "LIN-009_SATISFIED",
+    "PROP-006_SATISFIED",
+    "PKG-001_SATISFIED",
+    "PKG-002_SATISFIED",
+    "PROF-001_SATISFIED",
+    "PROF-002_SATISFIED",
+    "SCHEMA-001_SATISFIED",
+    "SCHEMA-002_SATISFIED",
+    "ROLE-001_SATISFIED",
+    "DIGEST-CANON-001_SATISFIED",
+    "DIGEST-CANON-002_SATISFIED",
+    "DIGEST-CANON-003_SATISFIED",
+    "SCENARIO-ID-001_SATISFIED",
+    "E4R1-PRED-001_SATISFIED",
+    "E4R1-PRED-002_SATISFIED",
+    "E4R1-PRED-003_SATISFIED",
+    "E4R1-AUTH-001_SATISFIED",
+    "E4R1-BIND-001_SATISFIED",
+    "E4R1-PROP-001_SATISFIED",
+    "E4R1-PART-001_SATISFIED",
+    "E4R1-PART-002_SATISFIED",
+    "E4R1-PART-003_SATISFIED",
+    "E4R1-NEG-001_SATISFIED",
+    "E4R1-NEG-002_SATISFIED",
+    "E4R1-ENT-001_SATISFIED",
+    "E4R1-CANON-001_SATISFIED",
+    "E4R1-EXPECT-001_SATISFIED",
+    "E4R1-CLOSE-001_SATISFIED",
+    "E4R2-REF-001_SATISFIED",
+    "E4R2-CANON-001_SATISFIED",
+    "E4R2-BIND-001_SATISFIED",
+    "E4R2-NEG-001_SATISFIED",
+    "E4R2-GRAPH-001_SATISFIED",
+    "E4R2-PROFILE-001_SATISFIED",
+    "E4R2-CLOSE-001_SATISFIED"
+  ],
+  "acyclicity": {
+    "acceptance_critical": true,
+    "result": "COMPUTED_BY_CLOSURE_CHECKER",
+    "cycles": []
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "validator": {
+    "jsonschema": "4.26.0",
+    "rfc3339-validator": "0.1.4",
+    "rfc3987-syntax": "1.1.0",
+    "rfc8785": "0.1.4",
+    "python": "3.14"
+  },
+  "dialect": "Draft 2020-12",
+  "schema_contracts": 52,
+  "unique_schema_documents_loaded": 52,
+  "dialects_observed": {
+    "https://json-schema.org/draft/2020-12/schema": 52
+  },
+  "schema_errors": [],
+  "local_ref_errors": [],
+  "candidate_instance_errors": [],
+  "r2_profile_instance_checks": 4,
+  "inherited_profile_contracts_not_revalidated": [
+    "urn:moirae:accord-02r3:validation-rules:0.1",
+    "urn:moirae:accord-02r5:validation-rules:0.1",
+    "urn:moirae:accord-02d:experiment-profile",
+    "urn:moirae:accord-02r5:verifier:default:0.1",
+    "urn:moirae:accord-02a:trust-root:fixture-v1",
+    "urn:moirae:accord-02b:closed-set-static-v1",
+    "urn:moirae:accord-02b:disjoint-union-v1",
+    "urn:moirae:accord-02b:shared-pool-v1",
+    "urn:moirae:accord-02b:reserved-suballocation-v1",
+    "urn:moirae:accord-02b:mediated-analysis-v1",
+    "urn:moirae:accord-02b:event-time-v1",
+    "urn:moirae:accord-02b:workflow-unknown-v1",
+    "urn:moirae:accord-02b:explicit-inheritance-v1",
+    "urn:moirae:accord-02b:comparison-required-v1",
+    "urn:moirae:accord-02r1:settlement-vocabulary-map",
+    "urn:moirae:accord-02r3:extensions:0.1",
+    "urn:moirae:accord-02r3:source-schemas:0.1",
+    "urn:moirae:accord-02r3:role-visibility:0.1",
+    "urn:moirae:accord-02r3:normalization:arm-a:0.1",
+    "urn:moirae:accord-02r3:normalization:arm-b:0.1",
+    "urn:moirae:accord-02r3:normalization:arm-c:0.1",
+    "urn:moirae:accord-02r3:normalization:arm-d:0.1",
+    "urn:moirae:accord-02d:classifier-features:0.1",
+    "urn:moirae:accord-02r3:predicate-applicability:fixture-v1",
+    "urn:moirae:accord-02d:arm-input:durable:0.1",
+    "urn:moirae:accord-02d:arm-input:provider-observation:0.1",
+    "urn:moirae:accord-02d:arm-input:lightweight-classifier:0.1",
+    "urn:moirae:accord-02d:arm-input:accord-evidence:0.1"
+  ],
+  "digest_checks": [
+    {
+      "form": "ACCORD-02C-V001-DISPATCH-ONLY",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:d21a17e2df9de82c3b58e4ebd7ff57ee4b0cb854e0a9f3c507e4606288ee9628",
+      "actual": "sha-256:d21a17e2df9de82c3b58e4ebd7ff57ee4b0cb854e0a9f3c507e4606288ee9628",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:5c62a13410a8f286630819314b12242da57b15134fbc85fdfc45a89c61a00305",
+      "actual": "sha-256:5c62a13410a8f286630819314b12242da57b15134fbc85fdfc45a89c61a00305",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:74060af92edc83fa5290092c9ee2a043b8b1ee0228afc1e415aec4966e3fcd17",
+      "actual": "sha-256:74060af92edc83fa5290092c9ee2a043b8b1ee0228afc1e415aec4966e3fcd17",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:8685ca8fdabf3f3abf0bdc3847b5948610febc032a05a9e1df2d7072f4b0688f",
+      "actual": "sha-256:8685ca8fdabf3f3abf0bdc3847b5948610febc032a05a9e1df2d7072f4b0688f",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:1122d4feeaff3e94294bee4475eb077c9dff610ee5298a89c5b2a40c22004f65",
+      "actual": "sha-256:1122d4feeaff3e94294bee4475eb077c9dff610ee5298a89c5b2a40c22004f65",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V006-STALE-OBSERVATION",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:41a062290d5c30bceb0120201a67bad3dc5af85bcd95225eb485f050e531315e",
+      "actual": "sha-256:41a062290d5c30bceb0120201a67bad3dc5af85bcd95225eb485f050e531315e",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:1fa9cd8604d16ef83f03990cf4a833af35153d1fc590983e455ca2164131ef6b",
+      "actual": "sha-256:1fa9cd8604d16ef83f03990cf4a833af35153d1fc590983e455ca2164131ef6b",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:b6427c6ee3ee26bdaa4e54f2c7db2e04efa8f1fbbd6b4e3149eac24acfea4f64",
+      "actual": "sha-256:b6427c6ee3ee26bdaa4e54f2c7db2e04efa8f1fbbd6b4e3149eac24acfea4f64",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:b6e24275c8c5fff3fb9a652e0a82cb12c1a84ad3a3911cf1101de825bfae5815",
+      "actual": "sha-256:b6e24275c8c5fff3fb9a652e0a82cb12c1a84ad3a3911cf1101de825bfae5815",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:b840377519dc87aa603fd7b708d740482f6133ce900c5e1529ea9aebc0670912",
+      "actual": "sha-256:b840377519dc87aa603fd7b708d740482f6133ce900c5e1529ea9aebc0670912",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:48097fcd0bcde35b75a289b9fa0407988c7b3936cc53303fe5395b6371712f73",
+      "actual": "sha-256:48097fcd0bcde35b75a289b9fa0407988c7b3936cc53303fe5395b6371712f73",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:4607f6a446c9a5f6df6685ecbe3355d5b4666adaa09a7d5603292091ba5c1e9d",
+      "actual": "sha-256:4607f6a446c9a5f6df6685ecbe3355d5b4666adaa09a7d5603292091ba5c1e9d",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:0f4554c2bc158084dd1271928885d095bd721dc4e074cb55f5c19bd36548df3a",
+      "actual": "sha-256:0f4554c2bc158084dd1271928885d095bd721dc4e074cb55f5c19bd36548df3a",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:f8e84442d14ee1623a295631e9f13a91cc15047279ff316138bab074a5fc17c8",
+      "actual": "sha-256:f8e84442d14ee1623a295631e9f13a91cc15047279ff316138bab074a5fc17c8",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:1ec15a87c83ac079188e0ccaf7fe90a247d9f17c35265b0fd243ada0d65ae225",
+      "actual": "sha-256:1ec15a87c83ac079188e0ccaf7fe90a247d9f17c35265b0fd243ada0d65ae225",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:6de81b0d4249d0cfc360f5059d3fb5fdc153de16fbc1478ab15cb062dee243c0",
+      "actual": "sha-256:6de81b0d4249d0cfc360f5059d3fb5fdc153de16fbc1478ab15cb062dee243c0",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:2f93aeef36c209f9135339092c93b6d1cef7025aba519a77c3749b2dd19b472d",
+      "actual": "sha-256:2f93aeef36c209f9135339092c93b6d1cef7025aba519a77c3749b2dd19b472d",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:45b634efb5faf663fb99d0b71cd0f6404be332ff1e03e82dea62452d92cbc6b2",
+      "actual": "sha-256:45b634efb5faf663fb99d0b71cd0f6404be332ff1e03e82dea62452d92cbc6b2",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:44e8c92e511939484961c7ec185150f57ff24b259655b28f7744b5939aefcad7",
+      "actual": "sha-256:44e8c92e511939484961c7ec185150f57ff24b259655b28f7744b5939aefcad7",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:f56d8b9b304126448a0288a83ef505bbe77943a499766080d2052292a449f24a",
+      "actual": "sha-256:f56d8b9b304126448a0288a83ef505bbe77943a499766080d2052292a449f24a",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:706ad693999c9c04a3c2d822b84a2834cb5275bb3fdf199ee46bdd8142eb6656",
+      "actual": "sha-256:706ad693999c9c04a3c2d822b84a2834cb5275bb3fdf199ee46bdd8142eb6656",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:00da77e35b87c10e9ea553b533eff24c5bc0e4fae514a1c570829999061d7c8c",
+      "actual": "sha-256:00da77e35b87c10e9ea553b533eff24c5bc0e4fae514a1c570829999061d7c8c",
+      "match": true
+    },
+    {
+      "form": "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "expected": "sha-256:b6758076cf92d4a000db05c35b67e908dc0bfa501f221dced6c99c273972f769",
+      "actual": "sha-256:b6758076cf92d4a000db05c35b67e908dc0bfa501f221dced6c99c273972f769",
+      "match": true
+    },
+    {
+      "form": "settlement-vector-catalog",
+      "mapping": "RECORD_EXCLUDING_INTEGRITY",
+      "expected": "sha-256:f4b9f0a309379dbd80385c41b9589c6c7d17409e5741b42a0ae8d575d99f47fd",
+      "actual": "sha-256:f4b9f0a309379dbd80385c41b9589c6c7d17409e5741b42a0ae8d575d99f47fd",
+      "match": true
+    }
+  ],
+  "digest_mapping_errors": [],
+  "status": "PASS",
+  "scope": "standards-capable Draft 2020-12 schema checks and RFC 8785 digest checks; no empirical or runtime claim"
+}

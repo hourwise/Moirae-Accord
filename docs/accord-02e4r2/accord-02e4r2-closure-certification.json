@@ -1,0 +1,296 @@
+{
+  "candidate": "ACCORD-02E4R2",
+  "package": {
+    "id": "urn:moirae:accord-02e4r2:specification-package",
+    "version": "0.2",
+    "policy": "CLOSED_EXACT_VERSION"
+  },
+  "inventory": {
+    "schema_contracts": 52,
+    "profile_contracts": 32,
+    "canonicalization_profiles": 1,
+    "roles": 9,
+    "source_schema_pairs": 13,
+    "active_rules": 104,
+    "graph_nodes": 104,
+    "graph_edges": 35
+  },
+  "closure_errors": [],
+  "reference_resolution": {
+    "total_non_null": 228,
+    "resolved": 228,
+    "unresolved": 0,
+    "nullable_optional_slots": 0
+  },
+  "canonicalization_errors": [],
+  "binding_errors": [],
+  "negative_scope_errors": [],
+  "graph_errors": [],
+  "adversarial": {
+    "total": 20,
+    "detected": 20,
+    "undetected": 0,
+    "all_expected_failures_detected": true,
+    "cases": [
+      {
+        "mutation_id": "REF-ADV-E4-NAMESPACE",
+        "mutation": "replace an R2 contract ID with the historical E4 namespace",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "/active_profile_references/0:MISSING"
+        ]
+      },
+      {
+        "mutation_id": "REF-ADV-AT-VERSION",
+        "mutation": "encode version as @0.2 instead of an explicit version",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "INVALID_REFERENCE_SHAPE"
+        ]
+      },
+      {
+        "mutation_id": "REF-ADV-VERSIONLESS",
+        "mutation": "remove a required reference version",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "MISSING_VERSION"
+        ]
+      },
+      {
+        "mutation_id": "REF-ADV-GARBAGE",
+        "mutation": "replace dependency graph contract with garbage URN",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "MISSING"
+        ]
+      },
+      {
+        "mutation_id": "REF-ADV-CASE",
+        "mutation": "change contract ID case",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "MISSING"
+        ]
+      },
+      {
+        "mutation_id": "CANON-ADV-TARGET",
+        "mutation": "replace a declared target with an unknown target",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET",
+          "UNKNOWN_CONTENT_TARGET"
+        ]
+      },
+      {
+        "mutation_id": "CANON-ADV-PATH",
+        "mutation": "replace excluded digest path with an undeclared path",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V001-DISPATCH-ONLY",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V006-STALE-OBSERVATION",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V009-REPLAYED-EVIDENCE",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V019-CLOCK-AMBIGUITY",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V021-RECIPIENT-MISMATCH",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V022-PARTIAL-CORRUPTION",
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE"
+        ]
+      },
+      {
+        "mutation_id": "CANON-ADV-DUPLICATE",
+        "mutation": "duplicate a concrete mapping",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "DUPLICATE_CANONICALIZATION_MAPPING"
+        ]
+      },
+      {
+        "mutation_id": "CANON-ADV-ALGORITHM",
+        "mutation": "replace SHA-256 with an unsupported algorithm",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "UNSUPPORTED_CANONICALIZATION_ALGORITHM"
+        ]
+      },
+      {
+        "mutation_id": "CANON-ADV-DIGEST",
+        "mutation": "alter a stored proposition digest",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "PROPOSITION_DIGEST_MISMATCH:ACCORD-02C-V001-DISPATCH-ONLY",
+          "CATALOG_DIGEST_MISMATCH"
+        ]
+      },
+      {
+        "mutation_id": "BIND-ADV-RECIPIENT",
+        "mutation": "remove recipient binding from recipient acknowledgement",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "RECIPIENT_ACK_REQUIREMENT_MISSING"
+        ]
+      },
+      {
+        "mutation_id": "BIND-ADV-FORBIDDEN",
+        "mutation": "make generic occurrence capability require recipient",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "CAPABILITY_FORBIDDEN_PROPOSITION_BINDING:('urn:accord:02c:predicate:external-effect', 'effect')"
+        ]
+      },
+      {
+        "mutation_id": "BIND-ADV-PROVENANCE",
+        "mutation": "mislabel observer identity as proposition binding",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "PROVENANCE_IN_PROPOSITION_BINDINGS:('urn:accord:02c:predicate:external-effect', 'effect')"
+        ]
+      },
+      {
+        "mutation_id": "NEG-ADV-MISSING-REQUIREMENT",
+        "mutation": "remove one negative-scope map requirement",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "NEGATIVE_REQUIREMENT_ID_SET_MISMATCH"
+        ]
+      },
+      {
+        "mutation_id": "NEG-ADV-STALE",
+        "mutation": "mark V013 trace stale",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "V013_REQUIREMENT_NOT_SATISFIED"
+        ]
+      },
+      {
+        "mutation_id": "NEG-ADV-WRONG-PREDICATE",
+        "mutation": "change the V013 observed predicate binding",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "V013_REQUIREMENT_NOT_SATISFIED"
+        ]
+      },
+      {
+        "mutation_id": "NEG-ADV-INCOMPLETE-SOURCE",
+        "mutation": "remove complete-read source satisfaction",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "V013_REQUIREMENT_NOT_SATISFIED"
+        ]
+      },
+      {
+        "mutation_id": "GRAPH-ADV-CYCLE",
+        "mutation": "add a self dependency to the active graph",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "CYCLE:ORC-001"
+        ]
+      },
+      {
+        "mutation_id": "GRAPH-ADV-MISSING",
+        "mutation": "remove an active node from the graph",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "ACTIVE_RULE_NODE_SET_MISMATCH"
+        ]
+      },
+      {
+        "mutation_id": "PROFILE-ADV-SCOPE",
+        "mutation": "remove explicit profile digest scope",
+        "expected_failure": true,
+        "detected": true,
+        "failure_codes": [
+          "PROFILE_DIGEST_SCOPE_MISSING"
+        ]
+      }
+    ]
+  },
+  "rule_execution": {
+    "overlay_rules": 22,
+    "all_self_checked": true
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,184 @@
+{
+  "map_id": "urn:moirae:accord-02e4r2:contract:negative-requirement-map",
+  "version": "0.2",
+  "authority": "NORMATIVE_NEGATIVE_SCOPE_CONTRACT",
+  "requirements": [
+    {
+      "requirement_id": "COMPLETE_STATE_SPACE",
+      "proposition_fields": [
+        "/scope/state_space"
+      ],
+      "evidence_fields": [
+        "/read_scope_complete"
+      ],
+      "profile_fields": [
+        "/completeness/default_assumption"
+      ],
+      "validator_condition": "proposition.scope.state_space == COMPLETE and evidence.read_scope_complete == true",
+      "failure_code": "NEGATIVE_SCOPE_INCOMPLETE"
+    },
+    {
+      "requirement_id": "IDENTITY_BOUND",
+      "proposition_fields": [
+        "/effect_id",
+        "/negated_predicate_id",
+        "/negated_stage"
+      ],
+      "evidence_fields": [
+        "/effect_id",
+        "/predicate_id",
+        "/stage"
+      ],
+      "profile_fields": [
+        "/identity_bindings"
+      ],
+      "validator_condition": "effect and exact negated tuple are equal",
+      "failure_code": "NEGATIVE_SCOPE_IDENTITY_MISMATCH"
+    },
+    {
+      "requirement_id": "PREDICATE_BOUND",
+      "proposition_fields": [
+        "/negated_predicate_id"
+      ],
+      "evidence_fields": [
+        "/predicate_id"
+      ],
+      "profile_fields": [
+        "/negative_evidence/complete_query_requirements"
+      ],
+      "validator_condition": "evidence predicate equals proposition.negated_predicate_id",
+      "failure_code": "NEGATIVE_SCOPE_PREDICATE_MISMATCH"
+    },
+    {
+      "requirement_id": "STAGE_BOUND",
+      "proposition_fields": [
+        "/negated_stage"
+      ],
+      "evidence_fields": [
+        "/stage"
+      ],
+      "profile_fields": [
+        "/negative_evidence/scope_binding"
+      ],
+      "validator_condition": "evidence stage equals proposition.negated_stage",
+      "failure_code": "NEGATIVE_SCOPE_STAGE_MISMATCH"
+    },
+    {
+      "requirement_id": "RESOURCE_ACTION_RECIPIENT_PROVIDER_SCOPE",
+      "proposition_fields": [
+        "/scope/resource_binding",
+        "/scope/action_binding",
+        "/scope/recipient_binding",
+        "/scope/provider_binding"
+      ],
+      "evidence_fields": [
+        "/resource_binding",
+        "/action_binding",
+        "/recipient_binding",
+        "/provider_binding"
+      ],
+      "profile_fields": [
+        "/negative_evidence/scope_binding"
+      ],
+      "validator_condition": "each applicable dimension is exact or explicitly NOT_APPLICABLE",
+      "failure_code": "NEGATIVE_SCOPE_DIMENSION_UNBOUND"
+    },
+    {
+      "requirement_id": "INTERVAL_BOUND",
+      "proposition_fields": [
+        "/scope/not_before",
+        "/scope/as_of"
+      ],
+      "evidence_fields": [
+        "/observed_interval/not_before",
+        "/observed_interval/as_of"
+      ],
+      "profile_fields": [
+        "/negative_scope_contracts/0/interval"
+      ],
+      "validator_condition": "RFC3339 interval is present and query covers it",
+      "failure_code": "NEGATIVE_SCOPE_INTERVAL_UNBOUND"
+    },
+    {
+      "requirement_id": "RETENTION_DECLARED",
+      "proposition_fields": [
+        "/scope/retention_window_seconds"
+      ],
+      "evidence_fields": [
+        "/retention_window_seconds"
+      ],
+      "profile_fields": [
+        "/negative_scope_contracts/0/retention"
+      ],
+      "validator_condition": "evidence retention window covers query interval",
+      "failure_code": "NEGATIVE_SCOPE_RETENTION_UNDECLARED"
+    },
+    {
+      "requirement_id": "CONSISTENCY_DECLARED",
+      "proposition_fields": [
+        "/scope/consistency_level"
+      ],
+      "evidence_fields": [
+        "/consistency_level"
+      ],
+      "profile_fields": [
+        "/negative_scope_contracts/0/consistency"
+      ],
+      "validator_condition": "evidence consistency level meets profile",
+      "failure_code": "NEGATIVE_SCOPE_CONSISTENCY_UNDECLARED"
+    },
+    {
+      "requirement_id": "COMPLETE_READ_SEMANTICS",
+      "proposition_fields": [
+        "/scope/read_semantics"
+      ],
+      "evidence_fields": [
+        "/read_semantics"
+      ],
+      "profile_fields": [
+        "/negative_scope_contracts/0/accepted_source_class"
+      ],
+      "validator_condition": "source is COMPLETE_NEGATIVE_LEDGER_QUERY and read semantics is complete",
+      "failure_code": "NEGATIVE_SCOPE_READ_INCOMPLETE"
+    },
+    {
+      "requirement_id": "FRESH_AT_VERIFICATION",
+      "proposition_fields": [
+        "/scope/freshness_max_age_seconds"
+      ],
+      "evidence_fields": [
+        "/observed_at",
+        "/verification_time"
+      ],
+      "profile_fields": [
+        "/negative_scope_contracts/0/freshness"
+      ],
+      "validator_condition": "verification_time - observed_at <= freshness_max_age_seconds",
+      "failure_code": "NEGATIVE_SCOPE_STALE"
+    },
+    {
+      "requirement_id": "NO_CONTRADICTORY_EVIDENCE",
+      "proposition_fields": [],
+      "evidence_fields": [
+        "/contradictory_positive_evidence_count"
+      ],
+      "profile_fields": [
+        "/negative_scope_contracts/0/contradictory_evidence"
+      ],
+      "validator_condition": "validator computes admissible positive evidence count == 0",
+      "failure_code": "NEGATIVE_SCOPE_CONTRADICTORY"
+    },
+    {
+      "requirement_id": "ACCEPTED_COMPLETE_SOURCE_CLASS",
+      "proposition_fields": [],
+      "evidence_fields": [
+        "/evidence_class"
+      ],
+      "profile_fields": [
+        "/negative_scope_contracts/0/accepted_source_class"
+      ],
+      "validator_condition": "evidence_class == COMPLETE_NEGATIVE_LEDGER_QUERY",
+      "failure_code": "NEGATIVE_SCOPE_SOURCE_CLASS_INVALID"
+    }
+  ]
+}

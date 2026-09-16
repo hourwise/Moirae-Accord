@@ -1,0 +1,32 @@
+{
+  "package_id": "urn:moirae:accord-02e4r2:specification-package",
+  "package_version": "0.2",
+  "coverage": {
+    "schema_contracts": {
+      "active_references": 13,
+      "packaged": 13,
+      "missing": 0
+    },
+    "profile_contracts": {
+      "active_references": 20,
+      "packaged": 20,
+      "missing": 0,
+      "versionless": 0
+    },
+    "roles": {
+      "vocabulary": 9,
+      "unknown": 0
+    },
+    "canonicalization_mappings": {
+      "concrete": 52,
+      "schema_contracts_packaged": 40,
+      "unresolved": 0
+    },
+    "validation_rules": {
+      "active": 104,
+      "graph_nodes": 104,
+      "missing_graph_nodes": 0
+    }
+  },
+  "acceptance_critical_missing": 0
+}

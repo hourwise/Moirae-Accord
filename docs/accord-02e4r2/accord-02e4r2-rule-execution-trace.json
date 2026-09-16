@@ -1,0 +1,363 @@
+{
+  "overlay_rule_count": 22,
+  "rules": [
+    {
+      "rule_id": "E4R1-PRED-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "PRED",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-01-duplicate-registry-tuple",
+        "R1-ADV-02-conflicting-registry-tuple",
+        "R1-ADV-18-lexical-predicate-lookalike"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "PRED",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-01-duplicate-registry-tuple",
+        "R1-ADV-02-conflicting-registry-tuple",
+        "R1-ADV-18-lexical-predicate-lookalike"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "PRED",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-01-duplicate-registry-tuple",
+        "R1-ADV-02-conflicting-registry-tuple",
+        "R1-ADV-18-lexical-predicate-lookalike"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "AUTH",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-18-lexical-predicate-lookalike"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "BIND",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-12-binding-authority-contradiction",
+        "R1-ADV-13-supported-without-capability"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "PROP",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-01-duplicate-registry-tuple",
+        "R1-ADV-06-unknown-schema-path"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "PART",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-03-dangling-predecessor",
+        "R1-ADV-04-self-edge",
+        "R1-ADV-05-cycle"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "PART",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-03-dangling-predecessor",
+        "R1-ADV-04-self-edge",
+        "R1-ADV-05-cycle"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "PART",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-03-dangling-predecessor",
+        "R1-ADV-04-self-edge",
+        "R1-ADV-05-cycle"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "NEG",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-12-binding-authority-contradiction"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "NEG",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-12-binding-authority-contradiction"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "ENT",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-18-lexical-predicate-lookalike"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "CANON",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-11-conflicting-canonicalization"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "EXPECT",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-16-dropped-must-not-conclude",
+        "R1-ADV-17-altered-accepted-expectation"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "inputs": [
+        "docs/accord-02e4r1/accord-02e4r1-adversarial-package-mutations.json",
+        "docs/accord-02e4r1/accord-02e4r1-full-expectation-stability.json"
+      ],
+      "actual_check": "CLOSE",
+      "result": "PASS",
+      "mutation_ids": [
+        "R1-ADV-01-duplicate-registry-tuple",
+        "R1-ADV-02-conflicting-registry-tuple",
+        "R1-ADV-03-dangling-predecessor",
+        "R1-ADV-04-self-edge",
+        "R1-ADV-05-cycle",
+        "R1-ADV-06-unknown-schema-path",
+        "R1-ADV-07-path-traversal",
+        "R1-ADV-08-duplicate-profile",
+        "R1-ADV-09-duplicate-schema",
+        "R1-ADV-10-stale-base-digest",
+        "R1-ADV-11-conflicting-canonicalization",
+        "R1-ADV-12-binding-authority-contradiction",
+        "R1-ADV-13-supported-without-capability",
+        "R1-ADV-14-wrong-profile-version",
+        "R1-ADV-15-versionless-vector-profile",
+        "R1-ADV-16-dropped-must-not-conclude",
+        "R1-ADV-17-altered-accepted-expectation",
+        "R1-ADV-18-lexical-predicate-lookalike"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "inputs": [
+        "R2 package",
+        "declared contract inventory",
+        "measured closure predicates"
+      ],
+      "actual_check": "REF",
+      "result": "PASS",
+      "mutation_ids": [
+        "REF-ADV-E4-NAMESPACE",
+        "REF-ADV-AT-VERSION",
+        "REF-ADV-VERSIONLESS",
+        "REF-ADV-GARBAGE",
+        "REF-ADV-CASE"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "inputs": [
+        "R2 package",
+        "declared contract inventory",
+        "measured closure predicates"
+      ],
+      "actual_check": "CANON",
+      "result": "PASS",
+      "mutation_ids": [
+        "CANON-ADV-TARGET",
+        "CANON-ADV-PATH",
+        "CANON-ADV-DUPLICATE",
+        "CANON-ADV-ALGORITHM",
+        "CANON-ADV-DIGEST"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "inputs": [
+        "R2 package",
+        "declared contract inventory",
+        "measured closure predicates"
+      ],
+      "actual_check": "BIND",
+      "result": "PASS",
+      "mutation_ids": [
+        "BIND-ADV-RECIPIENT",
+        "BIND-ADV-FORBIDDEN",
+        "BIND-ADV-PROVENANCE"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "inputs": [
+        "R2 package",
+        "declared contract inventory",
+        "measured closure predicates"
+      ],
+      "actual_check": "NEG",
+      "result": "PASS",
+      "mutation_ids": [
+        "NEG-ADV-MISSING-REQUIREMENT",
+        "NEG-ADV-STALE",
+        "NEG-ADV-WRONG-PREDICATE",
+        "NEG-ADV-INCOMPLETE-SOURCE"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "inputs": [
+        "R2 package",
+        "declared contract inventory",
+        "measured closure predicates"
+      ],
+      "actual_check": "GRAPH",
+      "result": "PASS",
+      "mutation_ids": [
+        "GRAPH-ADV-CYCLE",
+        "GRAPH-ADV-MISSING"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "inputs": [
+        "R2 package",
+        "declared contract inventory",
+        "measured closure predicates"
+      ],
+      "actual_check": "PROFILE",
+      "result": "PASS",
+      "mutation_ids": [
+        "PROFILE-ADV-SCOPE"
+      ],
+      "mutation_detected": true
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "inputs": [
+        "R2 package",
+        "declared contract inventory",
+        "measured closure predicates"
+      ],
+      "actual_check": "CLOSE",
+      "result": "PASS",
+      "mutation_ids": [
+        "REF-ADV-E4-NAMESPACE",
+        "REF-ADV-AT-VERSION",
+        "REF-ADV-VERSIONLESS",
+        "REF-ADV-GARBAGE",
+        "REF-ADV-CASE",
+        "CANON-ADV-TARGET",
+        "CANON-ADV-PATH",
+        "CANON-ADV-DUPLICATE",
+        "CANON-ADV-ALGORITHM",
+        "CANON-ADV-DIGEST",
+        "BIND-ADV-RECIPIENT",
+        "BIND-ADV-FORBIDDEN",
+        "BIND-ADV-PROVENANCE",
+        "NEG-ADV-MISSING-REQUIREMENT",
+        "NEG-ADV-STALE",
+        "NEG-ADV-WRONG-PREDICATE",
+        "NEG-ADV-INCOMPLETE-SOURCE",
+        "GRAPH-ADV-CYCLE",
+        "GRAPH-ADV-MISSING"
+      ],
+      "mutation_detected": true
+    }
+  ],
+  "all_rules_self_checked": true
+}
