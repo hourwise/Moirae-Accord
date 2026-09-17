@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:vector-catalog:0.2",
+  "title": "ACCORD-02E4R4 vector-catalog semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "catalog_id",
+    "catalog_version",
+    "source_catalog_binding_id",
+    "classification_policy",
+    "vectors",
+    "classification_evidence"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r4:"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "catalog_version": {
+      "const": "0.2"
+    },
+    "source_catalog_binding_id": {
+      "type": "string"
+    },
+    "classification_policy": {
+      "const": "ACCEPTED_0_1_DECLARATIVE_EXPECTATIONS"
+    },
+    "vectors": {
+      "type": "array",
+      "minItems": 23,
+      "maxItems": 23,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "vector_id",
+          "classification",
+          "expected"
+        ],
+        "properties": {
+          "vector_id": {
+            "type": "string"
+          },
+          "classification": {
+            "const": "DECLARATIVE_EXPECTATION_VECTOR"
+          },
+          "expected": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "classification_evidence": {
+      "type": "array",
+      "minItems": 23,
+      "maxItems": 23
+    },
+    "synthetic_executable_fixtures": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:source-catalog-binding:0.2",
+  "title": "ACCORD-02E4R4 source-catalog-binding semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "binding_id",
+    "binding_version",
+    "assigned_object_id",
+    "assigned_object_version",
+    "identity_assignment",
+    "repository_root_path",
+    "digest_algorithm",
+    "digest_scope",
+    "raw_sha256"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r4:"
+    },
+    "binding_id": {
+      "type": "string"
+    },
+    "binding_version": {
+      "const": "0.2"
+    },
+    "assigned_object_id": {
+      "type": "string"
+    },
+    "assigned_object_version": {
+      "type": "string"
+    },
+    "identity_assignment": {
+      "const": "PACKAGE_EXTERNAL_MEMBER_BINDING_NOT_HISTORICAL_SELF_ASSERTION"
+    },
+    "repository_root_path": {
+      "type": "string",
+      "minLength": 1,
+      "x-normative-reference": {
+        "reference_kind": "RAW_BYTE_EXTERNAL_MEMBER"
+      }
+    },
+    "digest_algorithm": {
+      "const": "SHA-256"
+    },
+    "digest_scope": {
+      "const": "RAW_BYTES"
+    },
+    "raw_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "additionalProperties": false
+}

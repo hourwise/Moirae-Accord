@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:phase-a-diagnosis:0.2",
+  "phase": "A_READ_ONLY_DIAGNOSIS",
+  "validator": {
+    "implementation": "jsonschema",
+    "version": "4.26.0",
+    "dialect": "Draft 2020-12",
+    "format_checker": true
+  },
+  "e4r3_active_effective_instances": 45,
+  "e4r3_schema_documents": 97,
+  "e4r3_validation_errors": 221,
+  "e4r3_duplicate_oneof_locations": 16,
+  "e4r3_single_value_enums": 1965,
+  "duplicate_oneof": [
+    {"schema":"urn:moirae:accord-02e4r3:schema:predicate-registry:0.2","pointer":"/properties/entries/items/properties/negative_scope_contract_ref/oneOf","branches":6,"duplicate_groups":1},
+    {"schema":"urn:moirae:accord-02e4r3:schema:settlement-vector-catalog:0.2","pointer":"/properties/vectors/items/properties/target/properties/applicability/properties/stage/oneOf","branches":23,"duplicate_groups":3},
+    {"schema":"urn:moirae:accord-02e4r3:schema:settlement-vector-catalog:0.2","pointer":"/properties/vectors/items/properties/target/properties/proposition/properties/stage/oneOf","branches":23,"duplicate_groups":3},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-05:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-06:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-07:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-08:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-09:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-10:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-11:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-12:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-13:0.2","pointer":"/properties/vectors/items/properties/child_grant/properties/resources/items/oneOf","branches":10,"duplicate_groups":2},
+    {"schema":"urn:moirae:accord-02e4r3:schema:effective-profile-31:0.2","pointer":"/properties/entries/items/properties/negative_scope_contract_ref/oneOf","branches":6,"duplicate_groups":1},
+    {"schema":"urn:moirae:accord-02e4r3:schema:specification-package:0.2","pointer":"/properties/profile_contracts/items/properties/overlay_contract_id/oneOf","branches":31,"duplicate_groups":1},
+    {"schema":"urn:moirae:accord-02e4r3:schema:specification-package:0.2","pointer":"/properties/profile_contracts/items/properties/selector/oneOf","branches":31,"duplicate_groups":1},
+    {"schema":"urn:moirae:accord-02e4r3:schema:specification-package:0.2","pointer":"/properties/schema_contracts/items/properties/canonicalization_profile_id/oneOf","branches":44,"duplicate_groups":2}
+  ],
+  "other_reproductions": {
+    "operator_count": 20,
+    "operators_with_vacuous_object_operand_schema": 20,
+    "active_rules": 104,
+    "unique_declared_assertion_tokens": 100,
+    "e4r2_namespace_occurrences_in_e4r3_json": 171,
+    "predicate_identity_collision": true,
+    "source_catalog_raw_digest_absent": true,
+    "v013_target_identity_mismatch": true,
+    "e4r3_certifier_oneof_any_match_behavior": true,
+    "e4r3_rule_trace_global_pass_assignment": true
+  },
+  "accepted_vector_scope": {
+    "classification": "23_DECLARATIVE_EXPECTATION_VECTOR",
+    "accepted_basis": [
+      "ACCORD-02C-SETTLEMENT-CONFORMANCE-VECTORS.md calls them offline candidate vectors and fixture claims",
+      "ACCORD-02C-EFFECT-SETTLEMENT-MODEL.md states the slice is a contract for later implementation, not an implementation"
+    ],
+    "candidate_synthetic_executable_fixture": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+  },
+  "consistency_gate": "PASS"
+}

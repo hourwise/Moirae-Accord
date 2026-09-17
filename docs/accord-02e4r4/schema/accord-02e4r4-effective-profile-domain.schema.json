@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:effective-profile-domain:0.2",
+  "title": "Reusable effective profile semantic domain",
+  "type": "object",
+  "minProperties": 1,
+  "not": {
+    "required": [
+      "e4r4_forbidden_active_rejected_candidate"
+    ]
+  }
+}

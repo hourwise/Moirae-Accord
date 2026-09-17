@@ -1,0 +1,309 @@
+{
+  "battery": "FRESH_ACTUAL_CERTIFICATION_MUTATIONS",
+  "cases": [
+    {
+      "mutation": "INVALID_DOMAIN_VALUE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "STANDARDS_VALIDATION",
+        "SCHEMAS_VALID",
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "MISSING_REQUIRED_FIELD",
+      "result": "REJECTED",
+      "detected_errors": [
+        "STANDARDS_VALIDATION",
+        "SCHEMAS_VALID",
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "DUPLICATE_ID_DIFFERENT_BYTES",
+      "result": "REJECTED",
+      "detected_errors": [
+        "IDENTITY_UNIQUE",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "UNREGISTERED_SELF_DECLARED_ID",
+      "result": "REJECTED",
+      "detected_errors": [
+        "PREDICATE_REGISTRY_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "REJECTED_CANDIDATE_ACTIVE_REFERENCE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "IDENTITY_UNIQUE",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "UNKNOWN_OPERATOR",
+      "result": "REJECTED",
+      "detected_errors": [
+        "OPERATORS_TYPED",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "MALFORMED_OPERAND",
+      "result": "REJECTED",
+      "detected_errors": [
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "MISSING_OPERAND",
+      "result": "REJECTED",
+      "detected_errors": [
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "EXTRA_INVALID_OPERAND",
+      "result": "REJECTED",
+      "detected_errors": [
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "UNDEFINED_ASSERTION",
+      "result": "REJECTED",
+      "detected_errors": [
+        "OPERATORS_TYPED",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "WRONG_OPERAND_TYPE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "RULE_OPERATOR_CHANGED",
+      "result": "REJECTED",
+      "detected_errors": [
+        "OPERATORS_TYPED",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "RULE_OMITTED",
+      "result": "REJECTED",
+      "detected_errors": [
+        "GRAPH_EQUAL",
+        "RULES_WELL_FORMED",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "DEPENDENCY_CHANGED",
+      "result": "REJECTED",
+      "detected_errors": [
+        "GRAPH_EQUAL",
+        "RULES_WELL_FORMED",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "GRAPH_MISMATCH",
+      "result": "REJECTED",
+      "detected_errors": [
+        "GRAPH_EQUAL",
+        "RULES_WELL_FORMED",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_WRONG_EFFECT",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_WRONG_PREDICATE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_WRONG_STAGE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_WRONG_RESOURCE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_NA_FOR_CONCRETE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_INSUFFICIENT_RETENTION",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_STALE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_WRONG_SOURCE_CLASS",
+      "result": "REJECTED",
+      "detected_errors": [
+        "STANDARDS_VALIDATION",
+        "SCHEMAS_VALID",
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_SAME_TARGET_POSITIVE",
+      "result": "REJECTED",
+      "detected_errors": [
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_DUPLICATE_CONTRADICTION",
+      "result": "REJECTED",
+      "detected_errors": [
+        "STANDARDS_VALIDATION",
+        "SCHEMAS_VALID",
+        "V013_VALID",
+        "BINDINGS_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "V013_IRRELEVANT_DIFFERENT_TARGET_POSITIVE",
+      "result": "ACCEPTED_AS_IRRELEVANT",
+      "detected_errors": []
+    },
+    {
+      "mutation": "SOURCE_ONE_BYTE_CHANGED_SIMULATED_WRONG_DIGEST",
+      "result": "REJECTED",
+      "detected_errors": [
+        "DIGESTS_VALID",
+        "SOURCE_CATALOG_BOUND",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "SOURCE_WRONG_DIGEST",
+      "result": "REJECTED",
+      "detected_errors": [
+        "DIGESTS_VALID",
+        "SOURCE_CATALOG_BOUND",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "SOURCE_WRONG_VECTOR_ID",
+      "result": "REJECTED",
+      "detected_errors": [
+        "EXPECTATIONS_STABLE",
+        "CANONICALIZATION_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "CANON_INCLUDE_EXCLUDE_CHANGED",
+      "result": "REJECTED",
+      "detected_errors": [
+        "CANONICALIZATION_VALID",
+        "RULE_EXECUTION"
+      ],
+      "expected_fragment": null
+    },
+    {
+      "mutation": "DUPLICATE_ONEOF_BRANCH",
+      "result": "REJECTED",
+      "validator": "Draft202012Validator",
+      "error": "'x' is valid under each of {'type': 'string'}, {'type': 'string'}"
+    },
+    {
+      "mutation": "SEMANTICALLY_VALID_ALTERNATE_EVIDENCE_VALUES",
+      "result": "ACCEPTED",
+      "errors": []
+    }
+  ],
+  "case_count": 32,
+  "passed": 32,
+  "failed": 0,
+  "result": "PASS"
+}

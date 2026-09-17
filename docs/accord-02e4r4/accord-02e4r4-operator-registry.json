@@ -1,0 +1,598 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:operator-registry:0.2",
+  "registry_id": "urn:moirae:accord-02e4r4:operator-registry",
+  "registry_version": "0.2",
+  "primitive_vocabulary": [
+    "ASSERTION_EXPRESSION",
+    "BINDINGS_VALID",
+    "CANONICALIZATION_VALID",
+    "DIGESTS_VALID",
+    "EXPECTATIONS_STABLE",
+    "GRAPH_EQUAL",
+    "IDENTITY_UNIQUE",
+    "OPERATORS_TYPED",
+    "PACKAGE_CANDIDATE",
+    "PREDICATE_REGISTRY_VALID",
+    "PROFILES_VALID",
+    "REFERENCES_CLOSED",
+    "RULES_WELL_FORMED",
+    "SCHEMAS_VALID",
+    "SOURCE_CATALOG_BOUND",
+    "V013_VALID"
+  ],
+  "operators": [
+    {
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "REFERENCES_CLOSED",
+        "rule": "discover schema-annotated non-null references and require exact resolution"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "REFERENCE_GRAPH_CLOSED_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_reference_graph_closed"
+    },
+    {
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "ASSERTION_EXPRESSION",
+        "rule": "resolve declared_assertion_id and evaluate its structured check conjunction"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "DECLARED_CONTRACT_INVARIANT_VALID_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_declared_contract_invariant_valid"
+    },
+    {
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "BINDINGS_VALID",
+        "rule": "evaluate exact identity and scope binding checks selected by the assertion"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "BINDING_COMPOSITION_VALID_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_binding_composition_valid"
+    },
+    {
+      "operator_id": "DEPENDENCY_GRAPH_EQUALS_RULES",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "GRAPH_EQUAL",
+        "rule": "derive node and edge sets from rules and compare exact sets"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "DEPENDENCY_GRAPH_EQUALS_RULES_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_dependency_graph_equals_rules"
+    },
+    {
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "DIGESTS_VALID",
+        "rule": "recompute declared SHA-256 byte or canonical targets and compare"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "DIGEST_MATCHES_DECLARED_MAPPING_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_digest_matches_declared_mapping"
+    },
+    {
+      "operator_id": "EFFECTIVE_INVENTORY_VALID",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "IDENTITY_UNIQUE",
+        "rule": "validate registered active object inventory and unique identities"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "EFFECTIVE_INVENTORY_VALID_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_effective_inventory_valid"
+    },
+    {
+      "operator_id": "EXPECTATION_SET_EQUAL",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "EXPECTATIONS_STABLE",
+        "rule": "compare accepted and candidate expected objects including reasons and prohibitions"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "EXPECTATION_SET_EQUAL_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_expectation_set_equal"
+    },
+    {
+      "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "V013_VALID",
+        "rule": "evaluate the complete-negative target/evidence contract"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "NEGATIVE_SCOPE_REQUIREMENTS_PASS_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_negative_scope_requirements_pass"
+    },
+    {
+      "operator_id": "PREDICATE_REGISTRY_VALID",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "PREDICATE_REGISTRY_VALID",
+        "rule": "validate unique predicate-stage registry keys and active identity"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "PREDICATE_REGISTRY_VALID_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_predicate_registry_valid"
+    },
+    {
+      "operator_id": "PROFILE_PAIR_COMPATIBLE",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "PROFILES_VALID",
+        "rule": "validate active profile bindings and candidate-owned replacements"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "PROFILE_PAIR_COMPATIBLE_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_profile_pair_compatible"
+    },
+    {
+      "operator_id": "STRICT_SCHEMA_VALID",
+      "operator_version": "1.0",
+      "operand_schema": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "source_artifact_classes",
+          "declared_assertion_id"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_artifact_classes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "declared_assertion_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "operand_sources": {
+        "rule_id": "RULE",
+        "source_artifact_classes": "RULE",
+        "declared_assertion_id": "RULE_AND_ASSERTION_REGISTRY"
+      },
+      "evaluation": {
+        "kind": "NAMED_CHECK_DISPATCH",
+        "check_id": "SCHEMAS_VALID",
+        "rule": "validate all effective instances with Draft 2020-12 and format checking"
+      },
+      "result_schema": {
+        "type": "boolean"
+      },
+      "failure_codes": [
+        "STRICT_SCHEMA_VALID_FAILED",
+        "MALFORMED_OPERANDS",
+        "UNDEFINED_ASSERTION"
+      ],
+      "error_behavior": "FAIL_CLOSED",
+      "implementation_function": "op_strict_schema_valid"
+    }
+  ]
+}

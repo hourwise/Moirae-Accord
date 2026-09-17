@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:partial-effect-policy:0.2",
+  "contract_id": "urn:moirae:accord-02e4r4:partial-effect-policy",
+  "contract_version": "0.2",
+  "same_effect_required": true,
+  "direct_predecessor_required": true,
+  "target_already_supported": "NOT_PARTIAL_EFFECT",
+  "unknown_tuple": "REJECT",
+  "unsupported_tuple": "REJECT",
+  "wrong_effect": "REJECT",
+  "self_edge": "REJECT",
+  "cycle": "REJECT",
+  "dangling_target": "REJECT",
+  "e4r4_adoption": {
+    "source_path": "docs/accord-02e4r3/accord-02e4r3-partial-effect-policy.json",
+    "source_raw_sha256": "dd5951f317e588127fe7aec9d0947459777931f43cba604151d92a1ec5ae045c",
+    "source_role": "PROVENANCE_ONLY"
+  }
+}

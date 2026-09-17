@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:external-member-binding:accepted-vector-catalog:0.2",
+  "binding_id": "urn:moirae:accord-02e4r4:external-member-binding:accepted-vector-catalog",
+  "binding_version": "0.2",
+  "assigned_object_id": "urn:moirae:accord-02:accepted:settlement-vector-catalog",
+  "assigned_object_version": "0.1",
+  "identity_assignment": "PACKAGE_EXTERNAL_MEMBER_BINDING_NOT_HISTORICAL_SELF_ASSERTION",
+  "repository_root_path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+  "digest_algorithm": "SHA-256",
+  "digest_scope": "RAW_BYTES",
+  "raw_sha256": "9f58e7dca17d40e3fd24e38a4e8610e4a3b2b14564d9fbb692313157b7e18afe"
+}

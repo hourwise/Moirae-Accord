@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:validation-rules:0.2",
+  "title": "ACCORD-02E4R4 validation-rules semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "rules"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r4:"
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "condition",
+          "failure_code",
+          "severity"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string"
+          },
+          "depends_on": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "condition": {
+            "type": "object",
+            "required": [
+              "operator_id",
+              "operands"
+            ]
+          },
+          "failure_code": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

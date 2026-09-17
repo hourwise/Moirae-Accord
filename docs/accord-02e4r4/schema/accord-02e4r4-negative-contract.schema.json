@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:negative-contract:0.2",
+  "title": "ACCORD-02E4R4 negative-contract semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "contract_id",
+    "contract_version",
+    "target_path",
+    "evidence_path",
+    "retention_semantics",
+    "retention_formula",
+    "contradiction_filter",
+    "requirements"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r4:"
+    },
+    "contract_id": {
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "0.2"
+    },
+    "target_path": {
+      "type": "string",
+      "minLength": 1,
+      "x-normative-reference": {
+        "reference_kind": "TARGET"
+      }
+    },
+    "evidence_path": {
+      "type": "string",
+      "minLength": 1,
+      "x-normative-reference": {
+        "reference_kind": "EVIDENCE"
+      }
+    },
+    "retention_semantics": {
+      "const": "RETENTION_WINDOW_MUST_COVER_REQUIRED_INTERVAL_AND_MEET_PROFILE_MINIMUM"
+    },
+    "retention_formula": {
+      "type": "string"
+    },
+    "contradiction_filter": {
+      "type": "object"
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

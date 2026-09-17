@@ -1,0 +1,3169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:validation-rules:0.2",
+  "contract_id": "urn:moirae:accord-02e4r4:validation-rules",
+  "contract_version": "0.2",
+  "operator_registry_ref": {
+    "reference_kind": "CONTRACT",
+    "contract_id": "urn:moirae:accord-02e4r4:operator-registry",
+    "contract_version": "0.2"
+  },
+  "rules": [
+    {
+      "rule_id": "ORC-001",
+      "category": "ORACLE_BOUNDARY",
+      "inputs": [
+        "public scenario catalog",
+        "system-under-test input manifests"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "ORC-001",
+          "source_artifact_classes": [
+            "public scenario catalog",
+            "system-under-test input manifests"
+          ],
+          "declared_assertion_id": "CONTAINS_NO_REFERENCE"
+        }
+      },
+      "failure_code": "ACCORD-02R2-ORACLE-REFERENCE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "experiment-run admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "ORC-002",
+      "category": "ORACLE_BOUNDARY",
+      "inputs": [
+        "scorer configuration",
+        "public scenario catalog",
+        "arm manifests"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ORC-002",
+          "source_artifact_classes": [
+            "scorer configuration",
+            "public scenario catalog",
+            "arm manifests"
+          ],
+          "declared_assertion_id": "ONE_WAY_JOIN"
+        }
+      },
+      "failure_code": "ACCORD-02R2-ORACLE-REVERSE-JOIN",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "ORC-003",
+      "category": "ORACLE_BOUNDARY",
+      "inputs": [
+        "scenario_id",
+        "fixture identity",
+        "timing configuration"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ORC-003",
+          "source_artifact_classes": [
+            "scenario_id",
+            "fixture identity",
+            "timing configuration"
+          ],
+          "declared_assertion_id": "OPAQUE_WITH_RESPECT_TO"
+        }
+      },
+      "failure_code": "ACCORD-02R2-OPAQUE-SCENARIO-ID",
+      "severity": "MAJOR",
+      "required_for": [
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "ARM-001",
+      "category": "ARM_ISOLATION",
+      "inputs": [
+        "arm input manifest"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ARM-001",
+          "source_artifact_classes": [
+            "arm input manifest"
+          ],
+          "declared_assertion_id": "DISCRIMINATED_ARM_SHAPE"
+        }
+      },
+      "failure_code": "ACCORD-02R2-ARM-DISCRIMINATOR",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission"
+      ]
+    },
+    {
+      "rule_id": "ARM-002",
+      "category": "ARM_ISOLATION",
+      "inputs": [
+        "arm_id",
+        "input_profile_id",
+        "arm input profile catalog"
+      ],
+      "condition": {
+        "operator_id": "PROFILE_PAIR_COMPATIBLE",
+        "operands": {
+          "rule_id": "ARM-002",
+          "source_artifact_classes": [
+            "arm_id",
+            "input_profile_id",
+            "arm input profile catalog"
+          ],
+          "declared_assertion_id": "PROFILE_PAIR_MATCHES"
+        }
+      },
+      "failure_code": "ACCORD-02R2-ARM-PROFILE-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "ARM-003",
+      "category": "ARM_ISOLATION",
+      "inputs": [
+        "arm source references",
+        "arm input profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ARM-003",
+          "source_artifact_classes": [
+            "arm source references",
+            "arm input profile"
+          ],
+          "declared_assertion_id": "EACH_SOURCE_TYPE_IN"
+        }
+      },
+      "failure_code": "ACCORD-02R2-SOURCE-TYPE-NOT-ALLOWED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "ARM-004",
+      "category": "ARM_ISOLATION",
+      "inputs": [
+        "source_type",
+        "source_record_ref.record_type"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ARM-004",
+          "source_artifact_classes": [
+            "source_type",
+            "source_record_ref.record_type"
+          ],
+          "declared_assertion_id": "SOURCE_TYPE_RECORD_TYPE_PAIR_MATCHES"
+        }
+      },
+      "failure_code": "ACCORD-02R2-SOURCE-RECORD-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "ARM-005",
+      "category": "ARM_ISOLATION",
+      "inputs": [
+        "arm input manifest extensions",
+        "source projections"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ARM-005",
+          "source_artifact_classes": [
+            "arm input manifest extensions",
+            "source projections"
+          ],
+          "declared_assertion_id": "NO_SEMANTIC_EXTENSION_BAG"
+        }
+      },
+      "failure_code": "ACCORD-02R2-ARM-EXTENSION-SMUGGLING",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "ARM-006",
+      "category": "ARM_ISOLATION",
+      "inputs": [
+        "ARM-C classifier feature references",
+        "ARM-B-visible source set"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ARM-006",
+          "source_artifact_classes": [
+            "ARM-C classifier feature references",
+            "ARM-B-visible source set"
+          ],
+          "declared_assertion_id": "FEATURE_SOURCES_SUBSET_OF"
+        }
+      },
+      "failure_code": "ACCORD-02R2-CLASSIFIER-SOURCE-LEAK",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "ARM-007",
+      "category": "ARM_ISOLATION",
+      "inputs": [
+        "arm-visible portable record extensions",
+        "active record/evidence profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "ARM-007",
+          "source_artifact_classes": [
+            "arm-visible portable record extensions",
+            "active record/evidence profile"
+          ],
+          "declared_assertion_id": "EXTENSION_CLASSIFICATION_REQUIRED"
+        }
+      },
+      "failure_code": "ACCORD-02R2-EXTENSION-SEMANTIC-LEAK",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "RAW-001",
+      "category": "RAW_OUTPUT",
+      "inputs": [
+        "raw arm output"
+      ],
+      "condition": {
+        "operator_id": "EFFECTIVE_INVENTORY_VALID",
+        "operands": {
+          "rule_id": "RAW-001",
+          "source_artifact_classes": [
+            "raw arm output"
+          ],
+          "declared_assertion_id": "CLOSED_ENVELOPE"
+        }
+      },
+      "failure_code": "ACCORD-02R2-RAW-ENVELOPE",
+      "severity": "MAJOR",
+      "required_for": [
+        "structural admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "RAW-002",
+      "category": "RAW_OUTPUT",
+      "inputs": [
+        "raw arm output"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "RAW-002",
+          "source_artifact_classes": [
+            "raw arm output"
+          ],
+          "declared_assertion_id": "EXACTLY_ONE_OF"
+        }
+      },
+      "failure_code": "ACCORD-02R2-RAW-PAYLOAD-MISSING",
+      "severity": "MAJOR",
+      "required_for": [
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "RAW-003",
+      "category": "RAW_OUTPUT",
+      "inputs": [
+        "raw arm output",
+        "other arm inputs"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "RAW-003",
+          "source_artifact_classes": [
+            "raw arm output",
+            "other arm inputs"
+          ],
+          "declared_assertion_id": "NOT_FORWARDED_AS_INPUT"
+        }
+      },
+      "failure_code": "ACCORD-02R2-RAW-CROSS-ARM-FORWARD",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "PROJ-001",
+      "category": "PROJECTION",
+      "inputs": [
+        "A verifier projection",
+        "native C settlement result",
+        "named mapping profile",
+        "canonical proposition"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROJ-001",
+          "source_artifact_classes": [
+            "A verifier projection",
+            "native C settlement result",
+            "named mapping profile",
+            "canonical proposition"
+          ],
+          "declared_assertion_id": "PROJECTION_REQUIRES"
+        }
+      },
+      "failure_code": "ACCORD-02R2-PROJECTION-LINEAGE-MISSING",
+      "severity": "MAJOR",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "PROJ-002",
+      "category": "PROJECTION",
+      "inputs": [
+        "native C result",
+        "NO_EFFECT_OBSERVED projection"
+      ],
+      "condition": {
+        "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+        "operands": {
+          "rule_id": "PROJ-002",
+          "source_artifact_classes": [
+            "native C result",
+            "NO_EFFECT_OBSERVED projection"
+          ],
+          "declared_assertion_id": "COMPLETE_NEGATIVE_REQUIRED_FOR"
+        }
+      },
+      "failure_code": "ACCORD-02R2-NEGATIVE-PROJECTION-UNSUPPORTED",
+      "severity": "MAJOR",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "PROJ-003",
+      "category": "PROJECTION",
+      "inputs": [
+        "native C result",
+        "A projection"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROJ-003",
+          "source_artifact_classes": [
+            "native C result",
+            "A projection"
+          ],
+          "declared_assertion_id": "PROJECTION_DOES_NOT_ADD"
+        }
+      },
+      "failure_code": "ACCORD-02R2-PROJECTION-STRENGTHENING",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "PROJ-004",
+      "category": "PROJECTION",
+      "inputs": [
+        "REJECTED verifier disposition"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROJ-004",
+          "source_artifact_classes": [
+            "REJECTED verifier disposition"
+          ],
+          "declared_assertion_id": "DOES_NOT_IMPLY"
+        }
+      },
+      "failure_code": "ACCORD-02R2-REJECTED-HISTORY-REWRITE",
+      "severity": "MAJOR",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-001",
+      "category": "LINEAGE",
+      "inputs": [
+        "typed reference",
+        "supplied validation bundle"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "LIN-001",
+          "source_artifact_classes": [
+            "typed reference",
+            "supplied validation bundle"
+          ],
+          "declared_assertion_id": "RESOLVES_EXACTLY_ONCE"
+        }
+      },
+      "failure_code": "ACCORD-02R2-REFERENCE-MISSING-OR-AMBIGUOUS",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-002",
+      "category": "LINEAGE",
+      "inputs": [
+        "supplied validation bundle"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-002",
+          "source_artifact_classes": [
+            "supplied validation bundle"
+          ],
+          "declared_assertion_id": "NO_DUPLICATE_NORMATIVE_IDS"
+        }
+      },
+      "failure_code": "ACCORD-02R2-DUPLICATE-NORMATIVE-ID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-003",
+      "category": "LINEAGE",
+      "inputs": [
+        "experiment result",
+        "experiment run",
+        "verifier result",
+        "verifier run"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-003",
+          "source_artifact_classes": [
+            "experiment result",
+            "experiment run",
+            "verifier result",
+            "verifier run"
+          ],
+          "declared_assertion_id": "SAME_RUN_CHAIN"
+        }
+      },
+      "failure_code": "ACCORD-02R2-FOREIGN-VERIFIER-RUN",
+      "severity": "BLOCKING",
+      "required_for": [
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-004",
+      "category": "LINEAGE",
+      "inputs": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-004",
+          "source_artifact_classes": [
+            "experiment run",
+            "score record",
+            "result record"
+          ],
+          "declared_assertion_id": "EQUAL"
+        }
+      },
+      "failure_code": "ACCORD-02R2-SCENARIO-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-005",
+      "category": "LINEAGE",
+      "inputs": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-005",
+          "source_artifact_classes": [
+            "experiment run",
+            "score record",
+            "result record"
+          ],
+          "declared_assertion_id": "EQUAL"
+        }
+      },
+      "failure_code": "ACCORD-02R2-ARM-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-006",
+      "category": "LINEAGE",
+      "inputs": [
+        "settlement result",
+        "experiment proposition",
+        "result record"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-006",
+          "source_artifact_classes": [
+            "settlement result",
+            "experiment proposition",
+            "result record"
+          ],
+          "declared_assertion_id": "SAME_PROPOSITION"
+        }
+      },
+      "failure_code": "ACCORD-02R2-PROPOSITION-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-007",
+      "category": "LINEAGE",
+      "inputs": [
+        "all typed references"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-007",
+          "source_artifact_classes": [
+            "all typed references"
+          ],
+          "declared_assertion_id": "REJECT_FOREIGN_RECORD"
+        }
+      },
+      "failure_code": "ACCORD-02R2-FOREIGN-RESULT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "LIN-008",
+      "category": "LINEAGE",
+      "inputs": [
+        "provider_operation_id",
+        "transport_call_id",
+        "Accord semantic references"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-008",
+          "source_artifact_classes": [
+            "provider_operation_id",
+            "transport_call_id",
+            "Accord semantic references"
+          ],
+          "declared_assertion_id": "TYPE_IDENTITY_NOT_SUBSTITUTABLE"
+        }
+      },
+      "failure_code": "ACCORD-02R2-EXTERNAL-ID-SUBSTITUTION",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission"
+      ]
+    },
+    {
+      "rule_id": "PROP-001",
+      "category": "PROPOSITION",
+      "inputs": [
+        "proposition_ref",
+        "supplied proposition records"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "PROP-001",
+          "source_artifact_classes": [
+            "proposition_ref",
+            "supplied proposition records"
+          ],
+          "declared_assertion_id": "RESOLVES_EXACTLY_ONCE"
+        }
+      },
+      "failure_code": "ACCORD-02R2-PROPOSITION-REFERENCE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "PROP-002",
+      "category": "PROPOSITION",
+      "inputs": [
+        "evidence",
+        "observation",
+        "settlement result",
+        "verifier projection"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROP-002",
+          "source_artifact_classes": [
+            "evidence",
+            "observation",
+            "settlement result",
+            "verifier projection"
+          ],
+          "declared_assertion_id": "SAME_PROPOSITION"
+        }
+      },
+      "failure_code": "ACCORD-02R2-PROPOSITION-CROSS-LINK-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "PROP-003",
+      "category": "PROPOSITION",
+      "inputs": [
+        "denormalized effect/predicate/stage fields",
+        "canonical proposition"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROP-003",
+          "source_artifact_classes": [
+            "denormalized effect/predicate/stage fields",
+            "canonical proposition"
+          ],
+          "declared_assertion_id": "MATCH_OR_OMIT"
+        }
+      },
+      "failure_code": "ACCORD-02R2-PROPOSITION-DUPLICATE-MISMATCH",
+      "severity": "MAJOR",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "PROP-004",
+      "category": "PROPOSITION",
+      "inputs": [
+        "binding slots",
+        "active proposition/profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROP-004",
+          "source_artifact_classes": [
+            "binding slots",
+            "active proposition/profile"
+          ],
+          "declared_assertion_id": "UNKNOWN_OR_NOT_APPLICABLE_GUARDED"
+        }
+      },
+      "failure_code": "ACCORD-02R2-BINDING-STATUS-INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "PROP-005",
+      "category": "PROPOSITION",
+      "inputs": [
+        "attempt attribution",
+        "attempt record",
+        "native C result"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROP-005",
+          "source_artifact_classes": [
+            "attempt attribution",
+            "attempt record",
+            "native C result"
+          ],
+          "declared_assertion_id": "SPECIFIC_ATTEMPT_CLAIM_REQUIRES"
+        }
+      },
+      "failure_code": "ACCORD-02R2-ATTEMPT-ATTRIBUTION-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ]
+    },
+    {
+      "rule_id": "SCORE-001",
+      "category": "SCORE_SEPARATION",
+      "inputs": [
+        "score record",
+        "arm inputs"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "SCORE-001",
+          "source_artifact_classes": [
+            "score record",
+            "arm inputs"
+          ],
+          "declared_assertion_id": "SCORER_ONLY"
+        }
+      },
+      "failure_code": "ACCORD-02R2-SCORE-ARM-CONTAMINATION",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "SCORE-002",
+      "category": "SCORE_SEPARATION",
+      "inputs": [
+        "raw arm output",
+        "normalization profile",
+        "normalized claim",
+        "scorer truth"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "SCORE-002",
+          "source_artifact_classes": [
+            "raw arm output",
+            "normalization profile",
+            "normalized claim",
+            "scorer truth"
+          ],
+          "declared_assertion_id": "ORDERED_PIPELINE"
+        }
+      },
+      "failure_code": "ACCORD-02R2-SCORE-PIPELINE-REORDERED",
+      "severity": "MAJOR",
+      "required_for": [
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "SCORE-003",
+      "category": "SCORE_SEPARATION",
+      "inputs": [
+        "normalization profile",
+        "arm-visible information"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "SCORE-003",
+          "source_artifact_classes": [
+            "normalization profile",
+            "arm-visible information"
+          ],
+          "declared_assertion_id": "NORMALIZATION_USES_ONLY"
+        }
+      },
+      "failure_code": "ACCORD-02R2-NORMALIZATION-ORACLE-USE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "scoring admission"
+      ]
+    },
+    {
+      "rule_id": "BND-001",
+      "category": "BUNDLE",
+      "inputs": [
+        "declared bundle envelope"
+      ],
+      "condition": {
+        "operator_id": "EFFECTIVE_INVENTORY_VALID",
+        "operands": {
+          "rule_id": "BND-001",
+          "source_artifact_classes": [
+            "declared bundle envelope"
+          ],
+          "declared_assertion_id": "BUNDLE_TYPE_AND_INVENTORY_CLOSED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-BUNDLE-SCOPE-INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [],
+      "produces": [
+        "BUNDLE_SCOPE_DECLARED"
+      ]
+    },
+    {
+      "rule_id": "BND-002",
+      "category": "BUNDLE",
+      "inputs": [
+        "bundle record inventory",
+        "active profiles"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "BND-002",
+          "source_artifact_classes": [
+            "bundle record inventory",
+            "active profiles"
+          ],
+          "declared_assertion_id": "SELF_CONTAINED_SCOPE"
+        }
+      },
+      "failure_code": "ACCORD-02R3-UNDECLARED-SCOPE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "BND-001"
+      ],
+      "produces": [
+        "SCOPE_SELF_CONTAINED"
+      ]
+    },
+    {
+      "rule_id": "BND-003",
+      "category": "BUNDLE",
+      "inputs": [
+        "bundle information class",
+        "visibility flags"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "BND-003",
+          "source_artifact_classes": [
+            "bundle information class",
+            "visibility flags"
+          ],
+          "declared_assertion_id": "SCORER_MATERIAL_SEPARATED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-SCORER-MATERIAL-IN-BUNDLE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "BND-001"
+      ],
+      "produces": [
+        "SCORER_MATERIAL_SEPARATED"
+      ]
+    },
+    {
+      "rule_id": "BND-004",
+      "replaces_classification": "UNEVALUABLE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "declared bundle scope",
+        "closed R5 specification package",
+        "schema-contract registry"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "BND-004",
+          "source_artifact_classes": [
+            "declared bundle scope",
+            "closed R5 specification package",
+            "schema-contract registry"
+          ],
+          "declared_assertion_id": "RESOLVE_SCHEMA_CONTRACT"
+        }
+      },
+      "failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "SCHEMA-001",
+        "SCHEMA-002"
+      ],
+      "produces": [
+        "SCHEMA_CONTRACT_RESOLVED"
+      ],
+      "severity": "BLOCKING"
+    },
+    {
+      "rule_id": "BND-005",
+      "replaces_classification": "UNEVALUABLE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "active profile references",
+        "closed R5 specification package",
+        "profile-contract inventory"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "BND-005",
+          "source_artifact_classes": [
+            "active profile references",
+            "closed R5 specification package",
+            "profile-contract inventory"
+          ],
+          "declared_assertion_id": "RESOLVE_ACTIVE_PROFILES"
+        }
+      },
+      "failure_code": "ACCORD-02R5-ACTIVE-PROFILE-RESOLUTION-FAILURE",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "PROF-002"
+      ],
+      "produces": [
+        "ACTIVE_PROFILES_RESOLVED"
+      ],
+      "severity": "BLOCKING"
+    },
+    {
+      "rule_id": "RUN-001",
+      "category": "RUN_CONTRACT",
+      "inputs": [
+        "experiment run record"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "RUN-001",
+          "source_artifact_classes": [
+            "experiment run record"
+          ],
+          "declared_assertion_id": "EXPERIMENT_RUN_BINDS"
+        }
+      },
+      "failure_code": "ACCORD-02R3-EXPERIMENT-RUN-INCOMPLETE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "BND-005"
+      ],
+      "produces": [
+        "EXPERIMENT_RUN_BOUND"
+      ]
+    },
+    {
+      "rule_id": "RUN-002",
+      "category": "RUN_CONTRACT",
+      "inputs": [
+        "verifier run record"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "RUN-002",
+          "source_artifact_classes": [
+            "verifier run record"
+          ],
+          "declared_assertion_id": "VERIFIER_RUN_BINDS"
+        }
+      },
+      "failure_code": "ACCORD-02R3-VERIFIER-RUN-INCOMPLETE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "BND-005"
+      ],
+      "produces": [
+        "VERIFIER_RUN_BOUND"
+      ]
+    },
+    {
+      "rule_id": "RUN-003",
+      "category": "RUN_CONTRACT",
+      "inputs": [
+        "experiment run",
+        "arm manifest"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "RUN-003",
+          "source_artifact_classes": [
+            "experiment run",
+            "arm manifest"
+          ],
+          "declared_assertion_id": "RUN_AND_MANIFEST_AGREE"
+        }
+      },
+      "failure_code": "ACCORD-02R3-RUN-MANIFEST-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "RUN-001",
+        "ARM-001",
+        "ARM-002"
+      ],
+      "produces": [
+        "RUN_MANIFEST_BOUND"
+      ]
+    },
+    {
+      "rule_id": "RUN-004",
+      "category": "RUN_CONTRACT",
+      "inputs": [
+        "experiment run",
+        "verifier run"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "RUN-004",
+          "source_artifact_classes": [
+            "experiment run",
+            "verifier run"
+          ],
+          "declared_assertion_id": "NO_SCORER_REFERENCE"
+        }
+      },
+      "failure_code": "ACCORD-02R3-RUN-SCORER-REFERENCE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "verifier admission"
+      ],
+      "depends_on": [
+        "RUN-001",
+        "RUN-002",
+        "BND-003"
+      ],
+      "produces": [
+        "RUN_SCORER_SEPARATION_VALID"
+      ]
+    },
+    {
+      "rule_id": "EXT-001",
+      "category": "EXTENSION",
+      "inputs": [
+        "extension registry",
+        "portable record extensions"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "EXT-001",
+          "source_artifact_classes": [
+            "extension registry",
+            "portable record extensions"
+          ],
+          "declared_assertion_id": "EVERY_RELEVANT_EXTENSION_CLASSIFIED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-EXTENSION-UNREGISTERED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "BND-005"
+      ],
+      "produces": [
+        "EXTENSIONS_CLASSIFIED"
+      ]
+    },
+    {
+      "rule_id": "EXT-002",
+      "category": "EXTENSION",
+      "inputs": [
+        "extension registry",
+        "NON_SEMANTIC extensions"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "EXT-002",
+          "source_artifact_classes": [
+            "extension registry",
+            "NON_SEMANTIC extensions"
+          ],
+          "declared_assertion_id": "NON_SEMANTIC_NOT_USED_FOR"
+        }
+      },
+      "failure_code": "ACCORD-02R3-NON-SEMANTIC-USED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "EXT-001"
+      ],
+      "produces": [
+        "NON_SEMANTIC_EXTENSIONS_ISOLATED"
+      ]
+    },
+    {
+      "rule_id": "EXT-003",
+      "category": "EXTENSION",
+      "inputs": [
+        "AUTHORITY_BEARING extension",
+        "authority profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "EXT-003",
+          "source_artifact_classes": [
+            "AUTHORITY_BEARING extension",
+            "authority profile"
+          ],
+          "declared_assertion_id": "COMPARATOR_REQUIRED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-AUTHORITY-EXTENSION-NO-COMPARATOR",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "EXT-001",
+        "BND-005"
+      ],
+      "produces": [
+        "AUTHORITY_EXTENSIONS_PROFILED"
+      ]
+    },
+    {
+      "rule_id": "EXT-004",
+      "category": "EXTENSION",
+      "inputs": [
+        "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+        "settlement/evidence profile"
+      ],
+      "condition": {
+        "operator_id": "PROFILE_PAIR_COMPATIBLE",
+        "operands": {
+          "rule_id": "EXT-004",
+          "source_artifact_classes": [
+            "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+            "settlement/evidence profile"
+          ],
+          "declared_assertion_id": "PROFILE_SEMANTICS_REQUIRED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-EVIDENCE-EXTENSION-NO-PROFILE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "EXT-001",
+        "BND-005"
+      ],
+      "produces": [
+        "EVIDENCE_EXTENSIONS_PROFILED"
+      ]
+    },
+    {
+      "rule_id": "EXT-005",
+      "category": "EXTENSION",
+      "inputs": [
+        "unknown or incompatible extension"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "EXT-005",
+          "source_artifact_classes": [
+            "unknown or incompatible extension"
+          ],
+          "declared_assertion_id": "CANNOT_STRENGTHEN_RESULT"
+        }
+      },
+      "failure_code": "ACCORD-02R3-EXTENSION-CANNOT-STRENGTHEN",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "EXT-001"
+      ],
+      "produces": [
+        "UNKNOWN_EXTENSIONS_NON_STRENGTHENING"
+      ]
+    },
+    {
+      "rule_id": "EXT-006",
+      "category": "EXTENSION",
+      "inputs": [
+        "arm-visible portable bundle",
+        "extension registry"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "EXT-006",
+          "source_artifact_classes": [
+            "arm-visible portable bundle",
+            "extension registry"
+          ],
+          "declared_assertion_id": "REGISTRY_IN_SCOPE_BEFORE_USE"
+        }
+      },
+      "failure_code": "ACCORD-02R3-EXTENSION-REGISTRY-MISSING",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "verifier admission"
+      ],
+      "depends_on": [
+        "BND-005",
+        "EXT-001"
+      ],
+      "produces": [
+        "ARM_EXTENSIONS_REGISTRY_CHECKED"
+      ]
+    },
+    {
+      "rule_id": "SRC-001",
+      "category": "SOURCE_MEMBERSHIP",
+      "inputs": [
+        "arm source reference",
+        "source-schema registry"
+      ],
+      "condition": {
+        "operator_id": "STRICT_SCHEMA_VALID",
+        "operands": {
+          "rule_id": "SRC-001",
+          "source_artifact_classes": [
+            "arm source reference",
+            "source-schema registry"
+          ],
+          "declared_assertion_id": "SCHEMA_MEMBERSHIP"
+        }
+      },
+      "failure_code": "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "BND-005",
+        "ARM-001"
+      ],
+      "produces": [
+        "SOURCE_MEMBERSHIP_VALID"
+      ]
+    },
+    {
+      "rule_id": "SRC-002",
+      "category": "SOURCE_MEMBERSHIP",
+      "inputs": [
+        "source reference",
+        "source-schema registry"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "SRC-002",
+          "source_artifact_classes": [
+            "source reference",
+            "source-schema registry"
+          ],
+          "declared_assertion_id": "WRONG_SOURCE_CLASS_REJECTED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-SOURCE-CLASS-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "SRC-001"
+      ],
+      "produces": [
+        "SOURCE_CLASS_VALID"
+      ]
+    },
+    {
+      "rule_id": "SRC-003",
+      "category": "SOURCE_MEMBERSHIP",
+      "inputs": [
+        "source reference",
+        "source-schema registry"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "SRC-003",
+          "source_artifact_classes": [
+            "source reference",
+            "source-schema registry"
+          ],
+          "declared_assertion_id": "REGISTRY_NOT_FILENAME_DRIVEN"
+        }
+      },
+      "failure_code": "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+      "severity": "MAJOR",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "SRC-001"
+      ],
+      "produces": [
+        "SOURCE_REGISTRY_AUTHORITATIVE"
+      ]
+    },
+    {
+      "rule_id": "SRC-004",
+      "category": "SOURCE_MEMBERSHIP",
+      "inputs": [
+        "provider/transport/raw output",
+        "portable evidence"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "SRC-004",
+          "source_artifact_classes": [
+            "provider/transport/raw output",
+            "portable evidence"
+          ],
+          "declared_assertion_id": "EXTERNAL_RECORD_NOT_PORTABLE_EVIDENCE_BY_SHAPE"
+        }
+      },
+      "failure_code": "ACCORD-02R3-SOURCE-EVIDENCE-MASQUERADE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "SRC-001",
+        "EXT-001"
+      ],
+      "produces": [
+        "SOURCE_SEMANTICS_SEPARATED"
+      ]
+    },
+    {
+      "rule_id": "VIS-001",
+      "category": "ROLE_VISIBILITY",
+      "inputs": [
+        "role-visibility profile",
+        "arm manifest fields"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "VIS-001",
+          "source_artifact_classes": [
+            "role-visibility profile",
+            "arm manifest fields"
+          ],
+          "declared_assertion_id": "FIELD_CONSUMER_IS_ALLOWED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-VISIBILITY-VIOLATION",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "BND-005",
+        "RUN-001"
+      ],
+      "produces": [
+        "VISIBILITY_VALID"
+      ]
+    },
+    {
+      "rule_id": "NORM-001",
+      "category": "NORMALIZATION",
+      "inputs": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "NORM-001",
+          "source_artifact_classes": [
+            "raw arm output",
+            "normalization profile"
+          ],
+          "declared_assertion_id": "INPUTS_ONLY"
+        }
+      },
+      "failure_code": "ACCORD-02R3-NORMALIZATION-INPUT-INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "scoring admission"
+      ],
+      "depends_on": [
+        "RAW-001",
+        "BND-005"
+      ],
+      "produces": [
+        "NORMALIZATION_INPUTS_VALID"
+      ]
+    },
+    {
+      "rule_id": "NORM-002",
+      "category": "NORMALIZATION",
+      "inputs": [
+        "normalization process inputs"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "NORM-002",
+          "source_artifact_classes": [
+            "normalization process inputs"
+          ],
+          "declared_assertion_id": "ORACLE_AND_SCORER_TRUTH_ABSENT"
+        }
+      },
+      "failure_code": "ACCORD-02R3-NORMALIZATION-ORACLE-INPUT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "scoring admission"
+      ],
+      "depends_on": [
+        "NORM-001",
+        "BND-003"
+      ],
+      "produces": [
+        "NORMALIZATION_TRUTH_FREE"
+      ]
+    },
+    {
+      "rule_id": "NORM-003",
+      "category": "NORMALIZATION",
+      "inputs": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "NORM-003",
+          "source_artifact_classes": [
+            "raw arm output",
+            "normalization profile"
+          ],
+          "declared_assertion_id": "SAME_INPUTS_SAME_CLAIM"
+        }
+      },
+      "failure_code": "ACCORD-02R3-NORMALIZATION-NONDETERMINISTIC",
+      "severity": "MAJOR",
+      "required_for": [
+        "scoring admission"
+      ],
+      "depends_on": [
+        "NORM-001"
+      ],
+      "produces": [
+        "NORMALIZATION_DETERMINISTIC"
+      ]
+    },
+    {
+      "rule_id": "NORM-004",
+      "category": "NORMALIZATION",
+      "inputs": [
+        "malformed or unmapped raw output",
+        "normalization profile"
+      ],
+      "condition": {
+        "operator_id": "PROFILE_PAIR_COMPATIBLE",
+        "operands": {
+          "rule_id": "NORM-004",
+          "source_artifact_classes": [
+            "malformed or unmapped raw output",
+            "normalization profile"
+          ],
+          "declared_assertion_id": "PROFILE_DEFINED_FAILURE"
+        }
+      },
+      "failure_code": "ACCORD-02R3-NORMALIZATION-MALFORMED-UNDEFINED",
+      "severity": "MAJOR",
+      "required_for": [
+        "scoring admission"
+      ],
+      "depends_on": [
+        "NORM-001"
+      ],
+      "produces": [
+        "NORMALIZATION_MALFORMED_DEFINED"
+      ]
+    },
+    {
+      "rule_id": "NORM-005",
+      "category": "NORMALIZATION",
+      "inputs": [
+        "normalized claim",
+        "scorer truth"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "NORM-005",
+          "source_artifact_classes": [
+            "normalized claim",
+            "scorer truth"
+          ],
+          "declared_assertion_id": "COMPARISON_AFTER_NORMALIZATION"
+        }
+      },
+      "failure_code": "ACCORD-02R3-NORMALIZATION-TRUTH-REINTERPRETATION",
+      "severity": "BLOCKING",
+      "required_for": [
+        "scoring admission"
+      ],
+      "depends_on": [
+        "NORM-002",
+        "NORM-003"
+      ],
+      "produces": [
+        "NORMALIZATION_BEFORE_SCORING"
+      ]
+    },
+    {
+      "rule_id": "CLF-001",
+      "category": "CLASSIFIER_FEATURE",
+      "inputs": [
+        "classifier feature",
+        "classifier feature profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "CLF-001",
+          "source_artifact_classes": [
+            "classifier feature",
+            "classifier feature profile"
+          ],
+          "declared_assertion_id": "FEATURE_REGISTERED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNREGISTERED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "BND-005",
+        "SRC-001"
+      ],
+      "produces": [
+        "CLASSIFIER_FEATURES_REGISTERED"
+      ]
+    },
+    {
+      "rule_id": "CLF-002",
+      "category": "CLASSIFIER_FEATURE",
+      "inputs": [
+        "derived classifier feature",
+        "ARM-C source set"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "CLF-002",
+          "source_artifact_classes": [
+            "derived classifier feature",
+            "ARM-C source set"
+          ],
+          "declared_assertion_id": "DERIVATION_SUBSET_OF_ALLOWED_SOURCES"
+        }
+      },
+      "failure_code": "ACCORD-02R3-CLASSIFIER-UPSTREAM-INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "CLF-001",
+        "SRC-001"
+      ],
+      "produces": [
+        "CLASSIFIER_UPSTREAM_VALID"
+      ]
+    },
+    {
+      "rule_id": "CLF-003",
+      "category": "CLASSIFIER_FEATURE",
+      "inputs": [
+        "classifier feature derivation"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "CLF-003",
+          "source_artifact_classes": [
+            "classifier feature derivation"
+          ],
+          "declared_assertion_id": "FORBIDDEN_UPSTREAM_ABSENT"
+        }
+      },
+      "failure_code": "ACCORD-02R3-CLASSIFIER-PRIVILEGED-UPSTREAM",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "CLF-001",
+        "CLF-002"
+      ],
+      "produces": [
+        "CLASSIFIER_NO_PRIVILEGED_INPUT"
+      ]
+    },
+    {
+      "rule_id": "CLF-004",
+      "category": "CLASSIFIER_FEATURE",
+      "inputs": [
+        "classifier feature"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "CLF-004",
+          "source_artifact_classes": [
+            "classifier feature"
+          ],
+          "declared_assertion_id": "UNKNOWN_FEATURE_REJECTED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNKNOWN",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "CLF-001"
+      ],
+      "produces": [
+        "CLASSIFIER_FEATURE_SET_CLOSED"
+      ]
+    },
+    {
+      "rule_id": "PRED-001",
+      "category": "PREDICATE_APPLICABILITY",
+      "inputs": [
+        "canonical proposition",
+        "predicate applicability profile"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "PRED-001",
+          "source_artifact_classes": [
+            "canonical proposition",
+            "predicate applicability profile"
+          ],
+          "declared_assertion_id": "REQUIRED_BINDING_NOT_UNKNOWN_OR_NA_FOR_POSITIVE_PROJECTION"
+        }
+      },
+      "failure_code": "ACCORD-02R3-REQUIRED-BINDING-UNRESOLVED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "BND-005",
+        "PROP-001"
+      ],
+      "produces": [
+        "REQUIRED_BINDINGS_RESOLVED"
+      ]
+    },
+    {
+      "rule_id": "PRED-002",
+      "category": "PREDICATE_APPLICABILITY",
+      "inputs": [
+        "binding slot",
+        "predicate applicability profile"
+      ],
+      "condition": {
+        "operator_id": "PREDICATE_REGISTRY_VALID",
+        "operands": {
+          "rule_id": "PRED-002",
+          "source_artifact_classes": [
+            "binding slot",
+            "predicate applicability profile"
+          ],
+          "declared_assertion_id": "NOT_APPLICABLE_PROFILE_DECLARED"
+        }
+      },
+      "failure_code": "ACCORD-02R3-NOT-APPLICABLE-UNJUSTIFIED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "PRED-001"
+      ],
+      "produces": [
+        "NA_BINDINGS_JUSTIFIED"
+      ]
+    },
+    {
+      "rule_id": "PRED-003",
+      "category": "PREDICATE_APPLICABILITY",
+      "inputs": [
+        "binding slot"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "PRED-003",
+          "source_artifact_classes": [
+            "binding slot"
+          ],
+          "declared_assertion_id": "UNKNOWN_NOT_POSITIVE_BINDING"
+        }
+      },
+      "failure_code": "ACCORD-02R3-UNKNOWN-BINDING-STRENGTHENING",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "PRED-001"
+      ],
+      "produces": [
+        "UNKNOWN_BINDINGS_NON_STRENGTHENING"
+      ]
+    },
+    {
+      "rule_id": "PRED-004",
+      "category": "PREDICATE_APPLICABILITY",
+      "inputs": [
+        "proposition",
+        "evidence",
+        "settlement result",
+        "predicate profile"
+      ],
+      "condition": {
+        "operator_id": "PREDICATE_REGISTRY_VALID",
+        "operands": {
+          "rule_id": "PRED-004",
+          "source_artifact_classes": [
+            "proposition",
+            "evidence",
+            "settlement result",
+            "predicate profile"
+          ],
+          "declared_assertion_id": "PREDICATE_STAGE_PROFILE_MATCHES_PROPOSITION"
+        }
+      },
+      "failure_code": "ACCORD-02R3-PREDICATE-PROFILE-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "PRED-001",
+        "PROP-001",
+        "PROP-002"
+      ],
+      "produces": [
+        "PREDICATE_PROFILE_MATCHED"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "replaces_classification": "DETERMINISTIC_WITH_PROFILE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "typed reference",
+        "resolved record",
+        "resolved schema contract",
+        "supplied content digest",
+        "exact R5 canonicalization profile"
+      ],
+      "condition": {
+        "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+        "operands": {
+          "rule_id": "DIGEST-001",
+          "source_artifact_classes": [
+            "typed reference",
+            "resolved record",
+            "resolved schema contract",
+            "supplied content digest",
+            "exact R5 canonicalization profile"
+          ],
+          "declared_assertion_id": "CANONICAL_CONTENT_DIGEST_MATCHES"
+        }
+      },
+      "failure_code": "ACCORD-02R5-DIGEST-MISMATCH",
+      "depends_on": [
+        "BND-004",
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002",
+        "DIGEST-CANON-003"
+      ],
+      "produces": [
+        "DIGEST_VALID"
+      ],
+      "severity": "BLOCKING"
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "category": "DIGEST",
+      "inputs": [
+        "typed reference",
+        "profile"
+      ],
+      "condition": {
+        "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+        "operands": {
+          "rule_id": "DIGEST-002",
+          "source_artifact_classes": [
+            "typed reference",
+            "profile"
+          ],
+          "declared_assertion_id": "DIGEST_ABSENT_ONLY_IF_OPTIONAL"
+        }
+      },
+      "failure_code": "ACCORD-02R3-DIGEST-REQUIRED-BUT-ABSENT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "BND-005"
+      ],
+      "produces": [
+        "DIGEST_OPTIONALITY_VALID"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-003",
+      "category": "DIGEST",
+      "inputs": [
+        "digest validation failure"
+      ],
+      "condition": {
+        "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+        "operands": {
+          "rule_id": "DIGEST-003",
+          "source_artifact_classes": [
+            "digest validation failure"
+          ],
+          "declared_assertion_id": "DOES_NOT_IMPLY_EXTERNAL_FACT"
+        }
+      },
+      "failure_code": "ACCORD-02R3-DIGEST-FAILURE-HISTORY-SEPARATED",
+      "severity": "MAJOR",
+      "required_for": [
+        "verifier admission"
+      ],
+      "depends_on": [
+        "DIGEST-001"
+      ],
+      "produces": [
+        "DIGEST_FAILURE_NON_FACTUAL"
+      ]
+    },
+    {
+      "rule_id": "LIN-009",
+      "category": "LINEAGE_CLOSURE",
+      "inputs": [
+        "resolved typed reference target"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "LIN-009",
+          "source_artifact_classes": [
+            "resolved typed reference target"
+          ],
+          "declared_assertion_id": "TARGET_STRUCTURE_VALID"
+        }
+      },
+      "failure_code": "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "LIN-001",
+        "DIGEST-001"
+      ],
+      "produces": [
+        "REFERENCE_TARGET_STRUCTURALLY_VALID"
+      ]
+    },
+    {
+      "rule_id": "PROP-006",
+      "category": "LINEAGE_CLOSURE",
+      "inputs": [
+        "proposition_id",
+        "proposition descriptors in scope"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "PROP-006",
+          "source_artifact_classes": [
+            "proposition_id",
+            "proposition descriptors in scope"
+          ],
+          "declared_assertion_id": "ONE_DESCRIPTOR_PER_PROPOSITION_ID"
+        }
+      },
+      "failure_code": "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "PROP-001",
+        "LIN-002"
+      ],
+      "produces": [
+        "PROPOSITION_ID_UNIQUE"
+      ]
+    },
+    {
+      "rule_id": "PKG-001",
+      "category": "SPECIFICATION_PACKAGE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "specification_package_ref",
+        "closed R5 package manifest"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "PKG-001",
+          "source_artifact_classes": [
+            "specification_package_ref",
+            "closed R5 package manifest"
+          ],
+          "declared_assertion_id": "EXACT_PACKAGE_RESOLVES"
+        }
+      },
+      "failure_code": "ACCORD-02R5-PACKAGE-MISSING-OR-MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [],
+      "produces": [
+        "SPEC_PACKAGE_RESOLVED"
+      ]
+    },
+    {
+      "rule_id": "PKG-002",
+      "category": "SPECIFICATION_PACKAGE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "package schema/profile/rule/canonicalization inventories"
+      ],
+      "condition": {
+        "operator_id": "EFFECTIVE_INVENTORY_VALID",
+        "operands": {
+          "rule_id": "PKG-002",
+          "source_artifact_classes": [
+            "package schema/profile/rule/canonicalization inventories"
+          ],
+          "declared_assertion_id": "CONTRACT_INVENTORY_CLOSED_AND_UNIQUE"
+        }
+      },
+      "failure_code": "ACCORD-02R5-PACKAGE-CONTRACT-DUPLICATE-OR-DANGLING",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "PKG-001"
+      ],
+      "produces": [
+        "PACKAGE_CONTRACTS_CLOSED"
+      ]
+    },
+    {
+      "rule_id": "PROF-001",
+      "category": "PROFILE_RESOLUTION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "profile_type",
+        "profile_id",
+        "profile_version",
+        "R5 package profile inventory"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "PROF-001",
+          "source_artifact_classes": [
+            "profile_type",
+            "profile_id",
+            "profile_version",
+            "R5 package profile inventory"
+          ],
+          "declared_assertion_id": "RESOLVE_PROFILE"
+        }
+      },
+      "failure_code": "ACCORD-02R5-PROFILE-RESOLUTION-FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ],
+      "produces": [
+        "ACTIVE_PROFILE_RESOLVED"
+      ]
+    },
+    {
+      "rule_id": "PROF-002",
+      "category": "PROFILE_RESOLUTION",
+      "classification": "DETERMINISTIC",
+      "inputs": [
+        "active profile references"
+      ],
+      "condition": {
+        "operator_id": "PROFILE_PAIR_COMPATIBLE",
+        "operands": {
+          "rule_id": "PROF-002",
+          "source_artifact_classes": [
+            "active profile references"
+          ],
+          "declared_assertion_id": "EXACT_VERSION_PINNED"
+        }
+      },
+      "failure_code": "ACCORD-02R5-PROFILE-VERSION-UNPINNED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "PROF-001"
+      ],
+      "produces": [
+        "PROFILE_VERSIONS_PINNED"
+      ]
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "category": "SCHEMA_CONTRACT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "record schema_id",
+        "record schema_version",
+        "R5 package schema-contract inventory"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "SCHEMA-001",
+          "source_artifact_classes": [
+            "record schema_id",
+            "record schema_version",
+            "R5 package schema-contract inventory"
+          ],
+          "declared_assertion_id": "RESOLVE_SCHEMA_CONTRACT"
+        }
+      },
+      "failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ],
+      "produces": [
+        "SCHEMA_CONTRACT_RESOLVED"
+      ]
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "category": "SCHEMA_CONTRACT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "record content",
+        "resolved schema contract"
+      ],
+      "condition": {
+        "operator_id": "STRICT_SCHEMA_VALID",
+        "operands": {
+          "rule_id": "SCHEMA-002",
+          "source_artifact_classes": [
+            "record content",
+            "resolved schema contract"
+          ],
+          "declared_assertion_id": "VALIDATE_STRUCTURE"
+        }
+      },
+      "failure_code": "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "structural admission",
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "SCHEMA-001"
+      ],
+      "produces": [
+        "STRUCTURE_VALID"
+      ]
+    },
+    {
+      "rule_id": "ROLE-001",
+      "category": "ROLE_VOCABULARY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "producing_role",
+        "consumer_roles",
+        "R5 package role vocabulary"
+      ],
+      "condition": {
+        "operator_id": "EFFECTIVE_INVENTORY_VALID",
+        "operands": {
+          "rule_id": "ROLE-001",
+          "source_artifact_classes": [
+            "producing_role",
+            "consumer_roles",
+            "R5 package role vocabulary"
+          ],
+          "declared_assertion_id": "ALL_ROLES_IN_CLOSED_VOCABULARY"
+        }
+      },
+      "failure_code": "ACCORD-02R5-UNKNOWN-ROLE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "experiment-run admission"
+      ],
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001"
+      ],
+      "produces": [
+        "ROLE_VOCABULARY_VALID"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "category": "DIGEST_CANONICALIZATION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "supplied digest",
+        "canonicalization profile reference",
+        "R5 package canonicalization inventory"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "DIGEST-CANON-001",
+          "source_artifact_classes": [
+            "supplied digest",
+            "canonicalization profile reference",
+            "R5 package canonicalization inventory"
+          ],
+          "declared_assertion_id": "DIGEST_PROFILE_RESOLVES_WHEN_DIGEST_SUPPLIED"
+        }
+      },
+      "failure_code": "ACCORD-02R5-CANONICALIZATION-MISSING",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "SCHEMA-001"
+      ],
+      "produces": [
+        "CANONICALIZATION_PROFILE_RESOLVED"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "category": "DIGEST_CANONICALIZATION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "resolved canonicalization profile",
+        "concrete record schema_id/version",
+        "concrete record_type",
+        "container type"
+      ],
+      "condition": {
+        "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+        "operands": {
+          "rule_id": "DIGEST-CANON-002",
+          "source_artifact_classes": [
+            "resolved canonicalization profile",
+            "concrete record schema_id/version",
+            "concrete record_type",
+            "container type"
+          ],
+          "declared_assertion_id": "PROFILE_ADMITS_CONCRETE_RECORD_FORM"
+        }
+      },
+      "failure_code": "ACCORD-02R5-CANONICALIZATION-INCOMPATIBLE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "SCHEMA-001"
+      ],
+      "produces": [
+        "CANONICALIZATION_APPLICABLE"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "category": "DIGEST_CANONICALIZATION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "canonicalization profile",
+        "algorithm and method fields"
+      ],
+      "condition": {
+        "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+        "operands": {
+          "rule_id": "DIGEST-CANON-003",
+          "source_artifact_classes": [
+            "canonicalization profile",
+            "algorithm and method fields"
+          ],
+          "declared_assertion_id": "ALGORITHM_AND_METHOD_SUPPORTED"
+        }
+      },
+      "failure_code": "ACCORD-02R5-CANONICALIZATION-UNSUPPORTED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "verifier admission",
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "DIGEST-CANON-001"
+      ],
+      "produces": [
+        "CANONICALIZATION_SUPPORTED"
+      ]
+    },
+    {
+      "rule_id": "SCENARIO-ID-001",
+      "category": "SCENARIO_ID_POLICY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "scenario_id policy",
+        "classifier feature profile",
+        "verifier decision profile"
+      ],
+      "condition": {
+        "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+        "operands": {
+          "rule_id": "SCENARIO-ID-001",
+          "source_artifact_classes": [
+            "scenario_id policy",
+            "classifier feature profile",
+            "verifier decision profile"
+          ],
+          "declared_assertion_id": "CORRELATION_ONLY_AND_NON_SEMANTIC"
+        }
+      },
+      "failure_code": "ACCORD-02R5-SCENARIO-ID-SEMANTIC-USE",
+      "severity": "MAJOR",
+      "required_for": [
+        "experiment-run admission",
+        "scoring admission"
+      ],
+      "depends_on": [
+        "PROF-001",
+        "CLF-001"
+      ],
+      "produces": [
+        "SCENARIO_ID_NON_SEMANTIC"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "category": "PREDICATE_APPLICABILITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "E4R1-PRED-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "EXACT_UTF_8_PREDICATE_STAGE_TUPLE_RESOLVES_TO_ONE_ROW"
+        }
+      },
+      "failure_code": "PREDICATE_TUPLE_RESOLUTION_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PRED-004",
+        "PKG-002"
+      ],
+      "produces": [
+        "E4R1-PRED-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "category": "FAIL_CLOSED",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "PREDICATE_REGISTRY_VALID",
+        "operands": {
+          "rule_id": "E4R1-PRED-002",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "UNKNOWN_WRONG_STAGE_UNSUPPORTED_OR_UNDECLARED_TUPLES_CANNOT_PRODUCE_A_POSITIVE_RESULT"
+        }
+      },
+      "failure_code": "PREDICATE_FAIL_CLOSED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PRED-002_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "category": "EXACT_IDENTIFIER",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "PREDICATE_REGISTRY_VALID",
+        "operands": {
+          "rule_id": "E4R1-PRED-003",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "IDENTIFIER_COMPARISON_IS_CASE_SENSITIVE_CODE_POINT_EQUALITY_WITH_NO_NORMALIZATION_OR_LEXICAL_FAL"
+        }
+      },
+      "failure_code": "PREDICATE_IDENTIFIER_NOT_EXACT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PRED-003_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "category": "PREDICATE_AUTHORITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "E4R1-AUTH-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "ONLY_THE_ACTIVE_R1_PREDICATE_REGISTRY_IS_NORMATIVE_RETIRED_LEXICAL_PROFILES_ARE_UNAVAILABLE"
+        }
+      },
+      "failure_code": "COMPETING_PREDICATE_AUTHORITY",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-003"
+      ],
+      "produces": [
+        "E4R1-AUTH-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "category": "BINDING_AUTHORITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "E4R1-BIND-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "REGISTRY_REQUIRED_BINDINGS_ARE_AUTHORITATIVE_AND_PROFILE_REQUIREMENTS_ARE_ADDITIVE"
+        }
+      },
+      "failure_code": "BINDING_AUTHORITY_CONTRADICTION",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PRED-001",
+        "PRED-002",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-BIND-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "category": "PROPOSITION_KIND",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "E4R1-PROP-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "PROPOSITION_KIND_AND_SCHEMA_MUST_MATCH_THE_RESOLVED_TUPLE_KIND"
+        }
+      },
+      "failure_code": "PROPOSITION_KIND_MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "SCHEMA-002",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PROP-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "category": "PARTIAL_EFFECT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "PREDICATE_REGISTRY_VALID",
+        "operands": {
+          "rule_id": "E4R1-PART-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "PARTIAL_EFFECT_REQUIRES_A_SUPPORTED_DIRECT_PREDECESSOR_AND_LATER_STAGE_EVIDENCE_REQUIREMENT"
+        }
+      },
+      "failure_code": "PARTIAL_EFFECT_PREREQUISITE_UNSATISFIED",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-BIND-001",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PART-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "category": "PREDECESSOR_IDENTITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "E4R1-PART-002",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "PREDECESSOR_SUPPORT_MUST_BIND_TO_THE_SAME_LOGICAL_EFFECT_AND_EXACT_PREDECESSOR_TUPLE"
+        }
+      },
+      "failure_code": "PREDECESSOR_EFFECT_MISMATCH",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PART-001",
+        "E4R1-PRED-001"
+      ],
+      "produces": [
+        "E4R1-PART-002_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "category": "PREDECESSOR_GRAPH",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "DEPENDENCY_GRAPH_EQUALS_RULES",
+        "operands": {
+          "rule_id": "E4R1-PART-003",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "PREDECESSOR_EDGES_ARE_DIRECT_UNIQUE_NON_SELF_NON_DANGLING_AND_ACYCLIC"
+        }
+      },
+      "failure_code": "PREDECESSOR_GRAPH_INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001",
+        "PKG-002"
+      ],
+      "produces": [
+        "E4R1-PART-003_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "category": "NEGATIVE_SCOPE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+        "operands": {
+          "rule_id": "E4R1-NEG-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "NEGATIVE_SETTLEMENT_IS_BOUNDED_BY_EXACT_NEGATED_PREDICATE_STAGE_AND_COMPLETE_SCOPE_REQUIREMENTS"
+        }
+      },
+      "failure_code": "NEGATIVE_SCOPE_INCOMPLETE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-BIND-001"
+      ],
+      "produces": [
+        "E4R1-NEG-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "category": "NEGATIVE_SCOPE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+        "operands": {
+          "rule_id": "E4R1-NEG-002",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "SILENCE_TIMEOUT_STALE_INCOMPLETE_OR_CONTRADICTORY_READS_CANNOT_SUPPORT_NON_OCCURRENCE"
+        }
+      },
+      "failure_code": "NEGATIVE_SCOPE_NOT_SUFFICIENT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-NEG-001"
+      ],
+      "produces": [
+        "E4R1-NEG-002_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "category": "NON_ENTAILMENT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "E4R1-ENT-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "GENERIC_OCCURRENCE_POSITIVE_STAGE_AUTHORITY_AND_EFFECT_REMAIN_ORTHOGONAL"
+        }
+      },
+      "failure_code": "FORBIDDEN_ENTAILMENT",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-AUTH-001"
+      ],
+      "produces": [
+        "E4R1-ENT-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "category": "CANONICALIZATION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "E4R1-CANON-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "EACH_CONCRETE_CANDIDATE_DIGEST_FORM_RESOLVES_ONE_CANONICALIZATION_MAPPING_AND_TARGET"
+        }
+      },
+      "failure_code": "CANONICALIZATION_MAPPING_INVALID",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002"
+      ],
+      "produces": [
+        "E4R1-CANON-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "category": "EXPECTATION_CONTRACT",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "EXPECTATION_SET_EQUAL",
+        "operands": {
+          "rule_id": "E4R1-EXPECT-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "ALL_ACCEPTED_EXPECTED_AXES_REASON_CODES_AND_PROHIBITIONS_REMAIN_PRESENT_AND_COMPARABLE"
+        }
+      },
+      "failure_code": "EXPECTATION_CONTRACT_INCOMPLETE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PKG-002"
+      ],
+      "produces": [
+        "E4R1-EXPECT-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "category": "CANDIDATE_CLOSURE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R1 exact candidate package",
+        "declared validation scope",
+        "resolved candidate contract"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "E4R1-CLOSE-001",
+          "source_artifact_classes": [
+            "R1 exact candidate package",
+            "declared validation scope",
+            "resolved candidate contract"
+          ],
+          "declared_assertion_id": "CANDIDATE_PACKAGE_CLOSURE_CHECKS_DETECT_DUPLICATE_DANGLING_UNSAFE_CONTRADICTORY_AND_UNRESOLVED_C"
+        }
+      },
+      "failure_code": "CANDIDATE_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "settlement amendment conformance"
+      ],
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-001",
+        "E4R1-PART-003",
+        "E4R1-CANON-001"
+      ],
+      "produces": [
+        "E4R1-CLOSE-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "category": "REFERENCE_RESOLUTION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "E4R2-REF-001",
+          "source_artifact_classes": [
+            "R2 exact candidate package",
+            "declared reference registry",
+            "resolved contracts"
+          ],
+          "declared_assertion_id": "ALL_NON_NULL_REFERENCE_FIELDS_USE_ONE_EXACT_OBJECT_ID_VERSION_REPRESENTATION_AND_RESOLVE"
+        }
+      },
+      "failure_code": "REFERENCE_RESOLUTION_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "final independent reassessment"
+      ],
+      "depends_on": [
+        "PKG-002"
+      ],
+      "produces": [
+        "E4R2-REF-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "category": "CANONICALIZATION",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "E4R2-CANON-001",
+          "source_artifact_classes": [
+            "R2 exact candidate package",
+            "declared reference registry",
+            "resolved contracts"
+          ],
+          "declared_assertion_id": "EVERY_DIGEST_BEARING_FORM_RESOLVES_A_DECLARED_TARGET_WITH_NO_RECORD_TYPE_CONVENTION"
+        }
+      },
+      "failure_code": "CANONICALIZATION_TARGET_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "final independent reassessment"
+      ],
+      "depends_on": [
+        "DIGEST-CANON-002"
+      ],
+      "produces": [
+        "E4R2-CANON-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "category": "BINDING_AUTHORITY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "condition": {
+        "operator_id": "BINDING_COMPOSITION_VALID",
+        "operands": {
+          "rule_id": "E4R2-BIND-001",
+          "source_artifact_classes": [
+            "R2 exact candidate package",
+            "declared reference registry",
+            "resolved contracts"
+          ],
+          "declared_assertion_id": "REGISTRY_BINDINGS_AND_EVIDENCE_CAPABILITIES_COMPOSE_WITHOUT_FORBIDDEN_INTERSECTIONS"
+        }
+      },
+      "failure_code": "BINDING_COMPOSITION_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "final independent reassessment"
+      ],
+      "depends_on": [
+        "E4R1-BIND-001"
+      ],
+      "produces": [
+        "E4R2-BIND-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "category": "NEGATIVE_SCOPE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "condition": {
+        "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+        "operands": {
+          "rule_id": "E4R2-NEG-001",
+          "source_artifact_classes": [
+            "R2 exact candidate package",
+            "declared reference registry",
+            "resolved contracts"
+          ],
+          "declared_assertion_id": "ALL_COMPLETE_NEGATIVE_REQUIREMENTS_MAP_TO_OBSERVED_PROPOSITION_PROFILE_EVIDENCE_FIELDS"
+        }
+      },
+      "failure_code": "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "final independent reassessment"
+      ],
+      "depends_on": [
+        "E4R1-NEG-001"
+      ],
+      "produces": [
+        "E4R2-NEG-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "category": "RULE_GRAPH",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "condition": {
+        "operator_id": "REFERENCE_GRAPH_CLOSED",
+        "operands": {
+          "rule_id": "E4R2-GRAPH-001",
+          "source_artifact_classes": [
+            "R2 exact candidate package",
+            "declared reference registry",
+            "resolved contracts"
+          ],
+          "declared_assertion_id": "ALL_ACTIVE_RULE_IDS_ARE_NODES_AND_EVERY_DEPENDENCY_TARGET_RESOLVES"
+        }
+      },
+      "failure_code": "RULE_GRAPH_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "final independent reassessment"
+      ],
+      "depends_on": [
+        "E4R1-PART-003"
+      ],
+      "produces": [
+        "E4R2-GRAPH-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "category": "PROFILE_POLICY",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "condition": {
+        "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+        "operands": {
+          "rule_id": "E4R2-PROFILE-001",
+          "source_artifact_classes": [
+            "R2 exact candidate package",
+            "declared reference registry",
+            "resolved contracts"
+          ],
+          "declared_assertion_id": "DIGEST_OPTIONALITY_IS_SCOPED_TO_EVIDENCE_ARTIFACTS_AND_NEVER_WEAKENS_REQUIRED_SCHEMA_DIGEST_POLI"
+        }
+      },
+      "failure_code": "PROFILE_DIGEST_SCOPE_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "final independent reassessment"
+      ],
+      "depends_on": [
+        "PKG-002",
+        "E4R1-BIND-001"
+      ],
+      "produces": [
+        "E4R2-PROFILE-001_SATISFIED"
+      ]
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "category": "CANDIDATE_CLOSURE",
+      "classification": "DETERMINISTIC_WITH_PROFILE",
+      "inputs": [
+        "R2 exact candidate package",
+        "declared reference registry",
+        "resolved contracts"
+      ],
+      "condition": {
+        "operator_id": "EFFECTIVE_INVENTORY_VALID",
+        "operands": {
+          "rule_id": "E4R2-CLOSE-001",
+          "source_artifact_classes": [
+            "R2 exact candidate package",
+            "declared reference registry",
+            "resolved contracts"
+          ],
+          "declared_assertion_id": "CLOSURE_COUNTS_AND_MUTATION_RESULTS_ARE_COMPUTED_FROM_ARTIFACTS_RATHER_THAN_LITERALS"
+        }
+      },
+      "failure_code": "MEASURED_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "required_for": [
+        "candidate closure",
+        "final independent reassessment"
+      ],
+      "depends_on": [
+        "E4R1-CLOSE-001",
+        "E4R2-REF-001",
+        "E4R2-CANON-001",
+        "E4R2-NEG-001",
+        "E4R2-GRAPH-001"
+      ],
+      "produces": [
+        "E4R2-CLOSE-001_SATISFIED"
+      ]
+    }
+  ],
+  "profile_id": "urn:moirae:accord-02e4r4:validation-rules",
+  "profile_version": "0.2"
+}

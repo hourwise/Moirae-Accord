@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:negative-scope-contract:0.2",
+  "contract_id": "urn:moirae:accord-02e4r4:negative-scope-contract",
+  "contract_version": "0.2",
+  "target_path": "docs/accord-02e4r4/accord-02e4r4-v013-target.json",
+  "evidence_path": "docs/accord-02e4r4/accord-02e4r4-complete-negative-evidence.json",
+  "retention_semantics": "RETENTION_WINDOW_MUST_COVER_REQUIRED_INTERVAL_AND_MEET_PROFILE_MINIMUM",
+  "retention_formula": "retention_window_seconds >= max(interval_seconds, minimum_retention_seconds)",
+  "contradiction_filter": {
+    "polarity": "POSITIVE",
+    "admissible": true,
+    "identity_basis": "TARGET_NOT_EVIDENCE_RECORD",
+    "match": [
+      "effect_id",
+      "predicate_id",
+      "stage",
+      "scope"
+    ],
+    "deduplicate_by": "evidence_id"
+  },
+  "requirements": [
+    "TARGET_IDENTITY_EQUAL",
+    "TARGET_SCOPE_EQUAL",
+    "INTERVAL_COVERS_TARGET",
+    "RETENTION_COVERS_INTERVAL_AND_MINIMUM",
+    "CONSISTENCY_ALLOWED",
+    "READ_SEMANTICS_COMPLETE",
+    "FRESH_AT_VERIFICATION",
+    "SOURCE_CLASS_ALLOWED",
+    "READ_SCOPE_COMPLETE",
+    "NO_SAME_TARGET_POSITIVE"
+  ]
+}

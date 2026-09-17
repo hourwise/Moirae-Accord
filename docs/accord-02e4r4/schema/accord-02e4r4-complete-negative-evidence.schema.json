@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:complete-negative-evidence:0.2",
+  "title": "ACCORD-02E4R4 complete-negative-evidence semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "evidence_id",
+    "evidence_version",
+    "fixture_status",
+    "effect_id",
+    "predicate_id",
+    "stage",
+    "scope",
+    "observed_interval",
+    "retention_window_seconds",
+    "consistency_level",
+    "read_semantics",
+    "observed_at",
+    "verification_time",
+    "freshness_max_age_seconds",
+    "evidence_class",
+    "read_scope_complete",
+    "evidence_universe"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_version": {
+      "const": "0.2"
+    },
+    "fixture_status": {
+      "enum": [
+        "SYNTHETIC_CANDIDATE_0_2_NOT_ACCEPTED_HISTORY",
+        "EXTERNAL_BOUND_EVIDENCE"
+      ]
+    },
+    "effect_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "predicate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "enum": [
+        "attempt",
+        "dispatch",
+        "acceptance",
+        "processing",
+        "effect",
+        "delivery",
+        "visibility",
+        "settlement"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "resource",
+        "action",
+        "recipient",
+        "provider"
+      ],
+      "properties": {
+        "resource": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recipient": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "observed_interval": {
+      "type": "object",
+      "required": [
+        "not_before",
+        "as_of"
+      ],
+      "properties": {
+        "not_before": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "retention_window_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "consistency_level": {
+      "enum": [
+        "SNAPSHOT_COMPLETE",
+        "LINEARIZABLE_COMPLETE"
+      ]
+    },
+    "read_semantics": {
+      "const": "COMPLETE_LEDGER_QUERY"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "freshness_max_age_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "evidence_class": {
+      "enum": [
+        "COMPLETE_NEGATIVE_LEDGER_QUERY",
+        "COMPLETE_NEGATIVE_AUTHORITATIVE_SNAPSHOT"
+      ]
+    },
+    "read_scope_complete": {
+      "const": true
+    },
+    "evidence_universe": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "admissible",
+          "polarity",
+          "effect_id",
+          "predicate_id",
+          "stage",
+          "scope"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "admissible": {
+            "type": "boolean"
+          },
+          "polarity": {
+            "enum": [
+              "POSITIVE",
+              "NEGATIVE"
+            ]
+          },
+          "effect_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "predicate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "stage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

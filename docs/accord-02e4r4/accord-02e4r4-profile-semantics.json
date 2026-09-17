@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:profile-semantics:0.2",
+  "contract_id": "urn:moirae:accord-02e4r4:profile-semantics",
+  "contract_version": "0.2",
+  "settlement_profile_ref_domain": "SETTLEMENT_DECISION_POLICY",
+  "evidence_profile_ref_domain": "EVIDENCE_ADMISSIBILITY_AND_INTERPRETATION_POLICY",
+  "missing_reference": "FAIL_PROFILE_RESOLUTION",
+  "unresolved_reference": "FAIL_PROFILE_RESOLUTION",
+  "compatibility_relation": "EXACT_PROFILE_OR_DECLARED_COMPATIBLE_PAIR",
+  "compatible_pairs": [],
+  "same_profile_result": "COMPATIBLE",
+  "undeclared_different_pair_result": "INCOMPATIBLE",
+  "e4r4_adoption": {
+    "source_path": "docs/accord-02e4r3/accord-02e4r3-profile-semantics.json",
+    "source_raw_sha256": "766226ff9b1ec2a10140bbd8aa223ebd81020e07f1c272f5d7fc9e830395e617",
+    "source_role": "PROVENANCE_ONLY"
+  }
+}

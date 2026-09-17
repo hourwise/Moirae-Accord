@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:operator-registry:0.2",
+  "title": "ACCORD-02E4R4 operator-registry semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "registry_id",
+    "registry_version",
+    "primitive_vocabulary",
+    "operators"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r4:"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "registry_version": {
+      "const": "0.2"
+    },
+    "primitive_vocabulary": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "operators": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "operator_id",
+          "operator_version",
+          "operand_schema",
+          "operand_sources",
+          "evaluation",
+          "result_schema",
+          "failure_codes",
+          "error_behavior",
+          "implementation_function"
+        ]
+      }
+    }
+  },
+  "additionalProperties": true
+}

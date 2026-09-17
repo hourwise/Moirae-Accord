@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "errors": [],
+  "checks": {
+    "SCHEMAS_VALID": true,
+    "IDENTITY_UNIQUE": true,
+    "REFERENCES_CLOSED": true,
+    "GRAPH_EQUAL": true,
+    "EXPECTATIONS_STABLE": true,
+    "V013_VALID": true,
+    "CANONICALIZATION_VALID": true,
+    "DIGESTS_VALID": true,
+    "SOURCE_CATALOG_BOUND": true,
+    "PROFILES_VALID": true,
+    "PREDICATE_REGISTRY_VALID": true,
+    "OPERATORS_TYPED": true,
+    "RULES_WELL_FORMED": true,
+    "PACKAGE_CANDIDATE": true,
+    "BINDINGS_VALID": true,
+    "ASSERTION_EXPRESSION": true
+  },
+  "diagnostics": {
+    "graph_errors": [],
+    "derived_edge_count": 127,
+    "expectation_errors": [],
+    "negative_errors": [],
+    "canonicalization_errors": [],
+    "canonical_digests_reproduced": 24,
+    "reference_errors": [],
+    "reference_count": 77,
+    "source_errors": [],
+    "profile_errors": [],
+    "identity_errors": [],
+    "predicate_errors": [],
+    "operator_errors": []
+  },
+  "rule_counts": {
+    "active": 104,
+    "executed": 104,
+    "pass": 104,
+    "fail": 0,
+    "unevaluable": 0,
+    "ambiguous": 0
+  },
+  "standards_certificate": "docs/accord-02e4r4/accord-02e4r4-standards-validation-certificate.json",
+  "rule_trace": "docs/accord-02e4r4/accord-02e4r4-rule-execution-trace.json",
+  "mutation_report": "docs/accord-02e4r4/accord-02e4r4-adversarial-mutation-report.json",
+  "independent_evaluator": "docs/accord-02e4r4/audit/accord-02e4r4-independent-evaluator.py",
+  "mutation_result": "PASS"
+}

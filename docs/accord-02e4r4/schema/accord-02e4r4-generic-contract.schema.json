@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:generic-contract:0.2",
+  "title": "ACCORD-02E4R4 generic-contract semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r4:"
+    }
+  },
+  "additionalProperties": true
+}

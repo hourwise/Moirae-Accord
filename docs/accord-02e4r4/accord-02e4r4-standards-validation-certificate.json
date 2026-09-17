@@ -1,0 +1,26 @@
+{
+  "runtime": "Python 3.12.14",
+  "jsonschema_version": "4.26.0",
+  "dialect": "https://json-schema.org/draft/2020-12/schema",
+  "format_checker": "jsonschema.FormatChecker",
+  "schemas_loaded": 13,
+  "schema_documents": [
+    "docs/accord-02e4r4/schema/accord-02e4r4-assertion-registry.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-complete-negative-evidence.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-dependency-graph.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-effective-profile-domain.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-negative-contract.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-operator-registry.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-profile-manifest.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-source-catalog-binding.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-specification-package.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-target.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-validation-rules.schema.json",
+    "docs/accord-02e4r4/schema/accord-02e4r4-vector-catalog.schema.json"
+  ],
+  "effective_instances_validated": 49,
+  "errors": [],
+  "error_count": 0,
+  "result": "PASS"
+}

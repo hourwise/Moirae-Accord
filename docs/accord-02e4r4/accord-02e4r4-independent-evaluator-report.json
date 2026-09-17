@@ -1,0 +1,657 @@
+{
+  "evaluator_status": "NON_NORMATIVE_REFERENCE_EVALUATOR",
+  "code_independence": "NO_IMPORT_FROM_BUILDER_PRIMARY_CERTIFIER_OR_SHARED_SEMANTIC_HELPER",
+  "jsonschema_version": "4.26.0",
+  "effective_instances_validated": 49,
+  "standards_errors": [],
+  "checks": {
+    "SCHEMAS_VALID": true,
+    "IDENTITY_UNIQUE": true,
+    "REFERENCES_CLOSED": true,
+    "GRAPH_EQUAL": true,
+    "EXPECTATIONS_STABLE": true,
+    "V013_VALID": true,
+    "DIGESTS_VALID": true,
+    "SOURCE_CATALOG_BOUND": true,
+    "PROFILES_VALID": true,
+    "PREDICATE_REGISTRY_VALID": true,
+    "PACKAGE_CANDIDATE": true,
+    "BINDINGS_VALID": true,
+    "CANONICALIZATION_VALID": true,
+    "RULES_WELL_FORMED": true,
+    "OPERATORS_TYPED": true,
+    "ASSERTION_EXPRESSION": true
+  },
+  "rule_counts": {
+    "PASS": 104,
+    "FAIL": 0,
+    "UNEVALUABLE": 0
+  },
+  "traces": [
+    {
+      "rule_id": "ORC-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "CONTAINS_NO_REFERENCE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ORC-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "ONE_WAY_JOIN",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ORC-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "OPAQUE_WITH_RESPECT_TO",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "DISCRIMINATED_ARM_SHAPE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-002",
+      "operator_id": "PROFILE_PAIR_COMPATIBLE",
+      "assertion_id": "PROFILE_PAIR_MATCHES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "EACH_SOURCE_TYPE_IN",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-004",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SOURCE_TYPE_RECORD_TYPE_PAIR_MATCHES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-005",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "NO_SEMANTIC_EXTENSION_BAG",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-006",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "FEATURE_SOURCES_SUBSET_OF",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ARM-007",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "EXTENSION_CLASSIFICATION_REQUIRED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RAW-001",
+      "operator_id": "EFFECTIVE_INVENTORY_VALID",
+      "assertion_id": "CLOSED_ENVELOPE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RAW-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "EXACTLY_ONE_OF",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RAW-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "NOT_FORWARDED_AS_INPUT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROJ-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "PROJECTION_REQUIRES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROJ-002",
+      "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "assertion_id": "COMPLETE_NEGATIVE_REQUIRED_FOR",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROJ-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "PROJECTION_DOES_NOT_ADD",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROJ-004",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "DOES_NOT_IMPLY",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "RESOLVES_EXACTLY_ONCE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "NO_DUPLICATE_NORMATIVE_IDS",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SAME_RUN_CHAIN",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-004",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "EQUAL",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-005",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "EQUAL",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-006",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SAME_PROPOSITION",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-007",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "REJECT_FOREIGN_RECORD",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-008",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "TYPE_IDENTITY_NOT_SUBSTITUTABLE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "RESOLVES_EXACTLY_ONCE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SAME_PROPOSITION",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "MATCH_OR_OMIT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-004",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "UNKNOWN_OR_NOT_APPLICABLE_GUARDED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-005",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SPECIFIC_ATTEMPT_CLAIM_REQUIRES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCORE-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SCORER_ONLY",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCORE-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "ORDERED_PIPELINE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCORE-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "NORMALIZATION_USES_ONLY",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-001",
+      "operator_id": "EFFECTIVE_INVENTORY_VALID",
+      "assertion_id": "BUNDLE_TYPE_AND_INVENTORY_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SELF_CONTAINED_SCOPE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SCORER_MATERIAL_SEPARATED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-004",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "RESOLVE_SCHEMA_CONTRACT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-005",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "RESOLVE_ACTIVE_PROFILES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-001",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "EXPERIMENT_RUN_BINDS",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-002",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "VERIFIER_RUN_BINDS",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "RUN_AND_MANIFEST_AGREE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-004",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "NO_SCORER_REFERENCE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "EVERY_RELEVANT_EXTENSION_CLASSIFIED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "NON_SEMANTIC_NOT_USED_FOR",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "COMPARATOR_REQUIRED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-004",
+      "operator_id": "PROFILE_PAIR_COMPATIBLE",
+      "assertion_id": "PROFILE_SEMANTICS_REQUIRED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-005",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "CANNOT_STRENGTHEN_RESULT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-006",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "REGISTRY_IN_SCOPE_BEFORE_USE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-001",
+      "operator_id": "STRICT_SCHEMA_VALID",
+      "assertion_id": "SCHEMA_MEMBERSHIP",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "WRONG_SOURCE_CLASS_REJECTED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "REGISTRY_NOT_FILENAME_DRIVEN",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-004",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "EXTERNAL_RECORD_NOT_PORTABLE_EVIDENCE_BY_SHAPE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "VIS-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "FIELD_CONSUMER_IS_ALLOWED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "INPUTS_ONLY",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "ORACLE_AND_SCORER_TRUTH_ABSENT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "SAME_INPUTS_SAME_CLAIM",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-004",
+      "operator_id": "PROFILE_PAIR_COMPATIBLE",
+      "assertion_id": "PROFILE_DEFINED_FAILURE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "NORM-005",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "COMPARISON_AFTER_NORMALIZATION",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "FEATURE_REGISTERED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-002",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "DERIVATION_SUBSET_OF_ALLOWED_SOURCES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-003",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "FORBIDDEN_UPSTREAM_ABSENT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "CLF-004",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "UNKNOWN_FEATURE_REJECTED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-001",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "REQUIRED_BINDING_NOT_UNKNOWN_OR_NA_FOR_POSITIVE_PROJECTION",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-002",
+      "operator_id": "PREDICATE_REGISTRY_VALID",
+      "assertion_id": "NOT_APPLICABLE_PROFILE_DECLARED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-003",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "UNKNOWN_NOT_POSITIVE_BINDING",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-004",
+      "operator_id": "PREDICATE_REGISTRY_VALID",
+      "assertion_id": "PREDICATE_STAGE_PROFILE_MATCHES_PROPOSITION",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "assertion_id": "CANONICAL_CONTENT_DIGEST_MATCHES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "assertion_id": "DIGEST_ABSENT_ONLY_IF_OPTIONAL",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-003",
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "assertion_id": "DOES_NOT_IMPLY_EXTERNAL_FACT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-009",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "TARGET_STRUCTURE_VALID",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-006",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "ONE_DESCRIPTOR_PER_PROPOSITION_ID",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PKG-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "EXACT_PACKAGE_RESOLVES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PKG-002",
+      "operator_id": "EFFECTIVE_INVENTORY_VALID",
+      "assertion_id": "CONTRACT_INVENTORY_CLOSED_AND_UNIQUE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROF-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "RESOLVE_PROFILE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROF-002",
+      "operator_id": "PROFILE_PAIR_COMPATIBLE",
+      "assertion_id": "EXACT_VERSION_PINNED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "RESOLVE_SCHEMA_CONTRACT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "operator_id": "STRICT_SCHEMA_VALID",
+      "assertion_id": "VALIDATE_STRUCTURE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ROLE-001",
+      "operator_id": "EFFECTIVE_INVENTORY_VALID",
+      "assertion_id": "ALL_ROLES_IN_CLOSED_VOCABULARY",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "DIGEST_PROFILE_RESOLVES_WHEN_DIGEST_SUPPLIED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "assertion_id": "PROFILE_ADMITS_CONCRETE_RECORD_FORM",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "assertion_id": "ALGORITHM_AND_METHOD_SUPPORTED",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCENARIO-ID-001",
+      "operator_id": "DECLARED_CONTRACT_INVARIANT_VALID",
+      "assertion_id": "CORRELATION_ONLY_AND_NON_SEMANTIC",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "EXACT_UTF_8_PREDICATE_STAGE_TUPLE_RESOLVES_TO_ONE_ROW",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "operator_id": "PREDICATE_REGISTRY_VALID",
+      "assertion_id": "UNKNOWN_WRONG_STAGE_UNSUPPORTED_OR_UNDECLARED_TUPLES_CANNOT_PRODUCE_A_POSITIVE_RESULT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "operator_id": "PREDICATE_REGISTRY_VALID",
+      "assertion_id": "IDENTIFIER_COMPARISON_IS_CASE_SENSITIVE_CODE_POINT_EQUALITY_WITH_NO_NORMALIZATION_OR_LEXICAL_FAL",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "ONLY_THE_ACTIVE_R1_PREDICATE_REGISTRY_IS_NORMATIVE_RETIRED_LEXICAL_PROFILES_ARE_UNAVAILABLE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "REGISTRY_REQUIRED_BINDINGS_ARE_AUTHORITATIVE_AND_PROFILE_REQUIREMENTS_ARE_ADDITIVE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "PROPOSITION_KIND_AND_SCHEMA_MUST_MATCH_THE_RESOLVED_TUPLE_KIND",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "operator_id": "PREDICATE_REGISTRY_VALID",
+      "assertion_id": "PARTIAL_EFFECT_REQUIRES_A_SUPPORTED_DIRECT_PREDECESSOR_AND_LATER_STAGE_EVIDENCE_REQUIREMENT",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "PREDECESSOR_SUPPORT_MUST_BIND_TO_THE_SAME_LOGICAL_EFFECT_AND_EXACT_PREDECESSOR_TUPLE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "operator_id": "DEPENDENCY_GRAPH_EQUALS_RULES",
+      "assertion_id": "PREDECESSOR_EDGES_ARE_DIRECT_UNIQUE_NON_SELF_NON_DANGLING_AND_ACYCLIC",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "assertion_id": "NEGATIVE_SETTLEMENT_IS_BOUNDED_BY_EXACT_NEGATED_PREDICATE_STAGE_AND_COMPLETE_SCOPE_REQUIREMENTS",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "assertion_id": "SILENCE_TIMEOUT_STALE_INCOMPLETE_OR_CONTRADICTORY_READS_CANNOT_SUPPORT_NON_OCCURRENCE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "GENERIC_OCCURRENCE_POSITIVE_STAGE_AUTHORITY_AND_EFFECT_REMAIN_ORTHOGONAL",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "EACH_CONCRETE_CANDIDATE_DIGEST_FORM_RESOLVES_ONE_CANONICALIZATION_MAPPING_AND_TARGET",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "operator_id": "EXPECTATION_SET_EQUAL",
+      "assertion_id": "ALL_ACCEPTED_EXPECTED_AXES_REASON_CODES_AND_PROHIBITIONS_REMAIN_PRESENT_AND_COMPARABLE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "CANDIDATE_PACKAGE_CLOSURE_CHECKS_DETECT_DUPLICATE_DANGLING_UNSAFE_CONTRADICTORY_AND_UNRESOLVED_C",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "ALL_NON_NULL_REFERENCE_FIELDS_USE_ONE_EXACT_OBJECT_ID_VERSION_REPRESENTATION_AND_RESOLVE",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "EVERY_DIGEST_BEARING_FORM_RESOLVES_A_DECLARED_TARGET_WITH_NO_RECORD_TYPE_CONVENTION",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "operator_id": "BINDING_COMPOSITION_VALID",
+      "assertion_id": "REGISTRY_BINDINGS_AND_EVIDENCE_CAPABILITIES_COMPOSE_WITHOUT_FORBIDDEN_INTERSECTIONS",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "operator_id": "NEGATIVE_SCOPE_REQUIREMENTS_PASS",
+      "assertion_id": "ALL_COMPLETE_NEGATIVE_REQUIREMENTS_MAP_TO_OBSERVED_PROPOSITION_PROFILE_EVIDENCE_FIELDS",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "operator_id": "REFERENCE_GRAPH_CLOSED",
+      "assertion_id": "ALL_ACTIVE_RULE_IDS_ARE_NODES_AND_EVERY_DEPENDENCY_TARGET_RESOLVES",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "operator_id": "DIGEST_MATCHES_DECLARED_MAPPING",
+      "assertion_id": "DIGEST_OPTIONALITY_IS_SCOPED_TO_EVIDENCE_ARTIFACTS_AND_NEVER_WEAKENS_REQUIRED_SCHEMA_DIGEST_POLI",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "operator_id": "EFFECTIVE_INVENTORY_VALID",
+      "assertion_id": "CLOSURE_COUNTS_AND_MUTATION_RESULTS_ARE_COMPUTED_FROM_ARTIFACTS_RATHER_THAN_LITERALS",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

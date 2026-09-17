@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:v013-target:0.2",
+  "target_id": "urn:moirae:accord-02e4r4:target:v013",
+  "target_version": "0.2",
+  "source_vector_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+  "effect_id": "urn:accord:02c:effect:E13",
+  "negated_predicate_id": "urn:accord:02c:predicate:external-effect",
+  "negated_stage": "effect",
+  "scope": {
+    "resource": "NOT_APPLICABLE",
+    "action": "NOT_APPLICABLE",
+    "recipient": "NOT_APPLICABLE",
+    "provider": "NOT_APPLICABLE"
+  },
+  "required_interval": {
+    "not_before": "2025-01-01T00:00:00Z",
+    "as_of": "2025-01-02T00:00:00Z"
+  },
+  "verification_time": "2025-01-02T00:01:00Z",
+  "minimum_retention_seconds": 86400
+}

@@ -1,0 +1,470 @@
+{
+  "algorithm": "SCHEMA_X_NORMATIVE_REFERENCE_ANNOTATION_WALK",
+  "discovered_non_null": 77,
+  "unresolved": 0,
+  "references": [
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/0/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-specification-package-0.2.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/0/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-specification-package.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/1/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-predicate-registry.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/1/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/2/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-normative-contracts.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/2/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/3/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-profile-semantics.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/3/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/4/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-source-schema-registry.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/4/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/5/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-reference-semantics.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/5/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/6/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-partial-effect-policy.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/6/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/7/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-operator-registry.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/7/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-operator-registry.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/8/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-assertion-registry.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/8/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-assertion-registry.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/9/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-validation-rules.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/9/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-validation-rules.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/10/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-dependency-graph.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/10/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-dependency-graph.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/11/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-settlement-vector-catalog.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/11/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-vector-catalog.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/12/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-source-catalog-binding.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/12/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-source-catalog-binding.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/13/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-v013-target.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/13/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-target.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/14/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-complete-negative-evidence.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/14/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-complete-negative-evidence.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/15/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-negative-scope-contract.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/15/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-negative-contract.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/16/path",
+      "reference_kind": "ACTIVE_INSTANCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-effective-profile-manifest.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_instances/16/schema_path",
+      "reference_kind": "SCHEMA",
+      "value": "docs/accord-02e4r4/schema/accord-02e4r4-profile-manifest.schema.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/active_profiles_manifest_path",
+      "reference_kind": "PROFILE_MANIFEST",
+      "value": "docs/accord-02e4r4/accord-02e4r4-effective-profile-manifest.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/operator_registry_path",
+      "reference_kind": "OPERATOR_REGISTRY",
+      "value": "docs/accord-02e4r4/accord-02e4r4-operator-registry.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/assertion_registry_path",
+      "reference_kind": "ASSERTION_REGISTRY",
+      "value": "docs/accord-02e4r4/accord-02e4r4-assertion-registry.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/rules_path",
+      "reference_kind": "RULES",
+      "value": "docs/accord-02e4r4/accord-02e4r4-validation-rules.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/graph_path",
+      "reference_kind": "GRAPH",
+      "value": "docs/accord-02e4r4/accord-02e4r4-dependency-graph.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/source_catalog_binding_path",
+      "reference_kind": "EXTERNAL_MEMBER_BINDING",
+      "value": "docs/accord-02e4r4/accord-02e4r4-source-catalog-binding.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/canonicalization_authority_path",
+      "reference_kind": "CANONICALIZATION_PROFILE",
+      "value": "docs/accord-02e4r4/profiles/accord-02e4r4-canonicalization-profile.json"
+    },
+    {
+      "artifact": "specification-package",
+      "pointer": "/predicate_registry_path",
+      "reference_kind": "PREDICATE_REGISTRY",
+      "value": "docs/accord-02e4r4/accord-02e4r4-predicate-registry.json"
+    },
+    {
+      "artifact": "source-catalog-binding",
+      "pointer": "/repository_root_path",
+      "reference_kind": "RAW_BYTE_EXTERNAL_MEMBER",
+      "value": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json"
+    },
+    {
+      "artifact": "negative-scope-contract",
+      "pointer": "/target_path",
+      "reference_kind": "TARGET",
+      "value": "docs/accord-02e4r4/accord-02e4r4-v013-target.json"
+    },
+    {
+      "artifact": "negative-scope-contract",
+      "pointer": "/evidence_path",
+      "reference_kind": "EVIDENCE",
+      "value": "docs/accord-02e4r4/accord-02e4r4-complete-negative-evidence.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/0/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/accord-02r3-validation-rules.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/1/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/accord-02r5-validation-rules.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/2/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/schema/accord-02d-experiment-profile.schema.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/3/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/schema/accord-02r5-verifier-profile.schema.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/4/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/schema/accord-02r5-trust-root-profile.schema.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/5/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/6/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/7/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/8/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/9/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/10/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/11/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/12/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/13/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02b-authority-test-vectors.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/14/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02e4r4/profiles/accord-02e4r4-settlement-profile-conservative.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/15/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02e4r4/profiles/accord-02e4r4-settlement-profile-incompatible.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/16/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r1-settlement-vocabulary-map.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/17/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-extension-registry.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/18/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-source-schema-registry.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/19/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-role-visibility-profile.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/20/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-normalization-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/21/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-normalization-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/22/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-normalization-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/23/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-normalization-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/24/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-classifier-feature-profile.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/25/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02r3-predicate-applicability-profile.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/26/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02d-arm-input-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/27/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02d-arm-input-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/28/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02d-arm-input-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/29/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02/examples/accord-02d-arm-input-profiles.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/30/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02e4r4/profiles/accord-02e4r4-canonicalization-profile.json"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "pointer": "/profiles/31/profile_path",
+      "reference_kind": "PROFILE",
+      "value": "docs/accord-02e4r4/profiles/accord-02e4r4-predicate-applicability-profile.json"
+    }
+  ],
+  "result": "PASS"
+}

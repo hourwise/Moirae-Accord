@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:schema:profile-manifest:0.2",
+  "title": "ACCORD-02E4R4 profile-manifest semantic domain",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "manifest_id",
+    "manifest_version",
+    "classification",
+    "profiles"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r4:"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "manifest_version": {
+      "const": "0.2"
+    },
+    "classification": {
+      "type": "object"
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "profile_id",
+          "profile_version",
+          "profile_path",
+          "schema_id",
+          "schema_version",
+          "raw_sha256",
+          "integrity_scope",
+          "status"
+        ],
+        "properties": {
+          "profile_path": {
+            "type": "string",
+            "minLength": 1,
+            "x-normative-reference": {
+              "reference_kind": "PROFILE"
+            }
+          },
+          "schema_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

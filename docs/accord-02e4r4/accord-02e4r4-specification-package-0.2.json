@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:specification-package:0.2",
+  "package_id": "urn:moirae:accord-02e4r4:specification-package",
+  "package_version": "0.2",
+  "status": "CANDIDATE_UNACCEPTED",
+  "lineage": {
+    "parent_commit": "a2ea38f7788a4c829f64af72f41f32d1188d1154",
+    "accepted_0_1": "5a8bf1e577f71132665ece271e70e30e87df5676",
+    "rejected_candidates": [
+      "E4R2",
+      "E4R3"
+    ],
+    "provenance_only_definition": "MUST_NOT_SUPPLY_ACTIVE_NORMATIVE_CONTRACTS"
+  },
+  "active_instances": [
+    {
+      "artifact": "specification-package",
+      "path": "docs/accord-02e4r4/accord-02e4r4-specification-package-0.2.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:specification-package:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-specification-package.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "predicate-registry",
+      "path": "docs/accord-02e4r4/accord-02e4r4-predicate-registry.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:generic-contract:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "normative-contracts",
+      "path": "docs/accord-02e4r4/accord-02e4r4-normative-contracts.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:generic-contract:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "profile-semantics",
+      "path": "docs/accord-02e4r4/accord-02e4r4-profile-semantics.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:generic-contract:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "source-schema-registry",
+      "path": "docs/accord-02e4r4/accord-02e4r4-source-schema-registry.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:generic-contract:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "reference-semantics",
+      "path": "docs/accord-02e4r4/accord-02e4r4-reference-semantics.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:generic-contract:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "partial-effect-policy",
+      "path": "docs/accord-02e4r4/accord-02e4r4-partial-effect-policy.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:generic-contract:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-generic-contract.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "operator-registry",
+      "path": "docs/accord-02e4r4/accord-02e4r4-operator-registry.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:operator-registry:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-operator-registry.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "assertion-registry",
+      "path": "docs/accord-02e4r4/accord-02e4r4-assertion-registry.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:assertion-registry:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-assertion-registry.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "validation-rules",
+      "path": "docs/accord-02e4r4/accord-02e4r4-validation-rules.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:validation-rules:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-validation-rules.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "dependency-graph",
+      "path": "docs/accord-02e4r4/accord-02e4r4-dependency-graph.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:dependency-graph:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-dependency-graph.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "settlement-vector-catalog",
+      "path": "docs/accord-02e4r4/accord-02e4r4-settlement-vector-catalog.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:vector-catalog:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-vector-catalog.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "source-catalog-binding",
+      "path": "docs/accord-02e4r4/accord-02e4r4-source-catalog-binding.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:source-catalog-binding:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-source-catalog-binding.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "v013-target",
+      "path": "docs/accord-02e4r4/accord-02e4r4-v013-target.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:target:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-target.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "complete-negative-evidence",
+      "path": "docs/accord-02e4r4/accord-02e4r4-complete-negative-evidence.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:complete-negative-evidence:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-complete-negative-evidence.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "negative-scope-contract",
+      "path": "docs/accord-02e4r4/accord-02e4r4-negative-scope-contract.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:negative-contract:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-negative-contract.schema.json",
+      "status": "ACTIVE"
+    },
+    {
+      "artifact": "effective-profile-manifest",
+      "path": "docs/accord-02e4r4/accord-02e4r4-effective-profile-manifest.json",
+      "schema_id": "urn:moirae:accord-02e4r4:schema:profile-manifest:0.2",
+      "schema_path": "docs/accord-02e4r4/schema/accord-02e4r4-profile-manifest.schema.json",
+      "status": "ACTIVE"
+    }
+  ],
+  "active_profiles_manifest_path": "docs/accord-02e4r4/accord-02e4r4-effective-profile-manifest.json",
+  "operator_registry_path": "docs/accord-02e4r4/accord-02e4r4-operator-registry.json",
+  "assertion_registry_path": "docs/accord-02e4r4/accord-02e4r4-assertion-registry.json",
+  "rules_path": "docs/accord-02e4r4/accord-02e4r4-validation-rules.json",
+  "graph_path": "docs/accord-02e4r4/accord-02e4r4-dependency-graph.json",
+  "source_catalog_binding_path": "docs/accord-02e4r4/accord-02e4r4-source-catalog-binding.json",
+  "canonicalization_authority_path": "docs/accord-02e4r4/profiles/accord-02e4r4-canonicalization-profile.json",
+  "predicate_registry_path": "docs/accord-02e4r4/accord-02e4r4-predicate-registry.json",
+  "design_freeze": {
+    "vectors": 23,
+    "expectation_axes": 13,
+    "must_not_conclude": 31,
+    "accepted_outcome_changes": 0
+  }
+}

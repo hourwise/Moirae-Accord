@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:complete-negative-evidence:v013:0.2",
+  "evidence_id": "urn:moirae:accord-02e4r4:evidence:v013:synthetic-complete-negative",
+  "evidence_version": "0.2",
+  "fixture_status": "SYNTHETIC_CANDIDATE_0_2_NOT_ACCEPTED_HISTORY",
+  "effect_id": "urn:accord:02c:effect:E13",
+  "predicate_id": "urn:accord:02c:predicate:external-effect",
+  "stage": "effect",
+  "scope": {
+    "resource": "NOT_APPLICABLE",
+    "action": "NOT_APPLICABLE",
+    "recipient": "NOT_APPLICABLE",
+    "provider": "NOT_APPLICABLE"
+  },
+  "observed_interval": {
+    "not_before": "2025-01-01T00:00:00Z",
+    "as_of": "2025-01-02T00:00:00Z"
+  },
+  "retention_window_seconds": 172800,
+  "consistency_level": "SNAPSHOT_COMPLETE",
+  "read_semantics": "COMPLETE_LEDGER_QUERY",
+  "observed_at": "2025-01-02T00:00:00Z",
+  "verification_time": "2025-01-02T00:01:00Z",
+  "freshness_max_age_seconds": 300,
+  "evidence_class": "COMPLETE_NEGATIVE_LEDGER_QUERY",
+  "read_scope_complete": true,
+  "evidence_universe": [
+    {
+      "evidence_id": "urn:moirae:accord-02e4r4:evidence:v013:synthetic-complete-negative",
+      "admissible": true,
+      "polarity": "NEGATIVE",
+      "effect_id": "urn:accord:02c:effect:E13",
+      "predicate_id": "urn:accord:02c:predicate:external-effect",
+      "stage": "effect",
+      "scope": {
+        "resource": "NOT_APPLICABLE",
+        "action": "NOT_APPLICABLE",
+        "recipient": "NOT_APPLICABLE",
+        "provider": "NOT_APPLICABLE"
+      }
+    }
+  ]
+}

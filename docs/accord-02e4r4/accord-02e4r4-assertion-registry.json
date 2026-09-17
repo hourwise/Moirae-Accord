@@ -1,0 +1,1430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r4:assertion-registry:0.2",
+  "registry_id": "urn:moirae:accord-02e4r4:assertion-registry",
+  "registry_version": "0.2",
+  "assertions": [
+    {
+      "assertion_id": "ALGORITHM_AND_METHOD_SUPPORTED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "DIGESTS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ALL_ACCEPTED_EXPECTED_AXES_REASON_CODES_AND_PROHIBITIONS_REMAIN_PRESENT_AND_COMPARABLE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "EXPECTATIONS_STABLE",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ALL_ACTIVE_RULE_IDS_ARE_NODES_AND_EVERY_DEPENDENCY_TARGET_RESOLVES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ALL_COMPLETE_NEGATIVE_REQUIREMENTS_MAP_TO_OBSERVED_PROPOSITION_PROFILE_EVIDENCE_FIELDS",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "V013_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ALL_NON_NULL_REFERENCE_FIELDS_USE_ONE_EXACT_OBJECT_ID_VERSION_REPRESENTATION_AND_RESOLVE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ALL_ROLES_IN_CLOSED_VOCABULARY",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "IDENTITY_UNIQUE",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "REFERENCES_CLOSED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "BUNDLE_TYPE_AND_INVENTORY_CLOSED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "IDENTITY_UNIQUE",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "REFERENCES_CLOSED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CANDIDATE_PACKAGE_CLOSURE_CHECKS_DETECT_DUPLICATE_DANGLING_UNSAFE_CONTRADICTORY_AND_UNRESOLVED_C",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CANNOT_STRENGTHEN_RESULT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CANONICAL_CONTENT_DIGEST_MATCHES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "DIGESTS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "CANONICALIZATION_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CLOSED_ENVELOPE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "IDENTITY_UNIQUE",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "REFERENCES_CLOSED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CLOSURE_COUNTS_AND_MUTATION_RESULTS_ARE_COMPUTED_FROM_ARTIFACTS_RATHER_THAN_LITERALS",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "IDENTITY_UNIQUE",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "COMPARATOR_REQUIRED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "COMPARISON_AFTER_NORMALIZATION",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "COMPLETE_NEGATIVE_REQUIRED_FOR",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "V013_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CONTAINS_NO_REFERENCE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CONTRACT_INVENTORY_CLOSED_AND_UNIQUE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "IDENTITY_UNIQUE",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "REFERENCES_CLOSED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "CORRELATION_ONLY_AND_NON_SEMANTIC",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "DERIVATION_SUBSET_OF_ALLOWED_SOURCES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "DIGEST_ABSENT_ONLY_IF_OPTIONAL",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "DIGESTS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "CANONICALIZATION_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "DIGEST_OPTIONALITY_IS_SCOPED_TO_EVIDENCE_ARTIFACTS_AND_NEVER_WEAKENS_REQUIRED_SCHEMA_DIGEST_POLI",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "DIGESTS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "CANONICALIZATION_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "DIGEST_PROFILE_RESOLVES_WHEN_DIGEST_SUPPLIED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "DIGESTS_VALID",
+          "CANONICALIZATION_VALID",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "DISCRIMINATED_ARM_SHAPE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "DOES_NOT_IMPLY",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "DOES_NOT_IMPLY_EXTERNAL_FACT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "DIGESTS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EACH_CONCRETE_CANDIDATE_DIGEST_FORM_RESOLVES_ONE_CANONICALIZATION_MAPPING_AND_TARGET",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "DIGESTS_VALID",
+          "CANONICALIZATION_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EACH_SOURCE_TYPE_IN",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EQUAL",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EVERY_DIGEST_BEARING_FORM_RESOLVES_A_DECLARED_TARGET_WITH_NO_RECORD_TYPE_CONVENTION",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "DIGESTS_VALID",
+          "CANONICALIZATION_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EVERY_RELEVANT_EXTENSION_CLASSIFIED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EXACTLY_ONE_OF",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EXACT_PACKAGE_RESOLVES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EXACT_UTF_8_PREDICATE_STAGE_TUPLE_RESOLVES_TO_ONE_ROW",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EXACT_VERSION_PINNED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PROFILES_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EXPERIMENT_RUN_BINDS",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EXTENSION_CLASSIFICATION_REQUIRED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "EXTERNAL_RECORD_NOT_PORTABLE_EVIDENCE_BY_SHAPE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "FEATURE_REGISTERED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "FEATURE_SOURCES_SUBSET_OF",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "FIELD_CONSUMER_IS_ALLOWED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "FORBIDDEN_UPSTREAM_ABSENT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "GENERIC_OCCURRENCE_POSITIVE_STAGE_AUTHORITY_AND_EFFECT_REMAIN_ORTHOGONAL",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "IDENTIFIER_COMPARISON_IS_CASE_SENSITIVE_CODE_POINT_EQUALITY_WITH_NO_NORMALIZATION_OR_LEXICAL_FAL",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PREDICATE_REGISTRY_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "INPUTS_ONLY",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "MATCH_OR_OMIT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NEGATIVE_SETTLEMENT_IS_BOUNDED_BY_EXACT_NEGATED_PREDICATE_STAGE_AND_COMPLETE_SCOPE_REQUIREMENTS",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "V013_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NON_SEMANTIC_NOT_USED_FOR",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NORMALIZATION_USES_ONLY",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NOT_APPLICABLE_PROFILE_DECLARED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PREDICATE_REGISTRY_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NOT_FORWARDED_AS_INPUT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NO_DUPLICATE_NORMATIVE_IDS",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NO_SCORER_REFERENCE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "NO_SEMANTIC_EXTENSION_BAG",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ONE_DESCRIPTOR_PER_PROPOSITION_ID",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ONE_WAY_JOIN",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ONLY_THE_ACTIVE_R1_PREDICATE_REGISTRY_IS_NORMATIVE_RETIRED_LEXICAL_PROFILES_ARE_UNAVAILABLE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "OPAQUE_WITH_RESPECT_TO",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ORACLE_AND_SCORER_TRUTH_ABSENT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "ORDERED_PIPELINE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PARTIAL_EFFECT_REQUIRES_A_SUPPORTED_DIRECT_PREDECESSOR_AND_LATER_STAGE_EVIDENCE_REQUIREMENT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PREDICATE_REGISTRY_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PREDECESSOR_EDGES_ARE_DIRECT_UNIQUE_NON_SELF_NON_DANGLING_AND_ACYCLIC",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "GRAPH_EQUAL",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PREDECESSOR_SUPPORT_MUST_BIND_TO_THE_SAME_LOGICAL_EFFECT_AND_EXACT_PREDECESSOR_TUPLE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PREDICATE_STAGE_PROFILE_MATCHES_PROPOSITION",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PREDICATE_REGISTRY_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PROFILE_ADMITS_CONCRETE_RECORD_FORM",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "DIGESTS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PROFILE_DEFINED_FAILURE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PROFILES_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PROFILE_PAIR_MATCHES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PROFILES_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PROFILE_SEMANTICS_REQUIRED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PROFILES_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PROJECTION_DOES_NOT_ADD",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PROJECTION_REQUIRES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "PROPOSITION_KIND_AND_SCHEMA_MUST_MATCH_THE_RESOLVED_TUPLE_KIND",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "REGISTRY_BINDINGS_AND_EVIDENCE_CAPABILITIES_COMPOSE_WITHOUT_FORBIDDEN_INTERSECTIONS",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "REGISTRY_IN_SCOPE_BEFORE_USE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "REGISTRY_NOT_FILENAME_DRIVEN",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "REGISTRY_REQUIRED_BINDINGS_ARE_AUTHORITATIVE_AND_PROFILE_REQUIREMENTS_ARE_ADDITIVE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "REJECT_FOREIGN_RECORD",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "REQUIRED_BINDING_NOT_UNKNOWN_OR_NA_FOR_POSITIVE_PROJECTION",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "RESOLVES_EXACTLY_ONCE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "RESOLVE_ACTIVE_PROFILES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "RESOLVE_PROFILE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED",
+          "PROFILES_VALID"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "RESOLVE_SCHEMA_CONTRACT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "REFERENCES_CLOSED",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "RUN_AND_MANIFEST_AGREE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SAME_INPUTS_SAME_CLAIM",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SAME_PROPOSITION",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SAME_RUN_CHAIN",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SCHEMA_MEMBERSHIP",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "SCHEMAS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SCORER_MATERIAL_SEPARATED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SCORER_ONLY",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SELF_CONTAINED_SCOPE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SILENCE_TIMEOUT_STALE_INCOMPLETE_OR_CONTRADICTORY_READS_CANNOT_SUPPORT_NON_OCCURRENCE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "V013_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SOURCE_TYPE_RECORD_TYPE_PAIR_MATCHES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "SPECIFIC_ATTEMPT_CLAIM_REQUIRES",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "TARGET_STRUCTURE_VALID",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "TYPE_IDENTITY_NOT_SUBSTITUTABLE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "UNKNOWN_FEATURE_REJECTED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "UNKNOWN_NOT_POSITIVE_BINDING",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "UNKNOWN_OR_NOT_APPLICABLE_GUARDED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "UNKNOWN_WRONG_STAGE_UNSUPPORTED_OR_UNDECLARED_TUPLES_CANNOT_PRODUCE_A_POSITIVE_RESULT",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "PREDICATE_REGISTRY_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "VALIDATE_STRUCTURE",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "SCHEMAS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "VERIFIER_RUN_BINDS",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "BINDINGS_VALID",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    },
+    {
+      "assertion_id": "WRONG_SOURCE_CLASS_REJECTED",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          "ASSERTION_EXPRESSION",
+          "PACKAGE_CANDIDATE",
+          "RULES_WELL_FORMED",
+          "OPERATORS_TYPED"
+        ]
+      },
+      "result_type": "boolean",
+      "error_behavior": "FAIL_CLOSED"
+    }
+  ]
+}
