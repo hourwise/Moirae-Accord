@@ -1,0 +1,19 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:source-catalog-binding:0.2",
+  "$id": "urn:moirae:accord-02r5:source-catalog-binding:0.2",
+  "object_id": "urn:moirae:accord-02r5:source-catalog-binding",
+  "object_version": "0.2",
+  "assigned_catalog_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02r5:source-vector-catalog",
+    "version": "0.1"
+  },
+  "identity_assignment": "PACKAGE_BINDING_NOT_HISTORICAL_SELF_ASSERTION",
+  "repository_root_path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+  "integrity": {
+    "class": "SEMANTIC_JSON_CONTENT",
+    "canonicalization": "RFC8785_JCS",
+    "algorithm": "SHA-256",
+    "digest": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5"
+  }
+}

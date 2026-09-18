@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:primitive-registry:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "retired_primitive_ids",
+    "composition_operators",
+    "procedure_kinds",
+    "primitives"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:primitive-registry:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:primitive-registry:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:primitive-registry"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "retired_primitive_ids": {
+      "type": "array",
+      "contains": {
+        "const": "ASSERTION_EXPRESSION"
+      }
+    },
+    "composition_operators": {
+      "const": [
+        "ALL",
+        "ANY"
+      ]
+    },
+    "procedure_kinds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "procedure_id",
+          "version",
+          "required_arguments",
+          "argument_types",
+          "resolution",
+          "normalization",
+          "extraction",
+          "evaluation",
+          "result_type",
+          "failure_codes",
+          "missing_behavior",
+          "ambiguous_behavior",
+          "fail_closed"
+        ],
+        "properties": {
+          "procedure_id": {
+            "const": "JSON_POINTER_COMPARE"
+          },
+          "version": {
+            "const": "1.0"
+          },
+          "required_arguments": {
+            "const": [
+              "subject",
+              "pointer",
+              "comparison",
+              "expected"
+            ]
+          },
+          "argument_types": {
+            "type": "object"
+          },
+          "resolution": {
+            "type": "object"
+          },
+          "normalization": {
+            "type": "object"
+          },
+          "extraction": {
+            "type": "object"
+          },
+          "evaluation": {
+            "type": "object"
+          },
+          "result_type": {
+            "const": "BOOLEAN"
+          },
+          "failure_codes": {
+            "type": "object"
+          },
+          "missing_behavior": {
+            "const": "FAIL_CLOSED"
+          },
+          "ambiguous_behavior": {
+            "const": "FAIL_CLOSED"
+          },
+          "fail_closed": {
+            "const": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "primitives": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "primitive_id",
+          "primitive_version",
+          "scope",
+          "procedure_kind",
+          "argument_schema",
+          "failure_codes",
+          "error_behavior"
+        ],
+        "properties": {
+          "primitive_id": {
+            "const": "JSON_POINTER_COMPARE"
+          },
+          "primitive_version": {
+            "const": "1.0"
+          },
+          "scope": {
+            "const": "RULE"
+          },
+          "procedure_kind": {
+            "const": "JSON_POINTER_COMPARE"
+          },
+          "argument_schema": {
+            "type": "object"
+          },
+          "failure_codes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "error_behavior": {
+            "const": "FAIL_CLOSED"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:canonicalization-profile:0.2",
+  "$id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs:0.2",
+  "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+  "object_version": "0.2",
+  "profile_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+  "profile_version": "0.2",
+  "algorithm": "SHA-256",
+  "method": "RFC8785_JCS",
+  "encoding": "UTF-8",
+  "pointer_semantics": "RFC6901",
+  "missing_pointer_policy": "FAIL",
+  "duplicate_pointer_policy": "FAIL",
+  "content_targets": [
+    {
+      "target_id": "RECORD_EXCLUDING_INTEGRITY_CONTENT_DIGEST",
+      "mode": "EXCLUDE_JSON_POINTERS",
+      "json_pointers": [
+        "/integrity/content_digest"
+      ]
+    },
+    {
+      "target_id": "RECORD_EXCLUDING_INTEGRITY",
+      "mode": "EXCLUDE_JSON_POINTERS",
+      "json_pointers": [
+        "/integrity"
+      ]
+    },
+    {
+      "target_id": "ENTRY_CONTENT",
+      "mode": "INCLUDE_JSON_POINTERS",
+      "json_pointers": [
+        "/content"
+      ]
+    }
+  ]
+}

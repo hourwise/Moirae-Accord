@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:complete-negative-evidence:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "fixture_status",
+    "source_accepted_evidence_id",
+    "evidence_id",
+    "effect_id",
+    "predicate_id",
+    "stage",
+    "scope",
+    "observed_interval",
+    "retention_window_seconds",
+    "consistency_level",
+    "read_semantics",
+    "read_scope_complete",
+    "observed_at",
+    "verification_time",
+    "evidence_class",
+    "evidence_universe",
+    "requirement_map_ref"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:complete-negative-evidence:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:v013-synthetic-evidence:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:v013-synthetic-evidence"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "fixture_status": {
+      "const": "SYNTHETIC_CANDIDATE_0_2_NOT_ACCEPTED_HISTORY"
+    },
+    "source_accepted_evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effect_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "predicate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object"
+    },
+    "observed_interval": {
+      "type": "object"
+    },
+    "retention_window_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "consistency_level": {
+      "type": "string",
+      "minLength": 1
+    },
+    "read_semantics": {
+      "const": "COMPLETE_LEDGER_QUERY"
+    },
+    "read_scope_complete": {
+      "type": "boolean"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_class": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_universe": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "requirement_map_ref": {
+      "$ref": "#/$defs/objectRef"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

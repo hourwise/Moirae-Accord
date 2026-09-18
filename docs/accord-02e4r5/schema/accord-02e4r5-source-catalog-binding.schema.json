@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:source-catalog-binding:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "assigned_catalog_ref",
+    "identity_assignment",
+    "repository_root_path",
+    "integrity"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:source-catalog-binding:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:source-catalog-binding:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:source-catalog-binding"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "assigned_catalog_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "identity_assignment": {
+      "const": "PACKAGE_BINDING_NOT_HISTORICAL_SELF_ASSERTION"
+    },
+    "repository_root_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "class",
+        "canonicalization",
+        "algorithm",
+        "digest"
+      ],
+      "properties": {
+        "class": {
+          "const": "SEMANTIC_JSON_CONTENT"
+        },
+        "canonicalization": {
+          "const": "RFC8785_JCS"
+        },
+        "algorithm": {
+          "const": "SHA-256"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

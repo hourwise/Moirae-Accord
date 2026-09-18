@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:negative-scope-proposition:0.2",
+  "type": "object",
+  "required": [
+    "proposition_id",
+    "proposition_kind",
+    "effect_id",
+    "negated_predicate_id",
+    "negated_stage",
+    "evidence_profile_id",
+    "scope",
+    "integrity",
+    "schema_ref"
+  ],
+  "properties": {
+    "record_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposition_kind": {
+      "const": "NEGATIVE_SCOPE"
+    },
+    "effect_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_profile_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resource": {},
+    "recipient_or_counterparty": {},
+    "scope": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "canonicalization_ref",
+        "content_digest"
+      ],
+      "properties": {
+        "canonicalization_ref": {
+          "$ref": "#/$defs/objectRef"
+        },
+        "content_digest": {
+          "type": "string",
+          "pattern": "^sha-256:[0-9a-f]{64}$"
+        },
+        "digest_algorithm": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "predicate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {},
+    "negated_predicate_id": {
+      "enum": [
+        "urn:accord:02c:predicate:complete-negative",
+        "urn:accord:02c:predicate:external-effect",
+        "urn:accord:02c:predicate:provider-acceptance",
+        "urn:accord:02c:predicate:recipient-ack",
+        "urn:accord:02c:predicate:resource-created",
+        "urn:accord:02c:predicate:resource-visible"
+      ]
+    },
+    "negated_stage": {
+      "enum": [
+        null,
+        "effect",
+        "provider_accepted",
+        "recipient_acknowledged",
+        "resource_created",
+        "resource_visible"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

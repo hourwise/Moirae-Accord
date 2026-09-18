@@ -1,0 +1,47 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:settlement-profile:0.2",
+  "$id": "urn:moirae:accord-02r5:settlement-profile:conservative:0.2",
+  "object_id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+  "object_version": "0.2",
+  "profile_id": "urn:accord:02c:profile:conservative-v1",
+  "profile_version": "0.2",
+  "predicate_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5:predicate-registry",
+    "version": "0.2"
+  },
+  "negative_policy": {
+    "requirement_map_ref": {
+      "kind": "REQUIREMENT_MAP",
+      "id": "urn:moirae:accord-02r5:negative-requirement-map",
+      "version": "0.2"
+    },
+    "allowed_consistency_levels": [
+      "SNAPSHOT_COMPLETE",
+      "LINEARIZABLE_COMPLETE"
+    ],
+    "allowed_source_classes": [
+      "COMPLETE_NEGATIVE_LEDGER_QUERY",
+      "COMPLETE_NEGATIVE_AUTHORITATIVE_SNAPSHOT"
+    ],
+    "freshness_max_age_seconds": 300,
+    "minimum_retention_seconds": 86400,
+    "future_observation_result": "UNKNOWN",
+    "stale_result": "STALE_EVIDENCE"
+  },
+  "scope_vocabulary": {
+    "canonical_dimensions": [
+      "resource",
+      "action",
+      "recipient_or_counterparty",
+      "provider"
+    ],
+    "accepted_mapping": {
+      "resource_binding": "resource",
+      "action_binding": "action",
+      "recipient_binding": "recipient_or_counterparty",
+      "provider_binding": "provider"
+    },
+    "not_applicable_token": "NOT_APPLICABLE"
+  }
+}

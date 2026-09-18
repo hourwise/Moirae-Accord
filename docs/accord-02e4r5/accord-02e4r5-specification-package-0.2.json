@@ -1,0 +1,70 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:specification-package:0.2",
+  "$id": "urn:moirae:accord-02r5:specification-package:0.2",
+  "object_id": "urn:moirae:accord-02r5:specification-package",
+  "object_version": "0.2",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "status": "CANDIDATE_UNACCEPTED",
+  "accepted_base": {
+    "package_id": "urn:moirae:accord-02r5:specification-package",
+    "package_version": "0.1",
+    "path": "docs/accord-02/accord-02r5-specification-package.json",
+    "integrity": {
+      "class": "SEMANTIC_JSON_CONTENT",
+      "method": "RFC8785_JCS",
+      "algorithm": "SHA-256",
+      "digest": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c"
+    }
+  },
+  "amendment_relation": "UNACCEPTED_AMENDMENT_OF_ACCEPTED_0_1",
+  "rejected_candidate_lineage": [
+    {
+      "revision": "E4R2",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R3",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R4",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "e360ce6c38f044e446ae8ba7e850b35840f2c8f8"
+    }
+  ],
+  "object_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5:object-registry",
+    "version": "0.2"
+  },
+  "validation_rules_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02r5:validation-rules",
+    "version": "0.2"
+  },
+  "assertion_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5:assertion-registry",
+    "version": "0.2"
+  },
+  "primitive_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5:primitive-registry",
+    "version": "0.2"
+  },
+  "rule_classification_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02r5:rule-classification",
+    "version": "0.2"
+  },
+  "current_candidate_integrity": {
+    "class": "SEMANTIC_JSON_CONTENT",
+    "method": "RFC8785_JCS",
+    "algorithm": "SHA-256",
+    "exclusion_pointers": [
+      "/current_candidate_integrity/digest"
+    ],
+    "digest": "3a0d7a5dd41369ab75cde21b71fe89e9a47877bb53f31e905813cfb26ea391b3"
+  }
+}

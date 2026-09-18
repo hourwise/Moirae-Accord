@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:deepseek-draft-evidence:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "role",
+    "source_worktree",
+    "drafts",
+    "reconciliation"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:deepseek-draft-evidence:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:deepseek-draft-evidence:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:deepseek-draft-evidence"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "role": {
+      "const": "BYTE_PRESERVED_EVIDENCE_METADATA_ONLY"
+    },
+    "source_worktree": {
+      "type": "string",
+      "minLength": 1
+    },
+    "drafts": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "bytes",
+          "algorithm",
+          "sha256",
+          "disposition"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "algorithm": {
+            "const": "RAW_FILE_BYTES_SHA256"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "disposition": {
+            "enum": [
+              "REUSE",
+              "REWRITE",
+              "DISCARD"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "reconciliation": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

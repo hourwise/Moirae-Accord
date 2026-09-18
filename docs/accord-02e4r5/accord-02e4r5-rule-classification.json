@@ -1,0 +1,1053 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:rule-classification:0.2",
+  "$id": "urn:moirae:accord-02r5:rule-classification:0.2",
+  "object_id": "urn:moirae:accord-02r5:rule-classification",
+  "object_version": "0.2",
+  "total_declared_rules": 104,
+  "executable_in_package_0_2": 54,
+  "deferred_no_subject_artifact": 50,
+  "classifications": [
+    {
+      "rule_id": "ORC-001",
+      "rule_family": "ORACLE_BOUNDARY",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "public scenario catalog",
+        "system-under-test input manifests"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ORC-002",
+      "rule_family": "ORACLE_BOUNDARY",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "scorer configuration",
+        "public scenario catalog",
+        "arm manifests"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ORC-003",
+      "rule_family": "ORACLE_BOUNDARY",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "scenario_id",
+        "fixture identity",
+        "timing configuration"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ARM-001",
+      "rule_family": "ARM_ISOLATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm input manifest"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ARM-002",
+      "rule_family": "ARM_ISOLATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm_id",
+        "input_profile_id",
+        "arm input profile catalog"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ARM-003",
+      "rule_family": "ARM_ISOLATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm source references",
+        "arm input profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ARM-004",
+      "rule_family": "ARM_ISOLATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "source_type",
+        "source_record_ref.record_type"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ARM-005",
+      "rule_family": "ARM_ISOLATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm input manifest extensions",
+        "source projections"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ARM-006",
+      "rule_family": "ARM_ISOLATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "ARM-C classifier feature references",
+        "ARM-B-visible source set"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "ARM-007",
+      "rule_family": "ARM_ISOLATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm-visible portable record extensions",
+        "active record/evidence profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "RAW-001",
+      "rule_family": "RAW_OUTPUT",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE"
+    },
+    {
+      "rule_id": "RAW-002",
+      "rule_family": "RAW_OUTPUT",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE"
+    },
+    {
+      "rule_id": "RAW-003",
+      "rule_family": "RAW_OUTPUT",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "other arm inputs"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE"
+    },
+    {
+      "rule_id": "PROJ-001",
+      "rule_family": "PROJECTION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "A verifier projection",
+        "native C settlement result",
+        "named mapping profile",
+        "canonical proposition"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "PROJ-002",
+      "rule_family": "PROJECTION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "native C result",
+        "NO_EFFECT_OBSERVED projection"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "PROJ-003",
+      "rule_family": "PROJECTION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "native C result",
+        "A projection"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "PROJ-004",
+      "rule_family": "PROJECTION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "REJECTED verifier disposition"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "LIN-001",
+      "rule_family": "LINEAGE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:validation-rules"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "LIN-002",
+      "rule_family": "LINEAGE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:object-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "LIN-003",
+      "rule_family": "LINEAGE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment result",
+        "experiment run",
+        "verifier result",
+        "verifier run"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION"
+    },
+    {
+      "rule_id": "LIN-004",
+      "rule_family": "LINEAGE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION"
+    },
+    {
+      "rule_id": "LIN-005",
+      "rule_family": "LINEAGE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION"
+    },
+    {
+      "rule_id": "LIN-006",
+      "rule_family": "LINEAGE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "settlement result",
+        "experiment proposition",
+        "result record"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION"
+    },
+    {
+      "rule_id": "LIN-007",
+      "rule_family": "LINEAGE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:validation-rules"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "LIN-008",
+      "rule_family": "LINEAGE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "provider_operation_id",
+        "transport_call_id",
+        "Accord semantic references"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION"
+    },
+    {
+      "rule_id": "PROP-001",
+      "rule_family": "PROPOSITION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:vector-catalog"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PROP-002",
+      "rule_family": "PROPOSITION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "evidence",
+        "observation",
+        "settlement result",
+        "verifier projection"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "PROP-003",
+      "rule_family": "PROPOSITION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "denormalized effect/predicate/stage fields",
+        "canonical proposition"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "PROP-004",
+      "rule_family": "PROPOSITION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "binding slots",
+        "active proposition/profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "PROP-005",
+      "rule_family": "PROPOSITION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "attempt attribution",
+        "attempt record",
+        "native C result"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "SCORE-001",
+      "rule_family": "SCORE_SEPARATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "score record",
+        "arm inputs"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "SCORING"
+    },
+    {
+      "rule_id": "SCORE-002",
+      "rule_family": "SCORE_SEPARATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile",
+        "normalized claim",
+        "scorer truth"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "SCORING"
+    },
+    {
+      "rule_id": "SCORE-003",
+      "rule_family": "SCORE_SEPARATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalization profile",
+        "arm-visible information"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "SCORING"
+    },
+    {
+      "rule_id": "BND-001",
+      "rule_family": "BUNDLE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:specification-package"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "BND-002",
+      "rule_family": "BUNDLE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:object-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "BND-003",
+      "rule_family": "BUNDLE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "bundle information class",
+        "visibility flags"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "BUNDLE_ASSEMBLY"
+    },
+    {
+      "rule_id": "BND-004",
+      "rule_family": "PACKAGE_CONTRACT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:validation-rules"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "BND-005",
+      "rule_family": "PACKAGE_CONTRACT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:settlement-profile:conservative"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "RUN-001",
+      "rule_family": "RUN_CONTRACT",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run record"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION"
+    },
+    {
+      "rule_id": "RUN-002",
+      "rule_family": "RUN_CONTRACT",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "verifier run record"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION"
+    },
+    {
+      "rule_id": "RUN-003",
+      "rule_family": "RUN_CONTRACT",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "arm manifest"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION"
+    },
+    {
+      "rule_id": "RUN-004",
+      "rule_family": "RUN_CONTRACT",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "verifier run"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION"
+    },
+    {
+      "rule_id": "EXT-001",
+      "rule_family": "EXTENSION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:validation-rules"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "EXT-002",
+      "rule_family": "EXTENSION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "extension registry",
+        "NON_SEMANTIC extensions"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "EXT-003",
+      "rule_family": "EXTENSION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "AUTHORITY_BEARING extension",
+        "authority profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "EXT-004",
+      "rule_family": "EXTENSION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+        "settlement/evidence profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "EXT-005",
+      "rule_family": "EXTENSION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "unknown or incompatible extension"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "EXT-006",
+      "rule_family": "EXTENSION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm-visible portable bundle",
+        "extension registry"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION"
+    },
+    {
+      "rule_id": "SRC-001",
+      "rule_family": "SOURCE_MEMBERSHIP",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:source-catalog-binding"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "SRC-002",
+      "rule_family": "SOURCE_MEMBERSHIP",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:source-catalog-binding"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "SRC-003",
+      "rule_family": "SOURCE_MEMBERSHIP",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:source-catalog-binding"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "SRC-004",
+      "rule_family": "SOURCE_MEMBERSHIP",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "provider/transport/raw output",
+        "portable evidence"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE"
+    },
+    {
+      "rule_id": "VIS-001",
+      "rule_family": "ROLE_VISIBILITY",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "role-visibility profile",
+        "arm manifest fields"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY"
+    },
+    {
+      "rule_id": "NORM-001",
+      "rule_family": "NORMALIZATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION"
+    },
+    {
+      "rule_id": "NORM-002",
+      "rule_family": "NORMALIZATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalization process inputs"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION"
+    },
+    {
+      "rule_id": "NORM-003",
+      "rule_family": "NORMALIZATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION"
+    },
+    {
+      "rule_id": "NORM-004",
+      "rule_family": "NORMALIZATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "malformed or unmapped raw output",
+        "normalization profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION"
+    },
+    {
+      "rule_id": "NORM-005",
+      "rule_family": "NORMALIZATION",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalized claim",
+        "scorer truth"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION"
+    },
+    {
+      "rule_id": "CLF-001",
+      "rule_family": "CLASSIFIER_FEATURE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature",
+        "classifier feature profile"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION"
+    },
+    {
+      "rule_id": "CLF-002",
+      "rule_family": "CLASSIFIER_FEATURE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "derived classifier feature",
+        "ARM-C source set"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION"
+    },
+    {
+      "rule_id": "CLF-003",
+      "rule_family": "CLASSIFIER_FEATURE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature derivation"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION"
+    },
+    {
+      "rule_id": "CLF-004",
+      "rule_family": "CLASSIFIER_FEATURE",
+      "classification": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature"
+      ],
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION"
+    },
+    {
+      "rule_id": "PRED-001",
+      "rule_family": "PREDICATE_APPLICABILITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PRED-002",
+      "rule_family": "PREDICATE_APPLICABILITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PRED-003",
+      "rule_family": "PREDICATE_APPLICABILITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PRED-004",
+      "rule_family": "PREDICATE_APPLICABILITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "rule_family": "PACKAGE_CONTRACT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "rule_family": "DIGEST",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "DIGEST-003",
+      "rule_family": "DIGEST",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "LIN-009",
+      "rule_family": "LINEAGE_CLOSURE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:vector-catalog"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PROP-006",
+      "rule_family": "LINEAGE_CLOSURE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:vector-catalog"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PKG-001",
+      "rule_family": "SPECIFICATION_PACKAGE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:validation-rules"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PKG-002",
+      "rule_family": "SPECIFICATION_PACKAGE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:object-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PROF-001",
+      "rule_family": "PROFILE_RESOLUTION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:settlement-profile:conservative"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "PROF-002",
+      "rule_family": "PROFILE_RESOLUTION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:settlement-profile:conservative"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "rule_family": "SCHEMA_CONTRACT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:vector-catalog"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "rule_family": "SCHEMA_CONTRACT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:vector-catalog"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "ROLE-001",
+      "rule_family": "ROLE_VOCABULARY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:object-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "rule_family": "DIGEST_CANONICALIZATION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "rule_family": "DIGEST_CANONICALIZATION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "rule_family": "DIGEST_CANONICALIZATION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "SCENARIO-ID-001",
+      "rule_family": "SCENARIO_ID_POLICY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:settlement-profile:conservative"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "rule_family": "PREDICATE_APPLICABILITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "rule_family": "FAIL_CLOSED",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "rule_family": "EXACT_IDENTIFIER",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "rule_family": "PREDICATE_AUTHORITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "rule_family": "BINDING_AUTHORITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "rule_family": "PROPOSITION_KIND",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:vector-catalog"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "rule_family": "PARTIAL_EFFECT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:partial-effect-policy"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "rule_family": "PREDECESSOR_IDENTITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:partial-effect-policy"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "rule_family": "PREDECESSOR_GRAPH",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:partial-effect-policy"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "rule_family": "NEGATIVE_SCOPE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:v013-target"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "rule_family": "NEGATIVE_SCOPE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:v013-synthetic-evidence"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "rule_family": "NON_ENTAILMENT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:partial-effect-policy"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "rule_family": "CANONICALIZATION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "rule_family": "EXPECTATION_CONTRACT",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:vector-catalog"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "rule_family": "CANDIDATE_CLOSURE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:validation-rules"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "rule_family": "REFERENCE_RESOLUTION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:validation-rules"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "rule_family": "CANONICALIZATION",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "rule_family": "BINDING_AUTHORITY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:predicate-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "rule_family": "NEGATIVE_SCOPE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:negative-requirement-map"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "rule_family": "RULE_GRAPH",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:dependency-graph"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "rule_family": "PROFILE_POLICY",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "rule_family": "CANDIDATE_CLOSURE",
+      "classification": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_roles": [
+        "urn:moirae:accord-02r5:object-registry"
+      ],
+      "reason": "The rule resolves its declared subject and compares its own RFC6901-selected value using its normative operands."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:build-manifest:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "mode",
+    "verify_default",
+    "dependencies",
+    "generated_files",
+    "phase_a"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:build-manifest:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:build-manifest:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:build-manifest"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "mode": {
+      "const": "CONTROLLED_BUILD_ONLY"
+    },
+    "verify_default": {
+      "const": "READ_ONLY"
+    },
+    "dependencies": {
+      "type": "object",
+      "required": [
+        "python",
+        "jsonschema",
+        "rfc8785"
+      ]
+    },
+    "generated_files": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "phase_a": {
+      "type": "object",
+      "required": [
+        "total_rules",
+        "executable",
+        "deferred",
+        "version",
+        "broader_model_revision_required"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

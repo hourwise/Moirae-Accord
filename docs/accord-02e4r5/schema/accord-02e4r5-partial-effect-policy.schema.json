@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:partial-effect-policy:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "predicate_registry_ref",
+    "same_effect_required",
+    "direct_predecessor_required",
+    "implicit_transitivity",
+    "global_stage_order",
+    "decisions"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:partial-effect-policy:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:partial-effect-policy:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:partial-effect-policy"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "predicate_registry_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "same_effect_required": {
+      "const": true
+    },
+    "direct_predecessor_required": {
+      "const": true
+    },
+    "implicit_transitivity": {
+      "const": "FORBIDDEN"
+    },
+    "global_stage_order": {
+      "const": "FORBIDDEN"
+    },
+    "decisions": {
+      "type": "object",
+      "required": [
+        "VALID_SUPPORTED_DIRECT_PREDECESSOR",
+        "TARGET_ALREADY_SUPPORTED",
+        "NO_PREDECESSOR",
+        "WRONG_EFFECT",
+        "UNSUPPORTED_TUPLE",
+        "UNKNOWN_TUPLE",
+        "WRONG_STAGE",
+        "SELF_EDGE",
+        "CYCLE",
+        "DANGLING_TARGET",
+        "INCOMPATIBLE_EVIDENCE",
+        "INADMISSIBLE_EVIDENCE"
+      ],
+      "properties": {
+        "VALID_SUPPORTED_DIRECT_PREDECESSOR": {
+          "const": "PARTIAL_EFFECT"
+        },
+        "TARGET_ALREADY_SUPPORTED": {
+          "const": "NOT_PARTIAL_EFFECT"
+        },
+        "NO_PREDECESSOR": {
+          "const": "UNKNOWN"
+        },
+        "WRONG_EFFECT": {
+          "const": "REJECT"
+        },
+        "UNSUPPORTED_TUPLE": {
+          "const": "REJECT"
+        },
+        "UNKNOWN_TUPLE": {
+          "const": "REJECT"
+        },
+        "WRONG_STAGE": {
+          "const": "REJECT"
+        },
+        "SELF_EDGE": {
+          "const": "REJECT"
+        },
+        "CYCLE": {
+          "const": "REJECT"
+        },
+        "DANGLING_TARGET": {
+          "const": "REJECT"
+        },
+        "INCOMPATIBLE_EVIDENCE": {
+          "const": "UNKNOWN"
+        },
+        "INADMISSIBLE_EVIDENCE": {
+          "const": "UNKNOWN"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

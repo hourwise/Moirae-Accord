@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:validation-rules:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "classification_policy",
+    "rules"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:validation-rules:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:validation-rules:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:validation-rules"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "classification_policy": {
+      "const": "SUBJECT_ARTIFACT_MUST_EXIST"
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "family",
+          "failure_code",
+          "severity",
+          "depends_on",
+          "scope"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "family": {
+            "type": "string",
+            "minLength": 1
+          },
+          "failure_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "minLength": 1
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "scope": {
+            "enum": [
+              "EXECUTABLE_IN_PACKAGE_0_2",
+              "DEFERRED_NO_SUBJECT_ARTIFACT"
+            ]
+          },
+          "subject_bindings": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/objectRef"
+            }
+          },
+          "assertion_ref": {
+            "$ref": "#/$defs/objectRef"
+          },
+          "missing_subject_roles": {
+            "type": "array",
+            "minItems": 1
+          },
+          "later_lifecycle_stage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deferred_reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "scope": {
+                  "const": "EXECUTABLE_IN_PACKAGE_0_2"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "subject_bindings",
+                "assertion_ref"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "scope": {
+                  "const": "DEFERRED_NO_SUBJECT_ARTIFACT"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "missing_subject_roles",
+                "later_lifecycle_stage",
+                "deferred_reason"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

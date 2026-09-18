@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:specification-package:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "package_id",
+    "package_version",
+    "status",
+    "accepted_base",
+    "amendment_relation",
+    "rejected_candidate_lineage",
+    "object_registry_ref",
+    "validation_rules_ref",
+    "assertion_registry_ref",
+    "primitive_registry_ref",
+    "rule_classification_ref",
+    "current_candidate_integrity"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:specification-package:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:specification-package:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:specification-package"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "package_id": {
+      "const": "urn:moirae:accord-02r5:specification-package"
+    },
+    "package_version": {
+      "const": "0.2"
+    },
+    "status": {
+      "const": "CANDIDATE_UNACCEPTED"
+    },
+    "accepted_base": {
+      "type": "object",
+      "required": [
+        "package_id",
+        "package_version",
+        "path",
+        "integrity"
+      ],
+      "properties": {
+        "package_id": {
+          "const": "urn:moirae:accord-02r5:specification-package"
+        },
+        "package_version": {
+          "const": "0.1"
+        },
+        "path": {
+          "const": "docs/accord-02/accord-02r5-specification-package.json"
+        },
+        "integrity": {
+          "type": "object",
+          "required": [
+            "class",
+            "method",
+            "algorithm",
+            "digest"
+          ],
+          "properties": {
+            "class": {
+              "const": "SEMANTIC_JSON_CONTENT"
+            },
+            "method": {
+              "const": "RFC8785_JCS"
+            },
+            "algorithm": {
+              "const": "SHA-256"
+            },
+            "digest": {
+              "const": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "amendment_relation": {
+      "const": "UNACCEPTED_AMENDMENT_OF_ACCEPTED_0_1"
+    },
+    "rejected_candidate_lineage": {
+      "type": "array",
+      "minItems": 3
+    },
+    "object_registry_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "validation_rules_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "assertion_registry_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "primitive_registry_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "rule_classification_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "current_candidate_integrity": {
+      "type": "object",
+      "required": [
+        "class",
+        "method",
+        "algorithm",
+        "exclusion_pointers",
+        "digest"
+      ],
+      "properties": {
+        "class": {
+          "const": "SEMANTIC_JSON_CONTENT"
+        },
+        "method": {
+          "const": "RFC8785_JCS"
+        },
+        "algorithm": {
+          "const": "SHA-256"
+        },
+        "exclusion_pointers": {
+          "const": [
+            "/current_candidate_integrity/digest"
+          ]
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

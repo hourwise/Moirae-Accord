@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:settlement-profile:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "profile_id",
+    "profile_version",
+    "predicate_registry_ref",
+    "negative_policy",
+    "scope_vocabulary"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:settlement-profile:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:settlement-profile:conservative:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:settlement-profile:conservative"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_version": {
+      "const": "0.2"
+    },
+    "predicate_registry_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "negative_policy": {
+      "type": "object",
+      "required": [
+        "requirement_map_ref",
+        "allowed_consistency_levels",
+        "allowed_source_classes",
+        "freshness_max_age_seconds",
+        "minimum_retention_seconds",
+        "future_observation_result",
+        "stale_result"
+      ],
+      "properties": {
+        "requirement_map_ref": {
+          "$ref": "#/$defs/objectRef"
+        },
+        "allowed_consistency_levels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allowed_source_classes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "freshness_max_age_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minimum_retention_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "future_observation_result": {
+          "const": "UNKNOWN"
+        },
+        "stale_result": {
+          "const": "STALE_EVIDENCE"
+        }
+      },
+      "additionalProperties": false
+    },
+    "scope_vocabulary": {
+      "type": "object",
+      "required": [
+        "canonical_dimensions",
+        "accepted_mapping",
+        "not_applicable_token"
+      ],
+      "properties": {
+        "canonical_dimensions": {
+          "const": [
+            "resource",
+            "action",
+            "recipient_or_counterparty",
+            "provider"
+          ]
+        },
+        "accepted_mapping": {
+          "type": "object",
+          "required": [
+            "resource_binding",
+            "action_binding",
+            "recipient_binding",
+            "provider_binding"
+          ],
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "not_applicable_token": {
+          "const": "NOT_APPLICABLE"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

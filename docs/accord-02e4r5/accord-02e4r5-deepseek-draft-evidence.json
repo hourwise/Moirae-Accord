@@ -1,0 +1,58 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:deepseek-draft-evidence:0.2",
+  "$id": "urn:moirae:accord-02r5:deepseek-draft-evidence:0.2",
+  "object_id": "urn:moirae:accord-02r5:deepseek-draft-evidence",
+  "object_version": "0.2",
+  "role": "BYTE_PRESERVED_EVIDENCE_METADATA_ONLY",
+  "source_worktree": "D:\\Users\\fleur\\Moirae Accord",
+  "drafts": [
+    {
+      "path": "D:\\Users\\fleur\\Moirae Accord\\docs\\accord-02e4r5\\ACCORD-02E4R5-REMEDIATION-DESIGN.md",
+      "bytes": 8694,
+      "algorithm": "RAW_FILE_BYTES_SHA256",
+      "sha256": "7a2a437bada75f9faaa76934e4c697898ace2af26e2444766030f7199d0e237d",
+      "disposition": "REWRITE"
+    },
+    {
+      "path": "D:\\Users\\fleur\\Moirae Accord\\docs\\accord-02e4r5\\accord-02e4r5-metacontract-rules.json",
+      "bytes": 13890,
+      "algorithm": "RAW_FILE_BYTES_SHA256",
+      "sha256": "af8a0e430abfe4dc443e955db6dfc48cdb732a80b19f95c327f93477903080e7",
+      "disposition": "DISCARD"
+    },
+    {
+      "path": "D:\\Users\\fleur\\Moirae Accord\\docs\\accord-02e4r5\\accord-02e4r5-primitive-registry.json",
+      "bytes": 49015,
+      "algorithm": "RAW_FILE_BYTES_SHA256",
+      "sha256": "3d77d2a5c0d05cbe758003bc484061fcaa4222974d545588628e7df464a91745",
+      "disposition": "REWRITE"
+    },
+    {
+      "path": "D:\\Users\\fleur\\Moirae Accord\\docs\\accord-02e4r5\\schema\\accord-02e4r5-assertion-registry.schema.json",
+      "bytes": 3844,
+      "algorithm": "RAW_FILE_BYTES_SHA256",
+      "sha256": "73cf700d6964763fee07b750572865bb07eea41894c8c4fee1d9b7783b0908a8",
+      "disposition": "REWRITE"
+    },
+    {
+      "path": "D:\\Users\\fleur\\Moirae Accord\\docs\\accord-02e4r5\\schema\\accord-02e4r5-metacontract-rules.schema.json",
+      "bytes": 4336,
+      "algorithm": "RAW_FILE_BYTES_SHA256",
+      "sha256": "8e770e02c233bfbedfe4999ba2c4a8e59bcf9e959c09e0c6d4e4f3254cb7418e",
+      "disposition": "DISCARD"
+    },
+    {
+      "path": "D:\\Users\\fleur\\Moirae Accord\\docs\\accord-02e4r5\\schema\\accord-02e4r5-primitive-registry.schema.json",
+      "bytes": 9638,
+      "algorithm": "RAW_FILE_BYTES_SHA256",
+      "sha256": "25720045f9899c6fd7d9a05303721d2db94b9914853f57653c7325cb998ec635",
+      "disposition": "REWRITE"
+    }
+  ],
+  "reconciliation": {
+    "typed_procedure_kinds": "REUSE_CONCEPT_REWRITE_CONTRACT",
+    "package_artifact_rule_scopes": "REUSE_CONCEPT_REWRITE_AS_PACKAGE_INVARIANTS_AND_RULE_SCOPE",
+    "mc_001_to_009": "DISCARD_WHOLESALE_METACONTRACT_RETAIN_DIRECT_INVARIANTS",
+    "version_0_3": "DISCARD_NO_EXISTING_RULE_REQUIRES_BUMP"
+  }
+}

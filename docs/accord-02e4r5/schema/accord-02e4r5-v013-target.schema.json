@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5:schema:v013-target:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "object_id",
+    "object_version",
+    "relationship",
+    "source_vector_ref",
+    "candidate_proposition_id",
+    "effect_id",
+    "negated_predicate_id",
+    "negated_stage",
+    "scope",
+    "required_interval",
+    "settlement_profile_ref"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "urn:moirae:accord-02r5:schema:v013-target:0.2"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02r5:v013-target:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02r5:v013-target"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "relationship": {
+      "const": "EXECUTABLE_REALIZATION_OF_EXACT_ACCEPTED_DECLARATIVE_V013"
+    },
+    "source_vector_ref": {
+      "$ref": "#/$defs/objectRef"
+    },
+    "candidate_proposition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effect_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "negated_predicate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "negated_stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "$ref": "#/$defs/scope"
+    },
+    "required_interval": {
+      "$ref": "#/$defs/interval"
+    },
+    "settlement_profile_ref": {
+      "$ref": "#/$defs/objectRef"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectRef": {
+      "type": "object",
+      "x-normative-reference": true,
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "CONTRACT",
+            "SCHEMA",
+            "PROFILE",
+            "SOURCE_VECTOR",
+            "CANONICALIZATION",
+            "POLICY",
+            "REQUIREMENT_MAP",
+            "PACKAGE",
+            "REGISTRY"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "resource",
+        "action",
+        "recipient_or_counterparty",
+        "provider"
+      ],
+      "properties": {
+        "resource": {},
+        "action": {},
+        "recipient_or_counterparty": {},
+        "provider": {}
+      },
+      "additionalProperties": false
+    },
+    "interval": {
+      "type": "object",
+      "required": [
+        "not_before",
+        "as_of"
+      ],
+      "properties": {
+        "not_before": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

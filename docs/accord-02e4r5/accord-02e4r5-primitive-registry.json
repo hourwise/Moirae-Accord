@@ -1,0 +1,109 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:primitive-registry:0.2",
+  "$id": "urn:moirae:accord-02r5:primitive-registry:0.2",
+  "object_id": "urn:moirae:accord-02r5:primitive-registry",
+  "object_version": "0.2",
+  "retired_primitive_ids": [
+    "ASSERTION_EXPRESSION"
+  ],
+  "composition_operators": [
+    "ALL",
+    "ANY"
+  ],
+  "procedure_kinds": [
+    {
+      "procedure_id": "JSON_POINTER_COMPARE",
+      "version": "1.0",
+      "required_arguments": [
+        "subject",
+        "pointer",
+        "comparison",
+        "expected"
+      ],
+      "argument_types": {
+        "subject": "OBJECT_REFERENCE",
+        "pointer": "RFC6901_JSON_POINTER",
+        "comparison": {
+          "enum": [
+            "EXACT_EQUAL"
+          ]
+        },
+        "expected": "JSON_VALUE"
+      },
+      "resolution": {
+        "subject": "RESOLVE_EXACTLY_ONE_BY_KIND_ID_VERSION",
+        "member": "MEMBER_ID_IF_PRESENT",
+        "zero_matches": "FAIL_CLOSED",
+        "multiple_matches": "FAIL_CLOSED"
+      },
+      "normalization": {
+        "subject_json": "PARSE_JSON",
+        "pointer": "RFC6901_UNESCAPE",
+        "actual_value": "NONE",
+        "expected_value": "NONE"
+      },
+      "extraction": {
+        "operation": "RFC6901_RESOLVE",
+        "quantification": "EXACTLY_ONE_VALUE",
+        "missing": "FAIL_CLOSED",
+        "ambiguous": "FAIL_CLOSED"
+      },
+      "evaluation": {
+        "EXACT_EQUAL": {
+          "operation": "JSON_TYPE_AND_VALUE_EQUAL",
+          "object_member_order": "INSIGNIFICANT",
+          "array_order": "SIGNIFICANT",
+          "number_model": "RFC8785_IEEE754"
+        }
+      },
+      "result_type": "BOOLEAN",
+      "failure_codes": {
+        "resolution": "SUBJECT_RESOLUTION_FAILED",
+        "pointer": "POINTER_RESOLUTION_FAILED",
+        "comparison": "VALUE_NOT_EQUAL",
+        "argument": "INVALID_ARGUMENT"
+      },
+      "missing_behavior": "FAIL_CLOSED",
+      "ambiguous_behavior": "FAIL_CLOSED",
+      "fail_closed": true
+    }
+  ],
+  "primitives": [
+    {
+      "primitive_id": "JSON_POINTER_COMPARE",
+      "primitive_version": "1.0",
+      "scope": "RULE",
+      "procedure_kind": "JSON_POINTER_COMPARE",
+      "argument_schema": {
+        "type": "object",
+        "required": [
+          "subject",
+          "pointer",
+          "comparison",
+          "expected"
+        ],
+        "properties": {
+          "subject": {
+            "$ref": "#/$defs/objectRef"
+          },
+          "pointer": {
+            "type": "string",
+            "pattern": "^(|/.*)$"
+          },
+          "comparison": {
+            "const": "EXACT_EQUAL"
+          },
+          "expected": {}
+        },
+        "additionalProperties": false
+      },
+      "failure_codes": [
+        "SUBJECT_RESOLUTION_FAILED",
+        "POINTER_RESOLUTION_FAILED",
+        "VALUE_NOT_EQUAL",
+        "INVALID_ARGUMENT"
+      ],
+      "error_behavior": "FAIL_CLOSED"
+    }
+  ]
+}

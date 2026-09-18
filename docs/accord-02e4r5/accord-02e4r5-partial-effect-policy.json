@@ -1,0 +1,29 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:partial-effect-policy:0.2",
+  "$id": "urn:moirae:accord-02r5:partial-effect-policy:0.2",
+  "object_id": "urn:moirae:accord-02r5:partial-effect-policy",
+  "object_version": "0.2",
+  "predicate_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5:predicate-registry",
+    "version": "0.2"
+  },
+  "same_effect_required": true,
+  "direct_predecessor_required": true,
+  "implicit_transitivity": "FORBIDDEN",
+  "global_stage_order": "FORBIDDEN",
+  "decisions": {
+    "VALID_SUPPORTED_DIRECT_PREDECESSOR": "PARTIAL_EFFECT",
+    "TARGET_ALREADY_SUPPORTED": "NOT_PARTIAL_EFFECT",
+    "NO_PREDECESSOR": "UNKNOWN",
+    "WRONG_EFFECT": "REJECT",
+    "UNSUPPORTED_TUPLE": "REJECT",
+    "UNKNOWN_TUPLE": "REJECT",
+    "WRONG_STAGE": "REJECT",
+    "SELF_EDGE": "REJECT",
+    "CYCLE": "REJECT",
+    "DANGLING_TARGET": "REJECT",
+    "INCOMPATIBLE_EVIDENCE": "UNKNOWN",
+    "INADMISSIBLE_EVIDENCE": "UNKNOWN"
+  }
+}

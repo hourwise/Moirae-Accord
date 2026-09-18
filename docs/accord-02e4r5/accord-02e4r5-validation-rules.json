@@ -1,0 +1,2045 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:validation-rules:0.2",
+  "$id": "urn:moirae:accord-02r5:validation-rules:0.2",
+  "object_id": "urn:moirae:accord-02r5:validation-rules",
+  "object_version": "0.2",
+  "classification_policy": "SUBJECT_ARTIFACT_MUST_EXIST",
+  "rules": [
+    {
+      "rule_id": "ORC-001",
+      "family": "ORACLE_BOUNDARY",
+      "failure_code": "ACCORD-02R2-ORACLE-REFERENCE",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "public scenario catalog",
+        "system-under-test input manifests"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ORC-002",
+      "family": "ORACLE_BOUNDARY",
+      "failure_code": "ACCORD-02R2-ORACLE-REVERSE-JOIN",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "scorer configuration",
+        "public scenario catalog",
+        "arm manifests"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ORC-003",
+      "family": "ORACLE_BOUNDARY",
+      "failure_code": "ACCORD-02R2-OPAQUE-SCENARIO-ID",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "scenario_id",
+        "fixture identity",
+        "timing configuration"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-001",
+      "family": "ARM_ISOLATION",
+      "failure_code": "ACCORD-02R2-ARM-DISCRIMINATOR",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm input manifest"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-002",
+      "family": "ARM_ISOLATION",
+      "failure_code": "ACCORD-02R2-ARM-PROFILE-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm_id",
+        "input_profile_id",
+        "arm input profile catalog"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-003",
+      "family": "ARM_ISOLATION",
+      "failure_code": "ACCORD-02R2-SOURCE-TYPE-NOT-ALLOWED",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm source references",
+        "arm input profile"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-004",
+      "family": "ARM_ISOLATION",
+      "failure_code": "ACCORD-02R2-SOURCE-RECORD-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "source_type",
+        "source_record_ref.record_type"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-005",
+      "family": "ARM_ISOLATION",
+      "failure_code": "ACCORD-02R2-ARM-EXTENSION-SMUGGLING",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm input manifest extensions",
+        "source projections"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-006",
+      "family": "ARM_ISOLATION",
+      "failure_code": "ACCORD-02R2-CLASSIFIER-SOURCE-LEAK",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "ARM-C classifier feature references",
+        "ARM-B-visible source set"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-007",
+      "family": "ARM_ISOLATION",
+      "failure_code": "ACCORD-02R2-EXTENSION-SEMANTIC-LEAK",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm-visible portable record extensions",
+        "active record/evidence profile"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RAW-001",
+      "family": "RAW_OUTPUT",
+      "failure_code": "ACCORD-02R2-RAW-ENVELOPE",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RAW-002",
+      "family": "RAW_OUTPUT",
+      "failure_code": "ACCORD-02R2-RAW-PAYLOAD-MISSING",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RAW-003",
+      "family": "RAW_OUTPUT",
+      "failure_code": "ACCORD-02R2-RAW-CROSS-ARM-FORWARD",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "other arm inputs"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-001",
+      "family": "PROJECTION",
+      "failure_code": "ACCORD-02R2-PROJECTION-LINEAGE-MISSING",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "A verifier projection",
+        "native C settlement result",
+        "named mapping profile",
+        "canonical proposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-002",
+      "family": "PROJECTION",
+      "failure_code": "ACCORD-02R2-NEGATIVE-PROJECTION-UNSUPPORTED",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "native C result",
+        "NO_EFFECT_OBSERVED projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-003",
+      "family": "PROJECTION",
+      "failure_code": "ACCORD-02R2-PROJECTION-STRENGTHENING",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "native C result",
+        "A projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-004",
+      "family": "PROJECTION",
+      "failure_code": "ACCORD-02R2-REJECTED-HISTORY-REWRITE",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "REJECTED verifier disposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-001",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-REFERENCE-MISSING-OR-AMBIGUOUS",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:LIN-001"
+      }
+    },
+    {
+      "rule_id": "LIN-002",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-DUPLICATE-NORMATIVE-ID",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:LIN-002"
+      }
+    },
+    {
+      "rule_id": "LIN-003",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-FOREIGN-VERIFIER-RUN",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment result",
+        "experiment run",
+        "verifier result",
+        "verifier run"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-004",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-SCENARIO-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-005",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-ARM-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-006",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-PROPOSITION-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "settlement result",
+        "experiment proposition",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-007",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-FOREIGN-RESULT",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:LIN-007"
+      }
+    },
+    {
+      "rule_id": "LIN-008",
+      "family": "LINEAGE",
+      "failure_code": "ACCORD-02R2-EXTERNAL-ID-SUBSTITUTION",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "provider_operation_id",
+        "transport_call_id",
+        "Accord semantic references"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-001",
+      "family": "PROPOSITION",
+      "failure_code": "ACCORD-02R2-PROPOSITION-REFERENCE",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PROP-001"
+      }
+    },
+    {
+      "rule_id": "PROP-002",
+      "family": "PROPOSITION",
+      "failure_code": "ACCORD-02R2-PROPOSITION-CROSS-LINK-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "evidence",
+        "observation",
+        "settlement result",
+        "verifier projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-003",
+      "family": "PROPOSITION",
+      "failure_code": "ACCORD-02R2-PROPOSITION-DUPLICATE-MISMATCH",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "denormalized effect/predicate/stage fields",
+        "canonical proposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-004",
+      "family": "PROPOSITION",
+      "failure_code": "ACCORD-02R2-BINDING-STATUS-INVALID",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "binding slots",
+        "active proposition/profile"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-005",
+      "family": "PROPOSITION",
+      "failure_code": "ACCORD-02R2-ATTEMPT-ATTRIBUTION-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "attempt attribution",
+        "attempt record",
+        "native C result"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SCORE-001",
+      "family": "SCORE_SEPARATION",
+      "failure_code": "ACCORD-02R2-SCORE-ARM-CONTAMINATION",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "score record",
+        "arm inputs"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SCORE-002",
+      "family": "SCORE_SEPARATION",
+      "failure_code": "ACCORD-02R2-SCORE-PIPELINE-REORDERED",
+      "severity": "MAJOR",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile",
+        "normalized claim",
+        "scorer truth"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SCORE-003",
+      "family": "SCORE_SEPARATION",
+      "failure_code": "ACCORD-02R2-NORMALIZATION-ORACLE-USE",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalization profile",
+        "arm-visible information"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "BND-001",
+      "family": "BUNDLE",
+      "failure_code": "ACCORD-02R3-BUNDLE-SCOPE-INVALID",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:BND-001"
+      }
+    },
+    {
+      "rule_id": "BND-002",
+      "family": "BUNDLE",
+      "failure_code": "ACCORD-02R3-UNDECLARED-SCOPE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:BND-002"
+      }
+    },
+    {
+      "rule_id": "BND-003",
+      "family": "BUNDLE",
+      "failure_code": "ACCORD-02R3-SCORER-MATERIAL-IN-BUNDLE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "bundle information class",
+        "visibility flags"
+      ],
+      "later_lifecycle_stage": "BUNDLE_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "BND-004",
+      "family": "PACKAGE_CONTRACT",
+      "failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "SCHEMA-001",
+        "SCHEMA-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:BND-004"
+      }
+    },
+    {
+      "rule_id": "BND-005",
+      "family": "PACKAGE_CONTRACT",
+      "failure_code": "ACCORD-02R5-ACTIVE-PROFILE-RESOLUTION-FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "PROF-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:BND-005"
+      }
+    },
+    {
+      "rule_id": "RUN-001",
+      "family": "RUN_CONTRACT",
+      "failure_code": "ACCORD-02R3-EXPERIMENT-RUN-INCOMPLETE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RUN-002",
+      "family": "RUN_CONTRACT",
+      "failure_code": "ACCORD-02R3-VERIFIER-RUN-INCOMPLETE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "verifier run record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RUN-003",
+      "family": "RUN_CONTRACT",
+      "failure_code": "ACCORD-02R3-RUN-MANIFEST-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "RUN-001",
+        "ARM-001",
+        "ARM-002"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "arm manifest"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RUN-004",
+      "family": "RUN_CONTRACT",
+      "failure_code": "ACCORD-02R3-RUN-SCORER-REFERENCE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "RUN-001",
+        "RUN-002",
+        "BND-003"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "verifier run"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-001",
+      "family": "EXTENSION",
+      "failure_code": "ACCORD-02R3-EXTENSION-UNREGISTERED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:EXT-001"
+      }
+    },
+    {
+      "rule_id": "EXT-002",
+      "family": "EXTENSION",
+      "failure_code": "ACCORD-02R3-NON-SEMANTIC-USED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "EXT-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "extension registry",
+        "NON_SEMANTIC extensions"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-003",
+      "family": "EXTENSION",
+      "failure_code": "ACCORD-02R3-AUTHORITY-EXTENSION-NO-COMPARATOR",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "EXT-001",
+        "BND-005"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "AUTHORITY_BEARING extension",
+        "authority profile"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-004",
+      "family": "EXTENSION",
+      "failure_code": "ACCORD-02R3-EVIDENCE-EXTENSION-NO-PROFILE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "EXT-001",
+        "BND-005"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+        "settlement/evidence profile"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-005",
+      "family": "EXTENSION",
+      "failure_code": "ACCORD-02R3-EXTENSION-CANNOT-STRENGTHEN",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "EXT-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "unknown or incompatible extension"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-006",
+      "family": "EXTENSION",
+      "failure_code": "ACCORD-02R3-EXTENSION-REGISTRY-MISSING",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005",
+        "EXT-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm-visible portable bundle",
+        "extension registry"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SRC-001",
+      "family": "SOURCE_MEMBERSHIP",
+      "failure_code": "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005",
+        "ARM-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:source-catalog-binding",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:SRC-001"
+      }
+    },
+    {
+      "rule_id": "SRC-002",
+      "family": "SOURCE_MEMBERSHIP",
+      "failure_code": "ACCORD-02R3-SOURCE-CLASS-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "SRC-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:source-catalog-binding",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:SRC-002"
+      }
+    },
+    {
+      "rule_id": "SRC-003",
+      "family": "SOURCE_MEMBERSHIP",
+      "failure_code": "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+      "severity": "MAJOR",
+      "depends_on": [
+        "SRC-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:source-catalog-binding",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:SRC-003"
+      }
+    },
+    {
+      "rule_id": "SRC-004",
+      "family": "SOURCE_MEMBERSHIP",
+      "failure_code": "ACCORD-02R3-SOURCE-EVIDENCE-MASQUERADE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "SRC-001",
+        "EXT-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "provider/transport/raw output",
+        "portable evidence"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "VIS-001",
+      "family": "ROLE_VISIBILITY",
+      "failure_code": "ACCORD-02R3-VISIBILITY-VIOLATION",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005",
+        "RUN-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "role-visibility profile",
+        "arm manifest fields"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-001",
+      "family": "NORMALIZATION",
+      "failure_code": "ACCORD-02R3-NORMALIZATION-INPUT-INVALID",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "RAW-001",
+        "BND-005"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-002",
+      "family": "NORMALIZATION",
+      "failure_code": "ACCORD-02R3-NORMALIZATION-ORACLE-INPUT",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "NORM-001",
+        "BND-003"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalization process inputs"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-003",
+      "family": "NORMALIZATION",
+      "failure_code": "ACCORD-02R3-NORMALIZATION-NONDETERMINISTIC",
+      "severity": "MAJOR",
+      "depends_on": [
+        "NORM-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-004",
+      "family": "NORMALIZATION",
+      "failure_code": "ACCORD-02R3-NORMALIZATION-MALFORMED-UNDEFINED",
+      "severity": "MAJOR",
+      "depends_on": [
+        "NORM-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "malformed or unmapped raw output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-005",
+      "family": "NORMALIZATION",
+      "failure_code": "ACCORD-02R3-NORMALIZATION-TRUTH-REINTERPRETATION",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "NORM-002",
+        "NORM-003"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalized claim",
+        "scorer truth"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-001",
+      "family": "CLASSIFIER_FEATURE",
+      "failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNREGISTERED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005",
+        "SRC-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature",
+        "classifier feature profile"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-002",
+      "family": "CLASSIFIER_FEATURE",
+      "failure_code": "ACCORD-02R3-CLASSIFIER-UPSTREAM-INVALID",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "CLF-001",
+        "SRC-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "derived classifier feature",
+        "ARM-C source set"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-003",
+      "family": "CLASSIFIER_FEATURE",
+      "failure_code": "ACCORD-02R3-CLASSIFIER-PRIVILEGED-UPSTREAM",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "CLF-001",
+        "CLF-002"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature derivation"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-004",
+      "family": "CLASSIFIER_FEATURE",
+      "failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNKNOWN",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "CLF-001"
+      ],
+      "scope": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PRED-001",
+      "family": "PREDICATE_APPLICABILITY",
+      "failure_code": "ACCORD-02R3-REQUIRED-BINDING-UNRESOLVED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005",
+        "PROP-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PRED-001"
+      }
+    },
+    {
+      "rule_id": "PRED-002",
+      "family": "PREDICATE_APPLICABILITY",
+      "failure_code": "ACCORD-02R3-NOT-APPLICABLE-UNJUSTIFIED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PRED-002"
+      }
+    },
+    {
+      "rule_id": "PRED-003",
+      "family": "PREDICATE_APPLICABILITY",
+      "failure_code": "ACCORD-02R3-UNKNOWN-BINDING-STRENGTHENING",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PRED-003"
+      }
+    },
+    {
+      "rule_id": "PRED-004",
+      "family": "PREDICATE_APPLICABILITY",
+      "failure_code": "ACCORD-02R3-PREDICATE-PROFILE-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PRED-001",
+        "PROP-001",
+        "PROP-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PRED-004"
+      }
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "family": "PACKAGE_CONTRACT",
+      "failure_code": "ACCORD-02R5-DIGEST-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-004",
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002",
+        "DIGEST-CANON-003"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:DIGEST-001"
+      }
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "family": "DIGEST",
+      "failure_code": "ACCORD-02R3-DIGEST-REQUIRED-BUT-ABSENT",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "BND-005"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:DIGEST-002"
+      }
+    },
+    {
+      "rule_id": "DIGEST-003",
+      "family": "DIGEST",
+      "failure_code": "ACCORD-02R3-DIGEST-FAILURE-HISTORY-SEPARATED",
+      "severity": "MAJOR",
+      "depends_on": [
+        "DIGEST-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:DIGEST-003"
+      }
+    },
+    {
+      "rule_id": "LIN-009",
+      "family": "LINEAGE_CLOSURE",
+      "failure_code": "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "LIN-001",
+        "DIGEST-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:LIN-009"
+      }
+    },
+    {
+      "rule_id": "PROP-006",
+      "family": "LINEAGE_CLOSURE",
+      "failure_code": "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PROP-001",
+        "LIN-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PROP-006"
+      }
+    },
+    {
+      "rule_id": "PKG-001",
+      "family": "SPECIFICATION_PACKAGE",
+      "failure_code": "ACCORD-02R5-PACKAGE-MISSING-OR-MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PKG-001"
+      }
+    },
+    {
+      "rule_id": "PKG-002",
+      "family": "SPECIFICATION_PACKAGE",
+      "failure_code": "ACCORD-02R5-PACKAGE-CONTRACT-DUPLICATE-OR-DANGLING",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PKG-002"
+      }
+    },
+    {
+      "rule_id": "PROF-001",
+      "family": "PROFILE_RESOLUTION",
+      "failure_code": "ACCORD-02R5-PROFILE-RESOLUTION-FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PROF-001"
+      }
+    },
+    {
+      "rule_id": "PROF-002",
+      "family": "PROFILE_RESOLUTION",
+      "failure_code": "ACCORD-02R5-PROFILE-VERSION-UNPINNED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PROF-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:PROF-002"
+      }
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "family": "SCHEMA_CONTRACT",
+      "failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:SCHEMA-001"
+      }
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "family": "SCHEMA_CONTRACT",
+      "failure_code": "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "SCHEMA-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:SCHEMA-002"
+      }
+    },
+    {
+      "rule_id": "ROLE-001",
+      "family": "ROLE_VOCABULARY",
+      "failure_code": "ACCORD-02R5-UNKNOWN-ROLE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:ROLE-001"
+      }
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "family": "DIGEST_CANONICALIZATION",
+      "failure_code": "ACCORD-02R5-CANONICALIZATION-MISSING",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "SCHEMA-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:DIGEST-CANON-001"
+      }
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "family": "DIGEST_CANONICALIZATION",
+      "failure_code": "ACCORD-02R5-CANONICALIZATION-INCOMPATIBLE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "SCHEMA-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:DIGEST-CANON-002"
+      }
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "family": "DIGEST_CANONICALIZATION",
+      "failure_code": "ACCORD-02R5-CANONICALIZATION-UNSUPPORTED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "DIGEST-CANON-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:DIGEST-CANON-003"
+      }
+    },
+    {
+      "rule_id": "SCENARIO-ID-001",
+      "family": "SCENARIO_ID_POLICY",
+      "failure_code": "ACCORD-02R5-SCENARIO-ID-SEMANTIC-USE",
+      "severity": "MAJOR",
+      "depends_on": [
+        "PROF-001",
+        "CLF-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:SCENARIO-ID-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "family": "PREDICATE_APPLICABILITY",
+      "failure_code": "PREDICATE_TUPLE_RESOLUTION_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PRED-004",
+        "PKG-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-PRED-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "family": "FAIL_CLOSED",
+      "failure_code": "PREDICATE_FAIL_CLOSED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-PRED-002"
+      }
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "family": "EXACT_IDENTIFIER",
+      "failure_code": "PREDICATE_IDENTIFIER_NOT_EXACT",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-PRED-003"
+      }
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "family": "PREDICATE_AUTHORITY",
+      "failure_code": "COMPETING_PREDICATE_AUTHORITY",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-003"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-AUTH-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "family": "BINDING_AUTHORITY",
+      "failure_code": "BINDING_AUTHORITY_CONTRADICTION",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PRED-001",
+        "PRED-002",
+        "E4R1-PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-BIND-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "family": "PROPOSITION_KIND",
+      "failure_code": "PROPOSITION_KIND_MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "SCHEMA-002",
+        "E4R1-PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-PROP-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "family": "PARTIAL_EFFECT",
+      "failure_code": "PARTIAL_EFFECT_PREREQUISITE_UNSATISFIED",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-BIND-001",
+        "E4R1-PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "POLICY",
+          "id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-PART-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "family": "PREDECESSOR_IDENTITY",
+      "failure_code": "PREDECESSOR_EFFECT_MISMATCH",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-PART-001",
+        "E4R1-PRED-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "POLICY",
+          "id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-PART-002"
+      }
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "family": "PREDECESSOR_GRAPH",
+      "failure_code": "PREDECESSOR_GRAPH_INVALID",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "PKG-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "POLICY",
+          "id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-PART-003"
+      }
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "family": "NEGATIVE_SCOPE",
+      "failure_code": "NEGATIVE_SCOPE_INCOMPLETE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-BIND-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:v013-target",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-NEG-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "family": "NEGATIVE_SCOPE",
+      "failure_code": "NEGATIVE_SCOPE_NOT_SUFFICIENT",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-NEG-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:v013-synthetic-evidence",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-NEG-002"
+      }
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "family": "NON_ENTAILMENT",
+      "failure_code": "FORBIDDEN_ENTAILMENT",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-AUTH-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "POLICY",
+          "id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-ENT-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "family": "CANONICALIZATION",
+      "failure_code": "CANONICALIZATION_MAPPING_INVALID",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-CANON-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "family": "EXPECTATION_CONTRACT",
+      "failure_code": "EXPECTATION_CONTRACT_INCOMPLETE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-EXPECT-001"
+      }
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "family": "CANDIDATE_CLOSURE",
+      "failure_code": "CANDIDATE_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-001",
+        "E4R1-PART-003",
+        "E4R1-CANON-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R1-CLOSE-001"
+      }
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "family": "REFERENCE_RESOLUTION",
+      "failure_code": "REFERENCE_RESOLUTION_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R2-REF-001"
+      }
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "family": "CANONICALIZATION",
+      "failure_code": "CANONICALIZATION_TARGET_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "DIGEST-CANON-002"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R2-CANON-001"
+      }
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "family": "BINDING_AUTHORITY",
+      "failure_code": "BINDING_COMPOSITION_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-BIND-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R2-BIND-001"
+      }
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "family": "NEGATIVE_SCOPE",
+      "failure_code": "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-NEG-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REQUIREMENT_MAP",
+          "id": "urn:moirae:accord-02r5:negative-requirement-map",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R2-NEG-001"
+      }
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "family": "RULE_GRAPH",
+      "failure_code": "RULE_GRAPH_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-PART-003"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:dependency-graph",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R2-GRAPH-001"
+      }
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "family": "PROFILE_POLICY",
+      "failure_code": "PROFILE_DIGEST_SCOPE_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-BIND-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R2-PROFILE-001"
+      }
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "family": "CANDIDATE_CLOSURE",
+      "failure_code": "MEASURED_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "depends_on": [
+        "E4R1-CLOSE-001",
+        "E4R2-REF-001",
+        "E4R2-CANON-001",
+        "E4R2-NEG-001",
+        "E4R2-GRAPH-001"
+      ],
+      "scope": "EXECUTABLE_IN_PACKAGE_0_2",
+      "subject_bindings": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "assertion_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5:assertion-registry",
+        "version": "0.2",
+        "member_id": "urn:moirae:accord-02r5:assertion:E4R2-CLOSE-001"
+      }
+    }
+  ]
+}

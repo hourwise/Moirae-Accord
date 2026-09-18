@@ -1,0 +1,1422 @@
+{
+  "$schema": "urn:moirae:accord-02r5:schema:assertion-registry:0.2",
+  "$id": "urn:moirae:accord-02r5:assertion-registry:0.2",
+  "object_id": "urn:moirae:accord-02r5:assertion-registry",
+  "object_version": "0.2",
+  "retired_primitive_ids": [
+    "ASSERTION_EXPRESSION"
+  ],
+  "assertions": [
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:LIN-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:validation-rules",
+                "version": "0.2"
+              },
+              "pointer": "/classification_policy",
+              "comparison": "EXACT_EQUAL",
+              "expected": "SUBJECT_ARTIFACT_MUST_EXIST"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:LIN-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:object-registry",
+                "version": "0.2"
+              },
+              "pointer": "/uniqueness_key/0",
+              "comparison": "EXACT_EQUAL",
+              "expected": "kind"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:LIN-007",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:validation-rules",
+                "version": "0.2"
+              },
+              "pointer": "/object_version",
+              "comparison": "EXACT_EQUAL",
+              "expected": "0.2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PROP-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:vector-catalog",
+                "version": "0.2"
+              },
+              "pointer": "/vectors/4/classification",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DECLARATIVE_EXPECTATION_VECTOR"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:BND-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "PACKAGE",
+                "id": "urn:moirae:accord-02r5:specification-package",
+                "version": "0.2"
+              },
+              "pointer": "/status",
+              "comparison": "EXACT_EQUAL",
+              "expected": "CANDIDATE_UNACCEPTED"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:BND-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:object-registry",
+                "version": "0.2"
+              },
+              "pointer": "/uniqueness_key/1",
+              "comparison": "EXACT_EQUAL",
+              "expected": "id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:BND-004",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:validation-rules",
+                "version": "0.2"
+              },
+              "pointer": "/rules/0/scope",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DEFERRED_NO_SUBJECT_ARTIFACT"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:BND-005",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "PROFILE",
+                "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+                "version": "0.2"
+              },
+              "pointer": "/profile_version",
+              "comparison": "EXACT_EQUAL",
+              "expected": "0.2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:EXT-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:validation-rules",
+                "version": "0.2"
+              },
+              "pointer": "/rules/1/scope",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DEFERRED_NO_SUBJECT_ARTIFACT"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:SRC-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:source-catalog-binding",
+                "version": "0.2"
+              },
+              "pointer": "/identity_assignment",
+              "comparison": "EXACT_EQUAL",
+              "expected": "PACKAGE_BINDING_NOT_HISTORICAL_SELF_ASSERTION"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:SRC-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:source-catalog-binding",
+                "version": "0.2"
+              },
+              "pointer": "/integrity/class",
+              "comparison": "EXACT_EQUAL",
+              "expected": "SEMANTIC_JSON_CONTENT"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:SRC-003",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:source-catalog-binding",
+                "version": "0.2"
+              },
+              "pointer": "/integrity/algorithm",
+              "comparison": "EXACT_EQUAL",
+              "expected": "SHA-256"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PRED-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/global_stage_order",
+              "comparison": "EXACT_EQUAL",
+              "expected": "FORBIDDEN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PRED-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/implicit_transitivity",
+              "comparison": "EXACT_EQUAL",
+              "expected": "FORBIDDEN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PRED-003",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/resolution_key",
+              "comparison": "EXACT_EQUAL",
+              "expected": [
+                "predicate_id",
+                "stage"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PRED-004",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/comparison",
+              "comparison": "EXACT_EQUAL",
+              "expected": "UNICODE_CODE_POINT_EXACT_CASE_SENSITIVE_NO_NORMALIZATION"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:DIGEST-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/content_targets/0/mode",
+              "comparison": "EXACT_EQUAL",
+              "expected": "EXCLUDE_JSON_POINTERS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:DIGEST-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/content_targets/1/mode",
+              "comparison": "EXACT_EQUAL",
+              "expected": "EXCLUDE_JSON_POINTERS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:DIGEST-003",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/content_targets/2/mode",
+              "comparison": "EXACT_EQUAL",
+              "expected": "INCLUDE_JSON_POINTERS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:LIN-009",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:vector-catalog",
+                "version": "0.2"
+              },
+              "pointer": "/vectors/0/classification",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DECLARATIVE_EXPECTATION_VECTOR"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PROP-006",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:vector-catalog",
+                "version": "0.2"
+              },
+              "pointer": "/vectors/5/classification",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DECLARATIVE_EXPECTATION_VECTOR"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PKG-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:validation-rules",
+                "version": "0.2"
+              },
+              "pointer": "/rules/2/scope",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DEFERRED_NO_SUBJECT_ARTIFACT"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PKG-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:object-registry",
+                "version": "0.2"
+              },
+              "pointer": "/uniqueness_key/2",
+              "comparison": "EXACT_EQUAL",
+              "expected": "version"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PROF-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "PROFILE",
+                "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+                "version": "0.2"
+              },
+              "pointer": "/negative_policy/future_observation_result",
+              "comparison": "EXACT_EQUAL",
+              "expected": "UNKNOWN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:PROF-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "PROFILE",
+                "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+                "version": "0.2"
+              },
+              "pointer": "/negative_policy/stale_result",
+              "comparison": "EXACT_EQUAL",
+              "expected": "STALE_EVIDENCE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:SCHEMA-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:vector-catalog",
+                "version": "0.2"
+              },
+              "pointer": "/vectors/1/classification",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DECLARATIVE_EXPECTATION_VECTOR"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:SCHEMA-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:vector-catalog",
+                "version": "0.2"
+              },
+              "pointer": "/vectors/2/classification",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DECLARATIVE_EXPECTATION_VECTOR"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:ROLE-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:object-registry",
+                "version": "0.2"
+              },
+              "pointer": "/object_version",
+              "comparison": "EXACT_EQUAL",
+              "expected": "0.2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:DIGEST-CANON-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/algorithm",
+              "comparison": "EXACT_EQUAL",
+              "expected": "SHA-256"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:DIGEST-CANON-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/method",
+              "comparison": "EXACT_EQUAL",
+              "expected": "RFC8785_JCS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:DIGEST-CANON-003",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/encoding",
+              "comparison": "EXACT_EQUAL",
+              "expected": "UTF-8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:SCENARIO-ID-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "PROFILE",
+                "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+                "version": "0.2"
+              },
+              "pointer": "/scope_vocabulary/not_applicable_token",
+              "comparison": "EXACT_EQUAL",
+              "expected": "NOT_APPLICABLE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-PRED-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/registry_version",
+              "comparison": "EXACT_EQUAL",
+              "expected": "0.2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-PRED-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/entries/0/kind",
+              "comparison": "EXACT_EQUAL",
+              "expected": "GENERIC_OCCURRENCE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-PRED-003",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/entries/1/kind",
+              "comparison": "EXACT_EQUAL",
+              "expected": "POSITIVE_STAGE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-AUTH-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/entries/2/kind",
+              "comparison": "EXACT_EQUAL",
+              "expected": "POSITIVE_STAGE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-BIND-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/entries/3/kind",
+              "comparison": "EXACT_EQUAL",
+              "expected": "POSITIVE_STAGE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-PROP-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:vector-catalog",
+                "version": "0.2"
+              },
+              "pointer": "/vectors/3/classification",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DECLARATIVE_EXPECTATION_VECTOR"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-PART-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "POLICY",
+                "id": "urn:moirae:accord-02r5:partial-effect-policy",
+                "version": "0.2"
+              },
+              "pointer": "/same_effect_required",
+              "comparison": "EXACT_EQUAL",
+              "expected": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-PART-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "POLICY",
+                "id": "urn:moirae:accord-02r5:partial-effect-policy",
+                "version": "0.2"
+              },
+              "pointer": "/direct_predecessor_required",
+              "comparison": "EXACT_EQUAL",
+              "expected": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-PART-003",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "POLICY",
+                "id": "urn:moirae:accord-02r5:partial-effect-policy",
+                "version": "0.2"
+              },
+              "pointer": "/implicit_transitivity",
+              "comparison": "EXACT_EQUAL",
+              "expected": "FORBIDDEN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-NEG-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:v013-target",
+                "version": "0.2"
+              },
+              "pointer": "/relationship",
+              "comparison": "EXACT_EQUAL",
+              "expected": "EXECUTABLE_REALIZATION_OF_EXACT_ACCEPTED_DECLARATIVE_V013"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-NEG-002",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:v013-synthetic-evidence",
+                "version": "0.2"
+              },
+              "pointer": "/fixture_status",
+              "comparison": "EXACT_EQUAL",
+              "expected": "SYNTHETIC_CANDIDATE_0_2_NOT_ACCEPTED_HISTORY"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-ENT-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "POLICY",
+                "id": "urn:moirae:accord-02r5:partial-effect-policy",
+                "version": "0.2"
+              },
+              "pointer": "/global_stage_order",
+              "comparison": "EXACT_EQUAL",
+              "expected": "FORBIDDEN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-CANON-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/missing_pointer_policy",
+              "comparison": "EXACT_EQUAL",
+              "expected": "FAIL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-EXPECT-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:vector-catalog",
+                "version": "0.2"
+              },
+              "pointer": "/vectors/6/classification",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DECLARATIVE_EXPECTATION_VECTOR"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R1-CLOSE-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:validation-rules",
+                "version": "0.2"
+              },
+              "pointer": "/rules/3/scope",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DEFERRED_NO_SUBJECT_ARTIFACT"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R2-REF-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:validation-rules",
+                "version": "0.2"
+              },
+              "pointer": "/rules/4/scope",
+              "comparison": "EXACT_EQUAL",
+              "expected": "DEFERRED_NO_SUBJECT_ARTIFACT"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R2-CANON-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/duplicate_pointer_policy",
+              "comparison": "EXACT_EQUAL",
+              "expected": "FAIL"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R2-BIND-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:predicate-registry",
+                "version": "0.2"
+              },
+              "pointer": "/entries/4/kind",
+              "comparison": "EXACT_EQUAL",
+              "expected": "NEGATIVE_SCOPE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R2-NEG-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REQUIREMENT_MAP",
+                "id": "urn:moirae:accord-02r5:negative-requirement-map",
+                "version": "0.2"
+              },
+              "pointer": "/caller_supplied_contradiction_count",
+              "comparison": "EXACT_EQUAL",
+              "expected": "FORBIDDEN"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R2-GRAPH-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CONTRACT",
+                "id": "urn:moirae:accord-02r5:dependency-graph",
+                "version": "0.2"
+              },
+              "pointer": "/object_version",
+              "comparison": "EXACT_EQUAL",
+              "expected": "0.2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R2-PROFILE-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "CANONICALIZATION",
+                "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+                "version": "0.2"
+              },
+              "pointer": "/pointer_semantics",
+              "comparison": "EXACT_EQUAL",
+              "expected": "RFC6901"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "assertion_id": "urn:moirae:accord-02r5:assertion:E4R2-CLOSE-001",
+      "expression": {
+        "operator": "ALL",
+        "checks": [
+          {
+            "primitive_ref": {
+              "kind": "REGISTRY",
+              "id": "urn:moirae:accord-02r5:primitive-registry",
+              "version": "0.2",
+              "member_id": "JSON_POINTER_COMPARE"
+            },
+            "arguments": {
+              "subject": {
+                "kind": "REGISTRY",
+                "id": "urn:moirae:accord-02r5:object-registry",
+                "version": "0.2"
+              },
+              "pointer": "/uniqueness_key",
+              "comparison": "EXACT_EQUAL",
+              "expected": [
+                "kind",
+                "id",
+                "version"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
