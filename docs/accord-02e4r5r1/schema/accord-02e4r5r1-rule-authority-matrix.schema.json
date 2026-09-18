@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r1:schema:rule-authority-matrix:0.2",
+  "type": "object",
+  "required": [
+    "rules"
+  ],
+  "properties": {
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "semantic_class"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "semantic_class": {
+                  "const": "EXECUTABLE_CONFORMANCE_RULE"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "expectation_form",
+                "derivation_ref"
+              ],
+              "not": {
+                "required": [
+                  "expected"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

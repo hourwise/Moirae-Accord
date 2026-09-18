@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:schema-identity-policy",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:schema-identity-policy:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:schema-identity-policy",
+  "object_version": "0.2",
+  "kind": "SCHEMA",
+  "registered_identity": {
+    "fields": [
+      "id",
+      "version"
+    ]
+  },
+  "document_identity_rule": "$id MUST equal registered id + ':' + registered version",
+  "normalization": "NONE",
+  "failure_code": "SCHEMA_IDENTITY_MISMATCH",
+  "fail_closed": true
+}

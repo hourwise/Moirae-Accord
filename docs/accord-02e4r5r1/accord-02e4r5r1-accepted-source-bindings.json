@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:accepted-source-bindings",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:accepted-source-bindings:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:accepted-source-bindings",
+  "object_version": "0.2",
+  "sources": [
+    {
+      "ref": {
+        "kind": "PACKAGE",
+        "id": "urn:moirae:accord-02r5:specification-package",
+        "version": "0.1"
+      },
+      "roles": [
+        "NORMATIVE_BOUND_SOURCE",
+        "ACCEPTED_BASE_REQUIREMENT"
+      ],
+      "status": "ACTIVE_ACCEPTED_SOURCE",
+      "path": "docs/accord-02/accord-02r5-specification-package.json",
+      "integrity": {
+        "semantic_json_content_sha256": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c",
+        "raw_file_bytes_sha256": "fbb9c3cc97355905e7e12632706e6a982ea1187748f4d2259641f41d20be105c"
+      }
+    },
+    {
+      "ref": {
+        "kind": "SOURCE_VECTOR_CATALOG",
+        "id": "urn:moirae:accord-02r5:source-vector-catalog",
+        "version": "0.1"
+      },
+      "roles": [
+        "CATALOG_BINDING",
+        "VECTOR_SOURCE"
+      ],
+      "status": "ACTIVE_ACCEPTED_SOURCE",
+      "path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+      "integrity": {
+        "semantic_json_content_sha256": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5",
+        "raw_file_bytes_sha256": "9f58e7dca17d40e3fd24e38a4e8610e4a3b2b14564d9fbb692313157b7e18afe"
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r1:schema:normative-invariants:0.2",
+  "type": "object",
+  "required": [
+    "procedure_registry",
+    "invariants"
+  ],
+  "properties": {
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "invariant_id",
+          "inputs",
+          "procedure",
+          "result",
+          "failure_codes",
+          "fail_closed"
+        ]
+      }
+    }
+  }
+}

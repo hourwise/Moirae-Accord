@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r1:schema:object-registry:0.2",
+  "type": "object"
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:specification-package",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5:specification-package:0.2",
+  "object_id": "urn:moirae:accord-02r5:specification-package",
+  "object_version": "0.2",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "status": "CANDIDATE_UNACCEPTED",
+  "accepted_base_ref": {
+    "kind": "PACKAGE",
+    "id": "urn:moirae:accord-02r5:specification-package",
+    "version": "0.1"
+  },
+  "amendment_relation": "UNACCEPTED_AMENDMENT_OF_ACCEPTED_0_1",
+  "rejected_candidate_lineage": [
+    {
+      "revision": "E4R2",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R3",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R4",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "e360ce6c38f044e446ae8ba7e850b35840f2c8f8"
+    },
+    {
+      "revision": "E4R5",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "b92d5707e9966c8543111b1c448aa5c2f5b0e496"
+    }
+  ],
+  "object_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5r1:object-registry",
+    "version": "0.2"
+  },
+  "rule_authority_matrix_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02r5r1:rule-authority-matrix",
+    "version": "0.2"
+  },
+  "invariant_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5r1:normative-invariants",
+    "version": "0.2"
+  },
+  "normative_contract_integrity": {
+    "rule_authority_matrix_semantic_sha256": "8a235a912c6c834462bab1e0ee4fc249228b7892943ad592fe933d8008f07897",
+    "invariant_registry_semantic_sha256": "36107edf065a8e47d3c4be35bd5ed6a04ac01937ce8236cc07b981210c4485a6"
+  },
+  "required_invariant_ids": [
+    "STANDARDS_VALIDATION",
+    "PACKAGE_LINEAGE",
+    "ACCEPTED_BASE_DUAL_INTEGRITY",
+    "OBJECT_IDENTITY_UNIQUE",
+    "TYPED_REFERENCE_CLOSURE",
+    "SEMANTIC_DIGEST_VERIFY",
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+    "DEPENDENCY_GRAPH_EQUAL",
+    "EXPECTATION_STABILITY",
+    "PREDICATE_AUTHORITY_CLOSURE",
+    "CANONICALIZATION_AUTHORITY_CLOSURE",
+    "SOURCE_CATALOG_BINDING",
+    "PARTIAL_EFFECT_POLICY_CLOSURE",
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+    "PROPOSITION_ID_UNIQUE",
+    "PROFILE_REFERENCE_PINNING"
+  ],
+  "current_candidate_integrity": {
+    "class": "SEMANTIC_JSON_CONTENT",
+    "method": "RFC8785_JCS",
+    "algorithm": "SHA-256",
+    "content_target_ref": "PACKAGE_EXCLUDING_SELF_DIGEST",
+    "digest": "71d584ba07f98cf456af5989495dfe58a7b6832d100d24c6094bb37ffd9c22f9"
+  }
+}

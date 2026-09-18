@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:canonicalization-profile",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:canonicalization:rfc8785-jcs:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:canonicalization:rfc8785-jcs",
+  "object_version": "0.2",
+  "authority_role": "EXTERNAL_STANDARD_BINDING",
+  "standard": "RFC8785",
+  "encoding": "UTF-8",
+  "hash": "SHA-256",
+  "content_targets": {
+    "PACKAGE_EXCLUDING_SELF_DIGEST": {
+      "selection": "entire package document",
+      "exclusion_pointers": [
+        "/current_candidate_integrity/digest"
+      ]
+    }
+  },
+  "self_digest_target_id": "PACKAGE_EXCLUDING_SELF_DIGEST"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:predicate-authority",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:predicate-authority:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:predicate-authority",
+  "object_version": "0.2",
+  "governing_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5:predicate-registry",
+    "version": "0.2"
+  },
+  "authority_role": "CANDIDATE_GOVERNING_SPECIFICATION",
+  "global_stage_order": "FORBIDDEN",
+  "implicit_transitivity": "FORBIDDEN",
+  "single_authority": true
+}

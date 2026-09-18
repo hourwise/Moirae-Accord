@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:partial-effect-policy",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:partial-effect-policy:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:partial-effect-policy",
+  "object_version": "0.2",
+  "predicate_authority_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02r5r1:predicate-authority",
+    "version": "0.2"
+  },
+  "same_effect_required": true,
+  "direct_predecessor_required": true,
+  "decisions": {
+    "VALID_SUPPORTED_DIRECT_PREDECESSOR": "PARTIAL_EFFECT",
+    "TARGET_ALREADY_SUPPORTED": "NOT_PARTIAL_EFFECT",
+    "NO_PREDECESSOR": "UNKNOWN",
+    "WRONG_EFFECT": "REJECT",
+    "UNSUPPORTED_TUPLE": "REJECT",
+    "SELF_EDGE": "REJECT",
+    "CYCLE": "REJECT",
+    "DANGLING_TARGET": "REJECT",
+    "INCOMPATIBLE_EVIDENCE": "UNKNOWN",
+    "INADMISSIBLE_EVIDENCE": "UNKNOWN"
+  },
+  "merged_outcome": {
+    "UNKNOWN_TUPLE_OR_WRONG_STAGE": "REJECT"
+  },
+  "duplicate_stage_policy_literals": "PROHIBITED"
+}

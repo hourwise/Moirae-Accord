@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:reference-model",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:reference-model:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:reference-model",
+  "object_version": "0.2",
+  "normative_mechanism": "SHAPE_PREDICATE",
+  "discovery_scope": "REGISTERED_R5R1_ARTIFACTS_ONLY",
+  "shape_predicate": {
+    "required_exact_keys": [
+      "kind",
+      "id",
+      "version"
+    ],
+    "optional_keys": [
+      "member_id"
+    ],
+    "field_type_map": [
+      {
+        "field": "kind",
+        "type": "string"
+      },
+      {
+        "field": "id",
+        "type": "string"
+      },
+      {
+        "field": "version",
+        "type": "string"
+      },
+      {
+        "field": "member_id",
+        "type": "string"
+      }
+    ],
+    "additional_keys": "DISQUALIFY"
+  },
+  "edge_identity": [
+    "source_path",
+    "kind",
+    "id",
+    "version",
+    "member_id"
+  ],
+  "resolution_cardinality": "EXACTLY_ONE"
+}

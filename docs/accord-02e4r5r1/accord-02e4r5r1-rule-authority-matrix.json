@@ -1,0 +1,2017 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:rule-authority-matrix",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:rule-authority-matrix:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:rule-authority-matrix",
+  "object_version": "0.2",
+  "classification_vocabulary": [
+    "EXECUTABLE_CONFORMANCE_RULE",
+    "INTERNAL_DESIGN_INVARIANT",
+    "DEFERRED_NO_SUBJECT_ARTIFACT"
+  ],
+  "rules": [
+    {
+      "rule_id": "ORC-001",
+      "inherited_family": "ORACLE_BOUNDARY",
+      "inherited_failure_code": "ACCORD-02R2-ORACLE-REFERENCE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "public scenario catalog",
+        "system-under-test input manifests"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ORC-002",
+      "inherited_family": "ORACLE_BOUNDARY",
+      "inherited_failure_code": "ACCORD-02R2-ORACLE-REVERSE-JOIN",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "scorer configuration",
+        "public scenario catalog",
+        "arm manifests"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ORC-003",
+      "inherited_family": "ORACLE_BOUNDARY",
+      "inherited_failure_code": "ACCORD-02R2-OPAQUE-SCENARIO-ID",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "scenario_id",
+        "fixture identity",
+        "timing configuration"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ARM-001",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-ARM-DISCRIMINATOR",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm input manifest"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ARM-002",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-ARM-PROFILE-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm_id",
+        "input_profile_id",
+        "arm input profile catalog"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ARM-003",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-SOURCE-TYPE-NOT-ALLOWED",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm source references",
+        "arm input profile"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ARM-004",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-SOURCE-RECORD-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "source_type",
+        "source_record_ref.record_type"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ARM-005",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-ARM-EXTENSION-SMUGGLING",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm input manifest extensions",
+        "source projections"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ARM-006",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-CLASSIFIER-SOURCE-LEAK",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "ARM-C classifier feature references",
+        "ARM-B-visible source set"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "ARM-007",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-EXTENSION-SEMANTIC-LEAK",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm-visible portable record extensions",
+        "active record/evidence profile"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "RAW-001",
+      "inherited_family": "RAW_OUTPUT",
+      "inherited_failure_code": "ACCORD-02R2-RAW-ENVELOPE",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "RAW-002",
+      "inherited_family": "RAW_OUTPUT",
+      "inherited_failure_code": "ACCORD-02R2-RAW-PAYLOAD-MISSING",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "RAW-003",
+      "inherited_family": "RAW_OUTPUT",
+      "inherited_failure_code": "ACCORD-02R2-RAW-CROSS-ARM-FORWARD",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "other arm inputs"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROJ-001",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-PROJECTION-LINEAGE-MISSING",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "A verifier projection",
+        "native C settlement result",
+        "named mapping profile",
+        "canonical proposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROJ-002",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-NEGATIVE-PROJECTION-UNSUPPORTED",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "native C result",
+        "NO_EFFECT_OBSERVED projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROJ-003",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-PROJECTION-STRENGTHENING",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "native C result",
+        "A projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROJ-004",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-REJECTED-HISTORY-REWRITE",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "REJECTED verifier disposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "LIN-001",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-REFERENCE-MISSING-OR-AMBIGUOUS",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:validation-rules",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "TYPED_REFERENCE_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-002",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-DUPLICATE-NORMATIVE-ID",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:object-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "OBJECT_IDENTITY_UNIQUE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-003",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-FOREIGN-VERIFIER-RUN",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment result",
+        "experiment run",
+        "verifier result",
+        "verifier run"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "LIN-004",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-SCENARIO-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "LIN-005",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-ARM-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "LIN-006",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "settlement result",
+        "experiment proposition",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "LIN-007",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-FOREIGN-RESULT",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:validation-rules",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PACKAGE_LINEAGE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-008",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-EXTERNAL-ID-SUBSTITUTION",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "provider_operation_id",
+        "transport_call_id",
+        "Accord semantic references"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROP-001",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-REFERENCE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:vector-catalog",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "STANDARDS_VALIDATION"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-002",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-CROSS-LINK-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "evidence",
+        "observation",
+        "settlement result",
+        "verifier projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROP-003",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-DUPLICATE-MISMATCH",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "denormalized effect/predicate/stage fields",
+        "canonical proposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROP-004",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-BINDING-STATUS-INVALID",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "binding slots",
+        "active proposition/profile"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PROP-005",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-ATTEMPT-ATTRIBUTION-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "attempt attribution",
+        "attempt record",
+        "native C result"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "SCORE-001",
+      "inherited_family": "SCORE_SEPARATION",
+      "inherited_failure_code": "ACCORD-02R2-SCORE-ARM-CONTAMINATION",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "score record",
+        "arm inputs"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "SCORE-002",
+      "inherited_family": "SCORE_SEPARATION",
+      "inherited_failure_code": "ACCORD-02R2-SCORE-PIPELINE-REORDERED",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile",
+        "normalized claim",
+        "scorer truth"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "SCORE-003",
+      "inherited_family": "SCORE_SEPARATION",
+      "inherited_failure_code": "ACCORD-02R2-NORMALIZATION-ORACLE-USE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalization profile",
+        "arm-visible information"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "BND-001",
+      "inherited_family": "BUNDLE",
+      "inherited_failure_code": "ACCORD-02R3-BUNDLE-SCOPE-INVALID",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/status",
+      "expected": "CANDIDATE_UNACCEPTED",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-002",
+      "inherited_family": "BUNDLE",
+      "inherited_failure_code": "ACCORD-02R3-UNDECLARED-SCOPE",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/uniqueness_key/1",
+      "expected": "id",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-003",
+      "inherited_family": "BUNDLE",
+      "inherited_failure_code": "ACCORD-02R3-SCORER-MATERIAL-IN-BUNDLE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "bundle information class",
+        "visibility flags"
+      ],
+      "later_lifecycle_stage": "BUNDLE_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "BND-004",
+      "inherited_family": "PACKAGE_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:validation-rules",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "STANDARDS_VALIDATION"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "BND-005",
+      "inherited_family": "PACKAGE_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-ACTIVE-PROFILE-RESOLUTION-FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "PROFILE",
+          "object_id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "RUN-001",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-EXPERIMENT-RUN-INCOMPLETE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "RUN-002",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-VERIFIER-RUN-INCOMPLETE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "verifier run record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "RUN-003",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-RUN-MANIFEST-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "arm manifest"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "RUN-004",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-RUN-SCORER-REFERENCE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "experiment run",
+        "verifier run"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "EXT-001",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EXTENSION-UNREGISTERED",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/rules/1/scope",
+      "expected": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "EXT-002",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-NON-SEMANTIC-USED",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "extension registry",
+        "NON_SEMANTIC extensions"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "EXT-003",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-AUTHORITY-EXTENSION-NO-COMPARATOR",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "AUTHORITY_BEARING extension",
+        "authority profile"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "EXT-004",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EVIDENCE-EXTENSION-NO-PROFILE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+        "settlement/evidence profile"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "EXT-005",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EXTENSION-CANNOT-STRENGTHEN",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "unknown or incompatible extension"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "EXT-006",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EXTENSION-REGISTRY-MISSING",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "arm-visible portable bundle",
+        "extension registry"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "SRC-001",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:source-catalog-binding",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "SOURCE_CATALOG_BINDING"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-002",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-CLASS-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:source-catalog-binding",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "ACCEPTED_SOURCE_DUAL_INTEGRITY"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-003",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+      "severity": "MAJOR",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:source-catalog-binding",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "SOURCE_CATALOG_BINDING"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SRC-004",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-EVIDENCE-MASQUERADE",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "provider/transport/raw output",
+        "portable evidence"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "VIS-001",
+      "inherited_family": "ROLE_VISIBILITY",
+      "inherited_failure_code": "ACCORD-02R3-VISIBILITY-VIOLATION",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "role-visibility profile",
+        "arm manifest fields"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "NORM-001",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-INPUT-INVALID",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "NORM-002",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-ORACLE-INPUT",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalization process inputs"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "NORM-003",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-NONDETERMINISTIC",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "NORM-004",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-MALFORMED-UNDEFINED",
+      "severity": "MAJOR",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "malformed or unmapped raw output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "NORM-005",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-TRUTH-REINTERPRETATION",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "normalized claim",
+        "scorer truth"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "CLF-001",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNREGISTERED",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature",
+        "classifier feature profile"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "CLF-002",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-UPSTREAM-INVALID",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "derived classifier feature",
+        "ARM-C source set"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "CLF-003",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-PRIVILEGED-UPSTREAM",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature derivation"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "CLF-004",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNKNOWN",
+      "severity": "BLOCKING",
+      "semantic_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "missing_subject_roles": [
+        "classifier feature"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant.",
+      "result": "DEFERRED"
+    },
+    {
+      "rule_id": "PRED-001",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-REQUIRED-BINDING-UNRESOLVED",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/global_stage_order",
+      "expected": "FORBIDDEN",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-002",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-NOT-APPLICABLE-UNJUSTIFIED",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/implicit_transitivity",
+      "expected": "FORBIDDEN",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-003",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-UNKNOWN-BINDING-STRENGTHENING",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/resolution_key",
+      "expected": [
+        "predicate_id",
+        "stage"
+      ],
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PRED-004",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-PREDICATE-PROFILE-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/comparison",
+      "expected": "UNICODE_CODE_POINT_EXACT_CASE_SENSITIVE_NO_NORMALIZATION",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "inherited_family": "PACKAGE_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-DIGEST-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CANONICALIZATION",
+          "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "SEMANTIC_DIGEST_VERIFY"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "inherited_family": "DIGEST",
+      "inherited_failure_code": "ACCORD-02R3-DIGEST-REQUIRED-BUT-ABSENT",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/content_targets/1/mode",
+      "expected": "EXCLUDE_JSON_POINTERS",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-003",
+      "inherited_family": "DIGEST",
+      "inherited_failure_code": "ACCORD-02R3-DIGEST-FAILURE-HISTORY-SEPARATED",
+      "severity": "MAJOR",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/content_targets/2/mode",
+      "expected": "INCLUDE_JSON_POINTERS",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "LIN-009",
+      "inherited_family": "LINEAGE_CLOSURE",
+      "inherited_failure_code": "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:vector-catalog",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "STANDARDS_VALIDATION"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROP-006",
+      "inherited_family": "LINEAGE_CLOSURE",
+      "inherited_failure_code": "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:vector-catalog",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PROPOSITION_ID_UNIQUE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PKG-001",
+      "inherited_family": "SPECIFICATION_PACKAGE",
+      "inherited_failure_code": "ACCORD-02R5-PACKAGE-MISSING-OR-MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:validation-rules",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PACKAGE_LINEAGE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PKG-002",
+      "inherited_family": "SPECIFICATION_PACKAGE",
+      "inherited_failure_code": "ACCORD-02R5-PACKAGE-CONTRACT-DUPLICATE-OR-DANGLING",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:object-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "TYPED_REFERENCE_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROF-001",
+      "inherited_family": "PROFILE_RESOLUTION",
+      "inherited_failure_code": "ACCORD-02R5-PROFILE-RESOLUTION-FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/negative_policy/future_observation_result",
+      "expected": "UNKNOWN",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "PROF-002",
+      "inherited_family": "PROFILE_RESOLUTION",
+      "inherited_failure_code": "ACCORD-02R5-PROFILE-VERSION-UNPINNED",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "PROFILE",
+          "object_id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PROFILE_REFERENCE_PINNING"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "inherited_family": "SCHEMA_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:vector-catalog",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "TYPED_REFERENCE_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "inherited_family": "SCHEMA_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:vector-catalog",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "STANDARDS_VALIDATION"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "ROLE-001",
+      "inherited_family": "ROLE_VOCABULARY",
+      "inherited_failure_code": "ACCORD-02R5-UNKNOWN-ROLE",
+      "severity": "BLOCKING",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/object_version",
+      "expected": "0.2",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "inherited_family": "DIGEST_CANONICALIZATION",
+      "inherited_failure_code": "ACCORD-02R5-CANONICALIZATION-MISSING",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CANONICALIZATION",
+          "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "CANONICALIZATION_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "inherited_family": "DIGEST_CANONICALIZATION",
+      "inherited_failure_code": "ACCORD-02R5-CANONICALIZATION-INCOMPATIBLE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CANONICALIZATION",
+          "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "CANONICALIZATION_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "inherited_family": "DIGEST_CANONICALIZATION",
+      "inherited_failure_code": "ACCORD-02R5-CANONICALIZATION-UNSUPPORTED",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CANONICALIZATION",
+          "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "CANONICALIZATION_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "SCENARIO-ID-001",
+      "inherited_family": "SCENARIO_ID_POLICY",
+      "inherited_failure_code": "ACCORD-02R5-SCENARIO-ID-SEMANTIC-USE",
+      "severity": "MAJOR",
+      "semantic_class": "INTERNAL_DESIGN_INVARIANT",
+      "subjects": [
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "JSON_POINTER_COMPARE",
+      "subject_pointer": "/scope_vocabulary/not_applicable_token",
+      "expected": "NOT_APPLICABLE",
+      "comparison": "EXACT_EQUAL",
+      "reason": "Candidate-owned package design choice has no distinct governing authority; checked only as internal quality and excluded from conformance counts.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "PREDICATE_TUPLE_RESOLUTION_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:predicate-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "inherited_family": "FAIL_CLOSED",
+      "inherited_failure_code": "PREDICATE_FAIL_CLOSED",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:predicate-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "inherited_family": "EXACT_IDENTIFIER",
+      "inherited_failure_code": "PREDICATE_IDENTIFIER_NOT_EXACT",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:predicate-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "inherited_family": "PREDICATE_AUTHORITY",
+      "inherited_failure_code": "COMPETING_PREDICATE_AUTHORITY",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:predicate-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "inherited_family": "BINDING_AUTHORITY",
+      "inherited_failure_code": "BINDING_AUTHORITY_CONTRADICTION",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:predicate-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "inherited_family": "PROPOSITION_KIND",
+      "inherited_failure_code": "PROPOSITION_KIND_MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:vector-catalog",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "STANDARDS_VALIDATION"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "inherited_family": "PARTIAL_EFFECT",
+      "inherited_failure_code": "PARTIAL_EFFECT_PREREQUISITE_UNSATISFIED",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "POLICY",
+          "object_id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PARTIAL_EFFECT_POLICY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "inherited_family": "PREDECESSOR_IDENTITY",
+      "inherited_failure_code": "PREDECESSOR_EFFECT_MISMATCH",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "POLICY",
+          "object_id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PARTIAL_EFFECT_POLICY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "inherited_family": "PREDECESSOR_GRAPH",
+      "inherited_failure_code": "PREDECESSOR_GRAPH_INVALID",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "POLICY",
+          "object_id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PARTIAL_EFFECT_POLICY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "inherited_family": "NEGATIVE_SCOPE",
+      "inherited_failure_code": "NEGATIVE_SCOPE_INCOMPLETE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:v013-target",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "inherited_family": "NEGATIVE_SCOPE",
+      "inherited_failure_code": "NEGATIVE_SCOPE_NOT_SUFFICIENT",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:v013-synthetic-evidence",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "inherited_family": "NON_ENTAILMENT",
+      "inherited_failure_code": "FORBIDDEN_ENTAILMENT",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "POLICY",
+          "object_id": "urn:moirae:accord-02r5:partial-effect-policy",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "inherited_family": "CANONICALIZATION",
+      "inherited_failure_code": "CANONICALIZATION_MAPPING_INVALID",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CANONICALIZATION",
+          "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "CANONICALIZATION_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "inherited_family": "EXPECTATION_CONTRACT",
+      "inherited_failure_code": "EXPECTATION_CONTRACT_INCOMPLETE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:vector-catalog",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "EXPECTATION_STABILITY"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "inherited_family": "CANDIDATE_CLOSURE",
+      "inherited_failure_code": "CANDIDATE_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:validation-rules",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "inherited_family": "REFERENCE_RESOLUTION",
+      "inherited_failure_code": "REFERENCE_RESOLUTION_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:validation-rules",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "TYPED_REFERENCE_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "inherited_family": "CANONICALIZATION",
+      "inherited_failure_code": "CANONICALIZATION_TARGET_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CANONICALIZATION",
+          "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "CANONICALIZATION_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "inherited_family": "BINDING_AUTHORITY",
+      "inherited_failure_code": "BINDING_COMPOSITION_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:predicate-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "PREDICATE_AUTHORITY_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "inherited_family": "NEGATIVE_SCOPE",
+      "inherited_failure_code": "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REQUIREMENT_MAP",
+          "object_id": "urn:moirae:accord-02r5:negative-requirement-map",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "inherited_family": "RULE_GRAPH",
+      "inherited_failure_code": "RULE_GRAPH_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CONTRACT",
+          "object_id": "urn:moirae:accord-02r5:dependency-graph",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "DEPENDENCY_GRAPH_EQUAL"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "inherited_family": "PROFILE_POLICY",
+      "inherited_failure_code": "PROFILE_DIGEST_SCOPE_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "CANONICALIZATION",
+          "object_id": "urn:moirae:accord-02r5:canonicalization:rfc8785-jcs",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "SEMANTIC_DIGEST_VERIFY"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "inherited_family": "CANDIDATE_CLOSURE",
+      "inherited_failure_code": "MEASURED_CLOSURE_FAILURE",
+      "severity": "BLOCKING",
+      "semantic_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "subjects": [
+        {
+          "object_kind": "REGISTRY",
+          "object_id": "urn:moirae:accord-02r5:object-registry",
+          "object_version": "0.2"
+        }
+      ],
+      "expectation_form": "DERIVED_INVARIANT",
+      "derivation_ref": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02r5r1:normative-invariants",
+        "version": "0.2",
+        "member_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE"
+      },
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "procedure": "INVARIANT_RESULT",
+      "semantic_requirement": "The inherited family and failure code are evaluated by the referenced package-specific invariant, not by a convenient field comparison.",
+      "result": "PASS"
+    }
+  ]
+}

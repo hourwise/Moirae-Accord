@@ -1,0 +1,584 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:normative-invariants",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:normative-invariants:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:normative-invariants",
+  "object_version": "0.2",
+  "procedure_registry": {
+    "SCHEMA_VALIDATE": {
+      "arguments": {
+        "instances": "SET<TYPED_REF>",
+        "schemas": "SET<TYPED_REF>"
+      },
+      "resolution": "Resolve each reference exactly once and validate with Draft 2020-12.",
+      "normalization": "NONE",
+      "result": "BOOLEAN_CONJUNCTION",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "REFERENCE_RESOLVE_ALL": {
+      "arguments": {
+        "registry": "TYPED_REF",
+        "reference_model": "TYPED_REF"
+      },
+      "resolution": "Discover references only by the normative shape predicate; each edge resolves exactly once by kind,id,version and member_id when present.",
+      "normalization": "LEXICOGRAPHIC_EDGE_SET",
+      "result": "unresolved and ambiguous sets are empty",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "UNIQUE_KEY_OVER_COLLECTION": {
+      "arguments": {
+        "collection": "TYPED_REF",
+        "key": "ARRAY<STRING>"
+      },
+      "resolution": "Project declared key over every member.",
+      "normalization": "NONE",
+      "result": "projected key cardinality equals member cardinality",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "DIGEST_RECOMPUTE_EQUAL": {
+      "arguments": {
+        "sources": "SET<PATH_BINDING>",
+        "canonicalization": "TYPED_REF"
+      },
+      "resolution": "Read source, RFC8785 canonicalize parsed JSON for semantic digest, hash raw bytes for byte digest when declared.",
+      "normalization": "RFC8785_JCS",
+      "result": "all recomputed digests equal bindings",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "DERIVED_SET_EQUAL": {
+      "arguments": {
+        "left": "DERIVED_SET",
+        "right": "DERIVED_SET"
+      },
+      "resolution": "Derive both sets from declared inputs.",
+      "normalization": "SET",
+      "result": "left equals right",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "LINEAGE_VALIDATE": {
+      "arguments": {
+        "package": "TYPED_REF",
+        "accepted_base": "TYPED_REF"
+      },
+      "resolution": "Check package identity/version/status, typed accepted-base binding and rejected revision chain.",
+      "normalization": "NONE",
+      "result": "all lineage predicates true",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "REQUIREMENT_MAP_EVALUATE": {
+      "arguments": {
+        "target": "TYPED_REF",
+        "evidence": "TYPED_REF",
+        "policy": "TYPED_REF"
+      },
+      "resolution": "Evaluate exact tuple, inclusive interval, retention, freshness, allowed source/consistency, complete read and absence of same-target positive evidence.",
+      "normalization": "RFC3339_UTC_AND_CANONICAL_SCOPE",
+      "result": "NON_OCCURRENCE_SUPPORTED iff every requirement passes, else UNKNOWN",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "POLICY_CLOSURE": {
+      "arguments": {
+        "policy": "TYPED_REF",
+        "authority": "TYPED_REF"
+      },
+      "resolution": "Check explicit graph, same-effect direct predecessor, forbidden implicit transitivity and policy-owned outcomes.",
+      "normalization": "SET",
+      "result": "all policy closure predicates true",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    },
+    "AUTHORITY_COMPLETENESS": {
+      "arguments": {
+        "matrix": "TYPED_REF",
+        "invariants": "TYPED_REF"
+      },
+      "resolution": "Every conformance rule has exactly one authority-bound or derived form and no inline expected; every derivation resolves exactly once.",
+      "normalization": "NONE",
+      "result": "all conformance rules complete",
+      "missing": "FAIL",
+      "ambiguity": "FAIL",
+      "fail_closed": true
+    }
+  },
+  "invariants": [
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "SCHEMA_VALIDATE",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "STANDARDS_VALIDATION_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PACKAGE_LINEAGE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        },
+        {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.1"
+        }
+      ],
+      "procedure": "LINEAGE_VALIDATE",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "PACKAGE_LINEAGE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "ACCEPTED_BASE_DUAL_INTEGRITY",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.1"
+        }
+      ],
+      "procedure": "DIGEST_RECOMPUTE_EQUAL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "ACCEPTED_BASE_INTEGRITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "OBJECT_IDENTITY_UNIQUE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r1:object-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "UNIQUE_KEY_OVER_COLLECTION",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "DUPLICATE_NORMATIVE_ID"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "TYPED_REFERENCE_CLOSURE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r1:object-registry",
+          "version": "0.2"
+        },
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r1:reference-model",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "REFERENCE_RESOLVE_ALL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "REFERENCE_RESOLUTION_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "SEMANTIC_DIGEST_VERIFY",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "DIGEST_RECOMPUTE_EQUAL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "SEMANTIC_DIGEST_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "id": "urn:moirae:accord-02r5:source-vector-catalog",
+          "version": "0.1"
+        }
+      ],
+      "procedure": "DIGEST_RECOMPUTE_EQUAL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "ACCEPTED_SOURCE_INTEGRITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "DEPENDENCY_GRAPH_EQUAL",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:validation-rules",
+          "version": "0.2"
+        },
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:dependency-graph",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "DERIVED_SET_EQUAL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "DEPENDENCY_GRAPH_MISMATCH"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "EXPECTATION_STABILITY",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "id": "urn:moirae:accord-02r5:source-vector-catalog",
+          "version": "0.1"
+        },
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "DERIVED_SET_EQUAL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "EXPECTATION_STABILITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5:predicate-registry",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "POLICY_CLOSURE",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "PREDICATE_AUTHORITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5r1:canonicalization:rfc8785-jcs",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "POLICY_CLOSURE",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "CANONICALIZATION_AUTHORITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "SOURCE_CATALOG_BINDING",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:source-catalog-binding",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "REFERENCE_RESOLVE_ALL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "SOURCE_CATALOG_BINDING_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "POLICY",
+          "id": "urn:moirae:accord-02r5r1:partial-effect-policy",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "POLICY_CLOSURE",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "PARTIAL_EFFECT_POLICY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r1:v013-target",
+          "version": "0.2"
+        },
+        {
+          "kind": "EVIDENCE",
+          "id": "urn:moirae:accord-02r5r1:v013-evidence",
+          "version": "0.2"
+        },
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "REQUIREMENT_MAP_EVALUATE",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r1:rule-authority-matrix",
+          "version": "0.2"
+        },
+        {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r1:normative-invariants",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "AUTHORITY_COMPLETENESS",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "RULE_EXPECTATION_AUTHORITY_INCOMPLETE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PROPOSITION_ID_UNIQUE",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5:vector-catalog",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "UNIQUE_KEY_OVER_COLLECTION",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "PROPOSITION_ID_DUPLICATE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PROFILE_REFERENCE_PINNING",
+      "status": "ACTIVE",
+      "authority_role": "DERIVED_FROM_NORMATIVE_INPUTS",
+      "inputs": [
+        {
+          "kind": "PROFILE",
+          "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+          "version": "0.2"
+        }
+      ],
+      "procedure": "REFERENCE_RESOLVE_ALL",
+      "algorithm_parameters": {
+        "version": "1",
+        "deterministic": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "pass": true
+      },
+      "failure_codes": [
+        "PROFILE_REFERENCE_PINNING_FAILURE"
+      ],
+      "fail_closed": true
+    }
+  ]
+}

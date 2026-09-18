@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r1:schema:v013-target",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r1:v013-target:0.2",
+  "object_id": "urn:moirae:accord-02r5r1:v013-target",
+  "object_version": "0.2",
+  "candidate_proposition_id": "urn:moirae:accord-02r5:proposition:ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+  "effect_id": "urn:accord:02c:effect:E13",
+  "negated_predicate_id": "urn:accord:02c:predicate:external-effect",
+  "negated_stage": "effect",
+  "scope": {
+    "resource": "NOT_APPLICABLE",
+    "action": "NOT_APPLICABLE",
+    "recipient_or_counterparty": "NOT_APPLICABLE",
+    "provider": "NOT_APPLICABLE"
+  },
+  "required_interval": {
+    "not_before": "2024-01-01T00:00:00Z",
+    "as_of": "2024-01-01T00:00:01Z"
+  },
+  "settlement_profile_ref": {
+    "kind": "PROFILE",
+    "id": "urn:moirae:accord-02r5:settlement-profile:conservative",
+    "version": "0.2"
+  },
+  "source_vector_ref": {
+    "kind": "SOURCE_VECTOR_CATALOG",
+    "id": "urn:moirae:accord-02r5:source-vector-catalog",
+    "version": "0.1",
+    "member_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+  },
+  "relationship": "CANDIDATE_FIXTURE_OF_SAME_SEMANTIC_CLASS_AS_ACCEPTED_V013",
+  "relationship_basis": {
+    "accepted": [
+      "effect identity",
+      "complete-negative predicate",
+      "accepted evidence reference",
+      "accepted negative-query semantic flags"
+    ],
+    "candidate_supplied": [
+      "exact interval",
+      "canonical scope dimensions",
+      "retention seconds",
+      "consistency level",
+      "concrete observation times"
+    ]
+  }
+}

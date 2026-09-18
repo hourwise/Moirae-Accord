@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r1:audit:release-evidence:0.2",
+  "phase_a": {
+    "repository_writes_before_gate": 0,
+    "anti_tautology_reproduction": {
+      "subject_only_mutation": "FAIL",
+      "subject_and_assertion_expected_co_mutation": "PASS",
+      "arbitrary_pointer_redirection_with_matching_literal": "PASS"
+    },
+    "classification": {
+      "total_declared": 104,
+      "executable_conformance": 42,
+      "internal_design": 12,
+      "deferred": 50
+    },
+    "settlement_model_change_required": false
+  },
+  "release_verification": {
+    "primary_pass": true,
+    "independent_pass": true,
+    "exact_result_agreement": true,
+    "reference_edges": 101,
+    "unresolved_references": 0,
+    "reference_edge_set_sha256": "6f167ae76858975064a024c001de1b16cad824ca52abdbddaece7fbc8f9d0600",
+    "rule_counts": {
+      "total_declared": 104,
+      "conformance_executed": 42,
+      "conformance_pass": 42,
+      "conformance_fail": 0,
+      "internal_executed": 12,
+      "internal_pass": 12,
+      "internal_fail": 0,
+      "deferred": 50,
+      "unevaluable_conformance": 0,
+      "ambiguous_conformance": 0
+    },
+    "expectation_stability": {
+      "vector_ids": 23,
+      "axes": 13,
+      "reason_codes": 30,
+      "prohibitions": 31,
+      "changed_expected_objects": 0
+    },
+    "v013_result": "NON_OCCURRENCE_SUPPORTED",
+    "positive_usefulness": {
+      "resource_created_or_bound_receipt": true,
+      "corroborated_occurrence": true,
+      "partial_effect": true,
+      "non_occurrence_supported": true,
+      "not_all_unknown": true
+    }
+  },
+  "falsification": {
+    "real_evaluator_subprocesses": true,
+    "cases": 29,
+    "passed": 29,
+    "failed": 0,
+    "lf_pass": true,
+    "crlf_pass": true,
+    "clean_export_no_git_pass": true,
+    "delete_builder_and_primary_pass": true
+  }
+}
