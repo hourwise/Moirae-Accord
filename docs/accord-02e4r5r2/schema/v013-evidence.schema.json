@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r2:schema:v013-evidence:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "fixture_status",
+    "effect_id",
+    "predicate_id",
+    "stage",
+    "scope",
+    "observed_interval",
+    "retention_window_seconds",
+    "consistency_level",
+    "read_semantics",
+    "read_scope_complete",
+    "evidence_universe"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fixture_status": {
+      "type": "string"
+    },
+    "effect_id": {
+      "type": "string"
+    },
+    "predicate_id": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "observed_interval": {
+      "type": "object"
+    },
+    "retention_window_seconds": {
+      "type": "number"
+    },
+    "consistency_level": {
+      "type": "string"
+    },
+    "read_semantics": {
+      "type": "string"
+    },
+    "read_scope_complete": {
+      "type": "boolean"
+    },
+    "evidence_universe": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "not": {
+        "required": [
+          "zzz"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "member_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

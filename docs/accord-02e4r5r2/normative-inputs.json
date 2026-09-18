@@ -1,0 +1,1880 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r2:schema:normative-inputs",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r2:normative-inputs:0.2",
+  "object_id": "urn:moirae:accord-02r5r2:normative-inputs",
+  "object_version": "0.2",
+  "predicate_policy": {
+    "global_stage_order": "FORBIDDEN",
+    "implicit_transitivity": "FORBIDDEN"
+  },
+  "rule_dependencies": [
+    {
+      "rule_id": "ORC-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ORC-002",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ORC-003",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ARM-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ARM-002",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ARM-003",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ARM-004",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ARM-005",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ARM-006",
+      "depends_on": []
+    },
+    {
+      "rule_id": "ARM-007",
+      "depends_on": []
+    },
+    {
+      "rule_id": "RAW-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "RAW-002",
+      "depends_on": []
+    },
+    {
+      "rule_id": "RAW-003",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROJ-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROJ-002",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROJ-003",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROJ-004",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-002",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-003",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-004",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-005",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-006",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-007",
+      "depends_on": []
+    },
+    {
+      "rule_id": "LIN-008",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROP-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROP-002",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROP-003",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROP-004",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PROP-005",
+      "depends_on": []
+    },
+    {
+      "rule_id": "SCORE-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "SCORE-002",
+      "depends_on": []
+    },
+    {
+      "rule_id": "SCORE-003",
+      "depends_on": []
+    },
+    {
+      "rule_id": "BND-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "BND-002",
+      "depends_on": [
+        "BND-001"
+      ]
+    },
+    {
+      "rule_id": "BND-003",
+      "depends_on": [
+        "BND-001"
+      ]
+    },
+    {
+      "rule_id": "BND-004",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "SCHEMA-001",
+        "SCHEMA-002"
+      ]
+    },
+    {
+      "rule_id": "BND-005",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "PROF-002"
+      ]
+    },
+    {
+      "rule_id": "RUN-001",
+      "depends_on": [
+        "BND-005"
+      ]
+    },
+    {
+      "rule_id": "RUN-002",
+      "depends_on": [
+        "BND-005"
+      ]
+    },
+    {
+      "rule_id": "RUN-003",
+      "depends_on": [
+        "RUN-001",
+        "ARM-001",
+        "ARM-002"
+      ]
+    },
+    {
+      "rule_id": "RUN-004",
+      "depends_on": [
+        "RUN-001",
+        "RUN-002",
+        "BND-003"
+      ]
+    },
+    {
+      "rule_id": "EXT-001",
+      "depends_on": [
+        "BND-005"
+      ]
+    },
+    {
+      "rule_id": "EXT-002",
+      "depends_on": [
+        "EXT-001"
+      ]
+    },
+    {
+      "rule_id": "EXT-003",
+      "depends_on": [
+        "EXT-001",
+        "BND-005"
+      ]
+    },
+    {
+      "rule_id": "EXT-004",
+      "depends_on": [
+        "EXT-001",
+        "BND-005"
+      ]
+    },
+    {
+      "rule_id": "EXT-005",
+      "depends_on": [
+        "EXT-001"
+      ]
+    },
+    {
+      "rule_id": "EXT-006",
+      "depends_on": [
+        "BND-005",
+        "EXT-001"
+      ]
+    },
+    {
+      "rule_id": "SRC-001",
+      "depends_on": [
+        "BND-005",
+        "ARM-001"
+      ]
+    },
+    {
+      "rule_id": "SRC-002",
+      "depends_on": [
+        "SRC-001"
+      ]
+    },
+    {
+      "rule_id": "SRC-003",
+      "depends_on": [
+        "SRC-001"
+      ]
+    },
+    {
+      "rule_id": "SRC-004",
+      "depends_on": [
+        "SRC-001",
+        "EXT-001"
+      ]
+    },
+    {
+      "rule_id": "VIS-001",
+      "depends_on": [
+        "BND-005",
+        "RUN-001"
+      ]
+    },
+    {
+      "rule_id": "NORM-001",
+      "depends_on": [
+        "RAW-001",
+        "BND-005"
+      ]
+    },
+    {
+      "rule_id": "NORM-002",
+      "depends_on": [
+        "NORM-001",
+        "BND-003"
+      ]
+    },
+    {
+      "rule_id": "NORM-003",
+      "depends_on": [
+        "NORM-001"
+      ]
+    },
+    {
+      "rule_id": "NORM-004",
+      "depends_on": [
+        "NORM-001"
+      ]
+    },
+    {
+      "rule_id": "NORM-005",
+      "depends_on": [
+        "NORM-002",
+        "NORM-003"
+      ]
+    },
+    {
+      "rule_id": "CLF-001",
+      "depends_on": [
+        "BND-005",
+        "SRC-001"
+      ]
+    },
+    {
+      "rule_id": "CLF-002",
+      "depends_on": [
+        "CLF-001",
+        "SRC-001"
+      ]
+    },
+    {
+      "rule_id": "CLF-003",
+      "depends_on": [
+        "CLF-001",
+        "CLF-002"
+      ]
+    },
+    {
+      "rule_id": "CLF-004",
+      "depends_on": [
+        "CLF-001"
+      ]
+    },
+    {
+      "rule_id": "PRED-001",
+      "depends_on": [
+        "BND-005",
+        "PROP-001"
+      ]
+    },
+    {
+      "rule_id": "PRED-002",
+      "depends_on": [
+        "PRED-001"
+      ]
+    },
+    {
+      "rule_id": "PRED-003",
+      "depends_on": [
+        "PRED-001"
+      ]
+    },
+    {
+      "rule_id": "PRED-004",
+      "depends_on": [
+        "PRED-001",
+        "PROP-001",
+        "PROP-002"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "depends_on": [
+        "BND-004",
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002",
+        "DIGEST-CANON-003"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "depends_on": [
+        "BND-005"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-003",
+      "depends_on": [
+        "DIGEST-001"
+      ]
+    },
+    {
+      "rule_id": "LIN-009",
+      "depends_on": [
+        "LIN-001",
+        "DIGEST-001"
+      ]
+    },
+    {
+      "rule_id": "PROP-006",
+      "depends_on": [
+        "PROP-001",
+        "LIN-002"
+      ]
+    },
+    {
+      "rule_id": "PKG-001",
+      "depends_on": []
+    },
+    {
+      "rule_id": "PKG-002",
+      "depends_on": [
+        "PKG-001"
+      ]
+    },
+    {
+      "rule_id": "PROF-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ]
+    },
+    {
+      "rule_id": "PROF-002",
+      "depends_on": [
+        "PROF-001"
+      ]
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002"
+      ]
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "depends_on": [
+        "SCHEMA-001"
+      ]
+    },
+    {
+      "rule_id": "ROLE-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "depends_on": [
+        "PKG-001",
+        "PKG-002",
+        "PROF-001",
+        "SCHEMA-001"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "SCHEMA-001"
+      ]
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "depends_on": [
+        "DIGEST-CANON-001"
+      ]
+    },
+    {
+      "rule_id": "SCENARIO-ID-001",
+      "depends_on": [
+        "PROF-001",
+        "CLF-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "depends_on": [
+        "PRED-004",
+        "PKG-002"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "depends_on": [
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "depends_on": [
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-003"
+      ]
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "depends_on": [
+        "PRED-001",
+        "PRED-002",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "depends_on": [
+        "SCHEMA-002",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "depends_on": [
+        "E4R1-BIND-001",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "depends_on": [
+        "E4R1-PART-001",
+        "E4R1-PRED-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "PKG-002"
+      ]
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-BIND-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "depends_on": [
+        "E4R1-NEG-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "depends_on": [
+        "E4R1-PRED-001",
+        "E4R1-AUTH-001"
+      ]
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "depends_on": [
+        "DIGEST-CANON-001",
+        "DIGEST-CANON-002"
+      ]
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "depends_on": [
+        "PKG-002"
+      ]
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-PRED-001",
+        "E4R1-PART-003",
+        "E4R1-CANON-001"
+      ]
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "depends_on": [
+        "PKG-002"
+      ]
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "depends_on": [
+        "DIGEST-CANON-002"
+      ]
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "depends_on": [
+        "E4R1-BIND-001"
+      ]
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "depends_on": [
+        "E4R1-NEG-001"
+      ]
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "depends_on": [
+        "E4R1-PART-003"
+      ]
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "depends_on": [
+        "PKG-002",
+        "E4R1-BIND-001"
+      ]
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "depends_on": [
+        "E4R1-CLOSE-001",
+        "E4R2-REF-001",
+        "E4R2-CANON-001",
+        "E4R2-NEG-001",
+        "E4R2-GRAPH-001"
+      ]
+    }
+  ],
+  "dependency_edges": [
+    {
+      "from": "BND-002",
+      "to": "BND-001"
+    },
+    {
+      "from": "BND-003",
+      "to": "BND-001"
+    },
+    {
+      "from": "BND-004",
+      "to": "PKG-001"
+    },
+    {
+      "from": "BND-004",
+      "to": "PKG-002"
+    },
+    {
+      "from": "BND-004",
+      "to": "SCHEMA-001"
+    },
+    {
+      "from": "BND-004",
+      "to": "SCHEMA-002"
+    },
+    {
+      "from": "BND-005",
+      "to": "PKG-001"
+    },
+    {
+      "from": "BND-005",
+      "to": "PKG-002"
+    },
+    {
+      "from": "BND-005",
+      "to": "PROF-001"
+    },
+    {
+      "from": "BND-005",
+      "to": "PROF-002"
+    },
+    {
+      "from": "RUN-001",
+      "to": "BND-005"
+    },
+    {
+      "from": "RUN-002",
+      "to": "BND-005"
+    },
+    {
+      "from": "RUN-003",
+      "to": "RUN-001"
+    },
+    {
+      "from": "RUN-003",
+      "to": "ARM-001"
+    },
+    {
+      "from": "RUN-003",
+      "to": "ARM-002"
+    },
+    {
+      "from": "RUN-004",
+      "to": "RUN-001"
+    },
+    {
+      "from": "RUN-004",
+      "to": "RUN-002"
+    },
+    {
+      "from": "RUN-004",
+      "to": "BND-003"
+    },
+    {
+      "from": "EXT-001",
+      "to": "BND-005"
+    },
+    {
+      "from": "EXT-002",
+      "to": "EXT-001"
+    },
+    {
+      "from": "EXT-003",
+      "to": "EXT-001"
+    },
+    {
+      "from": "EXT-003",
+      "to": "BND-005"
+    },
+    {
+      "from": "EXT-004",
+      "to": "EXT-001"
+    },
+    {
+      "from": "EXT-004",
+      "to": "BND-005"
+    },
+    {
+      "from": "EXT-005",
+      "to": "EXT-001"
+    },
+    {
+      "from": "EXT-006",
+      "to": "BND-005"
+    },
+    {
+      "from": "EXT-006",
+      "to": "EXT-001"
+    },
+    {
+      "from": "SRC-001",
+      "to": "BND-005"
+    },
+    {
+      "from": "SRC-001",
+      "to": "ARM-001"
+    },
+    {
+      "from": "SRC-002",
+      "to": "SRC-001"
+    },
+    {
+      "from": "SRC-003",
+      "to": "SRC-001"
+    },
+    {
+      "from": "SRC-004",
+      "to": "SRC-001"
+    },
+    {
+      "from": "SRC-004",
+      "to": "EXT-001"
+    },
+    {
+      "from": "VIS-001",
+      "to": "BND-005"
+    },
+    {
+      "from": "VIS-001",
+      "to": "RUN-001"
+    },
+    {
+      "from": "NORM-001",
+      "to": "RAW-001"
+    },
+    {
+      "from": "NORM-001",
+      "to": "BND-005"
+    },
+    {
+      "from": "NORM-002",
+      "to": "NORM-001"
+    },
+    {
+      "from": "NORM-002",
+      "to": "BND-003"
+    },
+    {
+      "from": "NORM-003",
+      "to": "NORM-001"
+    },
+    {
+      "from": "NORM-004",
+      "to": "NORM-001"
+    },
+    {
+      "from": "NORM-005",
+      "to": "NORM-002"
+    },
+    {
+      "from": "NORM-005",
+      "to": "NORM-003"
+    },
+    {
+      "from": "CLF-001",
+      "to": "BND-005"
+    },
+    {
+      "from": "CLF-001",
+      "to": "SRC-001"
+    },
+    {
+      "from": "CLF-002",
+      "to": "CLF-001"
+    },
+    {
+      "from": "CLF-002",
+      "to": "SRC-001"
+    },
+    {
+      "from": "CLF-003",
+      "to": "CLF-001"
+    },
+    {
+      "from": "CLF-003",
+      "to": "CLF-002"
+    },
+    {
+      "from": "CLF-004",
+      "to": "CLF-001"
+    },
+    {
+      "from": "PRED-001",
+      "to": "BND-005"
+    },
+    {
+      "from": "PRED-001",
+      "to": "PROP-001"
+    },
+    {
+      "from": "PRED-002",
+      "to": "PRED-001"
+    },
+    {
+      "from": "PRED-003",
+      "to": "PRED-001"
+    },
+    {
+      "from": "PRED-004",
+      "to": "PRED-001"
+    },
+    {
+      "from": "PRED-004",
+      "to": "PROP-001"
+    },
+    {
+      "from": "PRED-004",
+      "to": "PROP-002"
+    },
+    {
+      "from": "DIGEST-001",
+      "to": "BND-004"
+    },
+    {
+      "from": "DIGEST-001",
+      "to": "DIGEST-CANON-001"
+    },
+    {
+      "from": "DIGEST-001",
+      "to": "DIGEST-CANON-002"
+    },
+    {
+      "from": "DIGEST-001",
+      "to": "DIGEST-CANON-003"
+    },
+    {
+      "from": "DIGEST-002",
+      "to": "BND-005"
+    },
+    {
+      "from": "DIGEST-003",
+      "to": "DIGEST-001"
+    },
+    {
+      "from": "LIN-009",
+      "to": "LIN-001"
+    },
+    {
+      "from": "LIN-009",
+      "to": "DIGEST-001"
+    },
+    {
+      "from": "PROP-006",
+      "to": "PROP-001"
+    },
+    {
+      "from": "PROP-006",
+      "to": "LIN-002"
+    },
+    {
+      "from": "PKG-002",
+      "to": "PKG-001"
+    },
+    {
+      "from": "PROF-001",
+      "to": "PKG-001"
+    },
+    {
+      "from": "PROF-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "PROF-002",
+      "to": "PROF-001"
+    },
+    {
+      "from": "SCHEMA-001",
+      "to": "PKG-001"
+    },
+    {
+      "from": "SCHEMA-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "SCHEMA-002",
+      "to": "SCHEMA-001"
+    },
+    {
+      "from": "ROLE-001",
+      "to": "PKG-001"
+    },
+    {
+      "from": "ROLE-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "ROLE-001",
+      "to": "PROF-001"
+    },
+    {
+      "from": "DIGEST-CANON-001",
+      "to": "PKG-001"
+    },
+    {
+      "from": "DIGEST-CANON-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "DIGEST-CANON-001",
+      "to": "PROF-001"
+    },
+    {
+      "from": "DIGEST-CANON-001",
+      "to": "SCHEMA-001"
+    },
+    {
+      "from": "DIGEST-CANON-002",
+      "to": "DIGEST-CANON-001"
+    },
+    {
+      "from": "DIGEST-CANON-002",
+      "to": "SCHEMA-001"
+    },
+    {
+      "from": "DIGEST-CANON-003",
+      "to": "DIGEST-CANON-001"
+    },
+    {
+      "from": "SCENARIO-ID-001",
+      "to": "PROF-001"
+    },
+    {
+      "from": "SCENARIO-ID-001",
+      "to": "CLF-001"
+    },
+    {
+      "from": "E4R1-PRED-001",
+      "to": "PRED-004"
+    },
+    {
+      "from": "E4R1-PRED-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "E4R1-PRED-002",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-PRED-003",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-AUTH-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "E4R1-AUTH-001",
+      "to": "E4R1-PRED-003"
+    },
+    {
+      "from": "E4R1-BIND-001",
+      "to": "PRED-001"
+    },
+    {
+      "from": "E4R1-BIND-001",
+      "to": "PRED-002"
+    },
+    {
+      "from": "E4R1-BIND-001",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-PROP-001",
+      "to": "SCHEMA-002"
+    },
+    {
+      "from": "E4R1-PROP-001",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-PART-001",
+      "to": "E4R1-BIND-001"
+    },
+    {
+      "from": "E4R1-PART-001",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-PART-002",
+      "to": "E4R1-PART-001"
+    },
+    {
+      "from": "E4R1-PART-002",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-PART-003",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-PART-003",
+      "to": "PKG-002"
+    },
+    {
+      "from": "E4R1-NEG-001",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-NEG-001",
+      "to": "E4R1-BIND-001"
+    },
+    {
+      "from": "E4R1-NEG-002",
+      "to": "E4R1-NEG-001"
+    },
+    {
+      "from": "E4R1-ENT-001",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-ENT-001",
+      "to": "E4R1-AUTH-001"
+    },
+    {
+      "from": "E4R1-CANON-001",
+      "to": "DIGEST-CANON-001"
+    },
+    {
+      "from": "E4R1-CANON-001",
+      "to": "DIGEST-CANON-002"
+    },
+    {
+      "from": "E4R1-EXPECT-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "E4R1-CLOSE-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "E4R1-CLOSE-001",
+      "to": "E4R1-PRED-001"
+    },
+    {
+      "from": "E4R1-CLOSE-001",
+      "to": "E4R1-PART-003"
+    },
+    {
+      "from": "E4R1-CLOSE-001",
+      "to": "E4R1-CANON-001"
+    },
+    {
+      "from": "E4R2-REF-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "E4R2-CANON-001",
+      "to": "DIGEST-CANON-002"
+    },
+    {
+      "from": "E4R2-BIND-001",
+      "to": "E4R1-BIND-001"
+    },
+    {
+      "from": "E4R2-NEG-001",
+      "to": "E4R1-NEG-001"
+    },
+    {
+      "from": "E4R2-GRAPH-001",
+      "to": "E4R1-PART-003"
+    },
+    {
+      "from": "E4R2-PROFILE-001",
+      "to": "PKG-002"
+    },
+    {
+      "from": "E4R2-PROFILE-001",
+      "to": "E4R1-BIND-001"
+    },
+    {
+      "from": "E4R2-CLOSE-001",
+      "to": "E4R1-CLOSE-001"
+    },
+    {
+      "from": "E4R2-CLOSE-001",
+      "to": "E4R2-REF-001"
+    },
+    {
+      "from": "E4R2-CLOSE-001",
+      "to": "E4R2-CANON-001"
+    },
+    {
+      "from": "E4R2-CLOSE-001",
+      "to": "E4R2-NEG-001"
+    },
+    {
+      "from": "E4R2-CLOSE-001",
+      "to": "E4R2-GRAPH-001"
+    }
+  ],
+  "vector_expectations": [
+    {
+      "vector_id": "ACCORD-02C-V001-DISPATCH-ONLY",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "INSUFFICIENT_EVIDENCE",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "NOT_APPLICABLE",
+        "duplication": "NOT_APPLICABLE",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "DISPATCH_IS_NOT_EFFECT"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "PARTIAL",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "TRANSPORT_ACK_NOT_DOWNSTREAM_EFFECT"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "RECIPIENT_DELIVERY"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "BOUND_PROVIDER_EFFECT_RECEIPT"
+        ],
+        "must_not_conclude": [
+          "UNIVERSAL_TRUTH",
+          "EXACTLY_ONCE"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "CAUSED_BY_ONE_OR_MORE_ATTEMPTS",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "CORROBORATED_BY_OBSERVER_DISTINCT_SOURCE"
+        ],
+        "must_not_conclude": [
+          "NO_COLLUSION"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "CONFLICTING_EVIDENCE",
+        "occurrence": "CONFLICTING_EVIDENCE",
+        "attribution": "ATTRIBUTION_CONFLICTING",
+        "causality": "CAUSATION_CONFLICTING",
+        "completeness": "UNKNOWN",
+        "sufficiency": "CONFLICTING",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "ADMISSIBLE_EVIDENCE_CONFLICT"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V006-STALE-OBSERVATION",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "STALE_EVIDENCE",
+        "occurrence": "STALE_EVIDENCE",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "EFFECT_BOUND",
+        "completeness": "UNKNOWN",
+        "sufficiency": "STALE",
+        "freshness": "STALE",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "EVIDENCE_OUTSIDE_FRESHNESS_WINDOW"
+        ],
+        "must_not_conclude": [
+          "CURRENT_STATE"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "INADMISSIBLE_EVIDENCE",
+        "occurrence": "INADMISSIBLE_EVIDENCE",
+        "attribution": "INADMISSIBLE",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INADMISSIBLE",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "WRONG_EFFECT_ID"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "INSUFFICIENT_EVIDENCE",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "PARTIAL",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "WRONG_ATTEMPT_ID"
+        ],
+        "must_not_conclude": [
+          "ATTRIBUTED_TO_SPECIFIC_ATTEMPT"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "INADMISSIBLE_EVIDENCE",
+        "occurrence": "INADMISSIBLE_EVIDENCE",
+        "attribution": "INADMISSIBLE",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INADMISSIBLE",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "REPLAYED_OTHER_EFFECT_ARTIFACT",
+          "WRONG_EFFECT_ID"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "RETRY_ATTEMPTS_SHARE_EFFECT_ID",
+          "A3_BOUND_SUCCESS"
+        ],
+        "must_not_conclude": [
+          "THREE_LOGICAL_EFFECTS"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "POSSIBLE_DUPLICATE_EFFECT",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_ONE_OR_MORE_ATTEMPTS",
+        "causality": "CAUSED_BY_ONE_OR_MORE_ATTEMPTS",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "POSSIBLE_DUPLICATE",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "ACKNOWLEDGEMENT_LOST",
+          "MULTIPLE_PROVIDER_OPERATION_IDS"
+        ],
+        "must_not_conclude": [
+          "EXACTLY_ONCE",
+          "TWO_CONFIRMED_OCCURRENCES"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "INSUFFICIENT",
+        "freshness": "NOT_APPLICABLE",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "TIMEOUT_IS_NOT_NON_OCCURRENCE"
+        ],
+        "must_not_conclude": [
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "NON_OCCURRENCE_SUPPORTED",
+        "occurrence": "NON_OCCURRENCE_SUPPORTED",
+        "attribution": "NOT_APPLICABLE",
+        "causality": "NOT_ASSESSED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "COMPLETE_NEGATIVE_LEDGER_SCOPE_ACCEPTED"
+        ],
+        "must_not_conclude": [
+          "UNIVERSAL_ABSENCE_OUTSIDE_SCOPE"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "PARTIAL_EFFECT",
+        "occurrence": "PARTIAL_EFFECT",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "EARLY_STAGE_SUPPORTED",
+          "LATER_STAGE_UNRESOLVED"
+        ],
+        "must_not_conclude": [
+          "RECIPIENT_ACKNOWLEDGEMENT"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+      "expected": {
+        "authority_status": "INVALID_AUTHORITY",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "NO_VALID_AUTHORITY_DOES_NOT_IMPLY_NO_EFFECT"
+        ],
+        "must_not_conclude": [
+          "VALID_AUTHORITY",
+          "NO_EFFECT"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+      "expected": {
+        "authority_status": "INVALID_AUTHORITY",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "COMPLETE",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "REVOCATION_DOES_NOT_ERASE_HISTORY"
+        ],
+        "must_not_conclude": [
+          "DISPATCH_DID_NOT_OCCUR",
+          "EFFECT_DID_NOT_OCCUR"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+      "expected": {
+        "authority_status": "UNKNOWN_AUTHORITY",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "MATCHING_STATE_WITHOUT_CAUSAL_BINDING"
+        ],
+        "must_not_conclude": [
+          "SPECIFIC_ATTEMPT_CAUSED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+      "expected": {
+        "authority_status": "UNKNOWN_AUTHORITY",
+        "profile_compatibility": "INCOMPATIBLE",
+        "overall": "PROFILE_INCOMPATIBLE",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "PROFILE_INCOMPATIBLE",
+        "freshness": "UNKNOWN",
+        "duplication": "UNKNOWN",
+        "finality": "NOT_FINAL",
+        "reason_codes": [
+          "NO_COMMON_SETTLEMENT_PROFILE"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED",
+          "NON_OCCURRENCE_SUPPORTED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "UNRESOLVED",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "UNKNOWN",
+        "sufficiency": "UNKNOWN",
+        "freshness": "UNKNOWN",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "CLOCK_ORDER_UNRESOLVED"
+        ],
+        "must_not_conclude": [
+          "ORDERED_CAUSATION"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "UNKNOWN",
+        "overall": "UNKNOWN",
+        "occurrence": "UNKNOWN",
+        "attribution": "ATTRIBUTION_UNKNOWN",
+        "causality": "NOT_ASSESSED",
+        "completeness": "UNKNOWN",
+        "sufficiency": "UNKNOWN",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "NOT_FINAL",
+        "reason_codes": [
+          "UNKNOWN_SETTLEMENT_BEARING_EXTENSION"
+        ],
+        "must_not_conclude": [
+          "OCCURRENCE_SUPPORTED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "PARTIAL_EFFECT",
+        "occurrence": "PARTIAL_EFFECT",
+        "attribution": "ATTRIBUTION_CONFLICTING",
+        "causality": "CAUSATION_UNKNOWN",
+        "completeness": "PARTIAL",
+        "sufficiency": "CONFLICTING",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "RECIPIENT_BINDING_MISMATCH",
+          "ACCEPTANCE_NOT_DELIVERY"
+        ],
+        "must_not_conclude": [
+          "TARGET_RECIPIENT_ACKNOWLEDGED"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "EFFECT_SUPPORTED",
+        "occurrence": "OCCURRENCE_SUPPORTED",
+        "attribution": "ATTRIBUTED_TO_SPECIFIC_ATTEMPT",
+        "causality": "SPECIFIC_ATTEMPT_SUPPORTED",
+        "completeness": "PARTIAL",
+        "sufficiency": "SUFFICIENT",
+        "freshness": "CURRENT",
+        "duplication": "NONE_SUPPORTED",
+        "finality": "REOPENABLE",
+        "reason_codes": [
+          "CORRUPT_ARTIFACT_EXCLUDED",
+          "VALID_ARTIFACT_REMAINS"
+        ],
+        "must_not_conclude": [
+          "CORROBORATION_FROM_CORRUPT_ARTIFACT"
+        ]
+      }
+    },
+    {
+      "vector_id": "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+      "expected": {
+        "authority_status": "AUTHORIZED",
+        "profile_compatibility": "COMPATIBLE",
+        "overall": "CONFLICTING_EVIDENCE",
+        "occurrence": "CONFLICTING_EVIDENCE",
+        "attribution": "ATTRIBUTION_CONFLICTING",
+        "causality": "CAUSATION_CONFLICTING",
+        "completeness": "UNKNOWN",
+        "sufficiency": "CONFLICTING",
+        "freshness": "CURRENT",
+        "duplication": "UNKNOWN",
+        "finality": "REOPENED",
+        "reason_codes": [
+          "LATER_ADMISSIBLE_CONTRADICTION",
+          "PRIOR_RESULT_REOPENED"
+        ],
+        "must_not_conclude": [
+          "IRREVERSIBLE_FINALITY"
+        ]
+      }
+    }
+  ],
+  "proposition_ids": [
+    "ACCORD-02C-V001-DISPATCH-ONLY",
+    "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+    "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+    "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+    "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+    "ACCORD-02C-V006-STALE-OBSERVATION",
+    "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+    "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+    "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+    "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+    "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+    "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+    "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+    "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+    "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+    "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+    "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+    "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+    "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+    "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+    "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+    "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+    "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE"
+  ],
+  "profile": {
+    "negative_policy": {
+      "allowed_consistency_levels": [
+        "SNAPSHOT_COMPLETE",
+        "LINEARIZABLE_COMPLETE"
+      ],
+      "allowed_source_classes": [
+        "COMPLETE_NEGATIVE_LEDGER_QUERY",
+        "COMPLETE_NEGATIVE_AUTHORITATIVE_SNAPSHOT"
+      ],
+      "freshness_max_age_seconds": 300,
+      "minimum_retention_seconds": 86400,
+      "future_observation_result": "UNKNOWN",
+      "stale_result": "STALE_EVIDENCE"
+    },
+    "object_version": "0.2"
+  },
+  "source_catalog_binding": {
+    "assigned_catalog_ref": {
+      "kind": "SOURCE_VECTOR_CATALOG",
+      "id": "urn:moirae:accord-02r5:source-vector-catalog",
+      "version": "0.1"
+    },
+    "identity_assignment": "PACKAGE_BINDING_NOT_HISTORICAL_SELF_ASSERTION",
+    "repository_root_path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+    "integrity": {
+      "class": "SEMANTIC_JSON_CONTENT",
+      "canonicalization": "RFC8785_JCS",
+      "algorithm": "SHA-256",
+      "digest": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5"
+    }
+  },
+  "negative_requirement_map": {
+    "requirements": [
+      {
+        "requirement_id": "TARGET_EFFECT_EQUAL",
+        "source_fields": [
+          "target.effect_id",
+          "evidence.effect_id"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "EXACT_EQUAL",
+        "failure_code": "NEGATIVE_EFFECT_MISMATCH"
+      },
+      {
+        "requirement_id": "TARGET_PREDICATE_EQUAL",
+        "source_fields": [
+          "target.negated_predicate_id",
+          "evidence.predicate_id"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "EXACT_EQUAL",
+        "failure_code": "NEGATIVE_PREDICATE_MISMATCH"
+      },
+      {
+        "requirement_id": "TARGET_STAGE_EQUAL",
+        "source_fields": [
+          "target.negated_stage",
+          "evidence.stage"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "EXACT_EQUAL",
+        "failure_code": "NEGATIVE_STAGE_MISMATCH"
+      },
+      {
+        "requirement_id": "TARGET_SCOPE_EQUAL",
+        "source_fields": [
+          "target.scope",
+          "evidence.scope"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "TUPLE_EQUAL",
+        "failure_code": "NEGATIVE_SCOPE_MISMATCH"
+      },
+      {
+        "requirement_id": "INTERVAL_VALID",
+        "source_fields": [
+          "evidence.observed_interval.not_before",
+          "evidence.observed_interval.as_of"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "RFC3339_ORDER_INCLUSIVE",
+        "failure_code": "NEGATIVE_INTERVAL_INVALID"
+      },
+      {
+        "requirement_id": "INTERVAL_COVERS_TARGET",
+        "source_fields": [
+          "target.required_interval",
+          "evidence.observed_interval"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "INTERVAL_COVERAGE_INCLUSIVE_BOTH_ENDS",
+        "failure_code": "NEGATIVE_INTERVAL_INSUFFICIENT"
+      },
+      {
+        "requirement_id": "RETENTION_MEETS_BOUND",
+        "source_fields": [
+          "evidence.retention_window_seconds",
+          "target.required_interval",
+          "profile.negative_policy.minimum_retention_seconds"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "GTE_MAX_INTERVAL_AND_PROFILE_MINIMUM",
+        "failure_code": "NEGATIVE_RETENTION_INSUFFICIENT"
+      },
+      {
+        "requirement_id": "CONSISTENCY_ALLOWED",
+        "source_fields": [
+          "evidence.consistency_level",
+          "profile.negative_policy.allowed_consistency_levels"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "MEMBERSHIP",
+        "failure_code": "NEGATIVE_CONSISTENCY_DISALLOWED"
+      },
+      {
+        "requirement_id": "SOURCE_CLASS_ALLOWED",
+        "source_fields": [
+          "evidence.evidence_class",
+          "profile.negative_policy.allowed_source_classes"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "MEMBERSHIP",
+        "failure_code": "NEGATIVE_SOURCE_CLASS_DISALLOWED"
+      },
+      {
+        "requirement_id": "FRESHNESS_BOUND",
+        "source_fields": [
+          "evidence.observed_at",
+          "evidence.verification_time",
+          "profile.negative_policy.freshness_max_age_seconds"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "ZERO_LE_AGE_LE_PROFILE_MAX",
+        "failure_code": "NEGATIVE_FRESHNESS_FAILED"
+      },
+      {
+        "requirement_id": "READ_COMPLETE",
+        "source_fields": [
+          "evidence.read_scope_complete",
+          "evidence.read_semantics"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "TRUE_AND_COMPLETE_LEDGER_QUERY",
+        "failure_code": "NEGATIVE_READ_INCOMPLETE"
+      },
+      {
+        "requirement_id": "NO_SAME_TARGET_POSITIVE",
+        "source_fields": [
+          "evidence.evidence_universe",
+          "target.effect_id",
+          "target.negated_predicate_id",
+          "target.negated_stage",
+          "target.scope"
+        ],
+        "governing_authority": "SETTLEMENT_PROFILE",
+        "procedure": "FILTER_ADMISSIBLE_POSITIVE_MATCH_TARGET_DEDUP_EVIDENCE_ID_COUNT_EQ_ZERO",
+        "failure_code": "NEGATIVE_CONTRADICTION"
+      }
+    ],
+    "evaluation_order": [
+      "TARGET_EFFECT_EQUAL",
+      "TARGET_PREDICATE_EQUAL",
+      "TARGET_STAGE_EQUAL",
+      "TARGET_SCOPE_EQUAL",
+      "INTERVAL_VALID",
+      "INTERVAL_COVERS_TARGET",
+      "RETENTION_MEETS_BOUND",
+      "CONSISTENCY_ALLOWED",
+      "SOURCE_CLASS_ALLOWED",
+      "FRESHNESS_BOUND",
+      "READ_COMPLETE",
+      "NO_SAME_TARGET_POSITIVE"
+    ],
+    "caller_supplied_contradiction_count": "FORBIDDEN"
+  },
+  "internal_design_values": {
+    "BND-001": "CANDIDATE_UNACCEPTED",
+    "BND-002": "id",
+    "EXT-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PRED-001": "FORBIDDEN",
+    "PRED-002": "FORBIDDEN",
+    "PRED-003": [
+      "predicate_id",
+      "stage"
+    ],
+    "PRED-004": "UNICODE_CODE_POINT_EXACT_CASE_SENSITIVE_NO_NORMALIZATION",
+    "DIGEST-002": "EXCLUDE_JSON_POINTERS",
+    "DIGEST-003": "INCLUDE_JSON_POINTERS",
+    "PROF-001": "UNKNOWN",
+    "ROLE-001": "0.2",
+    "SCENARIO-ID-001": "NOT_APPLICABLE"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r2:schema:canonicalization-profile:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "standard",
+    "serialization",
+    "encoding",
+    "algorithm",
+    "target_id",
+    "selection",
+    "reduction",
+    "exclusion_pointers"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "standard": {
+      "type": "string"
+    },
+    "serialization": {
+      "type": "string"
+    },
+    "encoding": {
+      "type": "string"
+    },
+    "algorithm": {
+      "type": "string"
+    },
+    "target_id": {
+      "type": "string"
+    },
+    "selection": {
+      "type": "string"
+    },
+    "reduction": {
+      "type": "string"
+    },
+    "exclusion_pointers": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "not": {
+        "required": [
+          "zzz"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "member_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

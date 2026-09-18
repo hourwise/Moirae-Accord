@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r2:schema:specification-package",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5:specification-package:0.2",
+  "object_id": "urn:moirae:accord-02r5:specification-package",
+  "object_version": "0.2",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "status": "CANDIDATE_UNACCEPTED",
+  "accepted_base_ref": {
+    "kind": "PACKAGE",
+    "id": "urn:moirae:accord-02r5:specification-package",
+    "version": "0.1"
+  },
+  "rejected_candidate_lineage": [
+    {
+      "revision": "E4R2",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R3",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R4",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "e360ce6c38f044e446ae8ba7e850b35840f2c8f8"
+    },
+    {
+      "revision": "E4R5",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "b92d5707e9966c8543111b1c448aa5c2f5b0e496"
+    },
+    {
+      "revision": "E4R5R1",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "f75352c0d673d77873fb96a9975a6c37abceb519"
+    }
+  ],
+  "object_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5r2:object-registry",
+    "version": "0.2"
+  },
+  "rule_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5r2:rule-registry",
+    "version": "0.2"
+  },
+  "invariant_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5r2:invariant-registry",
+    "version": "0.2"
+  },
+  "procedure_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5r2:procedure-registry",
+    "version": "0.2"
+  },
+  "required_invariant_ids": [
+    "STANDARDS_VALIDATION",
+    "PACKAGE_LINEAGE",
+    "ACCEPTED_BASE_DUAL_INTEGRITY",
+    "OBJECT_IDENTITY_UNIQUE",
+    "TYPED_REFERENCE_CLOSURE",
+    "SEMANTIC_DIGEST_VERIFY",
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+    "DEPENDENCY_GRAPH_EQUAL",
+    "EXPECTATION_STABILITY",
+    "PREDICATE_AUTHORITY_CLOSURE",
+    "CANONICALIZATION_AUTHORITY_CLOSURE",
+    "SOURCE_CATALOG_BINDING",
+    "PARTIAL_EFFECT_POLICY_CLOSURE",
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+    "PROPOSITION_ID_UNIQUE",
+    "PROFILE_REFERENCE_PINNING",
+    "INVARIANT_PROCEDURE_ARITY_AGREEMENT",
+    "SCHEMA_NON_VACUITY",
+    "CURRENT_PACKAGE_IDENTITY",
+    "PACKAGE_SELF_DIGEST"
+  ],
+  "registry_semantic_sha256": "b3a3c3076c52001a42725bb07fadfa87730ab42c5245a738e17baec7f146efe3",
+  "runtime": {
+    "python": "~=3.14.0",
+    "requirements_path": "docs/accord-02e4r5r2/requirements.txt"
+  },
+  "current_candidate_integrity": {
+    "class": "SEMANTIC_JSON_CONTENT",
+    "content_target_ref": "PACKAGE_EXCLUDING_SELF_DIGEST",
+    "algorithm": "SHA-256",
+    "digest": "ffdc4f589a3e8ac4cbbadcd9bcc670c98857a9ccf7491d193b98568fb8b609d2"
+  }
+}

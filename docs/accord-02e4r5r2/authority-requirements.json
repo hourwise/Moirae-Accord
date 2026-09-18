@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r2:schema:authority-requirements",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r2:authority-requirements:0.2",
+  "object_id": "urn:moirae:accord-02r5r2:authority-requirements",
+  "object_version": "0.2",
+  "package_requirements": {
+    "family": "urn:moirae:accord-02r5:specification-package",
+    "version": "0.2",
+    "status": "CANDIDATE_UNACCEPTED",
+    "accepted_base_version": "0.1",
+    "required_rejected_revision": {
+      "revision": "E4R5R1",
+      "commit": "f75352c0d673d77873fb96a9975a6c37abceb519"
+    }
+  },
+  "stage_policy_requirements": {
+    "global_stage_order": "FORBIDDEN",
+    "implicit_transitivity": "FORBIDDEN"
+  },
+  "stage_policy_authorization": {
+    "global_stage_order": [
+      "FORBIDDEN"
+    ],
+    "implicit_transitivity": [
+      "FORBIDDEN"
+    ]
+  },
+  "canonicalization_requirements": {
+    "standard": "RFC8785",
+    "serialization": "RFC8785_JCS",
+    "encoding": "UTF-8",
+    "algorithm": "SHA-256",
+    "target_id": "PACKAGE_EXCLUDING_SELF_DIGEST",
+    "selection": "ENTIRE_PACKAGE_DOCUMENT",
+    "reduction": "REMOVE_POINTER",
+    "exclusion_pointers": [
+      "/current_candidate_integrity/digest"
+    ]
+  },
+  "partial_effect_requirements": {
+    "same_effect_required": true,
+    "direct_predecessor_required": true,
+    "merged_decision_key": "UNKNOWN_TUPLE_OR_WRONG_STAGE",
+    "merged_decision_value": "REJECT"
+  },
+  "classification_requirements": {
+    "conformance": "invariant_binding exists and validates",
+    "internal": "internal_check exists and no invariant_binding",
+    "deferred": "missing_subject_roles and later_lifecycle_stage exist and no binding/check"
+  }
+}

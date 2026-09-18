@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r2:schema:specification-package:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "package_id",
+    "package_version",
+    "status",
+    "accepted_base_ref",
+    "rejected_candidate_lineage",
+    "object_registry_ref",
+    "rule_registry_ref",
+    "invariant_registry_ref",
+    "procedure_registry_ref",
+    "required_invariant_ids",
+    "current_candidate_integrity"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "package_version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "accepted_base_ref": {
+      "type": "object"
+    },
+    "rejected_candidate_lineage": {
+      "type": "array"
+    },
+    "object_registry_ref": {
+      "type": "object"
+    },
+    "rule_registry_ref": {
+      "type": "object"
+    },
+    "invariant_registry_ref": {
+      "type": "object"
+    },
+    "procedure_registry_ref": {
+      "type": "object"
+    },
+    "required_invariant_ids": {
+      "type": "array"
+    },
+    "current_candidate_integrity": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "not": {
+        "required": [
+          "zzz"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "member_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

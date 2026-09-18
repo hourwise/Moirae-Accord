@@ -1,0 +1,756 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r2:schema:procedure-registry",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r2:procedure-registry:0.2",
+  "object_id": "urn:moirae:accord-02r5r2:procedure-registry",
+  "object_version": "0.2",
+  "procedures": [
+    {
+      "procedure_id": "SCHEMA_VALIDATION",
+      "arguments": [
+        {
+          "name": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "reference_model",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "VALIDATE_ACTIVE_UNIVERSE",
+        "meta_validate_schemas": true,
+        "validate_declared_instances": true,
+        "validate_embedded_propositions": true
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "LINEAGE_VALIDATION",
+      "arguments": [
+        {
+          "name": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "SECTION_ENTAILMENT",
+        "comparisons": [
+          {
+            "left": "package:/package_id",
+            "right": "authority:/package_requirements/family"
+          },
+          {
+            "left": "package:/package_version",
+            "right": "authority:/package_requirements/version"
+          },
+          {
+            "left": "package:/status",
+            "right": "authority:/package_requirements/status"
+          }
+        ],
+        "required_lineage_entry": "authority:/package_requirements/required_rejected_revision"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "DUAL_INTEGRITY",
+      "arguments": [
+        {
+          "name": "bindings",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "DIGEST_RECOMPUTE",
+        "source_selector": "bindings:/sources/*",
+        "semantic_serialization": "RFC8785_JCS",
+        "raw_serialization": "RAW_BYTES",
+        "algorithms": [
+          "SHA-256"
+        ]
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "UNIQUE_KEY",
+      "arguments": [
+        {
+          "name": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "UNIQUE_KEY",
+        "source": "registry:/objects/*",
+        "projection": [
+          "kind",
+          "id",
+          "version"
+        ]
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "REFERENCE_RESOLUTION",
+      "arguments": [
+        {
+          "name": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "reference_model",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "REFERENCE_RESOLUTION",
+        "model": "reference_model:/shape_predicate",
+        "scope": "reference_model:/discovery_scope",
+        "edge_identity": "reference_model:/edge_identity",
+        "cardinality": "reference_model:/resolution_cardinality"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "DIGEST_RECOMPUTE",
+      "arguments": [
+        {
+          "name": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "canonicalization",
+          "kind": "CANONICALIZATION",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "DIGEST_RECOMPUTE",
+        "registry_integrity_selector": "registry:/objects/*/integrity",
+        "self_digest_contract": "canonicalization"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "SET_EQUALITY",
+      "arguments": [
+        {
+          "name": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "SET_EQUALITY",
+        "left": {
+          "source": "inputs:/rule_dependencies/*",
+          "projection": [
+            "rule_id",
+            "depends_on/*"
+          ]
+        },
+        "right": {
+          "source": "inputs:/dependency_edges/*",
+          "projection": [
+            "from",
+            "to"
+          ]
+        },
+        "comparison": "SET_EQUAL"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "EXPECTATION_STABILITY",
+      "arguments": [
+        {
+          "name": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "accepted_vectors",
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "SET_EQUALITY",
+        "left": {
+          "source": "inputs:/vector_expectations/*",
+          "key": "vector_id",
+          "value": "expected"
+        },
+        "right": {
+          "source": "accepted_vectors:/vectors/*",
+          "key": "vector_id",
+          "value": "expected"
+        },
+        "comparison": "MAP_EQUAL"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "arguments": [
+        {
+          "name": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "POLICY_AGREEMENT",
+        "comparisons": [
+          {
+            "left": "inputs:/predicate_policy/global_stage_order",
+            "right": "authority:/stage_policy_requirements/global_stage_order",
+            "authorized_by": "authority:/stage_policy_authorization/global_stage_order"
+          },
+          {
+            "left": "inputs:/predicate_policy/implicit_transitivity",
+            "right": "authority:/stage_policy_requirements/implicit_transitivity",
+            "authorized_by": "authority:/stage_policy_authorization/implicit_transitivity"
+          }
+        ]
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "arguments": [
+        {
+          "name": "profile",
+          "kind": "CANONICALIZATION",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "POLICY_AGREEMENT",
+        "comparison_root_left": "profile",
+        "comparison_root_right": "authority:/canonicalization_requirements"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "SOURCE_CATALOG_BINDING",
+      "arguments": [
+        {
+          "name": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "bindings",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "MEMBERSHIP_RESOLVE",
+        "catalog": "bindings:/sources",
+        "binding": "inputs:/source_catalog_binding"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "arguments": [
+        {
+          "name": "policy",
+          "kind": "POLICY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "POLICY_AGREEMENT",
+        "comparisons": [
+          {
+            "left": "policy:/same_effect_required",
+            "right": "authority:/partial_effect_requirements/same_effect_required"
+          },
+          {
+            "left": "policy:/direct_predecessor_required",
+            "right": "authority:/partial_effect_requirements/direct_predecessor_required"
+          },
+          {
+            "left_dynamic": "policy:/decisions/{authority:/partial_effect_requirements/merged_decision_key}",
+            "right": "authority:/partial_effect_requirements/merged_decision_value"
+          }
+        ]
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "REQUIREMENT_MAP_EVAL",
+      "arguments": [
+        {
+          "name": "target",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "evidence",
+          "kind": "EVIDENCE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "REQUIREMENT_MAP_EVAL",
+        "checks": [
+          "EXACT_TARGET",
+          "INCLUSIVE_INTERVAL",
+          "RETENTION",
+          "FRESHNESS",
+          "ALLOWED_CONSISTENCY",
+          "ALLOWED_SOURCE_CLASS",
+          "COMPLETE_READ",
+          "NO_ADMISSIBLE_SAME_TARGET_POSITIVE"
+        ],
+        "pass_result": "NON_OCCURRENCE_SUPPORTED",
+        "fail_result": "UNKNOWN"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "AUTHORITY_COMPLETENESS",
+      "arguments": [
+        {
+          "name": "rules",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "AUTHORITY_COMPLETENESS",
+        "requirements": [
+          "BINDING_ROLE_EXACT",
+          "REFERENCE_EXACTLY_ONE",
+          "FAILURE_COMPATIBLE",
+          "DECLARED_CLASS_EQUALS_DERIVED",
+          "NO_CONFORMANCE_SUBJECTS",
+          "EXACT_ACTIVE_INVARIANT_SET"
+        ]
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "PROPOSITION_UNIQUENESS",
+      "arguments": [
+        {
+          "name": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "UNIQUE_KEY",
+        "source": "inputs:/proposition_ids/*",
+        "projection": "SELF"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "PROFILE_REFERENCE_PINNING",
+      "arguments": [
+        {
+          "name": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "SECTION_ENTAILMENT",
+        "required_pointer": "inputs:/profile/object_version",
+        "governing_pointer": "authority:/package_requirements/version"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "ARITY_AGREEMENT",
+      "arguments": [
+        {
+          "name": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "ARITY_AGREEMENT",
+        "left": "invariants:/invariants/*/input_roles/*/role",
+        "right": "procedures:/procedures/{procedure_id}/arguments/*/name"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "SCHEMA_NON_VACUITY",
+      "arguments": [
+        {
+          "name": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "SCHEMA_NON_VACUITY",
+        "probe": {
+          "zzz": 1
+        },
+        "expected": "REJECT_ALL_ACTIVE_SCHEMAS"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "CURRENT_PACKAGE_IDENTITY",
+      "arguments": [
+        {
+          "name": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "CURRENT_PACKAGE_IDENTITY",
+        "identity_from": "authority:/package_requirements",
+        "required_resolution_count": 1,
+        "required_path": "package"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    },
+    {
+      "procedure_id": "SELF_DIGEST",
+      "arguments": [
+        {
+          "name": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "name": "canonicalization",
+          "kind": "CANONICALIZATION",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "derivation": {
+        "operation": "SELF_DIGEST",
+        "steps": [
+          "DEEP_COPY",
+          "READ_EXPECTED",
+          "REMOVE_POINTER",
+          "RFC8785_JCS",
+          "UTF8",
+          "SHA256",
+          "COMPARE"
+        ],
+        "contract": "canonicalization"
+      },
+      "result": {
+        "type": "BOOLEAN",
+        "status": [
+          "PASS",
+          "FAIL"
+        ],
+        "witness_required": true
+      },
+      "missing_behavior": "FAIL",
+      "ambiguity_behavior": "FAIL",
+      "fail_closed": true
+    }
+  ]
+}
