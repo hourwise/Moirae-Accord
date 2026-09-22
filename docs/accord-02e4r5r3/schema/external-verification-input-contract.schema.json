@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r3:schema:external-verification-input-contract:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "input_type",
+    "registry_membership",
+    "candidate_self_assertion",
+    "fields",
+    "candidate_identity_recomputation",
+    "results",
+    "cli"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02r5r3:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "input_type": {
+      "const": "EXTERNAL_VERIFICATION_INPUT"
+    },
+    "registry_membership": {
+      "const": "FORBIDDEN_NOT_A_PACKAGE_OBJECT"
+    },
+    "candidate_self_assertion": {
+      "const": "FORBIDDEN"
+    },
+    "fields": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "candidate_identity_recomputation": {
+      "type": "object"
+    },
+    "results": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "cli": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

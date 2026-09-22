@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r3:schema:normative-inputs:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "predicate_policy",
+    "rule_dependencies",
+    "dependency_edges",
+    "vector_expectations",
+    "propositions",
+    "profile",
+    "source_catalog_binding_ref",
+    "negative_requirement_map_ref",
+    "proposition_inventory_ref",
+    "internal_design_values",
+    "reason_code_surface",
+    "must_not_conclude_surface",
+    "accepted_base_package_ref",
+    "accepted_base_package_semantic_sha256"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02r5r3:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "predicate_policy": {
+      "type": "object",
+      "required": [
+        "global_stage_order",
+        "implicit_transitivity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "global_stage_order": {
+          "type": "string"
+        },
+        "implicit_transitivity": {
+          "type": "string"
+        }
+      }
+    },
+    "rule_dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "rule_id",
+          "depends_on"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string"
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dependency_edges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "vector_expectations": {
+      "type": "array",
+      "minItems": 23,
+      "items": {
+        "type": "object",
+        "required": [
+          "vector_id",
+          "expected"
+        ],
+        "properties": {
+          "vector_id": {
+            "type": "string"
+          },
+          "expected": {
+            "$ref": "#/$defs/expectedVector"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "propositions": {
+      "type": "object",
+      "required": [
+        "collection_proposition_id",
+        "projection_proposition_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "collection_proposition_id": {
+          "type": "string"
+        },
+        "projection_proposition_id": {
+          "type": "string"
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "required": [
+        "negative_policy",
+        "object_version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "negative_policy": {
+          "$ref": "#/$defs/negativePolicy"
+        },
+        "object_version": {
+          "const": "0.2"
+        }
+      }
+    },
+    "source_catalog_binding_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "negative_requirement_map_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "proposition_inventory_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "internal_design_values": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "reason_code_surface": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "must_not_conclude_surface": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "accepted_base_package_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "accepted_base_package_semantic_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "expectedVector": {
+      "type": "object",
+      "required": [
+        "authority_status",
+        "profile_compatibility",
+        "overall",
+        "occurrence",
+        "attribution",
+        "causality",
+        "completeness",
+        "sufficiency",
+        "freshness",
+        "duplication",
+        "finality",
+        "reason_codes",
+        "must_not_conclude"
+      ],
+      "properties": {
+        "authority_status": {
+          "type": "string"
+        },
+        "profile_compatibility": {
+          "type": "string"
+        },
+        "overall": {
+          "type": "string"
+        },
+        "occurrence": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "causality": {
+          "type": "string"
+        },
+        "completeness": {
+          "type": "string"
+        },
+        "sufficiency": {
+          "type": "string"
+        },
+        "freshness": {
+          "type": "string"
+        },
+        "duplication": {
+          "type": "string"
+        },
+        "finality": {
+          "type": "string"
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "must_not_conclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "negativePolicy": {
+      "type": "object",
+      "required": [
+        "allowed_consistency_levels",
+        "allowed_source_classes",
+        "freshness_max_age_seconds",
+        "minimum_retention_seconds",
+        "future_observation_result",
+        "stale_result",
+        "contradiction_rule",
+        "complete_read_requirement"
+      ],
+      "properties": {
+        "allowed_consistency_levels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "allowed_source_classes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "freshness_max_age_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minimum_retention_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "future_observation_result": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stale_result": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contradiction_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "complete_read_requirement": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

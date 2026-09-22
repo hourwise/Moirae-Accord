@@ -1,0 +1,80 @@
+{
+  "clean_export_scenarios": {
+    "clean_export_diagnostic": "",
+    "clean_export_independent": true,
+    "clean_export_primary": true,
+    "delete_python_diagnostic": "",
+    "delete_python_independent": true,
+    "delete_python_surfaces": {
+      "counts": {
+        "CONFORMANCE_MEMBER_RULES": 42,
+        "DEFERRED_RULES": 50,
+        "GOVERNANCE_INVARIANTS": 16,
+        "GOVERNANCE_INVARIANTS_PASS": 16,
+        "INDEPENDENT_BINDINGS": 16,
+        "INTERNAL_DESIGN_INVARIANTS": 12,
+        "PACKAGE_INVARIANTS": 23,
+        "PACKAGE_INVARIANTS_PASS": 23,
+        "TOTAL_RULES": 104
+      },
+      "governance": "PASS",
+      "internal": "PASS",
+      "trust": "PASS",
+      "v013": "NON_OCCURRENCE_SUPPORTED"
+    },
+    "falsifier_diagnostic": "",
+    "falsifier_in_clean_export": true,
+    "falsifier_summary": {
+      "baseline": true,
+      "control_pass": 4,
+      "controls": 4,
+      "mutation_cases": 33,
+      "mutation_pass": 33
+    },
+    "linux_like_pinned_lf": true,
+    "no_git_export": true,
+    "windows_like_crlf": true,
+    "windows_like_diagnostic": ""
+  },
+  "comparisons": {
+    "active_object_set": true,
+    "binding_map": true,
+    "class_map": true,
+    "expectation_stability_result": true,
+    "governance_conformance_status": true,
+    "governance_invariant_map": true,
+    "internal_conformance_status": true,
+    "internal_map": true,
+    "member_rule_map": true,
+    "package_invariant_map": true,
+    "procedure_role_closure": true,
+    "reference_edge_set": true,
+    "rule_set": true,
+    "schema_result_set": true,
+    "trusted_identity_result": true,
+    "v013_requirement_map_result": true,
+    "v013_result": true
+  },
+  "counts": {
+    "CONFORMANCE_MEMBER_RULES": 42,
+    "DEFERRED_RULES": 50,
+    "GOVERNANCE_INVARIANTS": 16,
+    "GOVERNANCE_INVARIANTS_PASS": 16,
+    "INDEPENDENT_BINDINGS": 16,
+    "INTERNAL_DESIGN_INVARIANTS": 12,
+    "PACKAGE_INVARIANTS": 23,
+    "PACKAGE_INVARIANTS_PASS": 23,
+    "TOTAL_RULES": 104
+  },
+  "derived_reference_edges": 256,
+  "governance_conformance": "PASS",
+  "independent_diagnostic": "",
+  "independent_pass": true,
+  "internal_package_conformance": "PASS",
+  "overall_pass": true,
+  "primary_diagnostic": "",
+  "primary_pass": true,
+  "release_verifier": "ACCORD-02E4R5R3",
+  "trusted_package_identity": "PASS",
+  "v013_result": "NON_OCCURRENCE_SUPPORTED"
+}

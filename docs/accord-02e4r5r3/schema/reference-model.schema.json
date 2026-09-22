@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r3:schema:reference-model:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "mechanism",
+    "discovery_scope",
+    "shape_predicate",
+    "edge_identity",
+    "deduplication",
+    "resolution_cardinality"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02r5r3:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "mechanism": {
+      "const": "SHAPE_PREDICATE"
+    },
+    "discovery_scope": {
+      "type": "object",
+      "required": [
+        "registry_status",
+        "classification"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "registry_status": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string"
+        }
+      }
+    },
+    "shape_predicate": {
+      "type": "object",
+      "required": [
+        "required_keys",
+        "optional_keys",
+        "additional_keys",
+        "all_values_type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "required_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "optional_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "additional_keys": {
+          "type": "string"
+        },
+        "all_values_type": {
+          "const": "STRING"
+        }
+      }
+    },
+    "edge_identity": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "deduplication": {
+      "type": "string"
+    },
+    "resolution_cardinality": {
+      "const": "EXACTLY_ONE"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

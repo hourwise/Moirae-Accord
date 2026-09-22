@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r3:schema:integrity-modes",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r3:integrity-modes:0.2",
+  "object_id": "urn:moirae:accord-02r5r3:integrity-modes",
+  "object_version": "0.2",
+  "modes": [
+    {
+      "mode": "SEMANTIC_JSON_CONTENT",
+      "input": "CANONICAL_JSON_OF_OBJECT_FILE",
+      "canonicalization": "RFC8785_JCS",
+      "algorithm": "SHA-256",
+      "expected_digest_source": "OBJECT_INTEGRITY_DIGEST_FIELD",
+      "verification_operation": "REMOVE_NOT_APPLICABLE_RECOMPUTE_AND_COMPARE",
+      "failure_code": "E4R5R3-SEMANTIC-DIGEST-MISMATCH",
+      "applicability": [
+        "NORMATIVE_PACKAGE_LOCAL_FILE"
+      ]
+    },
+    {
+      "mode": "RAW_FILE_BYTES",
+      "input": "RAW_FILE_BYTES",
+      "canonicalization": "NONE",
+      "algorithm": "SHA-256",
+      "expected_digest_source": "OBJECT_INTEGRITY_DIGEST_FIELD",
+      "verification_operation": "RECOMPUTE_AND_COMPARE",
+      "failure_code": "E4R5R3-RAW-FILE-DIGEST-MISMATCH",
+      "applicability": [
+        "NORMATIVE_PACKAGE_LOCAL_FILE"
+      ]
+    },
+    {
+      "mode": "PACKAGE_PINNED_BOOTSTRAP",
+      "input": "CANONICAL_JSON_OF_OBJECT_FILE",
+      "canonicalization": "RFC8785_JCS",
+      "algorithm": "SHA-256",
+      "expected_digest_source": "PACKAGE_REGISTRY_SEMANTIC_SHA256",
+      "verification_operation": "RECOMPUTE_AND_COMPARE",
+      "failure_code": "E4R5R3-BOOTSTRAP-DIGEST-MISMATCH",
+      "applicability": [
+        "OBJECT_REGISTRY"
+      ]
+    },
+    {
+      "mode": "SELF_DIGEST",
+      "input": "OBJECT_WITH_EXCLUSION_POINTERS_REMOVED",
+      "canonicalization": "RFC8785_JCS",
+      "algorithm": "SHA-256",
+      "expected_digest_source": "OBJECT_CURRENT_CANDIDATE_INTEGRITY_DIGEST",
+      "verification_operation": "REMOVE_POINTER_THEN_RECOMPUTE_AND_COMPARE",
+      "failure_code": "E4R5R3-SELF-DIGEST-MISMATCH",
+      "applicability": [
+        "CURRENT_CANDIDATE_PACKAGE"
+      ]
+    },
+    {
+      "mode": "DUAL_ACCEPTED_SOURCE",
+      "input": "RAW_FILE_BYTES_AND_CANONICAL_JSON",
+      "canonicalization": "RFC8785_JCS",
+      "algorithm": "SHA-256",
+      "expected_digest_source": "BOUND_ACCEPTED_SOURCE_BINDING",
+      "verification_operation": "RECOMPUTE_BOTH_AND_COMPARE",
+      "failure_code": "E4R5R3-ACCEPTED-SOURCE-DIGEST-MISMATCH",
+      "applicability": [
+        "ACCEPTED_SOURCE"
+      ]
+    }
+  ],
+  "dispatch": {
+    "procedure_operation": "INTEGRITY_MODE_DISPATCH",
+    "dispatch_key": "OBJECT_INTEGRITY_MODE_FIELD",
+    "unknown_mode_behavior": "FAIL_CLOSED",
+    "unknown_mode_failure_code": "E4R5R3-INTEGRITY-MODE-UNKNOWN"
+  }
+}

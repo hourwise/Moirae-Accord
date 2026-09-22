@@ -1,0 +1,1446 @@
+{
+  "baseline": {
+    "detail": {
+      "independent": {
+        "diagnostic": "",
+        "ok": true
+      },
+      "primary": {
+        "diagnostic": "",
+        "ok": true
+      }
+    },
+    "passed": true
+  },
+  "controls": {
+    "COHERENT_REWRITE_REPLACED_TRUST_ROOT": {
+      "detail": {
+        "independent": {
+          "diagnostic": "",
+          "ok": true,
+          "status": "DIFFERENT_PACKAGE_VERIFIED"
+        },
+        "primary": {
+          "diagnostic": "",
+          "ok": true,
+          "status": "DIFFERENT_PACKAGE_VERIFIED"
+        }
+      },
+      "passed": true
+    },
+    "NO_EXTERNAL_TRUST_INPUT": {
+      "detail": {
+        "independent": {
+          "code": "MISSING_EXTERNAL_TRUST_INPUT",
+          "diagnostic": "",
+          "ok": true,
+          "status": "FAIL"
+        },
+        "primary": {
+          "code": "MISSING_EXTERNAL_TRUST_INPUT",
+          "diagnostic": "",
+          "ok": true,
+          "status": "FAIL"
+        }
+      },
+      "passed": true
+    },
+    "REFERENCE_DEDUPLICATION": {
+      "detail": {
+        "independent": {
+          "diagnostic": "",
+          "ok": true
+        },
+        "primary": {
+          "diagnostic": "",
+          "ok": true
+        }
+      },
+      "passed": true
+    },
+    "SELF_DIGEST_FORMATTING_STABLE": {
+      "detail": {
+        "independent": {
+          "diagnostic": "",
+          "ok": true
+        },
+        "primary": {
+          "diagnostic": "",
+          "ok": true
+        }
+      },
+      "passed": true
+    }
+  },
+  "mutation_cases": {
+    "AMBIGUITY_BEHAVIOR": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "AMBIGUITY_BEHAVIOR_SUPPORTED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "AMBIGUITY_BEHAVIOR_SUPPORTED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "AMBIGUITY_BEHAVIOR_SUPPORTED_FAILURE"
+        ],
+        "expected_invariant": "AMBIGUITY_BEHAVIOR_SUPPORTED",
+        "observed_codes": {
+          "independent": [
+            "AMBIGUITY_BEHAVIOR_SUPPORTED_FAILURE"
+          ],
+          "primary": [
+            "AMBIGUITY_BEHAVIOR_SUPPORTED_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "COHERENT_REWRITE_ORIGINAL_TRUST_ROOT": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "TRUSTED_PACKAGE_IDENTITY"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "TRUSTED_PACKAGE_IDENTITY"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "TRUSTED_IDENTITY_MISMATCH"
+        ],
+        "expected_invariant": "TRUSTED_PACKAGE_IDENTITY",
+        "observed_codes": {
+          "independent": [
+            "TRUSTED_IDENTITY_MISMATCH"
+          ],
+          "primary": [
+            "TRUSTED_IDENTITY_MISMATCH"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "CONTRADICTION_COUNT_RELAXATION": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "NEGATIVE_CALLER_SUPPLIED_COUNT_FORBIDDEN",
+          "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+        ],
+        "expected_invariant": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ],
+          "primary": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "CONTRADICTION_RULE_MUTATION": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+        ],
+        "expected_invariant": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ],
+          "primary": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "CORRUPT_CANDIDATE_BINDING_DIGEST": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+          "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY"
+        ],
+        "expected_invariant": "SOURCE_CATALOG_BINDING",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "DEFAULT_ARGUMENTS": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "DEFAULT_ARGUMENT_COVERAGE",
+              "INVARIANT_PROCEDURE_ARITY_AGREEMENT",
+              "RULE_EXPECTATION_AUTHORITY_COMPLETE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "DEFAULT_ARGUMENT_COVERAGE",
+              "INVARIANT_PROCEDURE_ARITY_AGREEMENT",
+              "RULE_EXPECTATION_AUTHORITY_COMPLETE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "DEFAULT_ARGUMENT_COVERAGE_FAILURE"
+        ],
+        "expected_invariant": "DEFAULT_ARGUMENT_COVERAGE",
+        "observed_codes": {
+          "independent": [
+            "CANDIDATE_CLOSURE_FAILURE",
+            "DEFAULT_ARGUMENT_COVERAGE_FAILURE",
+            "INVARIANT_PROCEDURE_ARITY_AGREEMENT_FAILURE",
+            "MEASURED_CLOSURE_FAILURE",
+            "RULE_EXPECTATION_AUTHORITY_COMPLETE_FAILURE"
+          ],
+          "primary": [
+            "CANDIDATE_CLOSURE_FAILURE",
+            "DEFAULT_ARGUMENT_COVERAGE_FAILURE",
+            "INVARIANT_PROCEDURE_ARITY_AGREEMENT_FAILURE",
+            "MEASURED_CLOSURE_FAILURE",
+            "RULE_EXPECTATION_AUTHORITY_COMPLETE_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "DELETED_RULE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "RULE_COVERAGE_EXACT"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "RULE_COVERAGE_EXACT"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "RULE_COVERAGE_EXACT_FAILURE"
+        ],
+        "expected_invariant": "RULE_COVERAGE_EXACT",
+        "observed_codes": {
+          "independent": [
+            "RULE_COVERAGE_EXACT_FAILURE"
+          ],
+          "primary": [
+            "RULE_COVERAGE_EXACT_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "DUPLICATE_GOVERNING_POLICY_DECLARATION": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "GOVERNING_TOKEN_SINGLETON",
+              "STANDARDS_VALIDATION"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "GOVERNING_TOKEN_SINGLETON",
+              "STANDARDS_VALIDATION"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "GOVERNING_TOKEN_SINGLETON_FAILURE"
+        ],
+        "expected_invariant": "GOVERNING_TOKEN_SINGLETON",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R2-PROPOSITION-REFERENCE",
+            "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+            "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+            "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+            "GOVERNING_TOKEN_SINGLETON_FAILURE",
+            "PROPOSITION_KIND_MISMATCH",
+            "STANDARDS_VALIDATION_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R2-PROPOSITION-REFERENCE",
+            "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+            "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+            "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+            "GOVERNING_TOKEN_SINGLETON_FAILURE",
+            "PROPOSITION_KIND_MISMATCH",
+            "STANDARDS_VALIDATION_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "DUPLICATE_PROPOSITION_ID": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "PROPOSITION_INVENTORY_BOUND"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "PROPOSITION_INVENTORY_BOUND"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "PROPOSITION_INVENTORY_BOUND_FAILURE"
+        ],
+        "expected_invariant": "PROPOSITION_INVENTORY_BOUND",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+            "PROPOSITION_INVENTORY_BOUND_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+            "PROPOSITION_INVENTORY_BOUND_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "DUPLICATE_REQUIREMENT_ID": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+        ],
+        "expected_invariant": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ],
+          "primary": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "EMPTY_DISCOVERY_UNIVERSE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "REFERENCE_DISCOVERY_SCOPE_VALID"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "REFERENCE_DISCOVERY_SCOPE_VALID"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "REFERENCE_DISCOVERY_SCOPE_VALID_FAILURE"
+        ],
+        "expected_invariant": "REFERENCE_DISCOVERY_SCOPE_VALID",
+        "observed_codes": {
+          "independent": [
+            "REFERENCE_DISCOVERY_SCOPE_VALID_FAILURE"
+          ],
+          "primary": [
+            "REFERENCE_DISCOVERY_SCOPE_VALID_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "EVALUATION_ORDER_OMISSION": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+        ],
+        "expected_invariant": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ],
+          "primary": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "EXTRA_RULE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "RULE_COVERAGE_EXACT"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "RULE_COVERAGE_EXACT"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "RULE_COVERAGE_EXACT_FAILURE"
+        ],
+        "expected_invariant": "RULE_COVERAGE_EXACT",
+        "observed_codes": {
+          "independent": [
+            "RULE_COVERAGE_EXACT_FAILURE"
+          ],
+          "primary": [
+            "RULE_COVERAGE_EXACT_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "FAIL_CLOSED_FALSE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "FAIL_CLOSED_ENFORCED",
+              "INVARIANT_PROCEDURE_ARITY_AGREEMENT"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "FAIL_CLOSED_ENFORCED",
+              "INVARIANT_PROCEDURE_ARITY_AGREEMENT"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "FAIL_CLOSED_ENFORCED_FAILURE"
+        ],
+        "expected_invariant": "FAIL_CLOSED_ENFORCED",
+        "observed_codes": {
+          "independent": [
+            "FAIL_CLOSED_ENFORCED_FAILURE",
+            "INVARIANT_PROCEDURE_ARITY_AGREEMENT_FAILURE"
+          ],
+          "primary": [
+            "FAIL_CLOSED_ENFORCED_FAILURE",
+            "INVARIANT_PROCEDURE_ARITY_AGREEMENT_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "FORGED_V013_BASIS": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "V013_BASIS_VALID"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "V013_BASIS_VALID"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "V013_BASIS_VALID_FAILURE"
+        ],
+        "expected_invariant": "V013_BASIS_VALID",
+        "observed_codes": {
+          "independent": [
+            "V013_BASIS_VALID_FAILURE"
+          ],
+          "primary": [
+            "V013_BASIS_VALID_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "FUTURE_OBSERVATION_MUTATION": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+        ],
+        "expected_invariant": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ],
+          "primary": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "INVARIANT_ACTIVE_REMOVED": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "INVARIANT_SET_EXACT",
+              "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+              "STANDARDS_VALIDATION"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "INVARIANT_SET_EXACT",
+              "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+              "STANDARDS_VALIDATION"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "INVARIANT_SET_EXACT_FAILURE"
+        ],
+        "expected_invariant": "INVARIANT_SET_EXACT",
+        "observed_codes": {
+          "independent": [
+            "CANDIDATE_CLOSURE_FAILURE",
+            "INVARIANT_SET_EXACT_FAILURE",
+            "MEASURED_CLOSURE_FAILURE",
+            "RULE_EXPECTATION_AUTHORITY_COMPLETE_FAILURE"
+          ],
+          "primary": [
+            "CANDIDATE_CLOSURE_FAILURE",
+            "INVARIANT_SET_EXACT_FAILURE",
+            "MEASURED_CLOSURE_FAILURE",
+            "RULE_EXPECTATION_AUTHORITY_COMPLETE_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "MISSING_ADMISSIBLE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+              "STANDARDS_VALIDATION"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+              "STANDARDS_VALIDATION"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "NEGATIVE_UNIVERSE_UNTYPED",
+          "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+        ],
+        "expected_invariant": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R2-PROPOSITION-REFERENCE",
+            "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+            "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+            "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT",
+            "PROPOSITION_KIND_MISMATCH",
+            "STANDARDS_VALIDATION_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R2-PROPOSITION-REFERENCE",
+            "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+            "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+            "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT",
+            "PROPOSITION_KIND_MISMATCH",
+            "STANDARDS_VALIDATION_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "MISSING_BEHAVIOR": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "MISSING_BEHAVIOR_SUPPORTED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "MISSING_BEHAVIOR_SUPPORTED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "MISSING_BEHAVIOR_SUPPORTED_FAILURE"
+        ],
+        "expected_invariant": "MISSING_BEHAVIOR_SUPPORTED",
+        "observed_codes": {
+          "independent": [
+            "MISSING_BEHAVIOR_SUPPORTED_FAILURE"
+          ],
+          "primary": [
+            "MISSING_BEHAVIOR_SUPPORTED_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "MISSING_PROPOSITION_ID": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "PROPOSITION_INVENTORY_BOUND"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "PROPOSITION_INVENTORY_BOUND"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "PROPOSITION_INVENTORY_BOUND_FAILURE"
+        ],
+        "expected_invariant": "PROPOSITION_INVENTORY_BOUND",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+            "PROPOSITION_INVENTORY_BOUND_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+            "PROPOSITION_INVENTORY_BOUND_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "MISSING_V013_REQUIREMENT": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "NEGATIVE_REQUIREMENT_MAP_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "NEGATIVE_REQUIREMENT_MAP_FAILURE"
+        ],
+        "expected_invariant": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ],
+          "primary": [
+            "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+            "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+            "NEGATIVE_SCOPE_INCOMPLETE",
+            "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "NONEXISTENT_SOURCE_PATH": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+          "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY"
+        ],
+        "expected_invariant": "SOURCE_CATALOG_BINDING",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "REDIRECT_TO_PACKAGE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+          "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY"
+        ],
+        "expected_invariant": "SOURCE_CATALOG_BINDING",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "ROLE_MODEL": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "ROLE_MODEL_APPLIED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "ROLE_MODEL_APPLIED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "ROLE_MODEL_APPLIED_FAILURE"
+        ],
+        "expected_invariant": "ROLE_MODEL_APPLIED",
+        "observed_codes": {
+          "independent": [
+            "ROLE_MODEL_APPLIED_FAILURE"
+          ],
+          "primary": [
+            "ROLE_MODEL_APPLIED_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "SCHEMA_ID_MISMATCH": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SCHEMA_IDENTITY_MATCHES_REGISTRY"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SCHEMA_IDENTITY_MATCHES_REGISTRY"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "SCHEMA_IDENTITY_MATCHES_REGISTRY_FAILURE"
+        ],
+        "expected_invariant": "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+        "observed_codes": {
+          "independent": [
+            "SCHEMA_IDENTITY_MATCHES_REGISTRY_FAILURE"
+          ],
+          "primary": [
+            "SCHEMA_IDENTITY_MATCHES_REGISTRY_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "SUBJECT_ROLES": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SUBJECT_ROLE_COVERAGE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SUBJECT_ROLE_COVERAGE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "SUBJECT_ROLE_COVERAGE_FAILURE"
+        ],
+        "expected_invariant": "SUBJECT_ROLE_COVERAGE",
+        "observed_codes": {
+          "independent": [
+            "SUBJECT_ROLE_COVERAGE_FAILURE"
+          ],
+          "primary": [
+            "SUBJECT_ROLE_COVERAGE_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "UNDECLARED_DERIVATION_ROLE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "DERIVATION_ROLE_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "DERIVATION_ROLE_CLOSURE"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "DERIVATION_ROLE_CLOSURE_FAILURE"
+        ],
+        "expected_invariant": "DERIVATION_ROLE_CLOSURE",
+        "observed_codes": {
+          "independent": [
+            "DERIVATION_ROLE_CLOSURE_FAILURE"
+          ],
+          "primary": [
+            "DERIVATION_ROLE_CLOSURE_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "UNSUPPORTED_INTEGRITY_MODE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "INTEGRITY_MODE_DISPATCH",
+              "SEMANTIC_DIGEST_VERIFY"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "INTEGRITY_MODE_DISPATCH",
+              "SEMANTIC_DIGEST_VERIFY"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "INTEGRITY_MODE_DISPATCH_FAILURE"
+        ],
+        "expected_invariant": "INTEGRITY_MODE_DISPATCH",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R5-DIGEST-MISMATCH",
+            "INTEGRITY_MODE_DISPATCH_FAILURE",
+            "PROFILE_DIGEST_SCOPE_FAILURE",
+            "SEMANTIC_DIGEST_VERIFY_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R5-DIGEST-MISMATCH",
+            "INTEGRITY_MODE_DISPATCH_FAILURE",
+            "PROFILE_DIGEST_SCOPE_FAILURE",
+            "SEMANTIC_DIGEST_VERIFY_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "WEAKENED_UNIQUENESS_KEY": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "UNIQUENESS_KEY_APPLIED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "UNIQUENESS_KEY_APPLIED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "UNIQUENESS_KEY_APPLIED_FAILURE"
+        ],
+        "expected_invariant": "UNIQUENESS_KEY_APPLIED",
+        "observed_codes": {
+          "independent": [
+            "UNIQUENESS_KEY_APPLIED_FAILURE"
+          ],
+          "primary": [
+            "UNIQUENESS_KEY_APPLIED_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "WIDENED_SHAPE_PREDICATE": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "REFERENCE_SHAPE_PREDICATE_APPLIED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "REFERENCE_SHAPE_PREDICATE_APPLIED"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "REFERENCE_SHAPE_PREDICATE_APPLIED_FAILURE"
+        ],
+        "expected_invariant": "REFERENCE_SHAPE_PREDICATE_APPLIED",
+        "observed_codes": {
+          "independent": [
+            "REFERENCE_SHAPE_PREDICATE_APPLIED_FAILURE"
+          ],
+          "primary": [
+            "REFERENCE_SHAPE_PREDICATE_APPLIED_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "WRONG_SOURCE_IDENTITY": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+          "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY"
+        ],
+        "expected_invariant": "SOURCE_CATALOG_BINDING",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "WRONG_SOURCE_PATH": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+          "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY"
+        ],
+        "expected_invariant": "SOURCE_CATALOG_BINDING",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    },
+    "WRONG_SOURCE_SEMANTIC_MAPPING": {
+      "detail": {
+        "detail": {
+          "independent": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          },
+          "primary": {
+            "code_ok": true,
+            "diagnostic": "",
+            "failed_invariants": [
+              "SOURCE_CATALOG_BINDING"
+            ],
+            "intended_failed": true,
+            "rejected": true
+          }
+        },
+        "expected_codes": [
+          "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+          "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY"
+        ],
+        "expected_invariant": "SOURCE_CATALOG_BINDING",
+        "observed_codes": {
+          "independent": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ],
+          "primary": [
+            "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+            "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+            "SOURCE_CATALOG_BINDING_FAILURE"
+          ]
+        }
+      },
+      "passed": true
+    }
+  },
+  "overall_pass": true,
+  "summary": {
+    "baseline": true,
+    "control_pass": 4,
+    "controls": 4,
+    "mutation_cases": 33,
+    "mutation_pass": 33
+  }
+}

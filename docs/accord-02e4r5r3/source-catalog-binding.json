@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r3:schema:source-catalog-binding",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r3:source-catalog-binding:0.2",
+  "object_id": "urn:moirae:accord-02r5r3:source-catalog-binding",
+  "object_version": "0.2",
+  "candidate_binding": {
+    "assigned_kind": "SOURCE_VECTOR_CATALOG",
+    "assigned_id": "urn:moirae:accord-02r5:source-vector-catalog",
+    "assigned_version": "0.1",
+    "repository_root_path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+    "semantic_json_content_sha256": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5",
+    "raw_file_bytes_sha256": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+    "declared_integrity_class": "SEMANTIC_JSON_CONTENT",
+    "declared_canonicalization": "RFC8785_JCS",
+    "declared_algorithm": "SHA-256",
+    "identity_assignment": "PACKAGE_BINDING_NOT_HISTORICAL_SELF_ASSERTION"
+  },
+  "accepted_binding_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02r5r3:accepted-source-bindings",
+    "version": "0.2"
+  },
+  "object_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02r5r3:object-registry",
+    "version": "0.2"
+  },
+  "integrity_mode_vocabulary_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02r5r3:integrity-modes",
+    "version": "0.2"
+  },
+  "field_vocabulary_mapping": {
+    "declared_integrity_class": "mode",
+    "declared_canonicalization": "canonicalization",
+    "declared_algorithm": "algorithm"
+  }
+}

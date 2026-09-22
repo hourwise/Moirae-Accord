@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r3:schema:integrity-modes:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "modes",
+    "dispatch"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02r5r3:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "mode",
+          "input",
+          "canonicalization",
+          "algorithm",
+          "expected_digest_source",
+          "verification_operation",
+          "failure_code",
+          "applicability"
+        ],
+        "properties": {
+          "mode": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input": {
+            "type": "string",
+            "minLength": 1
+          },
+          "canonicalization": {
+            "type": "string",
+            "minLength": 1
+          },
+          "algorithm": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expected_digest_source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_operation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "failure_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "applicability": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "dispatch": {
+      "type": "object",
+      "required": [
+        "procedure_operation",
+        "dispatch_key",
+        "unknown_mode_behavior",
+        "unknown_mode_failure_code"
+      ],
+      "properties": {
+        "procedure_operation": {
+          "const": "INTEGRITY_MODE_DISPATCH"
+        },
+        "dispatch_key": {
+          "const": "OBJECT_INTEGRITY_MODE_FIELD"
+        },
+        "unknown_mode_behavior": {
+          "const": "FAIL_CLOSED"
+        },
+        "unknown_mode_failure_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

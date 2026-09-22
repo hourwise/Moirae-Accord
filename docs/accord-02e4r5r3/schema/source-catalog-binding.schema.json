@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r3:schema:source-catalog-binding:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "candidate_binding",
+    "accepted_binding_ref",
+    "object_registry_ref",
+    "integrity_mode_vocabulary_ref",
+    "field_vocabulary_mapping"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02r5r3:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "candidate_binding": {
+      "type": "object",
+      "required": [
+        "assigned_kind",
+        "assigned_id",
+        "assigned_version",
+        "repository_root_path",
+        "semantic_json_content_sha256",
+        "raw_file_bytes_sha256",
+        "declared_integrity_class",
+        "declared_canonicalization",
+        "declared_algorithm",
+        "identity_assignment"
+      ],
+      "properties": {
+        "assigned_kind": {
+          "type": "string"
+        },
+        "assigned_id": {
+          "type": "string"
+        },
+        "assigned_version": {
+          "type": "string"
+        },
+        "repository_root_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "semantic_json_content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "raw_file_bytes_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "declared_integrity_class": {
+          "type": "string"
+        },
+        "declared_canonicalization": {
+          "type": "string"
+        },
+        "declared_algorithm": {
+          "type": "string"
+        },
+        "identity_assignment": {
+          "const": "PACKAGE_BINDING_NOT_HISTORICAL_SELF_ASSERTION"
+        }
+      },
+      "additionalProperties": false
+    },
+    "accepted_binding_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "object_registry_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "integrity_mode_vocabulary_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "field_vocabulary_mapping": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

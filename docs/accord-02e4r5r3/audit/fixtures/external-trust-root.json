@@ -1,0 +1,11 @@
+{
+  "fixture_status": "NON_NORMATIVE_EXTERNAL_TRUST_ROOT_FIXTURE",
+  "trust_root_id": "urn:moirae:accord-02r5r3:external-trust-root:fixture-v1",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "package_digest": "b07d43d0ecbe75a5e23d090b3aceec976e030a3268272185e9809436075c421d",
+  "root_kind_definition": {
+    "PINNED_ACCEPTED_TRUST_ROOT": "caller asserts this digest is the accepted trust anchor",
+    "REPLACED_TRUST_ROOT": "caller asserts the anchor has been replaced out of scope"
+  }
+}

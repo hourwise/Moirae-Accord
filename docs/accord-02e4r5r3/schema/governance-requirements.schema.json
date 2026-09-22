@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r3:schema:governance-requirements:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "scope",
+    "governance_invariants",
+    "fail_closed_requirement",
+    "behavior_vocabulary",
+    "subject_role_requirement",
+    "default_argument_requirement",
+    "derivation_role_closure_requirement",
+    "reference_discovery_scope_requirement",
+    "shape_predicate_requirement",
+    "uniqueness_key_requirement",
+    "role_model_requirement",
+    "schema_identity_requirement",
+    "governing_authority_requirement",
+    "rule_coverage_requirement",
+    "invariant_set_requirement",
+    "supported_operations",
+    "semantic_key_governance"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02r5r3:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "scope": {
+      "const": "BOUNDED_PACKAGE_ONLY_GOVERNANCE"
+    },
+    "governance_invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "fail_closed_requirement": {
+      "type": "object"
+    },
+    "behavior_vocabulary": {
+      "type": "object"
+    },
+    "subject_role_requirement": {
+      "type": "object"
+    },
+    "default_argument_requirement": {
+      "type": "object"
+    },
+    "derivation_role_closure_requirement": {
+      "type": "object"
+    },
+    "reference_discovery_scope_requirement": {
+      "type": "object"
+    },
+    "shape_predicate_requirement": {
+      "type": "object"
+    },
+    "uniqueness_key_requirement": {
+      "type": "object"
+    },
+    "role_model_requirement": {
+      "type": "object"
+    },
+    "schema_identity_requirement": {
+      "type": "object"
+    },
+    "governing_authority_requirement": {
+      "type": "object"
+    },
+    "rule_coverage_requirement": {
+      "type": "object"
+    },
+    "invariant_set_requirement": {
+      "type": "object"
+    },
+    "supported_operations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "semantic_key_governance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

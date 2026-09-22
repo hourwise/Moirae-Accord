@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02r5r3:schema:authority-requirements:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "package_requirements",
+    "stage_policy_requirements",
+    "stage_policy_authorization",
+    "canonicalization_requirements",
+    "partial_effect_requirements",
+    "classification_requirements",
+    "governing_contract_refs",
+    "trust_boundary_requirements"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02r5r3:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "package_requirements": {
+      "type": "object"
+    },
+    "stage_policy_requirements": {
+      "type": "object",
+      "required": [
+        "global_stage_order",
+        "implicit_transitivity"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "stage_policy_authorization": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "canonicalization_requirements": {
+      "type": "object"
+    },
+    "partial_effect_requirements": {
+      "type": "object"
+    },
+    "classification_requirements": {
+      "type": "object"
+    },
+    "governing_contract_refs": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/ref"
+      }
+    },
+    "trust_boundary_requirements": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

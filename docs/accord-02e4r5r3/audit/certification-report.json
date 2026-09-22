@@ -1,0 +1,3878 @@
+{
+  "active_object_set": [
+    [
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2"
+    ],
+    [
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:external-verification-input-contract",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:integrity-modes",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:proposition-inventory",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:semantic-key-authority",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-governance",
+      "0.2"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2"
+    ],
+    [
+      "EVIDENCE",
+      "urn:moirae:accord-02r5r3:v013-evidence",
+      "0.2"
+    ],
+    [
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2"
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2"
+    ],
+    [
+      "POLICY",
+      "urn:moirae:accord-02r5r3:partial-effect-policy",
+      "0.2"
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2"
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2"
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2"
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:accepted-source-bindings",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:authority-requirements",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:canonicalization-profile",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:external-verification-input-contract",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:governance-requirements",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:integrity-modes",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:invariant-registry",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:normative-inputs",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:object-registry",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:partial-effect-policy",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:procedure-registry",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:proposition-inventory",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:reference-model",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:rule-registry",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:semantic-key-authority",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:source-catalog-binding",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:specification-package",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-evidence",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-governance",
+      "0.2"
+    ],
+    [
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-target",
+      "0.2"
+    ]
+  ],
+  "arity_trace": {
+    "ACCEPTED_BASE_DUAL_INTEGRITY": {
+      "declared_roles": [
+        "bindings"
+      ],
+      "procedure_arguments": [
+        "bindings"
+      ],
+      "status": "PASS"
+    },
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY": {
+      "declared_roles": [
+        "bindings"
+      ],
+      "procedure_arguments": [
+        "bindings"
+      ],
+      "status": "PASS"
+    },
+    "AMBIGUITY_BEHAVIOR_SUPPORTED": {
+      "declared_roles": [
+        "governance",
+        "procedures"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "procedures"
+      ],
+      "status": "PASS"
+    },
+    "CANONICALIZATION_AUTHORITY_CLOSURE": {
+      "declared_roles": [
+        "authority",
+        "profile"
+      ],
+      "procedure_arguments": [
+        "authority",
+        "profile"
+      ],
+      "status": "PASS"
+    },
+    "CURRENT_PACKAGE_IDENTITY": {
+      "declared_roles": [
+        "authority",
+        "package",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "authority",
+        "package",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "DEFAULT_ARGUMENT_COVERAGE": {
+      "declared_roles": [
+        "invariants",
+        "procedures",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "invariants",
+        "procedures",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "DEPENDENCY_GRAPH_EQUAL": {
+      "declared_roles": [
+        "inputs"
+      ],
+      "procedure_arguments": [
+        "inputs"
+      ],
+      "status": "PASS"
+    },
+    "DERIVATION_ROLE_CLOSURE": {
+      "declared_roles": [
+        "invariants",
+        "procedures"
+      ],
+      "procedure_arguments": [
+        "invariants",
+        "procedures"
+      ],
+      "status": "PASS"
+    },
+    "EXPECTATION_STABILITY": {
+      "declared_roles": [
+        "accepted_vectors",
+        "inputs"
+      ],
+      "procedure_arguments": [
+        "accepted_vectors",
+        "inputs"
+      ],
+      "status": "PASS"
+    },
+    "FAIL_CLOSED_ENFORCED": {
+      "declared_roles": [
+        "governance",
+        "invariants"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "invariants"
+      ],
+      "status": "PASS"
+    },
+    "GOVERNING_AUTHORITY_REFERENCE_VALID": {
+      "declared_roles": [
+        "authority",
+        "integrity_modes",
+        "v013_governance"
+      ],
+      "procedure_arguments": [
+        "authority",
+        "integrity_modes",
+        "v013_governance"
+      ],
+      "status": "PASS"
+    },
+    "GOVERNING_TOKEN_SINGLETON": {
+      "declared_roles": [
+        "registry",
+        "semantic_keys"
+      ],
+      "procedure_arguments": [
+        "registry",
+        "semantic_keys"
+      ],
+      "status": "PASS"
+    },
+    "INTEGRITY_MODE_DISPATCH": {
+      "declared_roles": [
+        "integrity_modes",
+        "package",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "integrity_modes",
+        "package",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "INVARIANT_PROCEDURE_ARITY_AGREEMENT": {
+      "declared_roles": [
+        "invariants",
+        "procedures"
+      ],
+      "procedure_arguments": [
+        "invariants",
+        "procedures"
+      ],
+      "status": "PASS"
+    },
+    "INVARIANT_SET_EXACT": {
+      "declared_roles": [
+        "invariants",
+        "package"
+      ],
+      "procedure_arguments": [
+        "invariants",
+        "package"
+      ],
+      "status": "PASS"
+    },
+    "MISSING_BEHAVIOR_SUPPORTED": {
+      "declared_roles": [
+        "governance",
+        "procedures"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "procedures"
+      ],
+      "status": "PASS"
+    },
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE": {
+      "declared_roles": [
+        "evidence",
+        "inputs",
+        "target"
+      ],
+      "procedure_arguments": [
+        "evidence",
+        "inputs",
+        "target"
+      ],
+      "status": "PASS"
+    },
+    "OBJECT_IDENTITY_UNIQUE": {
+      "declared_roles": [
+        "registry"
+      ],
+      "procedure_arguments": [
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "PACKAGE_LINEAGE": {
+      "declared_roles": [
+        "authority",
+        "package"
+      ],
+      "procedure_arguments": [
+        "authority",
+        "package"
+      ],
+      "status": "PASS"
+    },
+    "PACKAGE_SELF_DIGEST": {
+      "declared_roles": [
+        "canonicalization",
+        "package"
+      ],
+      "procedure_arguments": [
+        "canonicalization",
+        "package"
+      ],
+      "status": "PASS"
+    },
+    "PARTIAL_EFFECT_POLICY_CLOSURE": {
+      "declared_roles": [
+        "authority",
+        "policy"
+      ],
+      "procedure_arguments": [
+        "authority",
+        "policy"
+      ],
+      "status": "PASS"
+    },
+    "PREDICATE_AUTHORITY_CLOSURE": {
+      "declared_roles": [
+        "authority",
+        "inputs"
+      ],
+      "procedure_arguments": [
+        "authority",
+        "inputs"
+      ],
+      "status": "PASS"
+    },
+    "PROCEDURE_OPERATION_SUPPORTED": {
+      "declared_roles": [
+        "governance",
+        "procedures"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "procedures"
+      ],
+      "status": "PASS"
+    },
+    "PROFILE_REFERENCE_PINNING": {
+      "declared_roles": [
+        "authority",
+        "inputs"
+      ],
+      "procedure_arguments": [
+        "authority",
+        "inputs"
+      ],
+      "status": "PASS"
+    },
+    "PROPOSITION_INVENTORY_BOUND": {
+      "declared_roles": [
+        "inputs",
+        "inventory"
+      ],
+      "procedure_arguments": [
+        "inputs",
+        "inventory"
+      ],
+      "status": "PASS"
+    },
+    "REFERENCE_DISCOVERY_SCOPE_VALID": {
+      "declared_roles": [
+        "reference_model",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "reference_model",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "REFERENCE_SHAPE_PREDICATE_APPLIED": {
+      "declared_roles": [
+        "governance",
+        "reference_model"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "reference_model"
+      ],
+      "status": "PASS"
+    },
+    "ROLE_MODEL_APPLIED": {
+      "declared_roles": [
+        "governance",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "RULE_COVERAGE_EXACT": {
+      "declared_roles": [
+        "rules"
+      ],
+      "procedure_arguments": [
+        "rules"
+      ],
+      "status": "PASS"
+    },
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE": {
+      "declared_roles": [
+        "invariants",
+        "procedures",
+        "registry",
+        "rules"
+      ],
+      "procedure_arguments": [
+        "invariants",
+        "procedures",
+        "registry",
+        "rules"
+      ],
+      "status": "PASS"
+    },
+    "SCHEMA_IDENTITY_MATCHES_REGISTRY": {
+      "declared_roles": [
+        "registry"
+      ],
+      "procedure_arguments": [
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "SCHEMA_NON_VACUITY": {
+      "declared_roles": [
+        "registry"
+      ],
+      "procedure_arguments": [
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "SEMANTIC_DIGEST_VERIFY": {
+      "declared_roles": [
+        "canonicalization",
+        "package",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "canonicalization",
+        "package",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "SOURCE_CATALOG_BINDING": {
+      "declared_roles": [
+        "accepted_binding",
+        "candidate_binding",
+        "object_registry"
+      ],
+      "procedure_arguments": [
+        "accepted_binding",
+        "candidate_binding",
+        "object_registry"
+      ],
+      "status": "PASS"
+    },
+    "STANDARDS_VALIDATION": {
+      "declared_roles": [
+        "reference_model",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "reference_model",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "SUBJECT_ROLE_COVERAGE": {
+      "declared_roles": [
+        "governance",
+        "invariants"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "invariants"
+      ],
+      "status": "PASS"
+    },
+    "TRUSTED_PACKAGE_IDENTITY": {
+      "declared_roles": [
+        "package"
+      ],
+      "procedure_arguments": [
+        "package"
+      ],
+      "status": "PASS"
+    },
+    "TYPED_REFERENCE_CLOSURE": {
+      "declared_roles": [
+        "reference_model",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "reference_model",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "UNIQUENESS_KEY_APPLIED": {
+      "declared_roles": [
+        "governance",
+        "registry"
+      ],
+      "procedure_arguments": [
+        "governance",
+        "registry"
+      ],
+      "status": "PASS"
+    },
+    "V013_BASIS_VALID": {
+      "declared_roles": [
+        "accepted_vectors",
+        "evidence",
+        "target",
+        "v013_governance"
+      ],
+      "procedure_arguments": [
+        "accepted_vectors",
+        "evidence",
+        "target",
+        "v013_governance"
+      ],
+      "status": "PASS"
+    }
+  },
+  "binding_map": {
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY|{\"bindings\":{\"id\":\"urn:moirae:accord-02r5r3:accepted-source-bindings\",\"kind\":\"CONTRACT\",\"version\":\"0.2\"}}": "PASS",
+    "CANONICALIZATION_AUTHORITY_CLOSURE|{\"authority\":{\"id\":\"urn:moirae:accord-02r5r3:authority-requirements\",\"kind\":\"AUTHORITY\",\"version\":\"0.2\"},\"profile\":{\"id\":\"urn:moirae:accord-02r5r3:canonicalization-profile\",\"kind\":\"CANONICALIZATION\",\"version\":\"0.2\"}}": "PASS",
+    "DEPENDENCY_GRAPH_EQUAL|{\"inputs\":{\"id\":\"urn:moirae:accord-02r5r3:normative-inputs\",\"kind\":\"NORMATIVE_INPUTS\",\"version\":\"0.2\"}}": "PASS",
+    "EXPECTATION_STABILITY|{\"accepted_vectors\":{\"id\":\"urn:moirae:accord-02r5:source-vector-catalog\",\"kind\":\"SOURCE_VECTOR_CATALOG\",\"version\":\"0.1\"},\"inputs\":{\"id\":\"urn:moirae:accord-02r5r3:normative-inputs\",\"kind\":\"NORMATIVE_INPUTS\",\"version\":\"0.2\"}}": "PASS",
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE|{\"evidence\":{\"id\":\"urn:moirae:accord-02r5r3:v013-evidence\",\"kind\":\"EVIDENCE\",\"version\":\"0.2\"},\"inputs\":{\"id\":\"urn:moirae:accord-02r5r3:normative-inputs\",\"kind\":\"NORMATIVE_INPUTS\",\"version\":\"0.2\"},\"target\":{\"id\":\"urn:moirae:accord-02r5r3:v013-target\",\"kind\":\"CONTRACT\",\"version\":\"0.2\"}}": "PASS",
+    "OBJECT_IDENTITY_UNIQUE|{\"registry\":{\"id\":\"urn:moirae:accord-02r5r3:object-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"}}": "PASS",
+    "PACKAGE_LINEAGE|{\"authority\":{\"id\":\"urn:moirae:accord-02r5r3:authority-requirements\",\"kind\":\"AUTHORITY\",\"version\":\"0.2\"},\"package\":{\"id\":\"urn:moirae:accord-02r5:specification-package\",\"kind\":\"PACKAGE\",\"version\":\"0.2\"}}": "PASS",
+    "PARTIAL_EFFECT_POLICY_CLOSURE|{\"authority\":{\"id\":\"urn:moirae:accord-02r5r3:authority-requirements\",\"kind\":\"AUTHORITY\",\"version\":\"0.2\"},\"policy\":{\"id\":\"urn:moirae:accord-02r5r3:partial-effect-policy\",\"kind\":\"POLICY\",\"version\":\"0.2\"}}": "PASS",
+    "PREDICATE_AUTHORITY_CLOSURE|{\"authority\":{\"id\":\"urn:moirae:accord-02r5r3:authority-requirements\",\"kind\":\"AUTHORITY\",\"version\":\"0.2\"},\"inputs\":{\"id\":\"urn:moirae:accord-02r5r3:normative-inputs\",\"kind\":\"NORMATIVE_INPUTS\",\"version\":\"0.2\"}}": "PASS",
+    "PROFILE_REFERENCE_PINNING|{\"authority\":{\"id\":\"urn:moirae:accord-02r5r3:authority-requirements\",\"kind\":\"AUTHORITY\",\"version\":\"0.2\"},\"inputs\":{\"id\":\"urn:moirae:accord-02r5r3:normative-inputs\",\"kind\":\"NORMATIVE_INPUTS\",\"version\":\"0.2\"}}": "PASS",
+    "PROPOSITION_INVENTORY_BOUND|{\"inputs\":{\"id\":\"urn:moirae:accord-02r5r3:normative-inputs\",\"kind\":\"NORMATIVE_INPUTS\",\"version\":\"0.2\"},\"inventory\":{\"id\":\"urn:moirae:accord-02r5r3:proposition-inventory\",\"kind\":\"CONTRACT\",\"version\":\"0.2\"}}": "PASS",
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE|{\"invariants\":{\"id\":\"urn:moirae:accord-02r5r3:invariant-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"},\"procedures\":{\"id\":\"urn:moirae:accord-02r5r3:procedure-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"},\"registry\":{\"id\":\"urn:moirae:accord-02r5r3:object-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"},\"rules\":{\"id\":\"urn:moirae:accord-02r5r3:rule-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"}}": "PASS",
+    "SEMANTIC_DIGEST_VERIFY|{\"canonicalization\":{\"id\":\"urn:moirae:accord-02r5r3:canonicalization-profile\",\"kind\":\"CANONICALIZATION\",\"version\":\"0.2\"},\"package\":{\"id\":\"urn:moirae:accord-02r5:specification-package\",\"kind\":\"PACKAGE\",\"version\":\"0.2\"},\"registry\":{\"id\":\"urn:moirae:accord-02r5r3:object-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"}}": "PASS",
+    "SOURCE_CATALOG_BINDING|{\"accepted_binding\":{\"id\":\"urn:moirae:accord-02r5r3:accepted-source-bindings\",\"kind\":\"CONTRACT\",\"version\":\"0.2\"},\"candidate_binding\":{\"id\":\"urn:moirae:accord-02r5r3:source-catalog-binding\",\"kind\":\"CONTRACT\",\"version\":\"0.2\"},\"object_registry\":{\"id\":\"urn:moirae:accord-02r5r3:object-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"}}": "PASS",
+    "STANDARDS_VALIDATION|{\"reference_model\":{\"id\":\"urn:moirae:accord-02r5r3:reference-model\",\"kind\":\"CONTRACT\",\"version\":\"0.2\"},\"registry\":{\"id\":\"urn:moirae:accord-02r5r3:object-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"}}": "PASS",
+    "TYPED_REFERENCE_CLOSURE|{\"reference_model\":{\"id\":\"urn:moirae:accord-02r5r3:reference-model\",\"kind\":\"CONTRACT\",\"version\":\"0.2\"},\"registry\":{\"id\":\"urn:moirae:accord-02r5r3:object-registry\",\"kind\":\"REGISTRY\",\"version\":\"0.2\"}}": "PASS"
+  },
+  "certificate": "ACCORD-02E4R5R3_PRIMARY",
+  "class_errors": {},
+  "class_map": {
+    "ARM-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-006": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-007": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "BND-001": "INTERNAL_DESIGN_INVARIANT",
+    "BND-002": "INTERNAL_DESIGN_INVARIANT",
+    "BND-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "BND-004": "EXECUTABLE_CONFORMANCE_RULE",
+    "BND-005": "EXECUTABLE_CONFORMANCE_RULE",
+    "CLF-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "CLF-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "CLF-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "CLF-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "DIGEST-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "DIGEST-002": "INTERNAL_DESIGN_INVARIANT",
+    "DIGEST-003": "INTERNAL_DESIGN_INVARIANT",
+    "DIGEST-CANON-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "DIGEST-CANON-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "DIGEST-CANON-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-AUTH-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-BIND-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-CANON-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-CLOSE-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-ENT-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-EXPECT-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-NEG-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-NEG-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PART-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PART-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PART-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PRED-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PRED-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PRED-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PROP-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-BIND-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-CANON-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-CLOSE-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-GRAPH-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-NEG-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-PROFILE-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-REF-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "EXT-001": "INTERNAL_DESIGN_INVARIANT",
+    "EXT-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-006": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "LIN-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "LIN-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-006": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-007": "EXECUTABLE_CONFORMANCE_RULE",
+    "LIN-008": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-009": "EXECUTABLE_CONFORMANCE_RULE",
+    "NORM-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ORC-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ORC-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ORC-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PKG-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "PKG-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "PRED-001": "INTERNAL_DESIGN_INVARIANT",
+    "PRED-002": "INTERNAL_DESIGN_INVARIANT",
+    "PRED-003": "INTERNAL_DESIGN_INVARIANT",
+    "PRED-004": "INTERNAL_DESIGN_INVARIANT",
+    "PROF-001": "INTERNAL_DESIGN_INVARIANT",
+    "PROF-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "PROJ-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROJ-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROJ-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROJ-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "PROP-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-006": "EXECUTABLE_CONFORMANCE_RULE",
+    "RAW-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RAW-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RAW-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ROLE-001": "INTERNAL_DESIGN_INVARIANT",
+    "RUN-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RUN-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RUN-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RUN-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SCENARIO-ID-001": "INTERNAL_DESIGN_INVARIANT",
+    "SCHEMA-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "SCHEMA-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "SCORE-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SCORE-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SCORE-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SRC-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "SRC-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "SRC-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "SRC-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "VIS-001": "DEFERRED_NO_SUBJECT_ARTIFACT"
+  },
+  "counts": {
+    "CONFORMANCE_MEMBER_RULES": 42,
+    "DEFERRED_RULES": 50,
+    "GOVERNANCE_INVARIANTS": 16,
+    "GOVERNANCE_INVARIANTS_PASS": 16,
+    "INDEPENDENT_BINDINGS": 16,
+    "INTERNAL_DESIGN_INVARIANTS": 12,
+    "PACKAGE_INVARIANTS": 23,
+    "PACKAGE_INVARIANTS_PASS": 23,
+    "TOTAL_RULES": 104
+  },
+  "expectation_stability_result": {
+    "changed": [],
+    "vector_ids": 23
+  },
+  "governance_conformance": "PASS",
+  "governance_invariant_map": {
+    "AMBIGUITY_BEHAVIOR_SUPPORTED": "PASS",
+    "DEFAULT_ARGUMENT_COVERAGE": "PASS",
+    "DERIVATION_ROLE_CLOSURE": "PASS",
+    "FAIL_CLOSED_ENFORCED": "PASS",
+    "GOVERNING_AUTHORITY_REFERENCE_VALID": "PASS",
+    "GOVERNING_TOKEN_SINGLETON": "PASS",
+    "INVARIANT_SET_EXACT": "PASS",
+    "MISSING_BEHAVIOR_SUPPORTED": "PASS",
+    "PROCEDURE_OPERATION_SUPPORTED": "PASS",
+    "REFERENCE_DISCOVERY_SCOPE_VALID": "PASS",
+    "REFERENCE_SHAPE_PREDICATE_APPLIED": "PASS",
+    "ROLE_MODEL_APPLIED": "PASS",
+    "RULE_COVERAGE_EXACT": "PASS",
+    "SCHEMA_IDENTITY_MATCHES_REGISTRY": "PASS",
+    "SUBJECT_ROLE_COVERAGE": "PASS",
+    "UNIQUENESS_KEY_APPLIED": "PASS"
+  },
+  "internal_map": {
+    "BND-001": "PASS",
+    "BND-002": "PASS",
+    "DIGEST-002": "PASS",
+    "DIGEST-003": "PASS",
+    "EXT-001": "PASS",
+    "PRED-001": "PASS",
+    "PRED-002": "PASS",
+    "PRED-003": "PASS",
+    "PRED-004": "PASS",
+    "PROF-001": "PASS",
+    "ROLE-001": "PASS",
+    "SCENARIO-ID-001": "PASS"
+  },
+  "internal_package_conformance": "PASS",
+  "invariant_failure_code_map": {
+    "ACCEPTED_BASE_DUAL_INTEGRITY": [],
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY": [],
+    "AMBIGUITY_BEHAVIOR_SUPPORTED": [],
+    "CANONICALIZATION_AUTHORITY_CLOSURE": [],
+    "CURRENT_PACKAGE_IDENTITY": [],
+    "DEFAULT_ARGUMENT_COVERAGE": [],
+    "DEPENDENCY_GRAPH_EQUAL": [],
+    "DERIVATION_ROLE_CLOSURE": [],
+    "EXPECTATION_STABILITY": [],
+    "FAIL_CLOSED_ENFORCED": [],
+    "GOVERNING_AUTHORITY_REFERENCE_VALID": [],
+    "GOVERNING_TOKEN_SINGLETON": [],
+    "INTEGRITY_MODE_DISPATCH": [],
+    "INVARIANT_PROCEDURE_ARITY_AGREEMENT": [],
+    "INVARIANT_SET_EXACT": [],
+    "MISSING_BEHAVIOR_SUPPORTED": [],
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE": [],
+    "OBJECT_IDENTITY_UNIQUE": [],
+    "PACKAGE_LINEAGE": [],
+    "PACKAGE_SELF_DIGEST": [],
+    "PARTIAL_EFFECT_POLICY_CLOSURE": [],
+    "PREDICATE_AUTHORITY_CLOSURE": [],
+    "PROCEDURE_OPERATION_SUPPORTED": [],
+    "PROFILE_REFERENCE_PINNING": [],
+    "PROPOSITION_INVENTORY_BOUND": [],
+    "REFERENCE_DISCOVERY_SCOPE_VALID": [],
+    "REFERENCE_SHAPE_PREDICATE_APPLIED": [],
+    "ROLE_MODEL_APPLIED": [],
+    "RULE_COVERAGE_EXACT": [],
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE": [],
+    "SCHEMA_IDENTITY_MATCHES_REGISTRY": [],
+    "SCHEMA_NON_VACUITY": [],
+    "SEMANTIC_DIGEST_VERIFY": [],
+    "SOURCE_CATALOG_BINDING": [],
+    "STANDARDS_VALIDATION": [],
+    "SUBJECT_ROLE_COVERAGE": [],
+    "TRUSTED_PACKAGE_IDENTITY": [],
+    "TYPED_REFERENCE_CLOSURE": [],
+    "UNIQUENESS_KEY_APPLIED": [],
+    "V013_BASIS_VALID": []
+  },
+  "member_rule_map": {
+    "ARM-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-006": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ARM-007": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "BND-001": "INTERNAL_DESIGN_INVARIANT",
+    "BND-002": "INTERNAL_DESIGN_INVARIANT",
+    "BND-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "BND-004": "EXECUTABLE_CONFORMANCE_RULE",
+    "BND-005": "EXECUTABLE_CONFORMANCE_RULE",
+    "CLF-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "CLF-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "CLF-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "CLF-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "DIGEST-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "DIGEST-002": "INTERNAL_DESIGN_INVARIANT",
+    "DIGEST-003": "INTERNAL_DESIGN_INVARIANT",
+    "DIGEST-CANON-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "DIGEST-CANON-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "DIGEST-CANON-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-AUTH-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-BIND-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-CANON-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-CLOSE-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-ENT-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-EXPECT-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-NEG-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-NEG-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PART-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PART-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PART-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PRED-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PRED-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PRED-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R1-PROP-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-BIND-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-CANON-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-CLOSE-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-GRAPH-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-NEG-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-PROFILE-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "E4R2-REF-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "EXT-001": "INTERNAL_DESIGN_INVARIANT",
+    "EXT-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "EXT-006": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "LIN-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "LIN-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-006": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-007": "EXECUTABLE_CONFORMANCE_RULE",
+    "LIN-008": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "LIN-009": "EXECUTABLE_CONFORMANCE_RULE",
+    "NORM-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "NORM-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ORC-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ORC-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ORC-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PKG-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "PKG-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "PRED-001": "INTERNAL_DESIGN_INVARIANT",
+    "PRED-002": "INTERNAL_DESIGN_INVARIANT",
+    "PRED-003": "INTERNAL_DESIGN_INVARIANT",
+    "PRED-004": "INTERNAL_DESIGN_INVARIANT",
+    "PROF-001": "INTERNAL_DESIGN_INVARIANT",
+    "PROF-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "PROJ-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROJ-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROJ-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROJ-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "PROP-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-005": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "PROP-006": "EXECUTABLE_CONFORMANCE_RULE",
+    "RAW-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RAW-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RAW-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "ROLE-001": "INTERNAL_DESIGN_INVARIANT",
+    "RUN-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RUN-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RUN-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "RUN-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SCENARIO-ID-001": "INTERNAL_DESIGN_INVARIANT",
+    "SCHEMA-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "SCHEMA-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "SCORE-001": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SCORE-002": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SCORE-003": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "SRC-001": "EXECUTABLE_CONFORMANCE_RULE",
+    "SRC-002": "EXECUTABLE_CONFORMANCE_RULE",
+    "SRC-003": "EXECUTABLE_CONFORMANCE_RULE",
+    "SRC-004": "DEFERRED_NO_SUBJECT_ARTIFACT",
+    "VIS-001": "DEFERRED_NO_SUBJECT_ARTIFACT"
+  },
+  "overall_pass": true,
+  "package_invariant_map": {
+    "ACCEPTED_BASE_DUAL_INTEGRITY": "PASS",
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY": "PASS",
+    "CANONICALIZATION_AUTHORITY_CLOSURE": "PASS",
+    "CURRENT_PACKAGE_IDENTITY": "PASS",
+    "DEPENDENCY_GRAPH_EQUAL": "PASS",
+    "EXPECTATION_STABILITY": "PASS",
+    "INTEGRITY_MODE_DISPATCH": "PASS",
+    "INVARIANT_PROCEDURE_ARITY_AGREEMENT": "PASS",
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE": "PASS",
+    "OBJECT_IDENTITY_UNIQUE": "PASS",
+    "PACKAGE_LINEAGE": "PASS",
+    "PACKAGE_SELF_DIGEST": "PASS",
+    "PARTIAL_EFFECT_POLICY_CLOSURE": "PASS",
+    "PREDICATE_AUTHORITY_CLOSURE": "PASS",
+    "PROFILE_REFERENCE_PINNING": "PASS",
+    "PROPOSITION_INVENTORY_BOUND": "PASS",
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE": "PASS",
+    "SCHEMA_NON_VACUITY": "PASS",
+    "SEMANTIC_DIGEST_VERIFY": "PASS",
+    "SOURCE_CATALOG_BINDING": "PASS",
+    "STANDARDS_VALIDATION": "PASS",
+    "TYPED_REFERENCE_CLOSURE": "PASS",
+    "V013_BASIS_VALID": "PASS"
+  },
+  "procedure_role_closure": {
+    "ACCEPTED_BASE_DUAL_INTEGRITY": "DUAL_INTEGRITY",
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY": "DUAL_INTEGRITY",
+    "AMBIGUITY_BEHAVIOR_SUPPORTED": "AMBIGUITY_BEHAVIOR_SUPPORTED",
+    "CANONICALIZATION_AUTHORITY_CLOSURE": "CANONICALIZATION_PROFILE_WELLFORMED",
+    "CURRENT_PACKAGE_IDENTITY": "CURRENT_PACKAGE_IDENTITY",
+    "DEFAULT_ARGUMENT_COVERAGE": "DEFAULT_ARGUMENT_COVERAGE",
+    "DEPENDENCY_GRAPH_EQUAL": "SET_EQUALITY",
+    "DERIVATION_ROLE_CLOSURE": "DERIVATION_ROLE_CLOSURE",
+    "EXPECTATION_STABILITY": "EXPECTATION_STABILITY",
+    "FAIL_CLOSED_ENFORCED": "FAIL_CLOSED_ENFORCED",
+    "GOVERNING_AUTHORITY_REFERENCE_VALID": "GOVERNING_AUTHORITY_REFERENCE_VALID",
+    "GOVERNING_TOKEN_SINGLETON": "GOVERNING_TOKEN_SINGLETON",
+    "INTEGRITY_MODE_DISPATCH": "INTEGRITY_MODE_DISPATCH",
+    "INVARIANT_PROCEDURE_ARITY_AGREEMENT": "ARITY_AGREEMENT",
+    "INVARIANT_SET_EXACT": "INVARIANT_SET_EXACT",
+    "MISSING_BEHAVIOR_SUPPORTED": "MISSING_BEHAVIOR_SUPPORTED",
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE": "REQUIREMENT_MAP_EVAL",
+    "OBJECT_IDENTITY_UNIQUE": "UNIQUE_KEY",
+    "PACKAGE_LINEAGE": "LINEAGE_VALIDATION",
+    "PACKAGE_SELF_DIGEST": "SELF_DIGEST",
+    "PARTIAL_EFFECT_POLICY_CLOSURE": "PARTIAL_EFFECT_POLICY_CLOSURE",
+    "PREDICATE_AUTHORITY_CLOSURE": "PREDICATE_POLICY_AGREEMENT",
+    "PROCEDURE_OPERATION_SUPPORTED": "PROCEDURE_OPERATION_SUPPORTED",
+    "PROFILE_REFERENCE_PINNING": "PROFILE_REFERENCE_PINNING",
+    "PROPOSITION_INVENTORY_BOUND": "PROPOSITION_INVENTORY_BOUND",
+    "REFERENCE_DISCOVERY_SCOPE_VALID": "REFERENCE_DISCOVERY_SCOPE_VALID",
+    "REFERENCE_SHAPE_PREDICATE_APPLIED": "REFERENCE_SHAPE_PREDICATE_APPLIED",
+    "ROLE_MODEL_APPLIED": "ROLE_MODEL_APPLIED",
+    "RULE_COVERAGE_EXACT": "RULE_COVERAGE_EXACT",
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE": "AUTHORITY_COMPLETENESS",
+    "SCHEMA_IDENTITY_MATCHES_REGISTRY": "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+    "SCHEMA_NON_VACUITY": "SCHEMA_NON_VACUITY",
+    "SEMANTIC_DIGEST_VERIFY": "DIGEST_RECOMPUTE",
+    "SOURCE_CATALOG_BINDING": "SOURCE_CATALOG_BINDING_MATCH",
+    "STANDARDS_VALIDATION": "SCHEMA_VALIDATION",
+    "SUBJECT_ROLE_COVERAGE": "SUBJECT_ROLE_COVERAGE",
+    "TRUSTED_PACKAGE_IDENTITY": "TRUST_ANCHOR_COMPARE",
+    "TYPED_REFERENCE_CLOSURE": "REFERENCE_RESOLUTION",
+    "UNIQUENESS_KEY_APPLIED": "UNIQUENESS_KEY_APPLIED",
+    "V013_BASIS_VALID": "V013_BASIS_VALID"
+  },
+  "read_only": true,
+  "reference_edge_set": [
+    [
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      "/governing_contract_refs/external_verification_contract",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:external-verification-input-contract",
+      "0.2",
+      ""
+    ],
+    [
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      "/governing_contract_refs/governance_requirements",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      "/governing_contract_refs/integrity_modes",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:integrity-modes",
+      "0.2",
+      ""
+    ],
+    [
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      "/governing_contract_refs/semantic_key_authority",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:semantic-key-authority",
+      "0.2",
+      ""
+    ],
+    [
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      "/sources/0/ref",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.1",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      "/sources/1/ref",
+      "SOURCE_VECTOR_CATALOG",
+      "urn:moirae:accord-02r5:source-vector-catalog",
+      "0.1",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:external-verification-input-contract",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:external-verification-input-contract",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      "/semantic_key_governance/semantic_key_authority_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:semantic-key-authority",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:integrity-modes",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:integrity-modes",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:proposition-inventory",
+      "0.2",
+      "/derived_from/accepted_catalog_ref",
+      "SOURCE_VECTOR_CATALOG",
+      "urn:moirae:accord-02r5:source-vector-catalog",
+      "0.1",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:proposition-inventory",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:proposition-inventory",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:semantic-key-authority",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:semantic-key-authority",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      "/accepted_binding_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      "/integrity_mode_vocabulary_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:integrity-modes",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      "/object_registry_ref",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:source-catalog-binding",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-governance",
+      "0.2",
+      "/accepted_v013_locator/source_ref",
+      "SOURCE_VECTOR_CATALOG",
+      "urn:moirae:accord-02r5:source-vector-catalog",
+      "0.1",
+      "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-governance",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-governance",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-target",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      "/settlement_profile_ref",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      "/source_vector_ref",
+      "SOURCE_VECTOR_CATALOG",
+      "urn:moirae:accord-02r5:source-vector-catalog",
+      "0.1",
+      "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+    ],
+    [
+      "EVIDENCE",
+      "urn:moirae:accord-02r5r3:v013-evidence",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-evidence",
+      "0.2",
+      ""
+    ],
+    [
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      "/accepted_base_package_ref",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.1",
+      ""
+    ],
+    [
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      "/negative_requirement_map_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-governance",
+      "0.2",
+      ""
+    ],
+    [
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      "/proposition_inventory_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:proposition-inventory",
+      "0.2",
+      ""
+    ],
+    [
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      "/source_catalog_binding_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      ""
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      "/accepted_base_ref",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.1",
+      ""
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      "/invariant_registry_ref",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      "/object_registry_ref",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      "/procedure_registry_ref",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      "/rule_registry_ref",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      "/trust_anchor_requirement_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:external-verification-input-contract",
+      "0.2",
+      ""
+    ],
+    [
+      "POLICY",
+      "urn:moirae:accord-02r5r3:partial-effect-policy",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:partial-effect-policy",
+      "0.2",
+      ""
+    ],
+    [
+      "POLICY",
+      "urn:moirae:accord-02r5r3:partial-effect-policy",
+      "0.2",
+      "/stage_authority_ref",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/0/default_arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/0/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/1/default_arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/1/default_arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/10/default_arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/10/default_arguments/profile",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/11/default_arguments/accepted_binding",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/11/default_arguments/candidate_binding",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/11/default_arguments/object_registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/12/default_arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/12/default_arguments/policy",
+      "POLICY",
+      "urn:moirae:accord-02r5r3:partial-effect-policy",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/13/default_arguments/evidence",
+      "EVIDENCE",
+      "urn:moirae:accord-02r5r3:v013-evidence",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/13/default_arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/13/default_arguments/target",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/14/default_arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/14/default_arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/14/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/14/default_arguments/rules",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/15/default_arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/15/default_arguments/inventory",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:proposition-inventory",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/16/default_arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/16/default_arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/17/default_arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/17/default_arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/18/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/19/default_arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/19/default_arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/19/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/2/default_arguments/bindings",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/20/default_arguments/canonicalization",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/20/default_arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/21/default_arguments/integrity_modes",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:integrity-modes",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/21/default_arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/21/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/22/default_arguments/accepted_vectors",
+      "SOURCE_VECTOR_CATALOG",
+      "urn:moirae:accord-02r5:source-vector-catalog",
+      "0.1",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/22/default_arguments/evidence",
+      "EVIDENCE",
+      "urn:moirae:accord-02r5r3:v013-evidence",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/22/default_arguments/target",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/22/default_arguments/v013_governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-governance",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/23/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/23/default_arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/24/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/24/default_arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/25/default_arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/25/default_arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/25/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/26/default_arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/26/default_arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/27/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/27/default_arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/28/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/28/default_arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/29/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/29/default_arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/3/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/30/default_arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/30/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/31/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/31/default_arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/32/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/32/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/33/default_arguments/governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/33/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/34/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/35/default_arguments/rules",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/36/default_arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/36/default_arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/37/default_arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/37/default_arguments/integrity_modes",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:integrity-modes",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/37/default_arguments/v013_governance",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-governance",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/38/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/38/default_arguments/semantic_keys",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:semantic-key-authority",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/39/default_arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/4/default_arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/4/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/5/default_arguments/canonicalization",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/5/default_arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/5/default_arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/6/default_arguments/bindings",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/7/default_arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/8/default_arguments/accepted_vectors",
+      "SOURCE_VECTOR_CATALOG",
+      "urn:moirae:accord-02r5:source-vector-catalog",
+      "0.1",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/8/default_arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/9/default_arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/invariants/9/default_arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/0/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/1/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:governance-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/10/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:source-catalog-binding",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/11/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:rule-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/12/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/13/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/14/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/15/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/16/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/17/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:external-verification-input-contract",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/2/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:integrity-modes",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/3/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:semantic-key-authority",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/38/integrity/binding_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/39/integrity/binding_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/4/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/40/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/41/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/5/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:partial-effect-policy",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/6/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-target",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/7/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-evidence",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/8/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:v013-governance",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/objects/9/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:proposition-inventory",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      "/procedures/10/derivation/vocabulary_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:integrity-modes",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      "/procedures/12/derivation/requirement_ref",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-governance",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/100/invariant_binding/arguments/evidence",
+      "EVIDENCE",
+      "urn:moirae:accord-02r5r3:v013-evidence",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/100/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/100/invariant_binding/arguments/target",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/101/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/102/invariant_binding/arguments/canonicalization",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/102/invariant_binding/arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/102/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/103/invariant_binding/arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/103/invariant_binding/arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/103/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/103/invariant_binding/arguments/rules",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/17/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/17/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/18/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/23/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/23/invariant_binding/arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/25/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/25/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/33/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/34/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/36/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/36/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/37/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/37/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/42/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/48/invariant_binding/arguments/accepted_binding",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/48/invariant_binding/arguments/candidate_binding",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/48/invariant_binding/arguments/object_registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/49/invariant_binding/arguments/bindings",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/50/invariant_binding/arguments/accepted_binding",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:accepted-source-bindings",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/50/invariant_binding/arguments/candidate_binding",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:source-catalog-binding",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/50/invariant_binding/arguments/object_registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/62/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/63/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/64/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/65/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/66/invariant_binding/arguments/canonicalization",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/66/invariant_binding/arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/66/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/67/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/68/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/69/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/69/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/70/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/70/invariant_binding/arguments/inventory",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:proposition-inventory",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/71/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/71/invariant_binding/arguments/package",
+      "PACKAGE",
+      "urn:moirae:accord-02r5:specification-package",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/72/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/72/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/73/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/74/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/74/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/75/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/75/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/76/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/76/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/77/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/78/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/78/invariant_binding/arguments/profile",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/79/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/79/invariant_binding/arguments/profile",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/80/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/80/invariant_binding/arguments/profile",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/81/internal_check/subject",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/82/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/82/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/83/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/83/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/84/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/84/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/85/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/85/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/86/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/86/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/87/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/87/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/88/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/88/invariant_binding/arguments/policy",
+      "POLICY",
+      "urn:moirae:accord-02r5r3:partial-effect-policy",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/89/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/89/invariant_binding/arguments/policy",
+      "POLICY",
+      "urn:moirae:accord-02r5r3:partial-effect-policy",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/90/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/90/invariant_binding/arguments/policy",
+      "POLICY",
+      "urn:moirae:accord-02r5r3:partial-effect-policy",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/91/invariant_binding/arguments/evidence",
+      "EVIDENCE",
+      "urn:moirae:accord-02r5r3:v013-evidence",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/91/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/91/invariant_binding/arguments/target",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/92/invariant_binding/arguments/evidence",
+      "EVIDENCE",
+      "urn:moirae:accord-02r5r3:v013-evidence",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/92/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/92/invariant_binding/arguments/target",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:v013-target",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/93/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/93/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/94/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/94/invariant_binding/arguments/profile",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/95/invariant_binding/arguments/accepted_vectors",
+      "SOURCE_VECTOR_CATALOG",
+      "urn:moirae:accord-02r5:source-vector-catalog",
+      "0.1",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/95/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/96/invariant_binding/arguments/invariants",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:invariant-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/96/invariant_binding/arguments/procedures",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:procedure-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/96/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/96/invariant_binding/arguments/rules",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/97/invariant_binding/arguments/reference_model",
+      "CONTRACT",
+      "urn:moirae:accord-02r5r3:reference-model",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/97/invariant_binding/arguments/registry",
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:object-registry",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/98/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/98/invariant_binding/arguments/profile",
+      "CANONICALIZATION",
+      "urn:moirae:accord-02r5r3:canonicalization-profile",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/99/invariant_binding/arguments/authority",
+      "AUTHORITY",
+      "urn:moirae:accord-02r5r3:authority-requirements",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/rules/99/invariant_binding/arguments/inputs",
+      "NORMATIVE_INPUTS",
+      "urn:moirae:accord-02r5r3:normative-inputs",
+      "0.2",
+      ""
+    ],
+    [
+      "REGISTRY",
+      "urn:moirae:accord-02r5r3:rule-registry",
+      "0.2",
+      "/schema_ref",
+      "SCHEMA",
+      "urn:moirae:accord-02r5r3:schema:rule-registry",
+      "0.2",
+      ""
+    ]
+  ],
+  "repository_write_count": 0,
+  "rule_set": [
+    "ARM-001",
+    "ARM-002",
+    "ARM-003",
+    "ARM-004",
+    "ARM-005",
+    "ARM-006",
+    "ARM-007",
+    "BND-001",
+    "BND-002",
+    "BND-003",
+    "BND-004",
+    "BND-005",
+    "CLF-001",
+    "CLF-002",
+    "CLF-003",
+    "CLF-004",
+    "DIGEST-001",
+    "DIGEST-002",
+    "DIGEST-003",
+    "DIGEST-CANON-001",
+    "DIGEST-CANON-002",
+    "DIGEST-CANON-003",
+    "E4R1-AUTH-001",
+    "E4R1-BIND-001",
+    "E4R1-CANON-001",
+    "E4R1-CLOSE-001",
+    "E4R1-ENT-001",
+    "E4R1-EXPECT-001",
+    "E4R1-NEG-001",
+    "E4R1-NEG-002",
+    "E4R1-PART-001",
+    "E4R1-PART-002",
+    "E4R1-PART-003",
+    "E4R1-PRED-001",
+    "E4R1-PRED-002",
+    "E4R1-PRED-003",
+    "E4R1-PROP-001",
+    "E4R2-BIND-001",
+    "E4R2-CANON-001",
+    "E4R2-CLOSE-001",
+    "E4R2-GRAPH-001",
+    "E4R2-NEG-001",
+    "E4R2-PROFILE-001",
+    "E4R2-REF-001",
+    "EXT-001",
+    "EXT-002",
+    "EXT-003",
+    "EXT-004",
+    "EXT-005",
+    "EXT-006",
+    "LIN-001",
+    "LIN-002",
+    "LIN-003",
+    "LIN-004",
+    "LIN-005",
+    "LIN-006",
+    "LIN-007",
+    "LIN-008",
+    "LIN-009",
+    "NORM-001",
+    "NORM-002",
+    "NORM-003",
+    "NORM-004",
+    "NORM-005",
+    "ORC-001",
+    "ORC-002",
+    "ORC-003",
+    "PKG-001",
+    "PKG-002",
+    "PRED-001",
+    "PRED-002",
+    "PRED-003",
+    "PRED-004",
+    "PROF-001",
+    "PROF-002",
+    "PROJ-001",
+    "PROJ-002",
+    "PROJ-003",
+    "PROJ-004",
+    "PROP-001",
+    "PROP-002",
+    "PROP-003",
+    "PROP-004",
+    "PROP-005",
+    "PROP-006",
+    "RAW-001",
+    "RAW-002",
+    "RAW-003",
+    "ROLE-001",
+    "RUN-001",
+    "RUN-002",
+    "RUN-003",
+    "RUN-004",
+    "SCENARIO-ID-001",
+    "SCHEMA-001",
+    "SCHEMA-002",
+    "SCORE-001",
+    "SCORE-002",
+    "SCORE-003",
+    "SRC-001",
+    "SRC-002",
+    "SRC-003",
+    "SRC-004",
+    "VIS-001"
+  ],
+  "schema_result_set": {
+    "urn:moirae:accord-02r5:specification-package": "PASS",
+    "urn:moirae:accord-02r5r3:accepted-source-bindings": "PASS",
+    "urn:moirae:accord-02r5r3:authority-requirements": "PASS",
+    "urn:moirae:accord-02r5r3:canonicalization-profile": "PASS",
+    "urn:moirae:accord-02r5r3:external-verification-input-contract": "PASS",
+    "urn:moirae:accord-02r5r3:governance-requirements": "PASS",
+    "urn:moirae:accord-02r5r3:integrity-modes": "PASS",
+    "urn:moirae:accord-02r5r3:invariant-registry": "PASS",
+    "urn:moirae:accord-02r5r3:normative-inputs": "PASS",
+    "urn:moirae:accord-02r5r3:object-registry": "PASS",
+    "urn:moirae:accord-02r5r3:partial-effect-policy": "PASS",
+    "urn:moirae:accord-02r5r3:procedure-registry": "PASS",
+    "urn:moirae:accord-02r5r3:proposition-inventory": "PASS",
+    "urn:moirae:accord-02r5r3:reference-model": "PASS",
+    "urn:moirae:accord-02r5r3:rule-registry": "PASS",
+    "urn:moirae:accord-02r5r3:schema:accepted-source-bindings": "PASS",
+    "urn:moirae:accord-02r5r3:schema:authority-requirements": "PASS",
+    "urn:moirae:accord-02r5r3:schema:canonicalization-profile": "PASS",
+    "urn:moirae:accord-02r5r3:schema:external-verification-input-contract": "PASS",
+    "urn:moirae:accord-02r5r3:schema:governance-requirements": "PASS",
+    "urn:moirae:accord-02r5r3:schema:integrity-modes": "PASS",
+    "urn:moirae:accord-02r5r3:schema:invariant-registry": "PASS",
+    "urn:moirae:accord-02r5r3:schema:normative-inputs": "PASS",
+    "urn:moirae:accord-02r5r3:schema:object-registry": "PASS",
+    "urn:moirae:accord-02r5r3:schema:partial-effect-policy": "PASS",
+    "urn:moirae:accord-02r5r3:schema:procedure-registry": "PASS",
+    "urn:moirae:accord-02r5r3:schema:proposition-inventory": "PASS",
+    "urn:moirae:accord-02r5r3:schema:reference-model": "PASS",
+    "urn:moirae:accord-02r5r3:schema:rule-registry": "PASS",
+    "urn:moirae:accord-02r5r3:schema:semantic-key-authority": "PASS",
+    "urn:moirae:accord-02r5r3:schema:source-catalog-binding": "PASS",
+    "urn:moirae:accord-02r5r3:schema:specification-package": "PASS",
+    "urn:moirae:accord-02r5r3:schema:v013-evidence": "PASS",
+    "urn:moirae:accord-02r5r3:schema:v013-governance": "PASS",
+    "urn:moirae:accord-02r5r3:schema:v013-target": "PASS",
+    "urn:moirae:accord-02r5r3:semantic-key-authority": "PASS",
+    "urn:moirae:accord-02r5r3:source-catalog-binding": "PASS",
+    "urn:moirae:accord-02r5r3:v013-evidence": "PASS",
+    "urn:moirae:accord-02r5r3:v013-governance": "PASS",
+    "urn:moirae:accord-02r5r3:v013-target": "PASS"
+  },
+  "trusted_package_identity": {
+    "layer": "TRUSTED_PACKAGE_IDENTITY",
+    "reason": "EXTERNAL_TRUST_ANCHOR_EQUALS_RECOMPUTED_CANDIDATE_IDENTITY",
+    "recomputed_identity": {
+      "package_digest": "b07d43d0ecbe75a5e23d090b3aceec976e030a3268272185e9809436075c421d",
+      "package_id": "urn:moirae:accord-02r5:specification-package",
+      "package_version": "0.2"
+    },
+    "status": "PASS"
+  },
+  "v013_requirement_map_result": {
+    "requirements": {
+      "CONSISTENCY_ALLOWED": {
+        "failure_code": "NEGATIVE_CONSISTENCY_DISALLOWED",
+        "status": "PASS",
+        "witness": {}
+      },
+      "EVIDENCE_UNIVERSE_TYPED": {
+        "failure_code": "NEGATIVE_UNIVERSE_UNTYPED",
+        "status": "PASS",
+        "witness": {}
+      },
+      "FORBID_CALLER_SUPPLIED_CONTRADICTION_COUNT": {
+        "failure_code": "NEGATIVE_CALLER_SUPPLIED_COUNT_FORBIDDEN",
+        "status": "PASS",
+        "witness": {
+          "present": []
+        }
+      },
+      "FRESHNESS_BOUND": {
+        "failure_code": "NEGATIVE_FRESHNESS_FAILED",
+        "status": "PASS",
+        "witness": {
+          "age": 60.0
+        }
+      },
+      "FUTURE_OBSERVATION_BOUND": {
+        "failure_code": "NEGATIVE_FUTURE_OBSERVATION",
+        "status": "PASS",
+        "witness": {
+          "observed_at": "2024-01-01T00:00:01Z"
+        }
+      },
+      "INTERVAL_COVERS_TARGET": {
+        "failure_code": "NEGATIVE_INTERVAL_INSUFFICIENT",
+        "status": "PASS",
+        "witness": {}
+      },
+      "INTERVAL_VALID": {
+        "failure_code": "NEGATIVE_INTERVAL_INVALID",
+        "status": "PASS",
+        "witness": {}
+      },
+      "NO_SAME_TARGET_POSITIVE": {
+        "failure_code": "NEGATIVE_CONTRADICTION",
+        "status": "PASS",
+        "witness": {
+          "admissible_positive_same_target": 0
+        }
+      },
+      "READ_COMPLETE": {
+        "failure_code": "NEGATIVE_READ_INCOMPLETE",
+        "status": "PASS",
+        "witness": {}
+      },
+      "RETENTION_MEETS_BOUND": {
+        "failure_code": "NEGATIVE_RETENTION_INSUFFICIENT",
+        "status": "PASS",
+        "witness": {
+          "bound": 86400
+        }
+      },
+      "SOURCE_CLASS_ALLOWED": {
+        "failure_code": "NEGATIVE_SOURCE_CLASS_DISALLOWED",
+        "status": "PASS",
+        "witness": {}
+      },
+      "STALE_RESULT_BOUND": {
+        "failure_code": "NEGATIVE_STALE_EVIDENCE",
+        "status": "PASS",
+        "witness": {
+          "age": 60.0
+        }
+      },
+      "TARGET_EFFECT_EQUAL": {
+        "failure_code": "NEGATIVE_EFFECT_MISMATCH",
+        "status": "PASS",
+        "witness": {
+          "left": "urn:accord:02c:effect:E13",
+          "right": "urn:accord:02c:effect:E13"
+        }
+      },
+      "TARGET_PREDICATE_EQUAL": {
+        "failure_code": "NEGATIVE_PREDICATE_MISMATCH",
+        "status": "PASS",
+        "witness": {
+          "left": "urn:accord:02c:predicate:complete-negative",
+          "right": "urn:accord:02c:predicate:complete-negative"
+        }
+      },
+      "TARGET_SCOPE_EQUAL": {
+        "failure_code": "NEGATIVE_SCOPE_MISMATCH",
+        "status": "PASS",
+        "witness": {}
+      },
+      "TARGET_STAGE_EQUAL": {
+        "failure_code": "NEGATIVE_STAGE_MISMATCH",
+        "status": "PASS",
+        "witness": {
+          "left": "effect",
+          "right": "effect"
+        }
+      }
+    },
+    "result": "NON_OCCURRENCE_SUPPORTED",
+    "structural": {
+      "evaluation_order_covers_once": true,
+      "no_duplicate_ids": true,
+      "policy_fields_covered": true,
+      "required_ids_exact": true
+    }
+  },
+  "v013_result": "NON_OCCURRENCE_SUPPORTED"
+}

@@ -1,0 +1,2081 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r3:schema:rule-registry",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r3:rule-registry:0.2",
+  "object_id": "urn:moirae:accord-02r5r3:rule-registry",
+  "object_version": "0.2",
+  "provenance": {
+    "source_revision": "E4R5R2",
+    "source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+    "source_tree": "19dc9356784d08d04945f8e2ce9b24bcd49e3683",
+    "source_rule_registry_semantic_sha256": "5a772a45538af7ea3df082050842e1881601d626fc239a549c2a5538a3ca9c86",
+    "required_rule_ids": [
+      "ORC-001",
+      "ORC-002",
+      "ORC-003",
+      "ARM-001",
+      "ARM-002",
+      "ARM-003",
+      "ARM-004",
+      "ARM-005",
+      "ARM-006",
+      "ARM-007",
+      "RAW-001",
+      "RAW-002",
+      "RAW-003",
+      "PROJ-001",
+      "PROJ-002",
+      "PROJ-003",
+      "PROJ-004",
+      "LIN-001",
+      "LIN-002",
+      "LIN-003",
+      "LIN-004",
+      "LIN-005",
+      "LIN-006",
+      "LIN-007",
+      "LIN-008",
+      "PROP-001",
+      "PROP-002",
+      "PROP-003",
+      "PROP-004",
+      "PROP-005",
+      "SCORE-001",
+      "SCORE-002",
+      "SCORE-003",
+      "BND-001",
+      "BND-002",
+      "BND-003",
+      "BND-004",
+      "BND-005",
+      "RUN-001",
+      "RUN-002",
+      "RUN-003",
+      "RUN-004",
+      "EXT-001",
+      "EXT-002",
+      "EXT-003",
+      "EXT-004",
+      "EXT-005",
+      "EXT-006",
+      "SRC-001",
+      "SRC-002",
+      "SRC-003",
+      "SRC-004",
+      "VIS-001",
+      "NORM-001",
+      "NORM-002",
+      "NORM-003",
+      "NORM-004",
+      "NORM-005",
+      "CLF-001",
+      "CLF-002",
+      "CLF-003",
+      "CLF-004",
+      "PRED-001",
+      "PRED-002",
+      "PRED-003",
+      "PRED-004",
+      "DIGEST-001",
+      "DIGEST-002",
+      "DIGEST-003",
+      "LIN-009",
+      "PROP-006",
+      "PKG-001",
+      "PKG-002",
+      "PROF-001",
+      "PROF-002",
+      "SCHEMA-001",
+      "SCHEMA-002",
+      "ROLE-001",
+      "DIGEST-CANON-001",
+      "DIGEST-CANON-002",
+      "DIGEST-CANON-003",
+      "SCENARIO-ID-001",
+      "E4R1-PRED-001",
+      "E4R1-PRED-002",
+      "E4R1-PRED-003",
+      "E4R1-AUTH-001",
+      "E4R1-BIND-001",
+      "E4R1-PROP-001",
+      "E4R1-PART-001",
+      "E4R1-PART-002",
+      "E4R1-PART-003",
+      "E4R1-NEG-001",
+      "E4R1-NEG-002",
+      "E4R1-ENT-001",
+      "E4R1-CANON-001",
+      "E4R1-EXPECT-001",
+      "E4R1-CLOSE-001",
+      "E4R2-REF-001",
+      "E4R2-CANON-001",
+      "E4R2-BIND-001",
+      "E4R2-NEG-001",
+      "E4R2-GRAPH-001",
+      "E4R2-PROFILE-001",
+      "E4R2-CLOSE-001"
+    ],
+    "required_rule_inventory_hash": "c169da14bc2dcf844d3b86cd33bced11e869c20084461efd57c1ecb6e354e506"
+  },
+  "rules": [
+    {
+      "rule_id": "ORC-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ORACLE_BOUNDARY",
+      "inherited_failure_code": "ACCORD-02R2-ORACLE-REFERENCE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "public scenario catalog",
+        "system-under-test input manifests"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ORC-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ORACLE_BOUNDARY",
+      "inherited_failure_code": "ACCORD-02R2-ORACLE-REVERSE-JOIN",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "scorer configuration",
+        "public scenario catalog",
+        "arm manifests"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ORC-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ORACLE_BOUNDARY",
+      "inherited_failure_code": "ACCORD-02R2-OPAQUE-SCENARIO-ID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "scenario_id",
+        "fixture identity",
+        "timing configuration"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-ARM-DISCRIMINATOR",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "arm input manifest"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-ARM-PROFILE-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "arm_id",
+        "input_profile_id",
+        "arm input profile catalog"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-SOURCE-TYPE-NOT-ALLOWED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "arm source references",
+        "arm input profile"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-SOURCE-RECORD-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "source_type",
+        "source_record_ref.record_type"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-005",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-ARM-EXTENSION-SMUGGLING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "arm input manifest extensions",
+        "source projections"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-006",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-CLASSIFIER-SOURCE-LEAK",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "ARM-C classifier feature references",
+        "ARM-B-visible source set"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "ARM-007",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ARM_ISOLATION",
+      "inherited_failure_code": "ACCORD-02R2-EXTENSION-SEMANTIC-LEAK",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "arm-visible portable record extensions",
+        "active record/evidence profile"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RAW-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "RAW_OUTPUT",
+      "inherited_failure_code": "ACCORD-02R2-RAW-ENVELOPE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RAW-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "RAW_OUTPUT",
+      "inherited_failure_code": "ACCORD-02R2-RAW-PAYLOAD-MISSING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "raw arm output"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RAW-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "RAW_OUTPUT",
+      "inherited_failure_code": "ACCORD-02R2-RAW-CROSS-ARM-FORWARD",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "raw arm output",
+        "other arm inputs"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-PROJECTION-LINEAGE-MISSING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "A verifier projection",
+        "native C settlement result",
+        "named mapping profile",
+        "canonical proposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-NEGATIVE-PROJECTION-UNSUPPORTED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "native C result",
+        "NO_EFFECT_OBSERVED projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-PROJECTION-STRENGTHENING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "native C result",
+        "A projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROJ-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROJECTION",
+      "inherited_failure_code": "ACCORD-02R2-REJECTED-HISTORY-REWRITE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "REJECTED verifier disposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-REFERENCE-MISSING-OR-AMBIGUOUS",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "TYPED_REFERENCE_CLOSURE",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "LIN-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-DUPLICATE-NORMATIVE-ID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "OBJECT_IDENTITY_UNIQUE",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "LIN-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-FOREIGN-VERIFIER-RUN",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "experiment result",
+        "experiment run",
+        "verifier result",
+        "verifier run"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-SCENARIO-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-005",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-ARM-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "experiment run",
+        "score record",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-006",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "settlement result",
+        "experiment proposition",
+        "result record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "LIN-007",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-FOREIGN-RESULT",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PACKAGE_LINEAGE",
+        "arguments": {
+          "package": {
+            "kind": "PACKAGE",
+            "id": "urn:moirae:accord-02r5:specification-package",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "LIN-008",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "LINEAGE",
+      "inherited_failure_code": "ACCORD-02R2-EXTERNAL-ID-SUBSTITUTION",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "provider_operation_id",
+        "transport_call_id",
+        "Accord semantic references"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_OR_SCORING_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-REFERENCE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "STANDARDS_VALIDATION",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "PROP-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-CROSS-LINK-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "evidence",
+        "observation",
+        "settlement result",
+        "verifier projection"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-PROPOSITION-DUPLICATE-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "denormalized effect/predicate/stage fields",
+        "canonical proposition"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-BINDING-STATUS-INVALID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "binding slots",
+        "active proposition/profile"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PROP-005",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "PROPOSITION",
+      "inherited_failure_code": "ACCORD-02R2-ATTEMPT-ATTRIBUTION-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "attempt attribution",
+        "attempt record",
+        "native C result"
+      ],
+      "later_lifecycle_stage": "VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SCORE-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "SCORE_SEPARATION",
+      "inherited_failure_code": "ACCORD-02R2-SCORE-ARM-CONTAMINATION",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "score record",
+        "arm inputs"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SCORE-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "SCORE_SEPARATION",
+      "inherited_failure_code": "ACCORD-02R2-SCORE-PIPELINE-REORDERED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile",
+        "normalized claim",
+        "scorer truth"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SCORE-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "SCORE_SEPARATION",
+      "inherited_failure_code": "ACCORD-02R2-NORMALIZATION-ORACLE-USE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "normalization profile",
+        "arm-visible information"
+      ],
+      "later_lifecycle_stage": "SCORING",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "BND-001",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "BUNDLE",
+      "inherited_failure_code": "ACCORD-02R3-BUNDLE-SCOPE-INVALID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/BND-001",
+        "comparison": "EXACT_EQUAL",
+        "expected": "CANDIDATE_UNACCEPTED",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "BND-002",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "BUNDLE",
+      "inherited_failure_code": "ACCORD-02R3-UNDECLARED-SCOPE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/BND-002",
+        "comparison": "EXACT_EQUAL",
+        "expected": "id",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "BND-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "BUNDLE",
+      "inherited_failure_code": "ACCORD-02R3-SCORER-MATERIAL-IN-BUNDLE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "bundle information class",
+        "visibility flags"
+      ],
+      "later_lifecycle_stage": "BUNDLE_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "BND-004",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PACKAGE_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "STANDARDS_VALIDATION",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "BND-005",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PACKAGE_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-ACTIVE-PROFILE-RESOLUTION-FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "RUN-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-EXPERIMENT-RUN-INCOMPLETE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "experiment run record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RUN-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-VERIFIER-RUN-INCOMPLETE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "verifier run record"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RUN-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-RUN-MANIFEST-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "experiment run",
+        "arm manifest"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "RUN-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "RUN_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R3-RUN-SCORER-REFERENCE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "experiment run",
+        "verifier run"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-001",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EXTENSION-UNREGISTERED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/EXT-001",
+        "comparison": "EXACT_EQUAL",
+        "expected": "DEFERRED_NO_SUBJECT_ARTIFACT",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "EXT-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-NON-SEMANTIC-USED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "extension registry",
+        "NON_SEMANTIC extensions"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-AUTHORITY-EXTENSION-NO-COMPARATOR",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "AUTHORITY_BEARING extension",
+        "authority profile"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EVIDENCE-EXTENSION-NO-PROFILE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "SETTLEMENT_BEARING or EVIDENCE_BEARING extension",
+        "settlement/evidence profile"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-005",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EXTENSION-CANNOT-STRENGTHEN",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "unknown or incompatible extension"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "EXT-006",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "EXTENSION",
+      "inherited_failure_code": "ACCORD-02R3-EXTENSION-REGISTRY-MISSING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "arm-visible portable bundle",
+        "extension registry"
+      ],
+      "later_lifecycle_stage": "BUNDLE_OR_VERIFIER_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "SRC-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "SOURCE_CATALOG_BINDING",
+        "arguments": {
+          "candidate_binding": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:source-catalog-binding",
+            "version": "0.2"
+          },
+          "accepted_binding": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:accepted-source-bindings",
+            "version": "0.2"
+          },
+          "object_registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "SRC-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-CLASS-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+        "arguments": {
+          "bindings": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:accepted-source-bindings",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "SRC-003",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "SOURCE_CATALOG_BINDING",
+        "arguments": {
+          "candidate_binding": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:source-catalog-binding",
+            "version": "0.2"
+          },
+          "accepted_binding": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:accepted-source-bindings",
+            "version": "0.2"
+          },
+          "object_registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "SRC-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "SOURCE_MEMBERSHIP",
+      "inherited_failure_code": "ACCORD-02R3-SOURCE-EVIDENCE-MASQUERADE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "provider/transport/raw output",
+        "portable evidence"
+      ],
+      "later_lifecycle_stage": "PROVIDER_EXECUTION_CAPTURE",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "VIS-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "ROLE_VISIBILITY",
+      "inherited_failure_code": "ACCORD-02R3-VISIBILITY-VIOLATION",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "role-visibility profile",
+        "arm manifest fields"
+      ],
+      "later_lifecycle_stage": "EXPERIMENT_INPUT_ASSEMBLY",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-INPUT-INVALID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-ORACLE-INPUT",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "normalization process inputs"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-NONDETERMINISTIC",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "raw arm output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-MALFORMED-UNDEFINED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "malformed or unmapped raw output",
+        "normalization profile"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "NORM-005",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "NORMALIZATION",
+      "inherited_failure_code": "ACCORD-02R3-NORMALIZATION-TRUTH-REINTERPRETATION",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "normalized claim",
+        "scorer truth"
+      ],
+      "later_lifecycle_stage": "NORMALIZATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-001",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNREGISTERED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "classifier feature",
+        "classifier feature profile"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-002",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-UPSTREAM-INVALID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "derived classifier feature",
+        "ARM-C source set"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-003",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-PRIVILEGED-UPSTREAM",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "classifier feature derivation"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "CLF-004",
+      "declared_class": "DEFERRED_NO_SUBJECT_ARTIFACT",
+      "inherited_family": "CLASSIFIER_FEATURE",
+      "inherited_failure_code": "ACCORD-02R3-CLASSIFIER-FEATURE-UNKNOWN",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "missing_subject_roles": [
+        "classifier feature"
+      ],
+      "later_lifecycle_stage": "CLASSIFICATION_EXECUTION",
+      "deferred_reason": "The package defines the contract but contains no concrete lifecycle subject artifact; inventing bytes would be non-conformant."
+    },
+    {
+      "rule_id": "PRED-001",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-REQUIRED-BINDING-UNRESOLVED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/PRED-001",
+        "comparison": "EXACT_EQUAL",
+        "expected": "FORBIDDEN",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "PRED-002",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-NOT-APPLICABLE-UNJUSTIFIED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/PRED-002",
+        "comparison": "EXACT_EQUAL",
+        "expected": "FORBIDDEN",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "PRED-003",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-UNKNOWN-BINDING-STRENGTHENING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/PRED-003",
+        "comparison": "EXACT_EQUAL",
+        "expected": [
+          "predicate_id",
+          "stage"
+        ],
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "PRED-004",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "ACCORD-02R3-PREDICATE-PROFILE-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/PRED-004",
+        "comparison": "EXACT_EQUAL",
+        "expected": "UNICODE_CODE_POINT_EXACT_CASE_SENSITIVE_NO_NORMALIZATION",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "DIGEST-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PACKAGE_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-DIGEST-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "SEMANTIC_DIGEST_VERIFY",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "package": {
+            "kind": "PACKAGE",
+            "id": "urn:moirae:accord-02r5:specification-package",
+            "version": "0.2"
+          },
+          "canonicalization": {
+            "kind": "CANONICALIZATION",
+            "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "DIGEST-002",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "DIGEST",
+      "inherited_failure_code": "ACCORD-02R3-DIGEST-REQUIRED-BUT-ABSENT",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/DIGEST-002",
+        "comparison": "EXACT_EQUAL",
+        "expected": "EXCLUDE_JSON_POINTERS",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "DIGEST-003",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "DIGEST",
+      "inherited_failure_code": "ACCORD-02R3-DIGEST-FAILURE-HISTORY-SEPARATED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/DIGEST-003",
+        "comparison": "EXACT_EQUAL",
+        "expected": "INCLUDE_JSON_POINTERS",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "LIN-009",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "LINEAGE_CLOSURE",
+      "inherited_failure_code": "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "STANDARDS_VALIDATION",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "PROP-006",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "LINEAGE_CLOSURE",
+      "inherited_failure_code": "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PROPOSITION_INVENTORY_BOUND",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "inventory": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:proposition-inventory",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "PKG-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "SPECIFICATION_PACKAGE",
+      "inherited_failure_code": "ACCORD-02R5-PACKAGE-MISSING-OR-MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PACKAGE_LINEAGE",
+        "arguments": {
+          "package": {
+            "kind": "PACKAGE",
+            "id": "urn:moirae:accord-02r5:specification-package",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "PKG-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "SPECIFICATION_PACKAGE",
+      "inherited_failure_code": "ACCORD-02R5-PACKAGE-CONTRACT-DUPLICATE-OR-DANGLING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "TYPED_REFERENCE_CLOSURE",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "PROF-001",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "PROFILE_RESOLUTION",
+      "inherited_failure_code": "ACCORD-02R5-PROFILE-RESOLUTION-FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/PROF-001",
+        "comparison": "EXACT_EQUAL",
+        "expected": "UNKNOWN",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "PROF-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PROFILE_RESOLUTION",
+      "inherited_failure_code": "ACCORD-02R5-PROFILE-VERSION-UNPINNED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PROFILE_REFERENCE_PINNING",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "SCHEMA-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "SCHEMA_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-SCHEMA-CONTRACT-FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "TYPED_REFERENCE_CLOSURE",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "SCHEMA-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "SCHEMA_CONTRACT",
+      "inherited_failure_code": "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "STANDARDS_VALIDATION",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "ROLE-001",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "ROLE_VOCABULARY",
+      "inherited_failure_code": "ACCORD-02R5-UNKNOWN-ROLE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/ROLE-001",
+        "comparison": "EXACT_EQUAL",
+        "expected": "0.2",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "DIGEST-CANON-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "DIGEST_CANONICALIZATION",
+      "inherited_failure_code": "ACCORD-02R5-CANONICALIZATION-MISSING",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+        "arguments": {
+          "profile": {
+            "kind": "CANONICALIZATION",
+            "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "DIGEST-CANON-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "DIGEST_CANONICALIZATION",
+      "inherited_failure_code": "ACCORD-02R5-CANONICALIZATION-INCOMPATIBLE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+        "arguments": {
+          "profile": {
+            "kind": "CANONICALIZATION",
+            "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "DIGEST-CANON-003",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "DIGEST_CANONICALIZATION",
+      "inherited_failure_code": "ACCORD-02R5-CANONICALIZATION-UNSUPPORTED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+        "arguments": {
+          "profile": {
+            "kind": "CANONICALIZATION",
+            "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "SCENARIO-ID-001",
+      "declared_class": "INTERNAL_DESIGN_INVARIANT",
+      "inherited_family": "SCENARIO_ID_POLICY",
+      "inherited_failure_code": "ACCORD-02R5-SCENARIO-ID-SEMANTIC-USE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "internal_check": {
+        "procedure": "JSON_POINTER_COMPARE",
+        "subject": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "pointer": "/internal_design_values/SCENARIO-ID-001",
+        "comparison": "EXACT_EQUAL",
+        "expected": "NOT_APPLICABLE",
+        "conformance_excluded": true
+      }
+    },
+    {
+      "rule_id": "E4R1-PRED-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PREDICATE_APPLICABILITY",
+      "inherited_failure_code": "PREDICATE_TUPLE_RESOLUTION_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-PRED-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "FAIL_CLOSED",
+      "inherited_failure_code": "PREDICATE_FAIL_CLOSED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-PRED-003",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "EXACT_IDENTIFIER",
+      "inherited_failure_code": "PREDICATE_IDENTIFIER_NOT_EXACT",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-AUTH-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PREDICATE_AUTHORITY",
+      "inherited_failure_code": "COMPETING_PREDICATE_AUTHORITY",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-BIND-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "BINDING_AUTHORITY",
+      "inherited_failure_code": "BINDING_AUTHORITY_CONTRADICTION",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-PROP-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PROPOSITION_KIND",
+      "inherited_failure_code": "PROPOSITION_KIND_MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "STANDARDS_VALIDATION",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-PART-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PARTIAL_EFFECT",
+      "inherited_failure_code": "PARTIAL_EFFECT_PREREQUISITE_UNSATISFIED",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+        "arguments": {
+          "policy": {
+            "kind": "POLICY",
+            "id": "urn:moirae:accord-02r5r3:partial-effect-policy",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-PART-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PREDECESSOR_IDENTITY",
+      "inherited_failure_code": "PREDECESSOR_EFFECT_MISMATCH",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+        "arguments": {
+          "policy": {
+            "kind": "POLICY",
+            "id": "urn:moirae:accord-02r5r3:partial-effect-policy",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-PART-003",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PREDECESSOR_GRAPH",
+      "inherited_failure_code": "PREDECESSOR_GRAPH_INVALID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+        "arguments": {
+          "policy": {
+            "kind": "POLICY",
+            "id": "urn:moirae:accord-02r5r3:partial-effect-policy",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-NEG-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "NEGATIVE_SCOPE",
+      "inherited_failure_code": "NEGATIVE_SCOPE_INCOMPLETE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "arguments": {
+          "target": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:v013-target",
+            "version": "0.2"
+          },
+          "evidence": {
+            "kind": "EVIDENCE",
+            "id": "urn:moirae:accord-02r5r3:v013-evidence",
+            "version": "0.2"
+          },
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-NEG-002",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "NEGATIVE_SCOPE",
+      "inherited_failure_code": "NEGATIVE_SCOPE_NOT_SUFFICIENT",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "arguments": {
+          "target": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:v013-target",
+            "version": "0.2"
+          },
+          "evidence": {
+            "kind": "EVIDENCE",
+            "id": "urn:moirae:accord-02r5r3:v013-evidence",
+            "version": "0.2"
+          },
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-ENT-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "NON_ENTAILMENT",
+      "inherited_failure_code": "FORBIDDEN_ENTAILMENT",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-CANON-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "CANONICALIZATION",
+      "inherited_failure_code": "CANONICALIZATION_MAPPING_INVALID",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+        "arguments": {
+          "profile": {
+            "kind": "CANONICALIZATION",
+            "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-EXPECT-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "EXPECTATION_CONTRACT",
+      "inherited_failure_code": "EXPECTATION_CONTRACT_INCOMPLETE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "EXPECTATION_STABILITY",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "accepted_vectors": {
+            "kind": "SOURCE_VECTOR_CATALOG",
+            "id": "urn:moirae:accord-02r5:source-vector-catalog",
+            "version": "0.1"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R1-CLOSE-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "CANDIDATE_CLOSURE",
+      "inherited_failure_code": "CANDIDATE_CLOSURE_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+        "arguments": {
+          "rules": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:rule-registry",
+            "version": "0.2"
+          },
+          "invariants": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:invariant-registry",
+            "version": "0.2"
+          },
+          "procedures": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:procedure-registry",
+            "version": "0.2"
+          },
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R2-REF-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "REFERENCE_RESOLUTION",
+      "inherited_failure_code": "REFERENCE_RESOLUTION_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "TYPED_REFERENCE_CLOSURE",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "reference_model": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:reference-model",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R2-CANON-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "CANONICALIZATION",
+      "inherited_failure_code": "CANONICALIZATION_TARGET_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+        "arguments": {
+          "profile": {
+            "kind": "CANONICALIZATION",
+            "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R2-BIND-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "BINDING_AUTHORITY",
+      "inherited_failure_code": "BINDING_COMPOSITION_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          },
+          "authority": {
+            "kind": "AUTHORITY",
+            "id": "urn:moirae:accord-02r5r3:authority-requirements",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R2-NEG-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "NEGATIVE_SCOPE",
+      "inherited_failure_code": "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+        "arguments": {
+          "target": {
+            "kind": "CONTRACT",
+            "id": "urn:moirae:accord-02r5r3:v013-target",
+            "version": "0.2"
+          },
+          "evidence": {
+            "kind": "EVIDENCE",
+            "id": "urn:moirae:accord-02r5r3:v013-evidence",
+            "version": "0.2"
+          },
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R2-GRAPH-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "RULE_GRAPH",
+      "inherited_failure_code": "RULE_GRAPH_CLOSURE_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "DEPENDENCY_GRAPH_EQUAL",
+        "arguments": {
+          "inputs": {
+            "kind": "NORMATIVE_INPUTS",
+            "id": "urn:moirae:accord-02r5r3:normative-inputs",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R2-PROFILE-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "PROFILE_POLICY",
+      "inherited_failure_code": "PROFILE_DIGEST_SCOPE_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "SEMANTIC_DIGEST_VERIFY",
+        "arguments": {
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          },
+          "package": {
+            "kind": "PACKAGE",
+            "id": "urn:moirae:accord-02r5:specification-package",
+            "version": "0.2"
+          },
+          "canonicalization": {
+            "kind": "CANONICALIZATION",
+            "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+            "version": "0.2"
+          }
+        }
+      }
+    },
+    {
+      "rule_id": "E4R2-CLOSE-001",
+      "declared_class": "EXECUTABLE_CONFORMANCE_RULE",
+      "inherited_family": "CANDIDATE_CLOSURE",
+      "inherited_failure_code": "MEASURED_CLOSURE_FAILURE",
+      "provenance_source_revision": "E4R5R2",
+      "provenance_source_commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+      "invariant_binding": {
+        "invariant_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+        "arguments": {
+          "rules": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:rule-registry",
+            "version": "0.2"
+          },
+          "invariants": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:invariant-registry",
+            "version": "0.2"
+          },
+          "procedures": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:procedure-registry",
+            "version": "0.2"
+          },
+          "registry": {
+            "kind": "REGISTRY",
+            "id": "urn:moirae:accord-02r5r3:object-registry",
+            "version": "0.2"
+          }
+        }
+      }
+    }
+  ]
+}

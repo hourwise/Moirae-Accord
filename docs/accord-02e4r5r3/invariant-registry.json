@@ -1,0 +1,1728 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r3:schema:invariant-registry",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r3:invariant-registry:0.2",
+  "object_id": "urn:moirae:accord-02r5r3:invariant-registry",
+  "object_version": "0.2",
+  "invariants": [
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "SCHEMA_VALIDATION",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "reference_model",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        },
+        "reference_model": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:reference-model",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R2-PROPOSITION-REFERENCE",
+        "ACCORD-02R3-STRUCTURALLY-INVALID-REFERENCE-TARGET",
+        "ACCORD-02R5-SCHEMA-CONTRACT-RESOLUTION-FAILURE",
+        "ACCORD-02R5-STRUCTURE-VALIDATION-FAILURE",
+        "PROPOSITION_KIND_MISMATCH",
+        "STANDARDS_VALIDATION_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PACKAGE_LINEAGE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "LINEAGE_VALIDATION",
+      "input_roles": [
+        {
+          "role": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "package"
+      ],
+      "default_arguments": {
+        "package": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        },
+        "authority": {
+          "kind": "AUTHORITY",
+          "id": "urn:moirae:accord-02r5r3:authority-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R2-FOREIGN-RESULT",
+        "ACCORD-02R5-PACKAGE-MISSING-OR-MISMATCH",
+        "PACKAGE_LINEAGE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "ACCEPTED_BASE_DUAL_INTEGRITY",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "PACKAGE_ONLY_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "DUAL_INTEGRITY",
+      "input_roles": [
+        {
+          "role": "bindings",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "bindings"
+      ],
+      "default_arguments": {
+        "bindings": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:accepted-source-bindings",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCEPTED_BASE_DUAL_INTEGRITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "OBJECT_IDENTITY_UNIQUE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "UNIQUE_KEY",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R2-DUPLICATE-NORMATIVE-ID",
+        "OBJECT_IDENTITY_UNIQUE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "TYPED_REFERENCE_CLOSURE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "REFERENCE_RESOLUTION",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "reference_model",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        },
+        "reference_model": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:reference-model",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R2-REFERENCE-MISSING-OR-AMBIGUOUS",
+        "ACCORD-02R5-PACKAGE-CONTRACT-DUPLICATE-OR-DANGLING",
+        "ACCORD-02R5-SCHEMA-CONTRACT-FAILURE",
+        "REFERENCE_RESOLUTION_FAILURE",
+        "TYPED_REFERENCE_CLOSURE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "SEMANTIC_DIGEST_VERIFY",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "DIGEST_RECOMPUTE",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "canonicalization",
+          "kind": "CANONICALIZATION",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        },
+        "package": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        },
+        "canonicalization": {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R5-DIGEST-MISMATCH",
+        "PROFILE_DIGEST_SCOPE_FAILURE",
+        "SEMANTIC_DIGEST_VERIFY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "DUAL_INTEGRITY",
+      "input_roles": [
+        {
+          "role": "bindings",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "bindings"
+      ],
+      "default_arguments": {
+        "bindings": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:accepted-source-bindings",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCEPTED_SOURCE_DUAL_INTEGRITY_FAILURE",
+        "ACCORD-02R3-SOURCE-CLASS-MISMATCH"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "DEPENDENCY_GRAPH_EQUAL",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "SET_EQUALITY",
+      "input_roles": [
+        {
+          "role": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "inputs"
+      ],
+      "default_arguments": {
+        "inputs": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "DEPENDENCY_GRAPH_EQUAL_FAILURE",
+        "RULE_GRAPH_CLOSURE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "EXPECTATION_STABILITY",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "EXPECTATION_STABILITY",
+      "input_roles": [
+        {
+          "role": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "accepted_vectors",
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "inputs"
+      ],
+      "default_arguments": {
+        "inputs": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "accepted_vectors": {
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "id": "urn:moirae:accord-02r5:source-vector-catalog",
+          "version": "0.1"
+        }
+      },
+      "compatible_failure_codes": [
+        "EXPECTATION_CONTRACT_INCOMPLETE",
+        "EXPECTATION_STABILITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "input_roles": [
+        {
+          "role": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "inputs"
+      ],
+      "default_arguments": {
+        "inputs": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "authority": {
+          "kind": "AUTHORITY",
+          "id": "urn:moirae:accord-02r5r3:authority-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R5-ACTIVE-PROFILE-RESOLUTION-FAILURE",
+        "BINDING_AUTHORITY_CONTRADICTION",
+        "BINDING_COMPOSITION_FAILURE",
+        "COMPETING_PREDICATE_AUTHORITY",
+        "FORBIDDEN_ENTAILMENT",
+        "PREDICATE_AUTHORITY_CLOSURE_FAILURE",
+        "PREDICATE_FAIL_CLOSED",
+        "PREDICATE_IDENTIFIER_NOT_EXACT",
+        "PREDICATE_TUPLE_RESOLUTION_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "input_roles": [
+        {
+          "role": "profile",
+          "kind": "CANONICALIZATION",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "profile"
+      ],
+      "default_arguments": {
+        "profile": {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+          "version": "0.2"
+        },
+        "authority": {
+          "kind": "AUTHORITY",
+          "id": "urn:moirae:accord-02r5r3:authority-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R5-CANONICALIZATION-INCOMPATIBLE",
+        "ACCORD-02R5-CANONICALIZATION-MISSING",
+        "ACCORD-02R5-CANONICALIZATION-UNSUPPORTED",
+        "CANONICALIZATION_AUTHORITY_CLOSURE_FAILURE",
+        "CANONICALIZATION_MAPPING_INVALID",
+        "CANONICALIZATION_TARGET_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "SOURCE_CATALOG_BINDING",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "SOURCE_CATALOG_BINDING_MATCH",
+      "input_roles": [
+        {
+          "role": "candidate_binding",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "accepted_binding",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "object_registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "candidate_binding"
+      ],
+      "default_arguments": {
+        "candidate_binding": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:source-catalog-binding",
+          "version": "0.2"
+        },
+        "accepted_binding": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:accepted-source-bindings",
+          "version": "0.2"
+        },
+        "object_registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R3-SOURCE-FILENAME-NOT-AUTHORITY",
+        "ACCORD-02R3-SOURCE-SCHEMA-NOT-PERMITTED",
+        "SOURCE_CATALOG_BINDING_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "input_roles": [
+        {
+          "role": "policy",
+          "kind": "POLICY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "policy"
+      ],
+      "default_arguments": {
+        "policy": {
+          "kind": "POLICY",
+          "id": "urn:moirae:accord-02r5r3:partial-effect-policy",
+          "version": "0.2"
+        },
+        "authority": {
+          "kind": "AUTHORITY",
+          "id": "urn:moirae:accord-02r5r3:authority-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "PARTIAL_EFFECT_POLICY_CLOSURE_FAILURE",
+        "PARTIAL_EFFECT_PREREQUISITE_UNSATISFIED",
+        "PREDECESSOR_EFFECT_MISMATCH",
+        "PREDECESSOR_GRAPH_INVALID"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "REQUIREMENT_MAP_EVAL",
+      "input_roles": [
+        {
+          "role": "target",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "evidence",
+          "kind": "EVIDENCE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "target"
+      ],
+      "default_arguments": {
+        "target": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:v013-target",
+          "version": "0.2"
+        },
+        "evidence": {
+          "kind": "EVIDENCE",
+          "id": "urn:moirae:accord-02r5r3:v013-evidence",
+          "version": "0.2"
+        },
+        "inputs": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "NEGATIVE_REQUIREMENT_MAP_CLOSURE_FAILURE",
+        "NEGATIVE_REQUIREMENT_MAP_FAILURE",
+        "NEGATIVE_SCOPE_INCOMPLETE",
+        "NEGATIVE_SCOPE_NOT_SUFFICIENT"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "AUTHORITY_COMPLETENESS",
+      "input_roles": [
+        {
+          "role": "rules",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "rules"
+      ],
+      "default_arguments": {
+        "rules": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:rule-registry",
+          "version": "0.2"
+        },
+        "invariants": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:invariant-registry",
+          "version": "0.2"
+        },
+        "procedures": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:procedure-registry",
+          "version": "0.2"
+        },
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "CANDIDATE_CLOSURE_FAILURE",
+        "MEASURED_CLOSURE_FAILURE",
+        "RULE_EXPECTATION_AUTHORITY_COMPLETE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PROPOSITION_INVENTORY_BOUND",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "PROPOSITION_INVENTORY_BOUND",
+      "input_roles": [
+        {
+          "role": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "inventory",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "inventory"
+      ],
+      "default_arguments": {
+        "inputs": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "inventory": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:proposition-inventory",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R3-PROPOSITION-ID-COLLISION",
+        "PROPOSITION_INVENTORY_BOUND_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PROFILE_REFERENCE_PINNING",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "CONFORMANCE_BOUND",
+      "acceptance_critical": true,
+      "procedure_id": "PROFILE_REFERENCE_PINNING",
+      "input_roles": [
+        {
+          "role": "inputs",
+          "kind": "NORMATIVE_INPUTS",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "inputs"
+      ],
+      "default_arguments": {
+        "inputs": {
+          "kind": "NORMATIVE_INPUTS",
+          "id": "urn:moirae:accord-02r5r3:normative-inputs",
+          "version": "0.2"
+        },
+        "authority": {
+          "kind": "AUTHORITY",
+          "id": "urn:moirae:accord-02r5r3:authority-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ACCORD-02R5-PROFILE-VERSION-UNPINNED",
+        "PROFILE_REFERENCE_PINNING_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "INVARIANT_PROCEDURE_ARITY_AGREEMENT",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "PACKAGE_ONLY_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "ARITY_AGREEMENT",
+      "input_roles": [
+        {
+          "role": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "invariants"
+      ],
+      "default_arguments": {
+        "invariants": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:invariant-registry",
+          "version": "0.2"
+        },
+        "procedures": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:procedure-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "INVARIANT_PROCEDURE_ARITY_AGREEMENT_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "SCHEMA_NON_VACUITY",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "PACKAGE_ONLY_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "SCHEMA_NON_VACUITY",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "SCHEMA_NON_VACUITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "CURRENT_PACKAGE_IDENTITY",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "PACKAGE_ONLY_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "CURRENT_PACKAGE_IDENTITY",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        },
+        "package": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        },
+        "authority": {
+          "kind": "AUTHORITY",
+          "id": "urn:moirae:accord-02r5r3:authority-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "CURRENT_PACKAGE_IDENTITY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PACKAGE_SELF_DIGEST",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "PACKAGE_ONLY_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "SELF_DIGEST",
+      "input_roles": [
+        {
+          "role": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "canonicalization",
+          "kind": "CANONICALIZATION",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "package"
+      ],
+      "default_arguments": {
+        "package": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        },
+        "canonicalization": {
+          "kind": "CANONICALIZATION",
+          "id": "urn:moirae:accord-02r5r3:canonicalization-profile",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "PACKAGE_SELF_DIGEST_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "INTEGRITY_MODE_DISPATCH",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "PACKAGE_ONLY_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "INTEGRITY_MODE_DISPATCH",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "integrity_modes",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        },
+        "package": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        },
+        "integrity_modes": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:integrity-modes",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "INTEGRITY_MODE_DISPATCH_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "V013_BASIS_VALID",
+      "status": "ACTIVE",
+      "class": "PACKAGE_CONFORMANCE",
+      "usage": "PACKAGE_ONLY_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "V013_BASIS_VALID",
+      "input_roles": [
+        {
+          "role": "target",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "evidence",
+          "kind": "EVIDENCE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "accepted_vectors",
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "v013_governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "target"
+      ],
+      "default_arguments": {
+        "target": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:v013-target",
+          "version": "0.2"
+        },
+        "evidence": {
+          "kind": "EVIDENCE",
+          "id": "urn:moirae:accord-02r5r3:v013-evidence",
+          "version": "0.2"
+        },
+        "accepted_vectors": {
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "id": "urn:moirae:accord-02r5:source-vector-catalog",
+          "version": "0.1"
+        },
+        "v013_governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:v013-governance",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "V013_BASIS_VALID_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "FAIL_CLOSED_ENFORCED",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "FAIL_CLOSED_ENFORCED",
+      "input_roles": [
+        {
+          "role": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "invariants"
+      ],
+      "default_arguments": {
+        "invariants": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:invariant-registry",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "FAIL_CLOSED_ENFORCED_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "SUBJECT_ROLE_COVERAGE",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "SUBJECT_ROLE_COVERAGE",
+      "input_roles": [
+        {
+          "role": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "invariants"
+      ],
+      "default_arguments": {
+        "invariants": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:invariant-registry",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "SUBJECT_ROLE_COVERAGE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "DEFAULT_ARGUMENT_COVERAGE",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "DEFAULT_ARGUMENT_COVERAGE",
+      "input_roles": [
+        {
+          "role": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "invariants"
+      ],
+      "default_arguments": {
+        "invariants": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:invariant-registry",
+          "version": "0.2"
+        },
+        "procedures": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:procedure-registry",
+          "version": "0.2"
+        },
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "DEFAULT_ARGUMENT_COVERAGE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "DERIVATION_ROLE_CLOSURE",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "DERIVATION_ROLE_CLOSURE",
+      "input_roles": [
+        {
+          "role": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "invariants"
+      ],
+      "default_arguments": {
+        "invariants": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:invariant-registry",
+          "version": "0.2"
+        },
+        "procedures": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:procedure-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "DERIVATION_ROLE_CLOSURE_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "PROCEDURE_OPERATION_SUPPORTED",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "PROCEDURE_OPERATION_SUPPORTED",
+      "input_roles": [
+        {
+          "role": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "procedures"
+      ],
+      "default_arguments": {
+        "procedures": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:procedure-registry",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "PROCEDURE_OPERATION_SUPPORTED_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "MISSING_BEHAVIOR_SUPPORTED",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "MISSING_BEHAVIOR_SUPPORTED",
+      "input_roles": [
+        {
+          "role": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "procedures"
+      ],
+      "default_arguments": {
+        "procedures": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:procedure-registry",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "MISSING_BEHAVIOR_SUPPORTED_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "AMBIGUITY_BEHAVIOR_SUPPORTED",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "AMBIGUITY_BEHAVIOR_SUPPORTED",
+      "input_roles": [
+        {
+          "role": "procedures",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "procedures"
+      ],
+      "default_arguments": {
+        "procedures": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:procedure-registry",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "AMBIGUITY_BEHAVIOR_SUPPORTED_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "REFERENCE_DISCOVERY_SCOPE_VALID",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "REFERENCE_DISCOVERY_SCOPE_VALID",
+      "input_roles": [
+        {
+          "role": "reference_model",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "reference_model"
+      ],
+      "default_arguments": {
+        "reference_model": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:reference-model",
+          "version": "0.2"
+        },
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "REFERENCE_DISCOVERY_SCOPE_VALID_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "REFERENCE_SHAPE_PREDICATE_APPLIED",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "REFERENCE_SHAPE_PREDICATE_APPLIED",
+      "input_roles": [
+        {
+          "role": "reference_model",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "reference_model"
+      ],
+      "default_arguments": {
+        "reference_model": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:reference-model",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "REFERENCE_SHAPE_PREDICATE_APPLIED_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "UNIQUENESS_KEY_APPLIED",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "UNIQUENESS_KEY_APPLIED",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "UNIQUENESS_KEY_APPLIED_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "ROLE_MODEL_APPLIED",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "ROLE_MODEL_APPLIED",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        },
+        "governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:governance-requirements",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "ROLE_MODEL_APPLIED_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+      "input_roles": [
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "registry"
+      ],
+      "default_arguments": {
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "SCHEMA_IDENTITY_MATCHES_REGISTRY_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "RULE_COVERAGE_EXACT",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "RULE_COVERAGE_EXACT",
+      "input_roles": [
+        {
+          "role": "rules",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "rules"
+      ],
+      "default_arguments": {
+        "rules": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:rule-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "RULE_COVERAGE_EXACT_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "INVARIANT_SET_EXACT",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "INVARIANT_SET_EXACT",
+      "input_roles": [
+        {
+          "role": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "invariants",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "package"
+      ],
+      "default_arguments": {
+        "package": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        },
+        "invariants": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:invariant-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "INVARIANT_SET_EXACT_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "GOVERNING_AUTHORITY_REFERENCE_VALID",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "GOVERNING_AUTHORITY_REFERENCE_VALID",
+      "input_roles": [
+        {
+          "role": "v013_governance",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "authority",
+          "kind": "AUTHORITY",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "integrity_modes",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "v013_governance"
+      ],
+      "default_arguments": {
+        "v013_governance": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:v013-governance",
+          "version": "0.2"
+        },
+        "authority": {
+          "kind": "AUTHORITY",
+          "id": "urn:moirae:accord-02r5r3:authority-requirements",
+          "version": "0.2"
+        },
+        "integrity_modes": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:integrity-modes",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "GOVERNING_AUTHORITY_REFERENCE_VALID_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "GOVERNING_TOKEN_SINGLETON",
+      "status": "ACTIVE",
+      "class": "GOVERNANCE",
+      "usage": "GOVERNANCE_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "GOVERNING_TOKEN_SINGLETON",
+      "input_roles": [
+        {
+          "role": "semantic_keys",
+          "kind": "CONTRACT",
+          "required": true,
+          "cardinality": "ONE"
+        },
+        {
+          "role": "registry",
+          "kind": "REGISTRY",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "semantic_keys"
+      ],
+      "default_arguments": {
+        "semantic_keys": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02r5r3:semantic-key-authority",
+          "version": "0.2"
+        },
+        "registry": {
+          "kind": "REGISTRY",
+          "id": "urn:moirae:accord-02r5r3:object-registry",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "GOVERNING_TOKEN_SINGLETON_FAILURE"
+      ],
+      "fail_closed": true
+    },
+    {
+      "invariant_id": "TRUSTED_PACKAGE_IDENTITY",
+      "status": "ACTIVE",
+      "class": "TRUST",
+      "usage": "TRUST_REQUIRED",
+      "acceptance_critical": true,
+      "procedure_id": "TRUST_ANCHOR_COMPARE",
+      "input_roles": [
+        {
+          "role": "package",
+          "kind": "PACKAGE",
+          "required": true,
+          "cardinality": "ONE"
+        }
+      ],
+      "subject_roles": [
+        "package"
+      ],
+      "default_arguments": {
+        "package": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.2"
+        }
+      },
+      "compatible_failure_codes": [
+        "TRUSTED_PACKAGE_IDENTITY_FAILURE"
+      ],
+      "fail_closed": true
+    }
+  ]
+}
