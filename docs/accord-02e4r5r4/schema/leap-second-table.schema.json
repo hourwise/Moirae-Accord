@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:schema:leap-second-table:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "schema_ref",
+    "$id",
+    "object_id",
+    "object_version",
+    "table_role",
+    "governing_rule_ref",
+    "time_scale",
+    "instant_form",
+    "leap_second_sign",
+    "insertion_count",
+    "insertions",
+    "completeness",
+    "update_policy",
+    "source"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "const": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:leap-second-table",
+        "version": "0.2"
+      }
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02e4r5r4:leap-second-table:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02e4r5r4:leap-second-table"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "insertion_count": {
+      "const": 27
+    },
+    "insertions": {
+      "type": "array",
+      "minItems": 27,
+      "maxItems": 27,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "utc_instant",
+          "tai_minus_utc_before_seconds",
+          "tai_minus_utc_after_seconds",
+          "effective_mjd_after_insertion"
+        ],
+        "properties": {
+          "utc_instant": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-(?:06-30|12-31)T23:59:60Z$"
+          },
+          "tai_minus_utc_before_seconds": {
+            "type": "integer",
+            "minimum": 10
+          },
+          "tai_minus_utc_after_seconds": {
+            "type": "integer",
+            "minimum": 11
+          },
+          "effective_mjd_after_insertion": {
+            "type": "integer",
+            "minimum": 41499
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "table_role": {
+      "const": "FROZEN_GOVERNED_INPUT_TO_FORMAT_DATE_TIME_SEMANTICS"
+    },
+    "governing_rule_ref": {
+      "const": "metacontract:/runtime_representation/schema_format_assertion/standard_domain_semantics/leap_second_rule"
+    },
+    "time_scale": {
+      "const": "UTC"
+    },
+    "instant_form": {
+      "const": "RFC3339_DATE_T23_59_60Z_OF_THE_LAST_UTC_DAY_BEFORE_THE_TAI_MINUS_UTC_INCREMENT"
+    },
+    "leap_second_sign": {
+      "const": "POSITIVE_INSERTIONS_ONLY"
+    },
+    "completeness": {
+      "const": "EXHAUSTIVE_FOR_THIS_PACKAGE_VERSION;AN_INSTANT_NOT_LISTED_IS_NOT_A_LEAP_SECOND_FOR_THIS_PACKAGE_VERSION"
+    },
+    "update_policy": {
+      "const": "FROZEN;NEVER_FETCHED_OR_REFRESHED_AT_EVALUATION_TIME;A_LATER_IERS_BULLETIN_C_DOES_NOT_CHANGE_THIS_TABLE;ONLY_A_LATER_ACCORD_PACKAGE_VERSION_MAY_REPLACE_IT"
+    },
+    "source": {
+      "const": {
+        "authority": "IERS_EARTH_ORIENTATION_CENTER_BULLETIN_C",
+        "retrieved_at_utc": "2026-10-05T19:46:08Z",
+        "files": [
+          {
+            "role": "PRIMARY_DERIVATION_SOURCE",
+            "url": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
+            "raw_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+            "raw_byte_length": 1352,
+            "http_last_modified": "Mon, 06 Jul 2026 07:52:10 GMT",
+            "declared_currency": "Updated through IERS Bulletin 72 issued in July 2026",
+            "declared_expiry": "28 June 2027"
+          },
+          {
+            "role": "INDEPENDENT_CROSS_CHECK_SOURCE",
+            "url": "https://hpiers.obspm.fr/iers/bul/bulc/ntp/leap-seconds.list",
+            "raw_sha256": "db5a895f16853b03bfc865e8d68f9fc8710ef1740e3400c701cd46a5bbbc3433",
+            "raw_byte_length": 5065,
+            "http_last_modified": "Mon, 06 Jul 2026 07:54:11 GMT",
+            "declared_last_update_ntp_seconds": 3992312697,
+            "declared_expiry_ntp_seconds": 4023129600,
+            "declared_expiry": "28 June 2027",
+            "embedded_sha1": "a9bad145 84c31c70 758402aa b37bfd54 5923836a"
+          }
+        ],
+        "derivation": "EACH_PLUS_ONE_SECOND_INCREMENT_OF_TAI_MINUS_UTC_EFFECTIVE_AT_00_00_00_UTC_ON_DATE_D_IS_A_POSITIVE_LEAP_SECOND_INSERTED_AT_D_MINUS_ONE_DAY_T23_59_60Z",
+        "derived_by": "docs/accord-02e4r5r4/audit/build_r5r4_artifacts.py:_r2c_leap_second_table",
+        "derived_by_ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C"
+      }
+    }
+  },
+  "additionalProperties": false
+}

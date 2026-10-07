@@ -1,0 +1,1100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:schema:external-verification-input-contract:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "input_type",
+    "registry_membership",
+    "candidate_self_assertion",
+    "fields",
+    "candidate_identity_recomputation",
+    "results",
+    "trust_result_schema_ref",
+    "cli",
+    "authority_profile_protocol",
+    "candidate_claim_comparisons",
+    "content_verification",
+    "pre_execution_failures",
+    "acceptance_profile_schema_input",
+    "procedure_projection_selector",
+    "required_external_fields"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02e4r5r4:external-verification-input-contract:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02e4r5r4:external-verification-input-contract"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "input_type": {
+      "const": "EXTERNAL_VERIFICATION_INPUT"
+    },
+    "registry_membership": {
+      "const": {
+        "contract_artifact": "REGISTERED_CANDIDATE_NORMATIVE_CONTRACT",
+        "runtime_external_inputs": "NOT_REGISTERED_PACKAGE_OBJECTS"
+      }
+    },
+    "candidate_self_assertion": {
+      "const": "FORBIDDEN"
+    },
+    "fields": {
+      "type": "object",
+      "required": [
+        "expected_package_id",
+        "expected_package_version",
+        "expected_package_digest",
+        "digest_mode",
+        "acceptance_profile",
+        "acceptance_profile_schema_identity",
+        "acceptance_profile_schema_bytes",
+        "acceptance_profile_schema_sha256"
+      ],
+      "properties": {
+        "expected_package_id": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "source",
+            "const"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "string"
+            },
+            "source": {
+              "const": "CALLER_SUPPLIED"
+            },
+            "const": {
+              "const": "urn:moirae:accord-02r5:specification-package"
+            }
+          },
+          "additionalProperties": false
+        },
+        "expected_package_version": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "source",
+            "const"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "string"
+            },
+            "source": {
+              "const": "CALLER_SUPPLIED"
+            },
+            "const": {
+              "const": "0.2"
+            }
+          },
+          "additionalProperties": false
+        },
+        "expected_package_digest": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "pattern",
+            "source",
+            "algorithm"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "string"
+            },
+            "pattern": {
+              "const": "^[0-9a-f]{64}$"
+            },
+            "source": {
+              "const": "CALLER_SUPPLIED"
+            },
+            "algorithm": {
+              "const": "SHA-256"
+            }
+          },
+          "additionalProperties": false
+        },
+        "digest_mode": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "source",
+            "mode",
+            "algorithm",
+            "serialization",
+            "excluded_pointers",
+            "runtime_value_schema"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "INTEGRITY_MODE"
+            },
+            "source": {
+              "const": "VERIFIER_CONFIGURATION"
+            },
+            "mode": {
+              "const": "SEMANTIC_JSON_CONTENT"
+            },
+            "algorithm": {
+              "const": "SHA-256"
+            },
+            "serialization": {
+              "const": "RFC8785_JCS"
+            },
+            "excluded_pointers": {
+              "const": [
+                "/current_candidate_integrity/digest"
+              ]
+            },
+            "runtime_value_schema": {
+              "type": "object",
+              "required": [
+                "type",
+                "required",
+                "properties",
+                "additionalProperties"
+              ],
+              "properties": {
+                "type": {
+                  "const": "object"
+                },
+                "required": {
+                  "const": [
+                    "algorithm",
+                    "serialization",
+                    "excluded_pointers"
+                  ]
+                },
+                "properties": {
+                  "const": {
+                    "algorithm": {
+                      "type": "string"
+                    },
+                    "serialization": {
+                      "type": "string"
+                    },
+                    "excluded_pointers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "additionalProperties": {
+                  "const": true
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "acceptance_profile": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "source",
+            "transport",
+            "schema_identity",
+            "schema_identity_argument",
+            "expected_schema_identity_origin",
+            "schema_bytes_argument",
+            "expected_sha256_argument",
+            "expected_sha256_origin",
+            "candidate_schema_selection",
+            "candidate_fallback",
+            "registry_membership"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "EXTERNAL_ACCEPTANCE_PROFILE"
+            },
+            "source": {
+              "const": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE_PAYLOAD"
+            },
+            "transport": {
+              "const": "--verification-input"
+            },
+            "schema_identity": {
+              "const": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1"
+            },
+            "schema_identity_argument": {
+              "const": "--acceptance-profile-schema-id"
+            },
+            "expected_schema_identity_origin": {
+              "const": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE"
+            },
+            "schema_bytes_argument": {
+              "const": "--acceptance-profile-schema"
+            },
+            "expected_sha256_argument": {
+              "const": "--acceptance-profile-schema-sha256"
+            },
+            "expected_sha256_origin": {
+              "const": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE"
+            },
+            "candidate_schema_selection": {
+              "const": "FORBIDDEN"
+            },
+            "candidate_fallback": {
+              "const": "FORBIDDEN"
+            },
+            "registry_membership": {
+              "const": "FORBIDDEN_NOT_A_PACKAGE_OBJECT"
+            }
+          },
+          "additionalProperties": false
+        },
+        "acceptance_profile_schema_identity": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "source",
+            "transport",
+            "expected_identity",
+            "comparison"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "SCHEMA_IDENTITY"
+            },
+            "source": {
+              "const": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE"
+            },
+            "transport": {
+              "const": "--acceptance-profile-schema-id"
+            },
+            "expected_identity": {
+              "const": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1"
+            },
+            "comparison": {
+              "const": "CALLER_VALUE_MUST_EQUAL_FIXED_VERIFIER_SCHEMA_ID"
+            }
+          },
+          "additionalProperties": false
+        },
+        "acceptance_profile_schema_bytes": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "source",
+            "transport",
+            "schema_identity",
+            "expected_sha256_argument",
+            "sha256_algorithm",
+            "verification_order",
+            "candidate_fallback"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "RAW_SCHEMA_BYTES"
+            },
+            "source": {
+              "const": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE"
+            },
+            "transport": {
+              "const": "--acceptance-profile-schema"
+            },
+            "schema_identity": {
+              "const": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1"
+            },
+            "expected_sha256_argument": {
+              "const": "--acceptance-profile-schema-sha256"
+            },
+            "sha256_algorithm": {
+              "const": "SHA-256"
+            },
+            "verification_order": {
+              "const": "VERIFY_RAW_SHA256_BEFORE_PARSE_OR_USE"
+            },
+            "candidate_fallback": {
+              "const": "FORBIDDEN"
+            }
+          },
+          "additionalProperties": false
+        },
+        "acceptance_profile_schema_sha256": {
+          "type": "object",
+          "required": [
+            "required",
+            "type",
+            "source",
+            "transport",
+            "algorithm",
+            "target"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "type": {
+              "const": "SHA256"
+            },
+            "source": {
+              "const": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE"
+            },
+            "transport": {
+              "const": "--acceptance-profile-schema-sha256"
+            },
+            "algorithm": {
+              "const": "SHA-256"
+            },
+            "target": {
+              "const": "RAW_EXTERNAL_PROFILE_SCHEMA_BYTES"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "candidate_identity_recomputation": {
+      "type": "object",
+      "required": [
+        "target",
+        "selection",
+        "reduction",
+        "excluded_pointers",
+        "serialization",
+        "encoding",
+        "algorithm"
+      ],
+      "properties": {
+        "target": {
+          "const": "PACKAGE_DOCUMENT"
+        },
+        "selection": {
+          "const": "ENTIRE_PACKAGE_DOCUMENT"
+        },
+        "reduction": {
+          "const": "REMOVE_POINTER"
+        },
+        "excluded_pointers": {
+          "const": [
+            "/current_candidate_integrity/digest"
+          ]
+        },
+        "serialization": {
+          "const": "RFC8785_JCS"
+        },
+        "encoding": {
+          "const": "UTF-8"
+        },
+        "algorithm": {
+          "const": "SHA-256"
+        }
+      },
+      "additionalProperties": false
+    },
+    "results": {
+      "type": "object",
+      "required": [
+        "PASS",
+        "FAIL",
+        "PRE_EXECUTION"
+      ],
+      "properties": {
+        "PASS": {
+          "type": "object",
+          "required": [
+            "code",
+            "condition"
+          ],
+          "properties": {
+            "code": {
+              "const": "EXPECTED_PACKAGE_VERIFIED"
+            },
+            "condition": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "FAIL": {
+          "type": "object",
+          "required": [
+            "codes",
+            "order"
+          ],
+          "properties": {
+            "codes": {
+              "const": [
+                "MISSING_EXTERNAL_TRUST_INPUT",
+                "FOREIGN_PACKAGE_IDENTITY",
+                "TRUSTED_IDENTITY_MISMATCH"
+              ]
+            },
+            "order": {
+              "const": [
+                "MISSING_EXPECTATION",
+                "IDENTITY_COMPARISON",
+                "DIGEST_COMPARISON"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "PRE_EXECUTION": {
+          "type": "object",
+          "required": [
+            "codes",
+            "order"
+          ],
+          "properties": {
+            "codes": {
+              "const": [
+                "MISSING_EXTERNAL_PROFILE_SCHEMA",
+                "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+                "INVALID_EXTERNAL_PROFILE_SCHEMA",
+                "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+                "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+                "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+                "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+                "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+                "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+                "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+                "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+                "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+                "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+                "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+                "SCHEMA_INVALID_BOUND_OBJECT",
+                "RESULT_PROJECTION_INVALID"
+              ]
+            },
+            "order": {
+              "const": [
+                "MISSING_EXTERNAL_PROFILE_SCHEMA",
+                "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+                "INVALID_EXTERNAL_PROFILE_SCHEMA",
+                "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+                "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+                "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+                "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+                "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+                "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+                "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+                "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+                "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+                "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+                "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+                "SCHEMA_INVALID_BOUND_OBJECT",
+                "RESULT_PROJECTION_INVALID",
+                "AST_ASSERTION_FAILURE"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "cli": {
+      "type": "object",
+      "required": [
+        "--expected-package-id",
+        "--expected-package-version",
+        "--expected-package-digest",
+        "--verification-input",
+        "--acceptance-profile-schema-id",
+        "--acceptance-profile-schema",
+        "--acceptance-profile-schema-sha256"
+      ],
+      "properties": {
+        "--expected-package-id": {
+          "const": "CALLER_SUPPLIED_EXPECTED_PACKAGE_ID"
+        },
+        "--expected-package-version": {
+          "const": "CALLER_SUPPLIED_EXPECTED_PACKAGE_VERSION"
+        },
+        "--expected-package-digest": {
+          "const": "CALLER_SUPPLIED_EXPECTED_PACKAGE_SHA256"
+        },
+        "--verification-input": {
+          "const": "PATH_TO_CALLER_SUPPLIED_EXTERNAL_ACCEPTANCE_PROFILE_JSON"
+        },
+        "--acceptance-profile-schema-id": {
+          "const": "CALLER_SUPPLIED_EXPECTED_EXTERNAL_SCHEMA_ID"
+        },
+        "--acceptance-profile-schema": {
+          "const": "CALLER_SUPPLIED_PROFILE_SCHEMA_BYTES_PATH"
+        },
+        "--acceptance-profile-schema-sha256": {
+          "const": "CALLER_SUPPLIED_EXPECTED_SHA256_OF_RAW_PROFILE_SCHEMA_BYTES"
+        }
+      },
+      "additionalProperties": false
+    },
+    "trust_result_schema_ref": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ref"
+        },
+        {
+          "const": {
+            "kind": "SCHEMA",
+            "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+            "version": "0.2",
+            "member_id": "trust_result"
+          }
+        }
+      ]
+    },
+    "authority_profile_protocol": {
+      "const": {
+        "required": true,
+        "profile_id": "ACCORD-02E4R5R4-ACCEPTANCE-PROFILE",
+        "input_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE_PAYLOAD",
+        "transport": "--verification-input",
+        "profile_schema_input": {
+          "required": true,
+          "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+          "schema_identity_argument": "--acceptance-profile-schema-id",
+          "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+          "schema_bytes_argument": "--acceptance-profile-schema",
+          "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+          "expected_sha256_algorithm": "SHA-256",
+          "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+          "digest_input": "RAW_SCHEMA_BYTES",
+          "verify_digest_before_parse_or_use": true,
+          "verify_schema_identity_and_dialect_after_digest": true,
+          "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+          "candidate_registry_selection": "FORBIDDEN",
+          "candidate_schema_override": "FORBIDDEN",
+          "candidate_embedded_schema_fallback": "FORBIDDEN",
+          "candidate_registry_fallback": "FORBIDDEN",
+          "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+          "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+        },
+        "frozen_authority_pins": {
+          "frozen_r5r2_rules": {
+            "commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+            "tree": "19dc9356784d08d04945f8e2ce9b24bcd49e3683",
+            "path": "docs/accord-02e4r5r2/rule-registry.json",
+            "git_blob": "640b77c50fd94066d61bbc71e020e6471e1c5eff"
+          },
+          "frozen_r5r3_v013_semantics": {
+            "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+            "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+            "path": "docs/accord-02e4r5r3/v013-governance.json",
+            "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+          }
+        },
+        "accepted_source_allowlist": [
+          {
+            "ref": {
+              "kind": "PACKAGE",
+              "id": "urn:moirae:accord-02r5:specification-package",
+              "version": "0.1"
+            },
+            "canonical_path": "docs/accord-02/accord-02r5-specification-package.json",
+            "status": "ACTIVE_ACCEPTED_SOURCE",
+            "classification": "SOURCE_ONLY",
+            "roles": [
+              "NORMATIVE_BOUND_SOURCE"
+            ],
+            "raw_sha256": "6c4633518a9807c9fe1de231eb06be5c3f90ca27e7986024212d5d1c3739b5c0",
+            "semantic_sha256": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c",
+            "git_blob": "33af2e4e0e67b62a963c5f219cce312dddc6cd9d",
+            "expected_schema_ref": {
+              "kind": "SCHEMA",
+              "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+              "version": "0.2",
+              "member_id": "accepted_base_source"
+            }
+          },
+          {
+            "ref": {
+              "kind": "SOURCE_VECTOR_CATALOG",
+              "id": "urn:moirae:accord-02r5:source-vector-catalog",
+              "version": "0.1"
+            },
+            "canonical_path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+            "status": "ACTIVE_ACCEPTED_SOURCE",
+            "classification": "SOURCE_ONLY",
+            "roles": [
+              "CATALOG_BINDING",
+              "VECTOR_SOURCE"
+            ],
+            "raw_sha256": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+            "semantic_sha256": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5",
+            "git_blob": "9d7f92b947fca38b040f0e9bb53b56f6b7bfbc52",
+            "expected_schema_ref": {
+              "kind": "SCHEMA",
+              "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+              "version": "0.2",
+              "member_id": "accepted_vector_source"
+            }
+          }
+        ],
+        "authorized_result_projection_descriptor": {
+          "argument": "v013_governance",
+          "pointer_tokens": [
+            "outcome_map"
+          ],
+          "mapping_cardinality": 2,
+          "expected_literals": {
+            "PASS": "NON_OCCURRENCE_SUPPORTED",
+            "FAIL": "UNKNOWN"
+          },
+          "baseline": {
+            "argument": "frozen_predecessor_semantics",
+            "source_pin": {
+              "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+              "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+              "path": "docs/accord-02e4r5r3/v013-governance.json",
+              "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+            },
+            "status_pointer_tokens": {
+              "PASS": [
+                "pass_result"
+              ],
+              "FAIL": [
+                "fail_result"
+              ]
+            }
+          }
+        },
+        "authorized_result_projection_descriptor_source": "EXTERNAL_ACCEPTANCE_PROFILE:/authorized_result_projection_descriptor",
+        "candidate_claim_comparisons": [
+          {
+            "candidate_artifact": "metacontract",
+            "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r2_rules",
+            "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r2_rules",
+            "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+            "before_semantic_use": true,
+            "failure_code": "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH"
+          },
+          {
+            "candidate_artifact": "metacontract",
+            "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r3_v013_semantics",
+            "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r3_v013_semantics",
+            "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+            "before_semantic_use": true,
+            "failure_code": "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH"
+          },
+          {
+            "candidate_artifact": "metacontract",
+            "candidate_pointer_rfc6901": "/accepted_source_allowlist",
+            "profile_pointer_rfc6901": "/accepted_source_allowlist",
+            "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+            "before_semantic_use": true,
+            "failure_code": "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH"
+          },
+          {
+            "candidate_artifact": "metacontract",
+            "candidate_pointer_rfc6901": "/result_projection_authorization/descriptor",
+            "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+            "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+            "before_semantic_use": true,
+            "failure_code": "METACONTRACT_PROJECTION_CLAIM_MISMATCH"
+          },
+          {
+            "candidate_artifact": "procedure-registry",
+            "candidate_selector": {
+              "collection_pointer_rfc6901": "/procedures",
+              "collection_type": "ARRAY",
+              "selection": {
+                "member_pointer_rfc6901": "/procedure_id",
+                "operator": "JSON_EQUAL",
+                "literal": "REQUIREMENT_MAP_EVAL",
+                "required_match_count": 1
+              },
+              "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+              "selected_value_required": true,
+              "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+              "other_items_constraint": {
+                "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+                "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+                "must_be_absent": true,
+                "present_null_counts_as_present": true
+              },
+              "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+              "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+            },
+            "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+            "comparison": "SELECTED_DESCRIPTOR_WHOLE_OBJECT_JSON_EQUALITY_AND_NO_OTHER_PROJECTION",
+            "before_semantic_use": true,
+            "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH"
+          }
+        ],
+        "procedure_projection_selector": {
+          "collection_pointer_rfc6901": "/procedures",
+          "collection_type": "ARRAY",
+          "selection": {
+            "member_pointer_rfc6901": "/procedure_id",
+            "operator": "JSON_EQUAL",
+            "literal": "REQUIREMENT_MAP_EVAL",
+            "required_match_count": 1
+          },
+          "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+          "selected_value_required": true,
+          "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+          "other_items_constraint": {
+            "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+            "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+            "must_be_absent": true,
+            "present_null_counts_as_present": true
+          },
+          "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+          "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+        },
+        "content_verification": {
+          "acceptance_profile_schema": {
+            "required": true,
+            "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+            "schema_identity_argument": "--acceptance-profile-schema-id",
+            "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+            "schema_bytes_argument": "--acceptance-profile-schema",
+            "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+            "expected_sha256_algorithm": "SHA-256",
+            "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+            "digest_input": "RAW_SCHEMA_BYTES",
+            "verify_digest_before_parse_or_use": true,
+            "verify_schema_identity_and_dialect_after_digest": true,
+            "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+            "candidate_registry_selection": "FORBIDDEN",
+            "candidate_schema_override": "FORBIDDEN",
+            "candidate_embedded_schema_fallback": "FORBIDDEN",
+            "candidate_registry_fallback": "FORBIDDEN",
+            "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+            "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+          },
+          "schema_document": "STRICT_UTF8_JSON_REJECT_DUPLICATE_MEMBERS_VALID_DRAFT_2020_12_SCHEMA",
+          "schema_bytes": "CALLER_INPUT_BYTES_ONLY",
+          "profile_bytes": "CALLER_SUPPLIED_EXTERNAL_ACCEPTANCE_PROFILE_ONLY",
+          "base64_decode": "STRICT_RFC4648_NO_WHITESPACE",
+          "json_decode": "UTF8_REJECT_DUPLICATE_MEMBER_NAMES",
+          "frozen_sources": {
+            "git_blob": "SHA1(ASCII('blob '+DECIMAL_BYTE_LENGTH)+NUL+RAW_BYTES)",
+            "content_use": "PARSED_CONTENT_ONLY_AFTER_PIN_MATCH"
+          },
+          "accepted_sources": {
+            "raw_sha256": "SHA256_RAW_BYTES",
+            "semantic_sha256": "SHA256_RFC8785_JCS_PARSED_JSON",
+            "git_blob": "SHA1_GIT_BLOB_OBJECT",
+            "metadata": "EXACT_REF_PATH_ROLE_STATUS_CLASS_AND_SCHEMA"
+          },
+          "candidate_source_copies": "TRANSPORT_ONLY_NEVER_AUTHORITY_OR_RESOLVER_INPUT",
+          "candidate_registry_fallback": "FORBIDDEN"
+        },
+        "pre_execution_failures": [
+          "MISSING_EXTERNAL_PROFILE_SCHEMA",
+          "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+          "INVALID_EXTERNAL_PROFILE_SCHEMA",
+          "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+          "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+          "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+          "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+          "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+          "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+          "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+          "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+          "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+          "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+          "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+          "SCHEMA_INVALID_BOUND_OBJECT",
+          "RESULT_PROJECTION_INVALID",
+          "AST_ASSERTION_FAILURE"
+        ],
+        "candidate_registry_fallback": "FORBIDDEN",
+        "candidate_source_copies": "TRANSPORT_ONLY_NEVER_AUTHORITY"
+      }
+    },
+    "candidate_claim_comparisons": {
+      "const": [
+        {
+          "candidate_artifact": "metacontract",
+          "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r2_rules",
+          "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r2_rules",
+          "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+          "before_semantic_use": true,
+          "failure_code": "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH"
+        },
+        {
+          "candidate_artifact": "metacontract",
+          "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r3_v013_semantics",
+          "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r3_v013_semantics",
+          "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+          "before_semantic_use": true,
+          "failure_code": "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH"
+        },
+        {
+          "candidate_artifact": "metacontract",
+          "candidate_pointer_rfc6901": "/accepted_source_allowlist",
+          "profile_pointer_rfc6901": "/accepted_source_allowlist",
+          "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+          "before_semantic_use": true,
+          "failure_code": "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH"
+        },
+        {
+          "candidate_artifact": "metacontract",
+          "candidate_pointer_rfc6901": "/result_projection_authorization/descriptor",
+          "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+          "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+          "before_semantic_use": true,
+          "failure_code": "METACONTRACT_PROJECTION_CLAIM_MISMATCH"
+        },
+        {
+          "candidate_artifact": "procedure-registry",
+          "candidate_selector": {
+            "collection_pointer_rfc6901": "/procedures",
+            "collection_type": "ARRAY",
+            "selection": {
+              "member_pointer_rfc6901": "/procedure_id",
+              "operator": "JSON_EQUAL",
+              "literal": "REQUIREMENT_MAP_EVAL",
+              "required_match_count": 1
+            },
+            "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+            "selected_value_required": true,
+            "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+            "other_items_constraint": {
+              "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+              "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+              "must_be_absent": true,
+              "present_null_counts_as_present": true
+            },
+            "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+            "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+          },
+          "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+          "comparison": "SELECTED_DESCRIPTOR_WHOLE_OBJECT_JSON_EQUALITY_AND_NO_OTHER_PROJECTION",
+          "before_semantic_use": true,
+          "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH"
+        }
+      ]
+    },
+    "content_verification": {
+      "const": {
+        "acceptance_profile_schema": {
+          "required": true,
+          "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+          "schema_identity_argument": "--acceptance-profile-schema-id",
+          "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+          "schema_bytes_argument": "--acceptance-profile-schema",
+          "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+          "expected_sha256_algorithm": "SHA-256",
+          "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+          "digest_input": "RAW_SCHEMA_BYTES",
+          "verify_digest_before_parse_or_use": true,
+          "verify_schema_identity_and_dialect_after_digest": true,
+          "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+          "candidate_registry_selection": "FORBIDDEN",
+          "candidate_schema_override": "FORBIDDEN",
+          "candidate_embedded_schema_fallback": "FORBIDDEN",
+          "candidate_registry_fallback": "FORBIDDEN",
+          "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+          "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+        },
+        "schema_document": "STRICT_UTF8_JSON_REJECT_DUPLICATE_MEMBERS_VALID_DRAFT_2020_12_SCHEMA",
+        "schema_bytes": "CALLER_INPUT_BYTES_ONLY",
+        "profile_bytes": "CALLER_SUPPLIED_EXTERNAL_ACCEPTANCE_PROFILE_ONLY",
+        "base64_decode": "STRICT_RFC4648_NO_WHITESPACE",
+        "json_decode": "UTF8_REJECT_DUPLICATE_MEMBER_NAMES",
+        "frozen_sources": {
+          "git_blob": "SHA1(ASCII('blob '+DECIMAL_BYTE_LENGTH)+NUL+RAW_BYTES)",
+          "content_use": "PARSED_CONTENT_ONLY_AFTER_PIN_MATCH"
+        },
+        "accepted_sources": {
+          "raw_sha256": "SHA256_RAW_BYTES",
+          "semantic_sha256": "SHA256_RFC8785_JCS_PARSED_JSON",
+          "git_blob": "SHA1_GIT_BLOB_OBJECT",
+          "metadata": "EXACT_REF_PATH_ROLE_STATUS_CLASS_AND_SCHEMA"
+        },
+        "candidate_source_copies": "TRANSPORT_ONLY_NEVER_AUTHORITY_OR_RESOLVER_INPUT",
+        "candidate_registry_fallback": "FORBIDDEN"
+      }
+    },
+    "pre_execution_failures": {
+      "type": "object",
+      "required": [
+        "codes",
+        "order"
+      ],
+      "properties": {
+        "codes": {
+          "const": [
+            "MISSING_EXTERNAL_PROFILE_SCHEMA",
+            "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+            "INVALID_EXTERNAL_PROFILE_SCHEMA",
+            "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+            "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+            "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+            "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+            "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+            "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+            "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+            "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+            "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+            "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+            "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+            "SCHEMA_INVALID_BOUND_OBJECT",
+            "RESULT_PROJECTION_INVALID"
+          ]
+        },
+        "order": {
+          "const": [
+            "MISSING_EXTERNAL_PROFILE_SCHEMA",
+            "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+            "INVALID_EXTERNAL_PROFILE_SCHEMA",
+            "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+            "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+            "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+            "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+            "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+            "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+            "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+            "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+            "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+            "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+            "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+            "SCHEMA_INVALID_BOUND_OBJECT",
+            "RESULT_PROJECTION_INVALID",
+            "AST_ASSERTION_FAILURE"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "acceptance_profile_schema_input": {
+      "const": {
+        "required": true,
+        "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+        "schema_identity_argument": "--acceptance-profile-schema-id",
+        "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+        "schema_bytes_argument": "--acceptance-profile-schema",
+        "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+        "expected_sha256_algorithm": "SHA-256",
+        "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+        "digest_input": "RAW_SCHEMA_BYTES",
+        "verify_digest_before_parse_or_use": true,
+        "verify_schema_identity_and_dialect_after_digest": true,
+        "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+        "candidate_registry_selection": "FORBIDDEN",
+        "candidate_schema_override": "FORBIDDEN",
+        "candidate_embedded_schema_fallback": "FORBIDDEN",
+        "candidate_registry_fallback": "FORBIDDEN",
+        "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+        "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+      }
+    },
+    "procedure_projection_selector": {
+      "const": {
+        "collection_pointer_rfc6901": "/procedures",
+        "collection_type": "ARRAY",
+        "selection": {
+          "member_pointer_rfc6901": "/procedure_id",
+          "operator": "JSON_EQUAL",
+          "literal": "REQUIREMENT_MAP_EVAL",
+          "required_match_count": 1
+        },
+        "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+        "selected_value_required": true,
+        "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+        "other_items_constraint": {
+          "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+          "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+          "must_be_absent": true,
+          "present_null_counts_as_present": true
+        },
+        "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+        "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+      }
+    },
+    "required_external_fields": {
+      "const": [
+        "expected_package_id",
+        "expected_package_version",
+        "expected_package_digest",
+        "external_acceptance_profile",
+        "acceptance_profile_schema_identity",
+        "acceptance_profile_schema_bytes",
+        "acceptance_profile_schema_sha256"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,901 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:schema:primitive-registry",
+  "title": "Closed ACCORD primitive registry schema",
+  "type": "object",
+  "required": [
+    "$schema",
+    "schema_ref",
+    "$id",
+    "object_id",
+    "object_version",
+    "primitive_registry_version",
+    "primitives",
+    "descendant_record",
+    "descendant_conformance_vectors"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/typed_ref"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02e4r5r4:primitive-registry:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02e4r5r4:primitive-registry"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "primitive_registry_version": {
+      "const": "1"
+    },
+    "primitives": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "items": {
+        "type": "object",
+        "required": [
+          "primitive_id",
+          "arguments",
+          "output_type",
+          "semantics",
+          "failure_behavior",
+          "side_effects",
+          "may_call_user_code",
+          "standard",
+          "missing_behavior",
+          "ambiguity_behavior",
+          "deterministic_order",
+          "error_behavior"
+        ],
+        "properties": {
+          "primitive_id": {
+            "enum": [
+              "RESOLVE_ONE",
+              "GET",
+              "GET_KEY",
+              "JSON_EQUAL",
+              "SET_EQUAL_STRICT",
+              "UNIQUE_BY",
+              "FILTER",
+              "PROJECT",
+              "COUNT",
+              "ALL",
+              "ANY",
+              "NOT",
+              "NUMERIC_COMPARE",
+              "RFC3339_COMPARE",
+              "DURATION_SECONDS",
+              "SCHEMA_VALIDATE",
+              "DIGEST_VERIFY",
+              "DESCENDANTS",
+              "ENUMERATE_TYPED_REFERENCES"
+            ]
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "type"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "output_type": {
+            "type": "string"
+          },
+          "semantics": {
+            "type": "string",
+            "minLength": 1
+          },
+          "failure_behavior": {
+            "const": "FAIL_CLOSED_TYPED_ERROR"
+          },
+          "side_effects": {
+            "const": "NONE"
+          },
+          "may_call_user_code": {
+            "const": false
+          },
+          "standard": {
+            "type": "string",
+            "minLength": 1
+          },
+          "missing_behavior": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ambiguity_behavior": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deterministic_order": {
+            "type": "string",
+            "minLength": 1
+          },
+          "error_behavior": {
+            "type": "object",
+            "required": [
+              "error_classes",
+              "expression_error",
+              "stops_evaluation"
+            ],
+            "properties": {
+              "error_classes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "expression_error": {
+                "const": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS"
+              },
+              "stops_evaluation": {
+                "const": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "dialect_selection": {
+            "const": {
+              "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C",
+              "operand": "schema",
+              "applies_in_modes": [
+                "META_SCHEMA",
+                "INSTANCE"
+              ],
+              "absent_dollar_schema": "SELECTS_DRAFT_2020_12",
+              "explicit_draft_2020_12": "https://json-schema.org/draft/2020-12/schema",
+              "explicit_other_dialect": "UNSUPPORTED_DIALECT;A_STRING_SATISFYING_dollar_schema_value_requirement_THAT_IS_NOT_EXACTLY_THE_SUPPORTED_IDENTIFIER",
+              "registered_schema_document_admission": "UNCHANGED;A_REGISTERED_SCHEMA_DOCUMENT_MUST_STILL_DECLARE_DRAFT_2020_12_EXPLICITLY",
+              "registered_schema_document_admission_ref": "metacontract:/eligibility/candidate_universe/validation_by_kind/SCHEMA",
+              "distinction": "PRIMITIVE_DEFAULT_SEMANTICS_ARE_DISTINCT_FROM_GOVERNANCE_REQUIREMENTS_FOR_REGISTERED_ARTIFACTS",
+              "edge_ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+              "dollar_schema_value_requirement": "A_STRING_THAT_IS_AN_RFC3986_URI_WITH_A_SCHEME_AND_IS_NORMALIZED;DRAFT_2020_12_CORE_SECTION_8_1_1",
+              "normalized_definition": "THE_STRING_EQUALS_ITS_RFC3986_SECTION_6_2_2_SYNTAX_BASED_NORMALIZATION(CASE_NORMALIZATION_OF_SCHEME_HOST_AND_PERCENT_ENCODING_HEX_DIGITS;PERCENT_ENCODING_NORMALIZATION_OF_UNRESERVED_CHARACTERS;DOT_SEGMENT_REMOVAL)",
+              "malformed_dollar_schema": "MALFORMED_SCHEMA",
+              "malformed_dollar_schema_examples": [
+                123,
+                "../schema",
+                "2020-12"
+              ],
+              "supported_identifier_match": "EXACT_STRING_EQUALITY_WITH_https://json-schema.org/draft/2020-12/schema",
+              "unsupported_dialect_examples": [
+                "https://json-schema.org/draft/2019-09/schema",
+                "https://json-schema.org/draft/2020-12/schema#"
+              ],
+              "nested_dollar_schema": "EVERY_$schema_KEYWORD_AT_A_SCHEMA_POSITION_IS_SUBJECT_TO_THIS_RULE;A_NESTED_$schema_EQUAL_TO_THE_SUPPORTED_IDENTIFIER_IS_INERT"
+            }
+          },
+          "reference_admissibility": {
+            "const": {
+              "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C",
+              "admitted_ref_form": "LOCAL_JSON_POINTER_FRAGMENT_ONLY",
+              "non_local_ref": "MALFORMED_SCHEMA",
+              "non_local_ref_reason": "A_NON_LOCAL_REF_IS_OUTSIDE_THE_REFERENCE_DOMAIN_THE_PRIMITIVE_SUPPORTS;IT_IS_NOT_A_LOCAL_FRAGMENT_THAT_FAILED_TO_RESOLVE",
+              "non_local_ref_examples": [
+                "https://example.com/schema",
+                "https://example.com/schema#foo"
+              ],
+              "malformed_schema_widening": "EXPLICIT_R5R29A_R2C_WIDENING;THE_PRIOR_FROZEN_LAW_DID_NOT_ASSIGN_A_DECLARED_CLASS_TO_A_NON_LOCAL_REF",
+              "admitted_local_fragment_with_missing_target": "UNRESOLVED_LOCAL_FRAGMENT",
+              "registered_id_resolver_universe": "NONE;REGISTERED_DOLLAR_ID_VALUES_DO_NOT_CREATE_A_RESOLVER_UNIVERSE_FOR_SCHEMA_VALIDATE",
+              "retrieval": "NONE",
+              "external_schema_resolution": "NOT_A_0_2_CAPABILITY",
+              "static_type_resolution_scope": "SCHEMA_VALIDATE_RESTRICTED_REFERENCE_SEMANTICS_ARE_A_PRIMITIVE_SPECIFIC_SUBSET_AND_DO_NOT_REDEFINE_$id_SEMANTICS_USED_BY_static_type_at_path_OR_OTHER_METACONTRACT_PROCEDURES",
+              "static_type_resolution_rule_ref": "metacontract:/runtime_representation/static_type_calculus/static_type_at_path/schema_keyword_following/ref",
+              "edge_ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+              "admitted_ref_grammar": "EXACTLY_#_OR_#_FOLLOWED_BY_A_FRAGMENT_BEGINNING_WITH_/;THE_FRAGMENT_IS_RFC3986_fragment_SYNTAX_AND_ITS_PERCENT_DECODED_VALUE_IS_A_VALID_RFC6901_JSON_POINTER(RFC6901_SECTION_6)",
+              "admitted_ref_examples": [
+                "#",
+                "#/$defs/person",
+                "#/properties/name"
+              ],
+              "non_admitted_ref_examples": [
+                "#person",
+                "other.json#/$defs/person",
+                "https://example.com/schema#foo",
+                "https://example.com/schema"
+              ],
+              "non_admitted_ref": "MALFORMED_SCHEMA",
+              "plain_name_anchor_refs": "NOT_SUPPORTED_BY_SCHEMA_VALIDATE_0_2;MALFORMED_SCHEMA;INTENTIONAL_NARROWING_NOT_A_CLAIM_ABOUT_JSON_SCHEMA",
+              "dynamic_ref": "NOT_SUPPORTED_BY_SCHEMA_VALIDATE_0_2;A_SEMANTICALLY_ACTIVE_$dynamicRef_MAKES_THE_SCHEMA_MALFORMED_SCHEMA",
+              "anchor_declarations": "$anchor_AND_$dynamicAnchor_DECLARATIONS_ARE_INERT;THEY_CANNOT_BE_REFERENCED_THROUGH_AN_ADMITTED_REF",
+              "root_dollar_id": "AN_IDENTIFIER_ONLY;IT_DOES_NOT_BROADEN_THE_ADMITTED_REFERENCE_DOMAIN",
+              "embedded_dollar_id": "EMBEDDED_ID_RESOLUTION_NOT_SUPPORTED_BY_SCHEMA_VALIDATE_0_2;AN_EMBEDDED_$id_NEVER_MAKES_A_NON_FRAGMENT_OR_ANCHOR_REF_ADMISSIBLE",
+              "embedded_dollar_id_semantically_relevant": "MALFORMED_SCHEMA_WHEN_AN_ADMITTED_REF_IS_LOCATED_INSIDE_AN_EMBEDDED_SCHEMA_RESOURCE_OR_ITS_POINTER_PATH_FROM_THE_ROOT_ENTERS_AN_EMBEDDED_SCHEMA_RESOURCE;OTHERWISE_AN_EMBEDDED_$id_IS_INERT",
+              "resolution_base": "AN_ADMITTED_REF_RESOLVES_AGAINST_THE_ROOT_OF_THE_schema_OPERAND",
+              "registered_schema_document_rule_ref": "model:/families/PE-37/SCHEMA_NONLOCAL_REF",
+              "r2e_ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+              "resolution_outcomes": {
+                "syntax_or_form_outside_admitted_domain": "MALFORMED_SCHEMA",
+                "admitted_pointer_missing": "UNRESOLVED_LOCAL_FRAGMENT",
+                "admitted_pointer_resolves_to_non_schema": "MALFORMED_SCHEMA",
+                "admitted_pointer_resolves_to_schema_in_cycle": "MALFORMED_SCHEMA",
+                "admitted_pointer_resolves_to_schema_in_acyclic_graph": "CONTINUE_VALIDATION"
+              },
+              "resolved_target_schema_representation": "SCHEMA_OBJECT_ADMITTED_BY_ACCORD_0_2_OR_BOOLEAN_TRUE_OR_BOOLEAN_FALSE",
+              "resolved_non_schema_target": "MALFORMED_SCHEMA;THE_POINTER_RESOLVED_SO_UNRESOLVED_LOCAL_FRAGMENT_DOES_NOT_APPLY",
+              "local_ref_graph": {
+                "vertices": "SCHEMA_LOCATIONS_REACHED_BY_ADMITTED_LOCAL_$ref_EDGES",
+                "edges": "EACH_SEMANTICALLY_ACTIVE_ADMITTED_LOCAL_$ref_FROM_ITS_SCHEMA_LOCATION_TO_ITS_RESOLVED_SCHEMA_TARGET",
+                "admissibility": "ACYCLIC_REQUIRED",
+                "direct_or_indirect_cycle": "MALFORMED_SCHEMA",
+                "root_self_ref_example": {
+                  "schema": {
+                    "$ref": "#"
+                  },
+                  "result": "MALFORMED_SCHEMA"
+                },
+                "repeated_acyclic_dag_target": "ADMITTED;REPEATED_TARGET_ALONE_IS_NOT_A_CYCLE"
+              }
+            }
+          },
+          "error_precedence": {
+            "const": [
+              "SCHEMA_REPRESENTATION_AND_PRIMITIVE_OPERAND_SHAPE;MALFORMED_SCHEMA;BOOLEAN_SCHEMAS_ADMITTED",
+              "DIALECT;MALFORMED_DOLLAR_SCHEMA_IS_MALFORMED_SCHEMA;VALID_UNSUPPORTED_DIALECT_URI_IS_UNSUPPORTED_DIALECT",
+              "ACCORD_SCHEMA_ADMISSIBILITY;KEYWORD_VALUE_FORMS;STRUCTURAL_SCHEMA_VALIDITY;ONLY_ADMITTED_REF_FORM;NO_ACTIVE_DYNAMIC_REF;NO_EMBEDDED_ID_DEPENDENT_REF;MALFORMED_SCHEMA",
+              "LOCAL_JSON_POINTER_FRAGMENT_RESOLUTION_AND_GRAPH_ADMISSIBILITY;MISSING_TARGET_IS_UNRESOLVED_LOCAL_FRAGMENT;NON_SCHEMA_TARGET_OR_CYCLE_IS_MALFORMED_SCHEMA",
+              "INSTANCE_VALIDATION;BOOLEAN"
+            ]
+          },
+          "error_precedence_reason": {
+            "const": "THE_APPLICABLE_SCHEMA_SEMANTICS_ARE_ESTABLISHED_BEFORE_ANY_SCHEMA_KEYWORD_IS_INTERPRETED;PRECEDENCE_DOES_NOT_DEPEND_ON_INCIDENTAL_TRAVERSAL_ORDER"
+          },
+          "schema_position": {
+            "const": {
+              "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+              "definition": "THE_ROOT_OF_THE_schema_OPERAND_AND_EVERY_VALUE_REACHED_FROM_A_SCHEMA_POSITION_THROUGH_A_DRAFT_2020_12_SCHEMA_VALUED_KEYWORD",
+              "schema_valued_keywords": {
+                "single": [
+                  "additionalProperties",
+                  "items",
+                  "contains",
+                  "propertyNames",
+                  "unevaluatedItems",
+                  "unevaluatedProperties",
+                  "not",
+                  "if",
+                  "then",
+                  "else",
+                  "contentSchema"
+                ],
+                "array_of_schemas": [
+                  "prefixItems",
+                  "allOf",
+                  "anyOf",
+                  "oneOf"
+                ],
+                "object_of_schemas": [
+                  "properties",
+                  "patternProperties",
+                  "dependentSchemas",
+                  "$defs"
+                ]
+              },
+              "keyword_occurrence": "A_KEYWORD_IS_SEMANTICALLY_ACTIVE_ONLY_AS_A_MEMBER_OF_AN_OBJECT_AT_A_SCHEMA_POSITION;MEMBERS_INSIDE_const_enum_default_examples_OR_OTHER_NON_SCHEMA_VALUES_ARE_DATA",
+              "embedded_schema_resource": "A_SCHEMA_POSITION_OTHER_THAN_THE_ROOT_WHOSE_OBJECT_DECLARES_$id"
+            }
+          },
+          "within_step_selection": {
+            "const": {
+              "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+              "rule": "NO_SEMANTIC_RANK_IS_DEFINED_AMONG_CONDITIONS_OF_ONE_STEP;THE_OWNING_LOCATION_IS_THE_FIRST_IN_DESCENDANTS_CANONICAL_PREORDER_OF_THE_schema_OPERAND",
+              "order_ref": "metacontract:/failure_semantics/pre_execution_failure_model/closed_vocabularies/ordering_rule/DESCENDANTS_CANONICAL_PREORDER",
+              "resolution_starts_only_after_the_whole_schema_is_admissible": true,
+              "r2e_ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+              "simultaneous_malformed_defects": "FIRST_LOCATION_IN_DESCENDANTS_CANONICAL_PREORDER;NO_FIXTURE_SPECIFIC_PRIORITY"
+            }
+          },
+          "schema_representation": {
+            "const": {
+              "ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+              "admitted_representations": [
+                "SCHEMA_OBJECT_IN_ACCORD_0_2_SUBSET",
+                "BOOLEAN_TRUE",
+                "BOOLEAN_FALSE"
+              ],
+              "applies_to": "ROOT_schema_OPERAND;EVERY_SCHEMA_POSITION;EVERY_RESOLVED_LOCAL_REF_TARGET;BOTH_MODES",
+              "boolean_true": "VALID_SCHEMA;VALIDATES_EVERY_INSTANCE",
+              "boolean_false": "VALID_SCHEMA;VALIDATES_NO_INSTANCE",
+              "not_schema_representations": [
+                "STRING",
+                "NUMBER",
+                "ARRAY",
+                "NULL"
+              ],
+              "object_only_inference_from_static_type_rules": "FORBIDDEN"
+            }
+          },
+          "meta_schema_mode": {
+            "const": {
+              "ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+              "subject": "schema_OPERAND_IS_TESTED_FOR_VALIDITY_AS_A_SCHEMA",
+              "instance_operand": "SEMANTICALLY_IGNORED;DO_NOT_READ_VALIDATE_COMPARE_OR_TRAVERSE_IT_FOR_THE_PRIMITIVE_RESULT",
+              "invariance": "THE_SAME_schema_OPERAND_WITH_ANY_TWO_JSON_instance_OPERANDS_HAS_IDENTICAL_VALIDITY_ERROR_CLASS_POINTER_BOOLEAN_RESULT_AND_FAILURE_ORDER"
+            }
+          },
+          "owner_universe_ref": {
+            "const": "reference-model.json:/typed_reference_owner_universe"
+          },
+          "owner_selection_order": {
+            "const": [
+              "CONFIRM_EXACT_OWNER_REFERENCE_IS_A_MEMBER_OF_THE_VERIFICATION_UNIVERSE",
+              "MATCH_AN_EXACT_ACTIVE_NORMATIVE_REGISTRY_ROW_OR_VERIFIED_BOUND_SOURCE_ENTRY",
+              "CLASSIFY_REGISTRY_OWNER_SEMANTIC_ROLE_FROM_ITS_DECLARED_KIND",
+              "IF_KIND_IS_SCHEMA_RETAIN_AS_A_SCHEMA_VALIDATION_SUBJECT_AND_SKIP_BEFORE_PRODUCER_SCHEMA_SELECTION",
+              "FOR_ELIGIBLE_INSTANCE_OWNERS_SELECT_THE_EXACT_REQUIRED_SCHEMA_REF_FROM_THE_SAME_REGISTRY_ROW_OR_BOUND_ENTRY",
+              "FAIL_CLOSED_IF_AN_ELIGIBLE_INSTANCE_OWNER_SCHEMA_REF_IS_MISSING_UNRESOLVED_OR_AMBIGUOUS",
+              "VALIDATE_THE_SAME_OWNER_CONTENT_WITH_THE_SELECTED_SCHEMA_BEFORE_ARGUMENT_EXPOSURE",
+              "ENUMERATE_ONLY_VALUES_ADMITTED_BY_THE_SELECTED_SCHEMA_AND_A_DECLARED_TYPED_REFERENCE_DEFINITION"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "primitive_id": {
+                  "const": "SCHEMA_VALIDATE"
+                }
+              },
+              "required": [
+                "primitive_id"
+              ]
+            },
+            "then": {
+              "required": [
+                "dialect_selection",
+                "reference_admissibility",
+                "error_precedence",
+                "error_precedence_reason",
+                "schema_position",
+                "within_step_selection",
+                "schema_representation",
+                "meta_schema_mode"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "primitive_id": {
+                  "const": "ENUMERATE_TYPED_REFERENCES"
+                }
+              },
+              "required": [
+                "primitive_id"
+              ]
+            },
+            "then": {
+              "required": [
+                "owner_universe_ref",
+                "owner_selection_order"
+              ],
+              "properties": {
+                "owner_universe_ref": {
+                  "const": "reference-model.json:/typed_reference_owner_universe"
+                },
+                "owner_selection_order": {
+                  "const": [
+                    "CONFIRM_EXACT_OWNER_REFERENCE_IS_A_MEMBER_OF_THE_VERIFICATION_UNIVERSE",
+                    "MATCH_AN_EXACT_ACTIVE_NORMATIVE_REGISTRY_ROW_OR_VERIFIED_BOUND_SOURCE_ENTRY",
+                    "CLASSIFY_REGISTRY_OWNER_SEMANTIC_ROLE_FROM_ITS_DECLARED_KIND",
+                    "IF_KIND_IS_SCHEMA_RETAIN_AS_A_SCHEMA_VALIDATION_SUBJECT_AND_SKIP_BEFORE_PRODUCER_SCHEMA_SELECTION",
+                    "FOR_ELIGIBLE_INSTANCE_OWNERS_SELECT_THE_EXACT_REQUIRED_SCHEMA_REF_FROM_THE_SAME_REGISTRY_ROW_OR_BOUND_ENTRY",
+                    "FAIL_CLOSED_IF_AN_ELIGIBLE_INSTANCE_OWNER_SCHEMA_REF_IS_MISSING_UNRESOLVED_OR_AMBIGUOUS",
+                    "VALIDATE_THE_SAME_OWNER_CONTENT_WITH_THE_SELECTED_SCHEMA_BEFORE_ARGUMENT_EXPOSURE",
+                    "ENUMERATE_ONLY_VALUES_ADMITTED_BY_THE_SELECTED_SCHEMA_AND_A_DECLARED_TYPED_REFERENCE_DEFINITION"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "descendant_record": {
+      "$ref": "#/$defs/descendant_record_definition"
+    },
+    "descendant_conformance_vectors": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "$ref": "#/$defs/descendant_conformance_vector"
+      }
+    }
+  },
+  "$defs": {
+    "typed_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "descendant_record_instance": {
+      "type": "object",
+      "required": [
+        "pointer",
+        "value",
+        "path_tokens",
+        "ancestor_pointers",
+        "value_type",
+        "keys",
+        "member_key"
+      ],
+      "properties": {
+        "pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^/~]|~[01])*)*$"
+        },
+        "value": {},
+        "path_tokens": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ancestor_pointers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^(?:/(?:[^/~]|~[01])*)*$"
+          }
+        },
+        "value_type": {
+          "enum": [
+            "NULL",
+            "BOOLEAN",
+            "NUMBER",
+            "STRING",
+            "ARRAY",
+            "OBJECT"
+          ]
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "member_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "descendant_record_field": {
+      "type": "object",
+      "required": [
+        "order",
+        "declared_type",
+        "algorithm"
+      ],
+      "properties": {
+        "order": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        "declared_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "algorithm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pattern": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowed_values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "examples": {
+          "type": "object"
+        },
+        "root_value": {}
+      },
+      "additionalProperties": false
+    },
+    "descendant_record_definition": {
+      "type": "object",
+      "required": [
+        "record_id",
+        "record_version",
+        "instance_schema_pointer",
+        "record_shape",
+        "emission",
+        "fields",
+        "domain",
+        "limits",
+        "error_behavior"
+      ],
+      "properties": {
+        "record_id": {
+          "const": "DESCENDANT_RECORD"
+        },
+        "record_version": {
+          "const": "1"
+        },
+        "instance_schema_pointer": {
+          "const": "#/$defs/descendant_record_instance"
+        },
+        "record_shape": {
+          "type": "object",
+          "required": [
+            "closed",
+            "additional_properties",
+            "field_count",
+            "field_order"
+          ],
+          "properties": {
+            "closed": {
+              "const": true
+            },
+            "additional_properties": {
+              "const": false
+            },
+            "field_count": {
+              "const": 7
+            },
+            "field_order": {
+              "const": [
+                "pointer",
+                "value",
+                "path_tokens",
+                "ancestor_pointers",
+                "value_type",
+                "keys",
+                "member_key"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "emission": {
+          "type": "object",
+          "required": [
+            "traversal",
+            "root_included",
+            "root_depth",
+            "root_visited_node_count",
+            "all_nodes_emitted",
+            "child_order"
+          ],
+          "properties": {
+            "traversal": {
+              "const": "PREORDER_DEPTH_FIRST_EXPLICIT_LIFO_STACK_PUSH_CHILDREN_REVERSED"
+            },
+            "root_included": {
+              "const": true
+            },
+            "root_depth": {
+              "const": 0
+            },
+            "root_visited_node_count": {
+              "const": 1
+            },
+            "all_nodes_emitted": {
+              "const": "INCLUDING_EMPTY_OBJECT_AND_EMPTY_ARRAY_AND_SCALAR_ROOT"
+            },
+            "child_order": {
+              "type": "object",
+              "required": [
+                "object",
+                "array"
+              ],
+              "properties": {
+                "object": {
+                  "const": "OBJECT_MEMBER_KEYS_UTF16_CODE_UNIT_ASCENDING"
+                },
+                "array": {
+                  "const": "ASCENDING_CANONICAL_DECIMAL_ARRAY_INDEX"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "fields": {
+          "type": "object",
+          "required": [
+            "pointer",
+            "value",
+            "path_tokens",
+            "ancestor_pointers",
+            "value_type",
+            "keys",
+            "member_key"
+          ],
+          "properties": {
+            "pointer": {
+              "$ref": "#/$defs/descendant_record_field"
+            },
+            "value": {
+              "$ref": "#/$defs/descendant_record_field"
+            },
+            "path_tokens": {
+              "$ref": "#/$defs/descendant_record_field"
+            },
+            "ancestor_pointers": {
+              "$ref": "#/$defs/descendant_record_field"
+            },
+            "value_type": {
+              "$ref": "#/$defs/descendant_record_field"
+            },
+            "keys": {
+              "$ref": "#/$defs/descendant_record_field"
+            },
+            "member_key": {
+              "$ref": "#/$defs/descendant_record_field"
+            }
+          },
+          "additionalProperties": false
+        },
+        "domain": {
+          "type": "object",
+          "required": [
+            "input_type",
+            "parse_rejections",
+            "parse_rejection_error_class",
+            "valid_json_pointer_uniqueness",
+            "duplicate_pointer_behavior",
+            "duplicate_pointer_error_class"
+          ],
+          "properties": {
+            "input_type": {
+              "const": "FINITE_JSON"
+            },
+            "parse_rejections": {
+              "const": [
+                "DUPLICATE_JSON_MEMBER_NAME",
+                "NON_JSON_NUMERIC_CONSTANT",
+                "INVALID_UTF8"
+              ]
+            },
+            "parse_rejection_error_class": {
+              "const": "NON_JSON_VALUE"
+            },
+            "valid_json_pointer_uniqueness": {
+              "const": "GUARANTEED_ONE_RECORD_PER_VISITED_NODE"
+            },
+            "duplicate_pointer_behavior": {
+              "const": "FAIL_CLOSED_TYPED_ERROR"
+            },
+            "duplicate_pointer_error_class": {
+              "const": "NON_JSON_VALUE"
+            }
+          },
+          "additionalProperties": false
+        },
+        "limits": {
+          "type": "object",
+          "required": [
+            "max_depth_source",
+            "max_depth_baseline",
+            "max_nodes_source",
+            "max_nodes_baseline",
+            "exceeded_error_class"
+          ],
+          "properties": {
+            "max_depth_source": {
+              "const": "metacontract.resource_limits.max_json_traversal_depth"
+            },
+            "max_depth_baseline": {
+              "const": 256
+            },
+            "max_nodes_source": {
+              "const": "metacontract.resource_limits.max_json_nodes_visited_per_value"
+            },
+            "max_nodes_baseline": {
+              "const": 1000000
+            },
+            "exceeded_error_class": {
+              "const": "TRAVERSAL_RESOURCE_LIMIT"
+            }
+          },
+          "additionalProperties": false
+        },
+        "error_behavior": {
+          "type": "object",
+          "required": [
+            "error_classes",
+            "expression_error",
+            "stops_evaluation"
+          ],
+          "properties": {
+            "error_classes": {
+              "const": [
+                "NON_JSON_VALUE",
+                "TRAVERSAL_RESOURCE_LIMIT"
+              ]
+            },
+            "expression_error": {
+              "const": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS"
+            },
+            "stops_evaluation": {
+              "const": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "descendant_ancestry_probe": {
+      "type": "object",
+      "required": [
+        "probe_kind",
+        "probe_pointer",
+        "observed_ancestor_pointers",
+        "inclusive_expected_ancestor_pointers",
+        "strict_expected_ancestor_pointers",
+        "root_inclusive_expected_ancestor_pointers",
+        "root_strict_expected_ancestor_pointers",
+        "selected_semantics"
+      ],
+      "properties": {
+        "probe_kind": {
+          "const": "INCLUSIVE_VS_STRICT_ANCESTRY"
+        },
+        "probe_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^/~]|~[01])*)*$"
+        },
+        "observed_ancestor_pointers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "inclusive_expected_ancestor_pointers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "strict_expected_ancestor_pointers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "root_inclusive_expected_ancestor_pointers": {
+          "const": [
+            ""
+          ]
+        },
+        "root_strict_expected_ancestor_pointers": {
+          "const": []
+        },
+        "selected_semantics": {
+          "const": "INCLUSIVE_ROOT_THROUGH_SELF"
+        }
+      },
+      "additionalProperties": false
+    },
+    "descendant_exclusion_probe": {
+      "type": "object",
+      "required": [
+        "excluded_pointer",
+        "governing_token",
+        "expected_excluded_node_pointers",
+        "expected_included_node_pointers"
+      ],
+      "properties": {
+        "excluded_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^/~]|~[01])*)*$"
+        },
+        "governing_token": {
+          "const": "EXACT_POINTER_EQUALITY_AGAINST_ANCESTOR_POINTERS"
+        },
+        "expected_excluded_node_pointers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "expected_included_node_pointers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "descendant_conformance_vector": {
+      "type": "object",
+      "required": [
+        "vector_id",
+        "purpose",
+        "input",
+        "expected_record_count",
+        "expected_record_order",
+        "expected_records"
+      ],
+      "properties": {
+        "vector_id": {
+          "type": "string",
+          "pattern": "^DESCENDANTS-V[0-9]{2}-[A-Z0-9-]+$"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input": {},
+        "expected_record_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "expected_record_order": {
+          "const": "PREORDER_DEPTH_FIRST"
+        },
+        "expected_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/descendant_record_instance"
+          }
+        },
+        "ancestry_semantics_probe": {
+          "$ref": "#/$defs/descendant_ancestry_probe"
+        },
+        "exclusion_probe": {
+          "$ref": "#/$defs/descendant_exclusion_probe"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

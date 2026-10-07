@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "installed_primary_sha256": "8facf456d00d72a4eb3217a3ef624cc99d7f351cc7626b66366371dafd0dca04",
+  "bootstrap_status": "PASS",
+  "results": [
+    {
+      "depth": 600,
+      "kind": "valid",
+      "observed": true
+    },
+    {
+      "depth": 600,
+      "kind": "invalid_near_root",
+      "observed": false
+    },
+    {
+      "depth": 600,
+      "kind": "invalid_deepest",
+      "observed": false
+    },
+    {
+      "depth": 1200,
+      "kind": "valid",
+      "observed": true
+    },
+    {
+      "depth": 1200,
+      "kind": "invalid_near_root",
+      "observed": false
+    },
+    {
+      "depth": 1200,
+      "kind": "invalid_deepest",
+      "observed": false
+    },
+    {
+      "depth": 2000,
+      "kind": "valid",
+      "observed": true
+    },
+    {
+      "depth": 2000,
+      "kind": "invalid_near_root",
+      "observed": false
+    },
+    {
+      "depth": 2000,
+      "kind": "invalid_deepest",
+      "observed": false
+    },
+    {
+      "depth": 600,
+      "kind": "meta_valid",
+      "observed": true
+    },
+    {
+      "depth": 1200,
+      "kind": "meta_valid",
+      "observed": true
+    },
+    {
+      "depth": 900,
+      "kind": "runtime_copy_equal_boolean_schema",
+      "observed": true
+    },
+    {
+      "depth": 1200,
+      "kind": "runtime_copy_equal_boolean_schema",
+      "observed": true
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "profile_id",
+    "profile_version",
+    "registry_membership",
+    "frozen_authority_pins",
+    "frozen_authority_contents",
+    "accepted_source_allowlist",
+    "accepted_source_contents",
+    "authorized_result_projection_descriptor",
+    "profile_is_caller_supplied_outside_candidate",
+    "profile_is_immutable_for_run",
+    "candidate_copies_are_authority",
+    "candidate_registry_fallback"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02e4r5r4:external-acceptance-profile:1"
+    },
+    "profile_id": {
+      "const": "ACCORD-02E4R5R4-ACCEPTANCE-PROFILE"
+    },
+    "profile_version": {
+      "const": "1"
+    },
+    "registry_membership": {
+      "const": "FORBIDDEN_NOT_A_PACKAGE_OBJECT"
+    },
+    "frozen_authority_pins": {
+      "const": {
+        "frozen_r5r2_rules": {
+          "commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+          "tree": "19dc9356784d08d04945f8e2ce9b24bcd49e3683",
+          "path": "docs/accord-02e4r5r2/rule-registry.json",
+          "git_blob": "640b77c50fd94066d61bbc71e020e6471e1c5eff"
+        },
+        "frozen_r5r3_v013_semantics": {
+          "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+          "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+          "path": "docs/accord-02e4r5r3/v013-governance.json",
+          "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+        }
+      }
+    },
+    "frozen_authority_contents": {
+      "type": "object",
+      "required": [
+        "frozen_r5r2_rules",
+        "frozen_r5r3_v013_semantics"
+      ],
+      "properties": {
+        "frozen_r5r2_rules": {
+          "type": "object",
+          "required": [
+            "content_encoding",
+            "content_base64"
+          ],
+          "properties": {
+            "content_encoding": {
+              "const": "BASE64_RAW_FILE_BYTES"
+            },
+            "content_base64": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$",
+              "contentEncoding": "base64",
+              "contentMediaType": "application/json"
+            }
+          },
+          "additionalProperties": false
+        },
+        "frozen_r5r3_v013_semantics": {
+          "type": "object",
+          "required": [
+            "content_encoding",
+            "content_base64"
+          ],
+          "properties": {
+            "content_encoding": {
+              "const": "BASE64_RAW_FILE_BYTES"
+            },
+            "content_base64": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$",
+              "contentEncoding": "base64",
+              "contentMediaType": "application/json"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "accepted_source_allowlist": {
+      "const": [
+        {
+          "ref": {
+            "kind": "PACKAGE",
+            "id": "urn:moirae:accord-02r5:specification-package",
+            "version": "0.1"
+          },
+          "canonical_path": "docs/accord-02/accord-02r5-specification-package.json",
+          "status": "ACTIVE_ACCEPTED_SOURCE",
+          "classification": "SOURCE_ONLY",
+          "roles": [
+            "NORMATIVE_BOUND_SOURCE"
+          ],
+          "raw_sha256": "6c4633518a9807c9fe1de231eb06be5c3f90ca27e7986024212d5d1c3739b5c0",
+          "semantic_sha256": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c",
+          "git_blob": "33af2e4e0e67b62a963c5f219cce312dddc6cd9d",
+          "expected_schema_ref": {
+            "kind": "SCHEMA",
+            "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+            "version": "0.2",
+            "member_id": "accepted_base_source"
+          }
+        },
+        {
+          "ref": {
+            "kind": "SOURCE_VECTOR_CATALOG",
+            "id": "urn:moirae:accord-02r5:source-vector-catalog",
+            "version": "0.1"
+          },
+          "canonical_path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+          "status": "ACTIVE_ACCEPTED_SOURCE",
+          "classification": "SOURCE_ONLY",
+          "roles": [
+            "CATALOG_BINDING",
+            "VECTOR_SOURCE"
+          ],
+          "raw_sha256": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+          "semantic_sha256": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5",
+          "git_blob": "9d7f92b947fca38b040f0e9bb53b56f6b7bfbc52",
+          "expected_schema_ref": {
+            "kind": "SCHEMA",
+            "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+            "version": "0.2",
+            "member_id": "accepted_vector_source"
+          }
+        }
+      ]
+    },
+    "accepted_source_contents": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "ref",
+              "canonical_path",
+              "git_blob",
+              "content_encoding",
+              "content_base64"
+            ],
+            "properties": {
+              "ref": {
+                "const": {
+                  "kind": "PACKAGE",
+                  "id": "urn:moirae:accord-02r5:specification-package",
+                  "version": "0.1"
+                }
+              },
+              "canonical_path": {
+                "const": "docs/accord-02/accord-02r5-specification-package.json"
+              },
+              "git_blob": {
+                "const": "33af2e4e0e67b62a963c5f219cce312dddc6cd9d"
+              },
+              "content_encoding": {
+                "const": "BASE64_RAW_FILE_BYTES"
+              },
+              "content_base64": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$",
+                "contentEncoding": "base64",
+                "contentMediaType": "application/json"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "ref",
+              "canonical_path",
+              "git_blob",
+              "content_encoding",
+              "content_base64"
+            ],
+            "properties": {
+              "ref": {
+                "const": {
+                  "kind": "SOURCE_VECTOR_CATALOG",
+                  "id": "urn:moirae:accord-02r5:source-vector-catalog",
+                  "version": "0.1"
+                }
+              },
+              "canonical_path": {
+                "const": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json"
+              },
+              "git_blob": {
+                "const": "9d7f92b947fca38b040f0e9bb53b56f6b7bfbc52"
+              },
+              "content_encoding": {
+                "const": "BASE64_RAW_FILE_BYTES"
+              },
+              "content_base64": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$",
+                "contentEncoding": "base64",
+                "contentMediaType": "application/json"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "authorized_result_projection_descriptor": {
+      "const": {
+        "argument": "v013_governance",
+        "pointer_tokens": [
+          "outcome_map"
+        ],
+        "mapping_cardinality": 2,
+        "expected_literals": {
+          "PASS": "NON_OCCURRENCE_SUPPORTED",
+          "FAIL": "UNKNOWN"
+        },
+        "baseline": {
+          "argument": "frozen_predecessor_semantics",
+          "source_pin": {
+            "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+            "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+            "path": "docs/accord-02e4r5r3/v013-governance.json",
+            "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+          },
+          "status_pointer_tokens": {
+            "PASS": [
+              "pass_result"
+            ],
+            "FAIL": [
+              "fail_result"
+            ]
+          }
+        }
+      }
+    },
+    "profile_is_caller_supplied_outside_candidate": {
+      "const": true
+    },
+    "profile_is_immutable_for_run": {
+      "const": true
+    },
+    "candidate_copies_are_authority": {
+      "const": false
+    },
+    "candidate_registry_fallback": {
+      "const": false
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+  "title": "Verifier-owned ACCORD-02E4R5R4 external acceptance profile input"
+}

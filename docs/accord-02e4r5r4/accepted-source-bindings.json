@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:accepted-source-bindings",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:accepted-source-bindings:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:accepted-source-bindings",
+  "object_version": "0.2",
+  "sources": [
+    {
+      "ref": {
+        "kind": "PACKAGE",
+        "id": "urn:moirae:accord-02r5:specification-package",
+        "version": "0.1"
+      },
+      "path": "docs/accord-02/accord-02r5-specification-package.json",
+      "status": "ACTIVE_ACCEPTED_SOURCE",
+      "roles": [
+        "NORMATIVE_BOUND_SOURCE"
+      ],
+      "integrity": {
+        "semantic_json_content_sha256": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c",
+        "raw_file_bytes_sha256": "6c4633518a9807c9fe1de231eb06be5c3f90ca27e7986024212d5d1c3739b5c0",
+        "raw_byte_preservation": "GIT_ATTRIBUTES_MINUS_TEXT",
+        "algorithm": "SHA-256",
+        "modes": [
+          {
+            "mode": "SEMANTIC_JSON_CONTENT",
+            "expected_digest": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c",
+            "algorithm": "SHA-256",
+            "serialization": "RFC8785_JCS",
+            "excluded_pointers": []
+          },
+          {
+            "mode": "RAW_FILE_BYTES",
+            "expected_digest": "6c4633518a9807c9fe1de231eb06be5c3f90ca27e7986024212d5d1c3739b5c0",
+            "algorithm": "SHA-256",
+            "serialization": "RAW_BYTES",
+            "excluded_pointers": []
+          }
+        ]
+      },
+      "classification": "SOURCE_ONLY",
+      "git_blob": "33af2e4e0e67b62a963c5f219cce312dddc6cd9d",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+        "version": "0.2",
+        "member_id": "accepted_base_source"
+      }
+    },
+    {
+      "ref": {
+        "kind": "SOURCE_VECTOR_CATALOG",
+        "id": "urn:moirae:accord-02r5:source-vector-catalog",
+        "version": "0.1"
+      },
+      "path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+      "status": "ACTIVE_ACCEPTED_SOURCE",
+      "roles": [
+        "CATALOG_BINDING",
+        "VECTOR_SOURCE"
+      ],
+      "integrity": {
+        "semantic_json_content_sha256": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5",
+        "raw_file_bytes_sha256": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+        "raw_byte_preservation": "GIT_ATTRIBUTES_MINUS_TEXT",
+        "algorithm": "SHA-256",
+        "modes": [
+          {
+            "mode": "SEMANTIC_JSON_CONTENT",
+            "expected_digest": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5",
+            "algorithm": "SHA-256",
+            "serialization": "RFC8785_JCS",
+            "excluded_pointers": []
+          },
+          {
+            "mode": "RAW_FILE_BYTES",
+            "expected_digest": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+            "algorithm": "SHA-256",
+            "serialization": "RAW_BYTES",
+            "excluded_pointers": []
+          }
+        ]
+      },
+      "classification": "SOURCE_ONLY",
+      "git_blob": "9d7f92b947fca38b040f0e9bb53b56f6b7bfbc52",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+        "version": "0.2",
+        "member_id": "accepted_vector_source"
+      }
+    }
+  ]
+}

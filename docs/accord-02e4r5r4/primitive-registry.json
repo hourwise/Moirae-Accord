@@ -1,0 +1,1469 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:primitive-registry",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:primitive-registry:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:primitive-registry",
+  "object_version": "0.2",
+  "primitive_registry_version": "1",
+  "primitives": [
+    {
+      "primitive_id": "RESOLVE_ONE",
+      "arguments": [
+        {
+          "name": "universe",
+          "type": "VERIFICATION_UNIVERSE"
+        },
+        {
+          "name": "reference",
+          "type": "JSON"
+        }
+      ],
+      "output_type": "RESOLVED_OBJECT",
+      "semantics": "metacontract:/runtime_representation/resolved_construction; returns exact RESOLVED_OBJECT",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "RFC 6901 Typed Reference; Accord source eligibility",
+      "missing_behavior": "ERROR_IF_IDENTITY_OR_MEMBER_MISSING",
+      "ambiguity_behavior": "FAIL_CLOSED_ON_DUPLICATE_IDENTITY_OR_MEMBER",
+      "deterministic_order": "UNIVERSE_IDENTITY_ORDER; EXACTLY_ONE_REQUIRED",
+      "error_behavior": {
+        "error_classes": [
+          "INVALID_TYPED_REFERENCE",
+          "RESOLUTION_NOT_FOUND",
+          "RESOLUTION_AMBIGUOUS",
+          "INELIGIBLE_OBJECT",
+          "MEMBER_NOT_FOUND"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "GET",
+      "arguments": [
+        {
+          "name": "value",
+          "type": "JSON"
+        },
+        {
+          "name": "pointer",
+          "type": "RFC6901_POINTER"
+        }
+      ],
+      "output_type": "JSON",
+      "semantics": "RFC 6901; missing, malformed, or wrong array index is an error",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "RFC 6901",
+      "missing_behavior": "ERROR_IF_POINTER_MISSING_OR_MALFORMED",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "SINGLE_POINTER_TRAVERSAL",
+      "error_behavior": {
+        "error_classes": [
+          "INVALID_POINTER",
+          "MISSING_PATH",
+          "INVALID_ARRAY_INDEX"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "GET_KEY",
+      "arguments": [
+        {
+          "name": "object",
+          "type": "JSON_OBJECT"
+        },
+        {
+          "name": "key",
+          "type": "STRING"
+        }
+      ],
+      "output_type": "JSON",
+      "semantics": "JSON object member lookup; missing or nonobject is an error",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "JSON object member access",
+      "missing_behavior": "ERROR_IF_KEY_MISSING_OR_NOT_OBJECT",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "SINGLE_OBJECT_MEMBER",
+      "error_behavior": {
+        "error_classes": [
+          "MISSING_KEY",
+          "NOT_OBJECT",
+          "UNDECLARED_CLOSED_RECORD_FIELD"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "JSON_EQUAL",
+      "arguments": [
+        {
+          "name": "left",
+          "type": "JSON"
+        },
+        {
+          "name": "right",
+          "type": "JSON"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "metacontract:/numeric_representation/json_equal; exact mathematical JSON number equality",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "JSON; RFC 8785 applies only to digest serialization",
+      "missing_behavior": "NOT_APPLICABLE_JSON_NULL_IS_VALUE",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "STRUCTURAL_JSON_OBJECT_ORDER_IGNORED_ARRAY_ORDER_RETAINED",
+      "error_behavior": {
+        "error_classes": [],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "SET_EQUAL_STRICT",
+      "arguments": [
+        {
+          "name": "left",
+          "type": "ARRAY<JSON>"
+        },
+        {
+          "name": "right",
+          "type": "ARRAY<JSON>"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "Accord strict unordered set equality; duplicate items are an error",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "ACCORD strict-set semantics",
+      "missing_behavior": "NOT_APPLICABLE_ARRAY_REQUIRED",
+      "ambiguity_behavior": "NOT_APPLICABLE_DUPLICATE_SET_ELEMENT_IS_ERROR",
+      "deterministic_order": "UNORDERED_SET_EQUALITY",
+      "error_behavior": {
+        "error_classes": [
+          "NOT_ARRAY",
+          "DUPLICATE_SET_ITEM"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "UNIQUE_BY",
+      "arguments": [
+        {
+          "name": "array",
+          "type": "ARRAY<JSON>"
+        },
+        {
+          "name": "pointers",
+          "type": "ARRAY<RFC6901_POINTER>"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "Accord unique projection; duplicate pair false with first-index witness",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "ACCORD unique projection",
+      "missing_behavior": "ERROR_IF_PROJECTED_KEY_MISSING",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "SOURCE_ORDER_EARLIEST_DUPLICATE_PAIR",
+      "error_behavior": {
+        "error_classes": [
+          "NOT_ARRAY",
+          "INVALID_POINTER",
+          "MISSING_PROJECTED_KEY"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "FILTER",
+      "arguments": [
+        {
+          "name": "array",
+          "type": "ARRAY<T>"
+        },
+        {
+          "name": "as",
+          "type": "SCOPE_NAME"
+        },
+        {
+          "name": "where",
+          "type": "BOOLEAN_EXPRESSION"
+        }
+      ],
+      "output_type": "ARRAY<T>",
+      "semantics": "Stable order, finite input, lexical scope",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "Finite JSON arrays",
+      "missing_behavior": "EMPTY_ARRAY_RETURNS_EMPTY_ARRAY",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "STABLE_SOURCE_ARRAY_ORDER",
+      "error_behavior": {
+        "error_classes": [
+          "NOT_ARRAY",
+          "PREDICATE_EVALUATION_ERROR"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "PROJECT",
+      "arguments": [
+        {
+          "name": "array",
+          "type": "ARRAY<T>"
+        },
+        {
+          "name": "as",
+          "type": "SCOPE_NAME"
+        },
+        {
+          "name": "fields",
+          "type": "NONEMPTY_NAMED_EXPRESSIONS"
+        }
+      ],
+      "output_type": "ARRAY<JSON_OBJECT>",
+      "semantics": "Stable order; unique field names; finite input",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "Finite JSON arrays",
+      "missing_behavior": "EMPTY_ARRAY_RETURNS_EMPTY_ARRAY",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "STABLE_SOURCE_ARRAY_ORDER_AND_DECLARED_FIELD_ORDER",
+      "error_behavior": {
+        "error_classes": [
+          "NOT_ARRAY",
+          "DUPLICATE_PROJECTED_FIELD",
+          "FIELD_EXPRESSION_ERROR"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "COUNT",
+      "arguments": [
+        {
+          "name": "array",
+          "type": "ARRAY<T>"
+        }
+      ],
+      "output_type": "NONNEGATIVE_INTEGER",
+      "semantics": "Finite JSON array length",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "Finite JSON arrays",
+      "missing_behavior": "ERROR_IF_NOT_ARRAY",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "EXACT_ARRAY_LENGTH",
+      "error_behavior": {
+        "error_classes": [
+          "NOT_ARRAY"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "ALL",
+      "arguments": [
+        {
+          "name": "array",
+          "type": "ARRAY<T>"
+        },
+        {
+          "name": "as",
+          "type": "SCOPE_NAME"
+        },
+        {
+          "name": "where",
+          "type": "BOOLEAN_EXPRESSION"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "Short circuit in order; empty true; lexical scope",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "Finite JSON arrays",
+      "missing_behavior": "EMPTY_ARRAY_IS_TRUE",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "STABLE_SHORT_CIRCUIT_FALSE",
+      "error_behavior": {
+        "error_classes": [
+          "NOT_ARRAY",
+          "PREDICATE_EVALUATION_ERROR",
+          "NON_BOOLEAN_PREDICATE"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "ANY",
+      "arguments": [
+        {
+          "name": "array",
+          "type": "ARRAY<T>"
+        },
+        {
+          "name": "as",
+          "type": "SCOPE_NAME"
+        },
+        {
+          "name": "where",
+          "type": "BOOLEAN_EXPRESSION"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "Short circuit in order; empty false; lexical scope",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "Finite JSON arrays",
+      "missing_behavior": "EMPTY_ARRAY_IS_FALSE",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "STABLE_SHORT_CIRCUIT_TRUE",
+      "error_behavior": {
+        "error_classes": [
+          "NOT_ARRAY",
+          "PREDICATE_EVALUATION_ERROR",
+          "NON_BOOLEAN_PREDICATE"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "NOT",
+      "arguments": [
+        {
+          "name": "value",
+          "type": "BOOLEAN"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "Boolean negation; nonboolean error",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "Boolean logic",
+      "missing_behavior": "ERROR_IF_NOT_BOOLEAN",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "SINGLE_BOOLEAN",
+      "error_behavior": {
+        "error_classes": [
+          "NON_BOOLEAN_OPERAND"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "NUMERIC_COMPARE",
+      "arguments": [
+        {
+          "name": "left",
+          "type": "JSON_NUMBER"
+        },
+        {
+          "name": "comparator",
+          "type": "COMPARATOR"
+        },
+        {
+          "name": "right",
+          "type": "JSON_NUMBER"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "metacontract:/numeric_representation/numeric_compare",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "JSON exact decimal mathematical value",
+      "missing_behavior": "ERROR_IF_NOT_FINITE_JSON_NUMBER",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "EXACT_NUMERIC_COMPARE_NO_COERCION",
+      "error_behavior": {
+        "error_classes": [
+          "NON_NUMERIC_OPERAND",
+          "NONFINITE_NUMBER",
+          "INVALID_COMPARATOR"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "RFC3339_COMPARE",
+      "arguments": [
+        {
+          "name": "left",
+          "type": "RFC3339_STRING"
+        },
+        {
+          "name": "comparator",
+          "type": "COMPARATOR"
+        },
+        {
+          "name": "right",
+          "type": "RFC3339_STRING"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "RFC 3339 profile and normalized instant order",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "RFC 3339",
+      "missing_behavior": "ERROR_IF_TIMESTAMP_MALFORMED",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "COMPARE_NORMALIZED_INSTANTS",
+      "error_behavior": {
+        "error_classes": [
+          "MALFORMED_RFC3339",
+          "INVALID_COMPARATOR"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "DURATION_SECONDS",
+      "arguments": [
+        {
+          "name": "start",
+          "type": "RFC3339_STRING"
+        },
+        {
+          "name": "end",
+          "type": "RFC3339_STRING"
+        }
+      ],
+      "output_type": "JSON_NUMBER",
+      "semantics": "metacontract:/numeric_representation/duration_seconds",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "RFC 3339 restricted by metacontract:/numeric_representation/rfc3339_profile",
+      "missing_behavior": "ERROR_IF_TIMESTAMP_MALFORMED",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "EXACT_END_MINUS_START_SIGNED_DECIMAL",
+      "error_behavior": {
+        "error_classes": [
+          "MALFORMED_RFC3339",
+          "DURATION_OVERFLOW"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "SCHEMA_VALIDATE",
+      "arguments": [
+        {
+          "name": "schema",
+          "type": "JSON_SCHEMA"
+        },
+        {
+          "name": "instance",
+          "type": "JSON"
+        },
+        {
+          "name": "mode",
+          "type": "ENUM<META_SCHEMA,INSTANCE>"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "JSON Schema Draft 2020-12; local fragment refs only; no retrieval",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "JSON Schema Draft 2020-12",
+      "missing_behavior": "ERROR_IF_SCHEMA_OR_REF_MALFORMED",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "LOCAL_FRAGMENT_REFERENCE_ONLY_NO_NETWORK",
+      "error_behavior": {
+        "error_classes": [
+          "MALFORMED_SCHEMA",
+          "UNRESOLVED_LOCAL_FRAGMENT",
+          "UNSUPPORTED_DIALECT"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      },
+      "dialect_selection": {
+        "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C",
+        "operand": "schema",
+        "applies_in_modes": [
+          "META_SCHEMA",
+          "INSTANCE"
+        ],
+        "absent_dollar_schema": "SELECTS_DRAFT_2020_12",
+        "explicit_draft_2020_12": "https://json-schema.org/draft/2020-12/schema",
+        "explicit_other_dialect": "UNSUPPORTED_DIALECT;A_STRING_SATISFYING_dollar_schema_value_requirement_THAT_IS_NOT_EXACTLY_THE_SUPPORTED_IDENTIFIER",
+        "registered_schema_document_admission": "UNCHANGED;A_REGISTERED_SCHEMA_DOCUMENT_MUST_STILL_DECLARE_DRAFT_2020_12_EXPLICITLY",
+        "registered_schema_document_admission_ref": "metacontract:/eligibility/candidate_universe/validation_by_kind/SCHEMA",
+        "distinction": "PRIMITIVE_DEFAULT_SEMANTICS_ARE_DISTINCT_FROM_GOVERNANCE_REQUIREMENTS_FOR_REGISTERED_ARTIFACTS",
+        "edge_ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+        "dollar_schema_value_requirement": "A_STRING_THAT_IS_AN_RFC3986_URI_WITH_A_SCHEME_AND_IS_NORMALIZED;DRAFT_2020_12_CORE_SECTION_8_1_1",
+        "normalized_definition": "THE_STRING_EQUALS_ITS_RFC3986_SECTION_6_2_2_SYNTAX_BASED_NORMALIZATION(CASE_NORMALIZATION_OF_SCHEME_HOST_AND_PERCENT_ENCODING_HEX_DIGITS;PERCENT_ENCODING_NORMALIZATION_OF_UNRESERVED_CHARACTERS;DOT_SEGMENT_REMOVAL)",
+        "malformed_dollar_schema": "MALFORMED_SCHEMA",
+        "malformed_dollar_schema_examples": [
+          123,
+          "../schema",
+          "2020-12"
+        ],
+        "supported_identifier_match": "EXACT_STRING_EQUALITY_WITH_https://json-schema.org/draft/2020-12/schema",
+        "unsupported_dialect_examples": [
+          "https://json-schema.org/draft/2019-09/schema",
+          "https://json-schema.org/draft/2020-12/schema#"
+        ],
+        "nested_dollar_schema": "EVERY_$schema_KEYWORD_AT_A_SCHEMA_POSITION_IS_SUBJECT_TO_THIS_RULE;A_NESTED_$schema_EQUAL_TO_THE_SUPPORTED_IDENTIFIER_IS_INERT"
+      },
+      "reference_admissibility": {
+        "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C",
+        "admitted_ref_form": "LOCAL_JSON_POINTER_FRAGMENT_ONLY",
+        "non_local_ref": "MALFORMED_SCHEMA",
+        "non_local_ref_reason": "A_NON_LOCAL_REF_IS_OUTSIDE_THE_REFERENCE_DOMAIN_THE_PRIMITIVE_SUPPORTS;IT_IS_NOT_A_LOCAL_FRAGMENT_THAT_FAILED_TO_RESOLVE",
+        "non_local_ref_examples": [
+          "https://example.com/schema",
+          "https://example.com/schema#foo"
+        ],
+        "malformed_schema_widening": "EXPLICIT_R5R29A_R2C_WIDENING;THE_PRIOR_FROZEN_LAW_DID_NOT_ASSIGN_A_DECLARED_CLASS_TO_A_NON_LOCAL_REF",
+        "admitted_local_fragment_with_missing_target": "UNRESOLVED_LOCAL_FRAGMENT",
+        "registered_id_resolver_universe": "NONE;REGISTERED_DOLLAR_ID_VALUES_DO_NOT_CREATE_A_RESOLVER_UNIVERSE_FOR_SCHEMA_VALIDATE",
+        "retrieval": "NONE",
+        "external_schema_resolution": "NOT_A_0_2_CAPABILITY",
+        "static_type_resolution_scope": "SCHEMA_VALIDATE_RESTRICTED_REFERENCE_SEMANTICS_ARE_A_PRIMITIVE_SPECIFIC_SUBSET_AND_DO_NOT_REDEFINE_$id_SEMANTICS_USED_BY_static_type_at_path_OR_OTHER_METACONTRACT_PROCEDURES",
+        "static_type_resolution_rule_ref": "metacontract:/runtime_representation/static_type_calculus/static_type_at_path/schema_keyword_following/ref",
+        "edge_ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+        "admitted_ref_grammar": "EXACTLY_#_OR_#_FOLLOWED_BY_A_FRAGMENT_BEGINNING_WITH_/;THE_FRAGMENT_IS_RFC3986_fragment_SYNTAX_AND_ITS_PERCENT_DECODED_VALUE_IS_A_VALID_RFC6901_JSON_POINTER(RFC6901_SECTION_6)",
+        "admitted_ref_examples": [
+          "#",
+          "#/$defs/person",
+          "#/properties/name"
+        ],
+        "non_admitted_ref_examples": [
+          "#person",
+          "other.json#/$defs/person",
+          "https://example.com/schema#foo",
+          "https://example.com/schema"
+        ],
+        "non_admitted_ref": "MALFORMED_SCHEMA",
+        "plain_name_anchor_refs": "NOT_SUPPORTED_BY_SCHEMA_VALIDATE_0_2;MALFORMED_SCHEMA;INTENTIONAL_NARROWING_NOT_A_CLAIM_ABOUT_JSON_SCHEMA",
+        "dynamic_ref": "NOT_SUPPORTED_BY_SCHEMA_VALIDATE_0_2;A_SEMANTICALLY_ACTIVE_$dynamicRef_MAKES_THE_SCHEMA_MALFORMED_SCHEMA",
+        "anchor_declarations": "$anchor_AND_$dynamicAnchor_DECLARATIONS_ARE_INERT;THEY_CANNOT_BE_REFERENCED_THROUGH_AN_ADMITTED_REF",
+        "root_dollar_id": "AN_IDENTIFIER_ONLY;IT_DOES_NOT_BROADEN_THE_ADMITTED_REFERENCE_DOMAIN",
+        "embedded_dollar_id": "EMBEDDED_ID_RESOLUTION_NOT_SUPPORTED_BY_SCHEMA_VALIDATE_0_2;AN_EMBEDDED_$id_NEVER_MAKES_A_NON_FRAGMENT_OR_ANCHOR_REF_ADMISSIBLE",
+        "embedded_dollar_id_semantically_relevant": "MALFORMED_SCHEMA_WHEN_AN_ADMITTED_REF_IS_LOCATED_INSIDE_AN_EMBEDDED_SCHEMA_RESOURCE_OR_ITS_POINTER_PATH_FROM_THE_ROOT_ENTERS_AN_EMBEDDED_SCHEMA_RESOURCE;OTHERWISE_AN_EMBEDDED_$id_IS_INERT",
+        "resolution_base": "AN_ADMITTED_REF_RESOLVES_AGAINST_THE_ROOT_OF_THE_schema_OPERAND",
+        "registered_schema_document_rule_ref": "model:/families/PE-37/SCHEMA_NONLOCAL_REF",
+        "r2e_ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+        "resolution_outcomes": {
+          "syntax_or_form_outside_admitted_domain": "MALFORMED_SCHEMA",
+          "admitted_pointer_missing": "UNRESOLVED_LOCAL_FRAGMENT",
+          "admitted_pointer_resolves_to_non_schema": "MALFORMED_SCHEMA",
+          "admitted_pointer_resolves_to_schema_in_cycle": "MALFORMED_SCHEMA",
+          "admitted_pointer_resolves_to_schema_in_acyclic_graph": "CONTINUE_VALIDATION"
+        },
+        "resolved_target_schema_representation": "SCHEMA_OBJECT_ADMITTED_BY_ACCORD_0_2_OR_BOOLEAN_TRUE_OR_BOOLEAN_FALSE",
+        "resolved_non_schema_target": "MALFORMED_SCHEMA;THE_POINTER_RESOLVED_SO_UNRESOLVED_LOCAL_FRAGMENT_DOES_NOT_APPLY",
+        "local_ref_graph": {
+          "vertices": "SCHEMA_LOCATIONS_REACHED_BY_ADMITTED_LOCAL_$ref_EDGES",
+          "edges": "EACH_SEMANTICALLY_ACTIVE_ADMITTED_LOCAL_$ref_FROM_ITS_SCHEMA_LOCATION_TO_ITS_RESOLVED_SCHEMA_TARGET",
+          "admissibility": "ACYCLIC_REQUIRED",
+          "direct_or_indirect_cycle": "MALFORMED_SCHEMA",
+          "root_self_ref_example": {
+            "schema": {
+              "$ref": "#"
+            },
+            "result": "MALFORMED_SCHEMA"
+          },
+          "repeated_acyclic_dag_target": "ADMITTED;REPEATED_TARGET_ALONE_IS_NOT_A_CYCLE"
+        }
+      },
+      "error_precedence": [
+        "SCHEMA_REPRESENTATION_AND_PRIMITIVE_OPERAND_SHAPE;MALFORMED_SCHEMA;BOOLEAN_SCHEMAS_ADMITTED",
+        "DIALECT;MALFORMED_DOLLAR_SCHEMA_IS_MALFORMED_SCHEMA;VALID_UNSUPPORTED_DIALECT_URI_IS_UNSUPPORTED_DIALECT",
+        "ACCORD_SCHEMA_ADMISSIBILITY;KEYWORD_VALUE_FORMS;STRUCTURAL_SCHEMA_VALIDITY;ONLY_ADMITTED_REF_FORM;NO_ACTIVE_DYNAMIC_REF;NO_EMBEDDED_ID_DEPENDENT_REF;MALFORMED_SCHEMA",
+        "LOCAL_JSON_POINTER_FRAGMENT_RESOLUTION_AND_GRAPH_ADMISSIBILITY;MISSING_TARGET_IS_UNRESOLVED_LOCAL_FRAGMENT;NON_SCHEMA_TARGET_OR_CYCLE_IS_MALFORMED_SCHEMA",
+        "INSTANCE_VALIDATION;BOOLEAN"
+      ],
+      "error_precedence_reason": "THE_APPLICABLE_SCHEMA_SEMANTICS_ARE_ESTABLISHED_BEFORE_ANY_SCHEMA_KEYWORD_IS_INTERPRETED;PRECEDENCE_DOES_NOT_DEPEND_ON_INCIDENTAL_TRAVERSAL_ORDER",
+      "schema_position": {
+        "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+        "definition": "THE_ROOT_OF_THE_schema_OPERAND_AND_EVERY_VALUE_REACHED_FROM_A_SCHEMA_POSITION_THROUGH_A_DRAFT_2020_12_SCHEMA_VALUED_KEYWORD",
+        "schema_valued_keywords": {
+          "single": [
+            "additionalProperties",
+            "items",
+            "contains",
+            "propertyNames",
+            "unevaluatedItems",
+            "unevaluatedProperties",
+            "not",
+            "if",
+            "then",
+            "else",
+            "contentSchema"
+          ],
+          "array_of_schemas": [
+            "prefixItems",
+            "allOf",
+            "anyOf",
+            "oneOf"
+          ],
+          "object_of_schemas": [
+            "properties",
+            "patternProperties",
+            "dependentSchemas",
+            "$defs"
+          ]
+        },
+        "keyword_occurrence": "A_KEYWORD_IS_SEMANTICALLY_ACTIVE_ONLY_AS_A_MEMBER_OF_AN_OBJECT_AT_A_SCHEMA_POSITION;MEMBERS_INSIDE_const_enum_default_examples_OR_OTHER_NON_SCHEMA_VALUES_ARE_DATA",
+        "embedded_schema_resource": "A_SCHEMA_POSITION_OTHER_THAN_THE_ROOT_WHOSE_OBJECT_DECLARES_$id"
+      },
+      "within_step_selection": {
+        "ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C_EDGE",
+        "rule": "NO_SEMANTIC_RANK_IS_DEFINED_AMONG_CONDITIONS_OF_ONE_STEP;THE_OWNING_LOCATION_IS_THE_FIRST_IN_DESCENDANTS_CANONICAL_PREORDER_OF_THE_schema_OPERAND",
+        "order_ref": "metacontract:/failure_semantics/pre_execution_failure_model/closed_vocabularies/ordering_rule/DESCENDANTS_CANONICAL_PREORDER",
+        "resolution_starts_only_after_the_whole_schema_is_admissible": true,
+        "r2e_ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+        "simultaneous_malformed_defects": "FIRST_LOCATION_IN_DESCENDANTS_CANONICAL_PREORDER;NO_FIXTURE_SPECIFIC_PRIORITY"
+      },
+      "schema_representation": {
+        "ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+        "admitted_representations": [
+          "SCHEMA_OBJECT_IN_ACCORD_0_2_SUBSET",
+          "BOOLEAN_TRUE",
+          "BOOLEAN_FALSE"
+        ],
+        "applies_to": "ROOT_schema_OPERAND;EVERY_SCHEMA_POSITION;EVERY_RESOLVED_LOCAL_REF_TARGET;BOTH_MODES",
+        "boolean_true": "VALID_SCHEMA;VALIDATES_EVERY_INSTANCE",
+        "boolean_false": "VALID_SCHEMA;VALIDATES_NO_INSTANCE",
+        "not_schema_representations": [
+          "STRING",
+          "NUMBER",
+          "ARRAY",
+          "NULL"
+        ],
+        "object_only_inference_from_static_type_rules": "FORBIDDEN"
+      },
+      "meta_schema_mode": {
+        "ruling": "HUMAN_RULING_2026_10_06_R5R29A_R2E_P",
+        "subject": "schema_OPERAND_IS_TESTED_FOR_VALIDITY_AS_A_SCHEMA",
+        "instance_operand": "SEMANTICALLY_IGNORED;DO_NOT_READ_VALIDATE_COMPARE_OR_TRAVERSE_IT_FOR_THE_PRIMITIVE_RESULT",
+        "invariance": "THE_SAME_schema_OPERAND_WITH_ANY_TWO_JSON_instance_OPERANDS_HAS_IDENTICAL_VALIDITY_ERROR_CLASS_POINTER_BOOLEAN_RESULT_AND_FAILURE_ORDER"
+      }
+    },
+    {
+      "primitive_id": "DIGEST_VERIFY",
+      "arguments": [
+        {
+          "name": "value",
+          "type": "JSON_OR_RESOLVED_OBJECT"
+        },
+        {
+          "name": "expected",
+          "type": "JSON_EXPRESSION"
+        },
+        {
+          "name": "algorithm",
+          "type": "MODE_EXPRESSION"
+        },
+        {
+          "name": "serialization",
+          "type": "MODE_EXPRESSION"
+        },
+        {
+          "name": "excluded_pointers",
+          "type": "MODE_EXPRESSION"
+        }
+      ],
+      "output_type": "BOOLEAN",
+      "semantics": "metacontract:/runtime_representation/digest_source; resolved-object bytes come only from canonical public raw_content_base64",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "RFC 8785; SHA-256; Git object format",
+      "missing_behavior": "ERROR_IF_VALUE_MODE_OR_POINTER_INVALID",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "MODE_DRIVEN_HASHING; RESOLVED_OBJECT_PUBLIC_JSON_BYTE_SOURCE",
+      "error_behavior": {
+        "error_classes": [
+          "UNSUPPORTED_ALGORITHM",
+          "UNSUPPORTED_SERIALIZATION",
+          "INVALID_ALGORITHM_SERIALIZATION_PAIR",
+          "INVALID_EXCLUSION_POINTER",
+          "DUPLICATE_OR_OVERLAPPING_EXCLUSION",
+          "RAW_BYTES_UNAVAILABLE"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "DESCENDANTS",
+      "arguments": [
+        {
+          "name": "value",
+          "type": "FINITE_JSON"
+        }
+      ],
+      "output_type": "ARRAY<DESCENDANT_RECORD>",
+      "semantics": "RFC 6901 pointers/tokens; JCS UTF-16 key order; deterministic preorder including root; exact fields pointer,value,path_tokens,ancestor_pointers,value_type,keys,member_key; FINITE_JSON requires explicit GET /content from RESOLVED_OBJECT; no implicit unwrap",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "RFC 6901; RFC 8785 object key order",
+      "missing_behavior": "NOT_APPLICABLE_ROOT_IS_INCLUDED",
+      "ambiguity_behavior": "NOT_APPLICABLE",
+      "deterministic_order": "PREORDER_DEPTH_FIRST_ARRAY_ASCENDING_OBJECT_KEYS_JCS_UTF16",
+      "error_behavior": {
+        "error_classes": [
+          "NON_JSON_VALUE",
+          "TRAVERSAL_RESOURCE_LIMIT"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      }
+    },
+    {
+      "primitive_id": "ENUMERATE_TYPED_REFERENCES",
+      "arguments": [
+        {
+          "name": "universe",
+          "type": "VERIFICATION_UNIVERSE"
+        },
+        {
+          "name": "registry",
+          "type": "JSON"
+        },
+        {
+          "name": "reference_model",
+          "type": "JSON"
+        },
+        {
+          "name": "reference_form",
+          "type": "STRING"
+        }
+      ],
+      "output_type": "ARRAY<OBJECT{owner_ref:BASE_TYPED_REFERENCE,producer_schema_ref:TYPED_REFERENCE,schema_pointer:RFC6901_POINTER,instance_pointer:RFC6901_POINTER,reference_form:STRING,reference:TYPED_REFERENCE}>",
+      "semantics": "Enumerates values admitted by the exact applied producer schema for eligible instance owners in typed_reference_owner_universe; schema language artifacts are skipped before producer schema selection and schema-internal $ref is handled only by JSON Schema validation.",
+      "failure_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "side_effects": "NONE",
+      "may_call_user_code": false,
+      "standard": "JSON Schema 2020-12 producer-schema typed reference authority and RFC 6901",
+      "missing_behavior": "MISSING_OR_UNRESOLVED_REQUIRED_APPLIED_PRODUCER_SCHEMA_FOR_ELIGIBLE_INSTANCE_OWNER_IS_TYPED_FAILURE;SCHEMA_OWNER_IS_SKIPPED_BEFORE_SELECTOR",
+      "ambiguity_behavior": "UNSUPPORTED_OR_AMBIGUOUS_REFERENCE_DOMAIN_FAILS_CLOSED",
+      "deterministic_order": "OWNER_IDENTITY_UTF16_ORDER_THEN_INSTANCE_JSON_TREE_PREORDER_WITH_JCS_KEY_ORDER_AND_ARRAY_INDEX_ORDER",
+      "error_behavior": {
+        "error_classes": [
+          "INVALID_TYPED_REFERENCE",
+          "RESOLUTION_NOT_FOUND",
+          "RESOLUTION_AMBIGUOUS",
+          "REFERENCE_DOMAIN_UNDERDETERMINED",
+          "UNRESOLVED_PRODUCER_SCHEMA"
+        ],
+        "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+        "stops_evaluation": true
+      },
+      "owner_universe_ref": "reference-model.json:/typed_reference_owner_universe",
+      "owner_selection_order": [
+        "CONFIRM_EXACT_OWNER_REFERENCE_IS_A_MEMBER_OF_THE_VERIFICATION_UNIVERSE",
+        "MATCH_AN_EXACT_ACTIVE_NORMATIVE_REGISTRY_ROW_OR_VERIFIED_BOUND_SOURCE_ENTRY",
+        "CLASSIFY_REGISTRY_OWNER_SEMANTIC_ROLE_FROM_ITS_DECLARED_KIND",
+        "IF_KIND_IS_SCHEMA_RETAIN_AS_A_SCHEMA_VALIDATION_SUBJECT_AND_SKIP_BEFORE_PRODUCER_SCHEMA_SELECTION",
+        "FOR_ELIGIBLE_INSTANCE_OWNERS_SELECT_THE_EXACT_REQUIRED_SCHEMA_REF_FROM_THE_SAME_REGISTRY_ROW_OR_BOUND_ENTRY",
+        "FAIL_CLOSED_IF_AN_ELIGIBLE_INSTANCE_OWNER_SCHEMA_REF_IS_MISSING_UNRESOLVED_OR_AMBIGUOUS",
+        "VALIDATE_THE_SAME_OWNER_CONTENT_WITH_THE_SELECTED_SCHEMA_BEFORE_ARGUMENT_EXPOSURE",
+        "ENUMERATE_ONLY_VALUES_ADMITTED_BY_THE_SELECTED_SCHEMA_AND_A_DECLARED_TYPED_REFERENCE_DEFINITION"
+      ]
+    }
+  ],
+  "descendant_record": {
+    "record_id": "DESCENDANT_RECORD",
+    "record_version": "1",
+    "instance_schema_pointer": "#/$defs/descendant_record_instance",
+    "record_shape": {
+      "closed": true,
+      "additional_properties": false,
+      "field_count": 7,
+      "field_order": [
+        "pointer",
+        "value",
+        "path_tokens",
+        "ancestor_pointers",
+        "value_type",
+        "keys",
+        "member_key"
+      ]
+    },
+    "emission": {
+      "traversal": "PREORDER_DEPTH_FIRST_EXPLICIT_LIFO_STACK_PUSH_CHILDREN_REVERSED",
+      "root_included": true,
+      "root_depth": 0,
+      "root_visited_node_count": 1,
+      "all_nodes_emitted": "INCLUDING_EMPTY_OBJECT_AND_EMPTY_ARRAY_AND_SCALAR_ROOT",
+      "child_order": {
+        "object": "OBJECT_MEMBER_KEYS_UTF16_CODE_UNIT_ASCENDING",
+        "array": "ASCENDING_CANONICAL_DECIMAL_ARRAY_INDEX"
+      }
+    },
+    "fields": {
+      "pointer": {
+        "order": 1,
+        "declared_type": "STRING_RFC6901_POINTER",
+        "algorithm": "RFC6901_ENCODE_PATH_TOKENS_ROOT_IS_EMPTY_STRING_ESCAPE_TILDE_AS_TILDE0_ESCAPE_SLASH_AS_TILDE1",
+        "pattern": "^(?:/(?:[^/~]|~[01])*)*$",
+        "root_value": ""
+      },
+      "value": {
+        "order": 2,
+        "declared_type": "FINITE_JSON",
+        "algorithm": "EXACT_JSON_SUBTREE_IDENTIFIED_BY_PATH_TOKENS"
+      },
+      "path_tokens": {
+        "order": 3,
+        "declared_type": "ARRAY<STRING>",
+        "algorithm": "DECODED_RFC6901_REFERENCE_TOKENS_OBJECT_MEMBER_NAME_VERBATIM_ARRAY_INDEX_CANONICAL_DECIMAL_NO_LEADING_ZERO",
+        "root_value": []
+      },
+      "ancestor_pointers": {
+        "order": 4,
+        "declared_type": "ARRAY<STRING>",
+        "algorithm": "INCLUSIVE_CHAIN_ROOT_THROUGH_SELF_ORDERED_ROOT_TO_SELF_LAST_ELEMENT_EQUALS_POINTER",
+        "root_value": [
+          ""
+        ],
+        "examples": {
+          "root": [
+            ""
+          ],
+          "top_level": [
+            "",
+            "/x"
+          ],
+          "nested": [
+            "",
+            "/x",
+            "/x/y"
+          ]
+        }
+      },
+      "value_type": {
+        "order": 5,
+        "declared_type": "ENUM<NULL,BOOLEAN,NUMBER,STRING,ARRAY,OBJECT>",
+        "algorithm": "JSON_TYPE_DISCRIMINANT_BOOLEAN_BEFORE_NUMBER_NO_COERCION",
+        "allowed_values": [
+          "NULL",
+          "BOOLEAN",
+          "NUMBER",
+          "STRING",
+          "ARRAY",
+          "OBJECT"
+        ]
+      },
+      "keys": {
+        "order": 6,
+        "declared_type": "ARRAY<STRING>",
+        "algorithm": "OBJECT_MEMBER_KEYS_SORTED_UTF16_CODE_UNIT_ASCENDING_OTHERWISE_EMPTY_ARRAY"
+      },
+      "member_key": {
+        "order": 7,
+        "declared_type": "STRING_OR_NULL",
+        "algorithm": "OBJECT_CHILD_EXACT_OBJECT_MEMBER_NAME_ROOT_AND_ARRAY_CHILD_NULL",
+        "root_value": null
+      }
+    },
+    "domain": {
+      "input_type": "FINITE_JSON",
+      "parse_rejections": [
+        "DUPLICATE_JSON_MEMBER_NAME",
+        "NON_JSON_NUMERIC_CONSTANT",
+        "INVALID_UTF8"
+      ],
+      "parse_rejection_error_class": "NON_JSON_VALUE",
+      "valid_json_pointer_uniqueness": "GUARANTEED_ONE_RECORD_PER_VISITED_NODE",
+      "duplicate_pointer_behavior": "FAIL_CLOSED_TYPED_ERROR",
+      "duplicate_pointer_error_class": "NON_JSON_VALUE"
+    },
+    "limits": {
+      "max_depth_source": "metacontract.resource_limits.max_json_traversal_depth",
+      "max_depth_baseline": 256,
+      "max_nodes_source": "metacontract.resource_limits.max_json_nodes_visited_per_value",
+      "max_nodes_baseline": 1000000,
+      "exceeded_error_class": "TRAVERSAL_RESOURCE_LIMIT"
+    },
+    "error_behavior": {
+      "error_classes": [
+        "NON_JSON_VALUE",
+        "TRAVERSAL_RESOURCE_LIMIT"
+      ],
+      "expression_error": "CONTAINING_ASSERTION_FAILURE_WITH_DECLARED_CODE_AND_WITNESS",
+      "stops_evaluation": true
+    }
+  },
+  "descendant_conformance_vectors": [
+    {
+      "vector_id": "DESCENDANTS-V01-EMPTY-OBJECT",
+      "purpose": "Empty object root emits exactly the root record.",
+      "input": {},
+      "expected_record_count": 1,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": {},
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "OBJECT",
+          "keys": [],
+          "member_key": null
+        }
+      ]
+    },
+    {
+      "vector_id": "DESCENDANTS-V02-EMPTY-ARRAY",
+      "purpose": "Empty array root emits exactly the root record.",
+      "input": [],
+      "expected_record_count": 1,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": [],
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "ARRAY",
+          "keys": [],
+          "member_key": null
+        }
+      ]
+    },
+    {
+      "vector_id": "DESCENDANTS-V03-SCALAR-ROOT",
+      "purpose": "Scalar root emits exactly one record with empty pointer, empty tokens, empty keys, and root-only ancestry.",
+      "input": null,
+      "expected_record_count": 1,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": null,
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "NULL",
+          "keys": [],
+          "member_key": null
+        }
+      ]
+    },
+    {
+      "vector_id": "DESCENDANTS-V04-OBJECT-SCALAR-MEMBER",
+      "purpose": "Object root with a scalar member: UTF-16 ordered keys and the exact object-child member_key.",
+      "input": {
+        "a": 1
+      },
+      "expected_record_count": 2,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": {
+            "a": 1
+          },
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "a"
+          ],
+          "member_key": null
+        },
+        {
+          "pointer": "/a",
+          "value": 1,
+          "path_tokens": [
+            "a"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a"
+          ],
+          "value_type": "NUMBER",
+          "keys": [],
+          "member_key": "a"
+        }
+      ]
+    },
+    {
+      "vector_id": "DESCENDANTS-V05-NESTED-OBJECT",
+      "purpose": "Nested object chain: the inclusive ancestry grows root to self.",
+      "input": {
+        "a": {
+          "b": 2
+        }
+      },
+      "expected_record_count": 3,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": {
+            "a": {
+              "b": 2
+            }
+          },
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "a"
+          ],
+          "member_key": null
+        },
+        {
+          "pointer": "/a",
+          "value": {
+            "b": 2
+          },
+          "path_tokens": [
+            "a"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a"
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "b"
+          ],
+          "member_key": "a"
+        },
+        {
+          "pointer": "/a/b",
+          "value": 2,
+          "path_tokens": [
+            "a",
+            "b"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a",
+            "/a/b"
+          ],
+          "value_type": "NUMBER",
+          "keys": [],
+          "member_key": "b"
+        }
+      ]
+    },
+    {
+      "vector_id": "DESCENDANTS-V06-POINTER-ESCAPING",
+      "purpose": "Member names containing slash and tilde: RFC6901 pointer escaping with verbatim decoded path tokens.",
+      "input": {
+        "a/b": {
+          "~key": 3
+        }
+      },
+      "expected_record_count": 3,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": {
+            "a/b": {
+              "~key": 3
+            }
+          },
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "a/b"
+          ],
+          "member_key": null
+        },
+        {
+          "pointer": "/a~1b",
+          "value": {
+            "~key": 3
+          },
+          "path_tokens": [
+            "a/b"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a~1b"
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "~key"
+          ],
+          "member_key": "a/b"
+        },
+        {
+          "pointer": "/a~1b/~0key",
+          "value": 3,
+          "path_tokens": [
+            "a/b",
+            "~key"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a~1b",
+            "/a~1b/~0key"
+          ],
+          "value_type": "NUMBER",
+          "keys": [],
+          "member_key": "~key"
+        }
+      ]
+    },
+    {
+      "vector_id": "DESCENDANTS-V07-ARRAY-OF-OBJECT-AND-SCALAR",
+      "purpose": "Array children use canonical decimal tokens and always carry a null member_key.",
+      "input": [
+        {
+          "x": 1
+        },
+        2
+      ],
+      "expected_record_count": 4,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": [
+            {
+              "x": 1
+            },
+            2
+          ],
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "ARRAY",
+          "keys": [],
+          "member_key": null
+        },
+        {
+          "pointer": "/0",
+          "value": {
+            "x": 1
+          },
+          "path_tokens": [
+            "0"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/0"
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "x"
+          ],
+          "member_key": null
+        },
+        {
+          "pointer": "/0/x",
+          "value": 1,
+          "path_tokens": [
+            "0",
+            "x"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/0",
+            "/0/x"
+          ],
+          "value_type": "NUMBER",
+          "keys": [],
+          "member_key": "x"
+        },
+        {
+          "pointer": "/1",
+          "value": 2,
+          "path_tokens": [
+            "1"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/1"
+          ],
+          "value_type": "NUMBER",
+          "keys": [],
+          "member_key": null
+        }
+      ]
+    },
+    {
+      "vector_id": "DESCENDANTS-V08-ANCESTRY-SELF-INCLUSION",
+      "purpose": "Root/self counterexample that distinguishes inclusive from strict ancestry.",
+      "input": {
+        "a": {
+          "b": 1
+        }
+      },
+      "expected_record_count": 3,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": {
+            "a": {
+              "b": 1
+            }
+          },
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "a"
+          ],
+          "member_key": null
+        },
+        {
+          "pointer": "/a",
+          "value": {
+            "b": 1
+          },
+          "path_tokens": [
+            "a"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a"
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "b"
+          ],
+          "member_key": "a"
+        },
+        {
+          "pointer": "/a/b",
+          "value": 1,
+          "path_tokens": [
+            "a",
+            "b"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a",
+            "/a/b"
+          ],
+          "value_type": "NUMBER",
+          "keys": [],
+          "member_key": "b"
+        }
+      ],
+      "ancestry_semantics_probe": {
+        "probe_kind": "INCLUSIVE_VS_STRICT_ANCESTRY",
+        "probe_pointer": "/a/b",
+        "observed_ancestor_pointers": [
+          "",
+          "/a",
+          "/a/b"
+        ],
+        "inclusive_expected_ancestor_pointers": [
+          "",
+          "/a",
+          "/a/b"
+        ],
+        "strict_expected_ancestor_pointers": [
+          "",
+          "/a"
+        ],
+        "root_inclusive_expected_ancestor_pointers": [
+          ""
+        ],
+        "root_strict_expected_ancestor_pointers": [],
+        "selected_semantics": "INCLUSIVE_ROOT_THROUGH_SELF"
+      }
+    },
+    {
+      "vector_id": "DESCENDANTS-V09-EXCLUDED-PREFIX-GOVERNING-TOKEN",
+      "purpose": "Excluded-prefix authorization is exact pointer equality against ancestor_pointers, so nodes sharing a textual prefix are never excluded.",
+      "input": {
+        "a": {
+          "b": {
+            "c": "deep"
+          },
+          "bc": true
+        },
+        "ab": false
+      },
+      "expected_record_count": 6,
+      "expected_record_order": "PREORDER_DEPTH_FIRST",
+      "expected_records": [
+        {
+          "pointer": "",
+          "value": {
+            "a": {
+              "b": {
+                "c": "deep"
+              },
+              "bc": true
+            },
+            "ab": false
+          },
+          "path_tokens": [],
+          "ancestor_pointers": [
+            ""
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "a",
+            "ab"
+          ],
+          "member_key": null
+        },
+        {
+          "pointer": "/a",
+          "value": {
+            "b": {
+              "c": "deep"
+            },
+            "bc": true
+          },
+          "path_tokens": [
+            "a"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a"
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "b",
+            "bc"
+          ],
+          "member_key": "a"
+        },
+        {
+          "pointer": "/a/b",
+          "value": {
+            "c": "deep"
+          },
+          "path_tokens": [
+            "a",
+            "b"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a",
+            "/a/b"
+          ],
+          "value_type": "OBJECT",
+          "keys": [
+            "c"
+          ],
+          "member_key": "b"
+        },
+        {
+          "pointer": "/a/b/c",
+          "value": "deep",
+          "path_tokens": [
+            "a",
+            "b",
+            "c"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a",
+            "/a/b",
+            "/a/b/c"
+          ],
+          "value_type": "STRING",
+          "keys": [],
+          "member_key": "c"
+        },
+        {
+          "pointer": "/a/bc",
+          "value": true,
+          "path_tokens": [
+            "a",
+            "bc"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/a",
+            "/a/bc"
+          ],
+          "value_type": "BOOLEAN",
+          "keys": [],
+          "member_key": "bc"
+        },
+        {
+          "pointer": "/ab",
+          "value": false,
+          "path_tokens": [
+            "ab"
+          ],
+          "ancestor_pointers": [
+            "",
+            "/ab"
+          ],
+          "value_type": "BOOLEAN",
+          "keys": [],
+          "member_key": "ab"
+        }
+      ],
+      "exclusion_probe": {
+        "excluded_pointer": "/a/b",
+        "governing_token": "EXACT_POINTER_EQUALITY_AGAINST_ANCESTOR_POINTERS",
+        "expected_excluded_node_pointers": [
+          "/a/b",
+          "/a/b/c"
+        ],
+        "expected_included_node_pointers": [
+          "",
+          "/a",
+          "/a/bc",
+          "/ab"
+        ]
+      }
+    }
+  ]
+}

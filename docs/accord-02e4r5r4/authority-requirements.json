@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:authority-requirements",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:authority-requirements:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:authority-requirements",
+  "object_version": "0.2",
+  "package_requirements": {
+    "family": "urn:moirae:accord-02r5:specification-package",
+    "version": "0.2",
+    "status": "CANDIDATE_UNACCEPTED",
+    "accepted_base_version": "0.1",
+    "required_rejected_revision": {
+      "revision": "E4R5R2",
+      "commit": "44d0e7240c97dcc12463b5611a7adf61399924d7"
+    }
+  },
+  "stage_policy_requirements": {
+    "global_stage_order": "FORBIDDEN",
+    "implicit_transitivity": "FORBIDDEN"
+  },
+  "stage_policy_authorization": {
+    "global_stage_order": [
+      "FORBIDDEN"
+    ],
+    "implicit_transitivity": [
+      "FORBIDDEN"
+    ]
+  },
+  "canonicalization_requirements": {
+    "standard": "RFC8785",
+    "serialization": "RFC8785_JCS",
+    "encoding": "UTF-8",
+    "algorithm": "SHA-256",
+    "target_id": "PACKAGE_EXCLUDING_SELF_DIGEST",
+    "selection": "ENTIRE_PACKAGE_DOCUMENT",
+    "reduction": "REMOVE_POINTER",
+    "exclusion_pointers": [
+      "/current_candidate_integrity/digest"
+    ]
+  },
+  "partial_effect_requirements": {
+    "same_effect_required": true,
+    "direct_predecessor_required": true,
+    "merged_decision_key": "UNKNOWN_TUPLE_OR_WRONG_STAGE",
+    "merged_decision_value": "REJECT"
+  },
+  "classification_requirements": {
+    "conformance": "invariant_binding exists and validates",
+    "internal": "internal_check exists and no invariant_binding",
+    "deferred": "missing_subject_roles and later_lifecycle_stage exist and no binding/check"
+  },
+  "governing_contract_refs": {
+    "integrity_modes": {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:integrity-modes",
+      "version": "0.2"
+    },
+    "semantic_key_authority": {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:semantic-key-authority",
+      "version": "0.2"
+    },
+    "governance_requirements": {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:governance-requirements",
+      "version": "0.2"
+    },
+    "external_verification_contract": {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:external-verification-input-contract",
+      "version": "0.2"
+    }
+  },
+  "trust_boundary_requirements": {
+    "layers": [
+      "INTERNAL_PACKAGE_CONFORMANCE",
+      "TRUSTED_PACKAGE_IDENTITY"
+    ],
+    "external_input_source": "CALLER_SUPPLIED_OUTSIDE_OBJECT_REGISTRY",
+    "candidate_self_assertion_permitted": false,
+    "required_external_fields": [
+      "expected_package_id",
+      "expected_package_version",
+      "expected_package_digest",
+      "external_acceptance_profile",
+      "acceptance_profile_schema_identity",
+      "acceptance_profile_schema_bytes",
+      "acceptance_profile_schema_sha256"
+    ],
+    "expected_identity": {
+      "package_id": "urn:moirae:accord-02r5:specification-package",
+      "package_version": "0.2",
+      "digest_algorithm": "SHA-256",
+      "digest_serialization": "RFC8785_JCS",
+      "excluded_pointers": [
+        "/current_candidate_integrity/digest"
+      ]
+    },
+    "missing_external_input_result": "FAIL",
+    "trust_result_schema_ref": {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+      "version": "0.2",
+      "member_id": "trust_result"
+    },
+    "cli": [
+      "--expected-package-id",
+      "--expected-package-version",
+      "--expected-package-digest",
+      "--verification-input",
+      "--acceptance-profile-schema-id",
+      "--acceptance-profile-schema",
+      "--acceptance-profile-schema-sha256"
+    ],
+    "result_vocabulary": [
+      "PASS",
+      "FAIL"
+    ],
+    "replacement_sub_status": "OUT_OF_SCOPE",
+    "acceptance_profile_input_source": "CALLER_SUPPLIED_SEPARATELY_VIA_VERIFICATION_INPUT",
+    "candidate_authority_claim_comparison": "WHOLE_OBJECT_EQUALITY_BEFORE_SEMANTIC_USE",
+    "source_content_verification": {
+      "acceptance_profile_schema": {
+        "required": true,
+        "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+        "schema_identity_argument": "--acceptance-profile-schema-id",
+        "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+        "schema_bytes_argument": "--acceptance-profile-schema",
+        "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+        "expected_sha256_algorithm": "SHA-256",
+        "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+        "digest_input": "RAW_SCHEMA_BYTES",
+        "verify_digest_before_parse_or_use": true,
+        "verify_schema_identity_and_dialect_after_digest": true,
+        "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+        "candidate_registry_selection": "FORBIDDEN",
+        "candidate_schema_override": "FORBIDDEN",
+        "candidate_embedded_schema_fallback": "FORBIDDEN",
+        "candidate_registry_fallback": "FORBIDDEN",
+        "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+        "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+      },
+      "schema_document": "STRICT_UTF8_JSON_REJECT_DUPLICATE_MEMBERS_VALID_DRAFT_2020_12_SCHEMA",
+      "schema_bytes": "CALLER_INPUT_BYTES_ONLY",
+      "profile_bytes": "CALLER_SUPPLIED_EXTERNAL_ACCEPTANCE_PROFILE_ONLY",
+      "base64_decode": "STRICT_RFC4648_NO_WHITESPACE",
+      "json_decode": "UTF8_REJECT_DUPLICATE_MEMBER_NAMES",
+      "frozen_sources": {
+        "git_blob": "SHA1(ASCII('blob '+DECIMAL_BYTE_LENGTH)+NUL+RAW_BYTES)",
+        "content_use": "PARSED_CONTENT_ONLY_AFTER_PIN_MATCH"
+      },
+      "accepted_sources": {
+        "raw_sha256": "SHA256_RAW_BYTES",
+        "semantic_sha256": "SHA256_RFC8785_JCS_PARSED_JSON",
+        "git_blob": "SHA1_GIT_BLOB_OBJECT",
+        "metadata": "EXACT_REF_PATH_ROLE_STATUS_CLASS_AND_SCHEMA"
+      },
+      "candidate_source_copies": "TRANSPORT_ONLY_NEVER_AUTHORITY_OR_RESOLVER_INPUT",
+      "candidate_registry_fallback": "FORBIDDEN"
+    },
+    "preflight_failure_codes": [
+      "MISSING_EXTERNAL_PROFILE_SCHEMA",
+      "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+      "INVALID_EXTERNAL_PROFILE_SCHEMA",
+      "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+      "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+      "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+      "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+      "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+      "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+      "PROCEDURE_PROJECTION_CLAIM_MISMATCH"
+    ],
+    "profile_fallback": "FORBIDDEN",
+    "acceptance_profile_schema_input": {
+      "required": true,
+      "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+      "schema_identity_argument": "--acceptance-profile-schema-id",
+      "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "schema_bytes_argument": "--acceptance-profile-schema",
+      "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+      "expected_sha256_algorithm": "SHA-256",
+      "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "digest_input": "RAW_SCHEMA_BYTES",
+      "verify_digest_before_parse_or_use": true,
+      "verify_schema_identity_and_dialect_after_digest": true,
+      "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+      "candidate_registry_selection": "FORBIDDEN",
+      "candidate_schema_override": "FORBIDDEN",
+      "candidate_embedded_schema_fallback": "FORBIDDEN",
+      "candidate_registry_fallback": "FORBIDDEN",
+      "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+      "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+    }
+  }
+}

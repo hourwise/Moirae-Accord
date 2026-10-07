@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:leap-second-table",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:leap-second-table:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:leap-second-table",
+  "object_version": "0.2",
+  "table_role": "FROZEN_GOVERNED_INPUT_TO_FORMAT_DATE_TIME_SEMANTICS",
+  "governing_rule_ref": "metacontract:/runtime_representation/schema_format_assertion/standard_domain_semantics/leap_second_rule",
+  "time_scale": "UTC",
+  "instant_form": "RFC3339_DATE_T23_59_60Z_OF_THE_LAST_UTC_DAY_BEFORE_THE_TAI_MINUS_UTC_INCREMENT",
+  "leap_second_sign": "POSITIVE_INSERTIONS_ONLY",
+  "insertion_count": 27,
+  "insertions": [
+    {
+      "utc_instant": "1972-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 10,
+      "tai_minus_utc_after_seconds": 11,
+      "effective_mjd_after_insertion": 41499
+    },
+    {
+      "utc_instant": "1972-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 11,
+      "tai_minus_utc_after_seconds": 12,
+      "effective_mjd_after_insertion": 41683
+    },
+    {
+      "utc_instant": "1973-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 12,
+      "tai_minus_utc_after_seconds": 13,
+      "effective_mjd_after_insertion": 42048
+    },
+    {
+      "utc_instant": "1974-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 13,
+      "tai_minus_utc_after_seconds": 14,
+      "effective_mjd_after_insertion": 42413
+    },
+    {
+      "utc_instant": "1975-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 14,
+      "tai_minus_utc_after_seconds": 15,
+      "effective_mjd_after_insertion": 42778
+    },
+    {
+      "utc_instant": "1976-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 15,
+      "tai_minus_utc_after_seconds": 16,
+      "effective_mjd_after_insertion": 43144
+    },
+    {
+      "utc_instant": "1977-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 16,
+      "tai_minus_utc_after_seconds": 17,
+      "effective_mjd_after_insertion": 43509
+    },
+    {
+      "utc_instant": "1978-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 17,
+      "tai_minus_utc_after_seconds": 18,
+      "effective_mjd_after_insertion": 43874
+    },
+    {
+      "utc_instant": "1979-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 18,
+      "tai_minus_utc_after_seconds": 19,
+      "effective_mjd_after_insertion": 44239
+    },
+    {
+      "utc_instant": "1981-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 19,
+      "tai_minus_utc_after_seconds": 20,
+      "effective_mjd_after_insertion": 44786
+    },
+    {
+      "utc_instant": "1982-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 20,
+      "tai_minus_utc_after_seconds": 21,
+      "effective_mjd_after_insertion": 45151
+    },
+    {
+      "utc_instant": "1983-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 21,
+      "tai_minus_utc_after_seconds": 22,
+      "effective_mjd_after_insertion": 45516
+    },
+    {
+      "utc_instant": "1985-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 22,
+      "tai_minus_utc_after_seconds": 23,
+      "effective_mjd_after_insertion": 46247
+    },
+    {
+      "utc_instant": "1987-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 23,
+      "tai_minus_utc_after_seconds": 24,
+      "effective_mjd_after_insertion": 47161
+    },
+    {
+      "utc_instant": "1989-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 24,
+      "tai_minus_utc_after_seconds": 25,
+      "effective_mjd_after_insertion": 47892
+    },
+    {
+      "utc_instant": "1990-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 25,
+      "tai_minus_utc_after_seconds": 26,
+      "effective_mjd_after_insertion": 48257
+    },
+    {
+      "utc_instant": "1992-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 26,
+      "tai_minus_utc_after_seconds": 27,
+      "effective_mjd_after_insertion": 48804
+    },
+    {
+      "utc_instant": "1993-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 27,
+      "tai_minus_utc_after_seconds": 28,
+      "effective_mjd_after_insertion": 49169
+    },
+    {
+      "utc_instant": "1994-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 28,
+      "tai_minus_utc_after_seconds": 29,
+      "effective_mjd_after_insertion": 49534
+    },
+    {
+      "utc_instant": "1995-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 29,
+      "tai_minus_utc_after_seconds": 30,
+      "effective_mjd_after_insertion": 50083
+    },
+    {
+      "utc_instant": "1997-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 30,
+      "tai_minus_utc_after_seconds": 31,
+      "effective_mjd_after_insertion": 50630
+    },
+    {
+      "utc_instant": "1998-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 31,
+      "tai_minus_utc_after_seconds": 32,
+      "effective_mjd_after_insertion": 51179
+    },
+    {
+      "utc_instant": "2005-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 32,
+      "tai_minus_utc_after_seconds": 33,
+      "effective_mjd_after_insertion": 53736
+    },
+    {
+      "utc_instant": "2008-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 33,
+      "tai_minus_utc_after_seconds": 34,
+      "effective_mjd_after_insertion": 54832
+    },
+    {
+      "utc_instant": "2012-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 34,
+      "tai_minus_utc_after_seconds": 35,
+      "effective_mjd_after_insertion": 56109
+    },
+    {
+      "utc_instant": "2015-06-30T23:59:60Z",
+      "tai_minus_utc_before_seconds": 35,
+      "tai_minus_utc_after_seconds": 36,
+      "effective_mjd_after_insertion": 57204
+    },
+    {
+      "utc_instant": "2016-12-31T23:59:60Z",
+      "tai_minus_utc_before_seconds": 36,
+      "tai_minus_utc_after_seconds": 37,
+      "effective_mjd_after_insertion": 57754
+    }
+  ],
+  "completeness": "EXHAUSTIVE_FOR_THIS_PACKAGE_VERSION;AN_INSTANT_NOT_LISTED_IS_NOT_A_LEAP_SECOND_FOR_THIS_PACKAGE_VERSION",
+  "update_policy": "FROZEN;NEVER_FETCHED_OR_REFRESHED_AT_EVALUATION_TIME;A_LATER_IERS_BULLETIN_C_DOES_NOT_CHANGE_THIS_TABLE;ONLY_A_LATER_ACCORD_PACKAGE_VERSION_MAY_REPLACE_IT",
+  "source": {
+    "authority": "IERS_EARTH_ORIENTATION_CENTER_BULLETIN_C",
+    "retrieved_at_utc": "2026-10-05T19:46:08Z",
+    "files": [
+      {
+        "role": "PRIMARY_DERIVATION_SOURCE",
+        "url": "https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat",
+        "raw_sha256": "6cb6f5d4b819f2e568e25db4b0b26d89dedf031fdffb18bc94d40f4e94e268d7",
+        "raw_byte_length": 1352,
+        "http_last_modified": "Mon, 06 Jul 2026 07:52:10 GMT",
+        "declared_currency": "Updated through IERS Bulletin 72 issued in July 2026",
+        "declared_expiry": "28 June 2027"
+      },
+      {
+        "role": "INDEPENDENT_CROSS_CHECK_SOURCE",
+        "url": "https://hpiers.obspm.fr/iers/bul/bulc/ntp/leap-seconds.list",
+        "raw_sha256": "db5a895f16853b03bfc865e8d68f9fc8710ef1740e3400c701cd46a5bbbc3433",
+        "raw_byte_length": 5065,
+        "http_last_modified": "Mon, 06 Jul 2026 07:54:11 GMT",
+        "declared_last_update_ntp_seconds": 3992312697,
+        "declared_expiry_ntp_seconds": 4023129600,
+        "declared_expiry": "28 June 2027",
+        "embedded_sha1": "a9bad145 84c31c70 758402aa b37bfd54 5923836a"
+      }
+    ],
+    "derivation": "EACH_PLUS_ONE_SECOND_INCREMENT_OF_TAI_MINUS_UTC_EFFECTIVE_AT_00_00_00_UTC_ON_DATE_D_IS_A_POSITIVE_LEAP_SECOND_INSERTED_AT_D_MINUS_ONE_DAY_T23_59_60Z",
+    "derived_by": "docs/accord-02e4r5r4/audit/build_r5r4_artifacts.py:_r2c_leap_second_table",
+    "derived_by_ruling": "HUMAN_RULING_2026_10_05_R5R29A_R2C"
+  }
+}

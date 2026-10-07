@@ -1,0 +1,533 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:v013-governance",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:v013-governance:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:v013-governance",
+  "object_version": "0.2",
+  "fixture_status": "NORMATIVE_CANDIDATE_0_2",
+  "accepted_v013_locator": {
+    "source_ref": {
+      "kind": "SOURCE_VECTOR_CATALOG",
+      "id": "urn:moirae:accord-02r5:source-vector-catalog",
+      "version": "0.1",
+      "member_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+    },
+    "accepted_member_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+  },
+  "relationship_vocabulary": [
+    "CANDIDATE_FIXTURE_OF_SAME_SEMANTIC_CLASS_AS_ACCEPTED_V013"
+  ],
+  "relationship_basis_schema": {
+    "accepted_pointer_prefix": "/",
+    "candidate_pointer_prefix": "/",
+    "require_accepted_value_match": true,
+    "forbid_candidate_history_claim": true,
+    "forbidden_overlaps": [],
+    "overlap_policy": "ACCEPTED_AND_CANDIDATE_SUPPLIED_FIELD_SETS_MUST_BE_DISJOINT"
+  },
+  "result_vocabulary": [
+    "NON_OCCURRENCE_SUPPORTED",
+    "UNKNOWN",
+    "STALE_EVIDENCE"
+  ],
+  "requirement_map": {
+    "required_requirement_ids": [
+      "TARGET_EFFECT_EQUAL",
+      "TARGET_PREDICATE_EQUAL",
+      "TARGET_STAGE_EQUAL",
+      "TARGET_SCOPE_EQUAL",
+      "INTERVAL_VALID",
+      "INTERVAL_COVERS_TARGET",
+      "RETENTION_MEETS_BOUND",
+      "CONSISTENCY_ALLOWED",
+      "SOURCE_CLASS_ALLOWED",
+      "FRESHNESS_BOUND",
+      "READ_COMPLETE",
+      "NO_SAME_TARGET_POSITIVE",
+      "FUTURE_OBSERVATION_BOUND",
+      "STALE_RESULT_BOUND",
+      "EVIDENCE_UNIVERSE_TYPED",
+      "FORBID_CALLER_SUPPLIED_CONTRADICTION_COUNT"
+    ],
+    "requirements": [
+      {
+        "requirement_id": "TARGET_EFFECT_EQUAL",
+        "failure_code": "NEGATIVE_EFFECT_MISMATCH",
+        "source_operands": [
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "effect_id"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "effect_id"
+            ]
+          }
+        ],
+        "governing_authority_id": "TARGET_CONTRACT",
+        "execution_owner": "ORDERED_AST_ASSERTION"
+      },
+      {
+        "requirement_id": "TARGET_PREDICATE_EQUAL",
+        "failure_code": "NEGATIVE_PREDICATE_MISMATCH",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "negated_predicate_id"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "predicate_id"
+            ]
+          }
+        ],
+        "governing_authority_id": "TARGET_CONTRACT"
+      },
+      {
+        "requirement_id": "TARGET_STAGE_EQUAL",
+        "failure_code": "NEGATIVE_STAGE_MISMATCH",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "negated_stage"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "stage"
+            ]
+          }
+        ],
+        "governing_authority_id": "TARGET_CONTRACT"
+      },
+      {
+        "requirement_id": "TARGET_SCOPE_EQUAL",
+        "failure_code": "NEGATIVE_SCOPE_MISMATCH",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "scope"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "scope"
+            ]
+          }
+        ],
+        "governing_authority_id": "TARGET_CONTRACT"
+      },
+      {
+        "requirement_id": "INTERVAL_VALID",
+        "failure_code": "NEGATIVE_INTERVAL_INVALID",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "observed_interval",
+              "not_before"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "observed_interval",
+              "as_of"
+            ]
+          }
+        ],
+        "governing_authority_id": "EVIDENCE_CONTRACT"
+      },
+      {
+        "requirement_id": "INTERVAL_COVERS_TARGET",
+        "failure_code": "NEGATIVE_INTERVAL_INSUFFICIENT",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "required_interval"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "observed_interval"
+            ]
+          }
+        ],
+        "governing_authority_id": "TARGET_CONTRACT"
+      },
+      {
+        "requirement_id": "RETENTION_MEETS_BOUND",
+        "failure_code": "NEGATIVE_RETENTION_INSUFFICIENT",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "retention_window_seconds"
+            ]
+          },
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "required_interval"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "minimum_retention_seconds"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "CONSISTENCY_ALLOWED",
+        "failure_code": "NEGATIVE_CONSISTENCY_DISALLOWED",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "consistency_level"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "allowed_consistency_levels"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "SOURCE_CLASS_ALLOWED",
+        "failure_code": "NEGATIVE_SOURCE_CLASS_DISALLOWED",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "evidence_class"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "allowed_source_classes"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "FRESHNESS_BOUND",
+        "failure_code": "NEGATIVE_FRESHNESS_FAILED",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "observed_at"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "verification_time"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "freshness_max_age_seconds"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "READ_COMPLETE",
+        "failure_code": "NEGATIVE_READ_INCOMPLETE",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "read_scope_complete"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "read_semantics"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "complete_read_requirement"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "NO_SAME_TARGET_POSITIVE",
+        "failure_code": "NEGATIVE_CONTRADICTION",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "evidence_universe"
+            ]
+          },
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "effect_id"
+            ]
+          },
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "negated_predicate_id"
+            ]
+          },
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "negated_stage"
+            ]
+          },
+          {
+            "argument_name": "target",
+            "pointer_tokens": [
+              "scope"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "contradiction_rule"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "FUTURE_OBSERVATION_BOUND",
+        "failure_code": "NEGATIVE_FUTURE_OBSERVATION",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "observed_at"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "verification_time"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "future_observation_result"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "STALE_RESULT_BOUND",
+        "failure_code": "NEGATIVE_STALE_EVIDENCE",
+        "execution_owner": "ORDERED_AST_ASSERTION",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "observed_at"
+            ]
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "verification_time"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "freshness_max_age_seconds"
+            ]
+          },
+          {
+            "argument_name": "profile",
+            "pointer_tokens": [
+              "negative_policy",
+              "stale_result"
+            ]
+          }
+        ],
+        "governing_authority_id": "SETTLEMENT_NEGATIVE_POLICY"
+      },
+      {
+        "requirement_id": "EVIDENCE_UNIVERSE_TYPED",
+        "failure_code": "NEGATIVE_UNIVERSE_UNTYPED",
+        "execution_owner": "UNIVERSAL_PREFLIGHT_SCHEMA",
+        "source_operands": [
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": [
+              "evidence_universe"
+            ]
+          }
+        ],
+        "governing_authority_id": "EVIDENCE_CONTRACT"
+      },
+      {
+        "requirement_id": "FORBID_CALLER_SUPPLIED_CONTRADICTION_COUNT",
+        "failure_code": "NEGATIVE_CALLER_SUPPLIED_COUNT_FORBIDDEN",
+        "execution_owner": "UNIVERSAL_PREFLIGHT_SCHEMA",
+        "source_operands": [
+          {
+            "argument_name": "target",
+            "pointer_tokens": []
+          },
+          {
+            "argument_name": "evidence",
+            "pointer_tokens": []
+          }
+        ],
+        "governing_authority_id": "TARGET_CONTRACT"
+      }
+    ],
+    "evaluation_order": [
+      "TARGET_EFFECT_EQUAL",
+      "TARGET_PREDICATE_EQUAL",
+      "TARGET_STAGE_EQUAL",
+      "TARGET_SCOPE_EQUAL",
+      "INTERVAL_VALID",
+      "INTERVAL_COVERS_TARGET",
+      "RETENTION_MEETS_BOUND",
+      "CONSISTENCY_ALLOWED",
+      "SOURCE_CLASS_ALLOWED",
+      "FRESHNESS_BOUND",
+      "READ_COMPLETE",
+      "NO_SAME_TARGET_POSITIVE",
+      "FUTURE_OBSERVATION_BOUND",
+      "STALE_RESULT_BOUND",
+      "EVIDENCE_UNIVERSE_TYPED",
+      "FORBID_CALLER_SUPPLIED_CONTRADICTION_COUNT"
+    ],
+    "forbidden_requirements": [
+      "caller_supplied_contradiction_count"
+    ]
+  },
+  "policy_field_roles": [
+    {
+      "field_id": "minimum_retention_seconds",
+      "role": "COMPUTED",
+      "requirement_id": "RETENTION_MEETS_BOUND"
+    },
+    {
+      "field_id": "freshness_max_age_seconds",
+      "role": "COMPUTED",
+      "requirement_id": "FRESHNESS_BOUND"
+    },
+    {
+      "field_id": "future_observation_result",
+      "role": "COMPUTED",
+      "requirement_id": "FUTURE_OBSERVATION_BOUND"
+    },
+    {
+      "field_id": "stale_result",
+      "role": "COMPUTED",
+      "requirement_id": "STALE_RESULT_BOUND"
+    },
+    {
+      "field_id": "contradiction_rule",
+      "role": "COMPUTED",
+      "requirement_id": "NO_SAME_TARGET_POSITIVE"
+    },
+    {
+      "field_id": "allowed_consistency_levels",
+      "role": "COMPUTED",
+      "requirement_id": "CONSISTENCY_ALLOWED"
+    },
+    {
+      "field_id": "allowed_source_classes",
+      "role": "COMPUTED",
+      "requirement_id": "SOURCE_CLASS_ALLOWED"
+    },
+    {
+      "field_id": "complete_read_requirement",
+      "role": "COMPUTED",
+      "requirement_id": "READ_COMPLETE"
+    }
+  ],
+  "authority_bindings": [
+    {
+      "authority_key": "SETTLEMENT_NEGATIVE_POLICY",
+      "argument_name": "inputs",
+      "pointer_tokens": [
+        "profile",
+        "negative_policy"
+      ]
+    },
+    {
+      "authority_key": "TARGET_CONTRACT",
+      "argument_name": "target",
+      "pointer_tokens": []
+    },
+    {
+      "authority_key": "EVIDENCE_CONTRACT",
+      "argument_name": "evidence",
+      "pointer_tokens": []
+    }
+  ],
+  "outcome_map": {
+    "PASS": "NON_OCCURRENCE_SUPPORTED",
+    "FAIL": "UNKNOWN"
+  },
+  "result_projection_baseline_pin": {
+    "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+    "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+    "path": "docs/accord-02e4r5r3/v013-governance.json",
+    "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+  }
+}

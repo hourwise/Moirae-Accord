@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:governance-requirements",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:governance-requirements:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:governance-requirements",
+  "object_version": "0.2",
+  "scope": "BOUNDED_PACKAGE_ONLY_GOVERNANCE",
+  "governance_invariants": [
+    "FAIL_CLOSED_ENFORCED",
+    "SUBJECT_ROLE_COVERAGE",
+    "DEFAULT_ARGUMENT_COVERAGE",
+    "DERIVATION_ROLE_CLOSURE",
+    "PROCEDURE_OPERATION_SUPPORTED",
+    "MISSING_BEHAVIOR_SUPPORTED",
+    "AMBIGUITY_BEHAVIOR_SUPPORTED",
+    "REFERENCE_DISCOVERY_SCOPE_VALID",
+    "REFERENCE_SHAPE_PREDICATE_APPLIED",
+    "UNIQUENESS_KEY_APPLIED",
+    "ROLE_MODEL_APPLIED",
+    "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+    "RULE_COVERAGE_EXACT",
+    "INVARIANT_SET_EXACT",
+    "GOVERNING_AUTHORITY_REFERENCE_VALID",
+    "GOVERNING_TOKEN_SINGLETON"
+  ],
+  "fail_closed_requirement": {
+    "acceptance_critical_must_be_fail_closed": true,
+    "reject_false": "METACONTRACT_REJECTS"
+  },
+  "behavior_vocabulary": {
+    "missing_behavior": [
+      "FAIL_CLOSED"
+    ],
+    "ambiguity_behavior": [
+      "FAIL_CLOSED"
+    ],
+    "explicit_behavior": {
+      "FAIL_CLOSED": "resolution failure or ambiguity yields an invariant FAIL"
+    }
+  },
+  "subject_role_requirement": {
+    "every_subject_role_is_input_role": true,
+    "every_semantic_subject_declared_by_role_model": true,
+    "role_model": "SUBJECT_ROLES_DECLARED_SUBSET_OF_INPUT_ROLES"
+  },
+  "default_argument_requirement": {
+    "cover_every_required_role": true,
+    "no_undeclared_role": true,
+    "validate_kind_and_cardinality": true,
+    "resolve_exactly": true
+  },
+  "derivation_role_closure_requirement": {
+    "sets_must_be_equal": [
+      "invariant_required_input_roles",
+      "procedure_required_arguments",
+      "derivation_referenced_roles"
+    ],
+    "optional_arguments_must_be_declared": true
+  },
+  "reference_discovery_scope_requirement": {
+    "source": "reference_model:/discovery_scope",
+    "require_non_empty_universe": true
+  },
+  "shape_predicate_requirement": {
+    "additional_keys_authority": "DISQUALIFY",
+    "allowed_additional_keys": [
+      "DISQUALIFY"
+    ],
+    "behaviour_derived_from_declared_field": true
+  },
+  "uniqueness_key_requirement": {
+    "identity_fields": [
+      "kind",
+      "id",
+      "version"
+    ],
+    "detect_duplicates": true
+  },
+  "role_model_requirement": {
+    "required_role_model": "roles-array",
+    "role_source": "object-registry:/role_vocabulary",
+    "unknown_role_fails": true,
+    "allowed_kinds_by_role": {
+      "NORMATIVE": [
+        "AUTHORITY",
+        "CANONICALIZATION",
+        "CONTRACT",
+        "EVIDENCE",
+        "NORMATIVE_INPUTS",
+        "PACKAGE",
+        "POLICY",
+        "REGISTRY",
+        "SOURCE_VECTOR_CATALOG"
+      ],
+      "IDENTITY_AUTHORITY": [
+        "REGISTRY"
+      ],
+      "SCHEMA_AUTHORITY": [
+        "SCHEMA"
+      ],
+      "NORMATIVE_BOUND_SOURCE": [
+        "PACKAGE"
+      ],
+      "CATALOG_BINDING": [
+        "SOURCE_VECTOR_CATALOG"
+      ],
+      "VECTOR_SOURCE": [
+        "SOURCE_VECTOR_CATALOG"
+      ],
+      "CURRENT_CANDIDATE_PACKAGE": [
+        "PACKAGE"
+      ]
+    }
+  },
+  "schema_identity_requirement": {
+    "identity_template": "urn:moirae:accord-02e4r5r4:schema:{name}:0.2",
+    "schema_id_must_equal_registered_identity": true
+  },
+  "governing_authority_requirement": {
+    "authority_roots_source": "v013-governance:/authority_bindings",
+    "reference_must_resolve": true
+  },
+  "rule_coverage_requirement": {
+    "required_rule_ids_ref": "rule-registry:/required_rule_ids",
+    "exact": true
+  },
+  "invariant_set_requirement": {
+    "required_invariant_ids_ref": "package:/required_invariant_ids",
+    "exact": true
+  },
+  "supported_operations": [
+    "VALIDATE_ACTIVE_UNIVERSE",
+    "SECTION_ENTAILMENT",
+    "DIGEST_RECOMPUTE",
+    "UNIQUE_KEY",
+    "REFERENCE_RESOLUTION",
+    "SET_EQUALITY",
+    "POLICY_AGREEMENT",
+    "SOURCE_CATALOG_BINDING_MATCH",
+    "REQUIREMENT_MAP_EVAL",
+    "AUTHORITY_COMPLETENESS",
+    "PROPOSITION_INVENTORY_BOUND",
+    "ARITY_AGREEMENT",
+    "SCHEMA_NON_VACUITY",
+    "CURRENT_PACKAGE_IDENTITY",
+    "SELF_DIGEST",
+    "INTEGRITY_MODE_DISPATCH",
+    "V013_BASIS_VALID",
+    "FAIL_CLOSED_ENFORCED",
+    "SUBJECT_ROLE_COVERAGE",
+    "DEFAULT_ARGUMENT_COVERAGE",
+    "DERIVATION_ROLE_CLOSURE",
+    "PROCEDURE_OPERATION_SUPPORTED",
+    "MISSING_BEHAVIOR_SUPPORTED",
+    "AMBIGUITY_BEHAVIOR_SUPPORTED",
+    "REFERENCE_DISCOVERY_SCOPE_VALID",
+    "REFERENCE_SHAPE_PREDICATE_APPLIED",
+    "UNIQUENESS_KEY_APPLIED",
+    "ROLE_MODEL_APPLIED",
+    "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+    "RULE_COVERAGE_EXACT",
+    "INVARIANT_SET_EXACT",
+    "GOVERNING_AUTHORITY_REFERENCE_VALID",
+    "GOVERNING_TOKEN_SINGLETON",
+    "TRUST_ANCHOR_COMPARE"
+  ],
+  "semantic_key_governance": {
+    "semantic_key_authority_ref": {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:semantic-key-authority",
+      "version": "0.2"
+    },
+    "forbid_duplicate_independent_authority": true,
+    "permitted_exception_roles": [
+      "PROVENANCE",
+      "TEST_FIXTURE"
+    ]
+  }
+}

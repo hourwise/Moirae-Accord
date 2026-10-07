@@ -1,0 +1,996 @@
+{
+  "bound_rules": [
+    {
+      "invariant_id": "TYPED_REFERENCE_CLOSURE",
+      "procedure_id": "REFERENCE_RESOLUTION",
+      "result": {
+        "procedure_id": "REFERENCE_RESOLUTION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 5
+        }
+      },
+      "rule_id": "LIN-001"
+    },
+    {
+      "invariant_id": "OBJECT_IDENTITY_UNIQUE",
+      "procedure_id": "UNIQUE_KEY",
+      "result": {
+        "procedure_id": "UNIQUE_KEY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 1
+        }
+      },
+      "rule_id": "LIN-002"
+    },
+    {
+      "invariant_id": "PACKAGE_LINEAGE",
+      "procedure_id": "LINEAGE_VALIDATION",
+      "result": {
+        "procedure_id": "LINEAGE_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 11
+        }
+      },
+      "rule_id": "LIN-007"
+    },
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "procedure_id": "SCHEMA_VALIDATION",
+      "result": {
+        "procedure_id": "SCHEMA_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "PROP-001"
+    },
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "procedure_id": "SCHEMA_VALIDATION",
+      "result": {
+        "procedure_id": "SCHEMA_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "BND-004"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "BND-005"
+    },
+    {
+      "invariant_id": "SOURCE_CATALOG_BINDING",
+      "procedure_id": "SOURCE_CATALOG_BINDING_MATCH",
+      "result": {
+        "procedure_id": "SOURCE_CATALOG_BINDING_MATCH",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 22
+        }
+      },
+      "rule_id": "SRC-001"
+    },
+    {
+      "invariant_id": "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+      "procedure_id": "DUAL_INTEGRITY",
+      "result": {
+        "procedure_id": "DUAL_INTEGRITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 13
+        }
+      },
+      "rule_id": "SRC-002"
+    },
+    {
+      "invariant_id": "SOURCE_CATALOG_BINDING",
+      "procedure_id": "SOURCE_CATALOG_BINDING_MATCH",
+      "result": {
+        "procedure_id": "SOURCE_CATALOG_BINDING_MATCH",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 22
+        }
+      },
+      "rule_id": "SRC-003"
+    },
+    {
+      "invariant_id": "SEMANTIC_DIGEST_VERIFY",
+      "procedure_id": "DIGEST_RECOMPUTE",
+      "result": {
+        "procedure_id": "DIGEST_RECOMPUTE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      },
+      "rule_id": "DIGEST-001"
+    },
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "procedure_id": "SCHEMA_VALIDATION",
+      "result": {
+        "procedure_id": "SCHEMA_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "LIN-009"
+    },
+    {
+      "invariant_id": "PROPOSITION_INVENTORY_BOUND",
+      "procedure_id": "PROPOSITION_INVENTORY_BOUND",
+      "result": {
+        "procedure_id": "PROPOSITION_INVENTORY_BOUND",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 12
+        }
+      },
+      "rule_id": "PROP-006"
+    },
+    {
+      "invariant_id": "PACKAGE_LINEAGE",
+      "procedure_id": "LINEAGE_VALIDATION",
+      "result": {
+        "procedure_id": "LINEAGE_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 11
+        }
+      },
+      "rule_id": "PKG-001"
+    },
+    {
+      "invariant_id": "TYPED_REFERENCE_CLOSURE",
+      "procedure_id": "REFERENCE_RESOLUTION",
+      "result": {
+        "procedure_id": "REFERENCE_RESOLUTION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 5
+        }
+      },
+      "rule_id": "PKG-002"
+    },
+    {
+      "invariant_id": "PROFILE_REFERENCE_PINNING",
+      "procedure_id": "PROFILE_REFERENCE_PINNING",
+      "result": {
+        "procedure_id": "PROFILE_REFERENCE_PINNING",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "PROF-002"
+    },
+    {
+      "invariant_id": "TYPED_REFERENCE_CLOSURE",
+      "procedure_id": "REFERENCE_RESOLUTION",
+      "result": {
+        "procedure_id": "REFERENCE_RESOLUTION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 5
+        }
+      },
+      "rule_id": "SCHEMA-001"
+    },
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "procedure_id": "SCHEMA_VALIDATION",
+      "result": {
+        "procedure_id": "SCHEMA_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "SCHEMA-002"
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "result": {
+        "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 8
+        }
+      },
+      "rule_id": "DIGEST-CANON-001"
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "result": {
+        "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 8
+        }
+      },
+      "rule_id": "DIGEST-CANON-002"
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "result": {
+        "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 8
+        }
+      },
+      "rule_id": "DIGEST-CANON-003"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "E4R1-PRED-001"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "E4R1-PRED-002"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "E4R1-PRED-003"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "E4R1-AUTH-001"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "E4R1-BIND-001"
+    },
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "procedure_id": "SCHEMA_VALIDATION",
+      "result": {
+        "procedure_id": "SCHEMA_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "E4R1-PROP-001"
+    },
+    {
+      "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "result": {
+        "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "E4R1-PART-001"
+    },
+    {
+      "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "result": {
+        "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "E4R1-PART-002"
+    },
+    {
+      "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "result": {
+        "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      },
+      "rule_id": "E4R1-PART-003"
+    },
+    {
+      "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+      "procedure_id": "REQUIREMENT_MAP_EVAL",
+      "result": {
+        "procedure_id": "REQUIREMENT_MAP_EVAL",
+        "result": "NON_OCCURRENCE_SUPPORTED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 26
+        }
+      },
+      "rule_id": "E4R1-NEG-001"
+    },
+    {
+      "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+      "procedure_id": "REQUIREMENT_MAP_EVAL",
+      "result": {
+        "procedure_id": "REQUIREMENT_MAP_EVAL",
+        "result": "NON_OCCURRENCE_SUPPORTED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 26
+        }
+      },
+      "rule_id": "E4R1-NEG-002"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "E4R1-ENT-001"
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "result": {
+        "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 8
+        }
+      },
+      "rule_id": "E4R1-CANON-001"
+    },
+    {
+      "invariant_id": "EXPECTATION_STABILITY",
+      "procedure_id": "EXPECTATION_STABILITY",
+      "result": {
+        "procedure_id": "EXPECTATION_STABILITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      },
+      "rule_id": "E4R1-EXPECT-001"
+    },
+    {
+      "invariant_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+      "procedure_id": "AUTHORITY_COMPLETENESS",
+      "result": {
+        "procedure_id": "AUTHORITY_COMPLETENESS",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 4
+        }
+      },
+      "rule_id": "E4R1-CLOSE-001"
+    },
+    {
+      "invariant_id": "TYPED_REFERENCE_CLOSURE",
+      "procedure_id": "REFERENCE_RESOLUTION",
+      "result": {
+        "procedure_id": "REFERENCE_RESOLUTION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 5
+        }
+      },
+      "rule_id": "E4R2-REF-001"
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "result": {
+        "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 8
+        }
+      },
+      "rule_id": "E4R2-CANON-001"
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      },
+      "rule_id": "E4R2-BIND-001"
+    },
+    {
+      "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+      "procedure_id": "REQUIREMENT_MAP_EVAL",
+      "result": {
+        "procedure_id": "REQUIREMENT_MAP_EVAL",
+        "result": "NON_OCCURRENCE_SUPPORTED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 26
+        }
+      },
+      "rule_id": "E4R2-NEG-001"
+    },
+    {
+      "invariant_id": "DEPENDENCY_GRAPH_EQUAL",
+      "procedure_id": "SET_EQUALITY",
+      "result": {
+        "procedure_id": "SET_EQUALITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 4
+        }
+      },
+      "rule_id": "E4R2-GRAPH-001"
+    },
+    {
+      "invariant_id": "SEMANTIC_DIGEST_VERIFY",
+      "procedure_id": "DIGEST_RECOMPUTE",
+      "result": {
+        "procedure_id": "DIGEST_RECOMPUTE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      },
+      "rule_id": "E4R2-PROFILE-001"
+    },
+    {
+      "invariant_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+      "procedure_id": "AUTHORITY_COMPLETENESS",
+      "result": {
+        "procedure_id": "AUTHORITY_COMPLETENESS",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 4
+        }
+      },
+      "rule_id": "E4R2-CLOSE-001"
+    }
+  ],
+  "bound_sources": 2,
+  "candidate_identity": {
+    "digest": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1",
+    "id": "urn:moirae:accord-02r5:specification-package",
+    "version": "0.2"
+  },
+  "candidate_objects": 46,
+  "invariants": [
+    {
+      "invariant_id": "STANDARDS_VALIDATION",
+      "procedure_id": "SCHEMA_VALIDATION",
+      "result": {
+        "procedure_id": "SCHEMA_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "PACKAGE_LINEAGE",
+      "procedure_id": "LINEAGE_VALIDATION",
+      "result": {
+        "procedure_id": "LINEAGE_VALIDATION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 11
+        }
+      }
+    },
+    {
+      "invariant_id": "ACCEPTED_BASE_DUAL_INTEGRITY",
+      "procedure_id": "DUAL_INTEGRITY",
+      "result": {
+        "procedure_id": "DUAL_INTEGRITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 13
+        }
+      }
+    },
+    {
+      "invariant_id": "OBJECT_IDENTITY_UNIQUE",
+      "procedure_id": "UNIQUE_KEY",
+      "result": {
+        "procedure_id": "UNIQUE_KEY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 1
+        }
+      }
+    },
+    {
+      "invariant_id": "TYPED_REFERENCE_CLOSURE",
+      "procedure_id": "REFERENCE_RESOLUTION",
+      "result": {
+        "procedure_id": "REFERENCE_RESOLUTION",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 5
+        }
+      }
+    },
+    {
+      "invariant_id": "SEMANTIC_DIGEST_VERIFY",
+      "procedure_id": "DIGEST_RECOMPUTE",
+      "result": {
+        "procedure_id": "DIGEST_RECOMPUTE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      }
+    },
+    {
+      "invariant_id": "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+      "procedure_id": "DUAL_INTEGRITY",
+      "result": {
+        "procedure_id": "DUAL_INTEGRITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 13
+        }
+      }
+    },
+    {
+      "invariant_id": "DEPENDENCY_GRAPH_EQUAL",
+      "procedure_id": "SET_EQUALITY",
+      "result": {
+        "procedure_id": "SET_EQUALITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 4
+        }
+      }
+    },
+    {
+      "invariant_id": "EXPECTATION_STABILITY",
+      "procedure_id": "EXPECTATION_STABILITY",
+      "result": {
+        "procedure_id": "EXPECTATION_STABILITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      }
+    },
+    {
+      "invariant_id": "PREDICATE_AUTHORITY_CLOSURE",
+      "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+      "result": {
+        "procedure_id": "PREDICATE_POLICY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      }
+    },
+    {
+      "invariant_id": "CANONICALIZATION_AUTHORITY_CLOSURE",
+      "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+      "result": {
+        "procedure_id": "CANONICALIZATION_PROFILE_WELLFORMED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 8
+        }
+      }
+    },
+    {
+      "invariant_id": "SOURCE_CATALOG_BINDING",
+      "procedure_id": "SOURCE_CATALOG_BINDING_MATCH",
+      "result": {
+        "procedure_id": "SOURCE_CATALOG_BINDING_MATCH",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 22
+        }
+      }
+    },
+    {
+      "invariant_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+      "result": {
+        "procedure_id": "PARTIAL_EFFECT_POLICY_CLOSURE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+      "procedure_id": "REQUIREMENT_MAP_EVAL",
+      "result": {
+        "procedure_id": "REQUIREMENT_MAP_EVAL",
+        "result": "NON_OCCURRENCE_SUPPORTED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 26
+        }
+      }
+    },
+    {
+      "invariant_id": "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+      "procedure_id": "AUTHORITY_COMPLETENESS",
+      "result": {
+        "procedure_id": "AUTHORITY_COMPLETENESS",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 4
+        }
+      }
+    },
+    {
+      "invariant_id": "PROPOSITION_INVENTORY_BOUND",
+      "procedure_id": "PROPOSITION_INVENTORY_BOUND",
+      "result": {
+        "procedure_id": "PROPOSITION_INVENTORY_BOUND",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 12
+        }
+      }
+    },
+    {
+      "invariant_id": "PROFILE_REFERENCE_PINNING",
+      "procedure_id": "PROFILE_REFERENCE_PINNING",
+      "result": {
+        "procedure_id": "PROFILE_REFERENCE_PINNING",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "INVARIANT_PROCEDURE_ARITY_AGREEMENT",
+      "procedure_id": "ARITY_AGREEMENT",
+      "result": {
+        "procedure_id": "ARITY_AGREEMENT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 6
+        }
+      }
+    },
+    {
+      "invariant_id": "SCHEMA_NON_VACUITY",
+      "procedure_id": "SCHEMA_NON_VACUITY",
+      "result": {
+        "procedure_id": "SCHEMA_NON_VACUITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      }
+    },
+    {
+      "invariant_id": "CURRENT_PACKAGE_IDENTITY",
+      "procedure_id": "CURRENT_PACKAGE_IDENTITY",
+      "result": {
+        "procedure_id": "CURRENT_PACKAGE_IDENTITY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "PACKAGE_SELF_DIGEST",
+      "procedure_id": "SELF_DIGEST",
+      "result": {
+        "procedure_id": "SELF_DIGEST",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 1
+        }
+      }
+    },
+    {
+      "invariant_id": "INTEGRITY_MODE_DISPATCH",
+      "procedure_id": "INTEGRITY_MODE_DISPATCH",
+      "result": {
+        "procedure_id": "INTEGRITY_MODE_DISPATCH",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 5
+        }
+      }
+    },
+    {
+      "invariant_id": "V013_BASIS_VALID",
+      "procedure_id": "V013_BASIS_VALID",
+      "result": {
+        "procedure_id": "V013_BASIS_VALID",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 14
+        }
+      }
+    },
+    {
+      "invariant_id": "FAIL_CLOSED_ENFORCED",
+      "procedure_id": "FAIL_CLOSED_ENFORCED",
+      "result": {
+        "procedure_id": "FAIL_CLOSED_ENFORCED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 1
+        }
+      }
+    },
+    {
+      "invariant_id": "SUBJECT_ROLE_COVERAGE",
+      "procedure_id": "SUBJECT_ROLE_COVERAGE",
+      "result": {
+        "procedure_id": "SUBJECT_ROLE_COVERAGE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      }
+    },
+    {
+      "invariant_id": "DEFAULT_ARGUMENT_COVERAGE",
+      "procedure_id": "DEFAULT_ARGUMENT_COVERAGE",
+      "result": {
+        "procedure_id": "DEFAULT_ARGUMENT_COVERAGE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 11
+        }
+      }
+    },
+    {
+      "invariant_id": "DERIVATION_ROLE_CLOSURE",
+      "procedure_id": "DERIVATION_ROLE_CLOSURE",
+      "result": {
+        "procedure_id": "DERIVATION_ROLE_CLOSURE",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 1
+        }
+      }
+    },
+    {
+      "invariant_id": "PROCEDURE_OPERATION_SUPPORTED",
+      "procedure_id": "PROCEDURE_OPERATION_SUPPORTED",
+      "result": {
+        "procedure_id": "PROCEDURE_OPERATION_SUPPORTED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 7
+        }
+      }
+    },
+    {
+      "invariant_id": "MISSING_BEHAVIOR_SUPPORTED",
+      "procedure_id": "MISSING_BEHAVIOR_SUPPORTED",
+      "result": {
+        "procedure_id": "MISSING_BEHAVIOR_SUPPORTED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 1
+        }
+      }
+    },
+    {
+      "invariant_id": "AMBIGUITY_BEHAVIOR_SUPPORTED",
+      "procedure_id": "AMBIGUITY_BEHAVIOR_SUPPORTED",
+      "result": {
+        "procedure_id": "AMBIGUITY_BEHAVIOR_SUPPORTED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 1
+        }
+      }
+    },
+    {
+      "invariant_id": "REFERENCE_DISCOVERY_SCOPE_VALID",
+      "procedure_id": "REFERENCE_DISCOVERY_SCOPE_VALID",
+      "result": {
+        "procedure_id": "REFERENCE_DISCOVERY_SCOPE_VALID",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "REFERENCE_SHAPE_PREDICATE_APPLIED",
+      "procedure_id": "REFERENCE_SHAPE_PREDICATE_APPLIED",
+      "result": {
+        "procedure_id": "REFERENCE_SHAPE_PREDICATE_APPLIED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 4
+        }
+      }
+    },
+    {
+      "invariant_id": "UNIQUENESS_KEY_APPLIED",
+      "procedure_id": "UNIQUENESS_KEY_APPLIED",
+      "result": {
+        "procedure_id": "UNIQUENESS_KEY_APPLIED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "ROLE_MODEL_APPLIED",
+      "procedure_id": "ROLE_MODEL_APPLIED",
+      "result": {
+        "procedure_id": "ROLE_MODEL_APPLIED",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+      "procedure_id": "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+      "result": {
+        "procedure_id": "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "RULE_COVERAGE_EXACT",
+      "procedure_id": "RULE_COVERAGE_EXACT",
+      "result": {
+        "procedure_id": "RULE_COVERAGE_EXACT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 3
+        }
+      }
+    },
+    {
+      "invariant_id": "INVARIANT_SET_EXACT",
+      "procedure_id": "INVARIANT_SET_EXACT",
+      "result": {
+        "procedure_id": "INVARIANT_SET_EXACT",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 2
+        }
+      }
+    },
+    {
+      "invariant_id": "GOVERNING_AUTHORITY_REFERENCE_VALID",
+      "procedure_id": "GOVERNING_AUTHORITY_REFERENCE_VALID",
+      "result": {
+        "procedure_id": "GOVERNING_AUTHORITY_REFERENCE_VALID",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 21
+        }
+      }
+    },
+    {
+      "invariant_id": "GOVERNING_TOKEN_SINGLETON",
+      "procedure_id": "GOVERNING_TOKEN_SINGLETON",
+      "result": {
+        "procedure_id": "GOVERNING_TOKEN_SINGLETON",
+        "status": "PASS",
+        "witness": {
+          "assertions_evaluated": 5
+        }
+      }
+    },
+    {
+      "invariant_id": "TRUSTED_PACKAGE_IDENTITY",
+      "procedure_id": "TRUST_ANCHOR_COMPARE",
+      "result": {
+        "code": "EXPECTED_PACKAGE_VERIFIED",
+        "status": "PASS",
+        "witness": {
+          "actual": {
+            "digest": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1",
+            "id": "urn:moirae:accord-02r5:specification-package",
+            "version": "0.2"
+          },
+          "expected": {
+            "digest": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1",
+            "id": "urn:moirae:accord-02r5:specification-package",
+            "version": "0.2"
+          },
+          "stage": "EXACT_TRIPLE_MATCH"
+        }
+      }
+    }
+  ],
+  "pre_execution_status": "PASS",
+  "procedure_definitions": 39,
+  "result_projection": {
+    "outcome": "NON_OCCURRENCE_SUPPORTED",
+    "procedure_id": "REQUIREMENT_MAP_EVAL",
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "trust_result": {
+    "code": "EXPECTED_PACKAGE_VERIFIED",
+    "status": "PASS",
+    "witness": {
+      "actual": {
+        "digest": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1",
+        "id": "urn:moirae:accord-02r5:specification-package",
+        "version": "0.2"
+      },
+      "expected": {
+        "digest": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1",
+        "id": "urn:moirae:accord-02r5:specification-package",
+        "version": "0.2"
+      },
+      "stage": "EXACT_TRIPLE_MATCH"
+    }
+  }
+}

@@ -1,0 +1,506 @@
+[
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\README.md",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\README.md",
+    "relative_path": "docs/accord-02e4r5r4/README.md",
+    "expected_sha256": "39930beda30d7355085524c89405d75d5addeea1abf6db385c0734845f51ab9b",
+    "pre_install_sha256": "39930beda30d7355085524c89405d75d5addeea1abf6db385c0734845f51ab9b",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\accepted-source-bindings.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\accepted-source-bindings.json",
+    "relative_path": "docs/accord-02e4r5r4/accepted-source-bindings.json",
+    "expected_sha256": "572c85934c750b5328575f2dd856e83e4e12a811e0990baab88c19ef3384d252",
+    "pre_install_sha256": "572c85934c750b5328575f2dd856e83e4e12a811e0990baab88c19ef3384d252",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\audit\\build_r5r4_artifacts.py",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\audit\\build_r5r4_artifacts.py",
+    "relative_path": "docs/accord-02e4r5r4/audit/build_r5r4_artifacts.py",
+    "expected_sha256": "ee0122a0a2d98e3412b9ad7d624638c0b0f42705d773fed9cdc1501103449f98",
+    "pre_install_sha256": "c8d76eac7640384055b945765753473cea10d8483e1e6ab423dcc09e7b3358c5",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\primary\\evaluate_r5r4.py",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\audit\\evaluate_r5r4.py",
+    "relative_path": "docs/accord-02e4r5r4/audit/evaluate_r5r4.py",
+    "expected_sha256": "8facf456d00d72a4eb3217a3ef624cc99d7f351cc7626b66366371dafd0dca04",
+    "pre_install_sha256": "eabc85ef03e5483b8c873857eb8c900aeb31937ac6cc0a22d2835357d2eb671f",
+    "action": "REPLACE",
+    "source_role": "FROZEN_EVALUATOR"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\neutral\\independent-worker-output\\evaluate_r5r4_independent.py",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\audit\\evaluate_r5r4_independent.py",
+    "relative_path": "docs/accord-02e4r5r4/audit/evaluate_r5r4_independent.py",
+    "expected_sha256": "69230e1c5afbafd5ea653ac7b3d68934ed13991d7c061e9a46d2673478782ad1",
+    "pre_install_sha256": "804c370e32cce3ae651debc5f326ae3106bad8ed6b1e6e62090f5f273997a2ce",
+    "action": "REPLACE",
+    "source_role": "FROZEN_EVALUATOR"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\authority-requirements.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\authority-requirements.json",
+    "relative_path": "docs/accord-02e4r5r4/authority-requirements.json",
+    "expected_sha256": "83cc7fbb555871df9d4815cfa73b7a7aab7795d29edd5f5deab3205b0aefc53c",
+    "pre_install_sha256": "83cc7fbb555871df9d4815cfa73b7a7aab7795d29edd5f5deab3205b0aefc53c",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\canonicalization-profile.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\canonicalization-profile.json",
+    "relative_path": "docs/accord-02e4r5r4/canonicalization-profile.json",
+    "expected_sha256": "cc048f941d9610817a626728a875383d92d47811f3b5f73b6a5cc664c0380518",
+    "pre_install_sha256": "cc048f941d9610817a626728a875383d92d47811f3b5f73b6a5cc664c0380518",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\external-verification-input.contract.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\external-verification-input.contract.json",
+    "relative_path": "docs/accord-02e4r5r4/external-verification-input.contract.json",
+    "expected_sha256": "5136435c63449a97923820d543e55bdc5403768c118dcf701b1b0395b54a0c1b",
+    "pre_install_sha256": "5136435c63449a97923820d543e55bdc5403768c118dcf701b1b0395b54a0c1b",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\governance-requirements.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\governance-requirements.json",
+    "relative_path": "docs/accord-02e4r5r4/governance-requirements.json",
+    "expected_sha256": "f25d176237e9f3515b2fcbcec1dd01187e9a33fe4f5007ff66c0b33c5e6634e8",
+    "pre_install_sha256": "f25d176237e9f3515b2fcbcec1dd01187e9a33fe4f5007ff66c0b33c5e6634e8",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\integrity-modes.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\integrity-modes.json",
+    "relative_path": "docs/accord-02e4r5r4/integrity-modes.json",
+    "expected_sha256": "9b10e3bbde04a06af8950a0185ca2b7be7a58033f6ada699c1b5d6ee0e3e9118",
+    "pre_install_sha256": "60a746272b5dcc56b60573f2fe1e62927e31db2db33af96d4b472422d115ce3e",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\invariant-registry.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\invariant-registry.json",
+    "relative_path": "docs/accord-02e4r5r4/invariant-registry.json",
+    "expected_sha256": "14239c1c2aeda81c538df7b19486ce439f70d14caf37494b5795c1906f91f667",
+    "pre_install_sha256": "14239c1c2aeda81c538df7b19486ce439f70d14caf37494b5795c1906f91f667",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\leap-second-table.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\leap-second-table.json",
+    "relative_path": "docs/accord-02e4r5r4/leap-second-table.json",
+    "expected_sha256": "cc014903dd10798df9cc7672fcc8a9f26a589d5d3be3b707594f2785b24cd0d4",
+    "pre_install_sha256": null,
+    "action": "ADD",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\metacontract.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\metacontract.json",
+    "relative_path": "docs/accord-02e4r5r4/metacontract.json",
+    "expected_sha256": "6d391a142e69bf7a9fb24a05d41d1064e00dd01233042f8023c459bb43f9b063",
+    "pre_install_sha256": "1e53ba1f218890e50bfa71f380ec1ea2048b50b8e7e074102140bca5bde27370",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\normative-inputs.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\normative-inputs.json",
+    "relative_path": "docs/accord-02e4r5r4/normative-inputs.json",
+    "expected_sha256": "d60040b319f521fb5bbca140efef0cf0974ffd81eb457d6c13ff707cf23de72e",
+    "pre_install_sha256": "d60040b319f521fb5bbca140efef0cf0974ffd81eb457d6c13ff707cf23de72e",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\object-registry.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\object-registry.json",
+    "relative_path": "docs/accord-02e4r5r4/object-registry.json",
+    "expected_sha256": "c6574b1ff84910e22dfe3001469b5c9891d0ad76a9269d172c535f05071269a6",
+    "pre_install_sha256": "aa601d0d64c1bf144bd26ab2364cba0b3b240cb5a0f99822c342bf07c8753844",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\partial-effect-policy.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\partial-effect-policy.json",
+    "relative_path": "docs/accord-02e4r5r4/partial-effect-policy.json",
+    "expected_sha256": "5b63e2abe98924f5a19dc0046799626e4059038f726ad1544a7577405975f3f0",
+    "pre_install_sha256": "5b63e2abe98924f5a19dc0046799626e4059038f726ad1544a7577405975f3f0",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\primitive-registry.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\primitive-registry.json",
+    "relative_path": "docs/accord-02e4r5r4/primitive-registry.json",
+    "expected_sha256": "91f39b07ab2df4e0eed9fdcbac2fbe120bd18c3d049e7da3733f913adb04fbbc",
+    "pre_install_sha256": "accbef8e82b9fa2904a49bdcdc79f8c8729f3c01d1b2d54e6a6d3bbedc76fe9f",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\procedure-registry.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\procedure-registry.json",
+    "relative_path": "docs/accord-02e4r5r4/procedure-registry.json",
+    "expected_sha256": "9f7490d218a2936323634dfa2da37e009dac69d77b2f01e6f1765f6edf5561f1",
+    "pre_install_sha256": "9f7490d218a2936323634dfa2da37e009dac69d77b2f01e6f1765f6edf5561f1",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\proposition-inventory.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\proposition-inventory.json",
+    "relative_path": "docs/accord-02e4r5r4/proposition-inventory.json",
+    "expected_sha256": "7fcad821185474c60c6134ce30f0c82ab77abaca03ca7761b88bf61f03bf2561",
+    "pre_install_sha256": "7fcad821185474c60c6134ce30f0c82ab77abaca03ca7761b88bf61f03bf2561",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\reference-model.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\reference-model.json",
+    "relative_path": "docs/accord-02e4r5r4/reference-model.json",
+    "expected_sha256": "d59ce3fab33162ec05c47d615bca972a8e23de0bd512cc85cad5a50f6b7a8bc8",
+    "pre_install_sha256": "a7cfe1e7376a9dcd3910a1b3f6babcc2f18d37096129eb3b6b97cb164f3e3b8b",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\requirements.txt",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\requirements.txt",
+    "relative_path": "docs/accord-02e4r5r4/requirements.txt",
+    "expected_sha256": "ffcf6381f6ec7906d116c57656a5eb3e4c8e3752551a6fd4befce477ba195d70",
+    "pre_install_sha256": "ffcf6381f6ec7906d116c57656a5eb3e4c8e3752551a6fd4befce477ba195d70",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\rule-registry.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\rule-registry.json",
+    "relative_path": "docs/accord-02e4r5r4/rule-registry.json",
+    "expected_sha256": "604ff98c8009b7c6a963208276c4b0185ea43ae8706b89c82789c5161f4cd44e",
+    "pre_install_sha256": "604ff98c8009b7c6a963208276c4b0185ea43ae8706b89c82789c5161f4cd44e",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\accepted-source-bindings.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\accepted-source-bindings.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/accepted-source-bindings.schema.json",
+    "expected_sha256": "db0aa361cf344d207052460ab6add2047e8b496270528d64b38283b7274f2387",
+    "pre_install_sha256": "db0aa361cf344d207052460ab6add2047e8b496270528d64b38283b7274f2387",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\authority-requirements.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\authority-requirements.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/authority-requirements.schema.json",
+    "expected_sha256": "46c4594eedec5197df892e548c20a9a8d2f13381ce6fe2869ddff2b6a6a14a3e",
+    "pre_install_sha256": "46c4594eedec5197df892e548c20a9a8d2f13381ce6fe2869ddff2b6a6a14a3e",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\canonicalization-profile.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\canonicalization-profile.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/canonicalization-profile.schema.json",
+    "expected_sha256": "513b3ead5fbd6b04d25618dc76aeb70eaa4067cec83465935e44172e66b92c35",
+    "pre_install_sha256": "513b3ead5fbd6b04d25618dc76aeb70eaa4067cec83465935e44172e66b92c35",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\external-verification-input-contract.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\external-verification-input-contract.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/external-verification-input-contract.schema.json",
+    "expected_sha256": "7ccb2e84f367dc103fa726fb46edd7794030f1d0cb6364131aefea684d66bdb0",
+    "pre_install_sha256": "7ccb2e84f367dc103fa726fb46edd7794030f1d0cb6364131aefea684d66bdb0",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\governance-requirements.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\governance-requirements.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/governance-requirements.schema.json",
+    "expected_sha256": "5994be2c67c6fe4936ebda77e46455b0297bf5ecf465490b51caf2ff2b6ca37a",
+    "pre_install_sha256": "5994be2c67c6fe4936ebda77e46455b0297bf5ecf465490b51caf2ff2b6ca37a",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\integrity-modes.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\integrity-modes.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/integrity-modes.schema.json",
+    "expected_sha256": "19cae87abcb32e5877fa6820afb53854f3850bc26736f84f2fb7bd414a6f0425",
+    "pre_install_sha256": "19cae87abcb32e5877fa6820afb53854f3850bc26736f84f2fb7bd414a6f0425",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\invariant-registry.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\invariant-registry.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/invariant-registry.schema.json",
+    "expected_sha256": "bfc3949a2ffcf9920fcfef63769d92e9abaf4ec6d6e9aa8b3c56112e1a51d648",
+    "pre_install_sha256": "bfc3949a2ffcf9920fcfef63769d92e9abaf4ec6d6e9aa8b3c56112e1a51d648",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\leap-second-table.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\leap-second-table.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/leap-second-table.schema.json",
+    "expected_sha256": "2f47bde22bd9423fbd81731717d6d4366d4d3d46c266206185cc7982d74b2fb3",
+    "pre_install_sha256": null,
+    "action": "ADD",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\metacontract.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\metacontract.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/metacontract.schema.json",
+    "expected_sha256": "5bbb40b0c360ce1d9d0bfd3b8669eebfcdd627c61b74c5b20b881f6b6562dd36",
+    "pre_install_sha256": "35603cd4787b61de55a41794ea7e6eb41e5ee72d57e9d2572440d9525dcd5499",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\normative-inputs.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\normative-inputs.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/normative-inputs.schema.json",
+    "expected_sha256": "69a6ad527417d737f36165ae4d48e7b9d5fe427021593d8909534d570959f087",
+    "pre_install_sha256": "69a6ad527417d737f36165ae4d48e7b9d5fe427021593d8909534d570959f087",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\object-registry.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\object-registry.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/object-registry.schema.json",
+    "expected_sha256": "e7975178019e8fc6609eb0c6ad30a35a8660c8827b4a812e09b35b5a38b03421",
+    "pre_install_sha256": "e7975178019e8fc6609eb0c6ad30a35a8660c8827b4a812e09b35b5a38b03421",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\partial-effect-policy.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\partial-effect-policy.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/partial-effect-policy.schema.json",
+    "expected_sha256": "43957c1ef03c7751fe21085f0a50d1448c8fc9261bfe49d0a240c22a660dd796",
+    "pre_install_sha256": "43957c1ef03c7751fe21085f0a50d1448c8fc9261bfe49d0a240c22a660dd796",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\primitive-registry.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\primitive-registry.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/primitive-registry.schema.json",
+    "expected_sha256": "657ec04430e1281ee802e2d6c511f4f76c43491d95b78ffac6367a7ee715cb3c",
+    "pre_install_sha256": "f8961e0a7d22c4752f5ed784b1b233fa615087dd2ad4eee8da3f22d3e5fa83eb",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\procedure-registry.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\procedure-registry.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/procedure-registry.schema.json",
+    "expected_sha256": "9c5d14caa873c5695e4eed8cc52b817a9135314dc5917e86099c75a8841d4672",
+    "pre_install_sha256": "9c5d14caa873c5695e4eed8cc52b817a9135314dc5917e86099c75a8841d4672",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\proposition-inventory.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\proposition-inventory.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/proposition-inventory.schema.json",
+    "expected_sha256": "fe32d21b58973284250f4da8c441b5ecd6fdcb4d9e6ee7abddfa46ddd5572711",
+    "pre_install_sha256": "fe32d21b58973284250f4da8c441b5ecd6fdcb4d9e6ee7abddfa46ddd5572711",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\reference-model.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\reference-model.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/reference-model.schema.json",
+    "expected_sha256": "75c78490ad40641ddcae40330c32977364c3e661c18f3892bf5a9f705d45d5ff",
+    "pre_install_sha256": "66348c19ef8153627e9ee10408dbac84e4e983394de5a529f18964bf1bd52e56",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\rule-registry.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\rule-registry.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/rule-registry.schema.json",
+    "expected_sha256": "21f675eea09437bfc66697b76fc1bbc440e4f2074df5cc082f16ad8633915268",
+    "pre_install_sha256": "21f675eea09437bfc66697b76fc1bbc440e4f2074df5cc082f16ad8633915268",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\semantic-key-authority.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\semantic-key-authority.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/semantic-key-authority.schema.json",
+    "expected_sha256": "88155352f6fa0a44edc310bea134d42ed5b0dec8840683d96990d3c715092b72",
+    "pre_install_sha256": "88155352f6fa0a44edc310bea134d42ed5b0dec8840683d96990d3c715092b72",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\source-catalog-binding.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\source-catalog-binding.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/source-catalog-binding.schema.json",
+    "expected_sha256": "c782fd5cfb8cb3ade4ccecc583652cdf4615582471f1bf82be51d6da440b76db",
+    "pre_install_sha256": "c782fd5cfb8cb3ade4ccecc583652cdf4615582471f1bf82be51d6da440b76db",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\specification-package.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\specification-package.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/specification-package.schema.json",
+    "expected_sha256": "c28774c2a6f3da09bdbacd43e3dc571aa0ba36c07317fe88c1d7fa2cf1e0485c",
+    "pre_install_sha256": "c28774c2a6f3da09bdbacd43e3dc571aa0ba36c07317fe88c1d7fa2cf1e0485c",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\v013-evidence.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\v013-evidence.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/v013-evidence.schema.json",
+    "expected_sha256": "f6c6a28131992b3cbe6dfbb19de201fa2ecf94a2140b209d64dafb48835f4d86",
+    "pre_install_sha256": "f6c6a28131992b3cbe6dfbb19de201fa2ecf94a2140b209d64dafb48835f4d86",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\v013-governance.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\v013-governance.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/v013-governance.schema.json",
+    "expected_sha256": "726c606a9fa579699539df24aa42c0fc9c1631c74ce949dfb004f1afa4d98c41",
+    "pre_install_sha256": "726c606a9fa579699539df24aa42c0fc9c1631c74ce949dfb004f1afa4d98c41",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\schema\\v013-target.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\schema\\v013-target.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/schema/v013-target.schema.json",
+    "expected_sha256": "a3caa33d3bd4583a1146f686b225062dc2307cfd5e308950008e084650b000ac",
+    "pre_install_sha256": "a3caa33d3bd4583a1146f686b225062dc2307cfd5e308950008e084650b000ac",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\semantic-key-authority.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\semantic-key-authority.json",
+    "relative_path": "docs/accord-02e4r5r4/semantic-key-authority.json",
+    "expected_sha256": "b131c9ede27976d88f27803d3c21db55a65b46f8e5963df1069b7dc5c02984c2",
+    "pre_install_sha256": "b131c9ede27976d88f27803d3c21db55a65b46f8e5963df1069b7dc5c02984c2",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\source-catalog-binding.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\source-catalog-binding.json",
+    "relative_path": "docs/accord-02e4r5r4/source-catalog-binding.json",
+    "expected_sha256": "29a0b6444f4bbb10ad255527ccfd2c4fdd1f24a8e3ecd81cb354d51aceb4a5d7",
+    "pre_install_sha256": "29a0b6444f4bbb10ad255527ccfd2c4fdd1f24a8e3ecd81cb354d51aceb4a5d7",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\sources\\accepted-base-package-0.1.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\sources\\accepted-base-package-0.1.json",
+    "relative_path": "docs/accord-02e4r5r4/sources/accepted-base-package-0.1.json",
+    "expected_sha256": "6c4633518a9807c9fe1de231eb06be5c3f90ca27e7986024212d5d1c3739b5c0",
+    "pre_install_sha256": "6c4633518a9807c9fe1de231eb06be5c3f90ca27e7986024212d5d1c3739b5c0",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\sources\\accepted-vectors-0.1.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\sources\\accepted-vectors-0.1.json",
+    "relative_path": "docs/accord-02e4r5r4/sources/accepted-vectors-0.1.json",
+    "expected_sha256": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+    "pre_install_sha256": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\sources\\external-acceptance-profile.schema.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\sources\\external-acceptance-profile.schema.json",
+    "relative_path": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+    "expected_sha256": "bb0cfc68f222a7c85b291a6aa1061f3246a144edd1b56528ddcfd1552fcf89d3",
+    "pre_install_sha256": "bb0cfc68f222a7c85b291a6aa1061f3246a144edd1b56528ddcfd1552fcf89d3",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\sources\\frozen-r5r2-rule-registry.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\sources\\frozen-r5r2-rule-registry.json",
+    "relative_path": "docs/accord-02e4r5r4/sources/frozen-r5r2-rule-registry.json",
+    "expected_sha256": "025d2de3864f316fc8bd2d8aaf5991cc34b759aced0e8ef86283a5088e69eda1",
+    "pre_install_sha256": "025d2de3864f316fc8bd2d8aaf5991cc34b759aced0e8ef86283a5088e69eda1",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\sources\\frozen-r5r3-v013-governance.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\sources\\frozen-r5r3-v013-governance.json",
+    "relative_path": "docs/accord-02e4r5r4/sources/frozen-r5r3-v013-governance.json",
+    "expected_sha256": "cd369a77347a47e8e528a361e9456ba83917a97c5b92fce3a816500b92ca6125",
+    "pre_install_sha256": "cd369a77347a47e8e528a361e9456ba83917a97c5b92fce3a816500b92ca6125",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\specification-package-0.2.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\specification-package-0.2.json",
+    "relative_path": "docs/accord-02e4r5r4/specification-package-0.2.json",
+    "expected_sha256": "86241281947ab748f793bba48419eb5b682640051187de9017e639ad4ede40d0",
+    "pre_install_sha256": "a28a181742d5a455a8b9814ebdf7205aee88bb5b8e9611923618474a6d6e4a86",
+    "action": "REPLACE",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\v013-evidence.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\v013-evidence.json",
+    "relative_path": "docs/accord-02e4r5r4/v013-evidence.json",
+    "expected_sha256": "805cecb7ac9f39e7a5a8760c9c8a3886e0ba30d742b21789290c93b3ba62306f",
+    "pre_install_sha256": "805cecb7ac9f39e7a5a8760c9c8a3886e0ba30d742b21789290c93b3ba62306f",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\v013-governance.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\v013-governance.json",
+    "relative_path": "docs/accord-02e4r5r4/v013-governance.json",
+    "expected_sha256": "fe722791415ef917d11414f73a1f49e4916f73858965e35a600adb08501c5d3c",
+    "pre_install_sha256": "fe722791415ef917d11414f73a1f49e4916f73858965e35a600adb08501c5d3c",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  },
+  {
+    "source_artifact": "D:\\Users\\fleur\\Moirae Accord - Scratch\\R5R29A-R2e-P\\S\\docs\\accord-02e4r5r4\\v013-target.json",
+    "canonical_destination": "D:\\Users\\fleur\\Moirae Accord - E4R5R4 Sol\\docs\\accord-02e4r5r4\\v013-target.json",
+    "relative_path": "docs/accord-02e4r5r4/v013-target.json",
+    "expected_sha256": "26d02fe231bc9349ac7ad378cdde7547b7acc45224bd576eb0175e08cebe593a",
+    "pre_install_sha256": "26d02fe231bc9349ac7ad378cdde7547b7acc45224bd576eb0175e08cebe593a",
+    "action": "UNCHANGED",
+    "source_role": "ADJUDICATED_STAGED_TREE"
+  }
+]

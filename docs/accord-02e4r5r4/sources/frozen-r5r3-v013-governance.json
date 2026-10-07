@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02r5r3:schema:v013-governance",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5r3:v013-governance:0.2",
+  "object_id": "urn:moirae:accord-02r5r3:v013-governance",
+  "object_version": "0.2",
+  "fixture_status": "NORMATIVE_CANDIDATE_0_2",
+  "accepted_v013_locator": {
+    "source_ref": {
+      "kind": "SOURCE_VECTOR_CATALOG",
+      "id": "urn:moirae:accord-02r5:source-vector-catalog",
+      "version": "0.1",
+      "member_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+    },
+    "accepted_member_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE"
+  },
+  "relationship_vocabulary": [
+    "CANDIDATE_FIXTURE_OF_SAME_SEMANTIC_CLASS_AS_ACCEPTED_V013"
+  ],
+  "relationship_basis_schema": {
+    "accepted_pointer_prefix": "/",
+    "candidate_pointer_prefix": "/",
+    "require_accepted_value_match": true,
+    "forbid_candidate_history_claim": true,
+    "forbidden_overlaps": [],
+    "overlap_policy": "ACCEPTED_AND_CANDIDATE_SUPPLIED_FIELD_SETS_MUST_BE_DISJOINT"
+  },
+  "authority_roots": {
+    "SETTLEMENT_NEGATIVE_POLICY": "inputs:/profile/negative_policy",
+    "TARGET_CONTRACT": "target",
+    "EVIDENCE_CONTRACT": "evidence"
+  },
+  "result_vocabulary": [
+    "NON_OCCURRENCE_SUPPORTED",
+    "UNKNOWN",
+    "STALE_EVIDENCE"
+  ],
+  "requirement_map": {
+    "required_requirement_ids": [
+      "TARGET_EFFECT_EQUAL",
+      "TARGET_PREDICATE_EQUAL",
+      "TARGET_STAGE_EQUAL",
+      "TARGET_SCOPE_EQUAL",
+      "INTERVAL_VALID",
+      "INTERVAL_COVERS_TARGET",
+      "RETENTION_MEETS_BOUND",
+      "CONSISTENCY_ALLOWED",
+      "SOURCE_CLASS_ALLOWED",
+      "FRESHNESS_BOUND",
+      "READ_COMPLETE",
+      "NO_SAME_TARGET_POSITIVE",
+      "FUTURE_OBSERVATION_BOUND",
+      "STALE_RESULT_BOUND",
+      "EVIDENCE_UNIVERSE_TYPED",
+      "FORBID_CALLER_SUPPLIED_CONTRADICTION_COUNT"
+    ],
+    "requirements": [
+      {
+        "requirement_id": "TARGET_EFFECT_EQUAL",
+        "source_fields": [
+          "target.effect_id",
+          "evidence.effect_id"
+        ],
+        "governing_authority": "TARGET_CONTRACT",
+        "procedure": "EXACT_EQUAL",
+        "failure_code": "NEGATIVE_EFFECT_MISMATCH"
+      },
+      {
+        "requirement_id": "TARGET_PREDICATE_EQUAL",
+        "source_fields": [
+          "target.negated_predicate_id",
+          "evidence.predicate_id"
+        ],
+        "governing_authority": "TARGET_CONTRACT",
+        "procedure": "EXACT_EQUAL",
+        "failure_code": "NEGATIVE_PREDICATE_MISMATCH"
+      },
+      {
+        "requirement_id": "TARGET_STAGE_EQUAL",
+        "source_fields": [
+          "target.negated_stage",
+          "evidence.stage"
+        ],
+        "governing_authority": "TARGET_CONTRACT",
+        "procedure": "EXACT_EQUAL",
+        "failure_code": "NEGATIVE_STAGE_MISMATCH"
+      },
+      {
+        "requirement_id": "TARGET_SCOPE_EQUAL",
+        "source_fields": [
+          "target.scope",
+          "evidence.scope"
+        ],
+        "governing_authority": "TARGET_CONTRACT",
+        "procedure": "TUPLE_EQUAL",
+        "failure_code": "NEGATIVE_SCOPE_MISMATCH"
+      },
+      {
+        "requirement_id": "INTERVAL_VALID",
+        "source_fields": [
+          "evidence.observed_interval.not_before",
+          "evidence.observed_interval.as_of"
+        ],
+        "governing_authority": "EVIDENCE_CONTRACT",
+        "procedure": "RFC3339_ORDER_INCLUSIVE",
+        "failure_code": "NEGATIVE_INTERVAL_INVALID"
+      },
+      {
+        "requirement_id": "INTERVAL_COVERS_TARGET",
+        "source_fields": [
+          "target.required_interval",
+          "evidence.observed_interval"
+        ],
+        "governing_authority": "TARGET_CONTRACT",
+        "procedure": "INTERVAL_COVERAGE_INCLUSIVE_BOTH_ENDS",
+        "failure_code": "NEGATIVE_INTERVAL_INSUFFICIENT"
+      },
+      {
+        "requirement_id": "RETENTION_MEETS_BOUND",
+        "source_fields": [
+          "evidence.retention_window_seconds",
+          "target.required_interval",
+          "profile.negative_policy.minimum_retention_seconds"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "RETENTION_GTE_MAX_SPAN_AND_PROFILE_MIN",
+        "failure_code": "NEGATIVE_RETENTION_INSUFFICIENT"
+      },
+      {
+        "requirement_id": "CONSISTENCY_ALLOWED",
+        "source_fields": [
+          "evidence.consistency_level",
+          "profile.negative_policy.allowed_consistency_levels"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "MEMBERSHIP",
+        "failure_code": "NEGATIVE_CONSISTENCY_DISALLOWED"
+      },
+      {
+        "requirement_id": "SOURCE_CLASS_ALLOWED",
+        "source_fields": [
+          "evidence.evidence_class",
+          "profile.negative_policy.allowed_source_classes"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "MEMBERSHIP",
+        "failure_code": "NEGATIVE_SOURCE_CLASS_DISALLOWED"
+      },
+      {
+        "requirement_id": "FRESHNESS_BOUND",
+        "source_fields": [
+          "evidence.observed_at",
+          "evidence.verification_time",
+          "profile.negative_policy.freshness_max_age_seconds"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "AGE_WITHIN_PROFILE_MAX",
+        "failure_code": "NEGATIVE_FRESHNESS_FAILED"
+      },
+      {
+        "requirement_id": "READ_COMPLETE",
+        "source_fields": [
+          "evidence.read_scope_complete",
+          "evidence.read_semantics",
+          "profile.negative_policy.complete_read_requirement"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "COMPLETE_READ_REQUIRED",
+        "failure_code": "NEGATIVE_READ_INCOMPLETE"
+      },
+      {
+        "requirement_id": "NO_SAME_TARGET_POSITIVE",
+        "source_fields": [
+          "evidence.evidence_universe",
+          "target.effect_id",
+          "target.negated_predicate_id",
+          "target.negated_stage",
+          "target.scope",
+          "profile.negative_policy.contradiction_rule"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "ADMISSIBLE_POSITIVE_SAME_TARGET_COUNT_ZERO",
+        "failure_code": "NEGATIVE_CONTRADICTION"
+      },
+      {
+        "requirement_id": "FUTURE_OBSERVATION_BOUND",
+        "source_fields": [
+          "evidence.observed_at",
+          "evidence.verification_time",
+          "profile.negative_policy.future_observation_result"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "OBSERVATION_NOT_IN_FUTURE",
+        "failure_code": "NEGATIVE_FUTURE_OBSERVATION"
+      },
+      {
+        "requirement_id": "STALE_RESULT_BOUND",
+        "source_fields": [
+          "evidence.observed_at",
+          "evidence.verification_time",
+          "profile.negative_policy.freshness_max_age_seconds",
+          "profile.negative_policy.stale_result"
+        ],
+        "governing_authority": "SETTLEMENT_NEGATIVE_POLICY",
+        "procedure": "OBSERVATION_NOT_STALE",
+        "failure_code": "NEGATIVE_STALE_EVIDENCE"
+      },
+      {
+        "requirement_id": "EVIDENCE_UNIVERSE_TYPED",
+        "source_fields": [
+          "evidence.evidence_universe"
+        ],
+        "governing_authority": "EVIDENCE_CONTRACT",
+        "procedure": "UNIVERSE_ITEMS_TYPED_CLOSED",
+        "failure_code": "NEGATIVE_UNIVERSE_UNTYPED"
+      },
+      {
+        "requirement_id": "FORBID_CALLER_SUPPLIED_CONTRADICTION_COUNT",
+        "source_fields": [
+          "target",
+          "evidence"
+        ],
+        "governing_authority": "TARGET_CONTRACT",
+        "procedure": "CALLER_SUPPLIED_COUNT_FORBIDDEN",
+        "failure_code": "NEGATIVE_CALLER_SUPPLIED_COUNT_FORBIDDEN"
+      }
+    ],
+    "evaluation_order": [
+      "TARGET_EFFECT_EQUAL",
+      "TARGET_PREDICATE_EQUAL",
+      "TARGET_STAGE_EQUAL",
+      "TARGET_SCOPE_EQUAL",
+      "INTERVAL_VALID",
+      "INTERVAL_COVERS_TARGET",
+      "RETENTION_MEETS_BOUND",
+      "CONSISTENCY_ALLOWED",
+      "SOURCE_CLASS_ALLOWED",
+      "FRESHNESS_BOUND",
+      "READ_COMPLETE",
+      "NO_SAME_TARGET_POSITIVE",
+      "FUTURE_OBSERVATION_BOUND",
+      "STALE_RESULT_BOUND",
+      "EVIDENCE_UNIVERSE_TYPED",
+      "FORBID_CALLER_SUPPLIED_CONTRADICTION_COUNT"
+    ],
+    "forbidden_requirements": [
+      "caller_supplied_contradiction_count"
+    ]
+  },
+  "policy_field_roles": {
+    "minimum_retention_seconds": "COMPUTED:RETENTION_MEETS_BOUND",
+    "freshness_max_age_seconds": "COMPUTED:FRESHNESS_BOUND",
+    "future_observation_result": "COMPUTED:FUTURE_OBSERVATION_BOUND",
+    "stale_result": "COMPUTED:STALE_RESULT_BOUND",
+    "contradiction_rule": "COMPUTED:NO_SAME_TARGET_POSITIVE",
+    "allowed_consistency_levels": "COMPUTED:CONSISTENCY_ALLOWED",
+    "allowed_source_classes": "COMPUTED:SOURCE_CLASS_ALLOWED",
+    "complete_read_requirement": "COMPUTED:READ_COMPLETE"
+  },
+  "pass_result": "NON_OCCURRENCE_SUPPORTED",
+  "fail_result": "UNKNOWN"
+}

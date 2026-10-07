@@ -1,0 +1,646 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:external-verification-input-contract",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:external-verification-input-contract:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:external-verification-input-contract",
+  "object_version": "0.2",
+  "input_type": "EXTERNAL_VERIFICATION_INPUT",
+  "registry_membership": {
+    "contract_artifact": "REGISTERED_CANDIDATE_NORMATIVE_CONTRACT",
+    "runtime_external_inputs": "NOT_REGISTERED_PACKAGE_OBJECTS"
+  },
+  "candidate_self_assertion": "FORBIDDEN",
+  "fields": {
+    "expected_package_id": {
+      "required": true,
+      "type": "string",
+      "source": "CALLER_SUPPLIED",
+      "const": "urn:moirae:accord-02r5:specification-package"
+    },
+    "expected_package_version": {
+      "required": true,
+      "type": "string",
+      "source": "CALLER_SUPPLIED",
+      "const": "0.2"
+    },
+    "expected_package_digest": {
+      "required": true,
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "source": "CALLER_SUPPLIED",
+      "algorithm": "SHA-256"
+    },
+    "digest_mode": {
+      "required": true,
+      "type": "INTEGRITY_MODE",
+      "source": "VERIFIER_CONFIGURATION",
+      "mode": "SEMANTIC_JSON_CONTENT",
+      "algorithm": "SHA-256",
+      "serialization": "RFC8785_JCS",
+      "excluded_pointers": [
+        "/current_candidate_integrity/digest"
+      ],
+      "runtime_value_schema": {
+        "type": "object",
+        "required": [
+          "algorithm",
+          "serialization",
+          "excluded_pointers"
+        ],
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "serialization": {
+            "type": "string"
+          },
+          "excluded_pointers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "acceptance_profile": {
+      "required": true,
+      "type": "EXTERNAL_ACCEPTANCE_PROFILE",
+      "source": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE_PAYLOAD",
+      "transport": "--verification-input",
+      "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+      "schema_identity_argument": "--acceptance-profile-schema-id",
+      "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "schema_bytes_argument": "--acceptance-profile-schema",
+      "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+      "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "candidate_schema_selection": "FORBIDDEN",
+      "candidate_fallback": "FORBIDDEN",
+      "registry_membership": "FORBIDDEN_NOT_A_PACKAGE_OBJECT"
+    },
+    "acceptance_profile_schema_identity": {
+      "required": true,
+      "type": "SCHEMA_IDENTITY",
+      "source": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "transport": "--acceptance-profile-schema-id",
+      "expected_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+      "comparison": "CALLER_VALUE_MUST_EQUAL_FIXED_VERIFIER_SCHEMA_ID"
+    },
+    "acceptance_profile_schema_bytes": {
+      "required": true,
+      "type": "RAW_SCHEMA_BYTES",
+      "source": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "transport": "--acceptance-profile-schema",
+      "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+      "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+      "sha256_algorithm": "SHA-256",
+      "verification_order": "VERIFY_RAW_SHA256_BEFORE_PARSE_OR_USE",
+      "candidate_fallback": "FORBIDDEN"
+    },
+    "acceptance_profile_schema_sha256": {
+      "required": true,
+      "type": "SHA256",
+      "source": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "transport": "--acceptance-profile-schema-sha256",
+      "algorithm": "SHA-256",
+      "target": "RAW_EXTERNAL_PROFILE_SCHEMA_BYTES"
+    }
+  },
+  "candidate_identity_recomputation": {
+    "target": "PACKAGE_DOCUMENT",
+    "selection": "ENTIRE_PACKAGE_DOCUMENT",
+    "reduction": "REMOVE_POINTER",
+    "excluded_pointers": [
+      "/current_candidate_integrity/digest"
+    ],
+    "serialization": "RFC8785_JCS",
+    "encoding": "UTF-8",
+    "algorithm": "SHA-256"
+  },
+  "results": {
+    "PASS": {
+      "code": "EXPECTED_PACKAGE_VERIFIED",
+      "condition": "exact external package ID, version, and recomputed digest triple"
+    },
+    "FAIL": {
+      "codes": [
+        "MISSING_EXTERNAL_TRUST_INPUT",
+        "FOREIGN_PACKAGE_IDENTITY",
+        "TRUSTED_IDENTITY_MISMATCH"
+      ],
+      "order": [
+        "MISSING_EXPECTATION",
+        "IDENTITY_COMPARISON",
+        "DIGEST_COMPARISON"
+      ]
+    },
+    "PRE_EXECUTION": {
+      "codes": [
+        "MISSING_EXTERNAL_PROFILE_SCHEMA",
+        "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+        "INVALID_EXTERNAL_PROFILE_SCHEMA",
+        "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+        "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+        "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+        "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+        "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+        "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+        "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+        "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+        "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+        "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+        "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+        "SCHEMA_INVALID_BOUND_OBJECT",
+        "RESULT_PROJECTION_INVALID"
+      ],
+      "order": [
+        "MISSING_EXTERNAL_PROFILE_SCHEMA",
+        "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+        "INVALID_EXTERNAL_PROFILE_SCHEMA",
+        "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+        "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+        "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+        "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+        "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+        "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+        "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+        "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+        "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+        "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+        "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+        "SCHEMA_INVALID_BOUND_OBJECT",
+        "RESULT_PROJECTION_INVALID",
+        "AST_ASSERTION_FAILURE"
+      ]
+    }
+  },
+  "trust_result_schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+    "version": "0.2",
+    "member_id": "trust_result"
+  },
+  "cli": {
+    "--expected-package-id": "CALLER_SUPPLIED_EXPECTED_PACKAGE_ID",
+    "--expected-package-version": "CALLER_SUPPLIED_EXPECTED_PACKAGE_VERSION",
+    "--expected-package-digest": "CALLER_SUPPLIED_EXPECTED_PACKAGE_SHA256",
+    "--verification-input": "PATH_TO_CALLER_SUPPLIED_EXTERNAL_ACCEPTANCE_PROFILE_JSON",
+    "--acceptance-profile-schema-id": "CALLER_SUPPLIED_EXPECTED_EXTERNAL_SCHEMA_ID",
+    "--acceptance-profile-schema": "CALLER_SUPPLIED_PROFILE_SCHEMA_BYTES_PATH",
+    "--acceptance-profile-schema-sha256": "CALLER_SUPPLIED_EXPECTED_SHA256_OF_RAW_PROFILE_SCHEMA_BYTES"
+  },
+  "authority_profile_protocol": {
+    "required": true,
+    "profile_id": "ACCORD-02E4R5R4-ACCEPTANCE-PROFILE",
+    "input_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE_PAYLOAD",
+    "transport": "--verification-input",
+    "profile_schema_input": {
+      "required": true,
+      "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+      "schema_identity_argument": "--acceptance-profile-schema-id",
+      "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "schema_bytes_argument": "--acceptance-profile-schema",
+      "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+      "expected_sha256_algorithm": "SHA-256",
+      "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "digest_input": "RAW_SCHEMA_BYTES",
+      "verify_digest_before_parse_or_use": true,
+      "verify_schema_identity_and_dialect_after_digest": true,
+      "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+      "candidate_registry_selection": "FORBIDDEN",
+      "candidate_schema_override": "FORBIDDEN",
+      "candidate_embedded_schema_fallback": "FORBIDDEN",
+      "candidate_registry_fallback": "FORBIDDEN",
+      "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+      "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+    },
+    "frozen_authority_pins": {
+      "frozen_r5r2_rules": {
+        "commit": "44d0e7240c97dcc12463b5611a7adf61399924d7",
+        "tree": "19dc9356784d08d04945f8e2ce9b24bcd49e3683",
+        "path": "docs/accord-02e4r5r2/rule-registry.json",
+        "git_blob": "640b77c50fd94066d61bbc71e020e6471e1c5eff"
+      },
+      "frozen_r5r3_v013_semantics": {
+        "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+        "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+        "path": "docs/accord-02e4r5r3/v013-governance.json",
+        "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+      }
+    },
+    "accepted_source_allowlist": [
+      {
+        "ref": {
+          "kind": "PACKAGE",
+          "id": "urn:moirae:accord-02r5:specification-package",
+          "version": "0.1"
+        },
+        "canonical_path": "docs/accord-02/accord-02r5-specification-package.json",
+        "status": "ACTIVE_ACCEPTED_SOURCE",
+        "classification": "SOURCE_ONLY",
+        "roles": [
+          "NORMATIVE_BOUND_SOURCE"
+        ],
+        "raw_sha256": "6c4633518a9807c9fe1de231eb06be5c3f90ca27e7986024212d5d1c3739b5c0",
+        "semantic_sha256": "b45bf841681b85012ea13d783ac1e2187ab35070e6e5e4b6cfcbd627d695bd0c",
+        "git_blob": "33af2e4e0e67b62a963c5f219cce312dddc6cd9d",
+        "expected_schema_ref": {
+          "kind": "SCHEMA",
+          "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+          "version": "0.2",
+          "member_id": "accepted_base_source"
+        }
+      },
+      {
+        "ref": {
+          "kind": "SOURCE_VECTOR_CATALOG",
+          "id": "urn:moirae:accord-02r5:source-vector-catalog",
+          "version": "0.1"
+        },
+        "canonical_path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+        "status": "ACTIVE_ACCEPTED_SOURCE",
+        "classification": "SOURCE_ONLY",
+        "roles": [
+          "CATALOG_BINDING",
+          "VECTOR_SOURCE"
+        ],
+        "raw_sha256": "3eb8988610a32df99756e7f750e8dcd8ed84260914741af878659307ff234beb",
+        "semantic_sha256": "b6630a9db0924196b9c55ebad78b7a057f61421e950f9cf6e6b8f21cfaa862d5",
+        "git_blob": "9d7f92b947fca38b040f0e9bb53b56f6b7bfbc52",
+        "expected_schema_ref": {
+          "kind": "SCHEMA",
+          "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+          "version": "0.2",
+          "member_id": "accepted_vector_source"
+        }
+      }
+    ],
+    "authorized_result_projection_descriptor": {
+      "argument": "v013_governance",
+      "pointer_tokens": [
+        "outcome_map"
+      ],
+      "mapping_cardinality": 2,
+      "expected_literals": {
+        "PASS": "NON_OCCURRENCE_SUPPORTED",
+        "FAIL": "UNKNOWN"
+      },
+      "baseline": {
+        "argument": "frozen_predecessor_semantics",
+        "source_pin": {
+          "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+          "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+          "path": "docs/accord-02e4r5r3/v013-governance.json",
+          "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+        },
+        "status_pointer_tokens": {
+          "PASS": [
+            "pass_result"
+          ],
+          "FAIL": [
+            "fail_result"
+          ]
+        }
+      }
+    },
+    "authorized_result_projection_descriptor_source": "EXTERNAL_ACCEPTANCE_PROFILE:/authorized_result_projection_descriptor",
+    "candidate_claim_comparisons": [
+      {
+        "candidate_artifact": "metacontract",
+        "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r2_rules",
+        "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r2_rules",
+        "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+        "before_semantic_use": true,
+        "failure_code": "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH"
+      },
+      {
+        "candidate_artifact": "metacontract",
+        "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r3_v013_semantics",
+        "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r3_v013_semantics",
+        "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+        "before_semantic_use": true,
+        "failure_code": "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH"
+      },
+      {
+        "candidate_artifact": "metacontract",
+        "candidate_pointer_rfc6901": "/accepted_source_allowlist",
+        "profile_pointer_rfc6901": "/accepted_source_allowlist",
+        "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+        "before_semantic_use": true,
+        "failure_code": "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH"
+      },
+      {
+        "candidate_artifact": "metacontract",
+        "candidate_pointer_rfc6901": "/result_projection_authorization/descriptor",
+        "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+        "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+        "before_semantic_use": true,
+        "failure_code": "METACONTRACT_PROJECTION_CLAIM_MISMATCH"
+      },
+      {
+        "candidate_artifact": "procedure-registry",
+        "candidate_selector": {
+          "collection_pointer_rfc6901": "/procedures",
+          "collection_type": "ARRAY",
+          "selection": {
+            "member_pointer_rfc6901": "/procedure_id",
+            "operator": "JSON_EQUAL",
+            "literal": "REQUIREMENT_MAP_EVAL",
+            "required_match_count": 1
+          },
+          "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+          "selected_value_required": true,
+          "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+          "other_items_constraint": {
+            "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+            "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+            "must_be_absent": true,
+            "present_null_counts_as_present": true
+          },
+          "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+          "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+        },
+        "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+        "comparison": "SELECTED_DESCRIPTOR_WHOLE_OBJECT_JSON_EQUALITY_AND_NO_OTHER_PROJECTION",
+        "before_semantic_use": true,
+        "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH"
+      }
+    ],
+    "procedure_projection_selector": {
+      "collection_pointer_rfc6901": "/procedures",
+      "collection_type": "ARRAY",
+      "selection": {
+        "member_pointer_rfc6901": "/procedure_id",
+        "operator": "JSON_EQUAL",
+        "literal": "REQUIREMENT_MAP_EVAL",
+        "required_match_count": 1
+      },
+      "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+      "selected_value_required": true,
+      "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+      "other_items_constraint": {
+        "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+        "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+        "must_be_absent": true,
+        "present_null_counts_as_present": true
+      },
+      "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+      "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+    },
+    "content_verification": {
+      "acceptance_profile_schema": {
+        "required": true,
+        "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+        "schema_identity_argument": "--acceptance-profile-schema-id",
+        "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+        "schema_bytes_argument": "--acceptance-profile-schema",
+        "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+        "expected_sha256_algorithm": "SHA-256",
+        "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+        "digest_input": "RAW_SCHEMA_BYTES",
+        "verify_digest_before_parse_or_use": true,
+        "verify_schema_identity_and_dialect_after_digest": true,
+        "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+        "candidate_registry_selection": "FORBIDDEN",
+        "candidate_schema_override": "FORBIDDEN",
+        "candidate_embedded_schema_fallback": "FORBIDDEN",
+        "candidate_registry_fallback": "FORBIDDEN",
+        "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+        "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+      },
+      "schema_document": "STRICT_UTF8_JSON_REJECT_DUPLICATE_MEMBERS_VALID_DRAFT_2020_12_SCHEMA",
+      "schema_bytes": "CALLER_INPUT_BYTES_ONLY",
+      "profile_bytes": "CALLER_SUPPLIED_EXTERNAL_ACCEPTANCE_PROFILE_ONLY",
+      "base64_decode": "STRICT_RFC4648_NO_WHITESPACE",
+      "json_decode": "UTF8_REJECT_DUPLICATE_MEMBER_NAMES",
+      "frozen_sources": {
+        "git_blob": "SHA1(ASCII('blob '+DECIMAL_BYTE_LENGTH)+NUL+RAW_BYTES)",
+        "content_use": "PARSED_CONTENT_ONLY_AFTER_PIN_MATCH"
+      },
+      "accepted_sources": {
+        "raw_sha256": "SHA256_RAW_BYTES",
+        "semantic_sha256": "SHA256_RFC8785_JCS_PARSED_JSON",
+        "git_blob": "SHA1_GIT_BLOB_OBJECT",
+        "metadata": "EXACT_REF_PATH_ROLE_STATUS_CLASS_AND_SCHEMA"
+      },
+      "candidate_source_copies": "TRANSPORT_ONLY_NEVER_AUTHORITY_OR_RESOLVER_INPUT",
+      "candidate_registry_fallback": "FORBIDDEN"
+    },
+    "pre_execution_failures": [
+      "MISSING_EXTERNAL_PROFILE_SCHEMA",
+      "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+      "INVALID_EXTERNAL_PROFILE_SCHEMA",
+      "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+      "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+      "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+      "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+      "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+      "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+      "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+      "SCHEMA_INVALID_BOUND_OBJECT",
+      "RESULT_PROJECTION_INVALID",
+      "AST_ASSERTION_FAILURE"
+    ],
+    "candidate_registry_fallback": "FORBIDDEN",
+    "candidate_source_copies": "TRANSPORT_ONLY_NEVER_AUTHORITY"
+  },
+  "candidate_claim_comparisons": [
+    {
+      "candidate_artifact": "metacontract",
+      "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r2_rules",
+      "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r2_rules",
+      "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+      "before_semantic_use": true,
+      "failure_code": "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH"
+    },
+    {
+      "candidate_artifact": "metacontract",
+      "candidate_pointer_rfc6901": "/external_authority_pins/frozen_r5r3_v013_semantics",
+      "profile_pointer_rfc6901": "/frozen_authority_pins/frozen_r5r3_v013_semantics",
+      "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+      "before_semantic_use": true,
+      "failure_code": "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH"
+    },
+    {
+      "candidate_artifact": "metacontract",
+      "candidate_pointer_rfc6901": "/accepted_source_allowlist",
+      "profile_pointer_rfc6901": "/accepted_source_allowlist",
+      "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+      "before_semantic_use": true,
+      "failure_code": "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH"
+    },
+    {
+      "candidate_artifact": "metacontract",
+      "candidate_pointer_rfc6901": "/result_projection_authorization/descriptor",
+      "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+      "comparison": "WHOLE_OBJECT_JSON_EQUALITY",
+      "before_semantic_use": true,
+      "failure_code": "METACONTRACT_PROJECTION_CLAIM_MISMATCH"
+    },
+    {
+      "candidate_artifact": "procedure-registry",
+      "candidate_selector": {
+        "collection_pointer_rfc6901": "/procedures",
+        "collection_type": "ARRAY",
+        "selection": {
+          "member_pointer_rfc6901": "/procedure_id",
+          "operator": "JSON_EQUAL",
+          "literal": "REQUIREMENT_MAP_EVAL",
+          "required_match_count": 1
+        },
+        "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+        "selected_value_required": true,
+        "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+        "other_items_constraint": {
+          "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+          "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+          "must_be_absent": true,
+          "present_null_counts_as_present": true
+        },
+        "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+        "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+      },
+      "profile_pointer_rfc6901": "/authorized_result_projection_descriptor",
+      "comparison": "SELECTED_DESCRIPTOR_WHOLE_OBJECT_JSON_EQUALITY_AND_NO_OTHER_PROJECTION",
+      "before_semantic_use": true,
+      "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH"
+    }
+  ],
+  "content_verification": {
+    "acceptance_profile_schema": {
+      "required": true,
+      "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+      "schema_identity_argument": "--acceptance-profile-schema-id",
+      "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "schema_bytes_argument": "--acceptance-profile-schema",
+      "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+      "expected_sha256_algorithm": "SHA-256",
+      "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+      "digest_input": "RAW_SCHEMA_BYTES",
+      "verify_digest_before_parse_or_use": true,
+      "verify_schema_identity_and_dialect_after_digest": true,
+      "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+      "candidate_registry_selection": "FORBIDDEN",
+      "candidate_schema_override": "FORBIDDEN",
+      "candidate_embedded_schema_fallback": "FORBIDDEN",
+      "candidate_registry_fallback": "FORBIDDEN",
+      "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+      "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+    },
+    "schema_document": "STRICT_UTF8_JSON_REJECT_DUPLICATE_MEMBERS_VALID_DRAFT_2020_12_SCHEMA",
+    "schema_bytes": "CALLER_INPUT_BYTES_ONLY",
+    "profile_bytes": "CALLER_SUPPLIED_EXTERNAL_ACCEPTANCE_PROFILE_ONLY",
+    "base64_decode": "STRICT_RFC4648_NO_WHITESPACE",
+    "json_decode": "UTF8_REJECT_DUPLICATE_MEMBER_NAMES",
+    "frozen_sources": {
+      "git_blob": "SHA1(ASCII('blob '+DECIMAL_BYTE_LENGTH)+NUL+RAW_BYTES)",
+      "content_use": "PARSED_CONTENT_ONLY_AFTER_PIN_MATCH"
+    },
+    "accepted_sources": {
+      "raw_sha256": "SHA256_RAW_BYTES",
+      "semantic_sha256": "SHA256_RFC8785_JCS_PARSED_JSON",
+      "git_blob": "SHA1_GIT_BLOB_OBJECT",
+      "metadata": "EXACT_REF_PATH_ROLE_STATUS_CLASS_AND_SCHEMA"
+    },
+    "candidate_source_copies": "TRANSPORT_ONLY_NEVER_AUTHORITY_OR_RESOLVER_INPUT",
+    "candidate_registry_fallback": "FORBIDDEN"
+  },
+  "pre_execution_failures": {
+    "codes": [
+      "MISSING_EXTERNAL_PROFILE_SCHEMA",
+      "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+      "INVALID_EXTERNAL_PROFILE_SCHEMA",
+      "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+      "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+      "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+      "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+      "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+      "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+      "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+      "SCHEMA_INVALID_BOUND_OBJECT",
+      "RESULT_PROJECTION_INVALID"
+    ],
+    "order": [
+      "MISSING_EXTERNAL_PROFILE_SCHEMA",
+      "EXTERNAL_PROFILE_SCHEMA_DIGEST_MISMATCH",
+      "INVALID_EXTERNAL_PROFILE_SCHEMA",
+      "MISSING_EXTERNAL_ACCEPTANCE_PROFILE",
+      "INVALID_EXTERNAL_ACCEPTANCE_PROFILE",
+      "EXTERNAL_FROZEN_R5R2_CONTENT_MISMATCH",
+      "EXTERNAL_FROZEN_R5R3_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_BASE_CONTENT_MISMATCH",
+      "EXTERNAL_ACCEPTED_VECTOR_CONTENT_MISMATCH",
+      "METACONTRACT_R5R2_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_R5R3_PIN_CLAIM_MISMATCH",
+      "METACONTRACT_ACCEPTED_ALLOWLIST_CLAIM_MISMATCH",
+      "METACONTRACT_PROJECTION_CLAIM_MISMATCH",
+      "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+      "SCHEMA_INVALID_BOUND_OBJECT",
+      "RESULT_PROJECTION_INVALID",
+      "AST_ASSERTION_FAILURE"
+    ]
+  },
+  "acceptance_profile_schema_input": {
+    "required": true,
+    "schema_identity": "urn:moirae:accord-02e4r5r4:external-acceptance-profile-schema:1",
+    "schema_identity_argument": "--acceptance-profile-schema-id",
+    "expected_schema_identity_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+    "schema_bytes_argument": "--acceptance-profile-schema",
+    "expected_sha256_argument": "--acceptance-profile-schema-sha256",
+    "expected_sha256_algorithm": "SHA-256",
+    "expected_sha256_origin": "CALLER_SUPPLIED_OUTSIDE_CANDIDATE",
+    "digest_input": "RAW_SCHEMA_BYTES",
+    "verify_digest_before_parse_or_use": true,
+    "verify_schema_identity_and_dialect_after_digest": true,
+    "schema_dialect": "https://json-schema.org/draft/2020-12/schema",
+    "candidate_registry_selection": "FORBIDDEN",
+    "candidate_schema_override": "FORBIDDEN",
+    "candidate_embedded_schema_fallback": "FORBIDDEN",
+    "candidate_registry_fallback": "FORBIDDEN",
+    "unregistered_transport_copy": "docs/accord-02e4r5r4/sources/external-acceptance-profile.schema.json",
+    "transport_copy_authority": "NONE_CALLER_MUST_SUPPLY_BYTES_AND_EXPECTED_DIGEST_SEPARATELY"
+  },
+  "procedure_projection_selector": {
+    "collection_pointer_rfc6901": "/procedures",
+    "collection_type": "ARRAY",
+    "selection": {
+      "member_pointer_rfc6901": "/procedure_id",
+      "operator": "JSON_EQUAL",
+      "literal": "REQUIREMENT_MAP_EVAL",
+      "required_match_count": 1
+    },
+    "selected_value_pointer_rfc6901_relative_to_item": "/result/result_projection",
+    "selected_value_required": true,
+    "selected_value_comparison": "WHOLE_OBJECT_JSON_EQUALITY_TO_EXTERNAL_PROFILE_DESCRIPTOR",
+    "other_items_constraint": {
+      "selection": "EVERY_ARRAY_ITEM_NOT_EQUAL_TO_SELECTED_LITERAL_BY_THE_SAME_MEMBER_POINTER",
+      "forbidden_pointer_rfc6901_relative_to_item": "/result/result_projection",
+      "must_be_absent": true,
+      "present_null_counts_as_present": true
+    },
+    "failure_code": "PROCEDURE_PROJECTION_CLAIM_MISMATCH",
+    "algorithm": "RFC6901_ARRAY_LOOKUP_THEN_TYPED_MEMBER_FILTER_THEN_EXACT_COUNT_THEN_RELATIVE_MEMBER_LOOKUP"
+  },
+  "required_external_fields": [
+    "expected_package_id",
+    "expected_package_version",
+    "expected_package_digest",
+    "external_acceptance_profile",
+    "acceptance_profile_schema_identity",
+    "acceptance_profile_schema_bytes",
+    "acceptance_profile_schema_sha256"
+  ]
+}

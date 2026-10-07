@@ -1,0 +1,878 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:schema:reference-model:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "mechanism",
+    "discovery_scope",
+    "edge_identity",
+    "deduplication",
+    "resolution_cardinality",
+    "reference_type",
+    "representation_validation",
+    "non_reference_controls",
+    "bound_source_references",
+    "producer_schema_routes",
+    "enumeration",
+    "genuine_reference_examples",
+    "typed_reference_owner_universe",
+    "route_inventory"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r5r4:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "mechanism": {
+      "const": "PRODUCER_SCHEMA_TYPED_VALUES"
+    },
+    "discovery_scope": {
+      "type": "object",
+      "required": [
+        "registry_status",
+        "classification",
+        "owner_references",
+        "schema_owner_references"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "registry_status": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string"
+        },
+        "owner_references": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "schema_owner_references": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        }
+      }
+    },
+    "edge_identity": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "deduplication": {
+      "const": "COALESCE_DUPLICATE_SCHEMA_BRANCHES_BY_EDGE_IDENTITY_PRESERVE_DISTINCT_SOURCE_POINTERS"
+    },
+    "resolution_cardinality": {
+      "const": "EXACTLY_ONE"
+    },
+    "reference_type": {
+      "type": "object",
+      "required": [
+        "type_id",
+        "admission",
+        "definition_refs",
+        "shape_alone_sufficient",
+        "definition_binding"
+      ],
+      "properties": {
+        "type_id": {
+          "const": "TYPED_REFERENCE"
+        },
+        "admission": {
+          "const": "APPLIED_PRODUCER_SCHEMA_REFERENCE_TO_DECLARED_REFERENCE_DEFINITION"
+        },
+        "definition_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "reference_definition_ref",
+              "definition_pointer"
+            ],
+            "properties": {
+              "reference_definition_ref": {
+                "$ref": "#/$defs/ref"
+              },
+              "definition_pointer": {
+                "type": "string",
+                "pattern": "^/\\$defs/[^/]+$"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "shape_alone_sufficient": {
+          "const": false
+        },
+        "definition_binding": {
+          "const": {
+            "binding_ref": "metacontract:/runtime_representation/resolved_construction/schema_member_binding",
+            "binding_phase": "BEFORE_OWNER_SELECTION;EVERY_DECLARED_DEFINITION_REF_IN_ARRAY_ORDER",
+            "owner_selector": "reference_definition_ref_KIND_ID_VERSION",
+            "required_owner_kind": "SCHEMA",
+            "owner_resolution": "RESOLVE_ONE_SEMANTICS_AGAINST_THE_EXPLICIT_VERIFICATION_UNIVERSE_ARGUMENT",
+            "member_id_required": true,
+            "member_selection": "EXACTLY_ONE_EQUAL_STRING_IN_THE_RESOLVED_SCHEMA_OBJECT_REGISTERED_members",
+            "definition_target": "THE_SELECTED_MEMBER_BINDING_POINTER_IN_THE_SAME_RESOLVED_SCHEMA_CONTENT",
+            "definition_pointer_role": "DECLARED_EXPLICIT_PROJECTION_OF_THE_MEMBER_BINDING_POINTER",
+            "definition_pointer_equality": "EXACT_JSON_STRING_EQUALITY_TO_THE_MEMBER_BINDING_POINTER",
+            "raw_local_defs_lookup_without_registration": "FORBIDDEN",
+            "binding_failure": {
+              "primitive_id": "ENUMERATE_TYPED_REFERENCES",
+              "error_class": "REFERENCE_DOMAIN_UNDERDETERMINED",
+              "fail_closed": true
+            },
+            "bound_definition_count": 22
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "representation_validation": {
+      "type": "object",
+      "required": [
+        "required_keys",
+        "optional_keys",
+        "additional_keys",
+        "all_values_type",
+        "member_id_nonempty"
+      ],
+      "properties": {
+        "required_keys": {
+          "const": [
+            "kind",
+            "id",
+            "version"
+          ]
+        },
+        "optional_keys": {
+          "const": [
+            "member_id"
+          ]
+        },
+        "additional_keys": {
+          "const": "DISQUALIFY"
+        },
+        "all_values_type": {
+          "const": "STRING"
+        },
+        "member_id_nonempty": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "non_reference_controls": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "value",
+          "producer_authority",
+          "classification"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "object",
+            "required": [
+              "kind",
+              "id",
+              "version"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "producer_authority": {
+            "const": "NONE"
+          },
+          "classification": {
+            "const": "NOT_A_REFERENCE"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "bound_source_references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "reference",
+          "producer_schema_ref",
+          "selection"
+        ],
+        "properties": {
+          "reference": {
+            "$ref": "#/$defs/ref"
+          },
+          "producer_schema_ref": {
+            "$ref": "#/$defs/ref"
+          },
+          "selection": {
+            "const": "EXACT_VERIFIED_ALLOWLIST_ENTRY"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "producer_schema_routes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/producer_schema_route"
+      }
+    },
+    "enumeration": {
+      "type": "object",
+      "required": [
+        "traversal_universe",
+        "owner_content_subject",
+        "producer_schema_selector",
+        "admission_rule",
+        "schema_applicators",
+        "path_tokens",
+        "nested_reference_values",
+        "deterministic_order",
+        "duplicate_handling",
+        "untyped_value_handling",
+        "unsupported_schema_handling",
+        "typed_reference_owner_universe_ref",
+        "selector_domain_order",
+        "schema_validation_boundary"
+      ],
+      "properties": {
+        "traversal_universe": {
+          "const": [
+            "EXACT_TYPED_REFERENCE_OWNER_UNIVERSE",
+            "EXACT_VERIFIED_BOUND_SOURCE_REFERENCES"
+          ]
+        },
+        "owner_content_subject": {
+          "const": "SAME_RESOLVED_OBJECT_CONTENT_VALIDATED_BEFORE_ARGUMENT_EXPOSURE"
+        },
+        "producer_schema_selector": {
+          "const": "EXACT_REQUIRED_APPLIED_SCHEMA_REF_FROM_ELIGIBLE_INSTANCE_OWNER_OR_VERIFIED_BOUND_ENTRY;SCHEMA_OWNERS_SKIPPED_BEFORE_SELECTION"
+        },
+        "admission_rule": {
+          "const": "INSTANCE_PATH_REACHED_THROUGH_APPLIED_SCHEMA_REF_TO_A_DECLARED_REFERENCE_DEFINITION"
+        },
+        "schema_applicators": {
+          "const": [
+            "$ref",
+            "properties",
+            "patternProperties",
+            "additionalProperties",
+            "prefixItems",
+            "items",
+            "contains",
+            "allOf",
+            "anyOf",
+            "oneOf",
+            "if_then_else",
+            "dependentSchemas",
+            "unevaluatedProperties",
+            "unevaluatedItems"
+          ]
+        },
+        "path_tokens": {
+          "const": [
+            "PROPERTY",
+            "PATTERN_PROPERTY",
+            "ADDITIONAL_PROPERTY",
+            "ARRAY_INDEX",
+            "ARRAY_ITEM"
+          ]
+        },
+        "nested_reference_values": {
+          "const": "EMIT_EVERY_SCHEMA_ADMITTED_REFERENCE_VALUE_AT_ANY_NESTING_DEPTH"
+        },
+        "deterministic_order": {
+          "const": "OWNER_IDENTITY_UTF16_ORDER_THEN_INSTANCE_JSON_TREE_PREORDER_WITH_JCS_KEY_ORDER_AND_ARRAY_INDEX_ORDER"
+        },
+        "duplicate_handling": {
+          "const": "COALESCE_SAME_EDGE_ACROSS_SCHEMA_BRANCHES_KEEP_DISTINCT_SOURCE_POINTERS"
+        },
+        "untyped_value_handling": {
+          "const": "SHAPE_ALONE_NEVER_ADMITS_A_REFERENCE"
+        },
+        "unsupported_schema_handling": {
+          "const": "FAIL_CLOSED_WITH_REFERENCE_DOMAIN_UNDERDETERMINED"
+        },
+        "typed_reference_owner_universe_ref": {
+          "const": "reference-model.json:/typed_reference_owner_universe"
+        },
+        "selector_domain_order": {
+          "const": [
+            "CONFIRM_EXACT_OWNER_REFERENCE_IS_A_MEMBER_OF_THE_VERIFICATION_UNIVERSE",
+            "MATCH_AN_EXACT_ACTIVE_NORMATIVE_REGISTRY_ROW_OR_VERIFIED_BOUND_SOURCE_ENTRY",
+            "CLASSIFY_REGISTRY_OWNER_SEMANTIC_ROLE_FROM_ITS_DECLARED_KIND",
+            "IF_KIND_IS_SCHEMA_RETAIN_AS_A_SCHEMA_VALIDATION_SUBJECT_AND_SKIP_BEFORE_PRODUCER_SCHEMA_SELECTION",
+            "FOR_ELIGIBLE_INSTANCE_OWNERS_SELECT_THE_EXACT_REQUIRED_SCHEMA_REF_FROM_THE_SAME_REGISTRY_ROW_OR_BOUND_ENTRY",
+            "FAIL_CLOSED_IF_AN_ELIGIBLE_INSTANCE_OWNER_SCHEMA_REF_IS_MISSING_UNRESOLVED_OR_AMBIGUOUS",
+            "VALIDATE_THE_SAME_OWNER_CONTENT_WITH_THE_SELECTED_SCHEMA_BEFORE_ARGUMENT_EXPOSURE",
+            "ENUMERATE_ONLY_VALUES_ADMITTED_BY_THE_SELECTED_SCHEMA_AND_A_DECLARED_TYPED_REFERENCE_DEFINITION"
+          ]
+        },
+        "schema_validation_boundary": {
+          "const": {
+            "schema_validation_subject_set_ref": "reference-model.json:/discovery_scope/schema_owner_references",
+            "schema_owners_remain_verification_universe_members": true,
+            "schema_owners_remain_validation_subjects": true,
+            "schema_owner_eligible_for_accord_typed_reference_enumeration": false,
+            "schema_internal_reference_handling": "JSON_SCHEMA_2020_12_VALIDATION_ONLY",
+            "implicit_public_meta_schema_as_accord_producer": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "genuine_reference_examples": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "example_id",
+          "producer_schema_ref",
+          "schema_pointer",
+          "instance_path_tokens",
+          "reference_definition_ref"
+        ],
+        "properties": {
+          "example_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "producer_schema_ref": {
+            "$ref": "#/$defs/ref"
+          },
+          "schema_pointer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "instance_path_tokens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/instance_path_token"
+            }
+          },
+          "reference_definition_ref": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "typed_reference_owner_universe": {
+      "type": "object",
+      "required": [
+        "verification_universe_ref",
+        "registry_owner_candidate_set_ref",
+        "schema_validation_subject_set_ref",
+        "verified_bound_source_owner_set_ref",
+        "registry_row_membership",
+        "declared_kind_role_source",
+        "declared_kind_roles",
+        "owner_eligibility_predicate",
+        "bound_source_semantic_role",
+        "producer_schema_selector_order",
+        "eligible_instance_missing_or_unresolved_schema_behavior",
+        "schema_owner_behavior",
+        "counts",
+        "owner_decision_matrix"
+      ],
+      "properties": {
+        "verification_universe_ref": {
+          "const": "metacontract:/runtime_representation/static_paths/VERIFICATION_UNIVERSE"
+        },
+        "registry_owner_candidate_set_ref": {
+          "const": "reference-model.json:/discovery_scope/owner_references"
+        },
+        "schema_validation_subject_set_ref": {
+          "const": "reference-model.json:/discovery_scope/schema_owner_references"
+        },
+        "verified_bound_source_owner_set_ref": {
+          "const": "reference-model.json:/bound_source_references"
+        },
+        "registry_row_membership": {
+          "const": {
+            "status": "ACTIVE",
+            "classification": "NORMATIVE",
+            "reference_must_be_an_exact_verification_universe_member": true
+          }
+        },
+        "declared_kind_role_source": {
+          "const": "object-registry.json:/objects/*/kind"
+        },
+        "declared_kind_roles": {
+          "const": [
+            {
+              "declared_kind": "AUTHORITY",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "CANONICALIZATION",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "CONTRACT",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "EVIDENCE",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "NORMATIVE_INPUTS",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "PACKAGE",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "POLICY",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "REGISTRY",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "typed_reference_owner_eligible": true,
+              "schema_validation_subject": false
+            },
+            {
+              "declared_kind": "SCHEMA",
+              "semantic_role": "SCHEMA_LANGUAGE_ARTIFACT",
+              "typed_reference_owner_eligible": false,
+              "schema_validation_subject": true
+            }
+          ]
+        },
+        "owner_eligibility_predicate": {
+          "const": "EXACT_VERIFICATION_UNIVERSE_MEMBER AND ((EXACT_REGISTRY_ROW.status=ACTIVE AND classification=NORMATIVE AND DECLARED_KIND_ROLE=INSTANCE_DOCUMENT) OR EXACT_VERIFIED_BOUND_SOURCE_ENTRY)"
+        },
+        "bound_source_semantic_role": {
+          "const": "VERIFIED_BOUND_SOURCE_INSTANCE_DOCUMENT"
+        },
+        "producer_schema_selector_order": {
+          "const": [
+            "CONFIRM_EXACT_OWNER_REFERENCE_IS_A_MEMBER_OF_THE_VERIFICATION_UNIVERSE",
+            "MATCH_AN_EXACT_ACTIVE_NORMATIVE_REGISTRY_ROW_OR_VERIFIED_BOUND_SOURCE_ENTRY",
+            "CLASSIFY_REGISTRY_OWNER_SEMANTIC_ROLE_FROM_ITS_DECLARED_KIND",
+            "IF_KIND_IS_SCHEMA_RETAIN_AS_A_SCHEMA_VALIDATION_SUBJECT_AND_SKIP_BEFORE_PRODUCER_SCHEMA_SELECTION",
+            "FOR_ELIGIBLE_INSTANCE_OWNERS_SELECT_THE_EXACT_REQUIRED_SCHEMA_REF_FROM_THE_SAME_REGISTRY_ROW_OR_BOUND_ENTRY",
+            "FAIL_CLOSED_IF_AN_ELIGIBLE_INSTANCE_OWNER_SCHEMA_REF_IS_MISSING_UNRESOLVED_OR_AMBIGUOUS",
+            "VALIDATE_THE_SAME_OWNER_CONTENT_WITH_THE_SELECTED_SCHEMA_BEFORE_ARGUMENT_EXPOSURE",
+            "ENUMERATE_ONLY_VALUES_ADMITTED_BY_THE_SELECTED_SCHEMA_AND_A_DECLARED_TYPED_REFERENCE_DEFINITION"
+          ]
+        },
+        "eligible_instance_missing_or_unresolved_schema_behavior": {
+          "const": "FAIL_CLOSED_TYPED_ERROR"
+        },
+        "schema_owner_behavior": {
+          "const": {
+            "semantic_role": "SCHEMA_LANGUAGE_ARTIFACT",
+            "typed_reference_owner_eligible": false,
+            "retained_as_verification_universe_member": true,
+            "retained_as_schema_validation_subject": true,
+            "skip_before_producer_schema_selection": true,
+            "schema_internal_reference_handling": "JSON_SCHEMA_2020_12_VALIDATION_ONLY",
+            "self_schema_as_accord_producer": false,
+            "implicit_public_meta_schema_as_accord_producer": false
+          }
+        },
+        "counts": {
+          "const": {
+            "active_normative_registry_owner_candidates": 46,
+            "schema_language_artifact_validation_subjects": 23,
+            "eligible_active_normative_instance_registry_owners": 23,
+            "eligible_verified_bound_source_owners": 2,
+            "eligible_typed_reference_owners": 25
+          }
+        },
+        "owner_decision_matrix": {
+          "const": [
+            {
+              "case_id": "O1",
+              "scenario": "ACTIVE_NORMATIVE_INSTANCE_WITH_EXACT_APPLIED_PRODUCER_SCHEMA",
+              "verification_member": true,
+              "declared_kind": "CONTRACT",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "schema_ref_state": "EXACT_APPLIED",
+              "owner_eligible": true,
+              "selector_invoked": true,
+              "expected_disposition": "ENUMERATE_SCHEMA_ADMITTED_TYPED_REFERENCES"
+            },
+            {
+              "case_id": "O2",
+              "scenario": "VERIFICATION_MEMBER_WITHOUT_ACTIVE_NORMATIVE_INSTANCE_OR_BOUND_SOURCE_ROLE",
+              "verification_member": true,
+              "declared_kind": "CONTRACT",
+              "semantic_role": "NON_OWNER",
+              "schema_ref_state": "ANY",
+              "owner_eligible": false,
+              "selector_invoked": false,
+              "expected_disposition": "EXCLUDE_FROM_TYPED_REFERENCE_OWNER_UNIVERSE"
+            },
+            {
+              "case_id": "O3",
+              "scenario": "ACTIVE_NORMATIVE_INSTANCE_MISSING_REQUIRED_PRODUCER_SCHEMA_REF",
+              "verification_member": true,
+              "declared_kind": "CONTRACT",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "schema_ref_state": "MISSING",
+              "owner_eligible": true,
+              "selector_invoked": true,
+              "expected_disposition": "FAIL_CLOSED_MISSING_PRODUCER_SCHEMA"
+            },
+            {
+              "case_id": "O4",
+              "scenario": "ACTIVE_NORMATIVE_INSTANCE_WITH_UNRESOLVED_PRODUCER_SCHEMA_REF",
+              "verification_member": true,
+              "declared_kind": "CONTRACT",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "schema_ref_state": "UNRESOLVED",
+              "owner_eligible": true,
+              "selector_invoked": true,
+              "expected_disposition": "FAIL_CLOSED_UNRESOLVED_PRODUCER_SCHEMA"
+            },
+            {
+              "case_id": "O5",
+              "scenario": "ACTIVE_NORMATIVE_INSTANCE_WITH_NESTED_APPLIED_REFERENCE_DEFINITION",
+              "verification_member": true,
+              "declared_kind": "REGISTRY",
+              "semantic_role": "INSTANCE_DOCUMENT",
+              "schema_ref_state": "EXACT_APPLIED",
+              "owner_eligible": true,
+              "selector_invoked": true,
+              "expected_disposition": "ENUMERATE_ALL_SCHEMA_ADMITTED_NESTED_REFERENCE_VALUES"
+            },
+            {
+              "case_id": "O6",
+              "scenario": "EXACT_VERIFIED_BOUND_SOURCE_INSTANCE",
+              "verification_member": true,
+              "declared_kind": "BOUND_SOURCE",
+              "semantic_role": "VERIFIED_BOUND_SOURCE_INSTANCE_DOCUMENT",
+              "schema_ref_state": "EXACT_BOUND_SCHEMA",
+              "owner_eligible": true,
+              "selector_invoked": true,
+              "expected_disposition": "SELECT_EXACT_BOUND_SCHEMA_AND_ENUMERATE"
+            },
+            {
+              "case_id": "O7",
+              "scenario": "ACTIVE_NORMATIVE_SCHEMA_VALIDATION_SUBJECT",
+              "verification_member": true,
+              "declared_kind": "SCHEMA",
+              "semantic_role": "SCHEMA_LANGUAGE_ARTIFACT",
+              "schema_ref_state": "ABSENT",
+              "owner_eligible": false,
+              "selector_invoked": false,
+              "expected_disposition": "PRESERVE_SCHEMA_VALIDATION_AND_HANDLE_INTERNAL_REF_WITH_JSON_SCHEMA_VALIDATION"
+            },
+            {
+              "case_id": "O8",
+              "scenario": "ACTIVE_NORMATIVE_SCHEMA_WITH_ARBITRARY_SCHEMA_REF_PRESENT",
+              "verification_member": true,
+              "declared_kind": "SCHEMA",
+              "semantic_role": "SCHEMA_LANGUAGE_ARTIFACT",
+              "schema_ref_state": "ARBITRARY_PRESENT",
+              "owner_eligible": false,
+              "selector_invoked": false,
+              "expected_disposition": "SKIP_BEFORE_PRODUCER_SCHEMA_SELECTOR_EVEN_WHEN_SCHEMA_REF_EXISTS"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "route_inventory": {
+      "type": "object",
+      "required": [
+        "declared_routes",
+        "eligible_owners",
+        "effective_owner_route_applications",
+        "counts"
+      ],
+      "properties": {
+        "declared_routes": {
+          "type": "array",
+          "minItems": 59,
+          "maxItems": 59,
+          "items": {
+            "$ref": "#/$defs/producer_schema_route"
+          }
+        },
+        "eligible_owners": {
+          "type": "array",
+          "minItems": 25,
+          "maxItems": 25,
+          "items": {
+            "type": "object",
+            "required": [
+              "owner_ref",
+              "owner_origin",
+              "owner_semantic_role",
+              "producer_schema_selection_source",
+              "producer_schema_ref",
+              "effective_route_count"
+            ],
+            "properties": {
+              "owner_ref": {
+                "$ref": "#/$defs/ref"
+              },
+              "owner_origin": {
+                "enum": [
+                  "ACTIVE_NORMATIVE_REGISTRY",
+                  "VERIFIED_BOUND_SOURCE"
+                ]
+              },
+              "owner_semantic_role": {
+                "enum": [
+                  "INSTANCE_DOCUMENT",
+                  "VERIFIED_BOUND_SOURCE_INSTANCE_DOCUMENT"
+                ]
+              },
+              "producer_schema_selection_source": {
+                "enum": [
+                  "EXACT_ACTIVE_NORMATIVE_REGISTRY_ROW_SCHEMA_REF",
+                  "EXACT_VERIFIED_BOUND_SOURCE_SCHEMA_REF"
+                ]
+              },
+              "producer_schema_ref": {
+                "$ref": "#/$defs/ref"
+              },
+              "effective_route_count": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "effective_owner_route_applications": {
+          "type": "array",
+          "minItems": 59,
+          "maxItems": 59,
+          "items": {
+            "type": "object",
+            "required": [
+              "owner_ref",
+              "owner_origin",
+              "producer_schema_ref",
+              "declared_route_index",
+              "schema_pointer",
+              "instance_path_tokens",
+              "reference_definition_ref"
+            ],
+            "properties": {
+              "owner_ref": {
+                "$ref": "#/$defs/ref"
+              },
+              "owner_origin": {
+                "enum": [
+                  "ACTIVE_NORMATIVE_REGISTRY",
+                  "VERIFIED_BOUND_SOURCE"
+                ]
+              },
+              "producer_schema_ref": {
+                "$ref": "#/$defs/ref"
+              },
+              "declared_route_index": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 58
+              },
+              "schema_pointer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "instance_path_tokens": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/instance_path_token"
+                }
+              },
+              "reference_definition_ref": {
+                "$ref": "#/$defs/ref"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "counts": {
+          "const": {
+            "declared_routes": 59,
+            "eligible_active_normative_instance_registry_owners": 23,
+            "eligible_verified_bound_source_owners": 2,
+            "eligible_typed_reference_owners": 25,
+            "effective_owner_route_applications": 59
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "instance_path_token": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "PROPERTY",
+                "PATTERN_PROPERTY",
+                "ARRAY_INDEX"
+              ]
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "ADDITIONAL_PROPERTY",
+                "ARRAY_ITEM"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "producer_schema_route": {
+      "type": "object",
+      "required": [
+        "producer_schema_ref",
+        "schema_pointer",
+        "instance_path_tokens",
+        "reference_definition_ref"
+      ],
+      "properties": {
+        "producer_schema_ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "schema_pointer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instance_path_tokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/instance_path_token"
+          }
+        },
+        "reference_definition_ref": {
+          "$ref": "#/$defs/ref"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

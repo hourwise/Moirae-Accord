@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:specification-package",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02r5:specification-package:0.2",
+  "object_id": "urn:moirae:accord-02r5:specification-package",
+  "object_version": "0.2",
+  "package_id": "urn:moirae:accord-02r5:specification-package",
+  "package_version": "0.2",
+  "status": "CANDIDATE_UNACCEPTED",
+  "accepted_base_ref": {
+    "kind": "PACKAGE",
+    "id": "urn:moirae:accord-02r5:specification-package",
+    "version": "0.1"
+  },
+  "rejected_candidate_lineage": [
+    {
+      "revision": "E4R2",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R3",
+      "status": "REJECTED_PROVENANCE_ONLY"
+    },
+    {
+      "revision": "E4R4",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "e360ce6c38f044e446ae8ba7e850b35840f2c8f8"
+    },
+    {
+      "revision": "E4R5",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "b92d5707e9966c8543111b1c448aa5c2f5b0e496"
+    },
+    {
+      "revision": "E4R5R1",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "f75352c0d673d77873fb96a9975a6c37abceb519"
+    },
+    {
+      "revision": "E4R5R2",
+      "status": "REJECTED_PROVENANCE_ONLY",
+      "commit": "44d0e7240c97dcc12463b5611a7adf61399924d7"
+    }
+  ],
+  "object_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02e4r5r4:object-registry",
+    "version": "0.2"
+  },
+  "rule_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02e4r5r4:rule-registry",
+    "version": "0.2"
+  },
+  "invariant_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02e4r5r4:invariant-registry",
+    "version": "0.2"
+  },
+  "procedure_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02e4r5r4:procedure-registry",
+    "version": "0.2"
+  },
+  "required_invariant_ids": [
+    "STANDARDS_VALIDATION",
+    "PACKAGE_LINEAGE",
+    "ACCEPTED_BASE_DUAL_INTEGRITY",
+    "OBJECT_IDENTITY_UNIQUE",
+    "TYPED_REFERENCE_CLOSURE",
+    "SEMANTIC_DIGEST_VERIFY",
+    "ACCEPTED_SOURCE_DUAL_INTEGRITY",
+    "DEPENDENCY_GRAPH_EQUAL",
+    "EXPECTATION_STABILITY",
+    "PREDICATE_AUTHORITY_CLOSURE",
+    "CANONICALIZATION_AUTHORITY_CLOSURE",
+    "SOURCE_CATALOG_BINDING",
+    "PARTIAL_EFFECT_POLICY_CLOSURE",
+    "NEGATIVE_REQUIREMENT_MAP_CLOSURE",
+    "RULE_EXPECTATION_AUTHORITY_COMPLETE",
+    "PROPOSITION_INVENTORY_BOUND",
+    "PROFILE_REFERENCE_PINNING",
+    "INVARIANT_PROCEDURE_ARITY_AGREEMENT",
+    "SCHEMA_NON_VACUITY",
+    "CURRENT_PACKAGE_IDENTITY",
+    "PACKAGE_SELF_DIGEST",
+    "INTEGRITY_MODE_DISPATCH",
+    "V013_BASIS_VALID",
+    "FAIL_CLOSED_ENFORCED",
+    "SUBJECT_ROLE_COVERAGE",
+    "DEFAULT_ARGUMENT_COVERAGE",
+    "DERIVATION_ROLE_CLOSURE",
+    "PROCEDURE_OPERATION_SUPPORTED",
+    "MISSING_BEHAVIOR_SUPPORTED",
+    "AMBIGUITY_BEHAVIOR_SUPPORTED",
+    "REFERENCE_DISCOVERY_SCOPE_VALID",
+    "REFERENCE_SHAPE_PREDICATE_APPLIED",
+    "UNIQUENESS_KEY_APPLIED",
+    "ROLE_MODEL_APPLIED",
+    "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+    "RULE_COVERAGE_EXACT",
+    "INVARIANT_SET_EXACT",
+    "GOVERNING_AUTHORITY_REFERENCE_VALID",
+    "GOVERNING_TOKEN_SINGLETON",
+    "TRUSTED_PACKAGE_IDENTITY"
+  ],
+  "required_rule_ids_ref": "rule-registry:/provenance/required_rule_ids",
+  "trust_anchor_requirement_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02e4r5r4:external-verification-input-contract",
+    "version": "0.2"
+  },
+  "runtime": {
+    "python": "~=3.14.0",
+    "requirements_path": "docs/accord-02e4r5r4/requirements.txt"
+  },
+  "current_candidate_integrity": {
+    "class": "SEMANTIC_JSON_CONTENT",
+    "content_target_ref": "PACKAGE_EXCLUDING_SELF_DIGEST",
+    "algorithm": "SHA-256",
+    "digest": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1"
+  },
+  "registry_semantic_sha256": "c183e0433b508c331d70680e5568be8985667d0be9c362ca016158e53f9a6793",
+  "metacontract_ref": {
+    "kind": "CONTRACT",
+    "id": "urn:moirae:accord-02e4r5r4:metacontract",
+    "version": "0.2"
+  },
+  "primitive_registry_ref": {
+    "kind": "REGISTRY",
+    "id": "urn:moirae:accord-02e4r5r4:primitive-registry",
+    "version": "0.2"
+  }
+}

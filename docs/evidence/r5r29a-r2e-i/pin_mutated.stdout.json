@@ -1,0 +1,18 @@
+{
+  "code": "SCHEMA_INVALID_BOUND_OBJECT",
+  "stage": "PRE_EXECUTION",
+  "status": "FAIL",
+  "witness": {
+    "argument": "object_registry",
+    "bound_identity": {
+      "id": "urn:moirae:accord-02e4r5r4:metacontract",
+      "kind": "CONTRACT",
+      "version": "0.2"
+    },
+    "diagnostic": "REGISTRATION_INTEGRITY_DIGEST_MISMATCH",
+    "failure_kind": "INTEGRITY",
+    "instance_pointer": "/objects/42/integrity",
+    "object_role": "REGISTRY_OBJECT",
+    "schema_ref": "urn:moirae:accord-02e4r5r4:schema:object-registry:0.2"
+  }
+}

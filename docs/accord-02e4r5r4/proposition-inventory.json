@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:proposition-inventory",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:proposition-inventory:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:proposition-inventory",
+  "object_version": "0.2",
+  "derived_from": {
+    "vector_expectations_pointer": "inputs:/vector_expectations/*",
+    "accepted_catalog_ref": {
+      "kind": "SOURCE_VECTOR_CATALOG",
+      "id": "urn:moirae:accord-02r5:source-vector-catalog",
+      "version": "0.1"
+    }
+  },
+  "collection_propositions": [
+    {
+      "proposition_id": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "kind": "COLLECTION",
+      "normative": true,
+      "member_pointer": "inputs:/vector_expectations/*/vector_id",
+      "derived_from": "inputs:/vector_expectations"
+    }
+  ],
+  "member_propositions": [
+    {
+      "proposition_id": "ACCORD-02C-V001-DISPATCH-ONLY",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V006-STALE-OBSERVATION",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    },
+    {
+      "proposition_id": "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE",
+      "kind": "MEMBER",
+      "normative": true,
+      "member_of": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "derived_from": "inputs:/vector_expectations/*/vector_id"
+    }
+  ],
+  "projection_propositions": [
+    {
+      "proposition_id": "urn:moirae:accord-02e4r5r4:proposition:vector-expectation-map",
+      "kind": "PROJECTION",
+      "normative": true,
+      "collection_proposition_id": "urn:moirae:accord-02e4r5r4:proposition-collection:accepted-settlement-vectors",
+      "projection": {
+        "source": "inputs:/vector_expectations/*",
+        "key": "vector_id",
+        "value": "expected"
+      }
+    }
+  ],
+  "informational": []
+}

@@ -1,0 +1,92 @@
+{
+  "status": "ALL_PRE_ACCEPTANCE_GATES_PASS",
+  "syntax_compiled": [
+    "audit/build_r5r4_artifacts.py",
+    "audit/evaluate_r5r4.py",
+    "audit/evaluate_r5r4_independent.py"
+  ],
+  "installed_identities": {
+    "installed_manifest": "7485da2f29c13fb7d7cd9e365de85c573fcc96fe28e2e272b03e70c9d0105fd2",
+    "semantic_identities": {
+      "package": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1",
+      "registry": "c183e0433b508c331d70680e5568be8985667d0be9c362ca016158e53f9a6793",
+      "model": "b88f7559e157d318f194d9df3b33c4b4418406e54d358d81aed89fdab2702d9b",
+      "leap_table": "5a7679ce687349348a89a223988e3c2a8f0c9b3046433ccee3c9830242b999c1"
+    },
+    "primary": "8facf456d00d72a4eb3217a3ef624cc99d7f351cc7626b66366371dafd0dca04",
+    "independent": "69230e1c5afbafd5ea653ac7b3d68934ed13991d7c061e9a46d2673478782ad1",
+    "file_count": 56
+  },
+  "registered_schema_instance_checks": {
+    "registered_objects": 48,
+    "semantic_digests": 44,
+    "meta_valid_schemas": 23,
+    "valid_registered_instances": 23
+  },
+  "full_clean_run": {
+    "normalized": {
+      "status": "PASS",
+      "pre_execution_status": "PASS",
+      "trust_code": "EXPECTED_PACKAGE_VERIFIED",
+      "exit_code": 0,
+      "stdout_sha256": "4b575661e8317c4b409ffa2973185516e09e75250f0c602a375687e3fc97522b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "invariants": 40,
+    "bound_rules": 42,
+    "candidate_objects": 46
+  },
+  "schema_corpus": {
+    "cases": 112,
+    "direct_law_cases": 69,
+    "frozen_C2_agreement": 112,
+    "corpus_sha256": "3ae8428428bd7d19bada383f2ab1cd53b1a98e8bded8bf533fe5ab409ccccfe3"
+  },
+  "integrity_mutations": [
+    {
+      "case": "table_mutated",
+      "mutated_path": "D:\\Users\\fleur\\Moirae Accord\\docs\\evidence\\r5r29a-r2e-i\\isolated-integrity\\table_mutated\\docs\\accord-02e4r5r4\\leap-second-table.json",
+      "mutated_sha256": "52d7d2224aa225ec48d1aa93a01fef1111c4ebe6e3c55e7df638a840c727e366",
+      "normalized": {
+        "status": "FAIL",
+        "code": "SCHEMA_INVALID_BOUND_OBJECT",
+        "stage": "PRE_EXECUTION",
+        "pre_execution_status": null,
+        "failure_kind": "INTEGRITY",
+        "diagnostic": "REGISTRATION_INTEGRITY_DIGEST_MISMATCH",
+        "bound_identity": {
+          "id": "urn:moirae:accord-02e4r5r4:leap-second-table",
+          "kind": "CONTRACT",
+          "version": "0.2"
+        },
+        "trust_code": null,
+        "exit_code": 2,
+        "stdout_sha256": "08971dfa60c7ba339b6c33039b393810dbd59c86daf79036d68229a776f683fe",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "case": "pin_mutated",
+      "mutated_path": "D:\\Users\\fleur\\Moirae Accord\\docs\\evidence\\r5r29a-r2e-i\\isolated-integrity\\pin_mutated\\docs\\accord-02e4r5r4\\metacontract.json",
+      "mutated_sha256": "eda512973c6fd2cee20a5ee99a22aeb73422aa39604e343c516fc3ac2bf80169",
+      "normalized": {
+        "status": "FAIL",
+        "code": "SCHEMA_INVALID_BOUND_OBJECT",
+        "stage": "PRE_EXECUTION",
+        "pre_execution_status": null,
+        "failure_kind": "INTEGRITY",
+        "diagnostic": "REGISTRATION_INTEGRITY_DIGEST_MISMATCH",
+        "bound_identity": {
+          "id": "urn:moirae:accord-02e4r5r4:metacontract",
+          "kind": "CONTRACT",
+          "version": "0.2"
+        },
+        "trust_code": null,
+        "exit_code": 2,
+        "stdout_sha256": "5647b82164ed51a5d3808dd864bfdd142874b6b93e006f2dea13176aa8677361",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "canonical_preserved": true
+}

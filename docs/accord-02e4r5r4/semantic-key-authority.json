@@ -1,0 +1,346 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:semantic-key-authority",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:semantic-key-authority:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:semantic-key-authority",
+  "object_version": "0.2",
+  "semantic_keys": [
+    {
+      "key": "global_stage_order",
+      "authority_path": "authority:/stage_policy_requirements/global_stage_order",
+      "governed_mirror_paths": [
+        "inputs:/predicate_policy/global_stage_order",
+        "authority:/stage_policy_authorization/global_stage_order"
+      ],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "AUTHORITY",
+          "pointer_tokens": [
+            "stage_policy_requirements",
+            "global_stage_order"
+          ]
+        },
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "predicate_policy",
+            "global_stage_order"
+          ]
+        },
+        {
+          "kind": "AUTHORITY",
+          "pointer_tokens": [
+            "stage_policy_authorization",
+            "global_stage_order"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "implicit_transitivity",
+      "authority_path": "authority:/stage_policy_requirements/implicit_transitivity",
+      "governed_mirror_paths": [
+        "inputs:/predicate_policy/implicit_transitivity",
+        "authority:/stage_policy_authorization/implicit_transitivity"
+      ],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "AUTHORITY",
+          "pointer_tokens": [
+            "stage_policy_requirements",
+            "implicit_transitivity"
+          ]
+        },
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "predicate_policy",
+            "implicit_transitivity"
+          ]
+        },
+        {
+          "kind": "AUTHORITY",
+          "pointer_tokens": [
+            "stage_policy_authorization",
+            "implicit_transitivity"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "same_effect_required",
+      "authority_path": "authority:/partial_effect_requirements/same_effect_required",
+      "governed_mirror_paths": [
+        "partial:/same_effect_required"
+      ],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "AUTHORITY",
+          "pointer_tokens": [
+            "partial_effect_requirements",
+            "same_effect_required"
+          ]
+        },
+        {
+          "kind": "POLICY",
+          "pointer_tokens": [
+            "same_effect_required"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "direct_predecessor_required",
+      "authority_path": "authority:/partial_effect_requirements/direct_predecessor_required",
+      "governed_mirror_paths": [
+        "partial:/direct_predecessor_required"
+      ],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "AUTHORITY",
+          "pointer_tokens": [
+            "partial_effect_requirements",
+            "direct_predecessor_required"
+          ]
+        },
+        {
+          "kind": "POLICY",
+          "pointer_tokens": [
+            "direct_predecessor_required"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "minimum_retention_seconds",
+      "authority_path": "inputs:/profile/negative_policy/minimum_retention_seconds",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "profile",
+            "negative_policy",
+            "minimum_retention_seconds"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "freshness_max_age_seconds",
+      "authority_path": "inputs:/profile/negative_policy/freshness_max_age_seconds",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "profile",
+            "negative_policy",
+            "freshness_max_age_seconds"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "future_observation_result",
+      "authority_path": "inputs:/profile/negative_policy/future_observation_result",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "profile",
+            "negative_policy",
+            "future_observation_result"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "stale_result",
+      "authority_path": "inputs:/profile/negative_policy/stale_result",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "profile",
+            "negative_policy",
+            "stale_result"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "contradiction_rule",
+      "authority_path": "inputs:/profile/negative_policy/contradiction_rule",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "profile",
+            "negative_policy",
+            "contradiction_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "complete_read_requirement",
+      "authority_path": "inputs:/profile/negative_policy/complete_read_requirement",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "NORMATIVE_INPUTS",
+          "pointer_tokens": [
+            "profile",
+            "negative_policy",
+            "complete_read_requirement"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "additional_keys",
+      "authority_path": "references:/representation_validation/additional_keys",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "CONTRACT",
+          "pointer_tokens": [
+            "representation_validation",
+            "additional_keys"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "uniqueness_key",
+      "authority_path": "registry:/uniqueness_key",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "REGISTRY",
+          "pointer_tokens": [
+            "uniqueness_key"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "role_model",
+      "authority_path": "registry:/role_model",
+      "governed_mirror_paths": [],
+      "permitted_provenance_roles": [
+        "NORMATIVE",
+        "PROVENANCE"
+      ],
+      "allowed_occurrences": [
+        {
+          "kind": "REGISTRY",
+          "pointer_tokens": [
+            "role_model"
+          ]
+        }
+      ]
+    }
+  ],
+  "governing_token_singleton": {
+    "operation": "GOVERNING_TOKEN_SINGLETON",
+    "forbid": "DUPLICATE_INDEPENDENT_AUTHORITY",
+    "permitted_exception_roles": [
+      "PROVENANCE",
+      "TEST_FIXTURE"
+    ],
+    "scan": "DECLARED_SEMANTIC_KEY_METADATA",
+    "scan_excludes_kinds": [
+      "SCHEMA"
+    ],
+    "scan_excluded_pointer_prefixes": [
+      "/policy_field_roles",
+      "/requirement_map",
+      "/relationship_basis",
+      "/evidence_universe",
+      "/vector_expectations",
+      "/internal_design_values",
+      "/rules",
+      "/invariants",
+      "/procedures",
+      "/objects",
+      "/sources",
+      "/members",
+      "/reason_code_surface",
+      "/must_not_conclude_surface",
+      "/supported_operations",
+      "/fields",
+      "/results",
+      "/mode_map",
+      "/governed_mirror_paths",
+      "/subject_role_requirement",
+      "/role_model_requirement",
+      "/uniqueness_key_requirement",
+      "/default_argument_requirement",
+      "/derivation_role_closure_requirement",
+      "/fail_closed_requirement",
+      "/shape_predicate_requirement",
+      "/reference_discovery_scope_requirement",
+      "/governing_authority_requirement",
+      "/rule_coverage_requirement",
+      "/invariant_set_requirement",
+      "/semantic_key_governance"
+    ]
+  }
+}

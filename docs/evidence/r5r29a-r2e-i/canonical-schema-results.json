@@ -1,0 +1,717 @@
+{
+  "evaluator_sha256": "8facf456d00d72a4eb3217a3ef624cc99d7f351cc7626b66366371dafd0dca04",
+  "corpus_sha256": "3ae8428428bd7d19bada383f2ab1cd53b1a98e8bded8bf533fe5ab409ccccfe3",
+  "case_count": 112,
+  "results": [
+    {
+      "id": "R2E-001",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-002",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-003",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "R2E-004",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$defs/a/$ref"
+      }
+    },
+    {
+      "id": "R2E-005",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$defs/a/$ref"
+      }
+    },
+    {
+      "id": "R2E-006",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-007",
+      "observed": {
+        "error_class": "UNRESOLVED_LOCAL_FRAGMENT",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "R2E-008",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-009",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-010",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-011",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "R2E-012",
+      "observed": {
+        "error_class": "UNSUPPORTED_DIALECT",
+        "pointer": "/$schema"
+      }
+    },
+    {
+      "id": "R2E-013",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$schema"
+      }
+    },
+    {
+      "id": "R2E-014",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-015",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-016",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-017",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "R2E-018",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "R2E-022",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "R2E-023",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "R2E-024",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$dynamicRef"
+      }
+    },
+    {
+      "id": "R2E-025",
+      "observed": {
+        "error_class": "UNSUPPORTED_DIALECT",
+        "pointer": "/$schema"
+      }
+    },
+    {
+      "id": "R2E-026",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "R2E-DT-ORD-UTC",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-ORD-OFFSET",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-BAD-DATE",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-BAD-HOUR",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-BAD-MINUTE",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-BAD-SECOND",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-NO-ZONE",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-LEAP-OFFSET",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LEAP-FRAC",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LEAP-OFFSET-FRAC",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-UNLISTED",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-UNLISTED-FRAC",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-MONTH-END",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-RANDOM-DAY",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-01",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-FRAC-01",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-02",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-03",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-04",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-05",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-FRAC-05",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-06",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-07",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-08",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-09",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-10",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-11",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-12",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-FRAC-12",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-13",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-14",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-15",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-16",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-17",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-18",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-19",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-20",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-FRAC-20",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-21",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-22",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-23",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-24",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-25",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-26",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-27",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "R2E-DT-LISTED-FRAC-27",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-OBJ-VALID",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-OBJ-INVALID",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "C2-TARGET-STRING",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "C2-TARGET-NUMBER",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "C2-TARGET-ARRAY",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "C2-TARGET-NULL",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "C2-TARGET-OBJECT",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-TARGET-TRUE",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-TARGET-FALSE",
+      "observed": {
+        "boolean": false
+      }
+    },
+    {
+      "id": "C2-CYCLE-OBJECT",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$ref"
+      }
+    },
+    {
+      "id": "C2-CYCLE-ARRAY",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/prefixItems/0/$ref"
+      }
+    },
+    {
+      "id": "C2-DAG",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-ESCAPED",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-PERCENT",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-ROOT-STRING",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": ""
+      }
+    },
+    {
+      "id": "C2-ROOT-NUMBER",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": ""
+      }
+    },
+    {
+      "id": "C2-ROOT-ARRAY",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": ""
+      }
+    },
+    {
+      "id": "C2-ROOT-NULL",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": ""
+      }
+    },
+    {
+      "id": "C2-PREC-DIALECT",
+      "observed": {
+        "error_class": "UNSUPPORTED_DIALECT",
+        "pointer": "/$schema"
+      }
+    },
+    {
+      "id": "C2-PREC-DIALECT-MALFORMED",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$schema"
+      }
+    },
+    {
+      "id": "C2-PREC-ADMISSION",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$dynamicRef"
+      }
+    },
+    {
+      "id": "C2-PREC-MISSING",
+      "observed": {
+        "error_class": "UNRESOLVED_LOCAL_FRAGMENT",
+        "pointer": "/allOf/0/$ref"
+      }
+    },
+    {
+      "id": "C2-PREC-MISSING-VS-TARGET",
+      "observed": {
+        "error_class": "UNRESOLVED_LOCAL_FRAGMENT",
+        "pointer": "/allOf/0/$ref"
+      }
+    },
+    {
+      "id": "C2-PREC-ADMISSION-LOCATION",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/$defs/a/type"
+      }
+    },
+    {
+      "id": "C2-PREC-RESOLUTION-LOCATION",
+      "observed": {
+        "error_class": "UNRESOLVED_LOCAL_FRAGMENT",
+        "pointer": "/$defs/a/$ref"
+      }
+    },
+    {
+      "id": "C2-META-VALID-NULL",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-INVALID-NULL",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "C2-META-VALID-BOOL",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-INVALID-BOOL",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "C2-META-VALID-NUMBER",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-INVALID-NUMBER",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "C2-META-VALID-STRING",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-INVALID-STRING",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "C2-META-VALID-ARRAY",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-INVALID-ARRAY",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "C2-META-VALID-OBJECT",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-INVALID-OBJECT",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "C2-META-VALID-DEEP",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-INVALID-DEEP",
+      "observed": {
+        "error_class": "MALFORMED_SCHEMA",
+        "pointer": "/type"
+      }
+    },
+    {
+      "id": "C2-META-TRUE",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-META-FALSE",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-DEEP-600-VALID",
+      "observed": {
+        "boolean": true
+      }
+    },
+    {
+      "id": "C2-DEEP-600-INVALID",
+      "observed": {
+        "boolean": false
+      }
+    }
+  ]
+}

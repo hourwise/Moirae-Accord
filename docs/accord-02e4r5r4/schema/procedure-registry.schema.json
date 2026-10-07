@@ -1,0 +1,1999 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:schema:procedure-registry",
+  "title": "ACCORD-02E4R5R4 executable procedure registry schema",
+  "type": "object",
+  "required": [
+    "$schema",
+    "schema_ref",
+    "$id",
+    "object_id",
+    "object_version",
+    "procedures"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/typed_ref"
+    },
+    "$id": {
+      "const": "urn:moirae:accord-02e4r5r4:procedure-registry:0.2"
+    },
+    "object_id": {
+      "const": "urn:moirae:accord-02e4r5r4:procedure-registry"
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "procedures": {
+      "type": "array",
+      "minItems": 39,
+      "maxItems": 39,
+      "items": {
+        "$ref": "#/$defs/procedure"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "typed_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_constraint": {
+      "type": "object",
+      "required": [
+        "universe",
+        "expected_kind",
+        "expected_schema_ref",
+        "required_roles",
+        "status",
+        "classification",
+        "schema_required",
+        "integrity_required",
+        "identity_constraint"
+      ],
+      "properties": {
+        "universe": {
+          "enum": [
+            "CANDIDATE_UNIVERSE",
+            "BOUND_SOURCE_UNIVERSE"
+          ]
+        },
+        "expected_kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_schema_ref": {
+          "$ref": "#/$defs/typed_ref"
+        },
+        "required_roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "status": {
+          "enum": [
+            "ACTIVE",
+            "ACTIVE_ACCEPTED_SOURCE"
+          ]
+        },
+        "classification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_required": {
+          "const": true
+        },
+        "integrity_required": {
+          "const": true
+        },
+        "identity_constraint": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "mode"
+              ],
+              "properties": {
+                "mode": {
+                  "const": "BINDING_REFERENCE"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "mode",
+                "ref",
+                "canonical_path",
+                "raw_sha256",
+                "semantic_sha256",
+                "git_blob"
+              ],
+              "properties": {
+                "mode": {
+                  "const": "EXACT_REFERENCE"
+                },
+                "ref": {
+                  "$ref": "#/$defs/typed_ref"
+                },
+                "canonical_path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "raw_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "semantic_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "git_blob": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{40}$"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "argument": {
+      "type": "object",
+      "required": [
+        "name",
+        "type",
+        "required",
+        "cardinality",
+        "origin"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "type": {
+          "enum": [
+            "REGISTRY",
+            "CONTRACT",
+            "PACKAGE",
+            "AUTHORITY",
+            "CANONICALIZATION",
+            "NORMATIVE_INPUTS",
+            "SOURCE_VECTOR_CATALOG",
+            "POLICY",
+            "EVIDENCE",
+            "SEMANTIC_KEYS",
+            "VERIFICATION_UNIVERSE",
+            "FROZEN_RULE_AUTHORITY",
+            "FROZEN_V013_GOVERNANCE",
+            "EXTERNAL_TRUST",
+            "EXTERNAL_ACCEPTANCE_PROFILE"
+          ]
+        },
+        "required": {
+          "const": true
+        },
+        "cardinality": {
+          "const": "ONE"
+        },
+        "origin": {
+          "enum": [
+            "RULE_BINDING",
+            "BOOTSTRAP_VERIFICATION_UNIVERSE",
+            "EXTERNAL_FROZEN_AUTHORITY",
+            "EXTERNAL_FROZEN_PREDECESSOR",
+            "EXTERNAL_TRUST",
+            "EXTERNAL_ACCEPTANCE_PROFILE"
+          ]
+        },
+        "source_constraint": {
+          "$ref": "#/$defs/source_constraint"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "const": "RULE_BINDING"
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_constraint"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "enum": [
+                  "BOOTSTRAP_VERIFICATION_UNIVERSE",
+                  "EXTERNAL_FROZEN_AUTHORITY",
+                  "EXTERNAL_FROZEN_PREDECESSOR",
+                  "EXTERNAL_TRUST",
+                  "EXTERNAL_ACCEPTANCE_PROFILE"
+                ]
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "source_constraint"
+              ]
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "expression": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "arg"
+          ],
+          "properties": {
+            "arg": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "item"
+          ],
+          "properties": {
+            "item": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "literal"
+          ],
+          "properties": {
+            "literal": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "universe",
+                "reference"
+              ],
+              "properties": {
+                "op": {
+                  "const": "RESOLVE_ONE"
+                },
+                "universe": {
+                  "$ref": "#/$defs/expression"
+                },
+                "reference": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "value",
+                "pointer"
+              ],
+              "properties": {
+                "op": {
+                  "const": "GET"
+                },
+                "value": {
+                  "$ref": "#/$defs/expression"
+                },
+                "pointer": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "object",
+                "key"
+              ],
+              "properties": {
+                "op": {
+                  "const": "GET_KEY"
+                },
+                "object": {
+                  "$ref": "#/$defs/expression"
+                },
+                "key": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "left",
+                "right"
+              ],
+              "properties": {
+                "op": {
+                  "const": "JSON_EQUAL"
+                },
+                "left": {
+                  "$ref": "#/$defs/expression"
+                },
+                "right": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "left",
+                "right"
+              ],
+              "properties": {
+                "op": {
+                  "const": "SET_EQUAL_STRICT"
+                },
+                "left": {
+                  "$ref": "#/$defs/expression"
+                },
+                "right": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "array",
+                "pointers"
+              ],
+              "properties": {
+                "op": {
+                  "const": "UNIQUE_BY"
+                },
+                "array": {
+                  "$ref": "#/$defs/expression"
+                },
+                "pointers": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "array",
+                "as",
+                "where"
+              ],
+              "properties": {
+                "op": {
+                  "const": "FILTER"
+                },
+                "array": {
+                  "$ref": "#/$defs/expression"
+                },
+                "as": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "where": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "array",
+                "as",
+                "fields"
+              ],
+              "properties": {
+                "op": {
+                  "const": "PROJECT"
+                },
+                "array": {
+                  "$ref": "#/$defs/expression"
+                },
+                "as": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "fields": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": {
+                    "$ref": "#/$defs/expression"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "array"
+              ],
+              "properties": {
+                "op": {
+                  "const": "COUNT"
+                },
+                "array": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "array",
+                "as",
+                "where"
+              ],
+              "properties": {
+                "op": {
+                  "const": "ALL"
+                },
+                "array": {
+                  "$ref": "#/$defs/expression"
+                },
+                "as": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "where": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "array",
+                "as",
+                "where"
+              ],
+              "properties": {
+                "op": {
+                  "const": "ANY"
+                },
+                "array": {
+                  "$ref": "#/$defs/expression"
+                },
+                "as": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "where": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "value"
+              ],
+              "properties": {
+                "op": {
+                  "const": "NOT"
+                },
+                "value": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "left",
+                "comparator",
+                "right"
+              ],
+              "properties": {
+                "op": {
+                  "const": "NUMERIC_COMPARE"
+                },
+                "left": {
+                  "$ref": "#/$defs/expression"
+                },
+                "comparator": {
+                  "enum": [
+                    "LT",
+                    "LTE",
+                    "EQ",
+                    "NE",
+                    "GTE",
+                    "GT"
+                  ]
+                },
+                "right": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "left",
+                "comparator",
+                "right"
+              ],
+              "properties": {
+                "op": {
+                  "const": "RFC3339_COMPARE"
+                },
+                "left": {
+                  "$ref": "#/$defs/expression"
+                },
+                "comparator": {
+                  "enum": [
+                    "LT",
+                    "LTE",
+                    "EQ",
+                    "NE",
+                    "GTE",
+                    "GT"
+                  ]
+                },
+                "right": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "start",
+                "end"
+              ],
+              "properties": {
+                "op": {
+                  "const": "DURATION_SECONDS"
+                },
+                "start": {
+                  "$ref": "#/$defs/expression"
+                },
+                "end": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "schema",
+                "instance",
+                "mode"
+              ],
+              "properties": {
+                "op": {
+                  "const": "SCHEMA_VALIDATE"
+                },
+                "schema": {
+                  "$ref": "#/$defs/expression"
+                },
+                "instance": {
+                  "$ref": "#/$defs/expression"
+                },
+                "mode": {
+                  "enum": [
+                    "META_SCHEMA",
+                    "INSTANCE"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "value",
+                "expected",
+                "algorithm",
+                "serialization",
+                "excluded_pointers"
+              ],
+              "properties": {
+                "op": {
+                  "const": "DIGEST_VERIFY"
+                },
+                "value": {
+                  "$ref": "#/$defs/expression"
+                },
+                "expected": {
+                  "$ref": "#/$defs/expression"
+                },
+                "algorithm": {
+                  "$ref": "#/$defs/expression"
+                },
+                "serialization": {
+                  "$ref": "#/$defs/expression"
+                },
+                "excluded_pointers": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "value"
+              ],
+              "properties": {
+                "op": {
+                  "const": "DESCENDANTS"
+                },
+                "value": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "op",
+                "universe",
+                "registry",
+                "reference_model",
+                "reference_form"
+              ],
+              "properties": {
+                "op": {
+                  "const": "ENUMERATE_TYPED_REFERENCES"
+                },
+                "universe": {
+                  "$ref": "#/$defs/expression"
+                },
+                "registry": {
+                  "$ref": "#/$defs/expression"
+                },
+                "reference_model": {
+                  "$ref": "#/$defs/expression"
+                },
+                "reference_form": {
+                  "$ref": "#/$defs/expression"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      ]
+    },
+    "assertion": {
+      "type": "object",
+      "required": [
+        "assertion_id",
+        "condition",
+        "failure_code",
+        "witness"
+      ],
+      "properties": {
+        "assertion_id": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "condition": {
+          "$ref": "#/$defs/expression"
+        },
+        "failure_code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_-]*$"
+        },
+        "witness": {
+          "$ref": "#/$defs/expression"
+        }
+      },
+      "additionalProperties": false
+    },
+    "procedure": {
+      "type": "object",
+      "required": [
+        "procedure_id",
+        "arguments",
+        "assertions",
+        "compatible_failure_codes",
+        "result",
+        "missing_behavior",
+        "ambiguity_behavior",
+        "fail_closed"
+      ],
+      "properties": {
+        "procedure_id": {
+          "enum": [
+            "SCHEMA_VALIDATION",
+            "LINEAGE_VALIDATION",
+            "DUAL_INTEGRITY",
+            "UNIQUE_KEY",
+            "REFERENCE_RESOLUTION",
+            "DIGEST_RECOMPUTE",
+            "SET_EQUALITY",
+            "EXPECTATION_STABILITY",
+            "PREDICATE_POLICY_AGREEMENT",
+            "CANONICALIZATION_PROFILE_WELLFORMED",
+            "SOURCE_CATALOG_BINDING_MATCH",
+            "PARTIAL_EFFECT_POLICY_CLOSURE",
+            "REQUIREMENT_MAP_EVAL",
+            "AUTHORITY_COMPLETENESS",
+            "PROPOSITION_INVENTORY_BOUND",
+            "PROFILE_REFERENCE_PINNING",
+            "ARITY_AGREEMENT",
+            "SCHEMA_NON_VACUITY",
+            "CURRENT_PACKAGE_IDENTITY",
+            "SELF_DIGEST",
+            "INTEGRITY_MODE_DISPATCH",
+            "V013_BASIS_VALID",
+            "FAIL_CLOSED_ENFORCED",
+            "SUBJECT_ROLE_COVERAGE",
+            "DEFAULT_ARGUMENT_COVERAGE",
+            "DERIVATION_ROLE_CLOSURE",
+            "PROCEDURE_OPERATION_SUPPORTED",
+            "MISSING_BEHAVIOR_SUPPORTED",
+            "AMBIGUITY_BEHAVIOR_SUPPORTED",
+            "REFERENCE_DISCOVERY_SCOPE_VALID",
+            "REFERENCE_SHAPE_PREDICATE_APPLIED",
+            "UNIQUENESS_KEY_APPLIED",
+            "ROLE_MODEL_APPLIED",
+            "SCHEMA_IDENTITY_MATCHES_REGISTRY",
+            "RULE_COVERAGE_EXACT",
+            "INVARIANT_SET_EXACT",
+            "GOVERNING_AUTHORITY_REFERENCE_VALID",
+            "GOVERNING_TOKEN_SINGLETON",
+            "TRUST_ANCHOR_COMPARE"
+          ]
+        },
+        "arguments": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 128,
+          "items": {
+            "$ref": "#/$defs/argument"
+          }
+        },
+        "assertions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 512,
+          "items": {
+            "$ref": "#/$defs/assertion"
+          }
+        },
+        "compatible_failure_codes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_-]*$"
+          }
+        },
+        "result": {
+          "type": "object",
+          "required": [
+            "type",
+            "status",
+            "witness_required"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "BOOLEAN",
+                "TRUST_RESULT"
+              ]
+            },
+            "status": {
+              "const": [
+                "PASS",
+                "FAIL"
+              ]
+            },
+            "witness_required": {
+              "const": true
+            },
+            "success_code": {
+              "const": "EXPECTED_PACKAGE_VERIFIED"
+            },
+            "result_projection": {
+              "type": "object",
+              "required": [
+                "argument",
+                "pointer_tokens",
+                "mapping_cardinality",
+                "expected_literals",
+                "baseline"
+              ],
+              "properties": {
+                "argument": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "pointer_tokens": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "mapping_cardinality": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "expected_literals": {
+                  "type": "object",
+                  "required": [
+                    "PASS",
+                    "FAIL"
+                  ],
+                  "properties": {
+                    "PASS": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "FAIL": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "baseline": {
+                  "type": "object",
+                  "required": [
+                    "argument",
+                    "source_pin",
+                    "status_pointer_tokens"
+                  ],
+                  "properties": {
+                    "argument": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source_pin": {
+                      "type": "object",
+                      "required": [
+                        "commit",
+                        "tree",
+                        "path",
+                        "git_blob"
+                      ],
+                      "properties": {
+                        "commit": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{40}$"
+                        },
+                        "tree": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{40}$"
+                        },
+                        "path": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "git_blob": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{40}$"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "status_pointer_tokens": {
+                      "type": "object",
+                      "required": [
+                        "PASS",
+                        "FAIL"
+                      ],
+                      "properties": {
+                        "PASS": {
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "FAIL": {
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "TRUST_RESULT"
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              },
+              "then": {
+                "required": [
+                  "success_code"
+                ],
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "BOOLEAN"
+                  }
+                },
+                "required": [
+                  "type"
+                ]
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "success_code"
+                  ]
+                }
+              }
+            }
+          ],
+          "additionalProperties": false
+        },
+        "missing_behavior": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ambiguity_behavior": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fail_closed": {
+          "const": true
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "REQUIREMENT_MAP_EVAL"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "required": [
+                  "result_projection"
+                ],
+                "properties": {
+                  "result_projection": {
+                    "const": {
+                      "argument": "v013_governance",
+                      "pointer_tokens": [
+                        "outcome_map"
+                      ],
+                      "mapping_cardinality": 2,
+                      "expected_literals": {
+                        "PASS": "NON_OCCURRENCE_SUPPORTED",
+                        "FAIL": "UNKNOWN"
+                      },
+                      "baseline": {
+                        "argument": "frozen_predecessor_semantics",
+                        "source_pin": {
+                          "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+                          "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+                          "path": "docs/accord-02e4r5r3/v013-governance.json",
+                          "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+                        },
+                        "status_pointer_tokens": {
+                          "PASS": [
+                            "pass_result"
+                          ],
+                          "FAIL": [
+                            "fail_result"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "SCHEMA_VALIDATION"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "LINEAGE_VALIDATION"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "DUAL_INTEGRITY"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "UNIQUE_KEY"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "REFERENCE_RESOLUTION"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "DIGEST_RECOMPUTE"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "SET_EQUALITY"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "EXPECTATION_STABILITY"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "PREDICATE_POLICY_AGREEMENT"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "CANONICALIZATION_PROFILE_WELLFORMED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "SOURCE_CATALOG_BINDING_MATCH"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "PARTIAL_EFFECT_POLICY_CLOSURE"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "AUTHORITY_COMPLETENESS"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "PROPOSITION_INVENTORY_BOUND"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "PROFILE_REFERENCE_PINNING"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "ARITY_AGREEMENT"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "SCHEMA_NON_VACUITY"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "CURRENT_PACKAGE_IDENTITY"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "SELF_DIGEST"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "INTEGRITY_MODE_DISPATCH"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "V013_BASIS_VALID"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "FAIL_CLOSED_ENFORCED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "SUBJECT_ROLE_COVERAGE"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "DEFAULT_ARGUMENT_COVERAGE"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "DERIVATION_ROLE_CLOSURE"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "PROCEDURE_OPERATION_SUPPORTED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "MISSING_BEHAVIOR_SUPPORTED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "AMBIGUITY_BEHAVIOR_SUPPORTED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "REFERENCE_DISCOVERY_SCOPE_VALID"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "REFERENCE_SHAPE_PREDICATE_APPLIED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "UNIQUENESS_KEY_APPLIED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "ROLE_MODEL_APPLIED"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "SCHEMA_IDENTITY_MATCHES_REGISTRY"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "RULE_COVERAGE_EXACT"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "INVARIANT_SET_EXACT"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "GOVERNING_AUTHORITY_REFERENCE_VALID"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "GOVERNING_TOKEN_SINGLETON"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "procedure_id": {
+                "const": "TRUST_ANCHOR_COMPARE"
+              }
+            },
+            "required": [
+              "procedure_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "result": {
+                "not": {
+                  "required": [
+                    "result_projection"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

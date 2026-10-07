@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:schema:v013-governance:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "fixture_status",
+    "accepted_v013_locator",
+    "relationship_vocabulary",
+    "relationship_basis_schema",
+    "result_vocabulary",
+    "requirement_map",
+    "policy_field_roles",
+    "result_projection_baseline_pin",
+    "authority_bindings",
+    "outcome_map"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r5r4:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "fixture_status": {
+      "const": "NORMATIVE_CANDIDATE_0_2"
+    },
+    "accepted_v013_locator": {
+      "type": "object",
+      "required": [
+        "source_ref",
+        "accepted_member_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "accepted_member_id": {
+          "type": "string"
+        }
+      }
+    },
+    "relationship_vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "relationship_basis_schema": {
+      "type": "object"
+    },
+    "result_vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "requirement_map": {
+      "type": "object",
+      "required": [
+        "required_requirement_ids",
+        "requirements",
+        "evaluation_order",
+        "forbidden_requirements"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "required_requirement_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "requirement_id",
+              "failure_code",
+              "source_operands",
+              "governing_authority_id",
+              "execution_owner"
+            ],
+            "properties": {
+              "requirement_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "failure_code": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_operands": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "argument_name",
+                    "pointer_tokens"
+                  ],
+                  "properties": {
+                    "argument_name": {
+                      "type": "string"
+                    },
+                    "pointer_tokens": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "governing_authority_id": {
+                "type": "string"
+              },
+              "execution_owner": {
+                "enum": [
+                  "ORDERED_AST_ASSERTION",
+                  "UNIVERSAL_PREFLIGHT_SCHEMA"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "evaluation_order": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "forbidden_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "policy_field_roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "field_id",
+          "role",
+          "requirement_id"
+        ],
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "COMPUTED",
+              "LITERAL"
+            ]
+          },
+          "requirement_id": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "authority_bindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "authority_key",
+          "argument_name",
+          "pointer_tokens"
+        ],
+        "properties": {
+          "authority_key": {
+            "type": "string"
+          },
+          "argument_name": {
+            "type": "string"
+          },
+          "pointer_tokens": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "outcome_map": {
+      "type": "object",
+      "required": [
+        "PASS",
+        "FAIL"
+      ],
+      "properties": {
+        "PASS": {
+          "type": "string",
+          "minLength": 1
+        },
+        "FAIL": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "result_projection_baseline_pin": {
+      "const": {
+        "commit": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+        "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+        "path": "docs/accord-02e4r5r3/v013-governance.json",
+        "git_blob": "389dbaca8711410c3ad2900a0402e920c072c04e"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

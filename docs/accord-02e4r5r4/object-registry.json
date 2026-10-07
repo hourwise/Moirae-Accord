@@ -1,0 +1,1363 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_ref": {
+    "kind": "SCHEMA",
+    "id": "urn:moirae:accord-02e4r5r4:schema:object-registry",
+    "version": "0.2"
+  },
+  "$id": "urn:moirae:accord-02e4r5r4:object-registry:0.2",
+  "object_id": "urn:moirae:accord-02e4r5r4:object-registry",
+  "object_version": "0.2",
+  "uniqueness_key": [
+    "kind",
+    "id",
+    "version"
+  ],
+  "role_model": "roles-array",
+  "identity_fields": [
+    "kind",
+    "id",
+    "version"
+  ],
+  "status_vocabulary": [
+    "ACTIVE",
+    "ACTIVE_ACCEPTED_SOURCE",
+    "RETIRED"
+  ],
+  "classification_vocabulary": [
+    "NORMATIVE",
+    "PROVENANCE",
+    "INFORMATIONAL"
+  ],
+  "role_vocabulary": [
+    "NORMATIVE",
+    "IDENTITY_AUTHORITY",
+    "SCHEMA_AUTHORITY",
+    "NORMATIVE_BOUND_SOURCE",
+    "CATALOG_BINDING",
+    "VECTOR_SOURCE",
+    "CURRENT_CANDIDATE_PACKAGE"
+  ],
+  "objects": [
+    {
+      "kind": "AUTHORITY",
+      "id": "urn:moirae:accord-02e4r5r4:authority-requirements",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/authority-requirements.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:authority-requirements",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "23738f4cd6c18b981e0ee3265bf6d4d4dcec47c21a8d3907bbbcf7326fe53f49"
+      },
+      "reference": {
+        "kind": "AUTHORITY",
+        "id": "urn:moirae:accord-02e4r5r4:authority-requirements",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:governance-requirements",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/governance-requirements.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:governance-requirements",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "0cbf86805ce4ca5a0cf1469eed374793c3cf5b02c7d3157a9f058383d37d99ce"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:governance-requirements",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:integrity-modes",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/integrity-modes.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:integrity-modes",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "8d1e58abe6a6b8696e8dca9d3f9cd4efb841dc1daeb4acb0a92e0fe4d428490e"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:integrity-modes",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:semantic-key-authority",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/semantic-key-authority.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:semantic-key-authority",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "7608d0430685f86af4afae83e3f9080cf24843c295de8675d49ea3dcf79a58d4"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:semantic-key-authority",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "NORMATIVE_INPUTS",
+      "id": "urn:moirae:accord-02e4r5r4:normative-inputs",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/normative-inputs.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:normative-inputs",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "bcb27165df1c0e22d09023652f012ada85b1aaa67877e2b09986117aa86281a5"
+      },
+      "reference": {
+        "kind": "NORMATIVE_INPUTS",
+        "id": "urn:moirae:accord-02e4r5r4:normative-inputs",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "POLICY",
+      "id": "urn:moirae:accord-02e4r5r4:partial-effect-policy",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/partial-effect-policy.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:partial-effect-policy",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "3a91650c2705457067e17a3ae3ac49f5e7338bc61bf26f93926ae6ad1dfd6e93"
+      },
+      "reference": {
+        "kind": "POLICY",
+        "id": "urn:moirae:accord-02e4r5r4:partial-effect-policy",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:v013-target",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/v013-target.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:v013-target",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "7ab38f299325936c89285494149e24f16080fa7d0ef06652623247a53a599235"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:v013-target",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "EVIDENCE",
+      "id": "urn:moirae:accord-02e4r5r4:v013-evidence",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/v013-evidence.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:v013-evidence",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "ec8e241762c7ac509dea11a94d6ad72bafe093160789189cf85b5411cf3e78b8"
+      },
+      "reference": {
+        "kind": "EVIDENCE",
+        "id": "urn:moirae:accord-02e4r5r4:v013-evidence",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:v013-governance",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/v013-governance.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:v013-governance",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "baba2218c74f2c559598ff053c76b73e61c3c5886facfa0364146272141b90bc"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:v013-governance",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:proposition-inventory",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/proposition-inventory.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:proposition-inventory",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "2adf10d21a26852b416dda8a2389868e96eceae96ae52fd3b0f4662fed6eaabc"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:proposition-inventory",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:source-catalog-binding",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/source-catalog-binding.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:source-catalog-binding",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "3963db457fe9c5d7c761ca31a03c50d642af1e5480fe0f6457ea4b8b48efff26"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:source-catalog-binding",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "REGISTRY",
+      "id": "urn:moirae:accord-02e4r5r4:rule-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/rule-registry.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:rule-registry",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "08f4032b378c838c647cdc11c05482b29b12048cbd316ada53e82683d85a4676"
+      },
+      "reference": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02e4r5r4:rule-registry",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "REGISTRY",
+      "id": "urn:moirae:accord-02e4r5r4:invariant-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/invariant-registry.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:invariant-registry",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "01c8aaa5fcb686c74f69055ca823b0529fce2431761a43de70921a10bd42fd79"
+      },
+      "reference": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02e4r5r4:invariant-registry",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "REGISTRY",
+      "id": "urn:moirae:accord-02e4r5r4:procedure-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/procedure-registry.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:procedure-registry",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "e5dcc51bc51b4c15a96f4988e9245e8c4bffab31d99c3b50c903667e8550e6d1"
+      },
+      "reference": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02e4r5r4:procedure-registry",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:reference-model",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/reference-model.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:reference-model",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "0aaf0e2c4a61e9f95f50c32882e529cf799bf94ba979ba75f8b40ffce138fa67"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:reference-model",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:accepted-source-bindings",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/accepted-source-bindings.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:accepted-source-bindings",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "4616069a1a136642fb8a23a9f9a26aa9c550a84a0738f70c3fb1915cbf82805f"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:accepted-source-bindings",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CANONICALIZATION",
+      "id": "urn:moirae:accord-02e4r5r4:canonicalization-profile",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/canonicalization-profile.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:canonicalization-profile",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "e9cf3b3838209d022e095df4bfe43842a7a873b919be24bfbdea4b33947ecd8d"
+      },
+      "reference": {
+        "kind": "CANONICALIZATION",
+        "id": "urn:moirae:accord-02e4r5r4:canonicalization-profile",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:external-verification-input-contract",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/external-verification-input.contract.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:external-verification-input-contract",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "b7b3ff8fb990475bc459e96f3ccdba2a3d6703485cc0576facdcd6224d7ee6c5"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:external-verification-input-contract",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:authority-requirements",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/authority-requirements.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "a1e9fa65a7be651f031f213379b216565d781a09a72604bdd7fd77b2d6b5d40c"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:authority-requirements",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:authority-requirements:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:governance-requirements",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/governance-requirements.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "f0424b91a431ffaa1afdb23ab852eaed5df691c0159d89ebde615e5948f0e6d4"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:governance-requirements",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:governance-requirements:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:integrity-modes",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/integrity-modes.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "bb61ace98d18e0407e969d0cf30e944b72ab3790ebcef80d034713c90fdfd469"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:integrity-modes",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:integrity-modes:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:semantic-key-authority",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/semantic-key-authority.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "b55ea6bf561c0158286d8be96d50df0583210c294557ec2dc6ab625097da0a42"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:semantic-key-authority",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:semantic-key-authority:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:normative-inputs",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/normative-inputs.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "2fd8213cab25d5258873fd17a344c39e2f7f1d41ed2b07fff02bedb12a15cc19"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:normative-inputs",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:normative-inputs:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "negative_policy_profile",
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:partial-effect-policy",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/partial-effect-policy.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "2d3aa07e704af63efce17c70aba78c8f9351835a19a8c67a6c1203f06de9ac1e"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:partial-effect-policy",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:partial-effect-policy:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:v013-target",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/v013-target.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "a9fde7108e0bdeff00699dc54f55e25f616ac7b8fcc55ab1d14399a8e591ca46"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:v013-target",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:v013-target:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:v013-evidence",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/v013-evidence.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "42b4eada99dc3f1c435147b13e742171a58de932f5a6698514c9891c1a8cc357"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:v013-evidence",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:v013-evidence:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:v013-governance",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/v013-governance.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "a4681308c341e24df3bf8388bd689d8e6ef08ececd7358296de309cbd24b7f1f"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:v013-governance",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:v013-governance:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:proposition-inventory",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/proposition-inventory.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "57b1bef266fa0d5f7cff0353b34e0172c45822c7cbe11c2c0efec2a1e11ece55"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:proposition-inventory",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:proposition-inventory:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:source-catalog-binding",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/source-catalog-binding.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "fcf09aceea41f853a76f37445e3b4c2d1eeac784de4c88adf71e5f4682e50034"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:source-catalog-binding",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:source-catalog-binding:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:rule-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/rule-registry.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "bafa077c09bd82ca877eee236c86778db8bd8b912731b493a0c5cb5478f1454c"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:rule-registry",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:rule-registry:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:invariant-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/invariant-registry.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "b55064f0170a70c8b7e1f1af3d1549046c20c3845ddfe7f67904e410be710e7a"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:invariant-registry",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:invariant-registry:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:procedure-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/procedure-registry.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "cb6d10a6eb77122c45e873990233e9939b9c5cfeeb68a1addd97a82c69585972"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:procedure-registry",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:procedure-registry",
+      "schema_document_version": "0.2",
+      "members": [
+        "typed_ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:reference-model",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/reference-model.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "db6bb17d66c8bdcb3439f53ebf6b97573fb125d7d6a6df2f894791c29e9c73f5"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:reference-model",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:reference-model:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:accepted-source-bindings",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/accepted-source-bindings.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "408b266e99e8ccc46a66e209fb4f19402faefbf158ddcd5042c07289d3502cb1"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:accepted-source-bindings",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:accepted-source-bindings:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:canonicalization-profile",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/canonicalization-profile.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "cce6e32b46b490360f2fb260b752fa8afde368de40cba196b9b06cd25e3d5476"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:canonicalization-profile",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:canonicalization-profile:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:external-verification-input-contract",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/external-verification-input-contract.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "aebdf6bd602fbd1bf7843179585cae1e43d2ef31159db57739c8d5fb819e37b6"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:external-verification-input-contract",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:external-verification-input-contract:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:object-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/object-registry.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "ef6302fb5e3b7f4428b5fb47cb55dccc4bd9890b0136d5522003c9c9832e3bb7"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:object-registry",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:object-registry:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:specification-package",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/specification-package.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "acc11bd87782d1c05b317d3799803d768a9c4f3dfbd93c66f5a71105d3fc6175"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:specification-package",
+        "version": "0.2"
+      },
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:specification-package:0.2",
+      "schema_document_version": "0.2",
+      "members": [
+        "ref"
+      ]
+    },
+    {
+      "kind": "PACKAGE",
+      "id": "urn:moirae:accord-02r5:specification-package",
+      "version": "0.1",
+      "path": "docs/accord-02/accord-02r5-specification-package.json",
+      "status": "ACTIVE_ACCEPTED_SOURCE",
+      "roles": [
+        "NORMATIVE_BOUND_SOURCE"
+      ],
+      "classification": "PROVENANCE",
+      "integrity": {
+        "mode": "DUAL_ACCEPTED_SOURCE",
+        "binding_ref": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02e4r5r4:accepted-source-bindings",
+          "version": "0.2"
+        }
+      },
+      "members": [],
+      "reference": {
+        "kind": "PACKAGE",
+        "id": "urn:moirae:accord-02r5:specification-package",
+        "version": "0.1"
+      }
+    },
+    {
+      "kind": "SOURCE_VECTOR_CATALOG",
+      "id": "urn:moirae:accord-02r5:source-vector-catalog",
+      "version": "0.1",
+      "path": "docs/accord-02/examples/accord-02c-settlement-test-vectors.json",
+      "status": "ACTIVE_ACCEPTED_SOURCE",
+      "roles": [
+        "CATALOG_BINDING",
+        "VECTOR_SOURCE"
+      ],
+      "classification": "PROVENANCE",
+      "integrity": {
+        "mode": "DUAL_ACCEPTED_SOURCE",
+        "binding_ref": {
+          "kind": "CONTRACT",
+          "id": "urn:moirae:accord-02e4r5r4:accepted-source-bindings",
+          "version": "0.2"
+        }
+      },
+      "members": [
+        "ACCORD-02C-V001-DISPATCH-ONLY",
+        "ACCORD-02C-V002-TRANSPORT-ACK-ONLY",
+        "ACCORD-02C-V003-STRONG-BOUND-RECEIPT",
+        "ACCORD-02C-V004-INDEPENDENT-CORROBORATION",
+        "ACCORD-02C-V005-CONFLICTING-ADMISSIBLE-EVIDENCE",
+        "ACCORD-02C-V006-STALE-OBSERVATION",
+        "ACCORD-02C-V007-WRONG-EFFECT-IDENTITY",
+        "ACCORD-02C-V008-WRONG-ATTEMPT-BINDING",
+        "ACCORD-02C-V009-REPLAYED-EVIDENCE",
+        "ACCORD-02C-V010-RETRY-FAILURE-THEN-SUCCESS",
+        "ACCORD-02C-V011-RETRY-POSSIBLE-DUPLICATE",
+        "ACCORD-02C-V012-TIMEOUT-NO-EVIDENCE",
+        "ACCORD-02C-V013-COMPLETE-NEGATIVE-EVIDENCE",
+        "ACCORD-02C-V014-PARTIAL-STAGED-EFFECT",
+        "ACCORD-02C-V015-INVALID-AUTHORITY-EFFECT-OCCURRED",
+        "ACCORD-02C-V016-REVOCATION-AFTER-DISPATCH-EFFECT",
+        "ACCORD-02C-V017-OBSERVED-STATE-NO-CAUSAL-ATTRIBUTION",
+        "ACCORD-02C-V018-INCOMPATIBLE-PROFILES",
+        "ACCORD-02C-V019-CLOCK-AMBIGUITY",
+        "ACCORD-02C-V020-UNKNOWN-SETTLEMENT-EXTENSION",
+        "ACCORD-02C-V021-RECIPIENT-MISMATCH",
+        "ACCORD-02C-V022-PARTIAL-CORRUPTION",
+        "ACCORD-02C-V023-REOPENED-BY-LATER-EVIDENCE"
+      ],
+      "reference": {
+        "kind": "SOURCE_VECTOR_CATALOG",
+        "id": "urn:moirae:accord-02r5:source-vector-catalog",
+        "version": "0.1"
+      }
+    },
+    {
+      "kind": "REGISTRY",
+      "id": "urn:moirae:accord-02e4r5r4:object-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/object-registry.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE",
+        "IDENTITY_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:object-registry",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "PACKAGE_PINNED_BOOTSTRAP",
+        "justification": "The bootstrap registry digest is independently pinned by package.registry_semantic_sha256."
+      },
+      "reference": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02e4r5r4:object-registry",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "PACKAGE",
+      "id": "urn:moirae:accord-02r5:specification-package",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/specification-package-0.2.json",
+      "status": "ACTIVE",
+      "roles": [
+        "CURRENT_CANDIDATE_PACKAGE",
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:specification-package",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SELF_DIGEST",
+        "content_target_ref": "PACKAGE_EXCLUDING_SELF_DIGEST"
+      },
+      "reference": {
+        "kind": "PACKAGE",
+        "id": "urn:moirae:accord-02r5:specification-package",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:metacontract",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/metacontract.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "0671ad187dba4520d9005e5e2ff5ed953ad44de3c379856b864a12a9706ab7f1"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:metacontract",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "REGISTRY",
+      "id": "urn:moirae:accord-02e4r5r4:primitive-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/primitive-registry.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:primitive-registry",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "98f8f6d6a9312930a671326f135e9d5ce649167e1ba45d6d86a1785db4cb6282"
+      },
+      "reference": {
+        "kind": "REGISTRY",
+        "id": "urn:moirae:accord-02e4r5r4:primitive-registry",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/metacontract.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+      "schema_document_version": "0.2",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "9fb21db5216cfe3c50409afc43085ddf2a801c6c07fe77e7becf38fdb6810698"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:metacontract",
+        "version": "0.2"
+      },
+      "members": [
+        "accepted_base_source",
+        "accepted_vector_source",
+        "procedure_result",
+        "trust_result",
+        "pre_execution_result",
+        "frozen_rule_authority_producer",
+        "reference_resolution_failure",
+        "typed_ref"
+      ]
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:primitive-registry",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/primitive-registry.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:primitive-registry",
+      "schema_document_version": "0.2",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "12ad59d1fd2c3dd8e0c8d36093ddf7fc4f40d7a77fefbca5db5db0631048aeef"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:primitive-registry",
+        "version": "0.2"
+      },
+      "members": [
+        "typed_ref"
+      ]
+    },
+    {
+      "kind": "CONTRACT",
+      "id": "urn:moirae:accord-02e4r5r4:leap-second-table",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/leap-second-table.json",
+      "status": "ACTIVE",
+      "roles": [
+        "NORMATIVE"
+      ],
+      "classification": "NORMATIVE",
+      "schema_ref": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:leap-second-table",
+        "version": "0.2"
+      },
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "5a7679ce687349348a89a223988e3c2a8f0c9b3046433ccee3c9830242b999c1"
+      },
+      "reference": {
+        "kind": "CONTRACT",
+        "id": "urn:moirae:accord-02e4r5r4:leap-second-table",
+        "version": "0.2"
+      }
+    },
+    {
+      "kind": "SCHEMA",
+      "id": "urn:moirae:accord-02e4r5r4:schema:leap-second-table",
+      "version": "0.2",
+      "path": "docs/accord-02e4r5r4/schema/leap-second-table.schema.json",
+      "status": "ACTIVE",
+      "roles": [
+        "SCHEMA_AUTHORITY"
+      ],
+      "classification": "NORMATIVE",
+      "schema_document_id": "urn:moirae:accord-02e4r5r4:schema:leap-second-table:0.2",
+      "schema_document_version": "0.2",
+      "integrity": {
+        "mode": "SEMANTIC_JSON_CONTENT",
+        "algorithm": "SHA-256",
+        "serialization": "RFC8785_JCS",
+        "digest": "da041de274d88dcc0f1923bdaed473f031823c017a038d87634beb5414c228b1"
+      },
+      "reference": {
+        "kind": "SCHEMA",
+        "id": "urn:moirae:accord-02e4r5r4:schema:leap-second-table",
+        "version": "0.2"
+      }
+    }
+  ]
+}

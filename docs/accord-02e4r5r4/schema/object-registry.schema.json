@@ -1,0 +1,392 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:moirae:accord-02e4r5r4:schema:object-registry:0.2",
+  "type": "object",
+  "required": [
+    "$schema",
+    "$id",
+    "schema_ref",
+    "object_id",
+    "object_version",
+    "uniqueness_key",
+    "role_model",
+    "identity_fields",
+    "status_vocabulary",
+    "classification_vocabulary",
+    "role_vocabulary",
+    "objects"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "schema_ref": {
+      "$ref": "#/$defs/ref"
+    },
+    "$id": {
+      "type": "string",
+      "pattern": "^urn:moirae:accord-02e4r5r4:[a-z0-9-]+:0.2$"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_version": {
+      "const": "0.2"
+    },
+    "uniqueness_key": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "role_model": {
+      "type": "string"
+    },
+    "identity_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "status_vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "classification_vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "role_vocabulary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "id",
+          "version",
+          "path",
+          "status",
+          "roles",
+          "classification",
+          "integrity",
+          "reference"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "classification": {
+            "type": "string"
+          },
+          "schema_ref": {
+            "$ref": "#/$defs/ref"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "integrity": {
+            "type": "object",
+            "required": [
+              "mode"
+            ],
+            "properties": {
+              "mode": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          },
+          "reference": {
+            "$ref": "#/$defs/ref"
+          },
+          "schema_document_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schema_document_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "SCHEMA"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "schema_document_id",
+                "schema_document_version"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "ACTIVE"
+                },
+                "classification": {
+                  "const": "NORMATIVE"
+                },
+                "kind": {
+                  "not": {
+                    "const": "SCHEMA"
+                  }
+                }
+              },
+              "required": [
+                "status",
+                "classification",
+                "kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "schema_ref"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "integrity": {
+                  "properties": {
+                    "mode": {
+                      "const": "PACKAGE_PINNED_BOOTSTRAP"
+                    }
+                  },
+                  "required": [
+                    "mode"
+                  ]
+                }
+              },
+              "required": [
+                "integrity"
+              ]
+            },
+            "then": {
+              "properties": {
+                "kind": {
+                  "const": "REGISTRY"
+                },
+                "id": {
+                  "const": "urn:moirae:accord-02e4r5r4:object-registry"
+                },
+                "version": {
+                  "const": "0.2"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "REGISTRY"
+                },
+                "id": {
+                  "const": "urn:moirae:accord-02e4r5r4:object-registry"
+                },
+                "version": {
+                  "const": "0.2"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "version"
+              ]
+            },
+            "then": {
+              "properties": {
+                "integrity": {
+                  "properties": {
+                    "mode": {
+                      "const": "PACKAGE_PINNED_BOOTSTRAP"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "integrity": {
+                  "properties": {
+                    "mode": {
+                      "const": "SELF_DIGEST"
+                    }
+                  },
+                  "required": [
+                    "mode"
+                  ]
+                }
+              },
+              "required": [
+                "integrity"
+              ]
+            },
+            "then": {
+              "properties": {
+                "kind": {
+                  "const": "PACKAGE"
+                },
+                "id": {
+                  "const": "urn:moirae:accord-02r5:specification-package"
+                },
+                "version": {
+                  "const": "0.2"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "PACKAGE"
+                },
+                "id": {
+                  "const": "urn:moirae:accord-02r5:specification-package"
+                },
+                "version": {
+                  "const": "0.2"
+                }
+              },
+              "required": [
+                "kind",
+                "id",
+                "version"
+              ]
+            },
+            "then": {
+              "properties": {
+                "integrity": {
+                  "properties": {
+                    "mode": {
+                      "const": "SELF_DIGEST"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "SCHEMA"
+                }
+              },
+              "required": [
+                "kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "members": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "version"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "SCHEMA",
+            "REGISTRY",
+            "CONTRACT",
+            "AUTHORITY",
+            "NORMATIVE_INPUTS",
+            "CANONICALIZATION",
+            "POLICY",
+            "EVIDENCE",
+            "PACKAGE",
+            "SOURCE_VECTOR_CATALOG"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

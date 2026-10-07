@@ -1,0 +1,44 @@
+{
+  "acceptance_version": "1.0",
+  "accepted_slice": "ACCORD-02E4R5R4-R2e",
+  "acceptance_status": "ACCEPTED_LOCAL_CANONICAL_CANDIDATE",
+  "scope": "The exact adjudicated R5R29A R2e candidate law and selected evaluator, within the verified R2e behaviours only.",
+  "acceptance_authority": {
+    "adjudication_verdict": "R5R29A_R2E_ACCEPTANCE_ADJUDICATION_READY",
+    "adjudication_evidence_manifest_sha256": "7bc846732fbeaaa20a6b1f6b6c560c30c194fcea4267876f62243670fff5dc73",
+    "adjudication_report_sha256": "6f3518067ac6ccafdda64b7ad1772541d571e3029812e89705bb06dda97b2833",
+    "c2_evidence_manifest_sha256": "2587805b38bc6b39b1b69275f1ec9b5e3b22e15aeda74204da3cd7e80213fad9"
+  },
+  "accepted_object": {
+    "package": "4b343600039c73f3ee4bc64edbb4abdd2912b18941966d51fcd25360901697f1",
+    "registry": "c183e0433b508c331d70680e5568be8985667d0be9c362ca016158e53f9a6793",
+    "model": "b88f7559e157d318f194d9df3b33c4b4418406e54d358d81aed89fdab2702d9b",
+    "leap_table": "5a7679ce687349348a89a223988e3c2a8f0c9b3046433ccee3c9830242b999c1",
+    "staged_manifest": "0d2f567c65d5a9a91d86c12faabb21655cc6b2724d5539d799ef7325bf734ce8",
+    "installed_manifest": "7485da2f29c13fb7d7cd9e365de85c573fcc96fe28e2e272b03e70c9d0105fd2",
+    "primary": "8facf456d00d72a4eb3217a3ef624cc99d7f351cc7626b66366371dafd0dca04",
+    "independent": "69230e1c5afbafd5ea653ac7b3d68934ed13991d7c061e9a46d2673478782ad1"
+  },
+  "canonical_pre_install": {
+    "branch": "codex/accord-02e4r5r4-executable-metacontract",
+    "head": "ebddc96d6db3793ba3119e7bcdcefe221f4ba18f",
+    "tree": "a5dc5a649190108b6f318b08c2fd57efa450b410",
+    "protected_main": "5a8bf1e577f71132665ece271e70e30e87df5676",
+    "origin_main": "7d0bc13ceb5a58e80644b976e72df25ee2114441",
+    "untracked_count": 54,
+    "untracked_manifest_sha256": "cfddcd5662de1953f4ec724901011e75ba0ef4c2752bf72e717ec2196438cdf1"
+  },
+  "installation_map_sha256": "8f829d40630d1d25ed1b998c152bc3494b652885142e2e086291589a6074c3d4",
+  "verification_results_sha256": "0b0cc93e085eec43f54d8dd4057e8fa3d6dc42a97b3b5dd49654ed95c450f188",
+  "deep_regression_results_sha256": "1c71495a0fa005ca94320bcc20657126c198b45eb266a603dea58407c934958b",
+  "reconciliation": {
+    "total_cases": 115,
+    "schema_cases": 112,
+    "integrity_cases": 3,
+    "classification": "AGREE_AND_CONFORM",
+    "installed_primary_raw_integrity_outputs_equal_frozen_c2": true
+  },
+  "historical_limitation": "R2e-I received a 52-file neutral package. C2 later independently verified the complete 56-file staged tree.",
+  "known_non_governed_difference": "Failure CLI exit codes: PRIMARY 2, INDEPENDENT 1.",
+  "publication": "LOCAL_ONLY; no push authorized by this mission"
+}
